@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: backend
+  profiles:
+    default: dev
+  config:
+    import: optional:file:../.env[.properties]
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+  cache:
+    type: redis
+    redis:
+      time-to-live: 10m
+      cache-null-values: false
+
+server:
+  error:
+    include-message: never
+    include-stacktrace: never
+
+logging:
+  level:
+    root: INFO
+    com.yangdoujiao.website: INFO
