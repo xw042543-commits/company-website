@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend - Java 21 tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SPRING_PROFILES_ACTIVE: dev
+      POSTGRES_DB: company_website
+      POSTGRES_USER: company_app
+      POSTGRES_PASSWORD: ci_postgres_password
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: "5432"
+      REDIS_HOST: localhost
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: ci_redis_password
+      ELASTICSEARCH_PORT: "9200"
+      ELASTICSEARCH_URL: http://localhost:9200
+      CORS_ALLOWED_ORIGINS: http://localhost:3000
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+          cache-dependency-path: backend/pom.xml
+
+      - name: Validate Docker Compose configuration
+        run: docker compose config --quiet
+
+      - name: Start PostgreSQL, Redis, and Elasticsearch
+        run: docker compose up -d --wait --wait-timeout 180
+
+      - name: Run backend tests
+        working-directory: backend
+        run: ./mvnw --batch-mode test
+
+      - name: Show service status after a failure
+        if: failure()
+        run: |
+          docker compose ps
+          docker compose logs --no-color --tail=200
+
+      - name: Stop test services
+        if: always()
+        run: docker compose down --volumes
+
+  frontend:
+    name: Frontend - lint and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8080
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Reject tracked secret files
+        shell: bash
+        run: |
+          tracked_files="$(git ls-files | grep -E '(^|/)\.env($|\.local$)' || true)"
+          if [[ -n "$tracked_files" ]]; then
+            echo "Environment secret files must not be committed:"
+            echo "$tracked_files"
+            exit 1
+          fi
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Run frontend lint
+        working-directory: frontend
+        run: npm run lint
+
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
