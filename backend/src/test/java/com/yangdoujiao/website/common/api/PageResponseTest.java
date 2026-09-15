@@ -41,4 +41,14 @@ class PageResponseTest {
         assertThatThrownBy(() -> PageResponse.of(List.of(), 1, 12, -1))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void canonicalConstructorCannotBypassPageInvariants() {
+        assertThatThrownBy(() -> new PageResponse<>(List.of(), 0, 12, 0, 0))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new PageResponse<>(List.of(), 1, 12, -1, 0))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new PageResponse<>(List.of(), 1, 12, 25, 2))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }

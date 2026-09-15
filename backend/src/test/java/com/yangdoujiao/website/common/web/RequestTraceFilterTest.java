@@ -65,4 +65,24 @@ class RequestTraceFilterTest {
         assertThat(request.getAttribute(RequestTraceFilter.TRACE_ID_ATTRIBUTE))
                 .isEqualTo(responseTraceId);
     }
+
+    @Test
+    void restoresPreviousMdcTraceIdAfterRequest() throws Exception {
+        RequestTraceFilter filter = new RequestTraceFilter();
+        MockHttpServletRequest request = new MockHttpServletRequest(
+                "GET",
+                "/api/v1/universities"
+        );
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        MDC.put(RequestTraceFilter.TRACE_ID_MDC_KEY, "upstream-trace");
+
+        try {
+            filter.doFilter(request, response, new MockFilterChain());
+
+            assertThat(MDC.get(RequestTraceFilter.TRACE_ID_MDC_KEY))
+                    .isEqualTo("upstream-trace");
+        } finally {
+            MDC.remove(RequestTraceFilter.TRACE_ID_MDC_KEY);
+        }
+    }
 }

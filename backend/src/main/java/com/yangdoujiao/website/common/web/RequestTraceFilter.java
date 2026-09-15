@@ -33,12 +33,17 @@ public class RequestTraceFilter extends OncePerRequestFilter {
 
         request.setAttribute(TRACE_ID_ATTRIBUTE, traceId);
         response.setHeader(TRACE_ID_HEADER, traceId);
+        String previousTraceId = MDC.get(TRACE_ID_MDC_KEY);
         MDC.put(TRACE_ID_MDC_KEY, traceId);
 
         try {
             filterChain.doFilter(request, response);
         } finally {
-            MDC.remove(TRACE_ID_MDC_KEY);
+            if (previousTraceId == null) {
+                MDC.remove(TRACE_ID_MDC_KEY);
+            } else {
+                MDC.put(TRACE_ID_MDC_KEY, previousTraceId);
+            }
         }
     }
 

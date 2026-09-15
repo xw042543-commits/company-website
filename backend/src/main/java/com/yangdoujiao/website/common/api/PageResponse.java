@@ -11,6 +11,12 @@ public record PageResponse<T>(
 ) {
     public PageResponse {
         items = List.copyOf(items);
+        validateArguments(page, pageSize, totalItems);
+
+        int expectedTotalPages = calculateTotalPages(totalItems, pageSize);
+        if (totalPages != expectedTotalPages) {
+            throw new IllegalArgumentException("totalPages does not match totalItems and pageSize");
+        }
     }
 
     public static <T> PageResponse<T> of(
@@ -19,6 +25,13 @@ public record PageResponse<T>(
             int pageSize,
             long totalItems
     ) {
+        validateArguments(page, pageSize, totalItems);
+
+        int totalPages = calculateTotalPages(totalItems, pageSize);
+        return new PageResponse<>(items, page, pageSize, totalItems, totalPages);
+    }
+
+    private static void validateArguments(int page, int pageSize, long totalItems) {
         if (page < 1) {
             throw new IllegalArgumentException("page must be at least 1");
         }
@@ -28,11 +41,11 @@ public record PageResponse<T>(
         if (totalItems < 0) {
             throw new IllegalArgumentException("totalItems must not be negative");
         }
+    }
 
-        int totalPages = totalItems == 0
+    private static int calculateTotalPages(long totalItems, int pageSize) {
+        return totalItems == 0
                 ? 0
                 : Math.toIntExact(((totalItems - 1) / pageSize) + 1);
-
-        return new PageResponse<>(items, page, pageSize, totalItems, totalPages);
     }
 }
