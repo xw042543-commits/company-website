@@ -13,7 +13,7 @@
 
 ### Backend
 
-- Java 21 LTS
+- Java 25 LTS
 - Spring Boot
 - Maven
 
