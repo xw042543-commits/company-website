@@ -42,8 +42,7 @@ public class UniversitySearchService {
     }
 
     public List<UniversitySearchDocument> search(String query) {
-        return universitySearchRepository
-                .findByNameContainingOrCountryContaining(query.trim(), query.trim());
+        return universitySearchRepository.search(query.trim());
     }
 
     private UniversitySearchDocument toSearchDocument(University university) {
