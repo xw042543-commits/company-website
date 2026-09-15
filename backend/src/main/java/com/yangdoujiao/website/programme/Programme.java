@@ -3,6 +3,10 @@ package com.yangdoujiao.website.programme;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -11,6 +15,7 @@ import org.hibernate.type.SqlTypes;
 
 import com.yangdoujiao.website.catalog.CategoryStatus;
 import com.yangdoujiao.website.catalog.CourseMode;
+import com.yangdoujiao.website.catalog.Language;
 import com.yangdoujiao.website.catalog.StudyLevel;
 import com.yangdoujiao.website.catalog.SubjectCategory;
 import com.yangdoujiao.website.university.University;
@@ -24,6 +29,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
@@ -58,6 +65,14 @@ public class Programme {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_mode_id")
     private CourseMode courseMode;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "programme_languages",
+            joinColumns = @JoinColumn(name = "programme_id"),
+            inverseJoinColumns = @JoinColumn(name = "language_id")
+    )
+    private Set<Language> languages = new LinkedHashSet<>();
 
     @Column(nullable = false, length = 200)
     private String slug;
@@ -140,5 +155,13 @@ public class Programme {
         this.nameZh = nameZh;
         this.nameEn = nameEn;
         this.status = status;
+    }
+
+    public void addLanguage(Language language) {
+        languages.add(Objects.requireNonNull(language));
+    }
+
+    public Set<Language> getLanguages() {
+        return Collections.unmodifiableSet(languages);
     }
 }
