@@ -8,7 +8,7 @@ import org.testcontainers.elasticsearch.ElasticsearchContainer;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 
 @TestConfiguration(proxyBeanMethods = false)
-class TestContainersConfiguration {
+public class TestContainersConfiguration {
 
     @Bean
     @ServiceConnection
