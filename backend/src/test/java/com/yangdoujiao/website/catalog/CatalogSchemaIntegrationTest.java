@@ -68,6 +68,20 @@ class CatalogSchemaIntegrationTest {
     }
 
     @Test
+    void rejectsDuplicateCountryCode() {
+        jdbcTemplate.update("""
+                INSERT INTO countries (code, name_en, continent_code)
+                VALUES ('MY', 'Malaysia', 'ASIA')
+                """);
+
+        assertThatThrownBy(() -> jdbcTemplate.update("""
+                INSERT INTO countries (code, name_en, continent_code)
+                VALUES ('MY', 'Another Malaysia', 'ASIA')
+                """))
+                .isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
     void rejectsCountryWithoutAnyName() {
         assertThatThrownBy(() -> jdbcTemplate.update("""
                 INSERT INTO countries (code, continent_code)
@@ -81,6 +95,15 @@ class CatalogSchemaIntegrationTest {
         assertThatThrownBy(() -> jdbcTemplate.update("""
                 INSERT INTO subject_categories (code, name_en, status)
                 VALUES ('BUSINESS', 'Business', 'UNKNOWN')
+                """))
+                .isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void rejectsCategoryWithoutAnyName() {
+        assertThatThrownBy(() -> jdbcTemplate.update("""
+                INSERT INTO subject_categories (code, status)
+                VALUES ('BUSINESS', 'DRAFT')
                 """))
                 .isInstanceOf(DataIntegrityViolationException.class);
     }
