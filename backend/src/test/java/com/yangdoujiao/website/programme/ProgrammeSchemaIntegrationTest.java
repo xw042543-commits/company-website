@@ -328,6 +328,229 @@ class ProgrammeSchemaIntegrationTest {
                 .isInstanceOf(DataIntegrityViolationException.class);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"study_levels", "course_modes", "languages"})
+    void rejectsInvalidDictionaryCode(String tableName) {
+        assertThatThrownBy(() -> insertDictionary(
+                tableName,
+                "invalid-code",
+                "无效代码",
+                "Invalid code",
+                0,
+                "DRAFT"
+        )).isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"study_levels", "course_modes", "languages"})
+    void rejectsOverlongDictionaryCode(String tableName) {
+        assertThatThrownBy(() -> insertDictionary(
+                tableName,
+                "A".repeat(65),
+                "超长代码",
+                "Overlong code",
+                0,
+                "DRAFT"
+        )).isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void rejectsInvalidProgrammeCode() {
+        ProgrammeDependencies dependencies = insertProgrammeDependencies();
+
+        assertThatThrownBy(() -> insertProgramme(
+                "invalid-code",
+                "invalid-code",
+                dependencies,
+                null,
+                "Invalid code"
+        )).isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void rejectsOverlongProgrammeCode() {
+        ProgrammeDependencies dependencies = insertProgrammeDependencies();
+
+        assertThatThrownBy(() -> insertProgramme(
+                "A".repeat(65),
+                "overlong-code",
+                dependencies,
+                null,
+                "Overlong code"
+        )).isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void rejectsInvalidTuitionCurrency() {
+        ProgrammeDependencies dependencies = insertProgrammeDependencies();
+
+        assertThatThrownBy(() -> jdbcTemplate.update("""
+                INSERT INTO programmes (
+                    programme_code, university_id, subject_category_id,
+                    slug, name_en, tuition_min, tuition_currency
+                )
+                VALUES ('UM_INVALID_CURRENCY', ?, ?, 'invalid-currency',
+                        'Invalid Currency', 40000, 'myr')
+                """, dependencies.universityId(), dependencies.subjectCategoryId()))
+                .isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "university_id",
+            "subject_category_id",
+            "study_level_id",
+            "course_mode_id"
+    })
+    void rejectsMissingProgrammeForeignKey(String columnName) {
+        ProgrammeDependencies dependencies = insertProgrammeDependencies();
+        Long programmeId = insertProgramme(
+                "UM_BSC_CS",
+                "bsc-computer-science",
+                dependencies,
+                null,
+                "Bachelor of Computer Science"
+        );
+
+        assertThatThrownBy(() -> jdbcTemplate.update("""
+                UPDATE programmes
+                SET %s = 9999999999
+                WHERE id = ?
+                """.formatted(columnName), programmeId))
+                .isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void rejectsMissingProgrammeLanguageProgrammeForeignKey() {
+        ProgrammeDependencies dependencies = insertProgrammeDependencies();
+        Long languageId = insertLanguage("EN", "英语", "English");
+
+        assertThatThrownBy(() -> jdbcTemplate.update("""
+                INSERT INTO programme_languages (programme_id, language_id)
+                VALUES (9999999999, ?)
+                """, languageId))
+                .isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void rejectsMissingProgrammeLanguageLanguageForeignKey() {
+        ProgrammeDependencies dependencies = insertProgrammeDependencies();
+        Long programmeId = insertProgramme(
+                "UM_BSC_CS",
+                "bsc-computer-science",
+                dependencies,
+                null,
+                "Bachelor of Computer Science"
+        );
+
+        assertThatThrownBy(() -> jdbcTemplate.update("""
+                INSERT INTO programme_languages (programme_id, language_id)
+                VALUES (?, 9999999999)
+                """, programmeId))
+                .isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void rejectsMissingProgrammeIntakeForeignKey() {
+        assertThatThrownBy(() -> jdbcTemplate.update("""
+                INSERT INTO programme_intakes (programme_id, intake_date, display_text)
+                VALUES (9999999999, DATE '2027-02-01', 'February 2027')
+                """))
+                .isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "universities",
+            "subject_categories",
+            "study_levels",
+            "course_modes"
+    })
+    void rejectsDeletingReferencedProgrammeDependency(String tableName) {
+        ProgrammeDependencies dependencies = insertProgrammeDependencies();
+        insertProgramme(
+                "UM_BSC_CS",
+                "bsc-computer-science",
+                dependencies,
+                null,
+                "Bachelor of Computer Science"
+        );
+
+        Long dependencyId = switch (tableName) {
+            case "universities" -> dependencies.universityId();
+            case "subject_categories" -> dependencies.subjectCategoryId();
+            case "study_levels" -> dependencies.studyLevelId();
+            case "course_modes" -> dependencies.courseModeId();
+            default -> throw new IllegalArgumentException("Unknown dependency table: " + tableName);
+        };
+
+        assertThatThrownBy(() -> jdbcTemplate.update(
+                "DELETE FROM %s WHERE id = ?".formatted(tableName),
+                dependencyId
+        )).isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void rejectsDeletingReferencedLanguage() {
+        ProgrammeDependencies dependencies = insertProgrammeDependencies();
+        Long programmeId = insertProgramme(
+                "UM_BSC_CS",
+                "bsc-computer-science",
+                dependencies,
+                null,
+                "Bachelor of Computer Science"
+        );
+        Long languageId = insertLanguage("EN", "英语", "English");
+        jdbcTemplate.update("""
+                INSERT INTO programme_languages (programme_id, language_id)
+                VALUES (?, ?)
+                """, programmeId, languageId);
+
+        assertThatThrownBy(() -> jdbcTemplate.update(
+                "DELETE FROM languages WHERE id = ?",
+                languageId
+        )).isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
+    void deletingProgrammeCascadesRelationsButKeepsLanguage() {
+        ProgrammeDependencies dependencies = insertProgrammeDependencies();
+        Long programmeId = insertProgramme(
+                "UM_BSC_CS",
+                "bsc-computer-science",
+                dependencies,
+                null,
+                "Bachelor of Computer Science"
+        );
+        Long languageId = insertLanguage("EN", "英语", "English");
+        jdbcTemplate.update("""
+                INSERT INTO programme_languages (programme_id, language_id)
+                VALUES (?, ?)
+                """, programmeId, languageId);
+        jdbcTemplate.update("""
+                INSERT INTO programme_intakes (programme_id, intake_date, display_text)
+                VALUES (?, DATE '2027-02-01', 'February 2027')
+                """, programmeId);
+
+        jdbcTemplate.update("DELETE FROM programmes WHERE id = ?", programmeId);
+
+        assertThat(jdbcTemplate.queryForObject(
+                "SELECT COUNT(*) FROM programme_languages WHERE programme_id = ?",
+                Integer.class,
+                programmeId
+        )).isZero();
+        assertThat(jdbcTemplate.queryForObject(
+                "SELECT COUNT(*) FROM programme_intakes WHERE programme_id = ?",
+                Integer.class,
+                programmeId
+        )).isZero();
+        assertThat(jdbcTemplate.queryForObject(
+                "SELECT COUNT(*) FROM languages WHERE id = ?",
+                Integer.class,
+                languageId
+        )).isEqualTo(1);
+    }
+
     private ProgrammeDependencies insertProgrammeDependencies() {
         Long countryId = jdbcTemplate.queryForObject("""
                 INSERT INTO countries (code, name_zh, name_en, continent_code)
