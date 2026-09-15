@@ -262,6 +262,73 @@ Expected: current branch is `feature/backend-foundation`, the tree is clean, and
 
 ---
 
+### Task 2A: Isolate application context tests with Testcontainers
+
+**Files:**
+- Modify: `backend/pom.xml`
+- Create: `backend/src/test/java/com/yangdoujiao/website/TestContainersConfiguration.java`
+- Modify: `backend/src/test/java/com/yangdoujiao/website/BackendApplicationTests.java`
+- Create: `backend/src/test/resources/application-test.yml`
+
+**Interfaces:**
+- Consumes: Docker and the approved PostgreSQL 17.11, Redis 8.2.9, and Elasticsearch 9.4.5 images
+- Produces: Spring Boot `@ServiceConnection` beans that override developer connection properties during integration tests
+
+- [ ] **Step 1: Replace the context smoke test with an isolation test**
+
+The test activates profile `test`, imports `TestContainersConfiguration`, and asserts that PostgreSQL uses database `company_website_test`, Redis answers `PONG`, and the isolated Elasticsearch index exists.
+
+- [ ] **Step 2: Run the test and verify the isolation support is missing**
+
+```bash
+./mvnw -Dtest=BackendApplicationTests test
+```
+
+Expected: test compilation fails because `TestContainersConfiguration` does not exist.
+
+- [ ] **Step 3: Add Boot-managed test dependencies**
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-testcontainers</artifactId>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.testcontainers</groupId>
+    <artifactId>testcontainers-junit-jupiter</artifactId>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.testcontainers</groupId>
+    <artifactId>testcontainers-postgresql</artifactId>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.testcontainers</groupId>
+    <artifactId>testcontainers-elasticsearch</artifactId>
+    <scope>test</scope>
+</dependency>
+```
+
+Spring Boot 4.1.1 manages Testcontainers 2.0.5; do not add explicit versions.
+
+- [ ] **Step 4: Create the service-connection configuration**
+
+Create package-private `TestContainersConfiguration` with three beans: a PostgreSQL container using database `company_website_test`, a Redis `GenericContainer` annotated `@ServiceConnection(name = "redis")`, and an Elasticsearch container with local test security disabled. Add `application-test.yml` with `app.cors.allowed-origins: http://localhost:3000` because the test profile intentionally does not load development configuration.
+
+- [ ] **Step 5: Verify and commit**
+
+```bash
+./mvnw -Dtest=BackendApplicationTests test
+./mvnw test
+git diff --check
+```
+
+Expected: both suites pass against disposable services. Commit only `backend/pom.xml`, the two test files, and this plan update with message `test: isolate backend integration services`.
+
+---
+
 ### Task 3: Add request trace propagation
 
 **Files:**
