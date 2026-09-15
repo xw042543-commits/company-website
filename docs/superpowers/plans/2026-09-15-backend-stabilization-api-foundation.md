@@ -71,6 +71,7 @@ docs/API.md                             shared API conventions
 **Files:**
 - Modify: `backend/src/main/java/com/yangdoujiao/website/search/UniversitySearchRepository.java`
 - Modify: `backend/src/main/java/com/yangdoujiao/website/search/UniversitySearchService.java`
+- Modify: `backend/pom.xml`
 - Create: `backend/src/test/java/com/yangdoujiao/website/search/UniversitySearchServiceTest.java`
 
 **Interfaces:**
@@ -85,14 +86,12 @@ Create `UniversitySearchServiceTest.java`:
 package com.yangdoujiao.website.search;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -107,18 +106,25 @@ class UniversitySearchServiceTest {
     @Mock
     private UniversitySearchRepository universitySearchRepository;
 
-    @InjectMocks
-    private UniversitySearchService universitySearchService;
-
     @Test
-    void passesTrimmedMultiWordQueryAsOneRepositoryParameter() {
-        when(universitySearchRepository.search("United Kingdom")).thenReturn(List.of());
+    void keepsMultiWordQueryTogetherAfterTrimmingWhitespace() {
+        UniversitySearchDocument expected = new UniversitySearchDocument(
+                "3",
+                "University of Oxford",
+                "university-of-oxford",
+                "United Kingdom",
+                false
+        );
+        when(universitySearchRepository.search("United Kingdom"))
+                .thenReturn(List.of(expected));
+        UniversitySearchService service = new UniversitySearchService(
+                universityRepository,
+                universitySearchRepository
+        );
 
-        List<UniversitySearchDocument> result =
-                universitySearchService.search("  United Kingdom  ");
+        List<UniversitySearchDocument> result = service.search("  United Kingdom  ");
 
-        assertThat(result).isEmpty();
-        verify(universitySearchRepository).search("United Kingdom");
+        assertThat(result).containsExactly(expected);
     }
 }
 ```
@@ -131,7 +137,7 @@ Run from `backend/`:
 ./mvnw -Dtest=UniversitySearchServiceTest test
 ```
 
-Expected: compilation fails because `UniversitySearchRepository.java` currently begins with an illegal `、` character and ends with pasted editor text. This confirms the failure is source corruption, not a Maven or Elasticsearch installation problem.
+Expected at the original damaged baseline: compilation fails because `UniversitySearchRepository.java` begins with an illegal `、` character and ends with pasted editor text. If the mechanical source repair has already been performed, run the mutation check described in Step 4 to prove the test protects the query normalization behavior.
 
 - [ ] **Step 3: Replace the corrupted repository source with the minimal safe version**
 
@@ -168,13 +174,19 @@ public List<UniversitySearchDocument> search(String query) {
 }
 ```
 
-- [ ] **Step 4: Run the focused test**
+- [ ] **Step 4: Run the focused test and perform its mutation check**
 
 ```bash
 ./mvnw -Dtest=UniversitySearchServiceTest test
 ```
 
 Expected: `Tests run: 1, Failures: 0, Errors: 0` and `BUILD SUCCESS`.
+
+To prove this characterization test can catch a regression, temporarily remove `.trim()` from `UniversitySearchService.search`, run the same focused test and confirm it fails, then restore `.trim()` and confirm the test passes again. Do not commit the temporary mutation.
+
+- [ ] **Step 4a: Configure Mockito as an explicit Java agent**
+
+Because this project uses Java 21, add an empty `argLine` property, the Maven dependency plugin `properties` goal, and a Surefire `-javaagent:${org.mockito:mockito-core:jar}` argument as documented by Mockito. Re-run the focused test and confirm that both the self-attachment message and dynamic-agent JVM warnings are absent.
 
 - [ ] **Step 5: Run the complete backend test suite with local services**
 
@@ -202,6 +214,7 @@ git diff -- backend/src/main/java/com/yangdoujiao/website/search backend/src/tes
 git add backend/src/main/java/com/yangdoujiao/website/search/UniversitySearchRepository.java
 git add backend/src/main/java/com/yangdoujiao/website/search/UniversitySearchService.java
 git add backend/src/test/java/com/yangdoujiao/website/search/UniversitySearchServiceTest.java
+git add backend/pom.xml
 git commit -m "fix: support multi-word university searches"
 ```
 
