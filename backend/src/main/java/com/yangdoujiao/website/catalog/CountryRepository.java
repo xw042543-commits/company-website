@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CountryRepository extends JpaRepository<Country, Long> {
 
+    boolean existsByCode(String code);
+
     Optional<Country> findByCode(String code);
 
     List<Country> findAllByOrderByCodeAsc();

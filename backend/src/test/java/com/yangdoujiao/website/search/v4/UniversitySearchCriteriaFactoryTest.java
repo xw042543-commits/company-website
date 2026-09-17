@@ -111,6 +111,17 @@ class UniversitySearchCriteriaFactoryTest {
     }
 
     @Test
+    void countsRepeatedRawDimensionValuesBeforeDeduplication() {
+        UniversitySearchQuery query = new UniversitySearchQuery();
+        query.setCountry(java.util.Collections.nCopies(21, "GB"));
+
+        assertThatThrownBy(() -> factory.create(query))
+                .isInstanceOfSatisfying(SearchValidationException.class, exception ->
+                        assertThat(exception.getFieldErrors())
+                                .containsEntry("country", "must contain at most 20 values"));
+    }
+
+    @Test
     void rejectsReversedTuitionRangeOnMaximumField() {
         UniversitySearchQuery query = new UniversitySearchQuery();
         query.setTuitionMin("300000");

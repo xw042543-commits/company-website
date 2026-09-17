@@ -18,6 +18,7 @@ import org.springframework.web.method.annotation.HandlerMethodValidationExceptio
 import com.yangdoujiao.website.common.api.ApiErrorResponse;
 import com.yangdoujiao.website.common.web.RequestTraceFilter;
 import com.yangdoujiao.website.search.v4.SearchValidationException;
+import com.yangdoujiao.website.search.v4.SearchServiceUnavailableException;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
@@ -37,6 +38,22 @@ public class GlobalExceptionHandler {
                 "VALIDATION_ERROR",
                 "Request validation failed",
                 exception.getFieldErrors(),
+                request
+        );
+    }
+
+    @ExceptionHandler(SearchServiceUnavailableException.class)
+    public ResponseEntity<ApiErrorResponse> handleSearchServiceUnavailable(
+            SearchServiceUnavailableException exception,
+            HttpServletRequest request
+    ) {
+        log.warn("Search service unavailable for {} {} traceId={}", request.getMethod(), request.getRequestURI(),
+                request.getAttribute(RequestTraceFilter.TRACE_ID_ATTRIBUTE));
+        return buildResponse(
+                HttpStatus.SERVICE_UNAVAILABLE,
+                "SEARCH_SERVICE_UNAVAILABLE",
+                "Search service is temporarily unavailable",
+                Map.of(),
                 request
         );
     }

@@ -10,6 +10,8 @@ import com.yangdoujiao.website.catalog.CategoryStatus;
 
 public interface ProgrammeRepository extends JpaRepository<Programme, Long> {
 
+    boolean existsByProgrammeCodeAndStatus(String programmeCode, CategoryStatus status);
+
     Optional<Programme> findByProgrammeCode(String programmeCode);
 
     Optional<Programme> findByUniversityIdAndSlug(Long universityId, String slug);

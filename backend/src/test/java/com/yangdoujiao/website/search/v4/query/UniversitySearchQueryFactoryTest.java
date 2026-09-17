@@ -122,6 +122,27 @@ class UniversitySearchQueryFactoryTest {
         assertThat(query.getSortOptions().getFirst().isScore()).isTrue();
     }
 
+    @Test
+    void aliasTargetsAreAddedToRatherThanReplacingExplicitFilters() {
+        NativeQuery conflictingCountry = factory.create(
+                new UniversitySearchCriteria(null, Set.of(), Set.of(), Set.of("AU"), Set.of(), Set.of(),
+                        null, null, null, null, 1, 12),
+                new ResolvedSearchTerm("UK", SearchAliasTargetType.COUNTRY, "GB"));
+        assertThat(conflictingCountry.getQuery().bool().filter()).hasSize(2);
+        assertTerms(conflictingCountry.getQuery().bool().filter().get(0), "countryCode", "AU");
+        assertThat(conflictingCountry.getQuery().bool().filter().get(1).term().field()).isEqualTo("countryCode");
+        assertThat(conflictingCountry.getQuery().bool().filter().get(1).term().value().stringValue()).isEqualTo("GB");
+
+        NativeQuery programmeAndMode = factory.create(
+                new UniversitySearchCriteria(null, Set.of(), Set.of(), Set.of(), Set.of("ONLINE"), Set.of(),
+                        null, null, null, null, 1, 12),
+                new ResolvedSearchTerm("DS", SearchAliasTargetType.PROGRAMME, "P-GB-DS-01"));
+        assertThat(nested(programmeAndMode).filter()).hasSize(2);
+        assertTerms(nested(programmeAndMode).filter().get(0), "programmes.courseModeCode", "ONLINE");
+        assertThat(nested(programmeAndMode).filter().get(1).term().field()).isEqualTo("programmes.programmeCode");
+        assertThat(nested(programmeAndMode).filter().get(1).term().value().stringValue()).isEqualTo("P-GB-DS-01");
+    }
+
     private static BoolQuery nested(NativeQuery query) {
         return query.getQuery().bool().must().getFirst().nested().query().bool();
     }
