@@ -1,3 +1,7 @@
 app:
+  search:
+    index:
+      batch-size: 2
+      initialize-on-startup: false
   cors:
     allowed-origins: http://localhost:3000

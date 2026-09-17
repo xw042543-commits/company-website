@@ -26,3 +26,9 @@ logging:
   level:
     root: INFO
     com.yangdoujiao.website: INFO
+
+app:
+  search:
+    index:
+      batch-size: 200
+      initialize-on-startup: true
