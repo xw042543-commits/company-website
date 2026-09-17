@@ -44,16 +44,23 @@ export function searchUniversityCatalog(query: string): UniversityCatalogEntry[]
   const normalizedQuery = normalizeSearchText(query);
   if (!normalizedQuery) return UNIVERSITY_CATALOG;
 
+  const searchableValues = (university: UniversityCatalogEntry) => [
+    university.nameZh,
+    university.nameEn,
+    university.countryZh,
+    university.countryEn,
+    university.cityZh,
+    university.cityEn,
+    ...university.aliases,
+  ].map(normalizeSearchText);
+
+  const exactMatches = UNIVERSITY_CATALOG.filter((university) =>
+    searchableValues(university).some((value) => value === normalizedQuery),
+  );
+  if (exactMatches.length) return exactMatches;
+
   return UNIVERSITY_CATALOG.filter((university) =>
-    [
-      university.nameZh,
-      university.nameEn,
-      university.countryZh,
-      university.countryEn,
-      university.cityZh,
-      university.cityEn,
-      ...university.aliases,
-    ].some((value) => normalizeSearchText(value).includes(normalizedQuery)),
+    searchableValues(university).some((value) => value.includes(normalizedQuery)),
   );
 }
 
@@ -68,3 +75,4 @@ export function localizeUniversity(university: UniversityCatalogEntry, locale: "
     ? { name: university.nameZh, secondaryName: university.nameEn, country: university.countryZh, city: university.cityZh }
     : { name: university.nameEn, secondaryName: university.nameZh, country: university.countryEn, city: university.cityEn };
 }
+

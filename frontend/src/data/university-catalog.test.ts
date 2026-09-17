@@ -6,7 +6,7 @@ import test from "node:test";
 import { findUniversityBySlug, localizeUniversity, searchUniversityCatalog, UNIVERSITY_CATALOG } from "./university-catalog.ts";
 
 test("matches an approved abbreviation", () => {
-  assert.equal(searchUniversityCatalog("UM")[0]?.slug, "university-of-malaya");
+  assert.deepEqual(searchUniversityCatalog("UM").map((university) => university.slug), ["university-of-malaya"]);
 });
 
 test("matches a Chinese university name", () => {
@@ -60,4 +60,5 @@ test("every supplied logo reference resolves to a nonempty public file", () => {
     assert.ok(statSync(path).size > 0, `${university.slug} logo is empty`);
   }
 });
+
 
