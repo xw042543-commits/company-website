@@ -1,24 +1,38 @@
 "use client";
+
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Locale, navigation, words } from "@/lib/site";
+
 export function SiteHeader({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const query = useSearchParams();
+  const [menuOpen, setMenuOpen] = useState(false);
   const other = locale === "zh" ? "en" : "zh";
   const languagePath = pathname.replace(/^\/(zh|en)(?=\/|$)/, `/${other}`);
-  useEffect(() => { document.documentElement.lang = locale === "zh" ? "zh-CN" : "en"; }, [locale]);
+
+  useEffect(() => {
+    document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
+  }, [locale]);
+
   return <header className="site-header">
     <div className="header-top container">
-      <Link href={`/${locale}`} className="brand">洋豆角<span>YANGDOUJIAO</span></Link>
+      <Link href={`/${locale}`} className="brand" aria-label={words(locale, "洋豆角首页", "UDAJO home")}>
+        <Image src="/brand/udajo-logo.jpg" width={480} height={480} priority alt={words(locale, "洋豆角 UDAJO 标志", "UDAJO logo")} />
+      </Link>
       <div className="header-actions">
-        <Link href={`${languagePath}${query.size ? `?${query}` : ""}`} hrefLang={other} aria-label={words(locale, "Switch to English", "切换为中文")}>{locale === "zh" ? "English" : "中文"}</Link>
+        <Link className="language-link" href={`${languagePath}${query.size ? `?${query}` : ""}`} hrefLang={other} aria-label={words(locale, "切换为英文", "Switch to Chinese")}>{locale === "zh" ? "English" : "中文"}</Link>
         <Link className="button small" href={`/${locale}/consultation`}>{words(locale, "咨询", "Enquire")}</Link>
+        <button type="button" className="navigation-toggle" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen(value => !value)}>
+          <span>{words(locale, "菜单", "Menu")}</span>
+          <span className="navigation-toggle-state" aria-hidden="true">{menuOpen ? words(locale, "关闭", "Close") : words(locale, "打开", "Open")}</span>
+        </button>
       </div>
     </div>
-    <nav className="navigation container" aria-label={words(locale, "主导航", "Main navigation")}>
-      {navigation.map(([path, zh, en]) => <Link key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={pathname === `/${locale}${path ? `/${path}` : ""}` ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
+    <nav id="primary-navigation" className={`navigation container${menuOpen ? " navigation-open" : ""}`} aria-label={words(locale, "主导航", "Main navigation")}>
+      {navigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={pathname === `/${locale}${path ? `/${path}` : ""}` ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
     </nav>
   </header>;
 }
