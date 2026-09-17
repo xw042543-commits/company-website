@@ -1,20 +1,40 @@
 import "server-only";
 
+import { searchUniversityCatalog, type ProgrammeStatus } from "@/data/university-catalog";
+
 export type SchoolSummary = {
   id: string;
   slug: string;
   name: string;
   country: string;
   city?: string;
+  nameZh?: string;
+  nameEn?: string;
+  countryZh?: string;
+  countryEn?: string;
+  cityZh?: string;
+  cityEn?: string;
+  logoSrc?: string;
+  aliases?: string[];
+  programmeStatus?: ProgrammeStatus;
   matchedCourses?: { id: string; name: string; level?: string; language?: string }[];
 };
-export type SchoolResult = { status: "ready"; schools: SchoolSummary[] } | { status: "unconfigured" | "error" };
+export type SchoolResult = { status: "ready"; schools: SchoolSummary[] } | { status: "error" };
 
-// Only the existing list/name-country search endpoints are called in this stage.
+function localSchools(query: string): SchoolSummary[] {
+  return searchUniversityCatalog(query).map((university) => ({
+    ...university,
+    name: university.nameEn,
+    country: university.countryEn,
+    city: university.cityEn,
+  }));
+}
+
+// The reviewed local catalogue is the public fallback until the API catalogue is configured.
 // Course search and details require a separately reviewed backend contract.
 export async function getSchools(query = ""): Promise<SchoolResult> {
   const base = process.env.NEXT_PUBLIC_API_BASE_URL;
-  if (!base) return { status: "unconfigured" };
+  if (!base) return { status: "ready", schools: localSchools(query) };
   try {
     const url = new URL(query ? `/api/search?q=${encodeURIComponent(query)}` : "/api/universities", base);
     const response = await fetch(url, { cache: "no-store", signal: AbortSignal.timeout(5000) });
