@@ -23,7 +23,10 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         <Image src="/brand/udajo-logo.jpg" width={480} height={480} priority alt={words(locale, "洋豆角 UDAJO 标志", "UDAJO logo")} />
       </Link>
       <div className="header-actions">
-        <Link className="language-link" href={`${languagePath}${query.size ? `?${query}` : ""}`} hrefLang={other} aria-label={words(locale, "切换为英文", "Switch to Chinese")}>{locale === "zh" ? "English" : "中文"}</Link>
+        <Link className="language-switch" href={`${languagePath}${query.size ? `?${query}` : ""}`} hrefLang={other} aria-label={words(locale, "切换为英文", "Switch to Simplified Chinese")}>
+          <span className="language-symbol" aria-hidden="true"><span>A</span><span>文</span></span>
+          <span>{locale === "zh" ? "EN" : "中文"}</span>
+        </Link>
         <Link className="button small" href={`/${locale}/consultation`}>{words(locale, "咨询", "Enquire")}</Link>
         <button type="button" className="navigation-toggle" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen(value => !value)}>
           <span>{words(locale, "菜单", "Menu")}</span>
