@@ -17,6 +17,7 @@ import org.springframework.web.method.annotation.HandlerMethodValidationExceptio
 
 import com.yangdoujiao.website.common.api.ApiErrorResponse;
 import com.yangdoujiao.website.common.web.RequestTraceFilter;
+import com.yangdoujiao.website.search.v4.SearchValidationException;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
@@ -25,6 +26,20 @@ import jakarta.validation.ConstraintViolationException;
 public class GlobalExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+    @ExceptionHandler(SearchValidationException.class)
+    public ResponseEntity<ApiErrorResponse> handleSearchValidation(
+            SearchValidationException exception,
+            HttpServletRequest request
+    ) {
+        return buildResponse(
+                HttpStatus.BAD_REQUEST,
+                "VALIDATION_ERROR",
+                "Request validation failed",
+                exception.getFieldErrors(),
+                request
+        );
+    }
 
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<ApiErrorResponse> handleApiException(
