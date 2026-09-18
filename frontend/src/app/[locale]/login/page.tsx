@@ -36,8 +36,11 @@ export default async function LoginPage({ params }: { params: Promise<{ locale: 
         </div>
         <LoginForm locale={locale} />
         <div className="login-help">
-          <p>{words(locale, "还没有账户？账户申请流程确认后将在此开放。", "Need an account? The request process will appear here after it is approved.")}</p>
-          <Link href={`/${locale}/consultation`}>{words(locale, "先联系顾问", "Contact an adviser")}</Link>
+          <p>{words(locale, "还没有学生或客户账户？", "New student or client?")}</p>
+          <div className="login-help-links">
+            <Link href={`/${locale}/register`}>{words(locale, "注册账户", "Create an account")}</Link>
+            <Link href={`/${locale}/consultation`}>{words(locale, "联系顾问", "Contact an adviser")}</Link>
+          </div>
         </div>
       </section>
     </div>

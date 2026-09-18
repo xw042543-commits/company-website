@@ -265,6 +265,17 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .login-help { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
 .login-help p { margin-bottom: 7px; color: var(--muted); font-size: .88rem; }
 .login-help a { color: var(--brand-action); font-size: .9rem; font-weight: 750; }
+.login-help-links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.field-label-row a { color: var(--brand-action); font-size: .82rem; font-weight: 700; }
+.field-error { margin: 5px 0 0; color: var(--danger); font-size: .82rem; font-weight: 650; }
+input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px rgb(159 47 47 / 12%); }
+.account-policy { max-width: 640px; padding-top: 24px; border-top: 1px solid #b9cec7; }
+.account-policy h2 { margin-bottom: 9px; font-size: 1.2rem; }
+.account-policy p { color: var(--muted); }
+.account-recovery-page { display: grid; align-items: center; }
+.recovery-layout { display: grid; grid-template-columns: minmax(0, 500px); justify-content: center; }
+.account-recovery-page .login-panel-heading h1 { margin-bottom: 12px; font-size: clamp(2rem, 4vw, 3rem); }
 
 @keyframes skeleton-pulse { from { opacity: .62; } to { opacity: 1; } }
 
