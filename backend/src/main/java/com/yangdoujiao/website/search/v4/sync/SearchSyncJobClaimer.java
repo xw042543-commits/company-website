@@ -60,10 +60,21 @@ public class SearchSyncJobClaimer {
 
     @Transactional
     public boolean complete(ClaimedJob job) {
-        return jdbc.update("""
-                DELETE FROM search_sync_jobs
-                 WHERE id = ? AND status = 'PROCESSING' AND lock_token = ?
-                """, job.id(), job.lockToken()) == 1;
+        return deleteOwnedJob(job) == 1;
+    }
+
+    @Transactional
+    public boolean completeOrScheduleReconciliation(ClaimedJob job, Instant now) {
+        if (deleteOwnedJob(job) == 1) {
+            return true;
+        }
+        jdbc.update("""
+                INSERT INTO search_sync_jobs (
+                    university_id, status, attempt_count, available_at, created_at, updated_at
+                )
+                VALUES (?, 'PENDING', 0, ?, ?, ?)
+                """, job.universityId(), Timestamp.from(now), Timestamp.from(now), Timestamp.from(now));
+        return false;
     }
 
     @Transactional
@@ -95,6 +106,13 @@ public class SearchSyncJobClaimer {
                        updated_at = ?
                  WHERE id = ? AND status = 'PROCESSING' AND lock_token = ?
                 """, attemptCount, lastError, Timestamp.from(now), job.id(), job.lockToken()) == 1;
+    }
+
+    private int deleteOwnedJob(ClaimedJob job) {
+        return jdbc.update("""
+                DELETE FROM search_sync_jobs
+                 WHERE id = ? AND status = 'PROCESSING' AND lock_token = ?
+                """, job.id(), job.lockToken());
     }
 
     public record ClaimedJob(long id, long universityId, int attemptCount, UUID lockToken) {

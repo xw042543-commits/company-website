@@ -163,7 +163,10 @@ languages ── programme_languages
 worker 用 PostgreSQL `FOR UPDATE SKIP LOCKED` 安全领取有限批次，提交领取事务后才访问
 Elasticsearch。公开院校会把完整投影写入 `universities-v4-write`；未发布、不存在或
 没有已发布课程的院校会从索引删除。失败任务按确定性延迟重试，超过上限后标记为
-`FAILED`；过期 `PROCESSING` 任务可重新领取。
+`FAILED`；过期 `PROCESSING` 任务可重新领取。如果 worker 在 Elasticsearch 写入期间丢失
+lease，完成时会新建 `PENDING` 补偿任务，以 PostgreSQL 的最新状态再次覆盖索引。
+全量重建在原子切换读写别名后，也会对重建前后涉及的院校批量创建补偿任务，
+避免重建期间的新增、更新、归档或删除被新索引覆盖。
 
 ## Java 数据访问层
 

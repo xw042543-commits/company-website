@@ -1,6 +1,7 @@
 package com.yangdoujiao.website.search.v4.index;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,6 +25,7 @@ public class SearchIndexRebuilder {
     private final JdbcTemplate jdbc;
     private final SearchIndexProperties properties;
     private final TransactionTemplate readOnlyTransactions;
+    private final TransactionTemplate reconciliationTransactions;
 
     public SearchIndexRebuilder(SearchIndexManager manager, UniversitySearchProjectionLoader loader,
             ElasticsearchOperations operations, JdbcTemplate jdbc, SearchIndexProperties properties,
@@ -35,6 +37,7 @@ public class SearchIndexRebuilder {
         this.properties = properties;
         this.readOnlyTransactions = new TransactionTemplate(transactionManager);
         this.readOnlyTransactions.setReadOnly(true);
+        this.reconciliationTransactions = new TransactionTemplate(transactionManager);
     }
 
     public RebuildResult rebuild() {
@@ -59,6 +62,7 @@ public class SearchIndexRebuilder {
             throw new IllegalStateException("Search index document count does not match expected published count");
         }
         manager.swapAliases(indexName);
+        schedulePostSwapReconciliation(universityIds);
         return new RebuildResult(indexName, actualCount);
     }
 
@@ -72,6 +76,22 @@ public class SearchIndexRebuilder {
                               WHERE p.university_id = u.id AND p.status = 'PUBLISHED')
                 ORDER BY u.id
                 """, Long.class)));
+    }
+
+    private void schedulePostSwapReconciliation(List<Long> snapshotIds) {
+        reconciliationTransactions.executeWithoutResult(status -> {
+            var universityIds = new LinkedHashSet<>(snapshotIds);
+            universityIds.addAll(jdbc.queryForList("SELECT id FROM universities ORDER BY id", Long.class));
+            if (!universityIds.isEmpty()) {
+                jdbc.batchUpdate("""
+                        INSERT INTO search_sync_jobs (
+                            university_id, status, attempt_count, available_at, created_at, updated_at
+                        )
+                        VALUES (?, 'PENDING', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+                        """, universityIds, properties.getBatchSize(),
+                        (statement, universityId) -> statement.setLong(1, universityId));
+            }
+        });
     }
 
     public record RebuildResult(String indexName, long indexedUniversities) {

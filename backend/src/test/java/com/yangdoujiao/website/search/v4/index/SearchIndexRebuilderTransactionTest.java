@@ -7,6 +7,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
@@ -63,7 +64,7 @@ class SearchIndexRebuilderTransactionTest {
     }
 
     @Test
-    void capturesPublishedIdsInAShortReadOnlyTransactionBeforeElasticsearchWork() {
+    void usesShortReadAndReconciliationTransactionsOutsideElasticsearchWork() {
         AtomicBoolean transactionActive = new AtomicBoolean();
         TransactionStatus status = mock(TransactionStatus.class);
         when(transactions.getTransaction(any(TransactionDefinition.class))).thenAnswer(invocation -> {
@@ -90,9 +91,11 @@ class SearchIndexRebuilderTransactionTest {
         new SearchIndexRebuilder(manager, loader, operations, jdbc, properties, transactions).rebuild();
 
         ArgumentCaptor<TransactionDefinition> definition = ArgumentCaptor.forClass(TransactionDefinition.class);
-        verify(transactions).getTransaction(definition.capture());
-        assertThat(definition.getValue().isReadOnly()).isTrue();
-        verify(transactions).commit(status);
+        verify(transactions, times(2)).getTransaction(definition.capture());
+        assertThat(definition.getAllValues())
+                .extracting(TransactionDefinition::isReadOnly)
+                .containsExactly(true, false);
+        verify(transactions, times(2)).commit(status);
         verify(manager).swapAliases("universities-v4-test");
     }
 }

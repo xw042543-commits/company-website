@@ -21,6 +21,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -321,6 +322,36 @@ class SearchSyncWorkerIntegrationTest {
                     .as(action + " must not change the current lock").isEqualTo(reclaimTime);
             assertThat(row.get("last_error")).as(action + " must not write stale errors").isNull();
         }
+    }
+
+    @Test
+    void workerSchedulesReconciliationWhenLeaseExpiresDuringElasticsearchWrite() {
+        long universityId = publishedUniversity("SYNC_LOST_LEASE");
+        insertJob(universityId, "PENDING", 0, NOW.minusSeconds(30), null);
+        Instant reclaimTime = NOW.plus(properties.getLockTimeout()).plusSeconds(1);
+        AtomicReference<SearchSyncJobClaimer.ClaimedJob> currentClaim = new AtomicReference<>();
+        ElasticsearchOperations reclaimingOperations = mock(ElasticsearchOperations.class,
+                delegatesTo(operations));
+        doAnswer(invocation -> {
+            currentClaim.set(claimer.claimJobs(1, reclaimTime).getFirst());
+            return operations.save(
+                    invocation.getArgument(0, UniversityProgrammeSearchDocument.class),
+                    invocation.getArgument(1, IndexCoordinates.class));
+        }).when(reclaimingOperations).save(
+                any(UniversityProgrammeSearchDocument.class), any(IndexCoordinates.class));
+        SearchSyncWorker isolatedWorker = new SearchSyncWorker(claimer, loader, reclaimingOperations,
+                properties, Clock.fixed(NOW, ZoneOffset.UTC));
+
+        isolatedWorker.runOnce();
+
+        assertThat(currentClaim.get()).isNotNull();
+        assertThat(jdbc.queryForList("""
+                SELECT status
+                FROM search_sync_jobs
+                WHERE university_id = ?
+                ORDER BY id
+                """, String.class, universityId))
+                .containsExactly("PROCESSING", "PENDING");
     }
 
     private void prepareWriteAlias() {

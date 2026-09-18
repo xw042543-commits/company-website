@@ -47,7 +47,10 @@ public class SearchSyncWorker {
         try {
             loader.loadPublishedUniversity(job.universityId())
                     .ifPresentOrElse(this::saveDocument, () -> deleteDocument(job.universityId()));
-            claimer.complete(job);
+            if (!claimer.completeOrScheduleReconciliation(job, clock.instant())) {
+                log.warn("Search sync lease lost after projection write; reconciliation scheduled jobId={} universityId={}",
+                        job.id(), job.universityId());
+            }
         } catch (RuntimeException failure) {
             recordFailure(job, claimedAt, failure);
         }

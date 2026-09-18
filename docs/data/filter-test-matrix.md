@@ -117,7 +117,7 @@ PostgreSQL，提交后再入队，由 worker 同步为可重建的 Elasticsearch
 | F17 | 非法日期或数字 | 无效入学日期、负学费、最低值大于最高值 | 数据校验失败并指出字段原因 | 不写入 PostgreSQL、不进入 Elasticsearch |
 | F18 | 名称至少一个 | University 或 Programme 的中英文名都为空 | 数据校验失败 | 只有中文或只有英文时通过，不自动翻译 |
 | F19 | 重复语言 | 同一 Programme 重复关联相同语言 | 校验或唯一约束拒绝重复 | `programme_languages` 不产生重复项 |
-| F20 | 重复入学时间 | 同一 Programme 重复关联相同日期 | 校验或唯一约束拒绝重复 | `programme_intakes` 不产生重复项 |
+| F20 | 重复入学时间 | 同一 Programme 出现相同日期 | 暂不作唯一性拒绝 | V3 允许未知日期；去重规则等老板正式数据后确认 |
 | F21 | 状态枚举 | `DRAFT`、`PUBLISHED`、`ARCHIVED`；再测 `TEST_ONLY` | 前三者合法，`TEST_ONLY` 非法 | 测试环境标识不能污染正式状态枚举 |
 | F22 | 咨询展示 | Programme 学费全部为空 | 页面显示“请咨询” | 与学费筛选中的“不匹配”规则同时成立 |
 | F23 | 公开索引状态 | 重建或同步公开搜索索引 | 新西兰 DRAFT 学校和 Programme 不可被搜索 | 公开索引只包含 PUBLISHED University 及其 PUBLISHED Programme |
@@ -125,7 +125,8 @@ PostgreSQL，提交后再入队，由 worker 同步为可重建的 Elasticsearch
 ## 当前验证状态
 
 - F01～F15、F22、F23：已由真实 Elasticsearch/PostgreSQL 集成测试或查询映射测试验证。
-- F16～F21：已由请求校验、数据库约束和 Repository 集成测试验证后端规则。
+- F16～F19、F21：已由请求校验、数据库约束和 Repository 集成测试验证后端规则。
+- F20：按已批准的 V3 设计保留，目前不作唯一性约束；待老板正式数据到位后再确认去重规则。
 - 别名冲突、非法别名目标、索引无中断切换、增量同步并发领取、失败重试和 stale lease 恢复：已通过自动化测试验证。
 - 2026-09-18 本地冒烟：筛选字典接口返回 200（开发库尚无目录数据）；新搜索返回 200 空分页；颠倒学费范围返回 400 且包含 `traceId`；旧 `/api/search` 返回 200。
 - 未验证：老板正式 Excel 数据、正式数据导入、前端浏览器整体流程、真实联系咨询跳转和生产环境。

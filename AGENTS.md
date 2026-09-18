@@ -20,7 +20,7 @@ Backend data services:
 ## Technology Stack
 
 - Frontend: Next.js, React, TypeScript, Node.js 24 LTS
-- Backend: Java 25 LTS, Spring Boot, Maven
+- Backend: Java 21 LTS, Spring Boot, Maven
 - Infrastructure: PostgreSQL, Redis, Elasticsearch, Docker Compose
 
 ## Development Rules

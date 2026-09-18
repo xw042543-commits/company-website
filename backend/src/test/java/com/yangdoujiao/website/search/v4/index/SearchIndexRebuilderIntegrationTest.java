@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -63,6 +65,7 @@ class SearchIndexRebuilderIntegrationTest {
 
     @BeforeEach
     void prepareOldSearchAndObserveRealAliasRequests() {
+        jdbc.update("DELETE FROM search_sync_jobs");
         oldRead = oldIndex(901L);
         otherRead = oldIndex(902L);
         oldWrite = oldIndex(903L);
@@ -97,6 +100,7 @@ class SearchIndexRebuilderIntegrationTest {
         try {
             createdIndices.forEach(name -> operations.indexOps(IndexCoordinates.of(name)).delete());
         } finally {
+            jdbc.update("DELETE FROM search_sync_jobs");
             fixtureUniversityIds.forEach(universityId -> {
                 jdbc.update("DELETE FROM programmes WHERE university_id = ?", universityId);
                 jdbc.update("DELETE FROM universities WHERE id = ?", universityId);
@@ -208,6 +212,52 @@ class SearchIndexRebuilderIntegrationTest {
         assertAliasesPointOnlyTo(result.indexName());
         assertThat(firstDeploymentManager.aliasExists(SearchIndexNames.READ_ALIAS)).isTrue();
         assertThat(firstDeploymentManager.aliasExists(SearchIndexNames.WRITE_ALIAS)).isTrue();
+    }
+
+    @Test
+    void rebuildSchedulesReconciliationForUniversitiesPresentBeforeOrAfterItsSnapshot() {
+        List<Long> publishedIds = seedPublicAndExcludedUniversities();
+        long removedDuringRebuild = publishedIds.getFirst();
+        long categoryId = fixtureCategoryIds.getFirst();
+        AtomicBoolean changed = new AtomicBoolean();
+        AtomicLong addedDuringRebuild = new AtomicLong();
+        UniversitySearchProjectionLoader changingLoader = mock(UniversitySearchProjectionLoader.class,
+                delegatesTo(loader));
+        doAnswer(invocation -> {
+            Optional<UniversityProgrammeSearchDocument> projection =
+                    loader.loadPublishedUniversity(removedDuringRebuild);
+            if (changed.compareAndSet(false, true)) {
+                jdbc.update("DELETE FROM programmes WHERE university_id = ?", removedDuringRebuild);
+                jdbc.update("DELETE FROM universities WHERE id = ?", removedDuringRebuild);
+                long added = jdbc.queryForObject("""
+                        INSERT INTO universities (name, slug, country, university_code, name_en, status)
+                        VALUES ('Late university', 'late-university', 'Test country',
+                                'REBUILD_LATE', 'Late university', 'PUBLISHED')
+                        RETURNING id
+                        """, Long.class);
+                fixtureUniversityIds.add(added);
+                jdbc.update("""
+                        INSERT INTO programmes (
+                            university_id, subject_category_id, programme_code, slug, name_en, status
+                        )
+                        VALUES (?, ?, 'REBUILD_LATE_PROGRAMME', 'late-programme',
+                                'Late programme', 'PUBLISHED')
+                        """, added, categoryId);
+                addedDuringRebuild.set(added);
+            }
+            return projection;
+        }).when(changingLoader).loadPublishedUniversity(removedDuringRebuild);
+
+        rebuilder(changingLoader).rebuild();
+
+        assertThat(addedDuringRebuild.get()).isPositive();
+        assertThat(jdbc.queryForList("""
+                SELECT university_id
+                FROM search_sync_jobs
+                WHERE university_id IN (?, ?)
+                ORDER BY university_id
+                """, Long.class, removedDuringRebuild, addedDuringRebuild.get()))
+                .containsExactlyInAnyOrder(removedDuringRebuild, addedDuringRebuild.get());
     }
 
     private SearchIndexRebuilder rebuilder(UniversitySearchProjectionLoader projectionLoader) {

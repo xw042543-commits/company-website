@@ -13,7 +13,7 @@
 
 ### Backend
 
-- Java 25 LTS
+- Java 21 LTS
 - Spring Boot
 - Maven
 
@@ -35,4 +35,4 @@
 
 ## Current Status
 
-Local development environment setup is in progress.
+Local development environment is ready. Formal catalogue data is pending from the business owner.
