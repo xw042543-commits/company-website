@@ -1,6 +1,6 @@
 import "server-only";
 
-import { searchUniversityCatalog, type ProgrammeStatus } from "@/data/university-catalog";
+import { filterUniversityCatalog, type ProgrammeStatus } from "@/data/university-catalog";
 
 export type SchoolSummary = {
   id: string;
@@ -21,8 +21,8 @@ export type SchoolSummary = {
 };
 export type SchoolResult = { status: "ready"; schools: SchoolSummary[] } | { status: "error" };
 
-function localSchools(query: string): SchoolSummary[] {
-  return searchUniversityCatalog(query).map((university) => ({
+function localSchools(query: string, country: string, continent: string): SchoolSummary[] {
+  return filterUniversityCatalog(query, country, continent).map((university) => ({
     ...university,
     name: university.nameEn,
     country: university.countryEn,
@@ -32,9 +32,11 @@ function localSchools(query: string): SchoolSummary[] {
 
 // The reviewed local catalogue is the public fallback until the API catalogue is configured.
 // Course search and details require a separately reviewed backend contract.
-export async function getSchools(query = ""): Promise<SchoolResult> {
+export async function getSchools(query = "", geography: { country?: string; continent?: string } = {}): Promise<SchoolResult> {
   const base = process.env.NEXT_PUBLIC_API_BASE_URL;
-  if (!base) return { status: "ready", schools: localSchools(query) };
+  const country = geography.country ?? "";
+  const continent = geography.continent ?? "";
+  if (!base || country || continent) return { status: "ready", schools: localSchools(query, country, continent) };
   try {
     const url = new URL(query ? `/api/search?q=${encodeURIComponent(query)}` : "/api/universities", base);
     const response = await fetch(url, { cache: "no-store", signal: AbortSignal.timeout(5000) });

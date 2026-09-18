@@ -86,7 +86,6 @@ small { display: block; font-size: .82rem; line-height: 1.5; }
 .skip-link:focus { top: 12px; }
 .site-header { position: relative; z-index: 20; border-bottom: 1px solid var(--line); background: rgb(251 252 251 / 96%); }
 .header-top { min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.header-top.container { width: min(1400px, calc(100% - 48px)); }
 .header-fallback { min-height: 79px; display: flex; align-items: center; color: var(--brand-deep); font-weight: 800; }
 .brand { display: inline-flex; width: 96px; height: 96px; align-items: center; justify-content: center; flex: 0 0 auto; text-decoration: none; overflow: hidden; }
 .brand img { width: 96px; height: 96px; object-fit: contain; }
@@ -124,10 +123,19 @@ small { display: block; font-size: .82rem; line-height: 1.5; }
 .hero-media::before { content: ""; position: absolute; inset: 0; background: linear-gradient(145deg, rgb(251 252 251 / 58%), transparent 55%); }
 .hero-media img { position: relative; width: min(58%, 260px); height: auto; opacity: .3; mix-blend-mode: multiply; }
 
-.benefits { display: grid; grid-template-columns: 1.15fr .85fr; gap: 0 72px; border-top: 1px solid var(--line); }
-.benefits article { min-height: 170px; padding: 28px 0; border-bottom: 1px solid var(--line); }
-.benefits article:nth-child(2) { margin-top: 44px; }
-.benefits article:nth-child(4) { margin-top: 44px; }
+.university-directory-strip { padding-block: clamp(42px, 6vw, 72px); border-bottom: 1px solid var(--line); background: var(--paper); }
+.directory-strip-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 28px; }
+.directory-strip-heading h2 { max-width: 18ch; margin: 0; font-size: clamp(1.55rem, 2.6vw, 2.25rem); }
+.university-logo-list { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.university-logo-list a { min-width: 0; min-height: 112px; display: grid; place-items: center; padding: 18px; border-right: 1px solid var(--line); text-decoration: none; transition: background-color 180ms var(--ease-out), transform 180ms var(--ease-out); }
+.university-logo-list a:last-child { border-right: 0; }
+.university-logo-list a:hover { background: var(--wash); }
+.university-logo-list a:active { transform: scale(.98); }
+.university-logo-list img { width: 100%; height: 72px; object-fit: contain; }
+.university-logo-list span { color: var(--brand-deep); font-size: .86rem; font-weight: 700; text-align: center; }
+.directory-strip-note { max-width: 70ch; margin: 16px 0 0; color: var(--muted); font-size: .8rem; }
+.benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 0 72px; border-top: 1px solid var(--line); }
+.benefits article { min-height: 132px; padding: 24px 0; border-bottom: 1px solid var(--line); }
 .benefits h3 { margin-bottom: 10px; }
 .benefits p { max-width: 46ch; color: var(--muted); }
 .process-section { background: var(--brand-deep); color: #e7f0ed; }
@@ -177,7 +185,12 @@ legend { padding-right: 8px; font-size: .9rem; }
 .state-symbol { display: block; margin-bottom: 10px; color: var(--brand-action); font-size: 1.6rem; font-weight: 700; }
 .structure-preview { margin-top: 28px; }
 summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--brand-action); font-size: .9rem; font-weight: 700; }
-.school-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 26px; margin-top: 22px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.school-card-link { display: block; color: inherit; text-decoration: none; }
+.school-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 26px; margin-top: 6px; padding: 24px 12px; border-bottom: 1px solid var(--line); transition: background-color 180ms var(--ease-out), transform 180ms var(--ease-out); }
+.school-card-link:hover { color: inherit; }
+.school-card-link:hover .school-card { background: var(--wash); transform: translateX(4px); }
+.school-card-link:active .school-card { transform: translateX(2px); }
+.school-card-link:focus-visible { outline-offset: 2px; }
 .school-image { height: 150px; min-height: 150px; display: grid; place-items: center; overflow: hidden; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; color: #53746a; }
 .school-image img { width: 100%; height: 100%; object-fit: contain; }
 .school-image span { font-size: 1rem; font-weight: 800; letter-spacing: .06em; }
@@ -189,9 +202,9 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .course-list li { padding: 9px 0; border-bottom: 1px solid #dfe8e5; }
 .course-list strong { font-size: .95rem; font-weight: 650; }
 .course-list span { display: block; color: var(--muted); font-size: .82rem; }
-.programme-status { display: grid; gap: 4px; margin: 18px 0 20px; padding: 14px 16px; border-left: 3px solid var(--brand-action); background: var(--wash); }
-.programme-status strong { color: var(--brand-deep); font-size: .92rem; }
-.programme-status span { color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.programme-status { margin: 16px 0 12px; color: var(--muted); font-size: .86rem; line-height: 1.55; }
+.programme-status strong { color: var(--brand-deep); font-size: inherit; }
+.school-card-action { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--brand-action); font-size: .9rem; font-weight: 750; }
 .pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 34px; }
 .pagination span { font-size: .9rem; }
 .pagination button, .pagination .button { padding: 9px 16px; font-size: .9rem; }
@@ -202,8 +215,8 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .detail-aside p { color: var(--muted); font-size: .92rem; }
 .detail-section { margin-bottom: 46px; }
 .detail-image { min-height: 220px; display: grid; place-items: center; margin-bottom: 24px; padding: 24px; border-radius: var(--radius-sm); background: #e4eeeb; color: var(--muted); text-align: center; }
-.university-logo-panel { min-height: 280px; border: 1px solid var(--line); background: #fff; }
-.university-logo-panel img { width: min(100%, 640px); max-height: 230px; object-fit: contain; }
+.university-logo-panel { min-height: 200px; border: 1px solid var(--line); background: #fff; }
+.university-logo-panel img { width: min(100%, 560px); max-height: 160px; object-fit: contain; }
 .programme-pending-section { padding: clamp(24px, 4vw, 38px); border-radius: var(--radius-md); background: var(--wash); }
 .programme-pending-section h2 { margin-bottom: 12px; }
 .programme-pending-section p:last-child { margin-bottom: 0; color: var(--muted); }
@@ -227,7 +240,6 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 @media (max-width: 980px) {
   .container { width: min(100% - 40px, 1200px); }
   .header-top { min-height: 82px; }
-  .header-top.container { width: min(100% - 40px, 1200px); }
   .brand, .brand img { width: 76px; height: 76px; }
   .navigation-toggle { display: inline-flex; }
   .navigation { display: none; min-height: 0; padding-block: 12px 20px; flex-direction: column; gap: 0; overflow: visible; }
@@ -235,6 +247,9 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
   .navigation a { width: 100%; min-height: 46px; border-bottom: 1px solid var(--line); }
   .navigation a[aria-current="page"] { border-bottom-color: var(--line); color: var(--brand-action); }
   .hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(290px, .9fr); gap: 40px; }
+  .university-logo-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .university-logo-list a:nth-child(3) { border-right: 0; }
+  .university-logo-list a:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
   .listing-layout { grid-template-columns: 250px minmax(0, 1fr); gap: 26px; }
   .detail-layout { grid-template-columns: minmax(0, 1fr) 270px; gap: 30px; }
   .footer-grid { grid-template-columns: .7fr 1.3fr; }
@@ -244,7 +259,6 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 @media (max-width: 760px) {
   .container { width: calc(100% - 32px); }
   .header-top { gap: 14px; }
-  .header-top.container { width: calc(100% - 32px); }
   .brand, .brand img { width: 66px; height: 66px; }
   .header-actions { gap: 10px; }
   .language-switch { gap: 6px; padding-inline: 6px; font-size: .88rem; }
@@ -256,6 +270,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
   .hero-grid { display: flex; flex-direction: column; }
   .hero-copy, .hero-media { width: 100%; }
   .hero-media { max-height: 340px; }
+  .directory-strip-heading { align-items: start; flex-direction: column; gap: 16px; }
   .benefits { grid-template-columns: 1fr; gap: 0; }
   .benefits article, .benefits article:nth-child(2), .benefits article:nth-child(4) { min-height: 0; margin-top: 0; padding: 24px 0; }
   .process { grid-template-columns: 1fr; border-top: 0; }
@@ -268,6 +283,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
   .page-main { padding-block: 36px 52px; }
   .form-grid { grid-template-columns: minmax(0, 1fr); }
   .school-card { grid-template-columns: 110px minmax(0, 1fr); gap: 18px; padding: 22px 0; }
+  .school-card-link:hover .school-card { transform: none; }
   .school-image { height: 110px; min-height: 110px; }
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .footer-note { grid-column: auto; }
@@ -279,9 +295,13 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
   .search-row { flex-direction: column; }
   .search-row button { width: 100%; }
   .hero-media { max-height: 270px; }
+  .university-logo-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .university-logo-list a, .university-logo-list a:nth-child(3) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .university-logo-list a:nth-child(2n) { border-right: 0; }
+  .university-logo-list a:nth-last-child(-n+2) { border-bottom: 0; }
   .school-card { grid-template-columns: minmax(0, 1fr); }
   .school-image { height: 150px; }
-  .university-logo-panel { min-height: 220px; }
+  .university-logo-panel { min-height: 180px; }
   .results-heading span { width: 100%; }
   .course-details > div { grid-template-columns: 1fr; gap: 3px; }
   .form-actions { flex-direction: column; }

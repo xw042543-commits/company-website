@@ -3,7 +3,8 @@ import { existsSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
-import { findUniversityBySlug, localizeUniversity, searchUniversityCatalog, UNIVERSITY_CATALOG } from "./university-catalog.ts";
+import { filterUniversityCatalog, findUniversityBySlug, localizeUniversity, searchUniversityCatalog, UNIVERSITY_CATALOG } from "./university-catalog.ts";
+import { isNavigationActive } from "../lib/site.ts";
 
 test("matches an approved abbreviation", () => {
   assert.deepEqual(searchUniversityCatalog("UM").map((university) => university.slug), ["university-of-malaya"]);
@@ -19,6 +20,36 @@ test("normalizes case and surrounding whitespace", () => {
 
 test("returns no records for an unmatched query", () => {
   assert.deepEqual(searchUniversityCatalog("no such institution"), []);
+});
+
+test("filters the reviewed catalogue by country", () => {
+  const matches = filterUniversityCatalog("", "MY", "");
+  assert.equal(matches.length, UNIVERSITY_CATALOG.length);
+});
+
+test("filters the reviewed catalogue by continent", () => {
+  const matches = filterUniversityCatalog("", "", "AS");
+  assert.equal(matches.length, UNIVERSITY_CATALOG.length);
+});
+
+test("combines approved aliases with geography filters", () => {
+  assert.deepEqual(
+    filterUniversityCatalog("APU", "MY", "AS").map((university) => university.slug),
+    ["asia-pacific-university"],
+  );
+});
+
+test("returns no reviewed records for an unsupported geography", () => {
+  assert.deepEqual(filterUniversityCatalog("", "GB", "EU"), []);
+});
+
+test("marks a nested university detail route as active", () => {
+  assert.equal(isNavigationActive("/en/universities/sunway-university", "en", "universities"), true);
+});
+
+test("does not mark home active on nested routes", () => {
+  assert.equal(isNavigationActive("/zh/universities", "zh", ""), false);
+  assert.equal(isNavigationActive("/zh", "zh", ""), true);
 });
 
 test("finds a reviewed university by slug", () => {

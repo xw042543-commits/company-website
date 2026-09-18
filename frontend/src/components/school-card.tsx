@@ -16,7 +16,9 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
   const country = school ? (locale === "zh" ? school.countryZh ?? school.country : school.countryEn ?? school.country) : words(locale, "国家", "Country");
   const city = school ? (locale === "zh" ? school.cityZh ?? school.city : school.cityEn ?? school.city) : undefined;
 
-  return <article className="school-card">
+  const detailHref = `/${locale}/universities/${school ? encodeURIComponent(school.slug) : "preview"}`;
+
+  return <Link className="school-card-link" href={detailHref}><article className="school-card">
     <div className="school-image">
       {school?.logoSrc
         ? <Image src={school.logoSrc} width={320} height={180} sizes="(max-width: 520px) 100vw, 150px" alt={words(locale, `${name} 标志`, `${name} logo`)} />
@@ -27,8 +29,8 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
       <h3>{name}</h3>
       {secondaryName && secondaryName !== name && <p className="school-secondary-name">{secondaryName}</p>}
       <p className="muted">{country}{city ? ` · ${city}` : school ? ` · ${missing}` : ` · ${words(locale, "城市", "City")}`}</p>
-      {courses.length ? <><h4>{words(locale, "匹配课程", "Matching courses")}</h4><ul className="course-list">{courses.map(course => <li key={course.id}><strong>{course.name}</strong><span>{words(locale, "学历层次", "Qualification")}: {course.level || missing}<br />{words(locale, "授课语言", "Teaching language")}: {course.language || missing}</span></li>)}</ul></> : school ? <div className="programme-status"><strong>{words(locale, "专业资料即将上线", "Programme information coming soon")}</strong><span>{words(locale, "资料审核期间，可先向顾问了解课程与申请安排。", "Ask an adviser about courses and applications while the information is reviewed.")}</span></div> : <ul className="course-list"><li><strong>{words(locale, "课程资料", "Course information")}</strong><span>{words(locale, "资料接入后将在此显示。", "Information will appear here when connected.")}</span></li></ul>}
-      <Link className="button secondary" href={`/${locale}/universities/${school ? encodeURIComponent(school.slug) : "preview"}`}>{words(locale, "查看详情", "View details")} <span aria-hidden="true">→</span></Link>
+      {courses.length ? <><h4>{words(locale, "匹配课程", "Matching courses")}</h4><ul className="course-list">{courses.map(course => <li key={course.id}><strong>{course.name}</strong><span>{words(locale, "学历层次", "Qualification")}: {course.level || missing}<br />{words(locale, "授课语言", "Teaching language")}: {course.language || missing}</span></li>)}</ul></> : school ? <p className="programme-status"><strong>{words(locale, "专业资料整理中", "Programme details in review")}</strong> {words(locale, "可先向顾问了解课程与申请安排。", "Ask an adviser about courses and applications.")}</p> : <ul className="course-list"><li><strong>{words(locale, "课程资料", "Course information")}</strong><span>{words(locale, "资料接入后将在此显示。", "Information will appear here when connected.")}</span></li></ul>}
+      <span className="school-card-action">{words(locale, "查看院校详情", "View university details")} <span aria-hidden="true">→</span></span>
     </div>
-  </article>;
+  </article></Link>;
 }

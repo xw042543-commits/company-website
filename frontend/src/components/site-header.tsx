@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Locale, navigation, words } from "@/lib/site";
+import { isNavigationActive, Locale, navigation, words } from "@/lib/site";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const pathname = usePathname();
@@ -35,7 +35,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       </div>
     </div>
     <nav id="primary-navigation" className={`navigation container${menuOpen ? " navigation-open" : ""}`} aria-label={words(locale, "主导航", "Main navigation")}>
-      {navigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={pathname === `/${locale}${path ? `/${path}` : ""}` ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
+      {navigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={isNavigationActive(pathname, locale, path) ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
     </nav>
   </header>;
 }
