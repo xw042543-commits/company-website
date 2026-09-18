@@ -14,7 +14,7 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 class V4MigrationCompatibilityTest {
 
     @Test
-    void upgradesPopulatedV3DatabaseWithoutChangingLegacyProgramme() {
+    void upgradesPopulatedV3DatabaseThroughV5WithoutChangingLegacyProgramme() {
         try (PostgreSQLContainer postgres = new PostgreSQLContainer("postgres:17.11")
                 .withDatabaseName("company_website_v4_compatibility_test")) {
             postgres.start();
@@ -25,10 +25,20 @@ class V4MigrationCompatibilityTest {
             JdbcTemplate jdbcTemplate = jdbcTemplateFor(postgres);
             Long programmeId = insertV3Programme(jdbcTemplate);
 
-            Flyway v4 = flywayForLatestVersion(postgres);
-            v4.migrate();
+            Flyway latest = flywayForLatestVersion(postgres);
+            latest.migrate();
 
-            assertThat(v4.info().current().getVersion().getVersion()).isEqualTo("4");
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("5");
+            Boolean lockTokenColumnExists = jdbcTemplate.queryForObject("""
+                    SELECT EXISTS (
+                        SELECT 1
+                        FROM information_schema.columns
+                        WHERE table_schema = 'public'
+                          AND table_name = 'search_sync_jobs'
+                          AND column_name = 'lock_token'
+                    )
+                    """, Boolean.class);
+            assertThat(lockTokenColumnExists).isTrue();
             Map<String, Object> storedProgramme = jdbcTemplate.queryForMap("""
                     SELECT programme_code, slug, name_en, tuition_fee_period,
                            tuition_total_rmb_min, tuition_total_rmb_max

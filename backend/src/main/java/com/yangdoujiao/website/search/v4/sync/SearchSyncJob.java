@@ -3,6 +3,7 @@ package com.yangdoujiao.website.search.v4.sync;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -44,6 +45,9 @@ public class SearchSyncJob {
 
     @Column(name = "locked_at")
     private Instant lockedAt;
+
+    @Column(name = "lock_token")
+    private UUID lockToken;
 
     @Column(name = "last_error", length = 1000)
     private String lastError;

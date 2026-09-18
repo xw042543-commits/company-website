@@ -3,5 +3,12 @@ app:
     index:
       batch-size: 2
       initialize-on-startup: false
+    sync:
+      batch-size: 2
+      poll-interval-ms: 60000
+      max-attempts: 3
+      retry-delay: 30s
+      lock-timeout: 5m
+      scheduling-enabled: false
   cors:
     allowed-origins: http://localhost:3000
