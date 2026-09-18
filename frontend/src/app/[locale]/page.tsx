@@ -37,7 +37,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     </div></section>
     <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
       <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "已审核院校资料", "Reviewed university information")}</p><h2 id="reviewed-universities-heading">{words(locale, "浏览院校一览", "Browse the university directory")}</h2></div><Link className="text-link" href={`/${locale}/universities`}>{words(locale, "查看全部院校", "View all universities")} <span aria-hidden="true">→</span></Link></div>
-      <div className="university-logo-list">{UNIVERSITY_CATALOG.slice(0, 6).map((university) => <Link key={university.id} href={`/${locale}/universities/${university.slug}`} aria-label={locale === "zh" ? university.nameZh : university.nameEn}>{university.logoSrc ? <Image src={university.logoSrc} width={220} height={110} alt="" /> : <span>{locale === "zh" ? university.nameZh : university.nameEn}</span>}</Link>)}</div>
+      <div className="university-logo-list">{UNIVERSITY_CATALOG.slice(0, 6).map((university) => <Link key={university.id} data-logo={university.id} href={`/${locale}/universities/${university.slug}`} aria-label={locale === "zh" ? university.nameZh : university.nameEn}>{university.logoSrc ? <Image src={university.logoSrc} width={220} height={110} alt="" /> : <span>{locale === "zh" ? university.nameZh : university.nameEn}</span>}</Link>)}</div>
       <p className="directory-strip-note">{words(locale, "这里展示的是网站已审核并收录的院校资料，不代表合作关系。", "These are reviewed directory records. Display does not imply a partnership.")}</p>
     </div></section>
     <section className="container section">
