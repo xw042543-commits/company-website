@@ -1,6 +1,10 @@
 export type Locale = "zh" | "en";
 export const isLocale = (value: string): value is Locale => value === "zh" || value === "en";
 export const words = (locale: Locale, zh: string, en: string) => locale === "zh" ? zh : en;
+export function isNavigationActive(pathname: string, locale: Locale, path: string) {
+  const target = `/${locale}${path ? `/${path}` : ""}`;
+  return path ? pathname === target || pathname.startsWith(`${target}/`) : pathname === target || pathname === `${target}/`;
+}
 export const navigation = [
   ["", "首页", "Home"], ["planning", "规划", "Planning"],
   ["universities", "院校一览", "Universities"], ["language", "语言", "Language"],

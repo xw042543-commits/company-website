@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Locale, navigation, words } from "@/lib/site";
+import { isNavigationActive, Locale, navigation, words } from "@/lib/site";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const pathname = usePathname();
@@ -27,6 +27,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <span className="language-symbol" aria-hidden="true"><span>A</span><span>文</span></span>
           <span>{locale === "zh" ? "EN" : "中文"}</span>
         </Link>
+        <Link className="login-link" href={`/${locale}/login`} aria-current={pathname === `/${locale}/login` ? "page" : undefined}>{words(locale, "登录", "Sign in")}</Link>
         <Link className="button small" href={`/${locale}/consultation`}>{words(locale, "咨询", "Enquire")}</Link>
         <button type="button" className="navigation-toggle" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen(value => !value)}>
           <span>{words(locale, "菜单", "Menu")}</span>
@@ -35,7 +36,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       </div>
     </div>
     <nav id="primary-navigation" className={`navigation container${menuOpen ? " navigation-open" : ""}`} aria-label={words(locale, "主导航", "Main navigation")}>
-      {navigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={pathname === `/${locale}${path ? `/${path}` : ""}` ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
+      {navigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={isNavigationActive(pathname, locale, path) ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
     </nav>
   </header>;
 }

@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { Locale, words } from "@/lib/site";
 
-export function ResultsState({ locale, state }: { locale: Locale; state: "loading" | "empty" | "error" | "unconfigured" | "pending" }) {
+export function ResultsState({ locale, state, actionHref }: { locale: Locale; state: "loading" | "empty" | "error" | "unconfigured" | "pending"; actionHref?: string }) {
   const messages = {
     loading: ["正在加载院校", "Loading universities", "请稍候。", "Please wait."],
     empty: ["没有找到符合条件的院校", "No matching universities", "请调整筛选条件后重试。", "Try adjusting your filters."],
@@ -14,5 +15,6 @@ export function ResultsState({ locale, state }: { locale: Locale; state: "loadin
     <span className="state-symbol" aria-hidden="true">{state === "loading" ? "…" : state === "error" ? "!" : "○"}</span>
     <h3>{words(locale, zh, en)}</h3>
     <p>{words(locale, bodyZh, bodyEn)}</p>
+    {state === "empty" && actionHref ? <Link className="text-link" href={actionHref}>{words(locale, "清除搜索和筛选条件", "Clear search and filters")}</Link> : null}
   </div>;
 }
