@@ -3,14 +3,19 @@
 ## 目标接口和当前实现
 
 - 批准的 API 前缀：`/api/v1`
-- 目标搜索接口：`GET /api/v1/universities/search`
-- 目标响应：统一分页响应 `items`、`page`、`pageSize`、`totalItems`、`totalPages`，默认每页 12 所学校，最大 48
+- 搜索接口：`GET /api/v1/universities/search`
+- 筛选字典接口：`GET /api/v1/catalog/filter-options`
+- 分页响应：`items`、`page`、`pageSize`、`totalItems`、`totalPages`，默认每页 12 所学校，最大 48
 - 正式数据源：PostgreSQL
 - 目标搜索与筛选：Elasticsearch 中以 University 为一条文档，Programme 使用 nested 对象
 
-当前代码尚未实现上述目标接口。现有 `SearchController` 只提供 `GET /api/search?q=...`，返回普通列表；`UniversitySearchService` 调用 `UniversitySearchRepository` 查询只有学校基础字段的 Elasticsearch 索引。当前应用启动时会从 PostgreSQL 读取所有 University，删除并重建索引。批准设计要求后续改为只索引已发布学校、嵌套已发布 Programme，并通过可重试同步任务维护索引。本阶段不修改这些组件。
+当前代码已实现上述两个 V1 接口。新搜索索引以 University 为根文档，嵌套已发布
+Programme；支持版本化重建、读写别名切换和 PostgreSQL 可重试增量同步。旧的
+`GET /api/search?q=...` 仍作为迁移期兼容接口，不代表 V4 的完整筛选能力。
 
-目标请求链路为：Browser → Next.js → `SearchController` → `UniversitySearchService` → Elasticsearch。正式业务数据由 Service/Repository 写入 PostgreSQL，提交后再同步为可重建的 Elasticsearch 搜索投影。以下测试矩阵是目标接口的验收设计，不代表当前旧接口已经具备这些能力。
+当前请求链路为：Browser → Next.js → `UniversitySearchV1Controller` →
+`UniversitySearchV1Service` → Elasticsearch。正式业务数据由 Service/Repository 写入
+PostgreSQL，提交后再入队，由 worker 同步为可重建的 Elasticsearch 投影。
 
 ## 核心判定规则
 
@@ -103,12 +108,12 @@
 | F08 | 同维度 OR、跨维度 AND | 国家 `GB`、`AU` + 模式 `ON_CAMPUS` | 仅返回北辰虚构大学 | 国家维度内部 OR；澳大利亚 Programme 为 `HYBRID`，不得匹配 |
 | F09 | 一个 Programme 多语言 | `GB` + `ZH`；再测 `GB` + `EN` | 两次都返回北辰虚构大学的 `P-GB-DS-01` | 多语言关联均可检索，不重复返回学校或 Programme |
 | F10 | 一个 Programme 多入学时间 | `GB` + 2027-01；再测 `GB` + 2027-09 | 两次都匹配 `P-GB-DS-01` | 多个入学时间均可筛选，不产生重复学校卡片 |
-| F11 | 学费筛选命中 | 人民币费用范围与 200000–236000 有效匹配 | 按批准的区间边界规则返回北辰虚构大学及 `P-GB-DS-01` | 当前尚无目标 API 实现；执行前必须固定“区间重叠或完全包含”语义及边界包含规则 |
+| F11 | 学费筛选命中 | 人民币费用范围与 200000–236000 有效匹配 | 按区间相交规则返回北辰虚构大学及 `P-GB-DS-01` | 区间边界包含；只提供一侧边界时也可筛选 |
 | F12 | 学费为空 | 启用任意人民币学费范围并包含新加坡数据 | `P-SG-IT-01` 不算匹配 | 空值不能被当作 0 或无限范围 |
 | F13 | 一校一卡 | 条件同时匹配北辰虚构大学多个 Programme | 北辰虚构大学只出现一次 | University 去重；匹配 Programme 聚合在同一卡片 |
 | F14 | 每校最多 3 个匹配专业 | 为北辰虚构大学在测试环境补足 4 个匹配 Programme | 卡片只显示 3 个 | 3 个应是匹配专业，不是任意专业；具体专业排序按后端规则 |
 | F15 | 分页 | 构造 13 所满足条件的虚构 University，页大小 12 | 第 1 页 12 所，第 2 页 1 所 | 总数、页码、页大小正确，无重复或遗漏 |
-| F16 | 非法课程模式 | 模式 `REMOTE_ONLY`；另测 `UNKNOWN_MODE` | 请求校验失败或返回现有统一错误响应 | `ONLINE` 必须被接受为合法值 |
+| F16 | 非法课程模式 | 模式 `REMOTE_ONLY`；另测 `UNKNOWN_MODE` | 返回 400 统一校验错误 | `ONLINE` 必须被接受为已发布合法值 |
 | F17 | 非法日期或数字 | 无效入学日期、负学费、最低值大于最高值 | 数据校验失败并指出字段原因 | 不写入 PostgreSQL、不进入 Elasticsearch |
 | F18 | 名称至少一个 | University 或 Programme 的中英文名都为空 | 数据校验失败 | 只有中文或只有英文时通过，不自动翻译 |
 | F19 | 重复语言 | 同一 Programme 重复关联相同语言 | 校验或唯一约束拒绝重复 | `programme_languages` 不产生重复项 |
@@ -117,8 +122,13 @@
 | F22 | 咨询展示 | Programme 学费全部为空 | 页面显示“请咨询” | 与学费筛选中的“不匹配”规则同时成立 |
 | F23 | 公开索引状态 | 重建或同步公开搜索索引 | 新西兰 DRAFT 学校和 Programme 不可被搜索 | 公开索引只包含 PUBLISHED University 及其 PUBLISHED Programme |
 
-## 执行前需要从代码确认的断言
+## 当前验证状态
 
-当前代码已经确认统一分页字段名和一页 12 条默认值，但目标搜索 Controller 尚未实现。执行自动化测试前仍需从对应实现或批准 API 约定确认：实际查询参数名、错误状态码和错误体、无关键词默认顺序、匹配 Programme 的卡片内排序，以及学费筛选的区间边界语义。DRAFT/ARCHIVED 不进入公开索引和 PostgreSQL 提交后再同步 Elasticsearch 已由批准设计确定。
+- F01～F15、F22、F23：已由真实 Elasticsearch/PostgreSQL 集成测试或查询映射测试验证。
+- F16～F21：已由请求校验、数据库约束和 Repository 集成测试验证后端规则。
+- 别名冲突、非法别名目标、索引无中断切换、增量同步并发领取、失败重试和 stale lease 恢复：已通过自动化测试验证。
+- 2026-09-18 本地冒烟：筛选字典接口返回 200（开发库尚无目录数据）；新搜索返回 200 空分页；颠倒学费范围返回 400 且包含 `traceId`；旧 `/api/search` 返回 200。
+- 未验证：老板正式 Excel 数据、正式数据导入、前端浏览器整体流程、真实联系咨询跳转和生产环境。
 
-在完成代码核对前，本矩阵是测试设计，不代表相关接口测试已经运行或通过。
+无关键词时默认按热门状态、中文名称和院校 ID 稳定排序；有关键词时先按相关度，
+再按热门状态和 ID 排序。卡片内匹配 Programme 按 nested 相关度和 Programme ID 排序。

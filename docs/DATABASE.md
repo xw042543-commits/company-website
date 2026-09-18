@@ -6,8 +6,8 @@ PostgreSQL 是本项目的主数据库，也是业务数据的唯一真实来源
 Redis 只负责缓存，Elasticsearch 只负责全文搜索；即使缓存或搜索索引被清空，也必须
 能够根据 PostgreSQL 中的数据重新生成。
 
-当前 V3 只建立院校、课程和筛选字典的数据结构，不包含老板尚未提供的正式 Excel
-数据，也没有实现课程筛选 API。
+当前 V5 已建立院校、课程、筛选字典、搜索别名和可重试同步任务的数据结构。
+仓库不包含老板尚未提供的正式 Excel 数据，测试数据只存在于临时测试容器中。
 
 ## 数据库版本管理
 
@@ -20,9 +20,11 @@ Redis 只负责缓存，Elasticsearch 只负责全文搜索；即使缓存或搜
 - `V1__create_universities_table.sql`：创建最初的院校表。
 - `V2__create_catalog_tables.sql`：创建国家表和专业分类表。
 - `V3__extend_universities_and_create_programmes.sql`：扩展院校资料，并创建课程、课程字典、授课语言关系和入学时间表。
+- `V4__create_search_support.sql`：补充课程总学费字段，并创建搜索别名和索引同步任务表。
+- `V5__add_search_sync_job_lock_token.sql`：为每次同步任务领取增加独立 UUID lease token，防止过期 worker 修改已被新 worker 重新领取的任务。
 
 已经在任何环境执行过的迁移文件不能直接修改。后续需要调整结构时，应新增
-`V4__...sql`，确保三名开发人员、CI 和服务器按相同顺序升级数据库。
+新的顺序版本迁移，确保三名开发人员、CI 和服务器按相同顺序升级数据库。
 
 ## 表之间的关系
 
@@ -114,6 +116,8 @@ languages ── programme_languages
 - `duration_months`、`duration_display`：标准化学制和原始展示文字。
 - `tuition_min`、`tuition_max`、`tuition_currency`、`tuition_display`：原币学费范围、三位币种代码和展示文字。
 - `tuition_rmb_min`、`tuition_rmb_max`、`exchange_rate`、`exchange_rate_date`：人民币参考值及其换算依据。
+- `tuition_fee_period`：原学费的计费周期，可为每年、每学期、全课程或未知。
+- `tuition_total_rmb_min`、`tuition_total_rmb_max`：可直接用于搜索筛选的全课程人民币总学费区间。
 - `status`、`created_at`、`updated_at`、`published_at`：发布和审计信息。
 
 数据库会阻止负数学费、最小值大于最大值、无币种的学费金额、无汇率依据的人民币
@@ -135,6 +139,32 @@ languages ── programme_languages
 
 同时保留标准日期和原始文字，是为了既能进行可靠筛选，又不擅自改变老板提供的内容。
 
+## 搜索支持表
+
+### search_aliases
+
+保存用户可能输入的搜索别名，例如把 `UK` 解析为国家代码 `GB`。别名可指向
+国家、专业分类或具体课程。只有 `PUBLISHED` 别名参与公开搜索；相同规范化别名
+同时指向不同目标时，服务会拒绝模糊解析。
+
+### search_sync_jobs
+
+保存 PostgreSQL 业务数据到 Elasticsearch 投影的可重试同步任务。重要字段包括：
+
+- `university_id`：需要重建搜索文档的院校。
+- `status`：`PENDING`、`PROCESSING` 或 `FAILED`。
+- `attempt_count`、`available_at`：重试次数和下次可领取时间。
+- `locked_at`、`lock_token`：当前 lease 时间和唯一所有权标识。
+- `last_error`：只保存不含业务正文或 Elasticsearch 完整响应的安全错误摘要。
+
+入队必须和未来的院校或课程写入处于同一 PostgreSQL 事务中。当前还没有后台写入
+或 Excel 导入入口；后续新增这些入口时，必须在业务事务内调用 `SearchSyncEnqueuer`。
+
+worker 用 PostgreSQL `FOR UPDATE SKIP LOCKED` 安全领取有限批次，提交领取事务后才访问
+Elasticsearch。公开院校会把完整投影写入 `universities-v4-write`；未发布、不存在或
+没有已发布课程的院校会从索引删除。失败任务按确定性延迟重试，超过上限后标记为
+`FAILED`；过期 `PROCESSING` 任务可重新领取。
+
 ## Java 数据访问层
 
 主要代码位置：
@@ -142,13 +172,14 @@ languages ── programme_languages
 - `catalog/`：国家、专业分类、学历层次、课程模式和语言字典。
 - `university/`：院校实体与 Repository。
 - `programme/`：课程、课程语言关系、入学时间及其 Repository。
+- `search/v4/`：搜索投影、Elasticsearch 查询、索引重建、别名解析和增量同步任务。
 
 标准的数据访问顺序是：
 
 `Controller → Service → Repository → PostgreSQL`
 
 实体类负责数据库映射。REST API 应使用独立 DTO 返回数据，避免数据库结构直接绑定
-前端页面。当前 V3 只完成数据层，课程筛选 Controller 和 Service 会在后续版本实现。
+前端页面。当前已提供筛选字典和院校课程搜索 API，但正式数据导入仍需等待老板提供资料。
 
 ## 测试与本地数据安全
 
