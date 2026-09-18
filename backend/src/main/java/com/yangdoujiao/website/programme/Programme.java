@@ -114,6 +114,16 @@ public class Programme {
     @Column(name = "tuition_rmb_max", precision = 14, scale = 2)
     private BigDecimal tuitionRmbMax;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tuition_fee_period", nullable = false, length = 24)
+    private TuitionFeePeriod tuitionFeePeriod = TuitionFeePeriod.UNKNOWN;
+
+    @Column(name = "tuition_total_rmb_min", precision = 14, scale = 2)
+    private BigDecimal tuitionTotalRmbMin;
+
+    @Column(name = "tuition_total_rmb_max", precision = 14, scale = 2)
+    private BigDecimal tuitionTotalRmbMax;
+
     @Column(name = "exchange_rate", precision = 18, scale = 8)
     private BigDecimal exchangeRate;
 

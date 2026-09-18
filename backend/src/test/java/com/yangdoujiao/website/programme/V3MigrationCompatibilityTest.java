@@ -32,7 +32,7 @@ class V3MigrationCompatibilityTest {
                     VALUES ('University of Malaya', 'university-of-malaya', 'Malaysia', TRUE)
                     """);
 
-            Flyway v3 = flywayForLatestVersion(postgres);
+            Flyway v3 = flywayFor(postgres, "3");
             v3.migrate();
 
             assertThat(v3.info().current().getVersion().getVersion()).isEqualTo("3");
@@ -58,9 +58,4 @@ class V3MigrationCompatibilityTest {
                 .load();
     }
 
-    private Flyway flywayForLatestVersion(PostgreSQLContainer postgres) {
-        return Flyway.configure()
-                .dataSource(postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword())
-                .load();
-    }
 }
