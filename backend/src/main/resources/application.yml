@@ -26,3 +26,16 @@ logging:
   level:
     root: INFO
     com.yangdoujiao.website: INFO
+
+app:
+  search:
+    index:
+      batch-size: 200
+      initialize-on-startup: true
+    sync:
+      batch-size: 50
+      poll-interval-ms: 5000
+      max-attempts: 3
+      retry-delay: 30s
+      lock-timeout: 5m
+      scheduling-enabled: true

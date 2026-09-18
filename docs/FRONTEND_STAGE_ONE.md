@@ -70,7 +70,6 @@ Open `/zh` or `/en` on the displayed localhost port. The homepage, planning layo
 - Review cards show field names, not fabricated school records. The pagination review uses a count only, not generated business data.
 - Form preview controls have no submitted names or GET action containing personal data. Nothing is written to localStorage, sent to an API, logged or saved. Privacy consent and final submission are disabled pending policy and endpoint approval.
 - English copy, duration units (months), country codes and API identifiers are implementation proposals for review, not new boss-authored rules.
-- The existing `README.md` and `AGENTS.md` still mention Java 25. The user separately changed `pom.xml` to 21 and supplied a successful clean Java 21 compilation. Backend documentation ownership remains with the team; this frontend change does not rewrite those files.
 
 ## Component ownership
 
