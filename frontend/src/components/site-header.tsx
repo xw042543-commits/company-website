@@ -27,6 +27,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <span className="language-symbol" aria-hidden="true"><span>A</span><span>文</span></span>
           <span>{locale === "zh" ? "EN" : "中文"}</span>
         </Link>
+        <Link className="login-link" href={`/${locale}/login`} aria-current={pathname === `/${locale}/login` ? "page" : undefined}>{words(locale, "登录", "Sign in")}</Link>
         <Link className="button small" href={`/${locale}/consultation`}>{words(locale, "咨询", "Enquire")}</Link>
         <button type="button" className="navigation-toggle" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen(value => !value)}>
           <span>{words(locale, "菜单", "Menu")}</span>
