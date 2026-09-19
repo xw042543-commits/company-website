@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { UNIVERSITY_CATALOG } from "@/data/university-catalog";
+import { SearchSuggestionList } from "@/components/search-suggestion-list";
+import { UniversityLogoCarousel } from "@/components/university-logo-carousel";
+import { courseSuggestions } from "@/data/search-suggestions";
 import { isLocale, words } from "@/lib/site";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -24,7 +26,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <p className="hero-intro">{words(locale, "从专业方向开始筛选院校，在需要时获得清晰的申请协助。", "Start with your study interests, compare universities, and get clear application guidance when you need it.")}</p>
         <form action={`/${locale}/planning`} className="home-search">
           <label htmlFor="home-keyword">{words(locale, "专业关键词", "Course keyword")}</label>
-          <div className="search-row"><input id="home-keyword" name="q" type="search" maxLength={100} placeholder={words(locale, "输入想学习的专业", "What would you like to study?")} /><button type="submit">{words(locale, "查询专业", "Find a course")}</button></div>
+          <div className="search-row"><input id="home-keyword" name="q" type="search" list="home-course-suggestions" autoComplete="off" maxLength={100} placeholder={words(locale, "输入想学习的专业", "What would you like to study?")} /><button type="submit">{words(locale, "查询专业", "Find a course")}</button></div>
+          <SearchSuggestionList id="home-course-suggestions" suggestions={courseSuggestions(locale)} />
         </form>
         <Link className="text-link hero-enquiry" href={`/${locale}/consultation`}>{words(locale, "需要协助？咨询顾问", "Need guidance? Enquire with an adviser")} <span aria-hidden="true">→</span></Link>
         <div className="shortcuts" aria-label={words(locale, "学习方向", "Study options")}>
@@ -37,7 +40,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     </div></section>
     <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
       <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "已审核院校资料", "Reviewed university information")}</p><h2 id="reviewed-universities-heading">{words(locale, "浏览院校一览", "Browse the university directory")}</h2></div><Link className="text-link" href={`/${locale}/universities`}>{words(locale, "查看全部院校", "View all universities")} <span aria-hidden="true">→</span></Link></div>
-      <div className="university-logo-list">{UNIVERSITY_CATALOG.slice(0, 6).map((university) => <Link key={university.id} data-logo={university.id} href={`/${locale}/universities/${university.slug}`} aria-label={locale === "zh" ? university.nameZh : university.nameEn}>{university.logoSrc ? <Image src={university.logoSrc} width={220} height={110} alt="" /> : <span>{locale === "zh" ? university.nameZh : university.nameEn}</span>}</Link>)}</div>
+      <UniversityLogoCarousel locale={locale} />
       <p className="directory-strip-note">{words(locale, "这里展示的是网站已审核并收录的院校资料，不代表合作关系。", "These are reviewed directory records. Display does not imply a partnership.")}</p>
     </div></section>
     <section className="container section">
