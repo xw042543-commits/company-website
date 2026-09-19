@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { SearchSuggestionList } from "@/components/search-suggestion-list";
+import { courseSuggestions } from "@/data/search-suggestions";
 import { Locale, Query, continents, countries, first, levels, words } from "@/lib/site";
 type Option = readonly [string, string, string];
 export function FilterPanel({ locale, query, directory = false }: { locale: Locale; query: Query; directory?: boolean }) {
@@ -20,7 +22,7 @@ export function FilterPanel({ locale, query, directory = false }: { locale: Loca
     <div id="filter-fields" className={expanded ? "filter-fields expanded" : "filter-fields"}>
       <div className="filter-heading"><h2>{words(locale, "筛选条件", "Filters")}</h2><Link href={path}>{words(locale, "清除全部", "Clear all")}</Link></div>
       <form action={path} method="get" key={`${locale}:${JSON.stringify(query)}`}>
-        {!directory && <><div className="field"><label htmlFor="q">{words(locale, "专业关键词", "Course keyword")}</label><input id="q" name="q" type="search" maxLength={100} defaultValue={first(query, "q")} /><small>{words(locale, "搜索接入后将支持已确认的中英文名称与别名。", "Search will support approved English and Chinese names and aliases when connected.")}</small></div>
+        {!directory && <><div className="field"><label htmlFor="q">{words(locale, "专业关键词", "Course keyword")}</label><input id="q" name="q" type="search" list="planning-course-suggestions" autoComplete="off" maxLength={100} defaultValue={first(query, "q")} /><SearchSuggestionList id="planning-course-suggestions" suggestions={courseSuggestions(locale)} /><small>{words(locale, "输入关键词时可选择建议的专业方向。", "Choose a suggested subject while entering a keyword.")}</small></div>
           {select("category", "专业分类 / 领域", "Subject category / field", [])}<small>{words(locale, "专业分类确认后将在此提供。", "Subject categories will appear after approval.")}</small>
           {select("level", "学历层次", "Qualification", levels)}
         </>}
