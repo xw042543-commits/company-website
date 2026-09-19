@@ -82,6 +82,13 @@ test("localizes a university identity for English pages", () => {
   });
 });
 
+test("APU and UTAR use the supplied local logos", () => {
+  const apu = UNIVERSITY_CATALOG.find((university) => university.id === "apu");
+  const utar = UNIVERSITY_CATALOG.find((university) => university.id === "utar");
+  assert.equal(apu?.logoSrc, "/universities/asia-pacific-university.png");
+  assert.equal(utar?.logoSrc, "/universities/universiti-tunku-abdul-rahman.png");
+});
+
 test("every supplied logo reference resolves to a nonempty public file", () => {
   const publicRoot = fileURLToPath(new URL("../../public/", import.meta.url));
   for (const university of UNIVERSITY_CATALOG) {

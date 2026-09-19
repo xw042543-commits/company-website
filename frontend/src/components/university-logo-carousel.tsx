@@ -37,10 +37,10 @@ export function UniversityLogoCarousel({ locale }: { locale: Locale }) {
   return <div className="university-carousel">
     <div className="carousel-controls" aria-label={words(locale, "院校轮播控制", "University carousel controls")}>
       <button type="button" disabled={position.start} onClick={() => move(-1)} aria-label={words(locale, "查看上一组院校", "Show previous universities")}>
-        <span aria-hidden="true">←</span>
+        <span className="carousel-chevron carousel-chevron--previous" aria-hidden="true" />
       </button>
       <button type="button" disabled={position.end} onClick={() => move(1)} aria-label={words(locale, "查看下一组院校", "Show next universities")}>
-        <span aria-hidden="true">→</span>
+        <span className="carousel-chevron carousel-chevron--next" aria-hidden="true" />
       </button>
     </div>
     <div ref={trackRef} className="university-logo-track" onScroll={updatePosition}>
