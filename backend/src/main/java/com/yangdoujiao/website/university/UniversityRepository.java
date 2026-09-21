@@ -14,4 +14,7 @@ public interface UniversityRepository extends JpaRepository<University, Long> {
 
     @EntityGraph(attributePaths = "countryReference")
     Optional<University> findByIdAndStatus(Long id, CategoryStatus status);
+
+    @EntityGraph(attributePaths = "countryReference")
+    Optional<University> findBySlugAndStatus(String slug, CategoryStatus status);
 }

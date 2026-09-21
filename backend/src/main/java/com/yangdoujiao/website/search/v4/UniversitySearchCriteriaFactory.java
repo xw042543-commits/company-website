@@ -46,6 +46,10 @@ public class UniversitySearchCriteriaFactory {
         if (pageSize != null && pageSize > MAX_PAGE_SIZE) {
             fieldErrors.put("size", "must be less than or equal to 48");
         }
+        if (page != null && pageSize != null
+                && ((long) page - 1L) * pageSize > Integer.MAX_VALUE) {
+            fieldErrors.put("page", "is too large for requested size");
+        }
         if (tuitionMin != null && tuitionMax != null && tuitionMax.compareTo(tuitionMin) < 0) {
             fieldErrors.putIfAbsent(
                     "tuitionMax",

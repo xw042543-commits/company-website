@@ -2,6 +2,8 @@ package com.yangdoujiao.website.programme;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -100,6 +102,112 @@ class ProgrammeRepositoryIntegrationTest {
                 university.getId(),
                 "bsc-computer-science"
         )).containsSame(stored);
+    }
+
+    @Test
+    void detailedLookupExcludesProgrammeThatIsNoLongerPublished() {
+        University university = createUniversity();
+        Long categoryId = jdbcTemplate.queryForObject("""
+                INSERT INTO subject_categories(code, name_en, status)
+                VALUES ('DETAIL_VISIBILITY', 'Visibility test', 'PUBLISHED')
+                RETURNING id
+                """, Long.class);
+        Long programmeId = jdbcTemplate.queryForObject("""
+                INSERT INTO programmes(
+                    programme_code, university_id, subject_category_id,
+                    slug, name_en, status, published_at
+                )
+                VALUES (
+                    'DETAIL_VISIBILITY_PROGRAMME', ?, ?,
+                    'detail-visibility-programme', 'Visibility test programme',
+                    'PUBLISHED', CURRENT_TIMESTAMP
+                )
+                RETURNING id
+                """, Long.class, university.getId(), categoryId);
+
+        jdbcTemplate.update(
+                "UPDATE programmes SET status = 'DRAFT', published_at = NULL WHERE id = ?",
+                programmeId
+        );
+        entityManager.clear();
+
+        assertThat(programmeRepository.findPublishedDetailedByIdInAndUniversityId(
+                List.of(programmeId),
+                university.getId()
+        )).isEmpty();
+    }
+
+    @Test
+    void detailedLookupDoesNotReturnProgrammeFromAnotherUniversity() {
+        University requestedUniversity = createUniversity();
+        Long otherUniversityId = jdbcTemplate.queryForObject("""
+                INSERT INTO universities(
+                    name, slug, country, popular, university_code,
+                    name_zh, name_en, status
+                )
+                VALUES (
+                    'Other University', 'other-university-detail-test',
+                    'Otherland', FALSE, 'OTHER_DETAIL',
+                    '其他大学', 'Other University', 'PUBLISHED'
+                )
+                RETURNING id
+                """, Long.class);
+        Long categoryId = jdbcTemplate.queryForObject("""
+                INSERT INTO subject_categories(code, name_en, status)
+                VALUES ('DETAIL_OTHER_CATEGORY', 'Other category', 'PUBLISHED')
+                RETURNING id
+                """, Long.class);
+        Long otherProgrammeId = jdbcTemplate.queryForObject("""
+                INSERT INTO programmes(
+                    programme_code, university_id, subject_category_id,
+                    slug, name_en, status, published_at
+                )
+                VALUES (
+                    'DETAIL_OTHER_PROGRAMME', ?, ?,
+                    'detail-other-programme', 'Other programme',
+                    'PUBLISHED', CURRENT_TIMESTAMP
+                )
+                RETURNING id
+                """, Long.class, otherUniversityId, categoryId);
+        entityManager.clear();
+
+        assertThat(programmeRepository.findPublishedDetailedByIdInAndUniversityId(
+                List.of(otherProgrammeId),
+                requestedUniversity.getId()
+        )).isEmpty();
+    }
+
+    @Test
+    void detailedLookupExcludesPublishedProgrammeWhenUniversityBecomesDraft() {
+        University university = createUniversity();
+        Long categoryId = jdbcTemplate.queryForObject("""
+                INSERT INTO subject_categories(code, name_en, status)
+                VALUES ('DETAIL_DRAFT_UNIVERSITY', 'Draft university test', 'PUBLISHED')
+                RETURNING id
+                """, Long.class);
+        Long programmeId = jdbcTemplate.queryForObject("""
+                INSERT INTO programmes(
+                    programme_code, university_id, subject_category_id,
+                    slug, name_en, status, published_at
+                )
+                VALUES (
+                    'DETAIL_DRAFT_UNIVERSITY_PROGRAMME', ?, ?,
+                    'detail-draft-university-programme', 'Draft university programme',
+                    'PUBLISHED', CURRENT_TIMESTAMP
+                )
+                RETURNING id
+                """, Long.class, university.getId(), categoryId);
+
+        jdbcTemplate.update(
+                "UPDATE universities SET status = 'DRAFT', published_at = NULL WHERE id = ?",
+                university.getId()
+        );
+        entityManager.clear();
+
+        assertThat(programmeRepository.findPublishedDetailedByIdInAndUniversityId(
+                List.of(programmeId),
+                university.getId()
+        )).isEmpty();
     }
 
     private University createUniversity() {
