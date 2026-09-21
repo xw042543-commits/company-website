@@ -1,6 +1,11 @@
 import "server-only";
 
 import { filterUniversityCatalog, type ProgrammeStatus } from "@/data/university-catalog";
+import {
+  searchUniversities,
+  toSchoolSummary,
+} from "@/lib/university-api";
+import type { Locale, Query } from "@/lib/site";
 
 export type SchoolSummary = {
   id: string;
@@ -17,9 +22,20 @@ export type SchoolSummary = {
   logoSrc?: string;
   aliases?: string[];
   programmeStatus?: ProgrammeStatus;
+  matchedProgrammeCount?: number;
   matchedCourses?: { id: string; name: string; level?: string; language?: string }[];
 };
 export type SchoolResult = { status: "ready"; schools: SchoolSummary[] } | { status: "error" };
+export type SchoolSearchResult =
+  | {
+    status: "ready";
+    schools: SchoolSummary[];
+    page: number;
+    pageSize: number;
+    totalItems: number;
+    totalPages: number;
+  }
+  | { status: "error" };
 
 function localSchools(query: string, country: string, continent: string): SchoolSummary[] {
   return filterUniversityCatalog(query, country, continent).map((university) => ({
@@ -57,4 +73,21 @@ export async function getSchools(query = "", geography: { country?: string; cont
     // Do not expose server paths, URLs or raw backend errors to visitors.
     return { status: "error" };
   }
+}
+
+export async function getUniversitySearch(
+  query: Query,
+  locale: Locale,
+): Promise<SchoolSearchResult> {
+  const result = await searchUniversities(process.env.NEXT_PUBLIC_API_BASE_URL, query);
+  if (result.status === "error") return result;
+
+  return {
+    status: "ready",
+    schools: result.page.items.map((item) => toSchoolSummary(item, locale)),
+    page: result.page.page,
+    pageSize: result.page.pageSize,
+    totalItems: result.page.totalItems,
+    totalPages: result.page.totalPages,
+  };
 }

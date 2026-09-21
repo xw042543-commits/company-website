@@ -32,11 +32,52 @@ export const first = (query: Query, name: string) => {
   return (Array.isArray(value) ? value[0] : value)?.trim() ?? "";
 };
 export const pageNumber = (value: string) => /^\d+$/.test(value) && Number.isSafeInteger(Number(value)) && Number(value) > 0 ? Number(value) : 1;
+
+const universitySearchParameters = [
+  ["q", false],
+  ["category", true],
+  ["level", true],
+  ["country", true],
+  ["mode", true],
+  ["language", true],
+  ["duration", false],
+  ["intake", false],
+  ["tuitionMin", false],
+  ["tuitionMax", false],
+] as const;
+
+export function buildUniversitySearchPath(query: Query) {
+  const params = new URLSearchParams();
+
+  for (const [name, acceptsMultiple] of universitySearchParameters) {
+    const rawValue = query[name];
+    const values = acceptsMultiple && Array.isArray(rawValue)
+      ? rawValue
+      : [Array.isArray(rawValue) ? rawValue[0] : rawValue];
+
+    for (const value of values) {
+      const normalized = value?.trim();
+      if (normalized) params.append(name, normalized);
+    }
+  }
+
+  params.set("page", String(pageNumber(first(query, "page"))));
+  params.set("size", "12");
+  params.set("sort", "relevance");
+
+  return `/api/v1/universities/search?${params.toString()}`;
+}
+
 export function pageLink(path: string, query: Query, page: number) {
   const params = new URLSearchParams();
   for (const key of Object.keys(query)) {
-    const value = first(query, key);
-    if (value && key !== "page") params.set(key, value);
+    if (key === "page") continue;
+    const rawValue = query[key];
+    const values = Array.isArray(rawValue) ? rawValue : [rawValue];
+    for (const value of values) {
+      const normalized = value?.trim();
+      if (normalized) params.append(key, normalized);
+    }
   }
   params.set("page", String(page));
   return `${path}?${params}`;

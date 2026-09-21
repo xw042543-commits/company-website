@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { existsSync, statSync } from "node:fs";
+import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
@@ -93,10 +94,9 @@ test("every supplied logo reference resolves to a nonempty public file", () => {
   const publicRoot = fileURLToPath(new URL("../../public/", import.meta.url));
   for (const university of UNIVERSITY_CATALOG) {
     if (!university.logoSrc) continue;
-    const path = `${publicRoot}${university.logoSrc.slice(1).replaceAll("/", "\\")}`;
+    const path = resolve(publicRoot, university.logoSrc.slice(1));
     assert.equal(existsSync(path), true, `${university.slug} logo is missing`);
     assert.ok(statSync(path).size > 0, `${university.slug} logo is empty`);
   }
 });
-
 
