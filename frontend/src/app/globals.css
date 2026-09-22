@@ -240,6 +240,11 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .programme-pending-section { padding: clamp(24px, 4vw, 38px); border-radius: var(--radius-md); background: var(--wash); }
 .programme-pending-section h2 { margin-bottom: 12px; }
 .programme-pending-section p:last-child { margin-bottom: 0; color: var(--muted); }
+.programme-detail-list { display: grid; gap: 18px; margin-top: 22px; }
+.programme-detail-card { padding: clamp(22px, 3vw, 30px); border: 1px solid var(--line); border-radius: var(--radius-md); background: #fff; }
+.programme-detail-card h3 { margin-bottom: 7px; font-size: 1.3rem; }
+.programme-detail-card > p:not(.detail-secondary-name) { color: var(--muted); }
+.programme-results-state .results-state { margin-bottom: 0; }
 .qr-placeholder { min-height: 160px; display: grid; place-items: center; margin: 24px 0; padding: 20px; border: 1px dashed #8da99f; border-radius: var(--radius-sm); background: var(--paper); color: var(--muted); text-align: center; font-size: .88rem; }
 .course-details { margin: 20px 0; }
 .course-details > div { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 15px 0; border-bottom: 1px solid var(--line); }
@@ -378,4 +383,3 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
-

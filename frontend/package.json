@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:api": "node --test src/lib/university-api.test.ts src/lib/filter-options-api.test.ts",
     "test:catalog": "node --test src/data/university-catalog.test.ts"
   },
   "dependencies": {
