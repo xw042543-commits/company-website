@@ -28,6 +28,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     ["获取录取通知", "Receive an offer", "查看录取条件与后续安排。", "Review the offer conditions and follow-up arrangements."],
     ["入学上课", "Start your studies", "完成入学准备并开启学习。", "Complete enrolment preparation and begin your studies."],
   ] as const;
+  const faqs = [
+    ["我应该从哪里开始？", "Where should I begin?", "可以先按专业关键词或学历层级进行查询，再比较院校资料。需要协助时，也可以直接联系顾问。", "Start by searching with a course keyword or study level, then compare university information. You can also contact an adviser whenever you need guidance."],
+    ["网站上的院校资料经过审核吗？", "Is the university information reviewed?", "网站只展示已审核并收录的院校资料。院校展示不代表合作关系。", "The website displays reviewed directory records only. A university appearing in the directory does not imply a partnership."],
+    ["专业资料尚未上线时，可以先咨询吗？", "Can I enquire before programme details are published?", "可以。顾问可协助了解现阶段的院校、专业与申请安排。", "Yes. An adviser can help with current university, course, and application information."],
+    ["提交咨询后多久会收到回复？", "How soon will I receive a reply?", "顾问通常会在一个工作日内回复。", "An adviser will usually reply within one business day."],
+  ] as const;
 
   return <main id="main">
     <section className="hero"><div className="container hero-grid">
@@ -70,6 +76,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <div className="section-heading"><p className="section-label">{words(locale, "从查找到入学", "From search to study")}</p><h2>{words(locale, "申请流程", "Application process")}</h2></div>
       <ol className="process">{steps.map(([zh, en, bodyZh, bodyEn], i) => <li key={zh}><span className="step-number">{String(i + 1).padStart(2, "0")}</span><h3>{words(locale, zh, en)}</h3><p>{words(locale, bodyZh, bodyEn)}</p></li>)}</ol>
       <Link className="button" href={`/${locale}/consultation`}>{words(locale, "咨询申请安排", "Discuss your application")}</Link>
+    </div></section>
+    <section className="faq-section" aria-labelledby="faq-heading"><div className="container section faq-layout">
+      <div className="faq-heading"><p className="section-label">{words(locale, "常见问题", "Frequently asked questions")}</p><h2 id="faq-heading">{words(locale, "开始之前，你可能想了解这些。", "Helpful answers before you begin.")}</h2><p>{words(locale, "如果这里没有你的问题，可以直接联系顾问。", "If your question is not covered here, you can contact an adviser directly.")}</p><Link className="text-link" href={`/${locale}/consultation`}>{words(locale, "联系顾问", "Contact an adviser")} <span aria-hidden="true">→</span></Link></div>
+      <div className="faq-list">{faqs.map(([questionZh, questionEn, answerZh, answerEn], index) => <details key={questionZh} open={index === 0}>
+        <summary>{words(locale, questionZh, questionEn)}<span className="faq-toggle" aria-hidden="true" /></summary>
+        <p>{words(locale, answerZh, answerEn)}</p>
+      </details>)}</div>
     </div></section>
     <section className="home-cta"><div className="container home-cta-layout">
       <div><p className="section-label">{words(locale, "下一步", "Your next step")}</p><h2>{words(locale, "把想法变成清晰的留学计划。", "Turn your ideas into a clear study plan.")}</h2></div>
