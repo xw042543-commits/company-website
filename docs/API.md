@@ -142,3 +142,43 @@ Programme 同时满足所有课程维度，不会把不同专业的条件拼成�
 
 503 只用于已知的 Elasticsearch 连接或可用性故障。编程错误和未知异常不会被
 伪装成 503。
+
+## 公开文章
+
+语言、奖学金、留学项目和新闻共用文章接口。栏目代码分别为 `language`、
+`scholarships`、`programmes`、`news`。这里的 `programmes` 指留学项目文章，
+不等于院校下的学位课程。
+
+### `GET /api/v1/articles/{section}`
+
+返回指定栏目的文章摘要，参数 `page` 从 1 开始、默认 1；`size` 默认 12、最大 48。
+按发布时间倒序排列，同一发布时间按文章 ID 倒序。列表只返回已发布且发布时间
+已到的内容，不含正文。没有文章时返回 200 和空分页。
+
+```json
+{
+  "items": [{
+    "section": "news",
+    "slug": "example-update",
+    "titleZh": "示例标题",
+    "titleEn": null,
+    "summaryZh": "示例摘要",
+    "summaryEn": null,
+    "coverPath": null,
+    "publishedAt": "2026-09-22T08:00:00Z"
+  }],
+  "page": 1,
+  "pageSize": 12,
+  "totalItems": 1,
+  "totalPages": 1
+}
+```
+
+上面仅说明响应格式，不代表数据库已有这篇文章。非法分页参数返回 400；未知栏目返回 404。
+
+### `GET /api/v1/articles/{section}/{slug}`
+
+详情在摘要字段之外返回 `bodyMarkdownZh`、`bodyMarkdownEn`、`sourceName`、
+`sourceUrl` 和 `authorName`。缺失语言返回 `null`，后端不自动翻译，也不把
+Markdown 转换为 HTML。不存在、草稿、归档和未到发布时间的文章都返回 404。
+当前只提供公开读取，不提供文章创建、编辑、上传或审核接口。
