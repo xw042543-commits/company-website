@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { UniversityLogoCarousel } from "@/components/university-logo-carousel";
-import { COMPANY_PROFILE } from "@/data/company-profile";
 import { courseSuggestions } from "@/data/search-suggestions";
 import { isLocale, words } from "@/lib/site";
 
@@ -54,14 +53,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <div className="hero-media" aria-label={words(locale, "洋豆角留学规划指南针", "UDAJO study planning compass")}>
         <Image src="/brand/udajo-logo.jpg" width={480} height={480} sizes="(max-width: 760px) 42vw, 195px" alt="" aria-hidden="true" />
       </div>
-    </div></section>
-    <section className="trust-strip" aria-label={words(locale, "公司与资料说明", "Company and information standards")}><div className="container trust-strip-layout">
-      <dl className="trust-grid">
-        <div><dt>{words(locale, "注册公司", "Registered company")}</dt><dd>{COMPANY_PROFILE.registrationNumber}</dd></div>
-        <div><dt>{words(locale, "资料标准", "Information standard")}</dt><dd>{words(locale, "院校资料审核后发布", "University records reviewed before publication")}</dd></div>
-        <div><dt>{words(locale, "顾问回复", "Adviser response")}</dt><dd>{words(locale, COMPANY_PROFILE.responseTimeZh, COMPANY_PROFILE.responseTimeEn)}</dd></div>
-      </dl>
-      <Link className="trust-link" href={`/${locale}/about`}>{words(locale, "查看公司资料", "View company information")} <span aria-hidden="true">→</span></Link>
     </div></section>
     <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
       <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "已审核院校资料", "Reviewed university information")}</p><h2 id="reviewed-universities-heading">{words(locale, "浏览院校一览", "Browse the university directory")}</h2></div><Link className="text-link" href={`/${locale}/universities`}>{words(locale, "查看全部院校", "View all universities")}</Link></div>
