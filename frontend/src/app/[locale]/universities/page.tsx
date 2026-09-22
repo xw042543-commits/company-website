@@ -24,7 +24,6 @@ export default async function Universities({ params, searchParams }: { params: P
     <p className="section-label">{words(locale, "探索留学选择", "Explore your options")}</p>
     <h1>{words(locale, "院校一览", "Universities")}</h1>
     <p className="page-intro">{words(locale, "按院校名称、国家或地区查找已审核的院校资料。", "Find reviewed university information by name, country, or region.")}</p>
-    <UniversityComparison locale={locale} />
     <div className="listing-layout"><FilterPanel locale={locale} query={query} directory /><section aria-label={words(locale, "院校列表", "University list")}>
       <form method="get" action={`/${locale}/universities`} className="directory-search"><label htmlFor="school-search">{words(locale, "院校名称或国家", "University name or country")}</label><div className="search-row"><SearchAutocomplete key={first(query, "q")} id="school-search" name="q" locale={locale} suggestions={universitySuggestions(locale)} defaultValue={first(query, "q")} /><button>{words(locale, "搜索院校", "Search universities")}</button></div>{["country", "continent"].map(key => first(query, key) ? <input key={key} type="hidden" name={key} value={first(query, key)} /> : null)}</form>
       <div className="results-heading"><h2>{words(locale, "院校列表", "University list")}</h2><span>{words(locale, "每页 12 所", "12 universities per page")}</span></div>
@@ -32,6 +31,7 @@ export default async function Universities({ params, searchParams }: { params: P
       {result.status === "ready" ? schools.length ? schools.slice((page - 1) * 12, page * 12).map(school => <SchoolCard key={school.id} school={school} locale={locale} />) : <ResultsState locale={locale} state="empty" actionHref={`/${locale}/universities`} /> : <ResultsState locale={locale} state={result.status} />}
       <Pagination locale={locale} path={`/${locale}/universities`} query={query} page={page} total={schools.length} />
     </section></div>
+    <UniversityComparison locale={locale} />
   </main>;
 }
 
