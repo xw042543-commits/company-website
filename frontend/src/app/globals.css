@@ -337,6 +337,10 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .programme-pending-section h2 { margin-bottom: 12px; }
 .programme-pending-section p:last-child { margin-bottom: 0; color: var(--muted); }
 .consultation-layout { grid-template-columns: minmax(0, 1fr) minmax(310px, 360px); }
+.consultation-page { position: relative; isolation: isolate; }
+.consultation-page::before { position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; width: 100vw; content: ""; background: radial-gradient(circle at 92% 10%, rgb(63 136 117 / 8%) 0 140px, transparent 141px), radial-gradient(circle at 3% 67%, rgb(31 64 88 / 5%) 0 210px, transparent 211px), linear-gradient(180deg, #f8faf8 0%, var(--paper) 42%, #f5f8f6 100%); transform: translateX(-50%); }
+.consultation-page::after { position: absolute; z-index: -1; top: 130px; right: -4vw; width: 220px; height: 220px; border: 38px solid rgb(63 136 117 / 5%); border-radius: 50%; content: ""; pointer-events: none; }
+.consultation-layout > section { padding: clamp(24px, 3vw, 36px); border-top: 2px solid #9bbeb4; background: rgb(253 252 248 / 78%); box-shadow: 0 16px 42px rgb(21 63 54 / 5%); }
 .contact-lead .section-label { margin-bottom: 8px; }
 .contact-lead h2 { margin-bottom: 4px; }
 .contact-role { color: var(--brand-deep) !important; font-weight: 650; }
