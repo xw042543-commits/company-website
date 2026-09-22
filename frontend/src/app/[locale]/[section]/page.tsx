@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CompanyProfilePage } from "@/components/company-profile-page";
 import { isLocale, navigation, words } from "@/lib/site";
 
 const descriptions = {
@@ -15,6 +16,7 @@ export default async function ContentSection({ params }: { params: Promise<{ loc
   if (!isLocale(locale)) notFound();
   const item = navigation.find(([path]) => path === section);
   if (!item || !(section in descriptions)) notFound();
+  if (section === "about") return <CompanyProfilePage locale={locale} />;
   const description = descriptions[section as keyof typeof descriptions];
 
   return <main id="main" className="container page-main">
