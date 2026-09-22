@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FeaturedUniversityCarousel } from "@/components/featured-university-carousel";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
-import { UniversityLogoCarousel } from "@/components/university-logo-carousel";
 import { courseSuggestions } from "@/data/search-suggestions";
 import { isLocale, words } from "@/lib/site";
 
@@ -55,8 +55,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </div>
     </div></section>
     <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
-      <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "已审核院校资料", "Reviewed university information")}</p><h2 id="reviewed-universities-heading">{words(locale, "浏览院校一览", "Browse the university directory")}</h2></div><Link className="text-link" href={`/${locale}/universities`}>{words(locale, "查看全部院校", "View all universities")}</Link></div>
-      <UniversityLogoCarousel locale={locale} />
+      <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "精选院校", "Featured universities")}</p><h2 id="reviewed-universities-heading">{words(locale, "先了解几所热门院校", "Start with a few popular universities")}</h2><p>{words(locale, "查看地点、热门方向与常见入学安排，再进入院校页面了解更多。", "Review location, popular subjects, and typical intake timing before opening a university profile.")}</p></div><Link className="text-link" href={`/${locale}/universities`}>{words(locale, "查看并比较全部院校", "View and compare all universities")}</Link></div>
+      <FeaturedUniversityCarousel locale={locale} />
       <p className="directory-strip-note">{words(locale, "这里展示的是网站已审核并收录的院校资料，不代表合作关系。", "These are reviewed directory records. Display does not imply a partnership.")}</p>
     </div></section>
     <section className="pathway-section" aria-labelledby="pathway-heading"><div className="container section">
