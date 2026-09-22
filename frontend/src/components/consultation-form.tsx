@@ -13,7 +13,7 @@ export function ConsultationForm({ locale }: { locale: Locale }) {
       <div className="field"><label htmlFor="contact">{words(locale, "手机或微信", "Phone number or WeChat")}</label><input id="contact" name="contact" autoComplete="off" maxLength={100} /></div>
       <div className="field"><label htmlFor="school">{words(locale, "意向学校", "Intended university")}</label><input id="school" name="intendedSchool" maxLength={200} autoComplete="off" /></div>
       <div className="field"><label htmlFor="course">{words(locale, "意向专业", "Intended course")}</label><input id="course" name="intendedCourse" maxLength={200} autoComplete="off" /></div>
-      <div className="field"><label htmlFor="qualification">{words(locale, "学历层次", "Qualification level")}</label><select id="qualification" name="qualification" defaultValue=""><option value="">{words(locale, "请选择", "Please select")}</option>{levels.map(([id, zh, en]) => <option key={id} value={id}>{words(locale, zh, en)}</option>)}</select></div>
+      <div className="field"><label htmlFor="qualification">{words(locale, "意向申请层次", "Intended study level")}</label><select id="qualification" name="qualification" defaultValue=""><option value="">{words(locale, "请选择", "Please select")}</option>{levels.map(([id, zh, en]) => <option key={id} value={id}>{words(locale, zh, en)}</option>)}</select></div>
     </div>
     <div className="field"><label htmlFor="notes">{words(locale, "备注", "Notes")}</label><textarea id="notes" name="notes" rows={5} maxLength={2000} autoComplete="off" /></div>
     <div className="consent"><input type="checkbox" id="privacy" name="privacyConsent" disabled aria-describedby="privacy-pending" /><label htmlFor="privacy">{words(locale, "隐私同意", "Privacy consent")}</label></div>
