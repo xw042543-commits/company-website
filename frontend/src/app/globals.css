@@ -121,8 +121,21 @@ small { display: block; font-size: .82rem; line-height: 1.5; }
 .home-search { margin-top: 26px; }
 .home-search label, .directory-search label { display: block; margin-bottom: 8px; }
 .search-row { display: flex; gap: 10px; }
-.search-row input { flex: 1; }
+.search-row .search-autocomplete { flex: 1; }
 .search-row button { flex: 0 0 auto; }
+.search-autocomplete { position: relative; width: 100%; min-width: 0; }
+.search-autocomplete input[type="search"] { padding-right: 46px; }
+.search-autocomplete input[type="search"]::-webkit-search-cancel-button { display: none; }
+.search-clear { position: absolute; z-index: 2; right: 5px; top: 5px; width: 36px; min-height: 36px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #788982; font-size: 1.55rem; font-weight: 400; line-height: 1; }
+.search-clear:hover { background: var(--wash); color: var(--brand-deep); }
+.search-suggestion-panel { position: absolute; z-index: 35; top: calc(100% + 8px); left: 0; width: 100%; max-height: min(330px, 52vh); overflow-y: auto; padding: 8px 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--paper); box-shadow: 0 14px 30px rgb(21 63 54 / 14%); }
+.search-command, .search-suggestion { width: 100%; min-height: 52px; justify-content: flex-start; padding: 12px 4px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); text-align: left; }
+.search-suggestion:last-child { border-bottom: 0; }
+.search-command:hover, .search-command.active, .search-suggestion:hover, .search-suggestion.active { background: var(--wash); color: var(--brand-deep); }
+.search-command strong { color: var(--brand-deep); }
+.search-suggestion mark { background: transparent; color: var(--brand-deep); font-weight: 800; }
+.search-suggestion-icon { position: relative; width: 18px; height: 18px; flex: 0 0 18px; margin: 0 4px; border: 2px solid var(--brand-action); border-radius: 50%; }
+.search-suggestion-icon::after { content: ""; position: absolute; right: -5px; bottom: -3px; width: 7px; height: 2px; border-radius: 2px; background: var(--brand-action); transform: rotate(45deg); transform-origin: left center; }
 .hero-enquiry { display: inline-block; margin-top: 18px; }
 .shortcuts { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 28px; }
 .shortcuts a { min-height: 36px; display: inline-flex; align-items: center; color: var(--muted); font-size: .9rem; font-weight: 650; text-decoration: none; }
@@ -414,6 +427,8 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .login-link { padding-inline: 10px; }
   .search-row { flex-direction: column; }
   .search-row button { width: 100%; }
+  .search-row .search-clear { width: 36px; }
+  .search-suggestion-panel { padding-inline: 12px; }
   .hero-media { max-height: 270px; }
   .carousel-controls { margin-top: 0; }
   .university-logo-track a { min-height: 122px; flex-basis: 50%; padding: 14px 18px; }

@@ -6,5 +6,5 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="zh-CN"><body>{children}</body></html>;
+  return <html lang="zh-CN" data-scroll-behavior="smooth"><body>{children}</body></html>;
 }

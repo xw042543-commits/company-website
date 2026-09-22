@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SearchSuggestionList } from "@/components/search-suggestion-list";
+import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { UniversityLogoCarousel } from "@/components/university-logo-carousel";
 import { courseSuggestions } from "@/data/search-suggestions";
 import { isLocale, words } from "@/lib/site";
@@ -26,8 +26,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <p className="hero-intro">{words(locale, "从专业方向开始筛选院校，在需要时获得清晰的申请协助。", "Start with your study interests, compare universities, and get clear application guidance when you need it.")}</p>
         <form action={`/${locale}/planning`} className="home-search">
           <label htmlFor="home-keyword">{words(locale, "专业关键词", "Course keyword")}</label>
-          <div className="search-row"><input id="home-keyword" name="q" type="search" list="home-course-suggestions" autoComplete="off" maxLength={100} placeholder={words(locale, "输入想学习的专业", "What would you like to study?")} /><button type="submit">{words(locale, "查询专业", "Find a course")}</button></div>
-          <SearchSuggestionList id="home-course-suggestions" suggestions={courseSuggestions(locale)} />
+          <div className="search-row"><SearchAutocomplete id="home-keyword" name="q" locale={locale} suggestions={courseSuggestions(locale)} placeholder={words(locale, "输入想学习的专业", "What would you like to study?")} /><button type="submit">{words(locale, "查询专业", "Find a course")}</button></div>
         </form>
         <Link className="text-link hero-enquiry" href={`/${locale}/consultation`}>{words(locale, "需要协助？咨询顾问", "Need guidance? Enquire with an adviser")}</Link>
         <div className="shortcuts" aria-label={words(locale, "学习方向", "Study options")}>
