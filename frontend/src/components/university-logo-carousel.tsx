@@ -45,7 +45,7 @@ export function UniversityLogoCarousel({ locale }: { locale: Locale }) {
     </div>
     <div ref={trackRef} className="university-logo-track" onScroll={updatePosition}>
       {UNIVERSITY_CATALOG.map((university) => <Link key={university.id} data-logo={university.id} href={`/${locale}/universities/${university.slug}`} aria-label={locale === "zh" ? university.nameZh : university.nameEn}>
-        {university.logoSrc ? <Image src={university.logoSrc} width={220} height={110} alt="" /> : <span>{locale === "zh" ? university.nameZh : university.nameEn}</span>}
+        {university.logoSrc ? <Image src={university.logoSrc} width={220} height={110} sizes="(max-width: 520px) 50vw, (max-width: 980px) 33vw, 20vw" alt="" /> : <span>{locale === "zh" ? university.nameZh : university.nameEn}</span>}
       </Link>)}
     </div>
   </div>;

@@ -35,7 +35,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </div>
       <div className="hero-media" aria-label={words(locale, "洋豆角留学规划指南针", "UDAJO study planning compass")}>
-        <Image src="/brand/udajo-logo.jpg" width={480} height={480} alt="" aria-hidden="true" />
+        <Image src="/brand/udajo-logo.jpg" width={480} height={480} sizes="(max-width: 760px) 42vw, 195px" alt="" aria-hidden="true" />
       </div>
     </div></section>
     <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">

@@ -28,7 +28,7 @@ export default async function Consultation({ params }: { params: Promise<{ local
     <section className="adviser-section" aria-labelledby="china-advisers-heading">
       <div className="adviser-heading"><div><p className="section-label">{words(locale, "微信咨询", "WeChat enquiries")}</p><h2 id="china-advisers-heading">{words(locale, "中国顾问老师", "China-based advisers")}</h2></div><p>{words(locale, "扫描二维码添加顾问，或使用下方微信号与电话联系。", "Scan a QR code to add an adviser, or use the WeChat ID and phone number below.")}</p></div>
       <div className="adviser-list">{CHINA_ADVISERS.map((adviser) => <article key={adviser.id} className="adviser-contact">
-        <Image src={adviser.qrSrc} width={420} height={520} alt={words(locale, `${adviser.nameZh}微信二维码`, `${adviser.nameEn} WeChat QR code`)} />
+        <Image src={adviser.qrSrc} width={420} height={520} sizes="(max-width: 520px) 124px, (max-width: 760px) 180px, (max-width: 980px) 29vw, 260px" alt={words(locale, `${adviser.nameZh}微信二维码`, `${adviser.nameEn} WeChat QR code`)} />
         <div><h3>{locale === "zh" ? adviser.nameZh : adviser.nameEn}</h3><p>{locale === "zh" ? adviser.roleZh : adviser.roleEn}</p><dl className="contact-details compact"><div><dt>{words(locale, "微信", "WeChat")}</dt><dd>{adviser.wechat}</dd></div><div><dt>{words(locale, "电话", "Phone")}</dt><dd><a href={`tel:${adviser.phoneHref}`}>{adviser.phoneDisplay}</a></dd></div></dl></div>
       </article>)}</div>
     </section>
