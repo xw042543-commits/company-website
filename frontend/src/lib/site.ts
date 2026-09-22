@@ -32,6 +32,10 @@ export const first = (query: Query, name: string) => {
   return (Array.isArray(value) ? value[0] : value)?.trim() ?? "";
 };
 export const pageNumber = (value: string) => /^\d+$/.test(value) && Number.isSafeInteger(Number(value)) && Number(value) > 0 ? Number(value) : 1;
+export const boundedPage = (page: number, totalPages: number) => Math.min(
+  Math.max(1, page),
+  Math.max(1, totalPages),
+);
 
 const universitySearchParameters = [
   ["q", false],

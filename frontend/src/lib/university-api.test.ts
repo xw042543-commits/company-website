@@ -13,6 +13,13 @@ function buildSearchPath(query: site.Query): string | undefined {
     : undefined;
 }
 
+function boundedPage(page: number, totalPages: number): number | undefined {
+  const candidate = Reflect.get(site, "boundedPage");
+  return typeof candidate === "function"
+    ? (candidate as (page: number, totalPages: number) => number)(page, totalPages)
+    : undefined;
+}
+
 type SearchPageParser = (payload: unknown) => unknown;
 type UniversitySearchRequest = (
   baseUrl: string | undefined,
@@ -20,6 +27,25 @@ type UniversitySearchRequest = (
   request?: typeof fetch,
 ) => Promise<unknown>;
 type SchoolSummaryMapper = (item: unknown, locale: "zh" | "en") => unknown;
+type UniversityDetailParser = (payload: unknown) => unknown;
+type UniversityProgrammePageParser = (payload: unknown) => unknown;
+type UniversityDetailRequest = (
+  baseUrl: string | undefined,
+  slug: string,
+  request?: typeof fetch,
+) => Promise<unknown>;
+type UniversityProgrammesRequest = (
+  baseUrl: string | undefined,
+  slug: string,
+  query: site.Query,
+  request?: typeof fetch,
+) => Promise<unknown>;
+type UniversityDetailViewMapper = (
+  university: unknown,
+  programmes: unknown[],
+  locale: "zh" | "en",
+  options?: unknown,
+) => unknown;
 
 function parseSearchPage(payload: unknown): unknown {
   const candidate = Reflect.get(universityApi, "parseUniversitySearchPage");
@@ -43,6 +69,55 @@ function toSchoolSummary(item: unknown, locale: "zh" | "en"): unknown {
   const candidate = Reflect.get(universityApi, "toSchoolSummary");
   return typeof candidate === "function"
     ? (candidate as SchoolSummaryMapper)(item, locale)
+    : undefined;
+}
+
+function parseUniversityDetail(payload: unknown): unknown {
+  const candidate = Reflect.get(universityApi, "parseUniversityDetail");
+  return typeof candidate === "function"
+    ? (candidate as UniversityDetailParser)(payload)
+    : undefined;
+}
+
+function parseUniversityProgrammePage(payload: unknown): unknown {
+  const candidate = Reflect.get(universityApi, "parseUniversityProgrammePage");
+  return typeof candidate === "function"
+    ? (candidate as UniversityProgrammePageParser)(payload)
+    : undefined;
+}
+
+async function requestUniversityDetail(
+  baseUrl: string | undefined,
+  slug: string,
+  request?: typeof fetch,
+): Promise<unknown> {
+  const candidate = Reflect.get(universityApi, "getUniversityDetail");
+  return typeof candidate === "function"
+    ? (candidate as UniversityDetailRequest)(baseUrl, slug, request)
+    : undefined;
+}
+
+async function requestUniversityProgrammes(
+  baseUrl: string | undefined,
+  slug: string,
+  query: site.Query,
+  request?: typeof fetch,
+): Promise<unknown> {
+  const candidate = Reflect.get(universityApi, "getUniversityProgrammes");
+  return typeof candidate === "function"
+    ? (candidate as UniversityProgrammesRequest)(baseUrl, slug, query, request)
+    : undefined;
+}
+
+function toUniversityDetailView(
+  university: unknown,
+  programmes: unknown[],
+  locale: "zh" | "en",
+  options?: unknown,
+): unknown {
+  const candidate = Reflect.get(universityApi, "toUniversityDetailView");
+  return typeof candidate === "function"
+    ? (candidate as UniversityDetailViewMapper)(university, programmes, locale, options)
     : undefined;
 }
 
@@ -76,6 +151,54 @@ const validSearchPage = {
       intakeDisplayTexts: ["September 2027"],
       tuitionDisplay: "CNY 100,000–120,000",
     }],
+  }],
+  page: 1,
+  pageSize: 12,
+  totalItems: 1,
+  totalPages: 1,
+};
+
+const validUniversityDetail = {
+  id: 1,
+  slug: "university-of-malaya",
+  nameZh: "马来亚大学",
+  nameEn: "University of Malaya",
+  countryCode: "MY",
+  countryNameZh: "马来西亚",
+  countryNameEn: "Malaysia",
+  cityZh: "吉隆坡",
+  cityEn: "Kuala Lumpur",
+  descriptionZh: "院校中文介绍",
+  descriptionEn: "University description",
+  popular: true,
+};
+
+const validUniversityProgrammePage = {
+  items: [{
+    id: 11,
+    programmeCode: "BSC_CS",
+    slug: "bachelor-computer-science",
+    nameZh: "计算机科学学士",
+    nameEn: "Bachelor of Computer Science",
+    descriptionZh: "课程中文介绍",
+    descriptionEn: "Programme description",
+    categoryCode: "COMPUTING",
+    studyLevelCode: "BACHELOR",
+    courseModeCode: "ON_CAMPUS",
+    languageCodes: ["EN"],
+    durationMonths: 36,
+    durationDisplay: "3 years",
+    tuitionMin: 35000,
+    tuitionMax: 40000,
+    tuitionCurrency: "MYR",
+    tuitionFeePeriod: "TOTAL_PROGRAM",
+    tuitionTotalRmbMin: 55000,
+    tuitionTotalRmbMax: 63000,
+    exchangeRate: 1.57,
+    exchangeRateDate: "2026-09-21",
+    tuitionDisplay: "MYR 35,000–40,000",
+    intakeMonths: ["2027-09"],
+    intakeDisplayTexts: ["September 2027"],
   }],
   page: 1,
   pageSize: 12,
@@ -129,6 +252,12 @@ test("pagination links preserve every repeated filter", () => {
     }, 2),
     "/zh/planning?category=COMPUTING&category=BUSINESS&language=EN&language=ZH&page=2",
   );
+});
+
+test("bounds requested pages to the available page range", () => {
+  assert.equal(boundedPage(999, 2), 2);
+  assert.equal(boundedPage(2, 0), 1);
+  assert.equal(boundedPage(1, 3), 1);
 });
 
 test("accepts a complete V1 university search page", () => {
@@ -213,4 +342,144 @@ test("maps a V1 result to a localized card with at most three programmes", () =>
       { id: "13", name: "专业 13", level: "BACHELOR", language: "EN" },
     ],
   });
+});
+
+test("accepts a complete V1 university detail response", () => {
+  assert.deepEqual(parseUniversityDetail(validUniversityDetail), validUniversityDetail);
+});
+
+test("requests and parses a university detail by slug", async () => {
+  let requestedUrl = "";
+  const request = (async (input: string | URL | Request) => {
+    requestedUrl = String(input);
+    return new Response(JSON.stringify(validUniversityDetail), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  }) as typeof fetch;
+
+  assert.deepEqual(
+    await requestUniversityDetail(
+      "http://localhost:8080",
+      "university-of-malaya",
+      request,
+    ),
+    { status: "ready", university: validUniversityDetail },
+  );
+  assert.equal(
+    requestedUrl,
+    "http://localhost:8080/api/v1/universities/university-of-malaya",
+  );
+});
+
+test("returns a not-found state when the university does not exist", async () => {
+  const request = (async () => new Response(null, { status: 404 })) as typeof fetch;
+
+  assert.deepEqual(
+    await requestUniversityDetail(
+      "http://localhost:8080",
+      "missing-university",
+      request,
+    ),
+    { status: "not-found" },
+  );
+});
+
+test("accepts a complete university programme page", () => {
+  assert.deepEqual(
+    parseUniversityProgrammePage(validUniversityProgrammePage),
+    validUniversityProgrammePage,
+  );
+});
+
+test("requests and parses a university programme page", async () => {
+  let requestedUrl = "";
+  const request = (async (input: string | URL | Request) => {
+    requestedUrl = String(input);
+    return new Response(JSON.stringify(validUniversityProgrammePage), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  }) as typeof fetch;
+
+  assert.deepEqual(
+    await requestUniversityProgrammes(
+      "http://localhost:8080",
+      "university-of-malaya",
+      { page: "1" },
+      request,
+    ),
+    { status: "ready", page: validUniversityProgrammePage },
+  );
+  assert.equal(
+    requestedUrl,
+    "http://localhost:8080/api/v1/universities/university-of-malaya/programmes?page=1&size=12&sort=relevance",
+  );
+});
+
+test("maps university details and programmes to localized display data", () => {
+  assert.deepEqual(
+    toUniversityDetailView(
+      validUniversityDetail,
+      validUniversityProgrammePage.items,
+      "zh",
+    ),
+    {
+      name: "马来亚大学",
+      secondaryName: "University of Malaya",
+      country: "马来西亚",
+      city: "吉隆坡",
+      description: "院校中文介绍",
+      programmes: [{
+        id: "11",
+        name: "计算机科学学士",
+        secondaryName: "Bachelor of Computer Science",
+        description: "课程中文介绍",
+        category: "COMPUTING",
+        level: "BACHELOR",
+        mode: "ON_CAMPUS",
+        languages: "EN",
+        duration: "3 years",
+        tuition: "MYR 35,000–40,000",
+        intakes: "September 2027",
+      }],
+    },
+  );
+});
+
+test("localizes programme dictionary codes with catalog options", () => {
+  assert.deepEqual(
+    toUniversityDetailView(
+      validUniversityDetail,
+      validUniversityProgrammePage.items,
+      "zh",
+      {
+        countries: [],
+        subjectCategories: [{ code: "COMPUTING", nameZh: "计算机", nameEn: "Computing" }],
+        studyLevels: [{ code: "BACHELOR", nameZh: "本科", nameEn: "Bachelor's" }],
+        courseModes: [{ code: "ON_CAMPUS", nameZh: "校内授课", nameEn: "On campus" }],
+        languages: [{ code: "EN", nameZh: "英语", nameEn: "English" }],
+      },
+    ),
+    {
+      name: "马来亚大学",
+      secondaryName: "University of Malaya",
+      country: "马来西亚",
+      city: "吉隆坡",
+      description: "院校中文介绍",
+      programmes: [{
+        id: "11",
+        name: "计算机科学学士",
+        secondaryName: "Bachelor of Computer Science",
+        description: "课程中文介绍",
+        category: "计算机",
+        level: "本科",
+        mode: "校内授课",
+        languages: "英语",
+        duration: "3 years",
+        tuition: "MYR 35,000–40,000",
+        intakes: "September 2027",
+      }],
+    },
+  );
 });
