@@ -260,6 +260,44 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .loading-skeleton { height: 220px; border-radius: var(--radius-md); background: #e8efed; animation: skeleton-pulse 1.4s ease-in-out infinite alternate; }
 .content-state { max-width: 760px; margin-top: 30px; padding: 32px; border-radius: var(--radius-md); background: var(--wash); }
 
+.company-overview { display: grid; grid-template-columns: minmax(240px, .72fr) minmax(0, 1.28fr); gap: clamp(32px, 6vw, 80px); margin-block: 42px 72px; padding-block: clamp(30px, 5vw, 52px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.company-overview h2 { margin-bottom: 14px; }
+.company-overview p { max-width: 40ch; color: var(--muted); }
+.company-wordmark { margin-bottom: 8px !important; color: var(--brand-action) !important; font-size: .82rem; font-weight: 800; letter-spacing: .14em; }
+.company-facts { margin: 0; }
+.company-facts > div { display: grid; grid-template-columns: minmax(130px, .42fr) minmax(0, 1fr); gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.company-facts > div:first-child { padding-top: 0; }
+.company-facts dt, .consultation-arrangement dt { color: var(--brand-deep); font-weight: 750; }
+.company-facts dd, .consultation-arrangement dd { min-width: 0; margin: 0; color: var(--muted); overflow-wrap: anywhere; }
+.company-facts a, .consultation-arrangement a, .contact-methods a { color: var(--brand-action); font-weight: 650; }
+.service-lines { margin-bottom: 76px; }
+.service-lines h2 { max-width: 20ch; }
+.service-lines ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 30px 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.service-lines li { min-height: 112px; display: flex; align-items: flex-end; padding: 24px 24px 22px 0; border-bottom: 1px solid var(--line); color: var(--brand-deep); font-size: 1.05rem; font-weight: 720; }
+.service-lines li + li { padding-left: 24px; border-left: 1px solid var(--line); }
+.contact-directory { margin-top: clamp(60px, 8vw, 96px); }
+.contact-directory-heading { margin-bottom: 28px; }
+.contact-directory-heading p:last-child { max-width: 66ch; color: var(--muted); }
+.contact-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.contact-card { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) 152px; gap: 22px; align-items: start; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--wash); }
+.contact-card:not(:has(.contact-qr)) { grid-template-columns: minmax(0, 1fr); }
+.contact-card h3 { margin-bottom: 4px; }
+.contact-card-copy > p:not(.contact-region) { color: var(--muted); font-size: .9rem; }
+.contact-region { margin-bottom: 8px; color: var(--brand-action); font-size: .76rem; font-weight: 780; letter-spacing: .04em; }
+.contact-methods { margin: 20px 0 0; }
+.contact-methods > div { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 10px; padding: 7px 0; border-top: 1px solid #d6e2de; font-size: .86rem; }
+.contact-methods dt { color: var(--muted); }
+.contact-methods dd { min-width: 0; margin: 0; color: var(--brand-deep); overflow-wrap: anywhere; }
+.contact-methods a { display: inline-flex; align-items: center; min-height: 44px; }
+.contact-qr { margin: 0; text-align: center; }
+.contact-qr img { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); background: #fff; }
+.contact-qr figcaption { margin-top: 8px; color: var(--muted); font-size: .72rem; }
+.company-page-action { margin-top: 38px; }
+.consultation-arrangement dl { margin: 20px 0 24px; }
+.consultation-arrangement dl > div { padding: 11px 0; border-bottom: 1px solid var(--line); }
+.consultation-arrangement dt { font-size: .82rem; }
+.consultation-arrangement dd { margin-top: 2px; }
+
 .login-page { min-height: 68vh; padding-block: clamp(48px, 7vw, 88px); background: linear-gradient(115deg, var(--wash) 0%, var(--wash) 51%, var(--paper) 51%, var(--paper) 100%); }
 .login-layout { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .72fr); align-items: start; gap: clamp(52px, 8vw, 112px); }
 .login-introduction { padding-top: 22px; }
@@ -314,6 +352,7 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .university-logo-track a { flex-basis: 33.333%; }
   .listing-layout { grid-template-columns: 250px minmax(0, 1fr); gap: 26px; }
   .detail-layout { grid-template-columns: minmax(0, 1fr) 270px; gap: 30px; }
+  .contact-card { grid-template-columns: minmax(0, 1fr) 124px; padding: 22px; }
   .login-layout { grid-template-columns: minmax(0, 1fr) minmax(330px, .8fr); gap: 38px; }
   .footer-grid { grid-template-columns: .7fr 1.3fr; }
   .footer-note { grid-column: 2; text-align: left; }
@@ -349,6 +388,10 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .login-layout { grid-template-columns: minmax(0, 1fr); gap: 34px; }
   .login-introduction { padding-top: 0; }
   .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .company-overview { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .service-lines ul { grid-template-columns: minmax(0, 1fr); }
+  .service-lines li, .service-lines li + li { min-height: 0; padding: 20px 0; border-left: 0; }
+  .contact-card-grid { grid-template-columns: minmax(0, 1fr); }
   .school-card { grid-template-columns: 110px minmax(0, 1fr); gap: 18px; padding: 22px 0; }
   .school-card-link:hover .school-card { transform: none; }
   .school-image { height: 110px; min-height: 110px; }
@@ -374,6 +417,9 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .course-details > div { grid-template-columns: 1fr; gap: 3px; }
   .form-actions { flex-direction: column; }
   .form-actions button { width: 100%; }
+  .company-facts > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .contact-card { grid-template-columns: minmax(0, 1fr); }
+  .contact-qr { max-width: 220px; }
   .login-audience { grid-template-columns: 1fr; }
   .login-audience article + article { border-top: 1px solid #c8d8d3; }
   .login-panel { padding: 24px 20px; }
