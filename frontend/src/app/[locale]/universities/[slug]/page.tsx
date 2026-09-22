@@ -22,7 +22,7 @@ export default async function Detail({ params }: { params: Promise<{ locale: str
   return <main id="main" className="container page-main">
     <Link className="back-link" href={`/${locale}/universities`}><span aria-hidden="true">←</span> {words(locale, "返回院校一览", "Back to universities")}</Link>
     <p className="section-label">{words(locale, "院校资料", "University information")}</p>
-    <h1>{name}</h1>
+    <h1 className="university-title">{name}</h1>
     {secondaryName && secondaryName !== name && <p className="detail-secondary-name">{secondaryName}</p>}
     <p className="page-intro">{school ? `${country} · ${city || words(locale, "城市资料请咨询", "Please enquire for city information")}` : words(locale, "当前不会显示未经审核的院校或课程资料。", "Unreviewed university or course information is not displayed.")}</p>
     {!preview && data?.status !== "ready" && <ResultsState locale={locale} state={data?.status ?? "error"} />}

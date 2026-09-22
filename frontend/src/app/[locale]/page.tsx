@@ -16,7 +16,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     ["真实来源", "Reliable sources", "重要资料以已审核内容为准。", "Important information is presented from reviewed sources."],
     ["专业协助", "Practical guidance", "需要时可联系顾问了解申请步骤。", "Contact an adviser when you need help with application steps."],
   ] as const;
-  const steps = [["在线查询专业", "Search for a course"], ["扫码联系老师", "Contact an adviser"], ["准备及申请", "Prepare and apply"], ["获取录取通知", "Receive an offer"], ["入学上课", "Start your studies"]] as const;
+  const pathways = [
+    ["01", "规划学习方向", "Plan your study path", "从学历层级与专业兴趣开始，整理适合自己的选择。", "Start with your study level and interests to organise suitable options.", `/${locale}/planning`, "开始规划", "Start planning"],
+    ["02", "比较院校资料", "Compare universities", "浏览已审核的院校记录，并进一步查看重点资料。", "Browse reviewed university records and explore the key details.", `/${locale}/universities`, "浏览院校", "Browse universities"],
+    ["03", "联系教育顾问", "Speak with an adviser", "需要协助时，向顾问了解申请步骤与资料准备。", "Ask an adviser about application steps and document preparation when needed.", `/${locale}/consultation`, "联系顾问", "Contact an adviser"],
+  ] as const;
+  const steps = [
+    ["在线查询专业", "Search for a course", "从感兴趣的专业和学历层级开始。", "Begin with your preferred subject and study level."],
+    ["扫码联系老师", "Contact an adviser", "确认要求、时间安排与下一步。", "Confirm requirements, timing, and next steps."],
+    ["准备及申请", "Prepare and apply", "整理申请所需的资料。", "Organise the documents needed for your application."],
+    ["获取录取通知", "Receive an offer", "查看录取条件与后续安排。", "Review the offer conditions and follow-up arrangements."],
+    ["入学上课", "Start your studies", "完成入学准备并开启学习。", "Complete enrolment preparation and begin your studies."],
+  ] as const;
 
   return <main id="main">
     <section className="hero"><div className="container hero-grid">
@@ -42,14 +53,27 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <UniversityLogoCarousel locale={locale} />
       <p className="directory-strip-note">{words(locale, "这里展示的是网站已审核并收录的院校资料，不代表合作关系。", "These are reviewed directory records. Display does not imply a partnership.")}</p>
     </div></section>
+    <section className="pathway-section" aria-labelledby="pathway-heading"><div className="container section">
+      <div className="section-heading"><p className="section-label">{words(locale, "从这里开始", "Choose your next step")}</p><h2 id="pathway-heading">{words(locale, "按你的需要继续", "Move forward with a clear path")}</h2><p>{words(locale, "先自己探索，或在需要时联系顾问。", "Explore independently, or speak with an adviser when you need support.")}</p></div>
+      <div className="pathway-grid">{pathways.map(([number, zh, en, bodyZh, bodyEn, href, actionZh, actionEn]) => <Link className="pathway-card" href={href} key={number}>
+        <span className="pathway-number" aria-hidden="true">{number}</span>
+        <h3>{words(locale, zh, en)}</h3>
+        <p>{words(locale, bodyZh, bodyEn)}</p>
+        <span className="pathway-action">{words(locale, actionZh, actionEn)} <span aria-hidden="true">→</span></span>
+      </Link>)}</div>
+    </div></section>
     <section className="container section">
       <div className="section-heading"><p className="section-label">{words(locale, "选择更清晰", "A clearer way to choose")}</p><h2>{words(locale, "为什么选择 UDAJO", "Why choose UDAJO")}</h2></div>
       <div className="benefits">{benefits.map(([zh, en, bodyZh, bodyEn]) => <article key={zh}><h3>{words(locale, zh, en)}</h3><p>{words(locale, bodyZh, bodyEn)}</p></article>)}</div>
     </section>
     <section className="process-section"><div className="container section">
       <div className="section-heading"><p className="section-label">{words(locale, "从查找到入学", "From search to study")}</p><h2>{words(locale, "申请流程", "Application process")}</h2></div>
-      <ol className="process">{steps.map(([zh, en], i) => <li key={zh}><span className="step-number">{String(i + 1).padStart(2, "0")}</span><h3>{words(locale, zh, en)}</h3></li>)}</ol>
+      <ol className="process">{steps.map(([zh, en, bodyZh, bodyEn], i) => <li key={zh}><span className="step-number">{String(i + 1).padStart(2, "0")}</span><h3>{words(locale, zh, en)}</h3><p>{words(locale, bodyZh, bodyEn)}</p></li>)}</ol>
       <Link className="button" href={`/${locale}/consultation`}>{words(locale, "咨询申请安排", "Discuss your application")}</Link>
+    </div></section>
+    <section className="home-cta"><div className="container home-cta-layout">
+      <div><p className="section-label">{words(locale, "下一步", "Your next step")}</p><h2>{words(locale, "把想法变成清晰的留学计划。", "Turn your ideas into a clear study plan.")}</h2></div>
+      <div className="home-cta-copy"><p>{words(locale, "告诉我们你的学习方向与目标，顾问将在一个工作日内回复。", "Tell us about your study interests and goals. An adviser will reply within one business day.")}</p><div className="home-cta-actions"><Link className="button" href={`/${locale}/consultation`}>{words(locale, "开始咨询", "Start an enquiry")}</Link><Link className="button secondary" href={`/${locale}/about`}>{words(locale, "了解 UDAJO", "About UDAJO")}</Link></div></div>
     </div></section>
   </main>;
 }
