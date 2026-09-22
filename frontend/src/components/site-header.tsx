@@ -18,10 +18,13 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   }, [locale]);
 
   return <header className="site-header">
-    <div className="header-top container">
+    <div className="header-shell container">
       <Link href={`/${locale}`} className="brand" aria-label={words(locale, "洋豆角首页", "UDAJO home")}>
         <Image src="/brand/udajo-logo.jpg" width={480} height={480} priority alt={words(locale, "洋豆角 UDAJO 标志", "UDAJO logo")} />
       </Link>
+      <nav id="primary-navigation" className={`navigation${menuOpen ? " navigation-open" : ""}`} aria-label={words(locale, "主导航", "Main navigation")}>
+        {navigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={isNavigationActive(pathname, locale, path) ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
+      </nav>
       <div className="header-actions">
         <Link className="language-switch" href={`${languagePath}${query.size ? `?${query}` : ""}`} hrefLang={other} aria-label={words(locale, "切换为英文", "Switch to Simplified Chinese")}>
           <span className="language-symbol" aria-hidden="true"><span>A</span><span>文</span></span>
@@ -35,8 +38,5 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         </button>
       </div>
     </div>
-    <nav id="primary-navigation" className={`navigation container${menuOpen ? " navigation-open" : ""}`} aria-label={words(locale, "主导航", "Main navigation")}>
-      {navigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={isNavigationActive(pathname, locale, path) ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
-    </nav>
   </header>;
 }

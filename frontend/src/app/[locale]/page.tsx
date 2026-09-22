@@ -29,17 +29,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="search-row"><input id="home-keyword" name="q" type="search" list="home-course-suggestions" autoComplete="off" maxLength={100} placeholder={words(locale, "输入想学习的专业", "What would you like to study?")} /><button type="submit">{words(locale, "查询专业", "Find a course")}</button></div>
           <SearchSuggestionList id="home-course-suggestions" suggestions={courseSuggestions(locale)} />
         </form>
-        <Link className="text-link hero-enquiry" href={`/${locale}/consultation`}>{words(locale, "需要协助？咨询顾问", "Need guidance? Enquire with an adviser")} <span aria-hidden="true">→</span></Link>
+        <Link className="text-link hero-enquiry" href={`/${locale}/consultation`}>{words(locale, "需要协助？咨询顾问", "Need guidance? Enquire with an adviser")}</Link>
         <div className="shortcuts" aria-label={words(locale, "学习方向", "Study options")}>
-          {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor’s"], ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)} <span aria-hidden="true">↗</span></Link>)}
+          {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor’s"], ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
         </div>
       </div>
-      <div className="hero-media" aria-label={words(locale, "未来品牌照片区域", "Reserved area for future brand photography")}>
+      <div className="hero-media" aria-label={words(locale, "洋豆角留学规划指南针", "UDAJO study planning compass")}>
         <Image src="/brand/udajo-logo.jpg" width={480} height={480} alt="" aria-hidden="true" />
       </div>
     </div></section>
     <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
-      <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "已审核院校资料", "Reviewed university information")}</p><h2 id="reviewed-universities-heading">{words(locale, "浏览院校一览", "Browse the university directory")}</h2></div><Link className="text-link" href={`/${locale}/universities`}>{words(locale, "查看全部院校", "View all universities")} <span aria-hidden="true">→</span></Link></div>
+      <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "已审核院校资料", "Reviewed university information")}</p><h2 id="reviewed-universities-heading">{words(locale, "浏览院校一览", "Browse the university directory")}</h2></div><Link className="text-link" href={`/${locale}/universities`}>{words(locale, "查看全部院校", "View all universities")}</Link></div>
       <UniversityLogoCarousel locale={locale} />
       <p className="directory-strip-note">{words(locale, "这里展示的是网站已审核并收录的院校资料，不代表合作关系。", "These are reviewed directory records. Display does not imply a partnership.")}</p>
     </div></section>
@@ -50,7 +50,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     <section className="process-section"><div className="container section">
       <div className="section-heading"><p className="section-label">{words(locale, "从查找到入学", "From search to study")}</p><h2>{words(locale, "申请流程", "Application process")}</h2></div>
       <ol className="process">{steps.map(([zh, en], i) => <li key={zh}><span className="step-number">{String(i + 1).padStart(2, "0")}</span><h3>{words(locale, zh, en)}</h3></li>)}</ol>
-      <Link className="button" href={`/${locale}/consultation`}>{words(locale, "咨询申请安排", "Discuss your application")} <span aria-hidden="true">→</span></Link>
+      <Link className="button" href={`/${locale}/consultation`}>{words(locale, "咨询申请安排", "Discuss your application")}</Link>
     </div></section>
   </main>;
 }
