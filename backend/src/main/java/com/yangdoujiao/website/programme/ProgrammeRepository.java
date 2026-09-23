@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.yangdoujiao.website.catalog.CategoryStatus;
 
@@ -18,4 +20,18 @@ public interface ProgrammeRepository extends JpaRepository<Programme, Long> {
 
     @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
     List<Programme> findAllByUniversity_IdAndStatusOrderByIdAsc(Long universityId, CategoryStatus status);
+
+    @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
+    @Query("""
+            SELECT DISTINCT programme
+            FROM Programme programme
+            WHERE programme.id IN :ids
+              AND programme.university.id = :universityId
+              AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+              AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+            """)
+    List<Programme> findPublishedDetailedByIdInAndUniversityId(
+            @Param("ids") List<Long> ids,
+            @Param("universityId") Long universityId
+    );
 }

@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { COMPANY_PROFILE } from "@/data/company-profile";
+import { companyProfile, contactTelephoneHref, publicAdvisers } from "@/data/company-profile";
 import { isLocale, words } from "@/lib/site";
 
 export default async function About({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  const services = locale === "zh" ? COMPANY_PROFILE.servicesZh : COMPANY_PROFILE.servicesEn;
+  const services = companyProfile.serviceLines.map((service) => words(locale, service.zh, service.en));
+  const malaysiaContact = publicAdvisers.find((adviser) => adviser.region === "MY");
 
   return <main id="main" className="company-page">
     <section className="company-hero" aria-labelledby="company-page-title">
@@ -25,8 +26,8 @@ export default async function About({ params }: { params: Promise<{ locale: stri
       <section className="company-overview" aria-labelledby="company-identity-heading">
       <div><h2 id="company-identity-heading">{words(locale, "公司信息", "Company identity")}</h2><p>{words(locale, "网站品牌名称为洋豆角，英文名称为 UDAJO。", "The public brand name is UDAJO, with the Chinese name 洋豆角.")}</p></div>
       <dl className="company-facts">
-        <div><dt>{words(locale, "注册名称", "Registered name")}</dt><dd>{COMPANY_PROFILE.legalNameZh}</dd></div>
-        <div><dt>{words(locale, "注册编号", "Registration number")}</dt><dd>{COMPANY_PROFILE.registrationNumber}</dd></div>
+        <div><dt>{words(locale, "注册名称", "Registered name")}</dt><dd>{companyProfile.legalNameZh}</dd></div>
+        <div><dt>{words(locale, "注册编号", "Registration number")}</dt><dd>{companyProfile.registrationNumber}</dd></div>
       </dl>
       </section>
 
@@ -37,7 +38,7 @@ export default async function About({ params }: { params: Promise<{ locale: stri
 
       <section className="company-contact" aria-labelledby="company-contact-heading">
       <div><p className="section-label">{words(locale, "联系与地址", "Contact and locations")}</p><h2 id="company-contact-heading">{words(locale, "联系国际项目负责人", "Contact the International Projects Lead")}</h2></div>
-      <div className="company-contact-details"><p><strong>{locale === "zh" ? COMPANY_PROFILE.malaysia.nameZh : COMPANY_PROFILE.malaysia.nameEn}</strong><br />{locale === "zh" ? COMPANY_PROFILE.malaysia.roleZh : COMPANY_PROFILE.malaysia.roleEn}</p><p><a href={`tel:${COMPANY_PROFILE.malaysia.phoneHref}`}>{COMPANY_PROFILE.malaysia.phoneDisplay}</a><br /><a href={`mailto:${COMPANY_PROFILE.malaysia.email}`}>{COMPANY_PROFILE.malaysia.email}</a></p><Link className="text-link" href={COMPANY_PROFILE.officeLocationsUrl} target="_blank" rel="noreferrer">{words(locale, "查看四个办公地址", "View the four office locations")} <span aria-hidden="true">↗</span></Link></div>
+      {malaysiaContact && <div className="company-contact-details"><p><strong>{malaysiaContact.name}</strong><br />{words(locale, malaysiaContact.role.zh, malaysiaContact.role.en)}</p><p><a href={contactTelephoneHref(malaysiaContact)}>{malaysiaContact.phone}</a><br />{malaysiaContact.email && <a href={`mailto:${malaysiaContact.email}`}>{malaysiaContact.email}</a>}</p><Link className="text-link" href={companyProfile.addressSourceUrl} target="_blank" rel="noreferrer">{words(locale, "查看办公地址", "View office locations")} <span aria-hidden="true">↗</span></Link></div>}
       </section>
     </div>
   </main>;

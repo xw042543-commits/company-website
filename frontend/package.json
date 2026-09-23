@@ -8,7 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:catalog": "node --test src/data/university-catalog.test.ts"
+    "test": "npm run test:api && npm run test:catalog && npm run test:company",
+    "test:api": "node --test src/lib/university-api.test.ts src/lib/filter-options-api.test.ts",
+    "test:catalog": "node --test src/data/university-catalog.test.ts",
+    "test:company": "node --test src/data/company-profile.test.ts"
   },
   "dependencies": {
     "next": "16.3.5",

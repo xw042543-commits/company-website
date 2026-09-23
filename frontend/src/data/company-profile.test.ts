@@ -1,43 +1,62 @@
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import path from "node:path";
 import test from "node:test";
 
-const profileModule = await import("./company-profile.ts").catch(() => ({}));
+import {
+  applicationLevelLabel,
+  companyProfile,
+  contactTelephoneHref,
+  publicAdvisers,
+} from "./company-profile.ts";
 
-type ProfileModule = {
-  COMPANY_PROFILE: {
-    legalNameZh: string;
-    registrationNumber: string;
-    malaysia: { email: string };
-    responseTimeZh: string;
-  };
-  CHINA_ADVISERS: ReadonlyArray<{ nameZh: string; wechat: string; qrSrc: string }>;
-};
-
-test("publishes the approved company and adviser contact profile", () => {
-  assert.ok("COMPANY_PROFILE" in profileModule, "company profile data is missing");
-  assert.ok("CHINA_ADVISERS" in profileModule, "adviser contact data is missing");
-
-  const { COMPANY_PROFILE, CHINA_ADVISERS } = profileModule as ProfileModule;
-  assert.equal(COMPANY_PROFILE.legalNameZh, "洋豆角教育科技（山东）有限公司");
-  assert.equal(COMPANY_PROFILE.registrationNumber, "91371700MADNR7DM05");
-  assert.equal(COMPANY_PROFILE.malaysia.email, "bertram@staff.udajo.com");
-  assert.equal(COMPANY_PROFILE.responseTimeZh, "1 个工作日内");
-  assert.deepEqual(CHINA_ADVISERS.map(({ nameZh, wechat }) => [nameZh, wechat]), [
-    ["杜老师", "udajo002"],
-    ["高老师", "udajo005"],
-    ["谢老师", "udajo006"],
-  ]);
+test("uses the approved company identity and canonical domain", () => {
+  assert.equal(companyProfile.brandNameZh, "洋豆角");
+  assert.equal(companyProfile.brandNameEn, "UDAJO");
+  assert.equal(companyProfile.legalNameZh, "洋豆角教育科技（山东）有限公司");
+  assert.equal(companyProfile.registrationNumber, "91371700MADNR7DM05");
+  assert.equal(companyProfile.domain, "yangdoujiao.com");
 });
 
-test("each adviser QR image resolves to a public asset", () => {
-  assert.ok("CHINA_ADVISERS" in profileModule, "adviser contact data is missing");
-  const { CHINA_ADVISERS } = profileModule as ProfileModule;
-  const publicRoot = fileURLToPath(new URL("../../public/", import.meta.url));
+test("describes qualification level as the level the student plans to apply for", () => {
+  assert.deepEqual(applicationLevelLabel, {
+    zh: "计划申请的学历层次",
+    en: "Level you plan to apply for",
+  });
+});
 
-  for (const adviser of CHINA_ADVISERS) {
-    const path = `${publicRoot}${adviser.qrSrc.slice(1).replaceAll("/", "\\")}`;
-    assert.equal(existsSync(path), true, `${adviser.nameZh} QR image is missing`);
+test("publishes one Malaysia contact and three China advisers", () => {
+  assert.equal(publicAdvisers.length, 4);
+  assert.equal(publicAdvisers.filter((adviser) => adviser.region === "MY").length, 1);
+  assert.equal(publicAdvisers.filter((adviser) => adviser.region === "CN").length, 3);
+  assert.equal(companyProfile.responseTime.zh, "1 个工作日内");
+});
+
+test("uses international dialing links while preserving local display numbers", () => {
+  const malaysiaAdviser = publicAdvisers.find((adviser) => adviser.region === "MY")!;
+  const chinaAdviser = publicAdvisers.find((adviser) => adviser.id === "du")!;
+
+  assert.equal(malaysiaAdviser.phone, "01136514236");
+  assert.equal(contactTelephoneHref(malaysiaAdviser), "tel:+601136514236");
+  assert.equal(chinaAdviser.phone, "15589983056");
+  assert.equal(contactTelephoneHref(chinaAdviser), "tel:+8615589983056");
+});
+
+test("every China adviser has a supplied QR image in the public directory", () => {
+  const chinaAdvisers = publicAdvisers.filter((adviser) => adviser.region === "CN");
+  assert.equal(chinaAdvisers.length, 3);
+  for (const adviser of chinaAdvisers) {
+    assert.ok(adviser.wechatId);
+    assert.ok(adviser.qrImage);
+    const publicPath = path.join(process.cwd(), "public", adviser.qrImage!.replace(/^\//, ""));
+    assert.equal(existsSync(publicPath), true, publicPath);
   }
+});
+
+test("keeps each supplied QR image's intrinsic size to prevent layout shift", () => {
+  assert.deepEqual(
+    publicAdvisers.filter((adviser) => adviser.region === "CN")
+      .map((adviser) => [adviser.id, adviser.qrWidth, adviser.qrHeight]),
+    [["du", 345, 473], ["gao", 341, 468], ["xie", 324, 483]],
+  );
 });

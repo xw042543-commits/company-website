@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
-import { COMPANY_PROFILE } from "@/data/company-profile";
+import { companyProfile } from "@/data/company-profile";
 import { isLocale, words } from "@/lib/site";
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
@@ -15,7 +15,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     <footer className="site-footer"><div className="container footer-grid">
       <div className="footer-brand"><strong>UDAJO</strong><span>洋豆角</span></div>
       <p>{words(locale, "清晰规划留学选择，逐步走向适合你的院校。", "Clear study planning, one practical step at a time.")}</p>
-      <p className="footer-note"><a href={`mailto:${COMPANY_PROFILE.malaysia.email}`}>{COMPANY_PROFILE.malaysia.email}</a><span>{words(locale, `通常在${COMPANY_PROFILE.responseTimeZh}回复`, `Replies ${COMPANY_PROFILE.responseTimeEn}`)}</span></p>
+      <p className="footer-note"><a href={`https://${companyProfile.domain}`}>{companyProfile.domain}</a><br /><a href={`mailto:${companyProfile.publicEmail}`}>{companyProfile.publicEmail}</a></p>
     </div></footer>
   </div>;
 }

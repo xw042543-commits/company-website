@@ -1,56 +1,87 @@
-export const COMPANY_PROFILE = {
-  brandZh: "洋豆角",
-  brandEn: "UDAJO",
+export type PublicAdviser = {
+  id: string;
+  name: string;
+  role: { zh: string; en: string };
+  region: "MY" | "CN";
+  phone: string;
+  email?: string;
+  wechatId?: string;
+  qrImage?: string;
+  qrWidth?: number;
+  qrHeight?: number;
+};
+
+export function contactTelephoneHref(adviser: Pick<PublicAdviser, "region" | "phone">): string {
+  const digits = adviser.phone.replace(/\D/g, "");
+  return adviser.region === "MY"
+    ? `tel:+60${digits.replace(/^0/, "")}`
+    : `tel:+86${digits}`;
+}
+
+export const companyProfile = {
+  brandNameZh: "洋豆角",
+  brandNameEn: "UDAJO",
   legalNameZh: "洋豆角教育科技（山东）有限公司",
   registrationNumber: "91371700MADNR7DM05",
-  servicesZh: ["留学咨询", "语言学习", "课程辅导"],
-  servicesEn: ["Study abroad guidance", "Language learning", "Academic tutoring"],
-  malaysia: {
-    nameZh: "陈老师",
-    nameEn: "Chen",
-    roleZh: "国际项目负责人",
-    roleEn: "International Projects Lead",
-    phoneDisplay: "011-3651 4236",
-    phoneHref: "+601136514236",
-    email: "bertram@staff.udajo.com",
+  domain: "yangdoujiao.com",
+  publicEmail: "bertram@staff.udajo.com",
+  responseTime: {
+    zh: "1 个工作日内",
+    en: "within one working day",
   },
-  responseTimeZh: "1 个工作日内",
-  responseTimeEn: "within one business day",
-  officeLocationsUrl: "https://mp.weixin.qq.com/s/JL-pFVpL1zHacV9JEUIfyQ",
+  addressSourceUrl: "https://mp.weixin.qq.com/s/JL-pFVpL1zHacV9JEUIfyQ",
+  serviceLines: [
+    { zh: "留学申请与院校规划", en: "Study applications and university planning" },
+    { zh: "语言学习与考试准备", en: "Language learning and test preparation" },
+    { zh: "课程辅导与学习支持", en: "Tutoring and learning support" },
+  ],
 } as const;
 
-export const CHINA_ADVISERS = [
+export const applicationLevelLabel = {
+  zh: "计划申请的学历层次",
+  en: "Level you plan to apply for",
+} as const;
+
+export const publicAdvisers: PublicAdviser[] = [
+  {
+    id: "chen",
+    name: "陈老师",
+    role: { zh: "国际项目负责人", en: "International programmes lead" },
+    region: "MY",
+    phone: "01136514236",
+    email: "bertram@staff.udajo.com",
+  },
   {
     id: "du",
-    nameZh: "杜老师",
-    nameEn: "Adviser Du",
-    roleZh: "顾问老师",
-    roleEn: "Education adviser",
-    wechat: "udajo002",
-    phoneDisplay: "155 8998 3056",
-    phoneHref: "+8615589983056",
-    qrSrc: "/contact/adviser-du-wechat.jpeg",
+    name: "杜老师",
+    role: { zh: "顾问老师", en: "Education adviser" },
+    region: "CN",
+    phone: "15589983056",
+    wechatId: "udajo002",
+    qrImage: "/company/advisers/du-wechat.jpeg",
+    qrWidth: 345,
+    qrHeight: 473,
   },
   {
     id: "gao",
-    nameZh: "高老师",
-    nameEn: "Adviser Gao",
-    roleZh: "顾问老师",
-    roleEn: "Education adviser",
-    wechat: "udajo005",
-    phoneDisplay: "155 8991 3695",
-    phoneHref: "+8615589913695",
-    qrSrc: "/contact/adviser-gao-wechat.png",
+    name: "高老师",
+    role: { zh: "顾问老师", en: "Education adviser" },
+    region: "CN",
+    phone: "15589913695",
+    wechatId: "udajo005",
+    qrImage: "/company/advisers/gao-wechat.png",
+    qrWidth: 341,
+    qrHeight: 468,
   },
   {
     id: "xie",
-    nameZh: "谢老师",
-    nameEn: "Adviser Xie",
-    roleZh: "顾问老师",
-    roleEn: "Education adviser",
-    wechat: "udajo006",
-    phoneDisplay: "155 0865 5975",
-    phoneHref: "+8615508655975",
-    qrSrc: "/contact/adviser-xie-wechat.png",
+    name: "谢老师",
+    role: { zh: "顾问老师", en: "Education adviser" },
+    region: "CN",
+    phone: "15508655975",
+    wechatId: "udajo006",
+    qrImage: "/company/advisers/xie-wechat.png",
+    qrWidth: 324,
+    qrHeight: 483,
   },
-] as const;
+];
