@@ -4,6 +4,7 @@ import { ResultsState } from "@/components/results-state";
 import { SchoolCard } from "@/components/school-card";
 import { Pagination } from "@/components/pagination";
 import { SearchSuggestionList } from "@/components/search-suggestion-list";
+import { UniversityComparison } from "@/components/university-comparison";
 import { universitySuggestions } from "@/data/search-suggestions";
 import { getFilterOptions } from "@/lib/filter-options-api";
 import { getUniversitySearch } from "@/lib/universities";
@@ -33,5 +34,6 @@ export default async function Universities({ params, searchParams }: { params: P
       {result.status === "ready" ? schools.length ? schools.map(school => <SchoolCard key={school.id} school={school} locale={locale} />) : <ResultsState locale={locale} state="empty" actionHref={`/${locale}/universities`} /> : <ResultsState locale={locale} state="error" />}
       <Pagination locale={locale} path={`/${locale}/universities`} query={query} page={page} total={totalItems} />
     </section></div>
+    <UniversityComparison locale={locale} />
   </main>;
 }

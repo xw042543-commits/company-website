@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { courseSuggestions, universitySuggestions } from "./search-suggestions.ts";
+import { courseSuggestions, matchingSuggestions, universitySuggestions } from "./search-suggestions.ts";
 
 test("course suggestions are localized and useful", () => {
   assert.ok(courseSuggestions("en").includes("Computer Science"));
@@ -13,4 +13,8 @@ test("university suggestions include reviewed names, aliases, and location terms
   assert.ok(suggestions.includes("UM"));
   assert.ok(suggestions.includes("Malaysia"));
   assert.equal(new Set(suggestions).size, suggestions.length);
+});
+
+test("keyword matching prioritizes prefix results and respects its limit", () => {
+  assert.deepEqual(matchingSuggestions(["Bioengineering", "Engineering", "Chemical Engineering", "English"], "eng", 3), ["Engineering", "English", "Bioengineering"]);
 });

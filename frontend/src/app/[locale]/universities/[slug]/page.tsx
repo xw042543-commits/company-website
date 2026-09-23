@@ -1,8 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
 import { Pagination } from "@/components/pagination";
 import { ResultsState } from "@/components/results-state";
+import { universityProfile } from "@/data/university-profiles";
+import { findUniversityBySlug } from "@/data/university-catalog";
 import { getFilterOptions } from "@/lib/filter-options-api";
 import {
   getUniversityDetail,
@@ -60,6 +63,8 @@ export default async function Detail({ params, searchParams }: DetailProps) {
     locale,
     filterResult.status === "ready" ? filterResult.options : undefined,
   );
+  const directoryUniversity = findUniversityBySlug(slug);
+  const profile = directoryUniversity ? universityProfile(directoryUniversity.id) : undefined;
 
   return <main id="main" className="container page-main">
     <BackLink locale={locale} />
@@ -75,17 +80,19 @@ export default async function Detail({ params, searchParams }: DetailProps) {
       <div>
         <section className="detail-section">
           <h2>{words(locale, "院校介绍", "University profile")}</h2>
-          <div
-            className="detail-image university-logo-panel"
-            aria-label={words(locale, "院校标志占位", "University logo placeholder")}
-          >
-            <span>{view.name.slice(0, 1)}</span>
+          <div className={`detail-image university-profile-media${profile?.campusImageSrc ? " has-photo" : ""}`}>
+            {profile?.campusImageSrc
+              ? <Image src={profile.campusImageSrc} fill sizes="(max-width: 760px) 100vw, 640px" alt={words(locale, `${view.name} 校园`, `${view.name} campus`)} priority />
+              : directoryUniversity?.logoSrc
+                ? <Image src={directoryUniversity.logoSrc} width={640} height={320} sizes="(max-width: 760px) 100vw, 640px" alt={words(locale, `${view.name} 标志`, `${view.name} logo`)} priority />
+                : <span>{view.name.slice(0, 1)}</span>}
           </div>
-          <p>{view.description || words(
+          <p>{view.description || (profile ? (locale === "zh" ? profile.introductionZh : profile.introductionEn) : words(
             locale,
             "院校介绍正在审核整理中。如需了解校区与申请信息，请咨询顾问。",
             "The reviewed university introduction is being prepared. Please ask an adviser about campuses and applications.",
-          )}</p>
+          ))}</p>
+          {profile?.imageCredit && <p className="image-credit">{words(locale, "图片来源", "Image source")}: <a href={profile.imageCredit.href} target="_blank" rel="noreferrer">{profile.imageCredit.label}</a></p>}
         </section>
 
         <section className="detail-section" aria-labelledby="programme-list-heading">

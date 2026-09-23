@@ -8,7 +8,7 @@ export default async function Consultation({ params }: { params: Promise<{ local
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
-  return <main id="main" className="container page-main">
+  return <main id="main" className="container page-main consultation-page">
     <p className="section-label">{words(locale, "获得申请协助", "Get application guidance")}</p>
     <h1>{words(locale, "留学咨询", "Study abroad enquiry")}</h1>
     <p className="page-intro">{words(locale, "告诉我们你的学习方向和目标院校。线上表单正在完成隐私审核，你也可以通过下方已确认的联系方式直接咨询。", "Tell us about your study interests and intended universities. While the online form completes its privacy review, you can contact an adviser directly using the confirmed details below.")}</p>

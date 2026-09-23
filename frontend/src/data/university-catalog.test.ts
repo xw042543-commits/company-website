@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 import { filterUniversityCatalog, findUniversityBySlug, localizeUniversity, searchUniversityCatalog, UNIVERSITY_CATALOG } from "./university-catalog.ts";
+import { universityProfile } from "./university-profiles.ts";
 import { isNavigationActive } from "../lib/site.ts";
 
 test("matches an approved abbreviation", () => {
@@ -99,4 +100,27 @@ test("every supplied logo reference resolves to a nonempty public file", () => {
     assert.ok(statSync(path).size > 0, `${university.slug} logo is empty`);
   }
 });
+
+test("every reviewed university has bilingual comparison and introduction data", () => {
+  for (const university of UNIVERSITY_CATALOG) {
+    const profile = universityProfile(university.id);
+    assert.ok(profile, `${university.id} profile is missing`);
+    assert.ok(profile.introductionZh.length > 20, `${university.id} Chinese introduction is incomplete`);
+    assert.ok(profile.introductionEn.length > 20, `${university.id} English introduction is incomplete`);
+    assert.ok(profile.subjectsZh.length >= 3, `${university.id} Chinese subjects are incomplete`);
+    assert.equal(profile.subjectsZh.length, profile.subjectsEn.length, `${university.id} subject translations do not match`);
+  }
+});
+
+test("every campus photo reference resolves to a nonempty public file", () => {
+  const publicRoot = fileURLToPath(new URL("../../public/", import.meta.url));
+  for (const university of UNIVERSITY_CATALOG) {
+    const photo = universityProfile(university.id)?.campusImageSrc;
+    if (!photo) continue;
+    const path = resolve(publicRoot, photo.slice(1));
+    assert.equal(existsSync(path), true, `${university.slug} campus photo is missing`);
+    assert.ok(statSync(path).size > 0, `${university.slug} campus photo is empty`);
+  }
+});
+
 

@@ -29,16 +29,14 @@ export function LoginForm({ locale }: { locale: Locale }) {
     </div>
 
     <div className="field">
-      <div className="field-label-row">
-        <label htmlFor="account-password">{words(locale, "密码", "Password")}</label>
-        <Link href={`/${locale}/forgot-password`}>{words(locale, "忘记密码？", "Forgot password?")}</Link>
-      </div>
+      <label htmlFor="account-password">{words(locale, "密码", "Password")}</label>
       <div className="password-input-wrap">
         <input ref={passwordRef} id="account-password" type={showPassword ? "text" : "password"} autoComplete="off" maxLength={128} placeholder={words(locale, "请输入密码", "Enter your password")} />
         <button className="password-toggle" type="button" aria-controls="account-password" aria-pressed={showPassword} onClick={() => setShowPassword(value => !value)}>
           {showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}
         </button>
       </div>
+      <Link className="forgot-password-link" href={`/${locale}/forgot-password`}>{words(locale, "忘记密码？", "Forgot password?")}</Link>
     </div>
 
     <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "预览登录操作", "Preview sign in")}</button>
