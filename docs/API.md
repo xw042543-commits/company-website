@@ -182,3 +182,42 @@ Programme 同时满足所有课程维度，不会把不同专业的条件拼成�
 `sourceUrl` 和 `authorName`。缺失语言返回 `null`，后端不自动翻译，也不把
 Markdown 转换为 HTML。不存在、草稿、归档和未到发布时间的文章都返回 404。
 当前只提供公开读取，不提供文章创建、编辑、上传或审核接口。
+
+## 留学咨询
+
+### `POST /api/v1/consultations`
+
+接收官网留学咨询表单。接口默认关闭，并且必须同时配置正式隐私声明版本后才会
+保存数据。当前前端仍保持“暂未开放”，避免在隐私声明确认前收集真实个人资料。
+
+请求示例：
+
+```json
+{
+  "name": "王欣",
+  "contact": "wx-example",
+  "intendedSchool": "University of Malaya",
+  "intendedCourse": "Computer Science",
+  "qualification": "bachelor",
+  "notes": null,
+  "locale": "zh",
+  "privacyConsent": true
+}
+```
+
+`name`、`contact`、`locale` 和 `privacyConsent` 必填。姓名和联系方式最长 100 字符，
+意向学校和专业最长 200 字符，备注最长 2000 字符。学历层次只接受
+`foundation`、`bachelor`、`master`、`doctorate`。输入会先去除首尾空白，可选字段
+去除空白后为空时按 `null` 保存。成功时返回 201、公开查询编号和提交时间，不返回
+数据库主键或用户填写的联系方式。
+
+接口关闭或未配置隐私声明版本时返回 503，错误代码为
+`CONSULTATION_SUBMISSION_UNAVAILABLE`，并且不会保存任何数据。启用时需同时设置：
+
+```properties
+APP_CONSULTATION_SUBMISSION_ENABLED=true
+APP_CONSULTATION_PRIVACY_NOTICE_VERSION=正式声明版本号
+```
+
+隐私声明版本号去除首尾空白后必须为 1～50 个字符。正式开放前还必须补充接口限流和
+请求体大小限制；未完成这些防滥用措施前，不得启用上述开关。

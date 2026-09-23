@@ -28,6 +28,9 @@ logging:
     com.yangdoujiao.website: INFO
 
 app:
+  consultation:
+    submission-enabled: false
+    privacy-notice-version: ""
   search:
     index:
       batch-size: 200
