@@ -1,6 +1,7 @@
 package com.yangdoujiao.website.common.web;
 
 import java.net.InetAddress;
+import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -91,7 +92,13 @@ public class ClientAddressResolver {
         }
         try {
             InetAddress address = InetAddress.getByName(candidate);
-            return address instanceof Inet6Address ? address.getHostAddress() : null;
+            if (address instanceof Inet6Address) {
+                return address.getHostAddress();
+            }
+            if (address instanceof Inet4Address) {
+                return address.getHostAddress();
+            }
+            return null;
         } catch (UnknownHostException exception) {
             return null;
         }
