@@ -29,8 +29,13 @@ logging:
 
 app:
   consultation:
-    submission-enabled: false
-    privacy-notice-version: ""
+    submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}
+    privacy-notice-version: ${APP_CONSULTATION_PRIVACY_NOTICE_VERSION:}
+    maximum-body-size: ${APP_CONSULTATION_MAXIMUM_BODY_SIZE:16KB}
+    trusted-proxies: ${APP_CONSULTATION_TRUSTED_PROXIES:}
+    rate-limit:
+      maximum-submissions: ${APP_CONSULTATION_RATE_LIMIT_MAXIMUM_SUBMISSIONS:5}
+      window: ${APP_CONSULTATION_RATE_LIMIT_WINDOW:10m}
   search:
     index:
       batch-size: 200
