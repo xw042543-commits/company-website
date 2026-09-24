@@ -21,6 +21,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.yangdoujiao.website.common.api.PageResponse;
+import com.yangdoujiao.website.consultation.ConsultationRateLimitInterceptor;
 import com.yangdoujiao.website.search.v4.SearchServiceUnavailableException;
 import com.yangdoujiao.website.search.v4.SearchValidationException;
 import com.yangdoujiao.website.search.v4.UniversitySearchV1Service;
@@ -31,6 +32,7 @@ class UniversitySearchV1ControllerTest {
     @Autowired private MockMvc mockMvc;
     @MockitoBean private UniversitySearchV1Service service;
     @MockitoBean private CacheManager cacheManager;
+    @MockitoBean private ConsultationRateLimitInterceptor consultationRateLimitInterceptor;
 
     @Test
     void bindsRepeatedParametersAndUsesDefaults() throws Exception {

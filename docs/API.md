@@ -219,5 +219,26 @@ APP_CONSULTATION_SUBMISSION_ENABLED=true
 APP_CONSULTATION_PRIVACY_NOTICE_VERSION=正式声明版本号
 ```
 
-隐私声明版本号去除首尾空白后必须为 1～50 个字符。正式开放前还必须补充接口限流和
-请求体大小限制；未完成这些防滥用措施前，不得启用上述开关。
+隐私声明版本号去除首尾空白后必须为 1～50 个字符。接口只接受不超过 16 KB 的请求体，
+超出时返回 413，错误代码为 `CONSULTATION_PAYLOAD_TOO_LARGE`。同一客户端地址在
+10 分钟内最多发起 5 次提交尝试，包括 JSON 错误或字段校验失败的请求；第 6 次起
+返回 429，错误代码为
+`CONSULTATION_RATE_LIMITED`；窗口到期后自动恢复。限流计数保存在 Redis，只保存客户端
+地址的 SHA-256 摘要，不保存原始地址。Redis 不可用时接口返回 503，不会绕过限制继续
+收集资料。
+
+可通过以下环境变量调整默认安全参数：
+
+```properties
+APP_CONSULTATION_MAXIMUM_BODY_SIZE=16KB
+APP_CONSULTATION_RATE_LIMIT_MAXIMUM_SUBMISSIONS=5
+APP_CONSULTATION_RATE_LIMIT_WINDOW=10m
+APP_CONSULTATION_TRUSTED_PROXIES=
+```
+
+本地直连后端时，`APP_CONSULTATION_TRUSTED_PROXIES` 保持为空。正式部署在 Nginx
+等反向代理后方时，该配置只填写能够直接连接后端的代理 IP，多个 IP 用逗号
+分隔，只接受完整 IPv4 或 IPv6 字面量，不接受主机名。后端只会接受这些可信代理
+提供的 `X-Forwarded-For`，普通访客自行伪造的
+转发头会被忽略。代理必须追加它实际看到的客户端地址，并在防火墙中禁止用户绕过代理
+直接访问后端。未配置可信代理时，后端始终使用直连地址进行限流。
