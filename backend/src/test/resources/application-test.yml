@@ -1,4 +1,8 @@
 app:
+  auth:
+    registration-enabled: true
+    agreement-version: test-terms-v1
+    privacy-version: test-privacy-v1
   search:
     index:
       batch-size: 2
