@@ -6,17 +6,19 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 
+import com.yangdoujiao.website.common.web.ClientAddressResolver;
+
 class ConsultationClientAddressResolverTest {
 
     @Test
     void rejectsTrustedProxyThatIsNotALiteralIpAddress() {
-        assertThatThrownBy(() -> new ConsultationClientAddressResolver(
+        assertThatThrownBy(() -> new ClientAddressResolver(
                 new String[] {"proxy.internal"}
         ))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("literal IP address");
 
-        assertThatThrownBy(() -> new ConsultationClientAddressResolver(
+        assertThatThrownBy(() -> new ClientAddressResolver(
                 new String[] {"2130706433"}
         ))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -25,7 +27,7 @@ class ConsultationClientAddressResolverTest {
 
     @Test
     void ignoresForwardedHeaderFromUntrustedCaller() {
-        ConsultationClientAddressResolver resolver = new ConsultationClientAddressResolver(
+        ClientAddressResolver resolver = new ClientAddressResolver(
                 new String[] {"127.0.0.1"}
         );
         MockHttpServletRequest request = new MockHttpServletRequest();
@@ -37,7 +39,7 @@ class ConsultationClientAddressResolverTest {
 
     @Test
     void resolvesDifferentClientsBehindATrustedProxyAndDiscardsSpoofedPrefix() {
-        ConsultationClientAddressResolver resolver = new ConsultationClientAddressResolver(
+        ClientAddressResolver resolver = new ClientAddressResolver(
                 new String[] {"127.0.0.1"}
         );
         MockHttpServletRequest first = proxiedRequest("198.51.100.20");
@@ -53,7 +55,7 @@ class ConsultationClientAddressResolverTest {
 
     @Test
     void usesTheRightmostUntrustedAddressAcrossRepeatedForwardedHeaders() {
-        ConsultationClientAddressResolver resolver = new ConsultationClientAddressResolver(
+        ClientAddressResolver resolver = new ClientAddressResolver(
                 new String[] {"127.0.0.1"}
         );
         MockHttpServletRequest request = new MockHttpServletRequest();

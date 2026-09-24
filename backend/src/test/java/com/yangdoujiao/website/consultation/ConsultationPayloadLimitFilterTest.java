@@ -12,15 +12,18 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.util.unit.DataSize;
 
+import com.yangdoujiao.website.common.web.ApiPayloadLimitFilter;
+
 import tools.jackson.databind.ObjectMapper;
 
 class ConsultationPayloadLimitFilterTest {
 
     @Test
     void limitsEncodedMatrixAndContextPathVariantsOfTheConsultationRoute() throws Exception {
-        ConsultationPayloadLimitFilter filter = new ConsultationPayloadLimitFilter(
+        ApiPayloadLimitFilter filter = new ApiPayloadLimitFilter(
                 mock(ObjectMapper.class),
-                DataSize.ofBytes(4)
+                DataSize.ofBytes(4),
+                DataSize.ofKilobytes(8)
         );
 
         assertLimited(filter, "", "/api/v1/%63onsultations");
@@ -34,19 +37,21 @@ class ConsultationPayloadLimitFilterTest {
     void rejectsBodyLimitThatCannotBeAppliedSafely() {
         ObjectMapper objectMapper = mock(ObjectMapper.class);
 
-        assertThatThrownBy(() -> new ConsultationPayloadLimitFilter(objectMapper, DataSize.ofBytes(0)))
+        assertThatThrownBy(() -> new ApiPayloadLimitFilter(
+                objectMapper, DataSize.ofBytes(0), DataSize.ofKilobytes(8)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("body size");
-        assertThatThrownBy(() -> new ConsultationPayloadLimitFilter(
+        assertThatThrownBy(() -> new ApiPayloadLimitFilter(
                 objectMapper,
-                DataSize.ofBytes(Integer.MAX_VALUE)
+                DataSize.ofBytes(Integer.MAX_VALUE),
+                DataSize.ofKilobytes(8)
         ))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("body size");
     }
 
     private void assertLimited(
-            ConsultationPayloadLimitFilter filter,
+            ApiPayloadLimitFilter filter,
             String contextPath,
             String requestUri
     ) throws Exception {

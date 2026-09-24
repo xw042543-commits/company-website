@@ -1,4 +1,4 @@
-package com.yangdoujiao.website.consultation;
+package com.yangdoujiao.website.common.web;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -20,7 +20,6 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.yangdoujiao.website.common.api.ApiErrorResponse;
-import com.yangdoujiao.website.common.web.RequestTraceFilter;
 
 import tools.jackson.databind.ObjectMapper;
 
@@ -34,34 +33,62 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE + 10)
-public class ConsultationPayloadLimitFilter extends OncePerRequestFilter {
+public class ApiPayloadLimitFilter extends OncePerRequestFilter {
 
     private static final String CONSULTATION_PATH = "/api/v1/consultations";
+    private static final String AUTH_PATH = "/api/v1/auth/";
+    private static final String ACCOUNT_PATH = "/api/v1/account";
 
     private final ObjectMapper objectMapper;
-    private final int maximumBodyBytes;
+    private final int consultationBytes;
+    private final int authBytes;
 
-    public ConsultationPayloadLimitFilter(
+    public ApiPayloadLimitFilter(
             ObjectMapper objectMapper,
-            @Value("${app.consultation.maximum-body-size:16KB}") DataSize maximumBodySize
+            @Value("${app.consultation.maximum-body-size:16KB}") DataSize consultationMaximumBodySize,
+            @Value("${app.auth.maximum-body-size:8KB}") DataSize authMaximumBodySize
     ) {
+        this.objectMapper = objectMapper;
+        this.consultationBytes = validatedBytes(consultationMaximumBodySize);
+        this.authBytes = validatedBytes(authMaximumBodySize);
+    }
+
+    private int validatedBytes(DataSize maximumBodySize) {
         long maximumBodyBytes = maximumBodySize == null ? 0 : maximumBodySize.toBytes();
         if (maximumBodyBytes <= 0 || maximumBodyBytes >= Integer.MAX_VALUE) {
             throw new IllegalArgumentException(
-                    "Consultation maximum body size must be between 1 byte and "
+                    "Maximum body size must be between 1 byte and "
                             + (Integer.MAX_VALUE - 1) + " bytes"
             );
         }
-        this.objectMapper = objectMapper;
-        this.maximumBodyBytes = Math.toIntExact(maximumBodyBytes);
+        return Math.toIntExact(maximumBodyBytes);
     }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        return !"POST".equals(request.getMethod()) || !isConsultationPath(request);
+        return limitFor(request) == null;
     }
 
-    private boolean isConsultationPath(HttpServletRequest request) {
+    private Limit limitFor(HttpServletRequest request) {
+        String path = normalizedPath(request);
+        if (path == null) {
+            return null;
+        }
+        String method = request.getMethod();
+        if ("POST".equals(method) && CONSULTATION_PATH.equals(path)) {
+            return new Limit(consultationBytes, "CONSULTATION_PAYLOAD_TOO_LARGE",
+                    "Consultation request body is too large");
+        }
+        if ("POST".equals(method) && path.startsWith(AUTH_PATH)) {
+            return new Limit(authBytes, "AUTH_PAYLOAD_TOO_LARGE", "Authentication request body is too large");
+        }
+        if (("PUT".equals(method) || "DELETE".equals(method)) && path.startsWith(ACCOUNT_PATH)) {
+            return new Limit(authBytes, "AUTH_PAYLOAD_TOO_LARGE", "Authentication request body is too large");
+        }
+        return null;
+    }
+
+    private String normalizedPath(HttpServletRequest request) {
         String requestUri = request.getRequestURI();
         String contextPath = request.getContextPath();
         if (!contextPath.isEmpty() && requestUri.startsWith(contextPath)) {
@@ -72,7 +99,7 @@ public class ConsultationPayloadLimitFilter extends OncePerRequestFilter {
         try {
             decodedPath = UriUtils.decode(requestUri, StandardCharsets.UTF_8);
         } catch (IllegalArgumentException exception) {
-            return false;
+            return null;
         }
         String pathWithoutMatrixParameters = Arrays.stream(decodedPath.split("/", -1))
                 .map(segment -> {
@@ -80,7 +107,7 @@ public class ConsultationPayloadLimitFilter extends OncePerRequestFilter {
                     return parameterStart < 0 ? segment : segment.substring(0, parameterStart);
                 })
                 .collect(Collectors.joining("/"));
-        return CONSULTATION_PATH.equals(pathWithoutMatrixParameters);
+        return pathWithoutMatrixParameters;
     }
 
     @Override
@@ -89,20 +116,22 @@ public class ConsultationPayloadLimitFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain
     ) throws ServletException, IOException {
-        byte[] body = request.getInputStream().readNBytes(maximumBodyBytes + 1);
-        if (body.length > maximumBodyBytes) {
-            writePayloadTooLarge(response, request);
+        Limit limit = limitFor(request);
+        byte[] body = request.getInputStream().readNBytes(limit.bytes() + 1);
+        if (body.length > limit.bytes()) {
+            writePayloadTooLarge(response, request, limit);
             return;
         }
 
         filterChain.doFilter(new CachedBodyRequest(request, body), response);
     }
 
-    private void writePayloadTooLarge(HttpServletResponse response, HttpServletRequest request) throws IOException {
+    private void writePayloadTooLarge(HttpServletResponse response, HttpServletRequest request, Limit limit)
+            throws IOException {
         Object traceId = request.getAttribute(RequestTraceFilter.TRACE_ID_ATTRIBUTE);
         ApiErrorResponse error = new ApiErrorResponse(
-                "CONSULTATION_PAYLOAD_TOO_LARGE",
-                "Consultation request body is too large",
+                limit.code(),
+                limit.message(),
                 null,
                 traceId == null ? "unavailable" : traceId.toString()
         );
@@ -111,6 +140,8 @@ public class ConsultationPayloadLimitFilter extends OncePerRequestFilter {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         objectMapper.writeValue(response.getOutputStream(), error);
     }
+
+    private record Limit(int bytes, String code, String message) {}
 
     private static final class CachedBodyRequest extends HttpServletRequestWrapper {
 

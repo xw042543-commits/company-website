@@ -1,4 +1,4 @@
-package com.yangdoujiao.website.consultation;
+package com.yangdoujiao.website.common.web;
 
 import java.net.InetAddress;
 import java.net.Inet6Address;
@@ -15,13 +15,13 @@ import org.springframework.stereotype.Component;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Component
-public class ConsultationClientAddressResolver {
+public class ClientAddressResolver {
 
     private static final int MAXIMUM_FORWARDED_HEADER_LENGTH = 2_048;
 
     private final Set<String> trustedProxies;
 
-    public ConsultationClientAddressResolver(
+    public ClientAddressResolver(
             @Value("${app.consultation.trusted-proxies:}") String[] trustedProxies
     ) {
         this.trustedProxies = new HashSet<>();
