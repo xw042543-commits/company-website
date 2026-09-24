@@ -95,6 +95,47 @@ class AuthSchemaIntegrationTest {
     }
 
     @Test
+    void rejectsInvalidTokenFormatsTypesDuplicatesAndResetAttempts() {
+        long userId = insertAccount("auth-schema-token-rules@example.test", null);
+        String verificationHash = "e".repeat(64);
+        String resetHash = "f".repeat(64);
+
+        jdbc.update("""
+                INSERT INTO user_verification_tokens (user_id, token_type, token_hash, expires_at)
+                VALUES (?, 'EMAIL', ?, CURRENT_TIMESTAMP + INTERVAL '1 hour')
+                """, userId, verificationHash);
+        jdbc.update("""
+                INSERT INTO password_reset_tokens (user_id, token_hash, expires_at)
+                VALUES (?, ?, CURRENT_TIMESTAMP + INTERVAL '1 hour')
+                """, userId, resetHash);
+
+        assertThatThrownBy(() -> jdbc.update("""
+                INSERT INTO user_verification_tokens (user_id, token_type, token_hash, expires_at)
+                VALUES (?, 'PHONE', ?, CURRENT_TIMESTAMP + INTERVAL '1 hour')
+                """, userId, verificationHash)).isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> jdbc.update("""
+                INSERT INTO password_reset_tokens (user_id, token_hash, expires_at)
+                VALUES (?, ?, CURRENT_TIMESTAMP + INTERVAL '1 hour')
+                """, userId, resetHash)).isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> jdbc.update("""
+                INSERT INTO user_verification_tokens (user_id, token_type, token_hash, expires_at)
+                VALUES (?, 'EMAIL', ?, CURRENT_TIMESTAMP + INTERVAL '1 hour')
+                """, userId, "A".repeat(64))).isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> jdbc.update("""
+                INSERT INTO password_reset_tokens (user_id, token_hash, expires_at)
+                VALUES (?, ?, CURRENT_TIMESTAMP + INTERVAL '1 hour')
+                """, userId, "g".repeat(64))).isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> jdbc.update("""
+                INSERT INTO user_verification_tokens (user_id, token_type, token_hash, expires_at)
+                VALUES (?, 'SMS', ?, CURRENT_TIMESTAMP + INTERVAL '1 hour')
+                """, userId, "c".repeat(64))).isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> jdbc.update("""
+                INSERT INTO password_reset_tokens (user_id, token_hash, expires_at, attempts)
+                VALUES (?, ?, CURRENT_TIMESTAMP + INTERVAL '1 hour', -1)
+                """, userId, "d".repeat(64))).isInstanceOf(DataIntegrityViolationException.class);
+    }
+
+    @Test
     void rateLimitBucketsUseCompositeKeyAndNonnegativeAttempts() {
         jdbc.update("""
                 INSERT INTO auth_rate_limit_buckets (scope, subject_hash, attempts, expires_at)
@@ -127,6 +168,12 @@ class AuthSchemaIntegrationTest {
                                             max_inactive_interval, expiry_time, principal_name)
                 VALUES (?, ?, 1, 1, 3600, 3600001, 'auth-schema-test')
                 """, "00000000-0000-0000-0000-000000000001", "00000000-0000-0000-0000-000000000002");
+        assertThatThrownBy(() -> jdbc.update("""
+                INSERT INTO spring_session (primary_id, session_id, creation_time, last_access_time,
+                                            max_inactive_interval, expiry_time, principal_name)
+                VALUES (?, ?, 1, 1, 3600, 3600001, 'auth-schema-test')
+                """, "00000000-0000-0000-0000-000000000003", "00000000-0000-0000-0000-000000000002"))
+                .isInstanceOf(DataIntegrityViolationException.class);
         jdbc.update("""
                 INSERT INTO spring_session_attributes (session_primary_id, attribute_name, attribute_bytes)
                 VALUES (?, 'test', decode('00', 'hex'))
