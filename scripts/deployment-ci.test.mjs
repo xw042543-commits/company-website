@@ -11,7 +11,13 @@ test("frontend CI uses the server-only API base URL", () => {
 
 test("CI validates deployment contracts and Compose configuration", () => {
   assert.match(workflow, /^  deployment:/m);
-  assert.match(workflow, /node --test scripts\/deployment-preflight\.test\.mjs scripts\/deployment-artifacts\.test\.mjs scripts\/deployment-compose\.test\.mjs/);
+  for (const file of [
+    "deployment-preflight.test.mjs",
+    "deployment-artifacts.test.mjs",
+    "deployment-compose.test.mjs",
+    "deployment-ci.test.mjs",
+    "deployment-documentation.test.mjs",
+  ]) assert.match(workflow, new RegExp(`scripts/${file.replaceAll(".", "\\.")}`));
   assert.match(workflow, /node scripts\/deployment-preflight\.mjs/);
   assert.match(workflow, /docker compose[^\n]*compose\.production\.yaml[^\n]*config --quiet/);
 });

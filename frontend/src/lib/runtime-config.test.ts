@@ -1,7 +1,14 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import { resolveApiBaseUrl } from "./runtime-config-core.ts";
+
+test("local environment example uses the server-only API variable", () => {
+  const example = readFileSync(new URL("../../../.env.example", import.meta.url), "utf8");
+  assert.match(example, /^API_BASE_URL=http:\/\/localhost:8080$/m);
+  assert.doesNotMatch(example, /NEXT_PUBLIC_API_BASE_URL/);
+});
 
 test("returns a trimmed server-only API URL", () => {
   assert.equal(resolveApiBaseUrl({ API_BASE_URL: " http://backend:8080 " }, "production"), "http://backend:8080");

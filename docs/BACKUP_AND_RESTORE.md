@@ -16,7 +16,7 @@ chmod 600 "$backup_file"
 Integrity check the archive without changing data:
 
 ```bash
-pg_restore --list "$backup_file" >/dev/null
+docker compose --env-file .env.production -f compose.production.yaml exec -T postgres pg_restore --list < "$backup_file" >/dev/null
 test -s "$backup_file"
 ```
 
