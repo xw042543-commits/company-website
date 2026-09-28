@@ -55,7 +55,7 @@ test("filters reviewed local programmes by degree level", async () => {
 
   assert.equal(result.status, "ready");
   assert.ok(result.page.items.length > 0);
-  assert.ok(result.page.items.every((programme: { studyLevelCode: string }) => programme.studyLevelCode === "doctorate"));
+  assert.ok(result.page.items.every((programme: { studyLevelCode: string | null }) => programme.studyLevelCode === "doctorate"));
 });
 
 test("paginates reviewed local programmes using twelve records per page", async () => {
