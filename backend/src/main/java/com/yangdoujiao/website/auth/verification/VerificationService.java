@@ -7,8 +7,6 @@ import java.util.Base64;
 import java.util.Locale;
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -34,7 +32,6 @@ import jakarta.persistence.EntityManager;
 
 @Service
 public class VerificationService {
-    private static final Logger log = LoggerFactory.getLogger(VerificationService.class);
     private static final int MAX_PHONE_ATTEMPTS = 5;
     private final UserVerificationTokenRepository tokens;
     private final UserAccountRepository accounts;
@@ -43,6 +40,7 @@ public class VerificationService {
     private final AuthRateLimitProperties limits;
     private final AuthRateLimiter limiter;
     private final ObjectProvider<AuthNotificationSender> senders;
+    private final AuthNotificationDispatcher dispatcher;
     private final EntityManager entityManager;
     private final TransactionTemplate transaction;
     private final SecureRandom random = new SecureRandom();
@@ -50,7 +48,7 @@ public class VerificationService {
     public VerificationService(UserVerificationTokenRepository tokens, UserAccountRepository accounts,
             AccountIdentifierNormalizer normalizer, AuthProperties properties, AuthRateLimitProperties limits,
             AuthRateLimiter limiter, ObjectProvider<AuthNotificationSender> senders,
-            EntityManager entityManager, PlatformTransactionManager manager) {
+            AuthNotificationDispatcher dispatcher, EntityManager entityManager, PlatformTransactionManager manager) {
         this.tokens = tokens;
         this.accounts = accounts;
         this.normalizer = normalizer;
@@ -58,6 +56,7 @@ public class VerificationService {
         this.limits = limits;
         this.limiter = limiter;
         this.senders = senders;
+        this.dispatcher = dispatcher;
         this.entityManager = entityManager;
         this.transaction = new TransactionTemplate(manager);
     }
@@ -109,24 +108,26 @@ public class VerificationService {
                     : tokenHash(account.getId(), identifier.type(), raw);
         } while (tokens.existsByTokenHash(hash));
         tokens.invalidateActive(account.getId(), identifier.type(), now);
+        OffsetDateTime expiresAt = now.plus(identifier.type() == AccountIdentifierType.EMAIL
+                ? properties.emailVerificationTtl() : properties.phoneVerificationTtl());
         tokens.saveAndFlush(new UserVerificationToken(account.getId(), identifier.type(), hash,
-                now.plus(identifier.type() == AccountIdentifierType.EMAIL
-                        ? properties.emailVerificationTtl() : properties.phoneVerificationTtl()), now));
+                expiresAt, now));
         long issueSequence = sender.reserveIssueSequence();
         String issuedRaw = raw;
         TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
             @Override
             public void afterCommit() {
-                try {
-                    if (identifier.type() == AccountIdentifierType.EMAIL) {
-                        sender.sendEmailVerification(identifier.value(), issuedRaw, locale, issueSequence);
-                    } else {
-                        sender.sendPhoneVerification(identifier.value(), issuedRaw, locale, issueSequence);
+                dispatcher.dispatch(() -> {
+                    if (java.time.Instant.now().isBefore(expiresAt.toInstant())) {
+                        if (identifier.type() == AccountIdentifierType.EMAIL) {
+                            sender.sendEmailVerification(identifier.value(), issuedRaw, locale,
+                                    issueSequence, expiresAt.toInstant());
+                        } else {
+                            sender.sendPhoneVerification(identifier.value(), issuedRaw, locale,
+                                    issueSequence, expiresAt.toInstant());
+                        }
                     }
-                } catch (RuntimeException exception) {
-                    // No persisted outbox exists yet; never expose provider failure by account state.
-                    log.error("Authentication notification delivery failed after commit");
-                }
+                });
             }
         });
     }

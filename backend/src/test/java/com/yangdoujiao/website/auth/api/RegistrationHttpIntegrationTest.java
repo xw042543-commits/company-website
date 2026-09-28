@@ -7,7 +7,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.UUID;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +36,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -93,13 +97,18 @@ class RegistrationHttpIntegrationTest {
     void unexpectedPostCommitDeliveryFailureDoesNotExposeAccountExistence() throws Exception {
         String known = email();
         register(known, null);
-        doThrow(new IllegalStateException("secret-provider-message")).when(notifications)
-                .sendEmailVerification(anyString(), anyString(), any(), anyLong());
+        CountDownLatch deliveryFailed = new CountDownLatch(1);
+        doAnswer(invocation -> {
+            deliveryFailed.countDown();
+            throw new IllegalStateException("secret-provider-message");
+        }).when(notifications)
+                .sendEmailVerification(anyString(), anyString(), any(), anyLong(), any(Instant.class));
         String knownResponse = mvc.perform(write("resend-verification", "{\"identifier\":\"" + known + "\"}"))
                 .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
         String unknownResponse = mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
                 .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
         assertThat(knownResponse).isEqualTo(unknownResponse);
+        assertThat(deliveryFailed.await(5, TimeUnit.SECONDS)).isTrue();
     }
 
     @Test
@@ -201,6 +210,7 @@ class RegistrationHttpIntegrationTest {
     }
 
     private String latest(String identifier) throws Exception {
+        assertThat(notifications.awaitAvailable(identifier, Duration.ofSeconds(5))).isTrue();
         return mvc.perform(get("/api/dev/auth/notifications/latest").param("identifier", identifier))
                 .andExpect(status().isOk()).andExpect(header().string("Cache-Control", "no-store"))
                 .andReturn().getResponse().getContentAsString();

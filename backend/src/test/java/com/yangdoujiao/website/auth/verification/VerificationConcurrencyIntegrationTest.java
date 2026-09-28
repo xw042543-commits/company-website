@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -35,6 +36,7 @@ class VerificationConcurrencyIntegrationTest {
     void allowsOnlyOneConcurrentUseOfVerificationToken() throws Exception {
         String email = "concurrent-" + UUID.randomUUID() + "@example.com";
         register(email, null);
+        assertThat(notifications.awaitAvailable(email, Duration.ofSeconds(5))).isTrue();
         String rawToken = notifications.take(email).orElseThrow().token();
         CountDownLatch start = new CountDownLatch(1);
         List<Future<Boolean>> results = new ArrayList<>();
@@ -57,9 +59,10 @@ class VerificationConcurrencyIntegrationTest {
     }
 
     @Test
-    void expiredTokenCannotActivateAccount() {
+    void expiredTokenCannotActivateAccount() throws Exception {
         String email = "expired-" + UUID.randomUUID() + "@example.com";
         register(email, null);
+        assertThat(notifications.awaitAvailable(email, Duration.ofSeconds(5))).isTrue();
         String token = notifications.take(email).orElseThrow().token();
         jdbc.update("UPDATE user_verification_tokens SET expires_at = CURRENT_TIMESTAMP - INTERVAL '1 second' WHERE user_id = (SELECT id FROM user_accounts WHERE normalized_email = ?)", email);
         assertInvalid(() -> verification.verifyEmail(token));
@@ -67,9 +70,10 @@ class VerificationConcurrencyIntegrationTest {
     }
 
     @Test
-    void phoneGuessAttemptsAreCommittedAndExhaustedTokenStaysUnusable() {
+    void phoneGuessAttemptsAreCommittedAndExhaustedTokenStaysUnusable() throws Exception {
         String phone = "+60" + String.format("%010d", Math.abs(UUID.randomUUID().getLeastSignificantBits() % 10000000000L));
         register(null, phone);
+        assertThat(notifications.awaitAvailable(phone, Duration.ofSeconds(5))).isTrue();
         String code = notifications.take(phone).orElseThrow().token();
         String incorrect = code.equals("000000") ? "000001" : "000000";
         for (int attempt = 0; attempt < 5; attempt++) assertInvalid(() -> verification.verifyPhone(phone, incorrect));

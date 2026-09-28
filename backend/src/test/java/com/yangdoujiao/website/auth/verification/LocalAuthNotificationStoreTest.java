@@ -25,6 +25,46 @@ class LocalAuthNotificationStoreTest {
     }
 
     @Test
+    void consumedNewerNotificationStillBlocksOlderCallback() {
+        LocalAuthNotificationStore store = new LocalAuthNotificationStore(
+                Clock.systemUTC(), Duration.ofMinutes(5), 2);
+        long older = store.reserveIssueSequence();
+        long newer = store.reserveIssueSequence();
+        store.sendEmailVerification("a@example.com", "new", Locale.ENGLISH, newer);
+        assertThat(store.take("a@example.com")).get()
+                .extracting(LocalAuthNotificationStore.Notification::token).isEqualTo("new");
+        store.sendEmailVerification("a@example.com", "old", Locale.ENGLISH, older);
+        assertThat(store.take("a@example.com")).isEmpty();
+    }
+
+    @Test
+    void evictedWatermarkCannotResurrectAnOlderCallback() {
+        LocalAuthNotificationStore store = new LocalAuthNotificationStore(
+                Clock.systemUTC(), Duration.ofMinutes(5), 1);
+        long older = store.reserveIssueSequence();
+        long newer = store.reserveIssueSequence();
+        store.sendEmailVerification("a@example.com", "a-new", Locale.ENGLISH, newer);
+        store.sendEmailVerification("b@example.com", "b", Locale.ENGLISH, store.reserveIssueSequence());
+        store.sendEmailVerification("a@example.com", "a-old", Locale.ENGLISH, older);
+        assertThat(store.take("a@example.com")).isEmpty();
+        assertThat(store.take("b@example.com")).isPresent();
+    }
+
+    @Test
+    void expiredTokenCallbackCannotReappearAfterWatermarkExpires() {
+        MutableClock clock = new MutableClock();
+        LocalAuthNotificationStore store = new LocalAuthNotificationStore(clock, Duration.ofMinutes(5), 2);
+        long older = store.reserveIssueSequence();
+        long newer = store.reserveIssueSequence();
+        Instant expiry = clock.instant().plus(Duration.ofMinutes(5));
+        store.sendEmailVerification("a@example.com", "new", Locale.ENGLISH, newer, expiry);
+        assertThat(store.take("a@example.com")).isPresent();
+        clock.advance(Duration.ofMinutes(6));
+        store.sendEmailVerification("a@example.com", "old", Locale.ENGLISH, older, expiry);
+        assertThat(store.take("a@example.com")).isEmpty();
+    }
+
+    @Test
     void expiresSecretsAndEvictsOldestWhenAtCapacity() {
         MutableClock clock = new MutableClock();
         LocalAuthNotificationStore store = new LocalAuthNotificationStore(clock, Duration.ofMinutes(5), 2);
