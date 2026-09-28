@@ -58,6 +58,8 @@ app:
       resend-per-ip: ${APP_AUTH_RESEND_PER_IP:10}
       resend-per-identifier: ${APP_AUTH_RESEND_PER_IDENTIFIER:3}
       verification-per-ip: ${APP_AUTH_VERIFICATION_PER_IP:30}
+      login-per-ip: ${APP_AUTH_LOGIN_PER_IP:20}
+      login-per-identifier: ${APP_AUTH_LOGIN_PER_IDENTIFIER:10}
       window: ${APP_AUTH_RATE_LIMIT_WINDOW:1h}
   consultation:
     submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}

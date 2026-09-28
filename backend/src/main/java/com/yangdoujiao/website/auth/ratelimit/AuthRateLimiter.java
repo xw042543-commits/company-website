@@ -57,4 +57,15 @@ public class AuthRateLimiter {
                     "Too many requests");
         }
     }
+
+    public void clear(String scope, String subjectHash) {
+        try {
+            transaction.executeWithoutResult(status -> jdbc.update(
+                    "DELETE FROM auth_rate_limit_buckets WHERE scope = ? AND subject_hash = ?",
+                    scope, subjectHash));
+        } catch (RuntimeException exception) {
+            throw new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "AUTH_SERVICE_UNAVAILABLE",
+                    "Authentication service is temporarily unavailable");
+        }
+    }
 }
