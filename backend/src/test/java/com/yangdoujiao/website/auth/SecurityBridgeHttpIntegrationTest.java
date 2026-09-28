@@ -26,6 +26,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.yangdoujiao.website.TestContainersConfiguration;
+import com.yangdoujiao.website.common.web.RequestTraceFilter;
 
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.RequestDispatcher;
@@ -131,11 +132,18 @@ class SecurityBridgeHttpIntegrationTest {
         for (DispatcherType dispatcherType : new DispatcherType[] {
                 DispatcherType.ASYNC, DispatcherType.INCLUDE
         }) {
-            mockMvc.perform(get("/api/v1/catalog/filter-options").with(request -> {
+            String traceId = "denied-dispatch-" + dispatcherType.name();
+            mockMvc.perform(get("/api/v1/catalog/filter-options")
+                    .header("X-Trace-Id", traceId).with(request -> {
                         request.setDispatcherType(dispatcherType);
+                        // A redispatch retains the trace established by the initial request.
+                        request.setAttribute(RequestTraceFilter.TRACE_ID_ATTRIBUTE, traceId);
                         return request;
                     }))
-                    .andExpect(status().isForbidden());
+                    .andExpect(status().isForbidden())
+                    .andExpect(header().string("X-Trace-Id", traceId))
+                    .andExpect(jsonPath("$.code").value("FORBIDDEN"))
+                    .andExpect(jsonPath("$.traceId").value(traceId));
         }
     }
 }

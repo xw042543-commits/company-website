@@ -27,12 +27,16 @@ public class AuthSecurityErrorWriter {
         write(request, response, HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "Authentication is required");
     }
 
+    public void writeForbidden(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        write(request, response, HttpStatus.FORBIDDEN, "FORBIDDEN", "Access is denied");
+    }
+
     public void writeAccessDenied(HttpServletRequest request, HttpServletResponse response,
             AccessDeniedException exception) throws IOException {
         if (exception instanceof CsrfException) {
             write(request, response, HttpStatus.FORBIDDEN, "CSRF_REJECTED", "CSRF token is missing or invalid");
         } else {
-            write(request, response, HttpStatus.FORBIDDEN, "FORBIDDEN", "Access is denied");
+            writeForbidden(request, response);
         }
     }
 

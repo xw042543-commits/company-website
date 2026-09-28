@@ -45,8 +45,14 @@ public class SecurityConfig {
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler()))
                 .exceptionHandling(exceptions -> exceptions
-                        .authenticationEntryPoint((request, response, exception) ->
-                                errors.writeUnauthorized(request, response))
+                        .authenticationEntryPoint((request, response, exception) -> {
+                            if (request.getDispatcherType() == DispatcherType.ASYNC
+                                    || request.getDispatcherType() == DispatcherType.INCLUDE) {
+                                errors.writeForbidden(request, response);
+                            } else {
+                                errors.writeUnauthorized(request, response);
+                            }
+                        })
                         .accessDeniedHandler((request, response, exception) ->
                                 errors.writeAccessDenied(request, response, exception)))
                 .authorizeHttpRequests(authorize -> authorize

@@ -129,14 +129,22 @@ class AuthSecurityHttpIntegrationTest {
 
         Cookie sessionCookie = cookie(response, "JSESSIONID");
         assertThat(sessionCookie.isHttpOnly()).isTrue();
+        assertThat(sessionCookie.getSecure()).isFalse();
         assertThat(response.getHeaders(HttpHeaders.SET_COOKIE)).anySatisfy(header ->
                 assertThat(header).startsWith("JSESSIONID=").contains("SameSite=Lax"));
+        // Spring Session encodes its cookie; the probe returns the actual persisted session ID.
+        String sessionId = response.getContentAsString();
+        assertThat(sessionId).isNotBlank();
         assertThat(jdbc.queryForObject(
                 "SELECT COUNT(*) FROM spring_session WHERE session_id = ?",
-                Integer.class, sessionCookie.getValue())).isEqualTo(1);
+                Integer.class, sessionId)).isEqualTo(1);
         assertThat(jdbc.queryForObject(
                 "SELECT max_inactive_interval FROM spring_session WHERE session_id = ?",
-                Integer.class, sessionCookie.getValue())).isEqualTo(86_400);
+                Integer.class, sessionId)).isEqualTo(86_400);
+
+        var resumedResponse = mockMvc.perform(get("/api/v1/security-test/session").cookie(sessionCookie))
+                .andExpect(status().isOk()).andReturn().getResponse();
+        assertThat(resumedResponse.getContentAsString()).isEqualTo(sessionId);
     }
 
     private Cookie cookie(MockHttpServletResponse response, String name) {
