@@ -53,7 +53,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    FilterRegistrationBean<CorsFilter> corsFilter() {
+    FilterRegistrationBean<CorsFilter> corsFilterRegistration() {
         FilterRegistrationBean<CorsFilter> registration = new FilterRegistrationBean<>(
                 new CorsFilter(corsConfigurationSource())
         );

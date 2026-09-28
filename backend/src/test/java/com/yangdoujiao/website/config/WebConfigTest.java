@@ -3,6 +3,8 @@ package com.yangdoujiao.website.config;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.context.runner.ApplicationContextRunner;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -19,6 +21,21 @@ import tools.jackson.databind.ObjectMapper;
 class WebConfigTest {
 
     @Test
+    void corsRegistrationDoesNotOccupySpringSecurityCorsFilterBeanName() {
+        new ApplicationContextRunner()
+                .withBean(ConsultationRateLimitInterceptor.class,
+                        () -> org.mockito.Mockito.mock(ConsultationRateLimitInterceptor.class))
+                .withUserConfiguration(WebConfig.class)
+                .withPropertyValues("app.cors.allowed-origins=http://localhost:3000")
+                .run(context -> {
+                    assertThat(context).hasNotFailed();
+                    assertThat(context.containsBean("corsFilter")).isFalse();
+                    assertThat(context.getBean("corsFilterRegistration"))
+                            .isInstanceOf(FilterRegistrationBean.class);
+                });
+    }
+
+    @Test
     void appliesCorsHeadersBeforeAFilterReturnsAnErrorResponse() throws Exception {
         WebConfig configuration = new WebConfig(
                 new String[] {"http://localhost:3000"},
@@ -33,7 +50,7 @@ class WebConfigTest {
         FilterChain downstream = (servletRequest, servletResponse) ->
                 ((MockHttpServletResponse) servletResponse).setStatus(413);
 
-        configuration.corsFilter().getFilter().doFilter(request, response, downstream);
+        configuration.corsFilterRegistration().getFilter().doFilter(request, response, downstream);
 
         assertThat(response.getStatus()).isEqualTo(413);
         assertThat(response.getHeader("Access-Control-Allow-Origin"))
@@ -61,7 +78,7 @@ class WebConfigTest {
                             throw new AssertionError("payload filter must stop");
                         });
 
-        configuration.corsFilter().getFilter().doFilter(request, response, payloadFilter);
+        configuration.corsFilterRegistration().getFilter().doFilter(request, response, payloadFilter);
 
         assertThat(response.getStatus()).isEqualTo(413);
         assertThat(response.getHeader("Access-Control-Allow-Origin"))
