@@ -1,5 +1,8 @@
 package com.yangdoujiao.website.auth.config;
 
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.time.Duration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -38,7 +41,7 @@ public record AuthProperties(
         }
         if (trustedProxies == null) throw new IllegalStateException("app.auth trusted-proxies is required");
         for (String proxy : trustedProxies) {
-            if (proxy == null || proxy.isBlank()) throw new IllegalStateException("app.auth trusted-proxies contains a blank entry");
+            if (!validProxy(proxy)) throw new IllegalStateException("app.auth trusted-proxies must contain literal IP or CIDR entries");
         }
     }
 
@@ -50,5 +53,30 @@ public record AuthProperties(
         if (value == null || value.isZero() || value.isNegative() || value.compareTo(Duration.ofDays(365)) > 0) {
             throw new IllegalStateException("app.auth " + name + " must be positive and no more than 365 days");
         }
+    }
+
+    private static boolean validProxy(String raw) {
+        if (raw == null || raw.isBlank()) return false;
+        String[] parts = raw.trim().split("/", -1);
+        if (parts.length > 2) return false;
+        String address = parts[0];
+        boolean ipv6 = address.contains(":");
+        if (ipv6) {
+            if (!address.matches("[0-9A-Fa-f:.]+")) return false;
+            try {
+                if (!(InetAddress.getByName(address) instanceof Inet6Address)) return false;
+            } catch (UnknownHostException exception) {
+                return false;
+            }
+        } else {
+            String[] octets = address.split("\\.", -1);
+            if (octets.length != 4) return false;
+            for (String octet : octets) {
+                if (!octet.matches("0|[1-9][0-9]{0,2}") || Integer.parseInt(octet) > 255) return false;
+            }
+        }
+        if (parts.length == 1) return true;
+        String prefix = parts[1];
+        return prefix.matches("0|[1-9][0-9]{0,2}") && Integer.parseInt(prefix) <= (ipv6 ? 128 : 32);
     }
 }

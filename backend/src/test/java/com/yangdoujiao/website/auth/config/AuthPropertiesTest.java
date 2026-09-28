@@ -76,6 +76,24 @@ class AuthPropertiesTest {
                 .isInstanceOf(IllegalStateException.class);
     }
 
+    @Test
+    void rejectsHostnamesAndMalformedTrustedProxyRanges() {
+        for (String invalid : new String[] {"proxy.example.com", "192.168.1.999", "10.0.0.0/33", "2001:db8::/129"}) {
+            assertThatThrownBy(() -> new AuthProperties(false, "", "", Duration.ofHours(24),
+                    Duration.ofDays(30), Duration.ofMinutes(30), Duration.ofMinutes(10),
+                    Duration.ofMinutes(30), DataSize.ofKilobytes(8), new String[] {invalid}).validate())
+                    .isInstanceOf(IllegalStateException.class);
+        }
+    }
+
+    @Test
+    void acceptsLiteralIpAndCidrTrustedProxies() {
+        new AuthProperties(false, "", "", Duration.ofHours(24), Duration.ofDays(30),
+                Duration.ofMinutes(30), Duration.ofMinutes(10), Duration.ofMinutes(30),
+                DataSize.ofKilobytes(8), new String[] {"192.0.2.1", "2001:db8::1", "10.0.0.0/8", "2001:db8::/32"})
+                .validate();
+    }
+
     private AuthProperties valid(boolean registration, String agreement, String privacy) {
         return new AuthProperties(registration, agreement, privacy, Duration.ofHours(24),
                 Duration.ofDays(30), Duration.ofMinutes(30), Duration.ofMinutes(10),

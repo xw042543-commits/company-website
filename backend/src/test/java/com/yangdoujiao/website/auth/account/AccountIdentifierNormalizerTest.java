@@ -37,4 +37,27 @@ class AccountIdentifierNormalizerTest {
         assertThatThrownBy(() -> normalizer.normalizeLogin("a".repeat(245) + "@test.com"))
                 .isInstanceOf(AuthValidationException.class);
     }
+
+    @Test
+    void rejectsUnicodeConfusablesAndControlsBeforeTrimming() {
+        for (String invalid : new String[] {
+                "ѕtudent@example.com", "student@exаmple.com", "student@example.com\r\n",
+                "\tstudent@example.com", "student@example.com\u0000", "student@@example.com"
+        }) {
+            assertThatThrownBy(() -> normalizer.normalizeLogin(invalid))
+                    .isInstanceOf(AuthValidationException.class)
+                    .hasMessageNotContaining(invalid);
+        }
+    }
+
+    @Test
+    void acceptsMaximumLocalAndOverallEmailLengthsButRejectsOverflow() {
+        String local = "a".repeat(64);
+        String domain = "b".repeat(63) + "." + "c".repeat(63) + "." + "d".repeat(61);
+        assertThat(normalizer.normalizeLogin(local + "@" + domain).value()).hasSize(254);
+        assertThatThrownBy(() -> normalizer.normalizeLogin("a".repeat(65) + "@example.com"))
+                .isInstanceOf(AuthValidationException.class);
+        assertThatThrownBy(() -> normalizer.normalizeLogin(local + "@" + domain + "x"))
+                .isInstanceOf(AuthValidationException.class);
+    }
 }

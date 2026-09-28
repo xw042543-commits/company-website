@@ -8,17 +8,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class AccountIdentifierNormalizer {
     private static final Pattern PHONE = Pattern.compile("^\\+[1-9][0-9]{7,14}$");
-    private static final Pattern LOCAL_PART = Pattern.compile("[\\p{L}\\p{N}!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\p{L}\\p{N}!#$%&'*+/=?^_`{|}~-]+)*");
-    private static final Pattern DOMAIN_LABEL = Pattern.compile("[\\p{L}\\p{N}](?:[\\p{L}\\p{N}-]{0,61}[\\p{L}\\p{N}])?");
+    private static final Pattern LOCAL_PART = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*");
+    private static final Pattern DOMAIN_LABEL = Pattern.compile("[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?");
 
     public NormalizedIdentifier normalizeLogin(String raw) {
-        if (raw == null) throw new AuthValidationException();
+        if (raw == null || raw.codePoints().anyMatch(Character::isISOControl)) {
+            throw new AuthValidationException();
+        }
         if (!raw.contains("@")) {
             if (!PHONE.matcher(raw).matches()) throw new AuthValidationException();
             return new NormalizedIdentifier(AccountIdentifierType.PHONE, raw);
         }
         String email = stripOuterWhitespace(raw).toLowerCase(Locale.ROOT);
-        if (email.length() > 254 || email.codePoints().anyMatch(Character::isISOControl)) {
+        if (email.length() > 254) {
             throw new AuthValidationException();
         }
         int at = email.indexOf('@');
