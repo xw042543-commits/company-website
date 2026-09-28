@@ -1,7 +1,7 @@
 # Deployment Readiness Design
 
-**Date:** 2026-09-29  
-**Status:** Approved design, awaiting written-spec review  
+**Date:** 2026-09-29
+**Status:** Approved design, awaiting written-spec review
 **Target:** Platform-neutral private preview, followed by a gated public launch
 
 ## Purpose

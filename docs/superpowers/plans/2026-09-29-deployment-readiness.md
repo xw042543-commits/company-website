@@ -85,7 +85,7 @@ ELASTICSEARCH_URL
 APP_CONSULTATION_SUBMISSION_ENABLED
 ```
 
-Run: `node --test scripts/deployment-preflight.test.mjs`  
+Run: `node --test scripts/deployment-preflight.test.mjs`
 Expected: FAIL because the validator does not exist.
 
 ### Step 2: Implement the validator
@@ -140,7 +140,7 @@ Specify one helper that:
 - rejects browser-public variable names as the production source;
 - rejects invalid or non-HTTP(S) URLs.
 
-Run: `node --test src/lib/runtime-config.test.ts`  
+Run: `node --test src/lib/runtime-config.test.ts`
 Expected: FAIL.
 
 ### Step 2: Implement server-only configuration
@@ -184,7 +184,7 @@ Assert that:
 - production transport security is configured without breaking local HTTP development;
 - the root metadata remains `noindex` for private preview.
 
-Run: `node --test src/lib/deployment-config.test.ts`  
+Run: `node --test src/lib/deployment-config.test.ts`
 Expected: FAIL.
 
 ### Step 2: Implement headers and standalone output
@@ -223,7 +223,7 @@ The test must verify:
 - liveness and readiness probes are enabled;
 - error messages and stack traces remain hidden.
 
-Run: `./mvnw --batch-mode -Dtest=ProductionConfigurationTest test`  
+Run: `./mvnw --batch-mode -Dtest=ProductionConfigurationTest test`
 Expected: FAIL because the profile and Actuator dependency do not exist.
 
 ### Step 2: Add Actuator and production settings
