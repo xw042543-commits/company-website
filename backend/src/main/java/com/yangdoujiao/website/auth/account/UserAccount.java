@@ -84,4 +84,9 @@ public class UserAccount {
         status = UserAccountStatus.ACTIVE;
         updatedAt = now;
     }
+
+    public void changePassword(String encodedPassword, OffsetDateTime now) {
+        passwordHash = encodedPassword;
+        updatedAt = now;
+    }
 }

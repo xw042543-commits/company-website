@@ -82,6 +82,12 @@ public class LocalAuthNotificationStore implements AuthNotificationSender {
                 clock.instant().plus(ttl.multipliedBy(2)));
     }
 
+    @Override
+    public void sendPasswordReset(String normalizedIdentifier, String rawToken, Locale locale,
+            long sequence, Instant expiresAt) {
+        publish(normalizedIdentifier, "PASSWORD_RESET", rawToken, sequence, expiresAt);
+    }
+
     public synchronized Optional<Notification> take(String exactIdentifier) {
         Notification notification = notifications.remove(exactIdentifier);
         return notification == null || !notification.expiresAt().isAfter(clock.instant())

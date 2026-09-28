@@ -32,4 +32,9 @@ public interface AuthNotificationSender {
             long issueSequence, Instant expiresAt) {
         sendPhoneVerification(normalizedPhone, rawCode, locale, issueSequence);
     }
+
+    default void sendPasswordReset(String normalizedIdentifier, String rawToken, Locale locale,
+            long issueSequence, Instant expiresAt) {
+        sendPasswordReset(normalizedIdentifier, rawToken, locale);
+    }
 }
