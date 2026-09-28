@@ -68,6 +68,7 @@ public class ProductionHttpsFilter extends OncePerRequestFilter {
     }
 
     private HttpServletRequest secureRequestOrNull(HttpServletRequest request) {
+        if (request.isSecure()) return request;
         InetAddress peer = literalAddressOrNull(request.getRemoteAddr());
         if (peer != null && trustedProxies.contains(peer)) {
             // The edge proxy must remove client-supplied Forwarded and overwrite X-Forwarded-Proto.
@@ -82,7 +83,7 @@ public class ProductionHttpsFilter extends OncePerRequestFilter {
                 @Override public int getServerPort() { return 443; }
             };
         }
-        return request.isSecure() ? request : null;
+        return null;
     }
 
     private static InetAddress literalAddress(String value) {

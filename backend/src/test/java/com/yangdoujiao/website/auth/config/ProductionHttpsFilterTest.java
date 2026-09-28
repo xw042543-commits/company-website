@@ -79,6 +79,16 @@ class ProductionHttpsFilterTest {
     }
 
     @Test
+    void allowsDirectTlsFromTrustedProxyAddressWithoutForwardedHeaders() throws Exception {
+        MockHttpServletRequest request = request("192.0.2.10", true);
+        MockFilterChain chain = new MockFilterChain();
+
+        filter.doFilter(request, new MockHttpServletResponse(), chain);
+
+        assertThat(chain.getRequest()).isSameAs(request);
+    }
+
+    @Test
     void preservesForwardDispatch() throws Exception {
         MockHttpServletRequest request = request("203.0.113.9", false);
         request.setDispatcherType(DispatcherType.FORWARD);
