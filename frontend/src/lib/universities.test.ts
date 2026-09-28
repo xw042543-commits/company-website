@@ -6,7 +6,7 @@ import * as universities from "./universities.ts";
 const { getUniversitySearch } = universities;
 
 test("uses the reviewed local catalogue when the API is not configured", async () => {
-  const result = await getUniversitySearch({}, "en", undefined);
+  const result = await getUniversitySearch({}, "en", "");
 
   assert.equal(result.status, "ready");
   if (result.status !== "ready") return;
@@ -16,12 +16,12 @@ test("uses the reviewed local catalogue when the API is not configured", async (
 });
 
 test("filters and paginates the local university catalogue", async () => {
-  const search = await getUniversitySearch({ q: "APU" }, "en", undefined);
+  const search = await getUniversitySearch({ q: "APU" }, "en", "");
   assert.equal(search.status, "ready");
   if (search.status !== "ready") return;
   assert.deepEqual(search.schools.map((school) => school.slug), ["asia-pacific-university"]);
 
-  const secondPage = await getUniversitySearch({ page: "2" }, "en", undefined);
+  const secondPage = await getUniversitySearch({ page: "2" }, "en", "");
   assert.equal(secondPage.status, "ready");
   if (secondPage.status !== "ready") return;
   assert.equal(secondPage.page, 2);
@@ -32,7 +32,7 @@ test("loads a reviewed university profile without an external API", async () => 
   const loadDetail = Reflect.get(universities, "getUniversityDetailWithFallback");
   assert.equal(typeof loadDetail, "function");
 
-  const result = await loadDetail("university-of-malaya", undefined);
+  const result = await loadDetail("university-of-malaya", "");
   assert.equal(result.status, "ready");
   assert.equal(result.university.nameEn, "University of Malaya");
   assert.match(result.university.descriptionEn ?? "", /public research university/i);
@@ -42,7 +42,7 @@ test("returns an empty reviewed programme page when the API is not configured", 
   const loadProgrammes = Reflect.get(universities, "getUniversityProgrammesWithFallback");
   assert.equal(typeof loadProgrammes, "function");
 
-  const result = await loadProgrammes("university-of-malaya", {}, undefined);
+  const result = await loadProgrammes("university-of-malaya", {}, "");
   assert.equal(result.status, "ready");
   assert.deepEqual(result.page.items, []);
   assert.equal(result.page.totalItems, 0);
