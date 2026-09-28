@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { type KeyboardEvent, useEffect, useRef, useState } from "react";
 import { authEndpoints } from "@/lib/login-auth";
+import { startDemoSession } from "@/app/actions/demo-session";
 import { type Locale, words } from "@/lib/site";
 
 const loginMethods = ["password", "phone"] as const;
 type AccountLoginMethod = (typeof loginMethods)[number];
 
-export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForgotPassword?: () => void }) {
+export function LoginForm({ locale, returnTo, onForgotPassword }: { locale: Locale; returnTo?: string; onForgotPassword?: () => void }) {
   const [method, setMethod] = useState<AccountLoginMethod>("password");
   const [showPassword, setShowPassword] = useState(false);
   const [reviewed, setReviewed] = useState(false);
@@ -50,9 +51,12 @@ export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForg
     setShowPassword(false);
   }
 
-  function handlePreview() {
+  async function handlePreview() {
+    const inputs = method === "password" ? [accountRef.current, passwordRef.current] : [phoneRef.current, codeRef.current];
+    if (!inputs.every((input) => input?.reportValidity())) return;
     clearFields();
     setReviewed(true);
+    await startDemoSession(locale, returnTo);
   }
 
   function requestCode() {
@@ -90,13 +94,13 @@ export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForg
     {method === "password" && <div id="login-panel-password" role="tabpanel" aria-labelledby="login-tab-password" data-endpoint={authEndpoints.password}>
       <div className="field">
         <label htmlFor="account-id">{words(locale, "邮箱或用户名", "Email or username")}</label>
-        <input ref={accountRef} id="account-id" type="text" autoComplete="username" maxLength={160} placeholder={words(locale, "请输入邮箱或用户名", "Enter your email or username")} onInput={() => setReviewed(false)} />
+        <input ref={accountRef} id="account-id" type="text" autoComplete="username" maxLength={160} required placeholder={words(locale, "请输入邮箱或用户名", "Enter your email or username")} onInput={() => setReviewed(false)} />
       </div>
 
       <div className="field">
         <label htmlFor="account-password">{words(locale, "密码", "Password")}</label>
         <div className="password-input-wrap">
-          <input ref={passwordRef} id="account-password" type={showPassword ? "text" : "password"} autoComplete="current-password" maxLength={128} placeholder={words(locale, "请输入密码", "Enter your password")} onInput={() => setReviewed(false)} />
+          <input ref={passwordRef} id="account-password" type={showPassword ? "text" : "password"} autoComplete="current-password" maxLength={128} required placeholder={words(locale, "请输入密码", "Enter your password")} onInput={() => setReviewed(false)} />
           <button className="password-toggle" type="button" aria-controls="account-password" aria-pressed={showPassword} onClick={() => setShowPassword((value) => !value)}>
             {showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}
           </button>
@@ -117,7 +121,7 @@ export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForg
             <option value="+60">MY +60</option>
             <option value="+86">CN +86</option>
           </select>
-          <input ref={phoneRef} id="account-phone" type="tel" inputMode="tel" autoComplete="tel-national" maxLength={18} aria-invalid={phoneError} aria-describedby={phoneError ? "phone-error" : undefined} placeholder={words(locale, "请输入手机号码", "Enter phone number")} onInput={() => { setPhoneError(false); setReviewed(false); }} />
+          <input ref={phoneRef} id="account-phone" type="tel" inputMode="tel" autoComplete="tel-national" minLength={8} maxLength={18} required aria-invalid={phoneError} aria-describedby={phoneError ? "phone-error" : undefined} placeholder={words(locale, "请输入手机号码", "Enter phone number")} onInput={() => { setPhoneError(false); setReviewed(false); }} />
         </div>
         {phoneError && <p id="phone-error" className="field-error" role="alert">{words(locale, "请输入有效的手机号码。", "Enter a valid phone number.")}</p>}
       </div>
@@ -125,7 +129,7 @@ export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForg
       <div className="field">
         <label htmlFor="verification-code">{words(locale, "验证码", "Verification code")}</label>
         <div className="verification-code-row">
-          <input ref={codeRef} id="verification-code" type="text" inputMode="numeric" autoComplete="one-time-code" maxLength={6} placeholder={words(locale, "6 位验证码", "6-digit code")} onInput={() => setReviewed(false)} />
+          <input ref={codeRef} id="verification-code" type="text" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" minLength={6} maxLength={6} required placeholder={words(locale, "6 位验证码", "6-digit code")} onInput={() => setReviewed(false)} />
           <button className="secondary" type="button" disabled={countdown > 0} data-endpoint={authEndpoints.requestPhoneCode} onClick={requestCode}>
             {countdown > 0 ? words(locale, `${countdown} 秒后重发`, `Resend in ${countdown}s`) : words(locale, "发送验证码", "Send code")}
           </button>
@@ -136,7 +140,7 @@ export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForg
       <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "验证并登录", "Verify and sign in")}</button>
     </div>}
 
-    <p className="auth-integration-note">{words(locale, "登录服务尚未接入，当前操作不会发送或保存资料。", "Authentication is not connected yet. Nothing entered here is sent or stored.")}</p>
+    <p className="auth-integration-note"><strong>{words(locale, "前端演示", "Frontend demo")}</strong> · {words(locale, "登录服务尚未接入；输入内容不会发送或保存。继续后将开启本机会员预览。", "Authentication is not connected; entries are never sent or stored. Continuing opens the local member preview.")}</p>
     {reviewed && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览操作完成，没有资料被发送或保存。", "Preview complete. No information was sent or stored.")}</p>}
   </div>;
 }

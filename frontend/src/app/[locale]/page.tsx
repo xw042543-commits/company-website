@@ -1,14 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
 import { FeaturedUniversityCarousel } from "@/components/featured-university-carousel";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
+import { DEMO_SESSION_COOKIE, isDemoSessionValue } from "@/lib/demo-session";
 import { isLocale, words } from "@/lib/site";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  const cookieStore = await cookies();
+  const signedIn = isDemoSessionValue(cookieStore.get(DEMO_SESSION_COOKIE)?.value);
+  const memberHref = (path: string) => signedIn
+    ? `/${locale}/${path}`
+    : `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/${path}`)}`;
 
   const benefits = [
     ["留学真信息", "Reliable information", "提供全面、经过审核的留学信息，帮助你判断每个选择。", "Use comprehensive, reviewed information to assess each option."],
@@ -17,8 +24,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     ["全周期服务", "Full-journey support", "从规划、申请到海外落地与学习支持，全程有人协助。", "Get support from planning and applications through arrival and ongoing study."],
   ] as const;
   const pathways = [
-    ["01", "规划学习方向", "Plan your study path", "从学历层级与专业兴趣开始，整理适合自己的选择。", "Start with your study level and interests to organise suitable options.", `/${locale}/planning`, "开始规划", "Start planning"],
-    ["02", "比较院校资料", "Compare universities", "浏览已审核的院校记录，并进一步查看重点资料。", "Browse reviewed university records and explore the key details.", `/${locale}/universities`, "浏览院校", "Browse universities"],
+    ["01", "规划学习方向", "Plan your study path", "从学历层级与专业兴趣开始，整理适合自己的选择。", "Start with your study level and interests to organise suitable options.", memberHref("planning"), "开始规划", "Start planning"],
+    ["02", "比较院校资料", "Compare universities", "浏览已审核的院校记录，并进一步查看重点资料。", "Browse reviewed university records and explore the key details.", memberHref("universities"), "浏览院校", "Browse universities"],
     ["03", "联系教育顾问", "Speak with an adviser", "需要协助时，向顾问了解申请步骤与资料准备。", "Ask an adviser about application steps and document preparation when needed.", `/${locale}/about#enquiry`, "联系顾问", "Contact an adviser"],
   ] as const;
   const steps = [
@@ -41,23 +48,31 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <p className="section-label">{words(locale, "科学规划 · 科学定位", "Plan with evidence · Choose with purpose")}</p>
         <h1>{words(locale, "全球第一家留学生综合服务平台", "A comprehensive service platform for international students")}</h1>
         <p className="hero-intro">{words(locale, "科学规划留学院校与专业，科学定位留学人生发展。洋豆角提供留学生全周期陪跑。", "Plan universities, courses, and long-term development with full-journey support from UDAJO.")}</p>
-        <form action={`/${locale}/planning`} className="home-search">
+        {signedIn ? <form action={`/${locale}/planning`} className="home-search">
           <label htmlFor="home-keyword">{words(locale, "院校查询系统", "University search")}</label>
           <div className="search-row"><SearchAutocomplete id="home-keyword" name="q" locale={locale} suggestions={courseSuggestions(locale)} placeholder={words(locale, "输入想学习的专业", "What would you like to study?")} /><button type="submit">{words(locale, "查询专业", "Find a course")}</button></div>
-        </form>
+        </form> : <div className="public-hero-actions">
+          <Link className="button" href={`/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/planning`)}`}>{words(locale, "登录并开始规划", "Sign in to start planning")}</Link>
+          <Link className="button secondary" href={`/${locale}/login?mode=register&returnTo=${encodeURIComponent(`/${locale}/planning`)}`}>{words(locale, "免费注册", "Create an account")}</Link>
+        </div>}
         <Link className="text-link hero-enquiry" href={`/${locale}/about#enquiry`}>{words(locale, "需要协助？联系顾问", "Need guidance? Contact an adviser")}</Link>
-        <div className="shortcuts" aria-label={words(locale, "学习方向", "Study options")}>
+        {signedIn && <div className="shortcuts" aria-label={words(locale, "学习方向", "Study options")}>
           {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor’s"], ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
-        </div>
+        </div>}
       </div>
       <div className="hero-media" aria-label={words(locale, "洋豆角留学规划指南针", "UDAJO study planning compass")}>
         <Image src="/brand/udajo-logo.jpg" width={480} height={480} sizes="(max-width: 760px) 42vw, 195px" alt="" aria-hidden="true" />
       </div>
     </div></section>
-    <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
+    {signedIn ? <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
       <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "热门", "Popular")}</p><h2 id="reviewed-universities-heading">{words(locale, "留学热门院校", "Popular universities")}</h2><p>{words(locale, "热门专业、费用与录取信息一目了然。", "Compare popular subjects, fees, and admission information at a glance.")}</p></div><Link className="text-link" href={`/${locale}/universities`}>{words(locale, "查看并比较全部院校", "View and compare all universities")}</Link></div>
       <FeaturedUniversityCarousel locale={locale} />
-    </div></section>
+    </div></section> : <section className="member-preview" aria-labelledby="member-preview-heading"><div className="container section member-preview-layout">
+      <div className="member-preview-copy"><p className="section-label">{words(locale, "登录后可使用", "Inside your account")}</p><h2 id="member-preview-heading">{words(locale, "把留学选择整理成清晰的下一步", "Turn study choices into clear next steps")}</h2><p>{words(locale, "注册后即可查询已审核院校与专业、比较选择，并保存你的规划方向。", "Create an account to explore reviewed universities and programmes, compare choices, and organise your study direction.")}</p><Link className="text-link" href={`/${locale}/login?mode=register&returnTo=${encodeURIComponent(`/${locale}/universities`)}`}>{words(locale, "查看会员工具", "Explore member tools")} <span aria-hidden="true">→</span></Link></div>
+      <div className="member-preview-list">
+        {[["01", "院校与专业资料", "University and programme data"], ["02", "院校比较", "University comparison"], ["03", "个人规划工具", "Personal planning tools"]].map(([number, zh, en]) => <article key={number}><span>{number}</span><h3>{words(locale, zh, en)}</h3></article>)}
+      </div>
+    </div></section>}
     <section className="pathway-section" aria-labelledby="pathway-heading"><div className="container section">
       <div className="section-heading"><p className="section-label">{words(locale, "定制方案", "Tailored planning")}</p><h2 id="pathway-heading">{words(locale, "根据你的情况定制留学方案", "Build a plan around your situation")}</h2><p>{words(locale, "先定专业，再选院校，最后联系顾问。", "Choose a direction, compare universities, then speak with an adviser.")}</p></div>
       <div className="pathway-grid">{pathways.map(([number, zh, en, bodyZh, bodyEn, href, actionZh, actionEn]) => <Link className="pathway-card" href={href} key={number}>

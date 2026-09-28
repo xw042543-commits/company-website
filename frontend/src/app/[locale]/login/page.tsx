@@ -3,15 +3,20 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AuthAccountPanel } from "@/components/auth-account-panel";
 import { WeChatLogin } from "@/components/wechat-login";
+import { safeReturnTo } from "@/lib/access-policy";
 import { isLocale, words } from "@/lib/site";
 
-export default async function LoginPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ mode?: string }> }) {
+export default async function LoginPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ mode?: string; returnTo?: string }> }) {
   const { locale } = await params;
-  const { mode } = await searchParams;
+  const { mode, returnTo: requestedReturnTo } = await searchParams;
   if (!isLocale(locale)) notFound();
   const otherLocale = locale === "zh" ? "en" : "zh";
   const accountMode = mode === "register" || mode === "recovery" ? mode : "login";
-  const languageHref = `/${otherLocale}/login${accountMode === "login" ? "" : `?mode=${accountMode}`}`;
+  const returnTo = safeReturnTo(requestedReturnTo, locale);
+  const otherReturnTo = returnTo.replace(`/${locale}`, `/${otherLocale}`);
+  const languageParameters = new URLSearchParams({ returnTo: otherReturnTo });
+  if (accountMode !== "login") languageParameters.set("mode", accountMode);
+  const languageHref = `/${otherLocale}/login?${languageParameters}`;
 
   return <main id="main" className="auth-portal">
     <div className="auth-portal-background" aria-hidden="true">
@@ -43,10 +48,10 @@ export default async function LoginPage({ params, searchParams }: { params: Prom
         <aside className="auth-qr-column" aria-labelledby="wechat-login-title">
           <p className="auth-column-label">{words(locale, "快捷登录", "Quick access")}</p>
           <h2 id="wechat-login-title">{words(locale, "微信扫码登录", "Sign in with WeChat")}</h2>
-          <WeChatLogin locale={locale} />
+          <WeChatLogin locale={locale} returnTo={returnTo} />
         </aside>
 
-        <AuthAccountPanel locale={locale} initialMode={accountMode} />
+        <AuthAccountPanel locale={locale} initialMode={accountMode} returnTo={returnTo} />
       </div>
     </section>
 

@@ -14,6 +14,7 @@ test("global styles cover the rendered header and homepage layout", () => {
     ".comparison-panel",
     ".contact-card",
     ".programme-detail-list",
+    ".programme-level-filters",
   ]) {
     assert.match(css, new RegExp(`\\${selector}\\b`), `${selector} is missing from globals.css`);
   }
