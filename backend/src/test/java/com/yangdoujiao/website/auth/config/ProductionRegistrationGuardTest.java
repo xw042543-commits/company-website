@@ -41,11 +41,45 @@ class ProductionRegistrationGuardTest {
     @Test
     void rejectsInsecureOriginOrCorsEvenWithReadyProvider() {
         enabled().withUserConfiguration(ReadyProviderConfig.class)
-                .withPropertyValues("app.auth.production.public-site-origin=http://example.com")
+                .withPropertyValues("app.auth.production.public-site-origin=http://yangdoujiao.com")
                 .run(context -> assertThat(context.getStartupFailure()).rootCause().hasMessageContaining("HTTPS"));
         enabled().withUserConfiguration(ReadyProviderConfig.class)
-                .withPropertyValues("app.cors.allowed-origins=http://example.com")
+                .withPropertyValues("app.cors.allowed-origins=http://yangdoujiao.com")
                 .run(context -> assertThat(context.getStartupFailure()).rootCause().hasMessageContaining("CORS"));
+    }
+
+    @Test
+    void acceptsApprovedRootAndControlledSubdomain() {
+        enabled().withUserConfiguration(ReadyProviderConfig.class)
+                .run(context -> assertThat(context).hasNotFailed());
+        enabled().withUserConfiguration(ReadyProviderConfig.class)
+                .withPropertyValues("app.auth.production.public-site-origin=https://www.yangdoujiao.com",
+                        "app.cors.allowed-origins=https://www.yangdoujiao.com")
+                .run(context -> assertThat(context).hasNotFailed());
+    }
+
+    @Test
+    void rejectsUnapprovedOrInternalOrigins() {
+        for (String origin : new String[] {
+                "https://localhost", "https://portal.localhost", "https://portal.local",
+                "https://portal.internal", "https://portal.invalid", "https://portal.test",
+                "https://portal.example", "https://192.0.2.1", "https://evilyangdoujiao.com",
+                "https://yangdoujiao.com.evil", "https://user@yangdoujiao.com",
+                "https://yangdoujiao.com:443", "https://www.yangdoujiao.com:8443"
+        }) {
+            enabled().withUserConfiguration(ReadyProviderConfig.class)
+                    .withPropertyValues("app.auth.production.public-site-origin=" + origin)
+                    .run(context -> assertThat(context.getStartupFailure()).rootCause()
+                            .hasMessageContaining("public-site-origin"));
+        }
+    }
+
+    @Test
+    void rejectsMissingApprovedDomain() {
+        enabled().withUserConfiguration(ReadyProviderConfig.class)
+                .withPropertyValues("app.auth.production.approved-domain=NONE")
+                .run(context -> assertThat(context.getStartupFailure()).rootCause()
+                        .hasMessageContaining("approved-domain"));
     }
 
     @Test
@@ -58,21 +92,16 @@ class ProductionRegistrationGuardTest {
                 .run(context -> assertThat(context.getStartupFailure()).rootCause().hasMessageContaining("Secure session cookie"));
     }
 
-    @Test
-    void acceptsOnlyCompleteProductionReadiness() {
-        enabled().withUserConfiguration(ReadyProviderConfig.class)
-                .run(context -> assertThat(context).hasNotFailed());
-    }
-
     private ApplicationContextRunner enabled() {
         return contextRunner.withPropertyValues(
                 "app.auth.registration-enabled=true",
                 "app.auth.agreement-version=terms-v1",
                 "app.auth.privacy-version=privacy-v1",
                 "app.auth.production.notification-provider=EXTERNAL",
-                "app.auth.production.public-site-origin=https://example.com",
+                "app.auth.production.approved-domain=YANGDOUJIAO_COM",
+                "app.auth.production.public-site-origin=https://yangdoujiao.com",
                 "app.auth.production.launch-approved=true",
-                "app.cors.allowed-origins=https://example.com");
+                "app.cors.allowed-origins=https://yangdoujiao.com");
     }
 
     @Configuration(proxyBeanMethods = false)

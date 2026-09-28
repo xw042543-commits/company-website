@@ -17,5 +17,6 @@ app:
     registration-enabled: ${APP_AUTH_REGISTRATION_ENABLED:false}
     production:
       notification-provider: ${APP_AUTH_PRODUCTION_NOTIFICATION_PROVIDER:NONE}
+      approved-domain: ${APP_AUTH_APPROVED_DOMAIN:NONE}
       public-site-origin: ${APP_AUTH_PUBLIC_SITE_ORIGIN:}
       launch-approved: ${APP_AUTH_PRODUCTION_LAUNCH_APPROVED:false}

@@ -77,8 +77,8 @@ class AuthPropertiesTest {
     }
 
     @Test
-    void rejectsHostnamesAndMalformedTrustedProxyRanges() {
-        for (String invalid : new String[] {"proxy.example.com", "192.168.1.999", "10.0.0.0/33", "2001:db8::/129"}) {
+    void rejectsHostnamesAndAllCidrTrustedProxies() {
+        for (String invalid : new String[] {"proxy.example.com", "192.168.1.999", "10.0.0.0/8", "2001:db8::/32"}) {
             assertThatThrownBy(() -> new AuthProperties(false, "", "", Duration.ofHours(24),
                     Duration.ofDays(30), Duration.ofMinutes(30), Duration.ofMinutes(10),
                     Duration.ofMinutes(30), DataSize.ofKilobytes(8), new String[] {invalid}).validate())
@@ -87,10 +87,10 @@ class AuthPropertiesTest {
     }
 
     @Test
-    void acceptsLiteralIpAndCidrTrustedProxies() {
+    void acceptsOnlyExactLiteralIpTrustedProxies() {
         new AuthProperties(false, "", "", Duration.ofHours(24), Duration.ofDays(30),
                 Duration.ofMinutes(30), Duration.ofMinutes(10), Duration.ofMinutes(30),
-                DataSize.ofKilobytes(8), new String[] {"192.0.2.1", "2001:db8::1", "10.0.0.0/8", "2001:db8::/32"})
+                DataSize.ofKilobytes(8), new String[] {"192.0.2.1", "2001:db8::1"})
                 .validate();
     }
 

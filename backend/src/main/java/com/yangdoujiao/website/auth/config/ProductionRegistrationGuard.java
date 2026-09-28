@@ -1,6 +1,7 @@
 package com.yangdoujiao.website.auth.config;
 
 import java.net.URI;
+import java.util.Locale;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,9 +42,12 @@ public class ProductionRegistrationGuard {
         if (providers.stream().noneMatch(ProductionNotificationReadiness::isReady)) {
             throw new IllegalStateException("A ready production notification provider implementation is required");
         }
+        if (production.approvedDomain() != ProductionRegistrationProperties.ApprovedDomain.YANGDOUJIAO_COM) {
+            throw new IllegalStateException("app.auth.production approved-domain must name the accepted official domain");
+        }
         URI origin = production.publicSiteOrigin();
-        if (!isPublicHttpsOrigin(origin)) {
-            throw new IllegalStateException("app.auth.production public-site-origin must be a public HTTPS origin");
+        if (!isApprovedHttpsOrigin(origin, production.approvedDomain())) {
+            throw new IllegalStateException("app.auth.production public-site-origin must be an approved HTTPS origin");
         }
         if (!secureCookie) {
             throw new IllegalStateException("Production registration requires Secure session cookie");
@@ -56,14 +60,22 @@ public class ProductionRegistrationGuard {
         }
     }
 
-    private boolean isPublicHttpsOrigin(URI origin) {
+    private boolean isApprovedHttpsOrigin(URI origin, ProductionRegistrationProperties.ApprovedDomain approvedDomain) {
         if (origin == null || !"https".equalsIgnoreCase(origin.getScheme()) || origin.getHost() == null
                 || origin.getRawUserInfo() != null || origin.getRawQuery() != null || origin.getRawFragment() != null
                 || !origin.getRawPath().isEmpty() || origin.getPort() != -1) {
             return false;
         }
-        String host = origin.getHost();
-        return host.contains(".") && !host.equalsIgnoreCase("localhost")
-                && !host.matches("[0-9.]+") && !host.contains(":");
+        String host = origin.getHost().toLowerCase(Locale.ROOT);
+        String domain = approvedDomain.domain();
+        if (!host.equals(domain) && !host.endsWith("." + domain)) {
+            return false;
+        }
+        for (String label : host.split("\\.", -1)) {
+            if (label.length() > 63 || !label.matches("[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?")) {
+                return false;
+            }
+        }
+        return true;
     }
 }

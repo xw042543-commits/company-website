@@ -41,7 +41,7 @@ public record AuthProperties(
         }
         if (trustedProxies == null) throw new IllegalStateException("app.auth trusted-proxies is required");
         for (String proxy : trustedProxies) {
-            if (!validProxy(proxy)) throw new IllegalStateException("app.auth trusted-proxies must contain literal IP or CIDR entries");
+            if (!validProxy(proxy)) throw new IllegalStateException("app.auth trusted-proxies must contain exact literal IP entries");
         }
     }
 
@@ -57,9 +57,8 @@ public record AuthProperties(
 
     private static boolean validProxy(String raw) {
         if (raw == null || raw.isBlank()) return false;
-        String[] parts = raw.trim().split("/", -1);
-        if (parts.length > 2) return false;
-        String address = parts[0];
+        String address = raw.trim();
+        if (address.contains("/")) return false;
         boolean ipv6 = address.contains(":");
         if (ipv6) {
             if (!address.matches("[0-9A-Fa-f:.]+")) return false;
@@ -75,8 +74,6 @@ public record AuthProperties(
                 if (!octet.matches("0|[1-9][0-9]{0,2}") || Integer.parseInt(octet) > 255) return false;
             }
         }
-        if (parts.length == 1) return true;
-        String prefix = parts[1];
-        return prefix.matches("0|[1-9][0-9]{0,2}") && Integer.parseInt(prefix) <= (ipv6 ? 128 : 32);
+        return true;
     }
 }
