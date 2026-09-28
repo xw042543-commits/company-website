@@ -17,9 +17,18 @@ test("login page uses a focused portal shell with QR and account columns", () =>
 
 test("public chrome is hidden only for the focused login portal", () => {
   const source = read("../components/site-chrome.tsx");
+  const layout = read("../app/[locale]/layout.tsx");
   assert.match(source, /usePathname/);
   assert.match(source, /isLoginPortal/);
   assert.match(source, /\/login/);
+  assert.match(layout, /SiteChrome/);
+  assert.doesNotMatch(layout, /<SiteHeader/);
+});
+
+test("login portal uses the full company wordmark from the public header", () => {
+  const page = read("../app/[locale]/login/page.tsx");
+  assert.match(page, /\/brand\/udajo-logo-transparent\.png/);
+  assert.doesNotMatch(page, /src="\/icon\.png"/);
 });
 
 test("account form provides password and phone tabs with keyboard navigation", () => {
