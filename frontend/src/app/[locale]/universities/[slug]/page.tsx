@@ -155,7 +155,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
           "向顾问了解院校、专业与申请安排。",
           "Ask an adviser about the university, courses, and application process.",
         )}</p>
-        <Link className="button full-width" href={`/${locale}/consultation`}>
+        <Link className="button full-width" href={`/${locale}/about#enquiry`}>
           {words(locale, "开始咨询", "Start an enquiry")} <span aria-hidden="true">→</span>
         </Link>
         <div className="qr-placeholder">{words(

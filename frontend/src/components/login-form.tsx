@@ -8,7 +8,7 @@ import { type Locale, words } from "@/lib/site";
 const loginMethods = ["password", "phone"] as const;
 type AccountLoginMethod = (typeof loginMethods)[number];
 
-export function LoginForm({ locale }: { locale: Locale }) {
+export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForgotPassword?: () => void }) {
   const [method, setMethod] = useState<AccountLoginMethod>("password");
   const [showPassword, setShowPassword] = useState(false);
   const [reviewed, setReviewed] = useState(false);
@@ -101,7 +101,9 @@ export function LoginForm({ locale }: { locale: Locale }) {
             {showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}
           </button>
         </div>
-        <Link className="forgot-password-link" href={`/${locale}/forgot-password`}>{words(locale, "忘记密码？", "Forgot password?")}</Link>
+        {onForgotPassword
+          ? <button className="forgot-password-link" type="button" onClick={onForgotPassword}>{words(locale, "忘记密码？", "Forgot password?")}</button>
+          : <Link className="forgot-password-link" href={`/${locale}/forgot-password`}>{words(locale, "忘记密码？", "Forgot password?")}</Link>}
       </div>
 
       <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "立即登录", "Sign in now")}</button>
