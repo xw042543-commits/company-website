@@ -6,6 +6,7 @@ import {
   type ProgrammeStatus,
 } from "../data/university-catalog.ts";
 import { FEATURED_UNIVERSITY_IDS, universityProfile } from "../data/university-profiles.ts";
+import { localProgrammePage } from "../data/local-programmes.ts";
 import {
   getUniversityDetail,
   getUniversityProgrammes,
@@ -159,12 +160,6 @@ export async function getUniversityProgrammesWithFallback(
 
   return {
     status: "ready" as const,
-    page: {
-      items: [],
-      page: 1,
-      pageSize: 12,
-      totalItems: 0,
-      totalPages: 0,
-    },
+    page: localProgrammePage(slug, query),
   };
 }
