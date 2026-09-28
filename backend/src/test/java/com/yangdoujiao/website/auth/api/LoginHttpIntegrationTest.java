@@ -63,7 +63,7 @@ class LoginHttpIntegrationTest {
                 .andExpect(jsonPath("$.authenticated").value(true))
                 .andExpect(jsonPath("$.userId").value((int) userId))
                 .andReturn();
-        String newId = login.getRequest().getSession(false).getId();
+        String newId = sessionId(userId);
         assertThat(newId).isNotEqualTo(oldId);
         assertThat(jdbc.queryForObject("SELECT max_inactive_interval FROM spring_session WHERE session_id = ?",
                 Integer.class, newId)).isEqualTo(2_592_000);
@@ -84,7 +84,7 @@ class LoginHttpIntegrationTest {
         MvcResult login = mvc.perform(login(phone, PASSWORD, false))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.userId").value((int) userId)).andReturn();
-        String sessionId = login.getRequest().getSession(false).getId();
+        String sessionId = sessionId(userId);
         assertThat(jdbc.queryForObject("SELECT max_inactive_interval FROM spring_session WHERE session_id = ?",
                 Integer.class, sessionId)).isEqualTo(86_400);
 
@@ -178,6 +178,11 @@ class LoginHttpIntegrationTest {
     }
 
     private String email() { return "task6-" + UUID.randomUUID() + "@example.com"; }
+
+    private String sessionId(long userId) {
+        return jdbc.queryForObject("SELECT session_id FROM spring_session WHERE principal_name = ?",
+                String.class, "user:" + userId);
+    }
 
     private Cookie cookie(MockHttpServletResponse response, String name) {
         return response.getHeaders(HttpHeaders.SET_COOKIE).stream().map(MockCookie::parse)
