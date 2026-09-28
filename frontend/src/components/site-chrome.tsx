@@ -27,10 +27,10 @@ export function SiteChrome({ locale, signedIn, children }: { locale: Locale; sig
     <footer className="site-footer"><div className="container footer-grid">
       <div className="footer-brand"><strong>UDAJO</strong><span>洋豆角</span></div>
       <div className="footer-contact">
-        <Link className="footer-contact-copy" href={`/${locale}/about#enquiry`}>
-          <span><strong>{words(locale, "联系我们", "Contact us")}</strong><span>{words(locale, "与留学顾问沟通你的升学计划。", "Talk with an adviser about your study plans.")}</span></span>
-          <span className="footer-contact-label">{words(locale, "联系顾问", "Contact an adviser")} <span aria-hidden="true">→</span></span>
+        <Link className="footer-contact-link" href={`/${locale}/about#enquiry`}>
+          {words(locale, "联系我们", "Contact us")}
         </Link>
+        <span>{words(locale, "与留学顾问沟通你的升学计划。", "Talk with an adviser about your study plans.")}</span>
       </div>
       <p className="footer-note"><a href={`https://${companyProfile.domain}`}>{companyProfile.domain}</a><br /><a href={`mailto:${companyProfile.publicEmail}`}>{companyProfile.publicEmail}</a></p>
     </div></footer>

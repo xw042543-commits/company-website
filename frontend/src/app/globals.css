@@ -247,11 +247,9 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .footer-brand { display: flex; flex-direction: column; color: var(--paper); }
 .footer-brand strong { font-size: 1.25rem; letter-spacing: .08em; }
 .footer-brand span { font-size: .82rem; font-weight: 700; }
-.footer-contact-copy { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 10px 14px; border-radius: 6px; color: #c5d7d1; text-decoration: none; transition: background-color 180ms var(--ease-out), color 180ms var(--ease-out); }
-.footer-contact-copy strong { display: block; margin-bottom: 5px; color: var(--paper); font-size: 1rem; text-decoration: underline; text-decoration-color: #83aa9f; text-underline-offset: 4px; }
-.footer-contact-copy > span:first-child > span { display: block; font-size: .9rem; }
-.footer-contact-copy:hover { background: rgb(255 255 255 / 7%); color: #fff; }
-.footer-contact-label { flex: 0 0 auto; color: var(--paper); font-size: .9rem; font-weight: 760; }
+.footer-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; color: #c5d7d1; font-size: .9rem; }
+.footer-contact-link { color: var(--paper); font-size: 1rem; font-weight: 760; text-decoration: underline; text-decoration-color: #83aa9f; text-underline-offset: 4px; transition: color 180ms var(--ease-out), text-decoration-color 180ms var(--ease-out); }
+.footer-contact-link:hover { color: #fff; text-decoration-color: #fff; }
 .footer-note { display: flex; flex-direction: column; gap: 2px; text-align: right; }
 .footer-note a { color: var(--paper); font-weight: 700; overflow-wrap: anywhere; }
 .footer-note span { font-size: .8rem; }
@@ -580,7 +578,6 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .school-image { height: 110px; min-height: 110px; }
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .footer-note { grid-column: auto; }
-  .footer-contact-copy { align-items: flex-start; flex-direction: column; gap: 12px; }
   .adviser-list { grid-template-columns: minmax(0, 1fr); }
   .adviser-contact { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; }
   .adviser-contact + .adviser-contact { border-left: 0; border-top: 1px solid var(--line); }
