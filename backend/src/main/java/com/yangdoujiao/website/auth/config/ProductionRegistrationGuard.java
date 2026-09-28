@@ -35,6 +35,9 @@ public class ProductionRegistrationGuard {
 
     @PostConstruct
     public void validate() {
+        if (!secureCookie) {
+            throw new IllegalStateException("Production requires Secure session cookie");
+        }
         if (!auth.registrationEnabled()) return;
         if (production.notificationProvider() != ProductionRegistrationProperties.NotificationProvider.EXTERNAL) {
             throw new IllegalStateException("app.auth.production notification-provider must be EXTERNAL");
@@ -48,9 +51,6 @@ public class ProductionRegistrationGuard {
         URI origin = production.publicSiteOrigin();
         if (!isApprovedHttpsOrigin(origin, production.approvedDomain())) {
             throw new IllegalStateException("app.auth.production public-site-origin must be an approved HTTPS origin");
-        }
-        if (!secureCookie) {
-            throw new IllegalStateException("Production registration requires Secure session cookie");
         }
         if (allowedOrigins == null || allowedOrigins.length != 1 || !origin.toString().equals(allowedOrigins[0])) {
             throw new IllegalStateException("Production registration requires CORS to allow only the public site origin");

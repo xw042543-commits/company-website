@@ -8,7 +8,7 @@ server:
   servlet:
     session:
       cookie:
-        secure: true
+        secure: ${APP_SESSION_COOKIE_SECURE:false}
 
 app:
   cors:

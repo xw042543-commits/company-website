@@ -17,7 +17,19 @@ spring:
       time-to-live: 10m
       cache-null-values: false
 
+  session:
+    timeout: ${APP_AUTH_SESSION_TIMEOUT:24h}
+    jdbc:
+      table-name: spring_session
+      initialize-schema: never
+
 server:
+  servlet:
+    session:
+      cookie:
+        name: JSESSIONID
+        http-only: true
+        same-site: lax
   error:
     include-message: never
     include-stacktrace: never

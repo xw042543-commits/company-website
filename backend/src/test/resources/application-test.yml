@@ -1,3 +1,16 @@
+spring:
+  session:
+    timeout: 24h
+    jdbc:
+      table-name: spring_session
+      initialize-schema: never
+
+server:
+  servlet:
+    session:
+      cookie:
+        secure: false
+
 app:
   auth:
     registration-enabled: true

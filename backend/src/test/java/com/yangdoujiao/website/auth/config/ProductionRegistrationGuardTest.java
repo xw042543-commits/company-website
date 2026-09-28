@@ -33,6 +33,14 @@ class ProductionRegistrationGuardTest {
     }
 
     @Test
+    void productionRequiresSecureSessionCookieEvenWhenRegistrationIsDisabled() {
+        contextRunner.withPropertyValues("app.auth.registration-enabled=false",
+                        "server.servlet.session.cookie.secure=false")
+                .run(context -> assertThat(context.getStartupFailure()).rootCause()
+                        .hasMessageContaining("Secure session cookie"));
+    }
+
+    @Test
     void configuredProviderFlagCannotSubstituteForAnActualProvider() {
         enabled().run(context -> assertThat(context.getStartupFailure())
                 .rootCause().hasMessageContaining("notification provider implementation"));

@@ -73,11 +73,11 @@ class SecurityBridgeHttpIntegrationTest {
     }
 
     @Test
-    void bridgeDoesNotPermitFutureAccountRoutes() throws Exception {
+    void accountRequiresLoginWhileAuthSessionRemainsPublic() throws Exception {
         mockMvc.perform(get("/api/v1/account"))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isUnauthorized());
         mockMvc.perform(get("/api/v1/auth/session"))
-                .andExpect(status().isForbidden());
+                .andExpect(result -> assertThat(result.getResponse().getStatus()).isNotIn(401, 403));
     }
 
     @Test
@@ -89,7 +89,7 @@ class SecurityBridgeHttpIntegrationTest {
     @Test
     void errorAndForwardDispatchesReachErrorController() throws Exception {
         mockMvc.perform(get("/error"))
-                .andExpect(status().isForbidden());
+                .andExpect(result -> assertThat(result.getResponse().getStatus()).isNotEqualTo(403));
 
         for (DispatcherType dispatcherType : new DispatcherType[] {
                 DispatcherType.ERROR, DispatcherType.FORWARD

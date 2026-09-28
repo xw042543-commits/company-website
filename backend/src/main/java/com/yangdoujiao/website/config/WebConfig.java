@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -36,7 +37,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    FilterRegistrationBean<CorsFilter> corsFilter() {
+    CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(allowedOrigins));
         configuration.setAllowedMethods(
@@ -44,12 +45,17 @@ public class WebConfig implements WebMvcConfigurer {
         );
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(true);
+        configuration.addExposedHeader("X-Trace-Id");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/api/**", configuration);
+        return source;
+    }
 
+    @Bean
+    FilterRegistrationBean<CorsFilter> corsFilter() {
         FilterRegistrationBean<CorsFilter> registration = new FilterRegistrationBean<>(
-                new CorsFilter(source)
+                new CorsFilter(corsConfigurationSource())
         );
         registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 5);
         return registration;
