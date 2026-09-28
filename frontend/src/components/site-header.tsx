@@ -24,6 +24,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       </Link>
       <nav id="primary-navigation" className={`navigation${menuOpen ? " navigation-open" : ""}`} aria-label={words(locale, "主导航", "Main navigation")}>
         {navigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={isNavigationActive(pathname, locale, path) ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
+        <Link className="navigation-register" onClick={() => setMenuOpen(false)} href={`/${locale}/login?mode=register`}>{words(locale, "注册账户", "Create account")}</Link>
       </nav>
       <div className="header-actions">
         <Link className="language-switch" href={`${languagePath}${query.size ? `?${query}` : ""}`} hrefLang={other} aria-label={words(locale, "切换为英文", "Switch to Simplified Chinese")}>
@@ -31,7 +32,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <span>{locale === "zh" ? "EN" : "中文"}</span>
         </Link>
         <Link className="login-link" href={`/${locale}/login`} aria-current={pathname === `/${locale}/login` ? "page" : undefined}>{words(locale, "登录", "Sign in")}</Link>
-        <Link className="button small" href={`/${locale}/consultation`}>{words(locale, "咨询", "Enquire")}</Link>
+        <Link className="button small" href={`/${locale}/login?mode=register`}>{words(locale, "注册账户", "Create account")}</Link>
         <button type="button" className="navigation-toggle" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen(value => !value)}>
           <span>{words(locale, "菜单", "Menu")}</span>
           <span className="navigation-toggle-state" aria-hidden="true">{menuOpen ? words(locale, "关闭", "Close") : words(locale, "打开", "Open")}</span>

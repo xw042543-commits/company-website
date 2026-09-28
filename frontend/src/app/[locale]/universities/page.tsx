@@ -24,7 +24,7 @@ export default async function Universities({ params, searchParams }: { params: P
   const totalItems = result.status === "ready" ? result.totalItems : 0;
 
   return <main id="main" className="container page-main">
-    <p className="section-label">{words(locale, "探索留学选择", "Explore your options")}</p>
+    <p className="section-label">{words(locale, "留学目的地", "Study destinations")}</p>
     <h1>{words(locale, "院校一览", "Universities")}</h1>
     <p className="page-intro">{words(locale, "按院校名称、国家或地区查找已审核的院校资料。", "Find reviewed university information by name, country, or region.")}</p>
     <div className="listing-layout"><FilterPanel locale={locale} query={query} options={options} directory /><section aria-label={words(locale, "院校列表", "University list")}>

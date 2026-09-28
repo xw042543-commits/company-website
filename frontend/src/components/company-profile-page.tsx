@@ -41,6 +41,6 @@ export function CompanyProfilePage({ locale }: { locale: Locale }) {
       introduction={words(locale, `咨询通常会在 ${companyProfile.responseTime.zh}回复。`, `Enquiries are normally answered ${companyProfile.responseTime.en}.`)}
     />
 
-    <div className="company-page-action"><Link className="button" href={`/${locale}/consultation`}>{words(locale, "前往咨询页", "Go to enquiry page")}</Link></div>
+    <div className="company-page-action"><Link className="button" href={`/${locale}/about#enquiry`}>{words(locale, "联系留学顾问", "Contact an adviser")}</Link></div>
   </main>;
 }

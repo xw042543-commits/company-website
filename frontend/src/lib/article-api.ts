@@ -1,6 +1,6 @@
 import type { Locale } from "./site.ts";
 
-export const articleSections = ["language", "scholarships", "programmes", "news"] as const;
+export const articleSections = ["language", "scholarships", "news"] as const;
 export type ArticleSection = typeof articleSections[number];
 
 export type ArticleSummary = {
