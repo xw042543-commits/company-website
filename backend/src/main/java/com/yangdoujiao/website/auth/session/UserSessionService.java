@@ -1,19 +1,17 @@
 package com.yangdoujiao.website.auth.session;
 
-import org.springframework.session.FindByIndexNameSessionRepository;
-import org.springframework.session.Session;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserSessionService {
-    private final FindByIndexNameSessionRepository<? extends Session> sessions;
+    private final JdbcTemplate jdbc;
 
-    public UserSessionService(FindByIndexNameSessionRepository<? extends Session> sessions) {
-        this.sessions = sessions;
+    public UserSessionService(JdbcTemplate jdbc) {
+        this.jdbc = jdbc;
     }
 
     public void revokeAll(long userId) {
-        sessions.findByIndexNameAndIndexValue(FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME,
-                "user:" + userId).keySet().forEach(sessions::deleteById);
+        jdbc.update("DELETE FROM spring_session WHERE principal_name = ?", "user:" + userId);
     }
 }

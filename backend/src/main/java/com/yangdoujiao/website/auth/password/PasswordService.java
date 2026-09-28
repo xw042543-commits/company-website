@@ -47,6 +47,7 @@ public class PasswordService {
     private final UserSessionService sessions;
     private final ObjectProvider<AuthNotificationSender> senders;
     private final AuthNotificationDispatcher dispatcher;
+    private final PasswordRecoveryDispatcher recoveryDispatcher;
     private final EntityManager entityManager;
     private final TransactionTemplate transaction;
     private final SecureRandom random = new SecureRandom();
@@ -55,7 +56,8 @@ public class PasswordService {
             UserAccountLookup lookup, AccountIdentifierNormalizer normalizer, AuthProperties properties,
             AuthRateLimitProperties limits, AuthRateLimiter limiter, PasswordEncoder passwords,
             UserSessionService sessions, ObjectProvider<AuthNotificationSender> senders,
-            AuthNotificationDispatcher dispatcher, EntityManager entityManager,
+            AuthNotificationDispatcher dispatcher, PasswordRecoveryDispatcher recoveryDispatcher,
+            EntityManager entityManager,
             PlatformTransactionManager manager) {
         this.tokens = tokens;
         this.accounts = accounts;
@@ -68,6 +70,7 @@ public class PasswordService {
         this.sessions = sessions;
         this.senders = senders;
         this.dispatcher = dispatcher;
+        this.recoveryDispatcher = recoveryDispatcher;
         this.entityManager = entityManager;
         this.transaction = new TransactionTemplate(manager);
     }
@@ -81,30 +84,29 @@ public class PasswordService {
         AuthNotificationSender sender = availableSender();
         String rawToken = newToken();
         String tokenHash = AuthHash.sha256(rawToken);
-        // The expensive password-encoding work is identical for present and absent identifiers.
-        passwords.encode(tokenHash);
         Locale locale = "zh".equalsIgnoreCase(rawLocale) ? Locale.CHINESE : Locale.ENGLISH;
-        transaction.executeWithoutResult(status -> identifier.flatMap(lookup::findLoginAccount).ifPresent(found -> {
-            Optional<UserAccount> locked = accounts.findLockedById(found.getId());
-            if (locked.isEmpty() || locked.get().getStatus() != UserAccountStatus.ACTIVE) return;
-            UserAccount account = locked.get();
-            OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
-            tokens.invalidateActive(account.getId(), now);
-            OffsetDateTime expiresAt = now.plus(properties.passwordResetTtl());
-            tokens.saveAndFlush(new PasswordResetToken(account.getId(), tokenHash, expiresAt, now));
-            long sequence = sender.reserveIssueSequence();
-            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
-                @Override
-                public void afterCommit() {
-                    dispatcher.dispatch(() -> {
-                        if (java.time.Instant.now().isBefore(expiresAt.toInstant())) {
-                            sender.sendPasswordReset(identifier.orElseThrow().value(), rawToken, locale,
-                                    sequence, expiresAt.toInstant());
+        recoveryDispatcher.dispatch(() -> transaction.executeWithoutResult(status ->
+                identifier.flatMap(lookup::findLoginAccount).ifPresent(found -> {
+                    Optional<UserAccount> locked = accounts.findLockedById(found.getId());
+                    if (locked.isEmpty() || locked.get().getStatus() != UserAccountStatus.ACTIVE) return;
+                    UserAccount account = locked.get();
+                    OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+                    tokens.invalidateActive(account.getId(), now);
+                    OffsetDateTime expiresAt = now.plus(properties.passwordResetTtl());
+                    tokens.saveAndFlush(new PasswordResetToken(account.getId(), tokenHash, expiresAt, now));
+                    long sequence = sender.reserveIssueSequence();
+                    TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+                        @Override
+                        public void afterCommit() {
+                            dispatcher.dispatch(() -> {
+                                if (java.time.Instant.now().isBefore(expiresAt.toInstant())) {
+                                    sender.sendPasswordReset(identifier.orElseThrow().value(), rawToken, locale,
+                                            sequence, expiresAt.toInstant());
+                                }
+                            });
                         }
                     });
-                }
-            });
-        }));
+                })));
     }
 
     public void resetPassword(String rawToken, String newPassword, String clientAddress) {
