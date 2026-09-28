@@ -52,7 +52,7 @@ test("footer offers a bilingual contact link to the enquiry section", () => {
   assert.match(chrome, /联系我们/);
   assert.match(chrome, /Contact us/);
   assert.match(chrome, /`\/\$\{locale\}\/about#enquiry`/);
-  assert.match(chrome, /footer-contact-action/);
+  assert.match(chrome, /footer-contact-copy/);
   assert.doesNotMatch(home, /className="home-cta"/);
 });
 
