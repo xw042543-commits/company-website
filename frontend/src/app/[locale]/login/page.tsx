@@ -19,7 +19,7 @@ export default async function LoginPage({ params }: { params: Promise<{ locale: 
 
     <header className="auth-portal-header">
       <Link className="auth-portal-brand" href={`/${locale}`} aria-label={words(locale, "返回洋豆角首页", "Return to UDAJO home")}>
-        <Image src="/icon.png" width={512} height={512} priority alt={words(locale, "洋豆角 UDAJO 标志", "UDAJO logo")} />
+        <Image src="/brand/udajo-logo-transparent.png" width={1280} height={1280} priority alt={words(locale, "洋豆角 UDAJO 标志", "UDAJO logo")} />
       </Link>
       <nav className="auth-portal-actions" aria-label={words(locale, "账户页面导航", "Account page navigation")}>
         <Link href={`/${otherLocale}/login`} hrefLang={otherLocale}>{locale === "zh" ? "English" : "中文"}</Link>
