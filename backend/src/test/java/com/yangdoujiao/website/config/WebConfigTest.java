@@ -2,13 +2,17 @@ package com.yangdoujiao.website.config;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.context.runner.ApplicationContextRunner;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.MapPropertySource;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.util.unit.DataSize;
+import org.springframework.web.filter.CorsFilter;
 
 import jakarta.servlet.FilterChain;
 
@@ -22,17 +26,19 @@ class WebConfigTest {
 
     @Test
     void corsRegistrationDoesNotOccupySpringSecurityCorsFilterBeanName() {
-        new ApplicationContextRunner()
-                .withBean(ConsultationRateLimitInterceptor.class,
-                        () -> org.mockito.Mockito.mock(ConsultationRateLimitInterceptor.class))
-                .withUserConfiguration(WebConfig.class)
-                .withPropertyValues("app.cors.allowed-origins=http://localhost:3000")
-                .run(context -> {
-                    assertThat(context).hasNotFailed();
-                    assertThat(context.containsBean("corsFilter")).isFalse();
-                    assertThat(context.getBean("corsFilterRegistration"))
-                            .isInstanceOf(FilterRegistrationBean.class);
-                });
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext()) {
+            context.getEnvironment().getPropertySources().addFirst(new MapPropertySource(
+                    "test", Map.of("app.cors.allowed-origins", "http://localhost:3000")));
+            context.registerBean(ConsultationRateLimitInterceptor.class,
+                    () -> org.mockito.Mockito.mock(ConsultationRateLimitInterceptor.class));
+            context.register(WebConfig.class);
+            context.refresh();
+
+            assertThat(context.containsBean("corsFilter")).isFalse();
+            FilterRegistrationBean<?> registration = context.getBean(
+                    "corsFilterRegistration", FilterRegistrationBean.class);
+            assertThat(registration.getFilter()).isInstanceOf(CorsFilter.class);
+        }
     }
 
     @Test
