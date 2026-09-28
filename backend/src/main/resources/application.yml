@@ -51,6 +51,13 @@ app:
     password-reset-ttl: ${APP_AUTH_PASSWORD_RESET_TTL:30m}
     maximum-body-size: ${APP_AUTH_MAXIMUM_BODY_SIZE:8KB}
     trusted-proxies: ${APP_AUTH_TRUSTED_PROXIES:}
+    rate-limit:
+      registration-per-ip: ${APP_AUTH_REGISTRATION_PER_IP:5}
+      registration-per-identifier: ${APP_AUTH_REGISTRATION_PER_IDENTIFIER:3}
+      resend-per-ip: ${APP_AUTH_RESEND_PER_IP:10}
+      resend-per-identifier: ${APP_AUTH_RESEND_PER_IDENTIFIER:3}
+      verification-per-ip: ${APP_AUTH_VERIFICATION_PER_IP:30}
+      window: ${APP_AUTH_RATE_LIMIT_WINDOW:1h}
   consultation:
     submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}
     privacy-notice-version: ${APP_CONSULTATION_PRIVACY_NOTICE_VERSION:}

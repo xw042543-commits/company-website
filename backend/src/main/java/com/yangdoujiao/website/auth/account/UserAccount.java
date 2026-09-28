@@ -72,4 +72,16 @@ public class UserAccount {
         this.createdAt = OffsetDateTime.now();
         this.updatedAt = createdAt;
     }
+
+    public void verifyEmail(OffsetDateTime now) {
+        emailVerifiedAt = now;
+        status = UserAccountStatus.ACTIVE;
+        updatedAt = now;
+    }
+
+    public void verifyPhone(OffsetDateTime now) {
+        phoneVerifiedAt = now;
+        status = UserAccountStatus.ACTIVE;
+        updatedAt = now;
+    }
 }
