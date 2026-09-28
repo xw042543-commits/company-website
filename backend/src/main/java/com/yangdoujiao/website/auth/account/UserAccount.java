@@ -89,4 +89,10 @@ public class UserAccount {
         passwordHash = encodedPassword;
         updatedAt = now;
     }
+
+    public void delete(OffsetDateTime now) {
+        status = UserAccountStatus.DELETED;
+        deletedAt = now;
+        updatedAt = now;
+    }
 }

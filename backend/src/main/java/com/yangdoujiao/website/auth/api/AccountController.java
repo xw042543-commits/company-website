@@ -4,6 +4,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,10 +23,28 @@ import jakarta.servlet.http.HttpSession;
 public class AccountController {
     private final PasswordService passwords;
     private final ClientAddressResolver addresses;
+    private final AccountService accounts;
 
-    public AccountController(PasswordService passwords, ClientAddressResolver addresses) {
+    public AccountController(PasswordService passwords, ClientAddressResolver addresses, AccountService accounts) {
         this.passwords = passwords;
         this.addresses = addresses;
+        this.accounts = accounts;
+    }
+
+    @GetMapping
+    public AccountResponse profile(@AuthenticationPrincipal UserPrincipal principal) {
+        if (principal == null) throw new ApiException(HttpStatus.UNAUTHORIZED, "AUTH_REQUIRED", "Authentication required");
+        return accounts.profile(principal.userId());
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> delete(@RequestBody DeleteAccountRequest body,
+            @AuthenticationPrincipal UserPrincipal principal, HttpServletRequest request) {
+        if (principal == null) throw new ApiException(HttpStatus.UNAUTHORIZED, "AUTH_REQUIRED", "Authentication required");
+        accounts.delete(principal.userId(), body);
+        HttpSession current = request.getSession(false);
+        if (current != null) current.invalidate();
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/password")
