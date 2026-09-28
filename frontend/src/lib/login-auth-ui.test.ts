@@ -95,3 +95,12 @@ test("account mode switch remains readable on hover", () => {
   const css = read("../app/globals.css");
   assert.match(css, /\.auth-form-switch:hover\s*\{[\s\S]*?background:\s*transparent[\s\S]*?color:\s*var\(--brand-deep\)/);
 });
+
+test("demo account actions require completed visible fields", () => {
+  const login = read("../components/login-form.tsx");
+  const register = read("../components/register-form.tsx");
+  assert.match(login, /reportValidity/);
+  assert.match(register, /reportValidity/);
+  assert.match(login, /required/);
+  assert.match(register, /required/);
+});

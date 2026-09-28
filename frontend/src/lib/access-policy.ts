@@ -14,15 +14,13 @@ export function isProtectedPath(pathname: string) {
 
 export function safeReturnTo(value: string | undefined, locale: Locale) {
   const fallback = `/${locale}`;
-  if (!value || !value.startsWith(`/${locale}/`) || value.startsWith("//")) return fallback;
-
-  const [path] = value.split(/[?#]/, 1);
-  const [, section] = pathSegments(path);
-  if (!section || accountSections.has(section)) return fallback;
+  if (!value || !value.startsWith("/") || value.startsWith("//")) return fallback;
 
   try {
     const parsed = new URL(value, "https://udajo.local");
     if (parsed.origin !== "https://udajo.local") return fallback;
+    const [normalizedLocale, section] = pathSegments(parsed.pathname);
+    if (normalizedLocale !== locale || !section || accountSections.has(section)) return fallback;
     return `${parsed.pathname}${parsed.search}${parsed.hash}`;
   } catch {
     return fallback;

@@ -11,10 +11,11 @@ function selectedLevels(query: Query) {
   return new Set(values.map((value) => value.trim()).filter(Boolean));
 }
 
-function durationDisplay(value: string) {
+export function formatProgrammeDuration(value: string) {
   if (!value) return null;
-  if (/\b(?:sem|semester|year|month|week|年|月|学期)\b/i.test(value)) return value;
-  return `${value} semesters`;
+  return /^\d+(?:\.\d+)?(?:\s*\+\s*\d+)?$/.test(value.trim())
+    ? `${value.trim()} semesters`
+    : value;
 }
 
 function interviewDisplay(value: string, locale: "zh" | "en") {
@@ -51,7 +52,7 @@ function toProgramme(record: LocalProgrammeRecord, index: number) {
     courseModeCode: record.mode || null,
     languageCodes: [],
     durationMonths: null,
-    durationDisplay: durationDisplay(record.duration),
+    durationDisplay: formatProgrammeDuration(record.duration),
     tuitionMin: null,
     tuitionMax: null,
     tuitionCurrency: null,

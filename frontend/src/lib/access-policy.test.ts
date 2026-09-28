@@ -20,5 +20,7 @@ test("accepts only same-locale relative return destinations", () => {
   assert.equal(safeReturnTo("https://example.com", "en"), "/en");
   assert.equal(safeReturnTo("//example.com", "en"), "/en");
   assert.equal(safeReturnTo("/en/login", "en"), "/en");
+  assert.equal(safeReturnTo("/en/../zh/planning", "en"), "/en");
+  assert.equal(safeReturnTo("/en/../en/login", "en"), "/en");
   assert.equal(safeReturnTo(undefined, "zh"), "/zh");
 });

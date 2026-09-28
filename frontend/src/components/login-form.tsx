@@ -52,6 +52,8 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: { locale: Loca
   }
 
   async function handlePreview() {
+    const inputs = method === "password" ? [accountRef.current, passwordRef.current] : [phoneRef.current, codeRef.current];
+    if (!inputs.every((input) => input?.reportValidity())) return;
     clearFields();
     setReviewed(true);
     await startDemoSession(locale, returnTo);
@@ -92,13 +94,13 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: { locale: Loca
     {method === "password" && <div id="login-panel-password" role="tabpanel" aria-labelledby="login-tab-password" data-endpoint={authEndpoints.password}>
       <div className="field">
         <label htmlFor="account-id">{words(locale, "邮箱或用户名", "Email or username")}</label>
-        <input ref={accountRef} id="account-id" type="text" autoComplete="username" maxLength={160} placeholder={words(locale, "请输入邮箱或用户名", "Enter your email or username")} onInput={() => setReviewed(false)} />
+        <input ref={accountRef} id="account-id" type="text" autoComplete="username" maxLength={160} required placeholder={words(locale, "请输入邮箱或用户名", "Enter your email or username")} onInput={() => setReviewed(false)} />
       </div>
 
       <div className="field">
         <label htmlFor="account-password">{words(locale, "密码", "Password")}</label>
         <div className="password-input-wrap">
-          <input ref={passwordRef} id="account-password" type={showPassword ? "text" : "password"} autoComplete="current-password" maxLength={128} placeholder={words(locale, "请输入密码", "Enter your password")} onInput={() => setReviewed(false)} />
+          <input ref={passwordRef} id="account-password" type={showPassword ? "text" : "password"} autoComplete="current-password" maxLength={128} required placeholder={words(locale, "请输入密码", "Enter your password")} onInput={() => setReviewed(false)} />
           <button className="password-toggle" type="button" aria-controls="account-password" aria-pressed={showPassword} onClick={() => setShowPassword((value) => !value)}>
             {showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}
           </button>
@@ -119,7 +121,7 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: { locale: Loca
             <option value="+60">MY +60</option>
             <option value="+86">CN +86</option>
           </select>
-          <input ref={phoneRef} id="account-phone" type="tel" inputMode="tel" autoComplete="tel-national" maxLength={18} aria-invalid={phoneError} aria-describedby={phoneError ? "phone-error" : undefined} placeholder={words(locale, "请输入手机号码", "Enter phone number")} onInput={() => { setPhoneError(false); setReviewed(false); }} />
+          <input ref={phoneRef} id="account-phone" type="tel" inputMode="tel" autoComplete="tel-national" minLength={8} maxLength={18} required aria-invalid={phoneError} aria-describedby={phoneError ? "phone-error" : undefined} placeholder={words(locale, "请输入手机号码", "Enter phone number")} onInput={() => { setPhoneError(false); setReviewed(false); }} />
         </div>
         {phoneError && <p id="phone-error" className="field-error" role="alert">{words(locale, "请输入有效的手机号码。", "Enter a valid phone number.")}</p>}
       </div>
@@ -127,7 +129,7 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: { locale: Loca
       <div className="field">
         <label htmlFor="verification-code">{words(locale, "验证码", "Verification code")}</label>
         <div className="verification-code-row">
-          <input ref={codeRef} id="verification-code" type="text" inputMode="numeric" autoComplete="one-time-code" maxLength={6} placeholder={words(locale, "6 位验证码", "6-digit code")} onInput={() => setReviewed(false)} />
+          <input ref={codeRef} id="verification-code" type="text" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" minLength={6} maxLength={6} required placeholder={words(locale, "6 位验证码", "6-digit code")} onInput={() => setReviewed(false)} />
           <button className="secondary" type="button" disabled={countdown > 0} data-endpoint={authEndpoints.requestPhoneCode} onClick={requestCode}>
             {countdown > 0 ? words(locale, `${countdown} 秒后重发`, `Resend in ${countdown}s`) : words(locale, "发送验证码", "Send code")}
           </button>
