@@ -8,10 +8,12 @@ import { universityProfile } from "@/data/university-profiles";
 import { findUniversityBySlug } from "@/data/university-catalog";
 import { getFilterOptions } from "@/lib/filter-options-api";
 import {
-  getUniversityDetail,
-  getUniversityProgrammes,
   toUniversityDetailView,
 } from "@/lib/university-api";
+import {
+  getUniversityDetailWithFallback,
+  getUniversityProgrammesWithFallback,
+} from "@/lib/universities";
 import { boundedPage, isLocale, pageLink, type Query, words } from "@/lib/site";
 
 type DetailProps = {
@@ -28,8 +30,8 @@ export default async function Detail({ params, searchParams }: DetailProps) {
   const query = await searchParams;
   const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
   const [detailResult, programmeResult, filterResult] = await Promise.all([
-    getUniversityDetail(baseUrl, slug),
-    getUniversityProgrammes(baseUrl, slug, query),
+    getUniversityDetailWithFallback(slug, baseUrl),
+    getUniversityProgrammesWithFallback(slug, query, baseUrl),
     getFilterOptions(baseUrl),
   ]);
 

@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { UNIVERSITY_CATALOG } from "@/data/university-catalog";
 import { FEATURED_UNIVERSITY_IDS, universityProfile } from "@/data/university-profiles";
+import { LocationLabel } from "@/components/location-label";
 import { Locale, words } from "@/lib/site";
 
 const featured = FEATURED_UNIVERSITY_IDS.map((id) => UNIVERSITY_CATALOG.find((item) => item.id === id)).filter(Boolean);
@@ -52,7 +53,7 @@ export function FeaturedUniversityCarousel({ locale }: { locale: Locale }) {
               : university.logoSrc && <Image className="featured-university-logo" src={university.logoSrc} width={280} height={150} alt={words(locale, `${name} 标志`, `${name} logo`)} />}
           </div>
           <div className="featured-university-content">
-            <p className="featured-university-location"><span aria-hidden="true">●</span> {city}, {locale === "zh" ? university.countryZh : university.countryEn}</p>
+            <p className="featured-university-location"><LocationLabel city={city} country={locale === "zh" ? university.countryZh : university.countryEn} locale={locale} /></p>
             <h3>{name}</h3>
             <p className="featured-university-intro">{locale === "zh" ? profile.introductionZh : profile.introductionEn}</p>
             <dl className="featured-university-facts">
