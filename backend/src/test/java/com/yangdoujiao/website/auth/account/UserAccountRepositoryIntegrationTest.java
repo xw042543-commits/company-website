@@ -18,7 +18,7 @@ import com.yangdoujiao.website.TestContainersConfiguration;
 @Import(TestContainersConfiguration.class)
 @Transactional
 class UserAccountRepositoryIntegrationTest {
-    @Autowired private UserAccountRepository repository;
+    @Autowired private UserAccountLookup lookup;
     @Autowired private JdbcTemplate jdbc;
 
     @Test
@@ -28,12 +28,12 @@ class UserAccountRepositoryIntegrationTest {
         insert("deleted@example.com", null, "DELETED");
         insert(null, "+60123456788", "DELETED");
 
-        assertThat(repository.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.EMAIL, "active@example.com"))).get()
+        assertThat(lookup.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.EMAIL, "active@example.com"))).get()
                 .extracting(UserAccount::getStatus).isEqualTo(UserAccountStatus.ACTIVE);
-        assertThat(repository.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.PHONE, "+60123456789"))).get()
+        assertThat(lookup.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.PHONE, "+60123456789"))).get()
                 .extracting(UserAccount::getStatus).isEqualTo(UserAccountStatus.PENDING_VERIFICATION);
-        assertThat(repository.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.EMAIL, "deleted@example.com"))).isEmpty();
-        assertThat(repository.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.PHONE, "+60123456788"))).isEmpty();
+        assertThat(lookup.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.EMAIL, "deleted@example.com"))).isEmpty();
+        assertThat(lookup.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.PHONE, "+60123456788"))).isEmpty();
     }
 
     @Test
@@ -43,18 +43,22 @@ class UserAccountRepositoryIntegrationTest {
         insert("a@b.co", null, "ACTIVE");
         insert(null, "a@b.co", "DISABLED");
 
-        assertThat(repository.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.PHONE, "+60123456780"))).get()
+        assertThat(lookup.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.PHONE, "+60123456780"))).get()
                 .extracting(UserAccount::getStatus).isEqualTo(UserAccountStatus.PENDING_VERIFICATION);
-        assertThat(repository.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.EMAIL, "a@b.co"))).get()
+        assertThat(lookup.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.EMAIL, "a@b.co"))).get()
                 .extracting(UserAccount::getStatus).isEqualTo(UserAccountStatus.ACTIVE);
     }
 
     @Test
     void rejectsMissingOrBlankIdentifiers() {
-        assertThatThrownBy(() -> repository.findLoginAccount(null)).isInstanceOf(AuthValidationException.class);
-        assertThatThrownBy(() -> repository.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.EMAIL, "")))
+        insert("", null, "ACTIVE");
+        insert(null, "", "ACTIVE");
+        assertThatThrownBy(() -> lookup.findLoginAccount(null)).isInstanceOf(AuthValidationException.class);
+        assertThatThrownBy(() -> lookup.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.EMAIL, "")))
                 .isInstanceOf(AuthValidationException.class);
-        assertThatThrownBy(() -> repository.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.PHONE, " ")))
+        assertThatThrownBy(() -> lookup.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.PHONE, " ")))
+                .isInstanceOf(AuthValidationException.class);
+        assertThatThrownBy(() -> lookup.findLoginAccount(new NormalizedIdentifier(AccountIdentifierType.EMAIL, "+60123456780")))
                 .isInstanceOf(AuthValidationException.class);
     }
 
