@@ -88,4 +88,3 @@ export function localizeUniversity(university: UniversityCatalogEntry, locale: "
     ? { name: university.nameZh, secondaryName: university.nameEn, country: university.countryZh, city: university.cityZh }
     : { name: university.nameEn, secondaryName: university.nameZh, country: university.countryEn, city: university.cityEn };
 }
-
