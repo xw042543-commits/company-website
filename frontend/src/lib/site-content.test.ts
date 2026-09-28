@@ -55,3 +55,12 @@ test("footer offers a bilingual contact link to the enquiry section", () => {
   assert.match(chrome, /footer-contact-action/);
   assert.doesNotMatch(home, /className="home-cta"/);
 });
+
+test("university details expose programme level filters and a data review note", () => {
+  const detail = read("../app/[locale]/universities/[slug]/page.tsx");
+  assert.match(detail, /programme-level-filters/);
+  assert.match(detail, /本科/);
+  assert.match(detail, /硕士/);
+  assert.match(detail, /博士/);
+  assert.match(detail, /费用与入学要求可能调整/);
+});

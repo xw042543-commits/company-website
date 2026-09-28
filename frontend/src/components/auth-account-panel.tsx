@@ -9,7 +9,7 @@ import { type Locale, words } from "@/lib/site";
 
 type AccountMode = "login" | "register" | "recovery";
 
-export function AuthAccountPanel({ locale, initialMode = "login" }: { locale: Locale; initialMode?: AccountMode }) {
+export function AuthAccountPanel({ locale, initialMode = "login", returnTo }: { locale: Locale; initialMode?: AccountMode; returnTo?: string }) {
   const [mode, setMode] = useState<AccountMode>(initialMode);
   const registering = mode === "register";
   const recovering = mode === "recovery";
@@ -31,10 +31,10 @@ export function AuthAccountPanel({ locale, initialMode = "login" }: { locale: Lo
     </div>
 
     {registering
-      ? <RegisterForm locale={locale} />
+      ? <RegisterForm locale={locale} returnTo={returnTo} />
       : recovering
         ? <ForgotPasswordForm locale={locale} />
-        : <LoginForm locale={locale} onForgotPassword={() => setMode("recovery")} />}
+        : <LoginForm locale={locale} returnTo={returnTo} onForgotPassword={() => setMode("recovery")} />}
 
     <div className="auth-form-support">
       <Link href={`/${locale}/about#enquiry`}>{words(locale, "需要帮助？联系顾问", "Need help? Contact an adviser")}</Link>

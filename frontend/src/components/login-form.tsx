@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { type KeyboardEvent, useEffect, useRef, useState } from "react";
 import { authEndpoints } from "@/lib/login-auth";
+import { startDemoSession } from "@/app/actions/demo-session";
 import { type Locale, words } from "@/lib/site";
 
 const loginMethods = ["password", "phone"] as const;
 type AccountLoginMethod = (typeof loginMethods)[number];
 
-export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForgotPassword?: () => void }) {
+export function LoginForm({ locale, returnTo, onForgotPassword }: { locale: Locale; returnTo?: string; onForgotPassword?: () => void }) {
   const [method, setMethod] = useState<AccountLoginMethod>("password");
   const [showPassword, setShowPassword] = useState(false);
   const [reviewed, setReviewed] = useState(false);
@@ -50,9 +51,10 @@ export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForg
     setShowPassword(false);
   }
 
-  function handlePreview() {
+  async function handlePreview() {
     clearFields();
     setReviewed(true);
+    await startDemoSession(locale, returnTo);
   }
 
   function requestCode() {
@@ -136,7 +138,7 @@ export function LoginForm({ locale, onForgotPassword }: { locale: Locale; onForg
       <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "验证并登录", "Verify and sign in")}</button>
     </div>}
 
-    <p className="auth-integration-note">{words(locale, "登录服务尚未接入，当前操作不会发送或保存资料。", "Authentication is not connected yet. Nothing entered here is sent or stored.")}</p>
+    <p className="auth-integration-note"><strong>{words(locale, "前端演示", "Frontend demo")}</strong> · {words(locale, "登录服务尚未接入；输入内容不会发送或保存。继续后将开启本机会员预览。", "Authentication is not connected; entries are never sent or stored. Continuing opens the local member preview.")}</p>
     {reviewed && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览操作完成，没有资料被发送或保存。", "Preview complete. No information was sent or stored.")}</p>}
   </div>;
 }
