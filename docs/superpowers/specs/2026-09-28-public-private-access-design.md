@@ -63,6 +63,8 @@ The shared header receives the current access state:
 
 The public home page leads with what UDAJO does, the services it provides and how to contact the company. Detailed universities, programmes and planning information remain behind the login boundary.
 
+The header remains visible at the top of the viewport while users scroll. It gains a restrained divider or shadow after leaving the top of the page so it stays distinct from content. Its height remains stable to prevent layout movement, and anchored sections include enough scroll offset to remain visible below it.
+
 The transition between public and signed-in areas uses the existing green design system, spacing and typography. No separate dashboard visual language is introduced.
 
 ## Programme data
@@ -96,6 +98,7 @@ Each unit has one responsibility and can be replaced independently when backend 
 - Navigation remains keyboard accessible and preserves visible focus styles.
 - Protected-route redirects preserve locale.
 - Public and signed-in navigation fit desktop and mobile layouts without horizontal clipping.
+- The sticky header does not cover headings, focused controls or anchor destinations.
 - Motion respects `prefers-reduced-motion`.
 
 ## Testing

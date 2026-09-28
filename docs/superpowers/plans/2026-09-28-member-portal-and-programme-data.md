@@ -93,8 +93,10 @@
 2. Read the demo session in the locale layout and pass a boolean to the shared chrome.
 3. Show public navigation with Home, Services and About links plus Login and Create account.
 4. Show the full tool navigation to signed-in users, replace account CTAs with Account and Sign out, and preserve language switching.
-5. Ensure mobile menu behavior and active-link states work for anchors and nested protected routes.
-6. Run company/content tests.
+5. Keep the header fixed at the top while scrolling. Add a restrained scrolled-state divider or shadow without changing its height.
+6. Add scroll margin for anchored sections so the sticky header does not cover their headings.
+7. Ensure mobile menu behavior and active-link states work for anchors and nested protected routes.
+8. Run company/content tests.
 
 ## Task 6: Connect login, phone, registration and WeChat preview flows
 
@@ -175,6 +177,7 @@
    - signed-in navigation and programme details
    - degree-level filters and pagination
    - sign-out and repeated protected-route access
+   - sticky header behavior at the top and after scrolling
    - mobile and desktop layouts
 6. Run the design-taste pre-flight review and fix material hierarchy, spacing, overflow, contrast, focus and motion issues.
 7. Review the branch diff for generated-data anomalies, secrets, temporary files and unrelated changes.
