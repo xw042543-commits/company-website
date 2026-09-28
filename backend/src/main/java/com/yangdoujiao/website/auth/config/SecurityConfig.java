@@ -42,10 +42,6 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http, AuthSecurityErrorWriter errors) throws Exception {
         http.cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf
-                        // The existing anonymous enquiry form has no CSRF bootstrap yet.
-                        .ignoringRequestMatchers(request -> "POST".equals(request.getMethod())
-                                && (request.getContextPath() + "/api/v1/consultations")
-                                        .equals(request.getRequestURI()))
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler()))
                 .exceptionHandling(exceptions -> exceptions

@@ -17,7 +17,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
+import org.springframework.http.HttpHeaders;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mock.web.MockCookie;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.test.context.ActiveProfiles;
@@ -27,6 +29,7 @@ import com.yangdoujiao.website.TestContainersConfiguration;
 
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.Cookie;
 
 @SpringBootTest(properties = {
         "app.consultation.submission-enabled=true",
@@ -52,7 +55,15 @@ class SecurityBridgeHttpIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.countries").isArray());
 
+        var csrfResponse = mockMvc.perform(get("/api/v1/auth/csrf"))
+                .andExpect(status().isOk()).andReturn().getResponse();
+        Cookie csrfCookie = csrfResponse.getHeaders(HttpHeaders.SET_COOKIE).stream()
+                .map(MockCookie::parse)
+                .filter(cookie -> "XSRF-TOKEN".equals(cookie.getName()))
+                .findFirst().orElseThrow();
         mockMvc.perform(post("/api/v1/consultations")
+                        .cookie(csrfCookie)
+                        .header("X-XSRF-TOKEN", csrfCookie.getValue())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {

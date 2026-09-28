@@ -5,6 +5,7 @@ spring:
     password: ${POSTGRES_PASSWORD}
 
 server:
+  forward-headers-strategy: none
   servlet:
     session:
       cookie:

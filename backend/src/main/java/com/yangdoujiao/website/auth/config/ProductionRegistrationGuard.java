@@ -38,13 +38,6 @@ public class ProductionRegistrationGuard {
         if (!secureCookie) {
             throw new IllegalStateException("Production requires Secure session cookie");
         }
-        if (!auth.registrationEnabled()) return;
-        if (production.notificationProvider() != ProductionRegistrationProperties.NotificationProvider.EXTERNAL) {
-            throw new IllegalStateException("app.auth.production notification-provider must be EXTERNAL");
-        }
-        if (providers.stream().noneMatch(ProductionNotificationReadiness::isReady)) {
-            throw new IllegalStateException("A ready production notification provider implementation is required");
-        }
         if (production.approvedDomain() != ProductionRegistrationProperties.ApprovedDomain.YANGDOUJIAO_COM) {
             throw new IllegalStateException("app.auth.production approved-domain must name the accepted official domain");
         }
@@ -53,7 +46,14 @@ public class ProductionRegistrationGuard {
             throw new IllegalStateException("app.auth.production public-site-origin must be an approved HTTPS origin");
         }
         if (allowedOrigins == null || allowedOrigins.length != 1 || !origin.toString().equals(allowedOrigins[0])) {
-            throw new IllegalStateException("Production registration requires CORS to allow only the public site origin");
+            throw new IllegalStateException("Production CORS must allow only the public site origin");
+        }
+        if (!auth.registrationEnabled()) return;
+        if (production.notificationProvider() != ProductionRegistrationProperties.NotificationProvider.EXTERNAL) {
+            throw new IllegalStateException("app.auth.production notification-provider must be EXTERNAL");
+        }
+        if (providers.stream().noneMatch(ProductionNotificationReadiness::isReady)) {
+            throw new IllegalStateException("A ready production notification provider implementation is required");
         }
         if (!production.launchApproved()) {
             throw new IllegalStateException("app.auth.production launch-approved is required");

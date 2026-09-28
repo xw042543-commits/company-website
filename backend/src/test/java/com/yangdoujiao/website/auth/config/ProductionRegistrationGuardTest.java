@@ -24,20 +24,45 @@ class ProductionRegistrationGuardTest {
                     "server.servlet.session.cookie.secure=true");
 
     @Test
-    void productionStaysClosedWithNoProviderOrPublicOrigin() {
-        contextRunner.withPropertyValues("app.auth.registration-enabled=false")
+    void productionStaysClosedWithoutProviderWhenOriginIsApproved() {
+        disabled()
                 .run(context -> assertThat(context).hasNotFailed());
         contextRunner.withPropertyValues("app.auth.registration-enabled=true",
-                "app.auth.agreement-version=terms-v1", "app.auth.privacy-version=privacy-v1")
+                "app.auth.agreement-version=terms-v1", "app.auth.privacy-version=privacy-v1",
+                "app.auth.production.approved-domain=YANGDOUJIAO_COM",
+                "app.auth.production.public-site-origin=https://yangdoujiao.com",
+                "app.cors.allowed-origins=https://yangdoujiao.com")
                 .run(context -> assertThat(context.getStartupFailure()).rootCause().hasMessageContaining("notification-provider"));
     }
 
     @Test
     void productionRequiresSecureSessionCookieEvenWhenRegistrationIsDisabled() {
-        contextRunner.withPropertyValues("app.auth.registration-enabled=false",
-                        "server.servlet.session.cookie.secure=false")
+        disabled().withPropertyValues("server.servlet.session.cookie.secure=false")
                 .run(context -> assertThat(context.getStartupFailure()).rootCause()
                         .hasMessageContaining("Secure session cookie"));
+    }
+
+    @Test
+    void productionRequiresApprovedDomainAndHttpsOriginEvenWhenRegistrationIsDisabled() {
+        disabled().withPropertyValues("app.auth.production.approved-domain=NONE")
+                .run(context -> assertThat(context.getStartupFailure()).rootCause()
+                        .hasMessageContaining("approved-domain"));
+        disabled().withPropertyValues("app.auth.production.public-site-origin=http://yangdoujiao.com")
+                .run(context -> assertThat(context.getStartupFailure()).rootCause()
+                        .hasMessageContaining("public-site-origin"));
+    }
+
+    @Test
+    void productionRequiresExactSingleCorsOriginEvenWhenRegistrationIsDisabled() {
+        for (String origins : new String[] {
+                "https://unapproved.example",
+                "https://yangdoujiao.com,https://unapproved.example",
+                ""
+        }) {
+            disabled().withPropertyValues("app.cors.allowed-origins=" + origins)
+                    .run(context -> assertThat(context.getStartupFailure()).rootCause()
+                            .hasMessageContaining("CORS"));
+        }
     }
 
     @Test
@@ -109,6 +134,14 @@ class ProductionRegistrationGuardTest {
                 "app.auth.production.approved-domain=YANGDOUJIAO_COM",
                 "app.auth.production.public-site-origin=https://yangdoujiao.com",
                 "app.auth.production.launch-approved=true",
+                "app.cors.allowed-origins=https://yangdoujiao.com");
+    }
+
+    private ApplicationContextRunner disabled() {
+        return contextRunner.withPropertyValues(
+                "app.auth.registration-enabled=false",
+                "app.auth.production.approved-domain=YANGDOUJIAO_COM",
+                "app.auth.production.public-site-origin=https://yangdoujiao.com",
                 "app.cors.allowed-origins=https://yangdoujiao.com");
     }
 

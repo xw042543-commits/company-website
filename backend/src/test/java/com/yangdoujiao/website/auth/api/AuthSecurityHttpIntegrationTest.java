@@ -111,6 +111,17 @@ class AuthSecurityHttpIntegrationTest {
     }
 
     @Test
+    void unapprovedOriginCannotPreflightCredentialedAuthWrite() throws Exception {
+        mockMvc.perform(options("/api/v1/auth/login")
+                        .header("Origin", "https://unapproved.example")
+                        .header("Access-Control-Request-Method", "POST")
+                        .header("Access-Control-Request-Headers", "content-type,x-xsrf-token"))
+                .andExpect(status().isForbidden())
+                .andExpect(header().doesNotExist("Access-Control-Allow-Origin"))
+                .andExpect(header().doesNotExist("Access-Control-Allow-Credentials"));
+    }
+
+    @Test
     void sessionCookieIsHttpOnlySameSiteLaxAndStoredInPostgres() throws Exception {
         var response = mockMvc.perform(get("/api/v1/security-test/session"))
                 .andExpect(status().isOk())
