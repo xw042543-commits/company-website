@@ -1,11 +1,13 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { FormProgress } from "@/components/form-progress";
 import { Locale, words } from "@/lib/site";
 
 export function RegisterForm({ locale }: { locale: Locale }) {
   const [showPassword, setShowPassword] = useState(false);
   const [status, setStatus] = useState<"idle" | "reviewed" | "mismatch">("idle");
+  const [completed, setCompleted] = useState(0);
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -20,14 +22,22 @@ export function RegisterForm({ locale }: { locale: Locale }) {
       if (input.current) input.current.value = "";
     }
     setShowPassword(false);
+    setCompleted(0);
     setStatus("reviewed");
   }
 
-  return <div className="login-form" onChange={() => setStatus("idle")} aria-describedby="register-preview-notice">
+  function updateProgress() {
+    setStatus("idle");
+    setCompleted([nameRef, emailRef, passwordRef, confirmPasswordRef].filter((input) => Boolean(input.current?.value.trim())).length);
+  }
+
+  return <div className="login-form" onInput={updateProgress} onChange={updateProgress} aria-describedby="register-preview-notice">
     <p id="register-preview-notice" className="login-notice">
       <strong>{words(locale, "注册界面预览", "Registration interface preview")}</strong>
       <span>{words(locale, "账户服务尚未接入。请勿填写真实个人资料或密码；此页面不会发送或保存内容。", "Account services are not connected yet. Do not enter real personal details or passwords; this page will not send or store anything.")}</span>
     </p>
+
+    <FormProgress completed={completed} total={4} locale={locale} />
 
     <div className="field">
       <label htmlFor="register-name">{words(locale, "姓名", "Full name")}</label>

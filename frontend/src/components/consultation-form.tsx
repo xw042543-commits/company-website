@@ -1,14 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { FormProgress } from "@/components/form-progress";
 import { applicationLevelLabel } from "@/data/company-profile";
 import { Locale, levels, words } from "@/lib/site";
 
 export function ConsultationForm({ locale }: { locale: Locale }) {
   const [reviewed, setReviewed] = useState(false);
+  const [completed, setCompleted] = useState(0);
 
-  return <form className="consultation-form" onSubmit={event => { event.preventDefault(); setReviewed(true); }} onChange={() => setReviewed(false)}>
+  function updateProgress(event: FormEvent<HTMLFormElement>) {
+    setReviewed(false);
+    const data = new FormData(event.currentTarget);
+    const fields = ["name", "contact", "intendedSchool", "intendedCourse", "qualification", "notes"];
+    setCompleted(fields.filter((field) => String(data.get(field) ?? "").trim()).length);
+  }
+
+  return <form className="consultation-form" onSubmit={event => { event.preventDefault(); setReviewed(true); }} onInput={updateProgress} onChange={updateProgress}>
     <p id="form-availability" className="form-notice">{words(locale, "咨询提交功能正在接入。请勿填写真实个人资料，此页面目前不会发送或保存内容。", "Enquiry submission is being connected. Do not enter real personal information because this page does not currently send or save anything.")}</p>
+    <FormProgress completed={completed} total={6} locale={locale} />
     <div className="form-grid" aria-describedby="form-availability">
       <div className="field"><label htmlFor="name">{words(locale, "姓名", "Name")}</label><input id="name" name="name" autoComplete="off" maxLength={100} /></div>
       <div className="field"><label htmlFor="contact">{words(locale, "手机或微信", "Phone number or WeChat")}</label><input id="contact" name="contact" autoComplete="off" maxLength={100} /></div>

@@ -85,7 +85,7 @@ export function SearchAutocomplete({ id, name, locale, suggestions, defaultValue
     />
     {query && <button className="search-clear" type="button" aria-label={words(locale, "清除搜索关键词", "Clear search keyword")} onClick={() => selectSuggestion("")}><span aria-hidden="true">×</span></button>}
     {visible && <div className="search-suggestion-panel" id={listId} role="listbox">
-      <button id={`${listId}-0`} className={activeIndex === 0 ? "search-command active" : "search-command"} type="button" role="option" aria-selected={activeIndex === 0} onMouseDown={event => event.preventDefault()} onClick={() => inputRef.current?.form?.requestSubmit()}>
+      <button id={`${listId}-0`} className={activeIndex === 0 ? "search-command active" : "search-command"} type="button" role="option" aria-selected={activeIndex === 0} onMouseDown={event => event.preventDefault()} onClick={() => inputRef.current?.form?.requestSubmit()} style={{ animationDelay: "20ms" }}>
         <span className="search-suggestion-icon" aria-hidden="true" />
         <span>{words(locale, "搜索", "Search")} <strong>“{query.trim()}”</strong></span>
       </button>
@@ -96,6 +96,7 @@ export function SearchAutocomplete({ id, name, locale, suggestions, defaultValue
         type="button"
         role="option"
         aria-selected={activeIndex === index + 1}
+        style={{ animationDelay: `${Math.min(180, (index + 2) * 30)}ms` }}
         onMouseDown={event => event.preventDefault()}
         onClick={() => selectSuggestion(suggestion)}
       ><Highlight text={suggestion} query={query} /></button>)}

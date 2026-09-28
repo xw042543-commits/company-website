@@ -1,11 +1,18 @@
-import "server-only";
-
-import { filterUniversityCatalog, type ProgrammeStatus } from "@/data/university-catalog";
 import {
+  filterUniversityCatalog,
+  findUniversityBySlug,
+  localizeUniversity,
+  UNIVERSITY_CATALOG,
+  type ProgrammeStatus,
+} from "../data/university-catalog.ts";
+import { FEATURED_UNIVERSITY_IDS, universityProfile } from "../data/university-profiles.ts";
+import {
+  getUniversityDetail,
+  getUniversityProgrammes,
   searchUniversities,
   toSchoolSummary,
-} from "@/lib/university-api";
-import type { Locale, Query } from "@/lib/site";
+} from "./university-api.ts";
+import { boundedPage, first, pageNumber, type Locale, type Query } from "./site.ts";
 
 export type SchoolSummary = {
   id: string;
@@ -37,12 +44,10 @@ export type SchoolSearchResult =
   }
   | { status: "error" };
 
-function localSchools(query: string, country: string, continent: string): SchoolSummary[] {
+function localSchools(query: string, country: string, continent: string, locale: Locale = "en"): SchoolSummary[] {
   return filterUniversityCatalog(query, country, continent).map((university) => ({
     ...university,
-    name: university.nameEn,
-    country: university.countryEn,
-    city: university.cityEn,
+    ...localizeUniversity(university, locale),
   }));
 }
 
@@ -78,8 +83,32 @@ export async function getSchools(query = "", geography: { country?: string; cont
 export async function getUniversitySearch(
   query: Query,
   locale: Locale,
+  baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL,
 ): Promise<SchoolSearchResult> {
-  const result = await searchUniversities(process.env.NEXT_PUBLIC_API_BASE_URL, query);
+  if (!baseUrl) {
+    const pageSize = 12;
+    const allSchools = localSchools(
+      first(query, "q"),
+      first(query, "country"),
+      first(query, "continent"),
+      locale,
+    );
+    const totalItems = allSchools.length;
+    const totalPages = totalItems ? Math.ceil(totalItems / pageSize) : 0;
+    const page = boundedPage(pageNumber(first(query, "page")), totalPages);
+    const start = (page - 1) * pageSize;
+
+    return {
+      status: "ready",
+      schools: allSchools.slice(start, start + pageSize),
+      page,
+      pageSize,
+      totalItems,
+      totalPages,
+    };
+  }
+
+  const result = await searchUniversities(baseUrl, query);
   if (result.status === "error") return result;
 
   return {
@@ -89,5 +118,53 @@ export async function getUniversitySearch(
     pageSize: result.page.pageSize,
     totalItems: result.page.totalItems,
     totalPages: result.page.totalPages,
+  };
+}
+
+export async function getUniversityDetailWithFallback(
+  slug: string,
+  baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL,
+) {
+  if (baseUrl) return getUniversityDetail(baseUrl, slug);
+
+  const university = findUniversityBySlug(slug);
+  if (!university) return { status: "not-found" as const };
+  const profile = universityProfile(university.id);
+
+  return {
+    status: "ready" as const,
+    university: {
+      id: UNIVERSITY_CATALOG.findIndex((item) => item.id === university.id) + 1,
+      slug: university.slug,
+      nameZh: university.nameZh,
+      nameEn: university.nameEn,
+      countryCode: university.countryCode,
+      countryNameZh: university.countryZh,
+      countryNameEn: university.countryEn,
+      cityZh: university.cityZh,
+      cityEn: university.cityEn,
+      descriptionZh: profile?.introductionZh ?? null,
+      descriptionEn: profile?.introductionEn ?? null,
+      popular: FEATURED_UNIVERSITY_IDS.some((id) => id === university.id),
+    },
+  };
+}
+
+export async function getUniversityProgrammesWithFallback(
+  slug: string,
+  query: Query,
+  baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL,
+) {
+  if (baseUrl) return getUniversityProgrammes(baseUrl, slug, query);
+
+  return {
+    status: "ready" as const,
+    page: {
+      items: [],
+      page: 1,
+      pageSize: 12,
+      totalItems: 0,
+      totalPages: 0,
+    },
   };
 }
