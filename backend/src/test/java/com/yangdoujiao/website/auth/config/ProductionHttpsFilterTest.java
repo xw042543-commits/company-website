@@ -8,6 +8,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import com.yangdoujiao.website.common.web.RequestTraceFilter;
+import com.yangdoujiao.website.common.web.TrustedProxySettings;
 
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.http.HttpServletRequest;
@@ -47,6 +48,17 @@ class ProductionHttpsFilterTest {
         assertThat(downstream.isSecure()).isTrue();
         assertThat(downstream.getScheme()).isEqualTo("https");
         assertThat(downstream.getServerPort()).isEqualTo(443);
+    }
+
+    @Test
+    void usesSameSiteWideIpv6ProxyPolicyAsAddressResolver() throws Exception {
+        ProductionHttpsFilter ipv6Filter = new ProductionHttpsFilter(new ObjectMapper(),
+                new TrustedProxySettings(new String[] {"2001:db8::1"}, new String[0], new String[0]));
+        MockHttpServletRequest request = request("2001:db8::1", false);
+        request.addHeader("X-Forwarded-Proto", "https");
+        MockFilterChain chain = new MockFilterChain();
+        ipv6Filter.doFilter(request, new MockHttpServletResponse(), chain);
+        assertThat(chain.getRequest()).isNotNull();
     }
 
     @Test

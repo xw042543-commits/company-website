@@ -3,6 +3,7 @@ package com.yangdoujiao.website.auth.api;
 import java.util.Locale;
 
 import org.springframework.dao.DataIntegrityViolationException;
+import org.postgresql.util.PSQLException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -58,6 +59,8 @@ public class RegistrationService {
         NormalizedIdentifier identifier = validated.identifier();
         limiter.consume("register-identifier", AuthHash.sha256(identifier.value()),
                 limits.registrationPerIdentifier(), limits.window());
+        verification.requireNotificationAvailable();
+        String passwordHash = passwords.encode(request.password());
         RegistrationResponse accepted = RegistrationResponse.accepted(identifier.type());
         try {
             transaction.executeWithoutResult(status -> {
@@ -65,11 +68,11 @@ public class RegistrationService {
                 UserAccount account = accounts.saveAndFlush(new UserAccount(validated.name(),
                         identifier.type() == AccountIdentifierType.EMAIL ? identifier.value() : null,
                         identifier.type() == AccountIdentifierType.PHONE ? identifier.value() : null,
-                        passwords.encode(request.password()), properties.agreementVersion(), properties.privacyVersion()));
+                        passwordHash, properties.agreementVersion(), properties.privacyVersion()));
                 verification.issue(account, identifier, validated.locale());
             });
         } catch (DataIntegrityViolationException exception) {
-            // A concurrent registration won the unique constraint; keep the public response identical.
+            if (!isAccountUniqueConflict(exception)) throw exception;
         }
         return accepted;
     }
@@ -80,14 +83,28 @@ public class RegistrationService {
         NormalizedIdentifier identifier = normalize(request == null ? null : request.identifier());
         limiter.consume("resend-identifier", AuthHash.sha256(identifier.value()),
                 limits.resendPerIdentifier(), limits.window());
+        verification.requireNotificationAvailable();
+        VerificationService.PreparedChallenge challenge = verification.prepareForResend(identifier.type());
         transaction.executeWithoutResult(status -> lookup.findLoginAccount(identifier).ifPresent(account -> {
             accounts.findLockedById(account.getId()).ifPresent(locked -> {
                 if (locked.getStatus() == UserAccountStatus.PENDING_VERIFICATION) {
-                    verification.issue(locked, identifier, locale(request.locale()));
+                    verification.issue(locked, identifier, locale(request.locale()), challenge);
                 }
             });
         }));
         return RegistrationResponse.accepted(identifier.type());
+    }
+
+    static boolean isAccountUniqueConflict(DataIntegrityViolationException exception) {
+        for (Throwable cause = exception; cause != null; cause = cause.getCause()) {
+            if (cause instanceof PSQLException postgres && "23505".equals(postgres.getSQLState())
+                    && postgres.getServerErrorMessage() != null) {
+                String constraint = postgres.getServerErrorMessage().getConstraint();
+                return "uk_user_accounts_email".equals(constraint)
+                        || "uk_user_accounts_phone".equals(constraint);
+            }
+        }
+        return false;
     }
 
     private ValidatedRegistration validate(RegisterRequest request) {

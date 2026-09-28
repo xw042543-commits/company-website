@@ -40,6 +40,7 @@ logging:
     com.yangdoujiao.website: INFO
 
 app:
+  trusted-proxies: ${APP_TRUSTED_PROXIES:}
   auth:
     registration-enabled: ${APP_AUTH_REGISTRATION_ENABLED:false}
     agreement-version: ${APP_AUTH_AGREEMENT_VERSION:}

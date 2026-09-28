@@ -8,7 +8,7 @@ import java.util.Enumeration;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -19,6 +19,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.yangdoujiao.website.common.api.ApiErrorResponse;
 import com.yangdoujiao.website.common.web.RequestTraceFilter;
+import com.yangdoujiao.website.common.web.TrustedProxySettings;
 
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.FilterChain;
@@ -35,8 +36,12 @@ public class ProductionHttpsFilter extends OncePerRequestFilter {
     private final ObjectMapper objectMapper;
     private final Set<InetAddress> trustedProxies;
 
-    public ProductionHttpsFilter(ObjectMapper objectMapper,
-            @Value("${app.auth.trusted-proxies:}") String[] trustedProxies) {
+    @Autowired
+    public ProductionHttpsFilter(ObjectMapper objectMapper, TrustedProxySettings settings) {
+        this(objectMapper, settings.addresses());
+    }
+
+    public ProductionHttpsFilter(ObjectMapper objectMapper, String[] trustedProxies) {
         this.objectMapper = objectMapper;
         this.trustedProxies = Arrays.stream(trustedProxies)
                 .map(String::trim)

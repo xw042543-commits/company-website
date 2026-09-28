@@ -18,11 +18,24 @@ import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
 import com.jayway.jsonpath.JsonPath;
 import com.yangdoujiao.website.TestContainersConfiguration;
+import com.yangdoujiao.website.auth.account.AccountIdentifierType;
+import com.yangdoujiao.website.auth.verification.LocalAuthNotificationStore;
+import com.yangdoujiao.website.auth.verification.VerificationService;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.clearInvocations;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -32,7 +45,62 @@ class RegistrationHttpIntegrationTest {
     private static final AtomicInteger ADDRESS = new AtomicInteger();
     @Autowired private MockMvc mvc;
     @Autowired private JdbcTemplate jdbc;
-    @Autowired private PasswordEncoder passwords;
+    @MockitoSpyBean private PasswordEncoder passwords;
+    @MockitoSpyBean private VerificationService verification;
+    @MockitoSpyBean private LocalAuthNotificationStore notifications;
+
+    @Test
+    void duplicateRegistrationStillRunsPasswordEncoding() throws Exception {
+        String email = email();
+        register(email, null);
+        verify(passwords, times(1)).encode("correct-horse-42");
+        register(email, null);
+        verify(passwords, times(2)).encode("correct-horse-42");
+    }
+
+    @Test
+    void resendPreparesChallengeForKnownAndUnknownIdentifiers() throws Exception {
+        String known = email();
+        register(known, null);
+        clearInvocations(verification);
+        mvc.perform(write("resend-verification", "{\"identifier\":\"" + known + "\"}"))
+                .andExpect(status().isAccepted());
+        mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
+                .andExpect(status().isAccepted());
+        verify(verification, times(2)).prepareForResend(AccountIdentifierType.EMAIL);
+    }
+
+    @Test
+    void notificationOutageReturnsSame503BeforeAccountLookup() throws Exception {
+        String known = email();
+        register(known, null);
+        doReturn(false).when(notifications).isAvailable();
+        mvc.perform(write("resend-verification", "{\"identifier\":\"" + known + "\"}"))
+                .andExpect(status().isServiceUnavailable())
+                .andExpect(jsonPath("$.code").value("AUTH_SERVICE_UNAVAILABLE"));
+        mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
+                .andExpect(status().isServiceUnavailable())
+                .andExpect(jsonPath("$.code").value("AUTH_SERVICE_UNAVAILABLE"));
+        mvc.perform(write("register", "{\"fullName\":\"Test\",\"email\":\"" + email()
+                        + "\",\"password\":\"correct-horse-42\",\"agreementAccepted\":true,\"privacyAccepted\":true}"))
+                .andExpect(status().isServiceUnavailable());
+        mvc.perform(write("register", "{\"fullName\":\"Test\",\"email\":\"" + known
+                        + "\",\"password\":\"correct-horse-42\",\"agreementAccepted\":true,\"privacyAccepted\":true}"))
+                .andExpect(status().isServiceUnavailable());
+    }
+
+    @Test
+    void unexpectedPostCommitDeliveryFailureDoesNotExposeAccountExistence() throws Exception {
+        String known = email();
+        register(known, null);
+        doThrow(new IllegalStateException("secret-provider-message")).when(notifications)
+                .sendEmailVerification(anyString(), anyString(), any(), anyLong());
+        String knownResponse = mvc.perform(write("resend-verification", "{\"identifier\":\"" + known + "\"}"))
+                .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
+        String unknownResponse = mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
+                .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
+        assertThat(knownResponse).isEqualTo(unknownResponse);
+    }
 
     @Test
     void registersEmailAccountWithoutExposingTokenAndConsumesItOnce() throws Exception {

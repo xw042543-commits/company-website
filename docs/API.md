@@ -233,12 +233,14 @@ APP_CONSULTATION_PRIVACY_NOTICE_VERSION=正式声明版本号
 APP_CONSULTATION_MAXIMUM_BODY_SIZE=16KB
 APP_CONSULTATION_RATE_LIMIT_MAXIMUM_SUBMISSIONS=5
 APP_CONSULTATION_RATE_LIMIT_WINDOW=10m
-APP_CONSULTATION_TRUSTED_PROXIES=
+APP_TRUSTED_PROXIES=
 ```
 
-本地直连后端时，`APP_CONSULTATION_TRUSTED_PROXIES` 保持为空。正式部署在 Nginx
+本地直连后端时，`APP_TRUSTED_PROXIES` 保持为空。正式部署在 Nginx
 等反向代理后方时，该配置只填写能够直接连接后端的代理 IP，多个 IP 用逗号
 分隔，只接受完整 IPv4 或 IPv6 字面量，不接受主机名。后端只会接受这些可信代理
 提供的 `X-Forwarded-For`，普通访客自行伪造的
 转发头会被忽略。代理必须追加它实际看到的客户端地址，并在防火墙中禁止用户绕过代理
 直接访问后端。未配置可信代理时，后端始终使用直连地址进行限流。
+咨询、认证和生产 HTTPS 转发判断共用此名单。旧 `APP_CONSULTATION_TRUSTED_PROXIES`
+与 `APP_AUTH_TRUSTED_PROXIES` 可暂时回退；若多个名单不一致，应用启动失败。

@@ -10,7 +10,7 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,9 +22,12 @@ public class ClientAddressResolver {
 
     private final Set<String> trustedProxies;
 
-    public ClientAddressResolver(
-            @Value("${app.consultation.trusted-proxies:}") String[] trustedProxies
-    ) {
+    @Autowired
+    public ClientAddressResolver(TrustedProxySettings settings) {
+        this(settings.addresses());
+    }
+
+    public ClientAddressResolver(String[] trustedProxies) {
         this.trustedProxies = new HashSet<>();
         Arrays.stream(trustedProxies)
                 .map(String::trim)

@@ -32,6 +32,19 @@ class ClientAddressResolverTest {
     }
 
     @Test
+    void sharesIpv6TrustedProxyPolicyWithAuthAndConsultation() {
+        TrustedProxySettings settings = new TrustedProxySettings(new String[] {"2001:db8::1"},
+                new String[0], new String[0]);
+        ClientAddressResolver resolver = new ClientAddressResolver(settings);
+        MockHttpServletRequest request = new MockHttpServletRequest("POST", "/api/v1/auth/register");
+        request.setRemoteAddr("2001:db8::1");
+        request.addHeader("X-Forwarded-For", "198.51.100.19");
+        assertThat(resolver.resolve(request)).isEqualTo("198.51.100.19");
+        request.setRemoteAddr("2001:db8::2");
+        assertThat(resolver.resolve(request)).isNotEqualTo("198.51.100.19");
+    }
+
+    @Test
     void normalizesBothIpv4MappedIpv6FormsToIpv4() {
         ClientAddressResolver resolver = new ClientAddressResolver(new String[0]);
 

@@ -7,11 +7,15 @@ import java.util.Base64;
 import java.util.Locale;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.transaction.support.TransactionSynchronization;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import com.yangdoujiao.website.auth.AuthHash;
 import com.yangdoujiao.website.auth.account.AccountIdentifierNormalizer;
@@ -30,6 +34,7 @@ import jakarta.persistence.EntityManager;
 
 @Service
 public class VerificationService {
+    private static final Logger log = LoggerFactory.getLogger(VerificationService.class);
     private static final int MAX_PHONE_ATTEMPTS = 5;
     private final UserVerificationTokenRepository tokens;
     private final UserAccountRepository accounts;
@@ -58,35 +63,76 @@ public class VerificationService {
     }
 
     public void issue(UserAccount account, NormalizedIdentifier identifier, Locale locale) {
+        issue(account, identifier, locale, prepareForResend(identifier.type()));
+    }
+
+    public void requireNotificationAvailable() {
+        AuthNotificationSender sender = senders.getIfAvailable();
+        if (sender == null) throw unavailable();
+        try {
+            if (!sender.isAvailable()) throw unavailable();
+        } catch (RuntimeException exception) {
+            throw unavailable();
+        }
+    }
+
+    /** The same random generation and SHA-256 work is done before account lookup on resend. */
+    public PreparedChallenge prepareForResend(AccountIdentifierType type) {
+        String raw = type == AccountIdentifierType.EMAIL ? emailToken() : phoneCode();
+        String probeHash = tokenHash(0L, type, raw);
+        return new PreparedChallenge(type, raw, probeHash);
+    }
+
+    public void issue(UserAccount account, NormalizedIdentifier identifier, Locale locale,
+            PreparedChallenge prepared) {
         if (account.getStatus() != UserAccountStatus.PENDING_VERIFICATION ||
+                prepared.type() != identifier.type() ||
                 (identifier.type() == AccountIdentifierType.EMAIL && !identifier.value().equals(account.getNormalizedEmail())) ||
                 (identifier.type() == AccountIdentifierType.PHONE && !identifier.value().equals(account.getNormalizedPhone()))) {
             throw invalid();
         }
+        if (!TransactionSynchronizationManager.isActualTransactionActive()
+                || !TransactionSynchronizationManager.isSynchronizationActive()) {
+            throw new IllegalStateException("Verification issuance requires an active transaction");
+        }
         AuthNotificationSender sender = senders.getIfAvailable();
         if (sender == null) throw unavailable();
         OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
-        String raw;
+        String raw = prepared.raw();
         String hash;
         int tries = 0;
         do {
             if (++tries > 10) throw unavailable();
-            raw = identifier.type() == AccountIdentifierType.EMAIL ? emailToken() : phoneCode();
-            hash = tokenHash(account.getId(), identifier.type(), raw);
+            if (tries > 1) raw = prepareForResend(identifier.type()).raw();
+            hash = identifier.type() == AccountIdentifierType.EMAIL
+                    ? (tries == 1 ? prepared.probeHash() : AuthHash.sha256(raw))
+                    : tokenHash(account.getId(), identifier.type(), raw);
         } while (tokens.existsByTokenHash(hash));
         tokens.invalidateActive(account.getId(), identifier.type(), now);
         tokens.saveAndFlush(new UserVerificationToken(account.getId(), identifier.type(), hash,
                 now.plus(identifier.type() == AccountIdentifierType.EMAIL
                         ? properties.emailVerificationTtl() : properties.phoneVerificationTtl()), now));
-        try {
-            if (identifier.type() == AccountIdentifierType.EMAIL) {
-                sender.sendEmailVerification(identifier.value(), raw, locale);
-            } else {
-                sender.sendPhoneVerification(identifier.value(), raw, locale);
+        long issueSequence = sender.reserveIssueSequence();
+        String issuedRaw = raw;
+        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+            @Override
+            public void afterCommit() {
+                try {
+                    if (identifier.type() == AccountIdentifierType.EMAIL) {
+                        sender.sendEmailVerification(identifier.value(), issuedRaw, locale, issueSequence);
+                    } else {
+                        sender.sendPhoneVerification(identifier.value(), issuedRaw, locale, issueSequence);
+                    }
+                } catch (RuntimeException exception) {
+                    // No persisted outbox exists yet; never expose provider failure by account state.
+                    log.error("Authentication notification delivery failed after commit");
+                }
             }
-        } catch (RuntimeException exception) {
-            throw unavailable();
-        }
+        });
+    }
+
+    public record PreparedChallenge(AccountIdentifierType type, String raw, String probeHash) {
+        @Override public String toString() { return "PreparedChallenge[redacted]"; }
     }
 
     public void verifyEmail(String rawToken) { verifyEmail(rawToken, null); }
