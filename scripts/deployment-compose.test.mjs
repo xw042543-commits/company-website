@@ -17,6 +17,12 @@ test("production topology includes all required services with health checks", ()
   }
 });
 
+test("production data services preserve the project-pinned versions", () => {
+  assert.match(serviceBlock("postgres"), /image: postgres:17\.11/);
+  assert.match(serviceBlock("redis"), /image: redis:8\.2\.9/);
+  assert.match(serviceBlock("elasticsearch"), /image: docker\.elastic\.co\/elasticsearch\/elasticsearch:9\.4\.5/);
+});
+
 test("only the frontend publishes a host port", () => {
   assert.match(serviceBlock("frontend"), /^    ports:/m);
   for (const name of ["backend", "postgres", "redis", "elasticsearch"]) {
