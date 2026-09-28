@@ -4,18 +4,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { getSession } from "@/lib/auth-api";
 import { isNavigationActive, Locale, navigation, words } from "@/lib/site";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const query = useSearchParams();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
   const other = locale === "zh" ? "en" : "zh";
   const languagePath = pathname.replace(/^\/(zh|en)(?=\/|$)/, `/${other}`);
 
   useEffect(() => {
     document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
   }, [locale]);
+
+  useEffect(() => {
+    let active = true;
+    void getSession(process.env.NEXT_PUBLIC_API_BASE_URL).then((result) => {
+      if (active && result.status === "ready") setAuthenticated(result.session.authenticated);
+    });
+    return () => { active = false; };
+  }, [pathname]);
 
   return <header className="site-header">
     <div className="header-shell container">
@@ -30,7 +40,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <span className="language-symbol" aria-hidden="true"><span>A</span><span>文</span></span>
           <span>{locale === "zh" ? "EN" : "中文"}</span>
         </Link>
-        <Link className="login-link" href={`/${locale}/login`} aria-current={pathname === `/${locale}/login` ? "page" : undefined}>{words(locale, "登录", "Sign in")}</Link>
+        <Link className="login-link" href={`/${locale}/${authenticated ? "account" : "login"}`} aria-current={pathname === `/${locale}/${authenticated ? "account" : "login"}` ? "page" : undefined}>{authenticated ? words(locale, "我的账户", "My account") : words(locale, "登录", "Sign in")}</Link>
         <Link className="button small" href={`/${locale}/consultation`}>{words(locale, "咨询", "Enquire")}</Link>
         <button type="button" className="navigation-toggle" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen(value => !value)}>
           <span>{words(locale, "菜单", "Menu")}</span>

@@ -455,6 +455,15 @@ main { transition: opacity 160ms ease, transform 160ms ease; }
 .password-toggle:active { transform: translateY(-50%) scale(.97); }
 .login-support-note { margin: 14px 0 0; color: var(--muted); font-size: .79rem; text-align: center; }
 .login-status { margin: 18px 0 0; padding: 12px 14px; border-radius: var(--radius-sm); background: #e5efec; color: #314c44; font-size: .86rem; }
+.auth-status-error { background: #faece9; color: #7d2929; }
+.auth-status-success { background: #e5efec; color: #264f43; }
+.auth-checkbox { min-height: 44px; display: flex; align-items: flex-start; gap: 10px; color: var(--muted); font-size: .88rem; cursor: pointer; }
+.auth-checkbox input { width: 18px; height: 18px; flex: 0 0 auto; margin-top: 2px; accent-color: var(--brand-action); }
+.auth-consents { display: grid; gap: 4px; margin-bottom: 18px; }
+.auth-choice { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 0 0 22px; padding: 0; border: 0; }
+.auth-choice legend { width: 100%; margin-bottom: 6px; color: var(--brand-deep); font-size: .86rem; font-weight: 750; }
+.auth-choice label { min-height: 40px; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); cursor: pointer; }
+.auth-choice input { width: 18px; height: 18px; accent-color: var(--brand-action); }
 .login-help { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
 .login-help p { margin-bottom: 7px; color: var(--muted); font-size: .88rem; }
 .login-help a { color: var(--brand-action); font-size: .9rem; font-weight: 750; }
@@ -468,6 +477,21 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .account-recovery-page { display: grid; align-items: center; }
 .recovery-layout { display: grid; grid-template-columns: minmax(0, 500px); justify-content: center; }
 .account-recovery-page .login-panel-heading h1 { margin-bottom: 12px; font-size: clamp(2rem, 4vw, 3rem); }
+.account-page .page-heading { max-width: 720px; margin-bottom: 34px; }
+.account-panel { width: min(100%, 820px); display: grid; gap: 26px; }
+.account-summary, .account-section { padding: clamp(24px, 4vw, 36px); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--paper); }
+.account-summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 22px; align-items: start; }
+.account-summary h2, .account-section h2 { margin-bottom: 7px; font-size: clamp(1.35rem, 2.5vw, 1.8rem); }
+.account-summary p, .account-section > p { color: var(--muted); }
+.account-summary dl { grid-column: 1 / -1; margin: 4px 0 0; border-top: 1px solid var(--line); }
+.account-summary dl > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.account-summary dt { color: var(--muted); }
+.account-summary dd { min-width: 0; margin: 0; color: var(--brand-deep); overflow-wrap: anywhere; }
+.account-section form { max-width: 540px; margin-top: 24px; }
+.account-danger { border-color: #e3c4be; }
+.account-danger h2 { color: #7d2929; }
+.danger-button { background: #8e302d; color: #fff; }
+.danger-button:hover { background: #742522; }
 
 @keyframes suggestion-panel-in { from { opacity: 0; transform: translateY(-5px) scale(.992); } to { opacity: 1; transform: none; } }
 @keyframes suggestion-item-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
@@ -588,6 +612,9 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .adviser-contact { grid-template-columns: 124px minmax(0, 1fr); gap: 18px; padding: 20px 0; }
   .adviser-contact img { height: 160px; }
   .company-facts > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .account-summary { grid-template-columns: minmax(0, 1fr); }
+  .account-summary dl { grid-column: auto; }
+  .account-summary dl > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
 
 @media (max-width: 360px) {
@@ -675,16 +702,6 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .phone-input-row select { width: 100%; min-height: 48px; }
 .verification-code-row { grid-template-columns: minmax(0, 1fr) auto; }
 .verification-code-row button { min-width: 132px; white-space: nowrap; }
-.wechat-login-panel { display: grid; grid-template-columns: 176px minmax(0, 1fr); gap: 24px; align-items: center; padding: 8px 0 4px; }
-.wechat-qr-frame { width: 176px; aspect-ratio: 1; display: grid; place-items: center; padding: 13px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper) center / calc(100% - 26px) calc(100% - 26px) no-repeat; box-shadow: 0 8px 24px rgb(13 58 48 / 8%); }
-.wechat-qr-placeholder { width: 100%; height: 100%; display: grid; place-items: center; border-radius: 5px; color: #167c4b; background-color: #f4f8f6; background-image: linear-gradient(90deg, #163b32 11%, transparent 11% 22%, #163b32 22% 33%, transparent 33% 44%, #163b32 44% 55%, transparent 55% 66%, #163b32 66% 77%, transparent 77% 88%, #163b32 88%), linear-gradient(#163b32 11%, transparent 11% 22%, #163b32 22% 33%, transparent 33% 44%, #163b32 44% 55%, transparent 55% 66%, #163b32 66% 77%, transparent 77% 88%, #163b32 88%); background-size: 28px 28px; }
-.wechat-qr-placeholder span { display: grid; place-items: center; width: 58px; height: 58px; border: 6px solid var(--paper); border-radius: 50%; background: #1f9d62; color: var(--paper); font-size: .82rem; font-weight: 800; box-shadow: 0 2px 8px rgb(0 0 0 / 18%); }
-.wechat-login-copy strong { display: inline; color: var(--brand-deep); }
-.wechat-login-copy p { margin: 9px 0 16px; color: var(--muted); font-size: .86rem; line-height: 1.55; }
-.wechat-status-dot { width: 8px; height: 8px; display: inline-block; margin-right: 8px; border-radius: 50%; background: #d28a22; box-shadow: 0 0 0 4px rgb(210 138 34 / 12%); }
-.wechat-login-panel[data-status="scanned"] .wechat-status-dot { background: #258a61; box-shadow: 0 0 0 4px rgb(37 138 97 / 12%); }
-.wechat-login-panel[data-status="expired"] .wechat-status-dot,
-.wechat-login-panel[data-status="error"] .wechat-status-dot { background: var(--danger); box-shadow: 0 0 0 4px rgb(159 47 47 / 11%); }
 @keyframes login-panel-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 520px) {
@@ -692,8 +709,6 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .phone-input-row { grid-template-columns: 98px minmax(0, 1fr); }
   .verification-code-row { grid-template-columns: minmax(0, 1fr); }
   .verification-code-row button { width: 100%; }
-  .wechat-login-panel { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; }
-  .wechat-login-copy button { width: 100%; }
 }
 
 /* Article pages retained from the current main branch. */
@@ -751,17 +766,10 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .auth-portal-heading { max-width: 720px; margin: 0 auto clamp(28px, 4vw, 44px); text-align: center; }
 .auth-portal-heading h1 { max-width: none; margin-bottom: 10px; font-size: clamp(2.15rem, 4.2vw, 4rem); letter-spacing: -.035em; }
 .auth-portal-heading p { margin: 0; color: #49645d; font-size: clamp(.98rem, 1.4vw, 1.12rem); }
-.auth-login-card { display: grid; grid-template-columns: minmax(300px, .82fr) minmax(0, 1.38fr); min-height: 500px; border: 1px solid rgb(74 125 111 / 18%); border-radius: 14px; overflow: hidden; background: rgb(253 252 248 / 94%); box-shadow: 0 22px 70px rgb(22 66 56 / 13%); }
-.auth-qr-column, .auth-form-column { min-width: 0; padding: clamp(34px, 5vw, 58px); }
-.auth-qr-column { border-right: 1px solid var(--line); background: rgb(235 244 240 / 72%); }
+.auth-login-card { width: min(100%, 620px); min-height: 500px; display: grid; margin-inline: auto; border: 1px solid rgb(74 125 111 / 18%); border-radius: 14px; overflow: hidden; background: rgb(253 252 248 / 94%); box-shadow: 0 22px 70px rgb(22 66 56 / 13%); }
+.auth-form-column { min-width: 0; padding: clamp(34px, 5vw, 58px); }
 .auth-column-label { margin-bottom: 7px; color: var(--brand-action); font-size: .78rem; font-weight: 780; letter-spacing: .04em; }
-.auth-qr-column h2, .auth-form-column h2 { margin-bottom: 0; font-size: clamp(1.55rem, 2.4vw, 2.15rem); }
-.auth-qr-column .wechat-login-panel { display: block; padding-top: 28px; }
-.auth-qr-column .wechat-qr-frame { width: min(100%, 226px); margin-inline: auto; }
-.auth-qr-column .wechat-login-copy { margin-top: 22px; text-align: center; }
-.auth-qr-column .wechat-login-copy p { max-width: 30ch; margin-inline: auto; }
-.auth-qr-column .wechat-login-copy button { min-width: 136px; }
-.wechat-refresh-status { margin: 12px 0 0; color: var(--muted); font-size: .77rem; }
+.auth-form-column h2 { margin-bottom: 0; font-size: clamp(1.55rem, 2.4vw, 2.15rem); }
 .auth-form-heading { min-height: 64px; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 26px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
 .auth-form-heading a { min-height: 44px; display: inline-flex; align-items: center; color: var(--brand-action); font-size: .9rem; font-weight: 760; white-space: nowrap; }
 .account-login-form { padding-top: 0; }
@@ -788,8 +796,7 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .auth-portal-heading h1 { font-size: clamp(2rem, 10vw, 3.1rem); }
   .auth-login-card { grid-template-columns: minmax(0, 1fr); }
   .auth-form-column { order: 1; }
-  .auth-qr-column { order: 2; border-top: 1px solid var(--line); border-right: 0; }
-  .auth-qr-column, .auth-form-column { padding: 30px 24px; }
+  .auth-form-column { padding: 30px 24px; }
   .auth-portal-footer { align-items: flex-start; flex-direction: column; gap: 2px; padding-block: 20px; }
   .auth-backdrop { animation-range: 0 70vh; }
 }

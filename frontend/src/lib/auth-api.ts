@@ -135,8 +135,11 @@ function parseRegistration(payload: unknown): { verificationMethod: "EMAIL" | "P
 
 function parseFieldErrors(payload: unknown): Record<string, string> {
   if (!isRecord(payload) || !isRecord(payload.fieldErrors)) return {};
-  return Object.fromEntries(Object.entries(payload.fieldErrors)
-    .filter(([key, value]) => key.trim() && typeof value === "string"));
+  const errors: Record<string, string> = {};
+  for (const [key, value] of Object.entries(payload.fieldErrors)) {
+    if (key.trim() && typeof value === "string") errors[key] = value;
+  }
+  return errors;
 }
 
 async function failure(response: Response): Promise<FailureResult> {
@@ -205,10 +208,10 @@ async function authWrite<T>(
       signal: AbortSignal.timeout(5_000),
     });
     if (response.status !== expectedStatus) return failure(response);
-    if (!parse) return { status: expectedStatus === 202 ? "accepted" : "ready" };
+    if (!parse) return expectedStatus === 202 ? { status: "accepted" } : { status: "ready" };
     const value = await readJson(response, parse);
     if (!value) return { status: "error" };
-    return { status: expectedStatus === 202 ? "accepted" : "ready", value };
+    return expectedStatus === 202 ? { status: "accepted", value } : { status: "ready", value };
   } catch {
     return { status: "unavailable" };
   }
