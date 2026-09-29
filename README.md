@@ -28,6 +28,7 @@
 
 - `frontend/`: Next.js frontend
 - `backend/`: Spring Boot backend
+- `crawler/`: 仅生成待审核资料包的院校官网采集工具
 - `docs/`: project documentation
 - `compose.yaml`: local infrastructure services
 - `.env.example`: environment variable template
