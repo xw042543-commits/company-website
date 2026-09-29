@@ -43,7 +43,7 @@ export default async function LoginPage({ params, searchParams }: { params: Prom
     <section className="auth-portal-content" aria-labelledby="login-title">
       <div className="auth-portal-heading">
         <h1 id="login-title">{words(locale, "继续你的留学规划", "Continue your study journey")}</h1>
-        <p>{words(locale, "使用邮箱或手机号码安全登录并管理个人账户。", "Sign in securely with your email address or phone number and manage your account.")}</p>
+        <p>{words(locale, "一个账户，集中管理你的院校选择、申请进度与顾问支持。", "One account brings together your university choices, application progress, and adviser support.")}</p>
       </div>
 
       <div className="auth-login-card">

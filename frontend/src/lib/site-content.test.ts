@@ -29,20 +29,76 @@ test("legacy consultation route redirects to the about enquiry section", () => {
   assert.match(consultation, /redirect\(`\/\$\{locale\}\/about#enquiry`\)/);
 });
 
-test("homepage uses the approved positioning and enquiry destination", () => {
+test("homepage uses professional bilingual positioning and enquiry destination", () => {
   const home = read("../app/[locale]/page.tsx");
-  assert.match(home, /科学规划/);
-  assert.match(home, /全球第一家留学生综合服务平台/);
+  assert.match(home, /专业规划 · 清晰选择/);
+  assert.match(home, /一站式留学规划与申请支持/);
+  assert.match(home, /From choosing a university and programme to preparing your application/);
+  assert.doesNotMatch(home, /全球第一家/);
   assert.match(home, /留学热门院校/);
   assert.match(home, /留学常见问题解答/);
   assert.doesNotMatch(home, /\$\{locale\}\/consultation/);
 });
 
-test("directory and planning pages use the approved headings", () => {
+test("public copy uses consistent professional bilingual terminology", () => {
+  const site = read("./site.ts");
+  const sections = read("../app/[locale]/[section]/page.tsx");
+  const results = read("../components/results-state.tsx");
+  const registration = read("../components/register-form.tsx");
+  const recovery = read("../components/forgot-password-form.tsx");
+
+  assert.match(site, /留学规划/);
+  assert.match(site, /Study planning/);
+  assert.match(sections, /留学资讯与公司动态/);
+  assert.match(sections, /Study abroad insights and company updates/);
+  assert.match(results, /院校资料正在完善/);
+  assert.match(results, /University information is being prepared/);
+  assert.match(registration, /创建账户/);
+  assert.match(registration, /Create account/);
+  assert.match(recovery, /发送重设说明/);
+  assert.match(recovery, /Send reset instructions/);
+  assert.doesNotMatch([sections, results, registration, recovery].join("\n"), /正在接入|being connected|backend integration/i);
+});
+
+test("user-facing status copy avoids implementation language", () => {
+  const sources = [
+    read("../components/consultation-form.tsx"),
+    read("../components/filter-panel.tsx"),
+    read("../components/login-form.tsx"),
+    read("../components/school-card.tsx"),
+    read("../app/[locale]/universities/[slug]/page.tsx"),
+  ].join("\n");
+
+  assert.doesNotMatch(sources, /正在接入|尚未接入|等待后端|being connected|not connected|backend integration|awaiting approval|after approval/i);
+  assert.doesNotMatch(read("../components/login-form.tsx"), /预览模式|preview mode/i);
+});
+
+test("key planning and company pages use natural bilingual copy", () => {
+  const about = read("../app/[locale]/about/page.tsx");
+  const planning = read("../app/[locale]/planning/page.tsx");
+  const login = read("../app/[locale]/login/page.tsx");
+
+  assert.match(about, /让每位留学生在海外安心成长/);
+  assert.match(about, /Helping students thrive abroad/);
+  assert.match(planning, /明确专业与留学方向/);
+  assert.match(planning, /Find programmes that fit your goals/);
+  assert.match(login, /One account brings together/);
+  assert.doesNotMatch(about, /exacting|supplied location/i);
+});
+
+test("language programme copy preserves the approved price and format", () => {
+  const sections = read("../app/[locale]/[section]/page.tsx");
+
+  assert.match(sections, /每期 4,980 元的封闭式雅思培训/);
+  assert.match(sections, /closed learning environment at CNY 4,980 per session/);
+  assert.doesNotMatch(sections, /4,980 元起|from CNY 4,980/);
+});
+
+test("directory and planning pages use clear bilingual headings", () => {
   const planning = read("../app/[locale]/planning/page.tsx");
   const universities = read("../app/[locale]/universities/page.tsx");
-  assert.match(planning, /规划专业/);
-  assert.match(planning, /选专业定方向/);
+  assert.match(planning, /留学规划/);
+  assert.match(planning, /明确专业与留学方向/);
   assert.match(universities, /留学目的地/);
 });
 

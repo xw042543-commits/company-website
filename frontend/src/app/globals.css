@@ -124,7 +124,7 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(340px, .82fr); align-items: center; gap: clamp(44px, 7vw, 92px); }
 .hero-copy { min-width: 0; }
 .hero h1 { margin-bottom: 24px; }
-.hero-intro { max-width: 61ch; margin-bottom: 28px; color: var(--muted); font-size: clamp(1.05rem, 1.6vw, 1.22rem); line-height: 1.65; }
+.hero-intro { max-width: 61ch; margin-bottom: 28px; color: var(--muted); font-size: clamp(1.125rem, 1.7vw, 1.3rem); line-height: 1.65; }
 .home-search { margin-top: 26px; }
 .home-search label, .directory-search label { display: block; margin-bottom: 8px; }
 .search-row { display: flex; gap: 10px; }
@@ -207,11 +207,9 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .pathway-card h3 { margin-bottom: 10px; font-size: clamp(1.25rem, 2vw, 1.55rem); }
 .pathway-card p { max-width: 36ch; color: var(--muted); }
 .pathway-action { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 24px; color: var(--brand-action); font-size: .9rem; font-weight: 760; }
-.benefits { display: grid; grid-template-columns: 1.12fr .88fr; gap: 0 clamp(38px, 6vw, 88px); border-top: 1px solid var(--line); }
+.benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(140px, auto); gap: 0 clamp(38px, 6vw, 88px); border-top: 1px solid var(--line); }
 .benefits article { min-height: 140px; padding: 28px 0; border-bottom: 1px solid var(--line); transition: background-color 200ms var(--ease-out), padding-left 200ms var(--ease-out); }
-.benefits article:nth-child(2), .benefits article:nth-child(3) { padding-inline: 24px; }
 .benefits article:hover { padding-left: 12px; background: linear-gradient(90deg, rgb(232 242 245 / 72%), transparent); }
-.benefits article:nth-child(2):hover, .benefits article:nth-child(3):hover { padding-left: 36px; }
 .benefits h3 { margin-bottom: 10px; }
 .benefits p { max-width: 46ch; color: var(--muted); }
 .process-section { border-top: 1px solid var(--line); background: var(--wash); color: var(--ink); }
@@ -313,9 +311,12 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .school-card-link:hover .school-card { background: var(--support-blue); box-shadow: inset 3px 0 var(--brand); transform: translateY(-2px); }
 .school-card-link:active .school-card { transform: translateY(0); }
 .school-card-link:focus-visible { outline-offset: 2px; }
-.school-image { position: relative; height: 150px; min-height: 150px; display: grid; place-items: center; overflow: hidden; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; color: #53746a; }
-.school-image img { width: 100%; height: 100%; object-fit: contain; }
-.school-image span { font-size: 1rem; font-weight: 800; letter-spacing: .06em; }
+.school-logo-block { min-width: 0; align-self: start; display: grid; gap: 7px; }
+.school-image { position: relative; height: 150px; min-height: 150px; display: grid; place-items: center; overflow: hidden; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; color: #53746a; }
+.school-image img { width: 82%; height: 82%; display: block; object-fit: contain; object-position: center; }
+.school-initials { font-size: 1rem; font-weight: 800; letter-spacing: .06em; }
+.school-logo-caption { position: static; min-height: 1.35em; overflow: hidden; color: var(--brand-action); font-size: .7rem; font-weight: 700; line-height: 1.35; text-align: center; text-overflow: ellipsis; white-space: nowrap; opacity: 0; transform: translateY(-3px); transition: opacity 170ms var(--ease-out), transform 170ms var(--ease-out); }
+.school-card-link:hover .school-logo-caption, .school-card-link:focus-visible .school-logo-caption { opacity: 1; transform: translateY(0); }
 .school-content { min-width: 0; overflow-wrap: anywhere; }
 .school-content h3 { margin-bottom: 5px; font-size: 1.35rem; }
 .school-secondary-name, .detail-secondary-name { margin: 0 0 6px; color: var(--brand-deep); font-size: .92rem; font-weight: 650; }
@@ -395,7 +396,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .country-flag { width: 22px; height: 14px; flex: 0 0 22px; overflow: hidden; border: 1px solid rgb(21 63 54 / 14%); border-radius: 2px; box-shadow: 0 1px 2px rgb(21 63 54 / 8%); }
 .country-code { padding: 1px 5px; border: 1px solid var(--line); border-radius: 3px; font-size: .62rem; font-weight: 800; letter-spacing: .04em; }
 .university-logo-label { position: absolute; z-index: 2; left: 50%; bottom: 8px; max-width: calc(100% - 16px); padding: 5px 8px; border-radius: 4px; background: rgb(21 63 54 / 92%); color: #fff; font-size: .68rem !important; font-weight: 700 !important; line-height: 1.25; text-align: center; opacity: 0; pointer-events: none; transform: translate(-50%, 5px); transition: opacity 170ms var(--ease-out), transform 170ms var(--ease-out); }
-.school-card-link:hover .university-logo-label, .school-card-link:focus-visible .university-logo-label, .university-logo-track a:hover .university-logo-label, .university-logo-track a:focus-visible .university-logo-label { opacity: 1; transform: translate(-50%, 0); }
+.university-logo-track a:hover .university-logo-label, .university-logo-track a:focus-visible .university-logo-label { opacity: 1; transform: translate(-50%, 0); }
 .university-logo-track a { position: relative; }
 .loading-page { min-height: 62vh; }
 .loading-status { color: var(--muted); font-size: .86rem; }
@@ -573,8 +574,8 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .pathway-grid { grid-template-columns: minmax(0, 1fr); }
   .pathway-card { min-height: 0; }
   .benefits { grid-template-columns: 1fr; gap: 0; }
-  .benefits article, .benefits article:nth-child(2), .benefits article:nth-child(3) { min-height: 0; margin-top: 0; padding: 24px 0; }
-  .benefits article:hover, .benefits article:nth-child(2):hover, .benefits article:nth-child(3):hover { padding-left: 0; }
+  .benefits article { min-height: 0; margin-top: 0; padding: 24px 0; }
+  .benefits article:hover { padding-left: 0; }
   .process { grid-template-columns: 1fr; border-top: 0; }
   .process li, .process li + li { display: grid; grid-template-columns: 46px 1fr; align-items: center; gap: 12px; padding: 17px 0; border-left: 0; border-bottom: 1px solid var(--line); }
   .process h3 { margin: 0; }

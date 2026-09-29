@@ -23,19 +23,19 @@ import {
 
 const sectionCopy = {
   language: {
-    label: ["洋豆角语言", "UDAJO Language"],
+    label: ["语言学习与考试准备", "Language learning and test preparation"],
     title: ["语言学习", "Language learning"],
-    description: ["提供 4980 元一期的封闭式雅思培训、语言规则讲解与真实出分案例。", "Explore focused IELTS training from CNY 4,980 per session, practical language guidance, and verified result stories."],
+    description: ["提供每期 4,980 元的封闭式雅思培训，并结合实用语言指导与真实成绩案例。", "Explore an intensive IELTS programme delivered in a closed learning environment at CNY 4,980 per session, supported by practical language guidance and verified student results."],
   },
   scholarships: {
     label: ["奖学金计划", "Scholarship opportunities"],
     title: ["洋豆角奖学金", "UDAJO Scholarships"],
-    description: ["帮助更多学生去看世界，了解不同院校的奖学金机会。", "Helping more students see the world through scholarship opportunities from different universities."],
+    description: ["了解不同院校的奖学金机会、申请条件与重要时间安排。", "Explore scholarship opportunities, eligibility requirements, and key application dates across universities."],
   },
   news: {
-    label: ["行业动态与洋豆角资讯", "Industry and UDAJO updates"],
-    title: ["关注第一手信息", "Follow the latest information"],
-    description: ["查看经过审核的留学行业动态与公司资讯。", "Read reviewed study-abroad industry updates and company news."],
+    label: ["留学资讯与公司动态", "Study abroad insights and company updates"],
+    title: ["掌握最新留学资讯", "Stay informed with the latest updates"],
+    description: ["获取经过审核的留学政策、院校动态与洋豆角资讯。", "Read reviewed updates on study policies, universities, and UDAJO."],
   },
   about: {
     label: ["关于洋豆角", "About UDAJO"],
