@@ -38,6 +38,13 @@ function ipv4Cidr(value) {
   if (address === null || prefix < 16 || prefix > 29) return null;
   const blockSize = 2 ** (32 - prefix);
   if (address % blockSize !== 0) return null;
+  const endAddress = address + blockSize - 1;
+  const privateRanges = [
+    [ipv4Number("10.0.0.0"), ipv4Number("10.255.255.255")],
+    [ipv4Number("172.16.0.0"), ipv4Number("172.31.255.255")],
+    [ipv4Number("192.168.0.0"), ipv4Number("192.168.255.255")],
+  ];
+  if (!privateRanges.some(([start, end]) => address >= start && endAddress <= end)) return null;
   return { address, blockSize };
 }
 

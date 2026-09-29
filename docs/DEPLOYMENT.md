@@ -11,7 +11,7 @@ chmod 600 .env.production
 
 Replace every placeholder with a generated secret and the real HTTPS preview origin. Keep `APP_CONSULTATION_SUBMISSION_ENABLED=false`. Never commit `.env.production`.
 
-Set `DEPLOYMENT_NETWORK_SUBNET`, `FRONTEND_INTERNAL_IP`, and `BACKEND_INTERNAL_IP` to an unused private IPv4 range. Check existing Docker and VPN networks first; the preflight verifies address syntax and membership, while `docker compose ... config` and startup reveal host-level overlap.
+Set `DEPLOYMENT_NETWORK_SUBNET`, `FRONTEND_INTERNAL_IP`, and `BACKEND_INTERNAL_IP` to an unused RFC1918 private IPv4 range. Check existing Docker and VPN networks first; the preflight rejects public ranges and verifies address syntax and membership, while `docker compose ... config` and startup reveal host-level overlap.
 
 微信登录在没有正式资质时必须保持 `APP_AUTH_WECHAT_ENABLED=false`。取得公司主体的微信开放平台
 网站应用资质后，再通过部署密钥存储配置 AppID、AppSecret 和 HTTPS 回调地址，并重新执行预检。
@@ -53,8 +53,11 @@ The backend readiness endpoint is private. Check it inside its container:
 
 ```bash
 docker compose --env-file .env.production -f compose.production.yaml exec -T backend curl --fail --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:8080/actuator/health/readiness
+curl --fail-with-body --silent "$(grep '^PUBLIC_SITE_URL=' .env.production | cut -d= -f2-)/healthz"
 node scripts/launch-smoke.mjs "$(grep '^PUBLIC_SITE_URL=' .env.production | cut -d= -f2-)"
 ```
+
+`/healthz` is the frontend readiness endpoint. It performs a real server-to-backend readiness request and returns `503` when that internal path is unavailable.
 
 默认冒烟检查按私有预览模式验证：HTML 必须包含 `noindex`，`robots.txt` 必须禁止抓取，
 `sitemap.xml` 必须为空，微信登录必须关闭。获得公开收录批准后加上 `--public`；只有微信开放平台

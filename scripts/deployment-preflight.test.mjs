@@ -94,6 +94,15 @@ test("requires distinct frontend and backend addresses inside the deployment sub
   }).join("\n"), /DEPLOYMENT_NETWORK_SUBNET.*IPv4 CIDR/);
 });
 
+test("rejects deployment subnets outside RFC1918 private address space", () => {
+  for (const subnet of ["8.8.0.0/16", "172.15.0.0/16", "172.32.0.0/16", "192.167.0.0/16"]) {
+    assert.match(validateDeploymentEnv({
+      ...validEnvironment,
+      DEPLOYMENT_NETWORK_SUBNET: subnet,
+    }).join("\n"), /DEPLOYMENT_NETWORK_SUBNET.*private IPv4 CIDR/);
+  }
+});
+
 test("requires an explicit indexing flag and only enables it on the official domain", () => {
   assert.match(validateDeploymentEnv({ ...validEnvironment, PUBLIC_INDEXING_ENABLED: "yes" }).join("\n"),
     /PUBLIC_INDEXING_ENABLED.*true or false/);
