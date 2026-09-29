@@ -10,6 +10,8 @@ export async function proxy(request: NextRequest) {
     ? await hasAuthenticatedSession(
         resolveApiBaseUrl(process.env, process.env.NODE_ENV),
         request.headers.get("cookie"),
+        fetch,
+        request.headers.get("x-forwarded-for"),
       )
     : false;
   const redirectPath = proxyRedirectPath(

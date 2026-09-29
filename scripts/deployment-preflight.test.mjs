@@ -22,6 +22,9 @@ const validEnvironment = {
   ELASTICSEARCH_URL: "http://elasticsearch:9200",
   APP_CONSULTATION_SUBMISSION_ENABLED: "false",
   PUBLIC_INDEXING_ENABLED: "false",
+  DEPLOYMENT_NETWORK_SUBNET: "172.30.0.0/24",
+  FRONTEND_INTERNAL_IP: "172.30.0.10",
+  BACKEND_INTERNAL_IP: "172.30.0.20",
 };
 
 test("parses comments, whitespace, and quoted env values", () => {
@@ -74,6 +77,21 @@ test("requires the production profile and keeps preview submissions disabled", (
 
 test("accepts a complete private-preview environment", () => {
   assert.deepEqual(validateDeploymentEnv(validEnvironment), []);
+});
+
+test("requires distinct frontend and backend addresses inside the deployment subnet", () => {
+  assert.match(validateDeploymentEnv({
+    ...validEnvironment,
+    FRONTEND_INTERNAL_IP: "172.31.0.10",
+  }).join("\n"), /FRONTEND_INTERNAL_IP.*DEPLOYMENT_NETWORK_SUBNET/);
+  assert.match(validateDeploymentEnv({
+    ...validEnvironment,
+    BACKEND_INTERNAL_IP: "172.30.0.10",
+  }).join("\n"), /FRONTEND_INTERNAL_IP.*BACKEND_INTERNAL_IP.*different/);
+  assert.match(validateDeploymentEnv({
+    ...validEnvironment,
+    DEPLOYMENT_NETWORK_SUBNET: "not-a-subnet",
+  }).join("\n"), /DEPLOYMENT_NETWORK_SUBNET.*IPv4 CIDR/);
 });
 
 test("requires an explicit indexing flag and only enables it on the official domain", () => {

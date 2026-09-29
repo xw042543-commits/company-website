@@ -11,6 +11,8 @@ chmod 600 .env.production
 
 Replace every placeholder with a generated secret and the real HTTPS preview origin. Keep `APP_CONSULTATION_SUBMISSION_ENABLED=false`. Never commit `.env.production`.
 
+Set `DEPLOYMENT_NETWORK_SUBNET`, `FRONTEND_INTERNAL_IP`, and `BACKEND_INTERNAL_IP` to an unused private IPv4 range. Check existing Docker and VPN networks first; the preflight verifies address syntax and membership, while `docker compose ... config` and startup reveal host-level overlap.
+
 微信登录在没有正式资质时必须保持 `APP_AUTH_WECHAT_ENABLED=false`。取得公司主体的微信开放平台
 网站应用资质后，再通过部署密钥存储配置 AppID、AppSecret 和 HTTPS 回调地址，并重新执行预检。
 真实密钥不能写入仓库、群聊、截图或普通运行日志。详细步骤见 [WECHAT_LOGIN.md](WECHAT_LOGIN.md)。
@@ -24,7 +26,7 @@ Both commands must pass before deployment.
 
 ## HTTPS proxy boundary
 
-The public HTTPS reverse proxy must connect only to `127.0.0.1:3000`; never publish or proxy the backend port directly. Before forwarding a request, remove all client-supplied forwarded headers (`Forwarded` and `X-Forwarded-*`), then set exactly one `X-Forwarded-Proto: https` header. This boundary lets the frontend identify HTTPS requests without allowing clients to forge trusted proxy metadata.
+The public HTTPS reverse proxy must connect only to `127.0.0.1:3000`; never publish or proxy the backend port directly. Before forwarding a request, remove all client-supplied forwarded headers (`Forwarded` and `X-Forwarded-*`), set exactly one `X-Forwarded-Proto: https` header, and set exactly one `X-Forwarded-For` value to the validated client IP. The frontend forwards that single client address to the backend from its fixed trusted address. This boundary preserves per-client rate limits without allowing clients to forge trusted proxy metadata.
 
 ## 2. Build and start
 

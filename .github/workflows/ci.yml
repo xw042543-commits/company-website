@@ -155,6 +155,9 @@ jobs:
           APP_AUTH_WECHAT_ENABLED=false
           FRONTEND_BIND_ADDRESS=127.0.0.1
           FRONTEND_PORT=3000
+          DEPLOYMENT_NETWORK_SUBNET=172.30.0.0/24
+          FRONTEND_INTERNAL_IP=172.30.0.10
+          BACKEND_INTERNAL_IP=172.30.0.20
           FRONTEND_IMAGE=udajo/frontend:ci
           BACKEND_IMAGE=udajo/backend:ci
           EOF
@@ -177,6 +180,7 @@ jobs:
         run: |
           docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml up -d --no-build --wait --wait-timeout 300
           curl --fail --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:3000/zh >/dev/null
+          curl --fail --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:3000/zh/universities >/dev/null
           curl --fail --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:3000/api/v1/auth/providers >/dev/null
 
       - name: Show production topology logs after a failure

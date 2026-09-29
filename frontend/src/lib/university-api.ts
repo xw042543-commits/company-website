@@ -1,5 +1,6 @@
 import { buildUniversitySearchPath, type Query } from "./site.ts";
 import type { FilterOption, FilterOptions } from "./filter-options-api.ts";
+import { requestInternalApi } from "./internal-api-request.ts";
 
 export type MatchedProgramme = {
   id: number;
@@ -307,7 +308,7 @@ export async function searchUniversities(
 
   try {
     const url = new URL(buildUniversitySearchPath(query), baseUrl);
-    const response = await request(url, {
+    const response = await requestInternalApi(request, url, {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });
@@ -329,7 +330,7 @@ export async function getUniversityDetail(
 
   try {
     const path = `/api/v1/universities/${encodeURIComponent(slug)}`;
-    const response = await request(new URL(path, baseUrl), {
+    const response = await requestInternalApi(request, new URL(path, baseUrl), {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });
@@ -355,7 +356,7 @@ export async function getUniversityProgrammes(
     const searchUrl = new URL(buildUniversitySearchPath(query), baseUrl);
     const path = `/api/v1/universities/${encodeURIComponent(slug)}/programmes`;
     const url = new URL(`${path}${searchUrl.search}`, baseUrl);
-    const response = await request(url, {
+    const response = await requestInternalApi(request, url, {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });

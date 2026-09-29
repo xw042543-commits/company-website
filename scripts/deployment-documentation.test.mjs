@@ -22,6 +22,7 @@ test("deployment runbook covers validation, startup, checks, immutable updates, 
   assert.match(document, /Database rollback is never automatic/i);
   assert.match(document, /127\.0\.0\.1:3000/);
   assert.match(document, /X-Forwarded-Proto/);
+  assert.match(document, /X-Forwarded-For/);
   assert.match(document, /remove[^\n]*client[^\n]*forwarded headers/i);
 });
 

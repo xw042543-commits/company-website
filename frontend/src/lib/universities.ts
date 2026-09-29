@@ -14,6 +14,7 @@ import {
   toSchoolSummary,
 } from "./university-api.ts";
 import { boundedPage, first, pageNumber, type Locale, type Query } from "./site.ts";
+import { requestInternalApi } from "./internal-api-request.ts";
 
 export type SchoolSummary = {
   id: string;
@@ -60,7 +61,7 @@ export async function getSchools(query = "", geography: { country?: string; cont
   if (!base || country || continent) return { status: "ready", schools: localSchools(query, country, continent) };
   try {
     const url = new URL(query ? `/api/search?q=${encodeURIComponent(query)}` : "/api/universities", base);
-    const response = await fetch(url, { cache: "no-store", signal: AbortSignal.timeout(5000) });
+    const response = await requestInternalApi(fetch, url, { cache: "no-store", signal: AbortSignal.timeout(5000) });
     if (!response.ok) return { status: "error" };
     const data: unknown = await response.json();
     if (!Array.isArray(data)) return { status: "error" };
