@@ -26,13 +26,13 @@ export default async function About({ params }: { params: Promise<{ locale: stri
         <div><p className="section-label">{words(locale, "品牌简介", "Brand profile")}</p><h2 id="company-identity-heading">{words(locale, "让每位留学生在海外安心成长", "Helping students thrive abroad")}</h2><p>{words(locale, "“洋”代表跨越海洋、走向世界，“豆角”象征充满活力的新生命。洋豆角希望每一位留学生都能在新的环境中安心学习、自信成长。", "Our name combines the idea of crossing oceans with the vitality of new growth. UDAJO helps international students study with confidence and thrive in a new environment.")}</p></div>
         <dl className="brand-principles">
           <div><dt>{words(locale, "品牌使命", "Mission")}</dt><dd>{words(locale, "让留学变得更简单。", "Make studying abroad simpler.")}</dd></div>
-          <div><dt>{words(locale, "品牌愿景", "Vision")}</dt><dd>{words(locale, "成为服务全球留学生的第一平台。", "Become a leading platform serving international students worldwide.")}</dd></div>
+          <div><dt>{words(locale, "品牌愿景", "Vision")}</dt><dd>{words(locale, "成为全球留学生信赖的服务平台。", "Become a trusted platform for international students worldwide.")}</dd></div>
           <div><dt>{words(locale, "品牌价值观", "Values")}</dt><dd>{words(locale, "专业、创新、高标准、可信赖。", "Professional, innovative, committed to high standards, and trustworthy.")}</dd></div>
         </dl>
       </section>
 
       <section className="company-registration" aria-labelledby="company-registration-heading">
-        <div><p className="section-label">{words(locale, "公司资料", "Company details")}</p><h2 id="company-registration-heading">{words(locale, "已确认的公司信息", "Verified company information")}</h2></div>
+        <div><p className="section-label">{words(locale, "公司资料", "Company details")}</p><h2 id="company-registration-heading">{words(locale, "已确认的公司信息", "Verified company information")}</h2><p className="company-registration-intro">{words(locale, "公开展示清晰、可核实的公司资料，让每一次咨询更安心。", "Clear, verifiable company details help you enquire with confidence.")}</p></div>
         <dl className="company-facts"><div><dt>{words(locale, "注册名称", "Registered name")}</dt><dd>{companyProfile.legalNameZh}</dd></div><div><dt>{words(locale, "注册编号", "Registration number")}</dt><dd>{companyProfile.registrationNumber}</dd></div><div><dt>{words(locale, "办公地址", "Office locations")}</dt><dd><Link href={companyProfile.addressSourceUrl} target="_blank" rel="noreferrer">{words(locale, "查看办公地址资料", "View office location information")}</Link></dd></div></dl>
       </section>
 

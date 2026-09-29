@@ -44,7 +44,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     <section className="hero"><div className="container hero-grid">
       <div className="hero-copy">
         <p className="section-label">{words(locale, "专业规划 · 清晰选择", "Expert guidance · Clear choices")}</p>
-        <h1>{words(locale, "一站式留学规划与申请支持", "Study planning and application support, all in one place")}</h1>
+        <h1>{words(locale, "从选校到入学，全程安心规划", "Plan with confidence, from university choice to enrolment")}</h1>
         <p className="hero-intro">{words(locale, "从院校与专业筛选，到申请准备与入学支持，洋豆角陪伴你的每一步。", "From choosing a university and programme to preparing your application and starting your studies, UDAJO supports you at every stage.")}</p>
         {signedIn ? <form action={`/${locale}/planning`} className="home-search">
           <label htmlFor="home-keyword">{words(locale, "院校查询系统", "University search")}</label>
