@@ -49,7 +49,7 @@ function localSchools(query: string, country: string, continent: string): School
 // The reviewed local catalogue is the public fallback until the API catalogue is configured.
 // Course search and details require a separately reviewed backend contract.
 export async function getSchools(query = "", geography: { country?: string; continent?: string } = {}): Promise<SchoolResult> {
-  const base = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const base = process.env.API_BASE_URL;
   const country = geography.country ?? "";
   const continent = geography.continent ?? "";
   if (!base || country || continent) return { status: "ready", schools: localSchools(query, country, continent) };
