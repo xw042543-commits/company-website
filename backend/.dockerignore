@@ -1,4 +1,9 @@
 target
-.mvn-cache
-.env*
+.env
+.env.*
+.git
+.gitignore
+.idea
+*.iml
 *.log
+README.md

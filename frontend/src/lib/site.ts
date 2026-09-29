@@ -5,12 +5,16 @@ export function isNavigationActive(pathname: string, locale: Locale, path: strin
   const target = `/${locale}${path ? `/${path}` : ""}`;
   return path ? pathname === target || pathname.startsWith(`${target}/`) : pathname === target || pathname === `${target}/`;
 }
-export const navigation = [
+export const publicNavigation = [
+  ["", "首页", "Home"], ["about", "关于我们", "About us"],
+] as const;
+export const memberNavigation = [
   ["", "首页", "Home"], ["planning", "规划", "Planning"],
   ["universities", "院校一览", "Universities"], ["language", "语言", "Language"],
-  ["scholarships", "奖学金", "Scholarships"], ["programmes", "留学项目", "Study abroad programmes"],
-  ["news", "新闻", "News"], ["about", "关于我们", "About us"],
+  ["scholarships", "奖学金", "Scholarships"], ["news", "新闻", "News"],
+  ["about", "关于我们", "About us"],
 ] as const;
+export const navigation = memberNavigation;
 export const levels = [
   ["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor’s"],
   ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"],

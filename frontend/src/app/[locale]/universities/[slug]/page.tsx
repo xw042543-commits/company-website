@@ -6,13 +6,17 @@ import { Pagination } from "@/components/pagination";
 import { ResultsState } from "@/components/results-state";
 import { universityProfile } from "@/data/university-profiles";
 import { findUniversityBySlug } from "@/data/university-catalog";
+import { localProgrammeLevels } from "@/data/local-programmes";
 import { getFilterOptions } from "@/lib/filter-options-api";
+import { serverApiBaseUrl } from "@/lib/runtime-config";
 import {
-  getUniversityDetail,
-  getUniversityProgrammes,
   toUniversityDetailView,
 } from "@/lib/university-api";
-import { boundedPage, isLocale, pageLink, type Query, words } from "@/lib/site";
+import {
+  getUniversityDetailWithFallback,
+  getUniversityProgrammesWithFallback,
+} from "@/lib/universities";
+import { boundedPage, first, isLocale, pageLink, type Query, words } from "@/lib/site";
 
 type DetailProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -26,10 +30,10 @@ export default async function Detail({ params, searchParams }: DetailProps) {
   if (slug === "preview") return <DetailPreview locale={locale} />;
 
   const query = await searchParams;
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const baseUrl = serverApiBaseUrl();
   const [detailResult, programmeResult, filterResult] = await Promise.all([
-    getUniversityDetail(baseUrl, slug),
-    getUniversityProgrammes(baseUrl, slug, query),
+    getUniversityDetailWithFallback(slug, baseUrl),
+    getUniversityProgrammesWithFallback(slug, query, baseUrl),
     getFilterOptions(baseUrl),
   ]);
 
@@ -65,6 +69,8 @@ export default async function Detail({ params, searchParams }: DetailProps) {
   );
   const directoryUniversity = findUniversityBySlug(slug);
   const profile = directoryUniversity ? universityProfile(directoryUniversity.id) : undefined;
+  const selectedLevel = first(query, "level");
+  const availableLevels = localProgrammeLevels(slug);
 
   return <main id="main" className="container page-main">
     <BackLink locale={locale} />
@@ -104,6 +110,11 @@ export default async function Detail({ params, searchParams }: DetailProps) {
               `${programmePage.totalItems} reviewed programmes`,
             )}</span>}
           </div>
+          {availableLevels.length > 0 && <nav className="programme-level-filters" aria-label={words(locale, "按学历层次筛选", "Filter by study level")}>
+            <Link aria-current={!selectedLevel ? "page" : undefined} href={programmeLevelLink(detailPath, query, "")}>{words(locale, "全部", "All")}</Link>
+            {[["bachelor", "本科", "Bachelor’s"], ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"]].filter(([level]) => availableLevels.includes(level as "bachelor" | "master" | "doctorate")).map(([level, zh, en]) => <Link key={level} aria-current={selectedLevel === level ? "page" : undefined} href={programmeLevelLink(detailPath, query, level)}>{words(locale, zh, en)}</Link>)}
+          </nav>}
+          <p className="programme-review-note">{words(locale, "资料来自已审核表格；费用与入学要求可能调整，请在申请前向顾问确认。", "Data is taken from reviewed worksheets. Fees and entry requirements may change; confirm them with an adviser before applying.")}</p>
 
           {programmeResult.status === "error"
             ? <div className="programme-results-state">
@@ -153,7 +164,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
           "向顾问了解院校、专业与申请安排。",
           "Ask an adviser about the university, courses, and application process.",
         )}</p>
-        <Link className="button full-width" href={`/${locale}/consultation`}>
+        <Link className="button full-width" href={`/${locale}/about#enquiry`}>
           {words(locale, "开始咨询", "Start an enquiry")} <span aria-hidden="true">→</span>
         </Link>
         <div className="qr-placeholder">{words(
@@ -164,6 +175,19 @@ export default async function Detail({ params, searchParams }: DetailProps) {
       </aside>
     </div>
   </main>;
+}
+
+function programmeLevelLink(path: string, query: Query, level: string) {
+  const parameters = new URLSearchParams();
+  for (const [key, rawValue] of Object.entries(query)) {
+    if (key === "page" || key === "level") continue;
+    for (const value of Array.isArray(rawValue) ? rawValue : [rawValue]) {
+      if (value?.trim()) parameters.append(key, value.trim());
+    }
+  }
+  if (level) parameters.set("level", level);
+  const suffix = parameters.toString();
+  return suffix ? `${path}?${suffix}` : path;
 }
 
 function BackLink({ locale }: { locale: "zh" | "en" }) {

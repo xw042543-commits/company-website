@@ -37,3 +37,11 @@
 ## Current Status
 
 Local development environment is ready. Formal catalogue data is pending from the business owner.
+
+## Private Preview Deployment
+
+The current deployment target is a private preview with consultation submission and public indexing disabled.
+
+- [Deployment runbook](docs/DEPLOYMENT.md)
+- [Backup and restore runbook](docs/BACKUP_AND_RESTORE.md)
+- [Public launch checklist](docs/PUBLIC_LAUNCH_CHECKLIST.md)
