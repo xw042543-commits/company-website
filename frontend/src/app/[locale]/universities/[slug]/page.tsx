@@ -8,6 +8,7 @@ import { universityProfile } from "@/data/university-profiles";
 import { findUniversityBySlug } from "@/data/university-catalog";
 import { localProgrammeLevels } from "@/data/local-programmes";
 import { getFilterOptions } from "@/lib/filter-options-api";
+import { serverApiBaseUrl } from "@/lib/runtime-config";
 import {
   toUniversityDetailView,
 } from "@/lib/university-api";
@@ -29,7 +30,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
   if (slug === "preview") return <DetailPreview locale={locale} />;
 
   const query = await searchParams;
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const baseUrl = serverApiBaseUrl();
   const [detailResult, programmeResult, filterResult] = await Promise.all([
     getUniversityDetailWithFallback(slug, baseUrl),
     getUniversityProgrammesWithFallback(slug, query, baseUrl),

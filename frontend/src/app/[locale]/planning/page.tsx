@@ -4,6 +4,7 @@ import { ResultsState } from "@/components/results-state";
 import { Pagination } from "@/components/pagination";
 import { SchoolCard } from "@/components/school-card";
 import { getFilterOptions } from "@/lib/filter-options-api";
+import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { getUniversitySearch } from "@/lib/universities";
 import { isLocale, Query, words } from "@/lib/site";
 
@@ -11,9 +12,10 @@ export default async function Planning({ params, searchParams }: { params: Promi
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const query = await searchParams;
+  const baseUrl = serverApiBaseUrl();
   const [result, filterResult] = await Promise.all([
-    getUniversitySearch(query, locale),
-    getFilterOptions(process.env.NEXT_PUBLIC_API_BASE_URL),
+    getUniversitySearch(query, locale, baseUrl),
+    getFilterOptions(baseUrl),
   ]);
   const options = filterResult.status === "ready" ? filterResult.options : undefined;
   const schools = result.status === "ready" ? result.schools : [];

@@ -1,0 +1,109 @@
+name: company-website-preview
+
+services:
+  postgres:
+    image: postgres:17.11
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:8.2.9
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD}"]
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"$$REDIS_PASSWORD\" ping | grep PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.4.5
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail --silent http://localhost:9200/_cluster/health?wait_for_status=yellow >/dev/null"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    restart: unless-stopped
+
+  backend:
+    image: ${BACKEND_IMAGE:-udajo/backend:preview}
+    build:
+      context: ./backend
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS}
+      APP_CONSULTATION_SUBMISSION_ENABLED: ${APP_CONSULTATION_SUBMISSION_ENABLED:-false}
+      APP_CONSULTATION_PRIVACY_NOTICE_VERSION: ${APP_CONSULTATION_PRIVACY_NOTICE_VERSION:-}
+      APP_CONSULTATION_MAXIMUM_BODY_SIZE: ${APP_CONSULTATION_MAXIMUM_BODY_SIZE:-16KB}
+      APP_CONSULTATION_RATE_LIMIT_MAXIMUM_SUBMISSIONS: ${APP_CONSULTATION_RATE_LIMIT_MAXIMUM_SUBMISSIONS:-5}
+      APP_CONSULTATION_RATE_LIMIT_WINDOW: ${APP_CONSULTATION_RATE_LIMIT_WINDOW:-10m}
+      APP_CONSULTATION_TRUSTED_PROXIES: ${APP_CONSULTATION_TRUSTED_PROXIES:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8080/actuator/health/readiness"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+    restart: unless-stopped
+
+  frontend:
+    image: ${FRONTEND_IMAGE:-udajo/frontend:preview}
+    build:
+      context: ./frontend
+    environment:
+      NODE_ENV: production
+      API_BASE_URL: http://backend:8080
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "${FRONTEND_BIND_ADDRESS:-127.0.0.1}:${FRONTEND_PORT:-3000}:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  redis-data:
+  elasticsearch-data:

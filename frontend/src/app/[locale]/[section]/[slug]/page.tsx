@@ -7,6 +7,7 @@ import {
   isArticleSection,
   localizeArticle,
 } from "@/lib/article-api";
+import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { isLocale, navigation, words } from "@/lib/site";
 
 type ArticleDetailProps = {
@@ -18,7 +19,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailProps) 
   if (!isLocale(locale) || !isArticleSection(section)) notFound();
 
   const result = await getArticle(
-    process.env.NEXT_PUBLIC_API_BASE_URL,
+    serverApiBaseUrl(),
     section,
     slug,
   );

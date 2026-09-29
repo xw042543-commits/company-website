@@ -54,8 +54,7 @@ function localSchools(query: string, country: string, continent: string, locale:
 
 // The reviewed local catalogue is the public fallback until the API catalogue is configured.
 // Course search and details require a separately reviewed backend contract.
-export async function getSchools(query = "", geography: { country?: string; continent?: string } = {}): Promise<SchoolResult> {
-  const base = process.env.NEXT_PUBLIC_API_BASE_URL;
+export async function getSchools(query = "", geography: { country?: string; continent?: string } = {}, base?: string): Promise<SchoolResult> {
   const country = geography.country ?? "";
   const continent = geography.continent ?? "";
   if (!base || country || continent) return { status: "ready", schools: localSchools(query, country, continent) };
@@ -84,7 +83,7 @@ export async function getSchools(query = "", geography: { country?: string; cont
 export async function getUniversitySearch(
   query: Query,
   locale: Locale,
-  baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL,
+  baseUrl?: string,
 ): Promise<SchoolSearchResult> {
   if (!baseUrl) {
     const pageSize = 12;
@@ -124,7 +123,7 @@ export async function getUniversitySearch(
 
 export async function getUniversityDetailWithFallback(
   slug: string,
-  baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL,
+  baseUrl?: string,
 ) {
   if (baseUrl) return getUniversityDetail(baseUrl, slug);
 
@@ -154,7 +153,7 @@ export async function getUniversityDetailWithFallback(
 export async function getUniversityProgrammesWithFallback(
   slug: string,
   query: Query,
-  baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL,
+  baseUrl?: string,
 ) {
   if (baseUrl) return getUniversityProgrammes(baseUrl, slug, query);
 

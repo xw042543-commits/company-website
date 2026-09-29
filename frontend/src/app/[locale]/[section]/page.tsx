@@ -9,6 +9,7 @@ import {
   localizeArticleSummary,
   normalizeArticlePage,
 } from "@/lib/article-api";
+import { serverApiBaseUrl } from "@/lib/runtime-config";
 import {
   boundedPage,
   first,
@@ -59,7 +60,7 @@ export default async function ContentSection({ params, searchParams }: ContentSe
   const query = await searchParams;
   const requestedPage = normalizeArticlePage(pageNumber(first(query, "page")));
   const result = await getArticles(
-    process.env.NEXT_PUBLIC_API_BASE_URL,
+    serverApiBaseUrl(),
     section,
     requestedPage,
   );
