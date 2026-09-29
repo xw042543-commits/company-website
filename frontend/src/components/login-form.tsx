@@ -5,12 +5,19 @@ import { useRouter } from "next/navigation";
 import { type FormEvent, type KeyboardEvent, useState } from "react";
 import { login } from "@/lib/auth-api";
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
 
 const loginMethods = ["password", "phone"] as const;
 type AccountLoginMethod = (typeof loginMethods)[number];
 
-export function LoginForm({ locale }: { locale: Locale }) {
+type LoginFormProps = {
+  locale: Locale;
+  returnTo?: string;
+  onForgotPassword?: () => void;
+};
+
+export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps) {
   const router = useRouter();
   const [method, setMethod] = useState<AccountLoginMethod>("password");
   const [identifier, setIdentifier] = useState("");
@@ -39,13 +46,13 @@ export function LoginForm({ locale }: { locale: Locale }) {
     event.preventDefault();
     setPending(true);
     setMessage(null);
-    const result = await login(process.env.NEXT_PUBLIC_API_BASE_URL, {
+    const result = await login(browserApiBaseUrl(), {
       identifier: identifier.trim(), password, rememberMe,
     });
     setPending(false);
     if (result.status === "ready") {
       setMessage(authMessage(locale, result));
-      router.push(`/${locale}/account`);
+      router.push(returnTo ?? `/${locale}/account`);
       router.refresh();
       return;
     }
@@ -84,7 +91,9 @@ export function LoginForm({ locale }: { locale: Locale }) {
           <input id="account-password" name="password" type={showPassword ? "text" : "password"} autoComplete="current-password" maxLength={128} minLength={8} required value={password} onChange={(event) => { setPassword(event.target.value); setMessage(null); }} placeholder={words(locale, "请输入密码", "Enter your password")} />
           <button className="password-toggle" type="button" aria-controls="account-password" aria-pressed={showPassword} onClick={() => setShowPassword((value) => !value)}>{showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}</button>
         </div>
-        <Link className="forgot-password-link" href={`/${locale}/forgot-password`}>{words(locale, "忘记密码？", "Forgot password?")}</Link>
+        {onForgotPassword
+          ? <button className="forgot-password-link" type="button" onClick={onForgotPassword}>{words(locale, "忘记密码？", "Forgot password?")}</button>
+          : <Link className="forgot-password-link" href={`/${locale}/forgot-password`}>{words(locale, "忘记密码？", "Forgot password?")}</Link>}
       </div>
 
       <label className="auth-checkbox"><input type="checkbox" checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} /> <span>{words(locale, "保持登录", "Keep me signed in")}</span></label>

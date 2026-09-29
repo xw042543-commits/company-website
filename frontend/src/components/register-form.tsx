@@ -5,9 +5,10 @@ import { type FormEvent, useState } from "react";
 import { FormProgress } from "@/components/form-progress";
 import { registerAccount } from "@/lib/auth-api";
 import { authMessage, registrationDestination, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
 
-export function RegisterForm({ locale }: { locale: Locale }) {
+export function RegisterForm({ locale }: { locale: Locale; returnTo?: string }) {
   const router = useRouter();
   const [method, setMethod] = useState<"EMAIL" | "PHONE">("EMAIL");
   const [fullName, setFullName] = useState("");
@@ -30,7 +31,7 @@ export function RegisterForm({ locale }: { locale: Locale }) {
     }
     setPending(true);
     setMessage(null);
-    const result = await registerAccount(process.env.NEXT_PUBLIC_API_BASE_URL, {
+    const result = await registerAccount(browserApiBaseUrl(), {
       fullName: fullName.trim(),
       email: method === "EMAIL" ? identifier.trim() : null,
       phone: method === "PHONE" ? identifier.trim() : null,

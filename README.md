@@ -49,3 +49,11 @@ npm --prefix frontend run build
 ```
 
 正式院校和课程数据仍以老板最终确认的 Excel 为准，不应将演示数据当作正式资料发布。
+
+## 私有预览部署（Private Preview）
+
+当前部署目标为私有预览环境，咨询提交和公开搜索引擎收录默认关闭。
+
+- [部署操作说明](docs/DEPLOYMENT.md)
+- [备份与恢复说明](docs/BACKUP_AND_RESTORE.md)
+- [正式上线检查清单](docs/PUBLIC_LAUNCH_CHECKLIST.md)

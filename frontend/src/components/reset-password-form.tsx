@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { type FormEvent, useState } from "react";
 import { resetPassword } from "@/lib/auth-api";
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
 
 export function ResetPasswordForm({ locale }: { locale: Locale }) {
@@ -21,7 +22,7 @@ export function ResetPasswordForm({ locale }: { locale: Locale }) {
       return;
     }
     setPending(true);
-    const result = await resetPassword(process.env.NEXT_PUBLIC_API_BASE_URL, { token, newPassword: password });
+    const result = await resetPassword(browserApiBaseUrl(), { token, newPassword: password });
     setPending(false);
     setMessage(result.status === "ready"
       ? { tone: "success", text: words(locale, "密码已更新，请重新登录。", "Your password has been updated. Please sign in again.") }

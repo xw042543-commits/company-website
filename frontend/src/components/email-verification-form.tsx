@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { resendVerification, verifyEmail } from "@/lib/auth-api";
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
 
 export function EmailVerificationForm({ locale }: { locale: Locale }) {
@@ -21,7 +22,7 @@ export function EmailVerificationForm({ locale }: { locale: Locale }) {
       return;
     }
     setPending(true);
-    const result = await verifyEmail(process.env.NEXT_PUBLIC_API_BASE_URL, { token });
+    const result = await verifyEmail(browserApiBaseUrl(), { token });
     setPending(false);
     setVerified(result.status === "ready");
     setMessage(result.status === "ready"
@@ -32,7 +33,7 @@ export function EmailVerificationForm({ locale }: { locale: Locale }) {
   async function resend() {
     if (!email.trim()) return;
     setPending(true);
-    const result = await resendVerification(process.env.NEXT_PUBLIC_API_BASE_URL, {
+    const result = await resendVerification(browserApiBaseUrl(), {
       identifier: email.trim(),
       locale,
     });

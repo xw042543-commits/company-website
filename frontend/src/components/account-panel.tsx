@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { type FormEvent, useEffect, useState } from "react";
 import { changePassword, deleteAccount, getAccount, logout, type AccountProfile } from "@/lib/auth-api";
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
 
 export function AccountPanel({ locale }: { locale: Locale }) {
@@ -19,7 +20,7 @@ export function AccountPanel({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     let active = true;
-    void getAccount(process.env.NEXT_PUBLIC_API_BASE_URL).then((result) => {
+    void getAccount(browserApiBaseUrl()).then((result) => {
       if (!active) return;
       setLoading(false);
       if (result.status === "ready") setAccount(result.account);
@@ -33,7 +34,7 @@ export function AccountPanel({ locale }: { locale: Locale }) {
     event.preventDefault();
     setPendingAction("password");
     setMessage(null);
-    const result = await changePassword(process.env.NEXT_PUBLIC_API_BASE_URL, { currentPassword, newPassword });
+    const result = await changePassword(browserApiBaseUrl(), { currentPassword, newPassword });
     setPendingAction(null);
     if (result.status === "ready") {
       router.replace(`/${locale}/login`);
@@ -45,7 +46,7 @@ export function AccountPanel({ locale }: { locale: Locale }) {
 
   async function handleLogout() {
     setPendingAction("logout");
-    const result = await logout(process.env.NEXT_PUBLIC_API_BASE_URL);
+    const result = await logout(browserApiBaseUrl());
     setPendingAction(null);
     if (result.status === "ready") {
       router.replace(`/${locale}/login`);
@@ -59,7 +60,7 @@ export function AccountPanel({ locale }: { locale: Locale }) {
     event.preventDefault();
     setPendingAction("delete");
     setMessage(null);
-    const result = await deleteAccount(process.env.NEXT_PUBLIC_API_BASE_URL, { currentPassword: deletePassword, confirmation: deleteConfirmation });
+    const result = await deleteAccount(browserApiBaseUrl(), { currentPassword: deletePassword, confirmation: deleteConfirmation });
     setPendingAction(null);
     if (result.status === "ready") {
       router.replace(`/${locale}`);

@@ -6,6 +6,7 @@ import test from "node:test";
 
 import { filterUniversityCatalog, findUniversityBySlug, localizeUniversity, searchUniversityCatalog, UNIVERSITY_CATALOG } from "./university-catalog.ts";
 import { universityProfile } from "./university-profiles.ts";
+import { localProgrammeLevels } from "./local-programmes.ts";
 import { isNavigationActive } from "../lib/site.ts";
 
 test("matches an approved abbreviation", () => {
@@ -120,6 +121,13 @@ test("every campus photo reference resolves to a nonempty public file", () => {
     const path = resolve(publicRoot, photo.slice(1));
     assert.equal(existsSync(path), true, `${university.slug} campus photo is missing`);
     assert.ok(statSync(path).size > 0, `${university.slug} campus photo is empty`);
+  }
+});
+
+test("catalogue marks universities with supplied programme records as available", () => {
+  for (const university of UNIVERSITY_CATALOG) {
+    if (!localProgrammeLevels(university.slug).length) continue;
+    assert.equal(university.programmeStatus, "available", `${university.id} should show available programme data`);
   }
 });
 

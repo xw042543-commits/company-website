@@ -5,21 +5,23 @@ import test from "node:test";
 
 const read = (path: string) => readFileSync(fileURLToPath(new URL(path, import.meta.url)), "utf8");
 
-test("login page uses a focused portal shell for the supported account flow", () => {
+test("login page uses a focused portal shell for the real account flow", () => {
   const page = read("../app/[locale]/login/page.tsx");
+  const panel = read("../components/auth-account-panel.tsx");
   assert.match(page, /auth-portal-header/);
   assert.match(page, /auth-login-card/);
-  assert.match(page, /auth-form-column/);
+  assert.match(panel, /auth-form-column/);
   assert.doesNotMatch(page, /WeChatLogin|auth-qr-column/);
   assert.match(page, /Back to website|返回网站/);
 });
 
-test("public chrome is hidden only for the focused login portal", () => {
+test("public chrome is hidden for focused account routes", () => {
   const source = read("../components/site-chrome.tsx");
   const layout = read("../app/[locale]/layout.tsx");
   assert.match(source, /usePathname/);
-  assert.match(source, /isLoginPortal/);
+  assert.match(source, /isAuthPortal/);
   assert.match(source, /\/login/);
+  assert.match(source, /forgot-password/);
   assert.match(layout, /SiteChrome/);
   assert.doesNotMatch(layout, /<SiteHeader/);
 });
@@ -39,11 +41,14 @@ test("account form provides password and phone tabs with keyboard navigation", (
   assert.match(source, /ArrowLeft/);
 });
 
-test("account form submits to the real versioned authentication client", () => {
-  const source = read("../components/login-form.tsx");
-  assert.match(source, /import \{ login \} from "@\/lib\/auth-api"/);
-  assert.match(source, /NEXT_PUBLIC_API_BASE_URL/);
-  assert.doesNotMatch(source, /preview|尚未接入|not connected/i);
+test("account forms submit to the real versioned authentication client", () => {
+  const login = read("../components/login-form.tsx");
+  const register = read("../components/register-form.tsx");
+  assert.match(login, /import \{ login \} from "@\/lib\/auth-api"/);
+  assert.match(register, /registerAccount/);
+  assert.match(login, /browserApiBaseUrl/);
+  assert.match(register, /browserApiBaseUrl/);
+  assert.doesNotMatch(`${login}\n${register}`, /demo|尚未接入|not connected/i);
 });
 
 test("login background uses scroll-linked transform motion with a reduced-motion fallback", () => {
@@ -57,6 +62,40 @@ test("login background uses scroll-linked transform motion with a reduced-motion
 test("login page no longer exposes the admin preview", () => {
   const source = read("../app/[locale]/login/page.tsx");
   assert.doesNotMatch(source, /admin|管理员界面预览/i);
+});
+
+test("registration opens inside the login portal instead of navigating away", () => {
+  const page = read("../app/[locale]/login/page.tsx");
+  const panel = read("../components/auth-account-panel.tsx");
+  assert.match(page, /AuthAccountPanel/);
+  assert.match(panel, /RegisterForm/);
+  assert.match(panel, /"login" \| "register"/);
+  assert.match(panel, /auth-form-switch/);
+  assert.match(panel, /Create account/);
+  assert.match(panel, /Back to sign in/);
+  assert.doesNotMatch(page, /href={`\/\$\{locale\}\/register`}/);
+});
+
+test("password reset opens inside the login portal and keeps focused chrome", () => {
+  const panel = read("../components/auth-account-panel.tsx");
+  const loginForm = read("../components/login-form.tsx");
+  const recoveryPage = read("../app/[locale]/forgot-password/page.tsx");
+  assert.match(panel, /ForgotPasswordForm/);
+  assert.match(panel, /"recovery"/);
+  assert.match(loginForm, /onForgotPassword/);
+  assert.match(recoveryPage, /login\?mode=recovery/);
+});
+
+test("login portal uses the main website language icon", () => {
+  const page = read("../app/[locale]/login/page.tsx");
+  assert.match(page, /language-switch/);
+  assert.match(page, /language-symbol/);
+  assert.match(page, /<span>A<\/span><span>文<\/span>/);
+});
+
+test("account mode switch remains readable on hover", () => {
+  const css = read("../app/globals.css");
+  assert.match(css, /\.auth-form-switch:hover\s*\{[\s\S]*?background:\s*transparent[\s\S]*?color:\s*var\(--brand-deep\)/);
 });
 
 test("verification forms let users request replacement instructions", () => {

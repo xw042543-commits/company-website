@@ -1,13 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { LoginForm } from "@/components/login-form";
+import { AuthAccountPanel } from "@/components/auth-account-panel";
+import { safeReturnTo } from "@/lib/access-policy";
 import { isLocale, words } from "@/lib/site";
 
-export default async function LoginPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function LoginPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ mode?: string; returnTo?: string }> }) {
   const { locale } = await params;
+  const { mode, returnTo: requestedReturnTo } = await searchParams;
   if (!isLocale(locale)) notFound();
   const otherLocale = locale === "zh" ? "en" : "zh";
+  const accountMode = mode === "register" || mode === "recovery" ? mode : "login";
+  const returnTo = safeReturnTo(requestedReturnTo, locale);
+  const otherReturnTo = returnTo.replace(`/${locale}`, `/${otherLocale}`);
+  const languageParameters = new URLSearchParams({ returnTo: otherReturnTo });
+  if (accountMode !== "login") languageParameters.set("mode", accountMode);
+  const languageHref = `/${otherLocale}/login?${languageParameters}`;
 
   return <main id="main" className="auth-portal">
     <div className="auth-portal-background" aria-hidden="true">
@@ -21,7 +29,10 @@ export default async function LoginPage({ params }: { params: Promise<{ locale: 
         <Image src="/brand/udajo-logo-transparent.png" width={1280} height={1280} priority alt={words(locale, "洋豆角 UDAJO 标志", "UDAJO logo")} />
       </Link>
       <nav className="auth-portal-actions" aria-label={words(locale, "账户页面导航", "Account page navigation")}>
-        <Link href={`/${otherLocale}/login`} hrefLang={otherLocale}>{locale === "zh" ? "English" : "中文"}</Link>
+        <Link className="language-switch" href={languageHref} hrefLang={otherLocale} aria-label={words(locale, "切换为英文", "Switch to Simplified Chinese")}>
+          <span className="language-symbol" aria-hidden="true"><span>A</span><span>文</span></span>
+          <span>{locale === "zh" ? "EN" : "中文"}</span>
+        </Link>
         <Link className="auth-back-link" href={`/${locale}`}>{words(locale, "返回网站", "Back to website")}</Link>
       </nav>
     </header>
@@ -33,19 +44,7 @@ export default async function LoginPage({ params }: { params: Promise<{ locale: 
       </div>
 
       <div className="auth-login-card">
-        <section className="auth-form-column" aria-labelledby="account-login-title">
-          <div className="auth-form-heading">
-            <div>
-              <p className="auth-column-label">{words(locale, "UDAJO 账户", "UDAJO account")}</p>
-              <h2 id="account-login-title">{words(locale, "登录", "Sign in")}</h2>
-            </div>
-            <Link href={`/${locale}/register`}>{words(locale, "注册新账户", "Create account")}</Link>
-          </div>
-          <LoginForm locale={locale} />
-          <div className="auth-form-support">
-            <Link href={`/${locale}/consultation`}>{words(locale, "需要帮助？联系顾问", "Need help? Contact an adviser")}</Link>
-          </div>
-        </section>
+        <AuthAccountPanel locale={locale} initialMode={accountMode} returnTo={returnTo} />
       </div>
     </section>
 

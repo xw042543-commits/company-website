@@ -38,12 +38,35 @@ test("loads a reviewed university profile without an external API", async () => 
   assert.match(result.university.descriptionEn ?? "", /public research university/i);
 });
 
-test("returns an empty reviewed programme page when the API is not configured", async () => {
+test("loads reviewed local programmes when the API is not configured", async () => {
   const loadProgrammes = Reflect.get(universities, "getUniversityProgrammesWithFallback");
   assert.equal(typeof loadProgrammes, "function");
 
   const result = await loadProgrammes("university-of-malaya", {}, "");
   assert.equal(result.status, "ready");
-  assert.deepEqual(result.page.items, []);
-  assert.equal(result.page.totalItems, 0);
+  assert.ok(result.page.items.length > 0);
+  assert.ok(result.page.totalItems > 0);
+  assert.equal(result.page.items[0]?.studyLevelCode, "bachelor");
+});
+
+test("filters reviewed local programmes by degree level", async () => {
+  const loadProgrammes = Reflect.get(universities, "getUniversityProgrammesWithFallback");
+  const result = await loadProgrammes("university-of-malaya", { level: "doctorate" }, "");
+
+  assert.equal(result.status, "ready");
+  assert.ok(result.page.items.length > 0);
+  assert.ok(result.page.items.every((programme: { studyLevelCode: string | null }) => programme.studyLevelCode === "doctorate"));
+});
+
+test("paginates reviewed local programmes using twelve records per page", async () => {
+  const loadProgrammes = Reflect.get(universities, "getUniversityProgrammesWithFallback");
+  const firstPage = await loadProgrammes("university-of-malaya", { page: "1" }, "");
+  const secondPage = await loadProgrammes("university-of-malaya", { page: "2" }, "");
+
+  assert.equal(firstPage.status, "ready");
+  assert.equal(secondPage.status, "ready");
+  assert.equal(firstPage.page.pageSize, 12);
+  assert.ok(firstPage.page.totalItems > 12);
+  assert.equal(secondPage.page.page, 2);
+  assert.notEqual(firstPage.page.items[0]?.id, secondPage.page.items[0]?.id);
 });

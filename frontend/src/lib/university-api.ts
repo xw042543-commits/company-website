@@ -82,6 +82,8 @@ export type UniversityProgramme = {
   tuitionDisplay: string | null;
   intakeMonths: string[];
   intakeDisplayTexts: string[];
+  categoryDisplayZh?: string;
+  categoryDisplayEn?: string;
 };
 
 export type UniversityProgrammePage = {
@@ -470,11 +472,9 @@ export function toUniversityDetailView(
           programme.descriptionEn,
           "",
         ),
-        category: localizedOption(
-          options?.subjectCategories,
-          programme.categoryCode,
-          locale,
-        ),
+        category: locale === "zh"
+          ? programme.categoryDisplayZh?.trim() || localizedOption(options?.subjectCategories, programme.categoryCode, locale)
+          : programme.categoryDisplayEn?.trim() || localizedOption(options?.subjectCategories, programme.categoryCode, locale),
         level: localizedOption(options?.studyLevels, programme.studyLevelCode, locale),
         mode: localizedOption(options?.courseModes, programme.courseModeCode, locale),
         languages: programme.languageCodes

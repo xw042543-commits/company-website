@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { type FormEvent, useState } from "react";
 import { resendVerification, verifyPhone } from "@/lib/auth-api";
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
 
 export function PhoneVerificationForm({ locale }: { locale: Locale }) {
@@ -18,7 +19,7 @@ export function PhoneVerificationForm({ locale }: { locale: Locale }) {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setPending(true);
-    const result = await verifyPhone(process.env.NEXT_PUBLIC_API_BASE_URL, { phone: phone.trim(), code: code.trim() });
+    const result = await verifyPhone(browserApiBaseUrl(), { phone: phone.trim(), code: code.trim() });
     setPending(false);
     setVerified(result.status === "ready");
     setMessage(result.status === "ready"
@@ -29,7 +30,7 @@ export function PhoneVerificationForm({ locale }: { locale: Locale }) {
   async function resend() {
     if (!phone.trim()) return;
     setPending(true);
-    const result = await resendVerification(process.env.NEXT_PUBLIC_API_BASE_URL, {
+    const result = await resendVerification(browserApiBaseUrl(), {
       identifier: phone.trim(),
       locale,
     });

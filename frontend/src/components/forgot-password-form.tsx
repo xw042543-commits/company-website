@@ -3,6 +3,7 @@
 import { type FormEvent, useState } from "react";
 import { requestPasswordReset } from "@/lib/auth-api";
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
 
 export function ForgotPasswordForm({ locale }: { locale: Locale }) {
@@ -14,7 +15,7 @@ export function ForgotPasswordForm({ locale }: { locale: Locale }) {
     event.preventDefault();
     setPending(true);
     setMessage(null);
-    const result = await requestPasswordReset(process.env.NEXT_PUBLIC_API_BASE_URL, {
+    const result = await requestPasswordReset(browserApiBaseUrl(), {
       identifier: identifier.trim(), locale,
     });
     setPending(false);

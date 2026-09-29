@@ -74,7 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      NEXT_PUBLIC_API_BASE_URL: http://localhost:8080
+      API_BASE_URL: http://backend:8080
 
     steps:
       - name: Check out repository
@@ -112,3 +112,54 @@ jobs:
       - name: Build frontend
         working-directory: frontend
         run: npm run build
+
+  deployment:
+    name: Deployment - contracts and images
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      - name: Create isolated CI deployment environment
+        shell: bash
+        run: |
+          cat > "$RUNNER_TEMP/deployment.env" <<'EOF'
+          PUBLIC_SITE_URL=https://preview.example.test
+          API_BASE_URL=http://backend:8080
+          SPRING_PROFILES_ACTIVE=prod
+          CORS_ALLOWED_ORIGINS=https://preview.example.test
+          POSTGRES_DB=company_website
+          POSTGRES_USER=company_app
+          POSTGRES_PASSWORD=ci-only-postgres-secret
+          POSTGRES_HOST=postgres
+          POSTGRES_PORT=5432
+          REDIS_HOST=redis
+          REDIS_PORT=6379
+          REDIS_PASSWORD=ci-only-redis-secret
+          ELASTICSEARCH_URL=http://elasticsearch:9200
+          ELASTICSEARCH_PORT=9200
+          APP_CONSULTATION_SUBMISSION_ENABLED=false
+          FRONTEND_BIND_ADDRESS=127.0.0.1
+          FRONTEND_PORT=3000
+          EOF
+
+      - name: Validate deployment contracts
+        run: |
+          node --test scripts/deployment-preflight.test.mjs scripts/deployment-artifacts.test.mjs scripts/deployment-compose.test.mjs scripts/deployment-ci.test.mjs scripts/deployment-documentation.test.mjs
+          node scripts/deployment-preflight.mjs "$RUNNER_TEMP/deployment.env"
+
+      - name: Validate production Compose configuration
+        run: docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml config --quiet
+
+      - name: Build frontend production image
+        run: docker build --tag udajo/frontend:ci frontend
+
+      - name: Build backend production image
+        run: docker build --tag udajo/backend:ci backend
