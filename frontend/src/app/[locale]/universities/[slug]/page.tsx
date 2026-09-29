@@ -114,7 +114,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
             <Link aria-current={!selectedLevel ? "page" : undefined} href={programmeLevelLink(detailPath, query, "")}>{words(locale, "全部", "All")}</Link>
             {[["bachelor", "本科", "Bachelor’s"], ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"]].filter(([level]) => availableLevels.includes(level as "bachelor" | "master" | "doctorate")).map(([level, zh, en]) => <Link key={level} aria-current={selectedLevel === level ? "page" : undefined} href={programmeLevelLink(detailPath, query, level)}>{words(locale, zh, en)}</Link>)}
           </nav>}
-          <p className="programme-review-note">{words(locale, "资料来自已审核表格；费用与入学要求可能调整，请在申请前向顾问确认。", "Data is taken from reviewed worksheets. Fees and entry requirements may change; confirm them with an adviser before applying.")}</p>
+          <p className="programme-review-note">{words(locale, "以下资料已经审核。费用与入学要求可能调整，请在申请前向顾问确认最新信息。", "The information below has been reviewed. Fees and entry requirements may change, so confirm the latest details with an adviser before applying.")}</p>
 
           {programmeResult.status === "error"
             ? <div className="programme-results-state">
@@ -169,8 +169,8 @@ export default async function Detail({ params, searchParams }: DetailProps) {
         </Link>
         <div className="qr-placeholder">{words(
           locale,
-          "咨询二维码确认后将在此发布",
-          "The enquiry QR code will appear after approval",
+          "顾问二维码即将上线",
+          "Adviser QR code coming soon",
         )}</div>
       </aside>
     </div>
@@ -215,7 +215,7 @@ function DetailPreview({ locale }: { locale: "zh" | "en" }) {
   return <main id="main" className="container page-main">
     <BackLink locale={locale} />
     <p className="section-label">{words(locale, "院校资料", "University information")}</p>
-    <h1>{words(locale, "院校资料正在接入", "University information is being connected")}</h1>
+    <h1>{words(locale, "院校资料正在完善", "University information is being prepared")}</h1>
     <p className="page-intro">{words(
       locale,
       "当前不会显示未经审核的院校或课程资料。",
