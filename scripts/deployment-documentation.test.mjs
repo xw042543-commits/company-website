@@ -17,6 +17,7 @@ test("deployment runbook covers validation, startup, checks, immutable updates, 
     /database migration/i,
     /immutable/i,
     /rollback/i,
+    /launch-smoke\.mjs/,
   ]) assert.match(document, pattern);
   assert.match(document, /Database rollback is never automatic/i);
 });

@@ -1,37 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
 import { FeaturedUniversityCarousel } from "@/components/featured-university-carousel";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
-import { DEMO_SESSION_COOKIE, isDemoSessionValue } from "@/lib/demo-session";
+import { isRequestAuthenticated } from "@/lib/server-auth";
 import { isLocale, words } from "@/lib/site";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  const cookieStore = await cookies();
-  const signedIn = isDemoSessionValue(cookieStore.get(DEMO_SESSION_COOKIE)?.value);
+  const signedIn = await isRequestAuthenticated();
   const memberHref = (path: string) => signedIn
     ? `/${locale}/${path}`
     : `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/${path}`)}`;
 
   const benefits = [
-    ["留学真信息", "Reliable information", "提供全面、经过审核的留学信息，帮助你判断每个选择。", "Use comprehensive, reviewed information to assess each option."],
-    ["流程透明", "Visible progress", "服务与申请进度清晰可见，随时了解下一步。", "Follow each service and application stage, with the next step clearly shown."],
-    ["0 中介费", "No agency fee", "只支付必要的第三方费用，不收取留学中介费。", "Pay only necessary third-party costs, with no study-abroad agency fee."],
-    ["全周期服务", "Full-journey support", "从规划、申请到海外落地与学习支持，全程有人协助。", "Get support from planning and applications through arrival and ongoing study."],
+    ["可靠留学信息", "Reliable information", "通过全面、经过审核的留学资料，帮助你更有依据地作出选择。", "Make informed choices using comprehensive, reviewed study information."],
+    ["流程清晰透明", "Clear processes", "清楚掌握服务与申请进度，随时了解当前阶段和下一步安排。", "Track each stage of your application and understand what comes next."],
+    ["不收取中介服务费", "No agency service fee", "你只需承担必要的第三方费用，洋豆角不收取留学中介服务费。", "Pay only necessary third-party costs; UDAJO does not charge an agency service fee."],
+    ["全程专业支持", "End-to-end support", "从前期规划、院校申请到入学准备与学习支持，全程都有顾问协助。", "Receive adviser support from initial planning and applications through enrolment and study."],
   ] as const;
   const pathways = [
-    ["01", "规划学习方向", "Plan your study path", "从学历层级与专业兴趣开始，整理适合自己的选择。", "Start with your study level and interests to organise suitable options.", memberHref("planning"), "开始规划", "Start planning"],
-    ["02", "比较院校资料", "Compare universities", "浏览已审核的院校记录，并进一步查看重点资料。", "Browse reviewed university records and explore the key details.", memberHref("universities"), "浏览院校", "Browse universities"],
-    ["03", "联系教育顾问", "Speak with an adviser", "需要协助时，向顾问了解申请步骤与资料准备。", "Ask an adviser about application steps and document preparation when needed.", `/${locale}/about#enquiry`, "联系顾问", "Contact an adviser"],
+    ["01", "明确留学方向", "Define your study goals", "结合目标学历与专业兴趣，逐步缩小适合你的选择范围。", "Use your intended qualification and academic interests to narrow your options.", memberHref("planning"), "开始规划", "Start planning"],
+    ["02", "比较院校选择", "Compare universities", "查看经过审核的院校资料，比较地点、课程方向与入学安排。", "Compare reviewed information on location, programmes, and intake periods.", memberHref("universities"), "浏览院校", "Browse universities"],
+    ["03", "咨询留学顾问", "Speak with an adviser", "与顾问确认申请步骤、材料要求和时间安排。", "Confirm application steps, document requirements, and timelines with an adviser.", `/${locale}/about#enquiry`, "联系顾问", "Contact an adviser"],
   ] as const;
   const steps = [
-    ["在线查询专业", "Search for a course", "从感兴趣的专业和学历层级开始。", "Begin with your preferred subject and study level."],
-    ["扫码联系老师", "Contact an adviser", "确认要求、时间安排与下一步。", "Confirm requirements, timing, and next steps."],
-    ["准备及申请", "Prepare and apply", "整理申请所需的资料。", "Organise the documents needed for your application."],
+    ["查询院校与专业", "Explore universities and programmes", "从感兴趣的专业和目标学历开始筛选。", "Begin with your preferred subject and intended qualification."],
+    ["咨询留学顾问", "Speak with an adviser", "确认入学要求、申请时间和后续步骤。", "Confirm entry requirements, timelines, and next steps."],
+    ["准备并提交申请", "Prepare and apply", "整理并提交申请所需的材料。", "Prepare and submit the documents required for your application."],
     ["获取录取通知", "Receive an offer", "查看录取条件与后续安排。", "Review the offer conditions and follow-up arrangements."],
     ["入学上课", "Start your studies", "完成入学准备并开启学习。", "Complete enrolment preparation and begin your studies."],
   ] as const;
@@ -45,9 +43,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return <main id="main">
     <section className="hero"><div className="container hero-grid">
       <div className="hero-copy">
-        <p className="section-label">{words(locale, "科学规划 · 科学定位", "Plan with evidence · Choose with purpose")}</p>
-        <h1>{words(locale, "全球第一家留学生综合服务平台", "A comprehensive service platform for international students")}</h1>
-        <p className="hero-intro">{words(locale, "科学规划留学院校与专业，科学定位留学人生发展。洋豆角提供留学生全周期陪跑。", "Plan universities, courses, and long-term development with full-journey support from UDAJO.")}</p>
+        <p className="section-label">{words(locale, "专业规划 · 清晰选择", "Expert guidance · Clear choices")}</p>
+        <h1>{words(locale, "一站式留学规划与申请支持", "Study planning and application support, all in one place")}</h1>
+        <p className="hero-intro">{words(locale, "从院校与专业筛选，到申请准备与入学支持，洋豆角陪伴你的每一步。", "From choosing a university and programme to preparing your application and starting your studies, UDAJO supports you at every stage.")}</p>
         {signedIn ? <form action={`/${locale}/planning`} className="home-search">
           <label htmlFor="home-keyword">{words(locale, "院校查询系统", "University search")}</label>
           <div className="search-row"><SearchAutocomplete id="home-keyword" name="q" locale={locale} suggestions={courseSuggestions(locale)} placeholder={words(locale, "输入想学习的专业", "What would you like to study?")} /><button type="submit">{words(locale, "查询专业", "Find a course")}</button></div>
@@ -74,7 +72,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </div>
     </div></section>}
     <section className="pathway-section" aria-labelledby="pathway-heading"><div className="container section">
-      <div className="section-heading"><p className="section-label">{words(locale, "定制方案", "Tailored planning")}</p><h2 id="pathway-heading">{words(locale, "根据你的情况定制留学方案", "Build a plan around your situation")}</h2><p>{words(locale, "先定专业，再选院校，最后联系顾问。", "Choose a direction, compare universities, then speak with an adviser.")}</p></div>
+      <div className="section-heading"><p className="section-label">{words(locale, "个性化规划", "Personalised planning")}</p><h2 id="pathway-heading">{words(locale, "根据你的目标规划留学路径", "Build a study plan around your goals")}</h2><p>{words(locale, "明确方向、比较院校，再与顾问确认适合你的申请方案。", "Define your goals, compare universities, and confirm your application plan with an adviser.")}</p></div>
       <div className="pathway-grid">{pathways.map(([number, zh, en, bodyZh, bodyEn, href, actionZh, actionEn]) => <Link className="pathway-card" href={href} key={number}>
         <span className="pathway-number" aria-hidden="true">{number}</span>
         <h3>{words(locale, zh, en)}</h3>

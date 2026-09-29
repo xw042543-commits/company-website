@@ -6,7 +6,7 @@ PostgreSQL 是本项目的主数据库，也是业务数据的唯一真实来源
 Redis 只负责缓存，Elasticsearch 只负责全文搜索；即使缓存或搜索索引被清空，也必须
 能够根据 PostgreSQL 中的数据重新生成。
 
-当前 V7 已建立院校、课程、筛选字典、搜索支持、公开文章和留学咨询的数据结构。
+当前 V8 已建立院校、课程、筛选字典、搜索支持、公开文章、留学咨询和用户认证的数据结构。
 仓库不包含老板尚未提供的正式 Excel 数据，测试数据只存在于临时测试容器中。
 
 ## 数据库版本管理
@@ -24,6 +24,7 @@ Redis 只负责缓存，Elasticsearch 只负责全文搜索；即使缓存或搜
 - `V5__add_search_sync_job_lock_token.sql`：为每次同步任务领取增加独立 UUID lease token，防止过期 worker 修改已被新 worker 重新领取的任务。
 - `V6__create_content_articles.sql`：创建公开文章表。
 - `V7__create_consultation_enquiries.sql`：创建默认关闭的留学咨询数据表。
+- `V8__create_user_authentication.sql`：创建用户账号、验证与重置 Token、认证限流和 Spring Session 表。
 
 已经在任何环境执行过的迁移文件不能直接修改。后续需要调整结构时，应新增
 新的顺序版本迁移，确保三名开发人员、CI 和服务器按相同顺序升级数据库。
@@ -178,6 +179,7 @@ lease，完成时会新建 `PENDING` 补偿任务，以 PostgreSQL 的最新状�
 - `university/`：院校实体与 Repository。
 - `programme/`：课程、课程语言关系、入学时间及其 Repository。
 - `search/v4/`：搜索投影、Elasticsearch 查询、索引重建、别名解析和增量同步任务。
+- `auth/`：账号、验证、登录会话、密码恢复、限流和生产安全门控。
 
 标准的数据访问顺序是：
 
@@ -221,3 +223,29 @@ lease，完成时会新建 `PENDING` 补偿任务，以 PostgreSQL 的最新状�
 咨询提交开关默认关闭。正式隐私声明、必填规则和处理人员确认前，前端不会开放提交，
 后端收到请求也不会保存数据。接口限流只在 Redis 中保存客户端地址的 SHA-256 摘要和
 短期计数，10 分钟窗口到期后自动删除，不写入 PostgreSQL。
+
+## 用户认证表
+
+### user_accounts
+
+保存用户姓名、规范化后的邮箱/手机号、密码摘要、验证时间、协议版本和账号
+状态。邮箱和手机号分别唯一，且至少填写一项。删除账号采用软删除：状态改为
+`DELETED` 并记录 `deleted_at`，不在接口中暴露密码摘要或未脱敏联系方式。
+
+### user_verification_tokens 和 password_reset_tokens
+
+分别保存注册验证和密码重置的一次性 Token。数据库只保存 SHA-256 摘要，不保存可直接
+使用的原始 Token。`expires_at` 和 `used_at` 用于限定有效期和阻止重放；短信验证码
+还使用 `attempts` 限制单个凭证的猜测次数。邮件验证和密码重置由限流表限制尝试。
+使用成功后会在事务内标记已使用。
+
+### auth_rate_limit_buckets
+
+保存认证相关操作的短期限流计数。`subject_hash` 是客户地址或账号标识的 SHA-256
+摘要，不保存原始值。认证限流不依赖前端，绕过页面直接请求 API 仍会受到限制。
+
+### spring_session 和 spring_session_attributes
+
+保存 Spring Security 会话及其属性。会话 Cookie 只携带随机会话标识，不包含账号资料。
+登录会更换匿名会话 ID，修改/重置密码和删除账号时会作废相关会话。正式环境的
+Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。

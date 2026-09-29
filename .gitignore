@@ -32,6 +32,9 @@ outputs/boss-data-template-*/
 outputs/website_project_template_*/
 *.class
 
+# Accidental nested local checkout; never commit its Git metadata or local secrets.
+/backend/company-website/
+
 # Environment variables and secrets
 .env
 .env.local
@@ -40,3 +43,6 @@ outputs/website_project_template_*/
 # Logs
 *.log
 npm-debug.log*
+
+# Local Superpowers coordination ledger and review reports
+.superpowers/sdd/

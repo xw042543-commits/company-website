@@ -1,71 +1,90 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { type FormEvent, useState } from "react";
 import { FormProgress } from "@/components/form-progress";
-import { Locale, words } from "@/lib/site";
-import { startDemoSession } from "@/app/actions/demo-session";
+import { registerAccount } from "@/lib/auth-api";
+import { authMessage, registrationDestination, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
+import { type Locale, words } from "@/lib/site";
 
-export function RegisterForm({ locale, returnTo }: { locale: Locale; returnTo?: string }) {
+export function RegisterForm({ locale }: { locale: Locale; returnTo?: string }) {
+  const router = useRouter();
+  const [method, setMethod] = useState<"EMAIL" | "PHONE">("EMAIL");
+  const [fullName, setFullName] = useState("");
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmation, setConfirmation] = useState("");
+  const [agreementAccepted, setAgreementAccepted] = useState(false);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [status, setStatus] = useState<"idle" | "reviewed" | "mismatch">("idle");
-  const [completed, setCompleted] = useState(0);
-  const nameRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const confirmPasswordRef = useRef<HTMLInputElement>(null);
+  const [pending, setPending] = useState(false);
+  const [message, setMessage] = useState<AuthMessage | null>(null);
 
-  async function handlePreview() {
-    const inputs = [nameRef.current, emailRef.current, passwordRef.current, confirmPasswordRef.current];
-    if (!inputs.every((input) => input?.reportValidity())) return;
-    if (passwordRef.current?.value !== confirmPasswordRef.current?.value) {
-      setStatus("mismatch");
+  const completed = [fullName, identifier, password, confirmation].filter((value) => value.trim()).length;
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (password !== confirmation) {
+      setMessage({ tone: "error", text: words(locale, "两次输入的密码不一致。", "The passwords do not match.") });
       return;
     }
-    for (const input of [nameRef, emailRef, passwordRef, confirmPasswordRef]) {
-      if (input.current) input.current.value = "";
+    setPending(true);
+    setMessage(null);
+    const result = await registerAccount(browserApiBaseUrl(), {
+      fullName: fullName.trim(),
+      email: method === "EMAIL" ? identifier.trim() : null,
+      phone: method === "PHONE" ? identifier.trim() : null,
+      password,
+      agreementAccepted,
+      privacyAccepted,
+      locale,
+    });
+    setPending(false);
+    if (result.status === "accepted") {
+      const destination = registrationDestination(locale, result.verificationMethod);
+      const queryName = result.verificationMethod === "PHONE" ? "phone" : "email";
+      const query = `?${queryName}=${encodeURIComponent(identifier.trim())}`;
+      router.push(`${destination}${query}`);
+      return;
     }
-    setShowPassword(false);
-    setCompleted(0);
-    setStatus("reviewed");
-    await startDemoSession(locale, returnTo);
+    setMessage(authMessage(locale, result));
   }
 
-  function updateProgress() {
-    setStatus("idle");
-    setCompleted([nameRef, emailRef, passwordRef, confirmPasswordRef].filter((input) => Boolean(input.current?.value.trim())).length);
-  }
-
-  return <div className="login-form" onInput={updateProgress} onChange={updateProgress} aria-describedby="register-preview-notice">
-    <p id="register-preview-notice" className="login-notice">
-      <strong>{words(locale, "注册界面预览", "Registration interface preview")}</strong>
-      <span>{words(locale, "账户服务尚未接入。请勿填写真实个人资料或密码；此页面不会发送或保存内容。", "Account services are not connected yet. Do not enter real personal details or passwords; this page will not send or store anything.")}</span>
-    </p>
-
+  return <form className="login-form" onSubmit={handleSubmit}>
     <FormProgress completed={completed} total={4} locale={locale} />
+    <fieldset className="auth-choice">
+      <legend>{words(locale, "验证方式", "Verification method")}</legend>
+      <label><input type="radio" name="registration-method" value="EMAIL" checked={method === "EMAIL"} onChange={() => { setMethod("EMAIL"); setIdentifier(""); setMessage(null); }} /> {words(locale, "邮箱", "Email")}</label>
+      <label><input type="radio" name="registration-method" value="PHONE" checked={method === "PHONE"} onChange={() => { setMethod("PHONE"); setIdentifier(""); setMessage(null); }} /> {words(locale, "手机号", "Phone")}</label>
+    </fieldset>
 
     <div className="field">
       <label htmlFor="register-name">{words(locale, "姓名", "Full name")}</label>
-      <input ref={nameRef} id="register-name" type="text" autoComplete="off" maxLength={100} required placeholder={words(locale, "请输入姓名", "Enter your full name")} />
+      <input id="register-name" type="text" autoComplete="name" maxLength={100} required value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder={words(locale, "请输入姓名", "Enter your full name")} />
     </div>
     <div className="field">
-      <label htmlFor="register-email">{words(locale, "邮箱", "Email address")}</label>
-      <input ref={emailRef} id="register-email" type="email" autoComplete="off" maxLength={160} required placeholder={words(locale, "请输入邮箱", "Enter your email address")} />
+      <label htmlFor="register-identifier">{method === "EMAIL" ? words(locale, "邮箱", "Email address") : words(locale, "手机号码", "Phone number")}</label>
+      <input id="register-identifier" type={method === "EMAIL" ? "email" : "tel"} inputMode={method === "EMAIL" ? "email" : "tel"} autoComplete={method === "EMAIL" ? "email" : "tel"} maxLength={160} required value={identifier} onChange={(event) => setIdentifier(event.target.value)} placeholder={method === "EMAIL" ? words(locale, "请输入邮箱", "Enter your email address") : words(locale, "例如 +60123456789", "For example +60123456789")} />
     </div>
     <div className="field">
       <label htmlFor="register-password">{words(locale, "创建密码", "Create password")}</label>
       <div className="password-input-wrap">
-        <input ref={passwordRef} id="register-password" type={showPassword ? "text" : "password"} autoComplete="off" minLength={8} maxLength={128} required placeholder={words(locale, "至少 8 个字符", "At least 8 characters")} />
+        <input id="register-password" type={showPassword ? "text" : "password"} autoComplete="new-password" minLength={12} maxLength={128} required value={password} onChange={(event) => setPassword(event.target.value)} placeholder={words(locale, "至少 12 个字符", "At least 12 characters")} />
         <button className="password-toggle" type="button" aria-controls="register-password" aria-pressed={showPassword} onClick={() => setShowPassword(value => !value)}>{showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}</button>
       </div>
     </div>
     <div className="field">
       <label htmlFor="register-confirm-password">{words(locale, "确认密码", "Confirm password")}</label>
-      <input ref={confirmPasswordRef} id="register-confirm-password" type={showPassword ? "text" : "password"} autoComplete="off" minLength={8} maxLength={128} required placeholder={words(locale, "再次输入密码", "Enter the password again")} aria-invalid={status === "mismatch"} aria-describedby={status === "mismatch" ? "password-mismatch" : undefined} />
-      {status === "mismatch" && <p id="password-mismatch" className="field-error" role="alert">{words(locale, "两次输入的密码不一致。", "The passwords do not match.")}</p>}
+      <input id="register-confirm-password" type={showPassword ? "text" : "password"} autoComplete="new-password" minLength={12} maxLength={128} required value={confirmation} onChange={(event) => { setConfirmation(event.target.value); setMessage(null); }} placeholder={words(locale, "再次输入密码", "Enter the password again")} aria-invalid={Boolean(confirmation && password !== confirmation)} />
     </div>
 
-    <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "创建演示账户并继续", "Create demo account and continue")}</button>
-    <p className="login-support-note">{words(locale, "正式开放时，注册还需要邮箱验证和隐私同意。", "Email verification and privacy consent will be required when registration opens.")}</p>
-    {status === "reviewed" && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览完成。资料已从页面清除，没有建立账户或保存内容。", "Preview complete. The details were cleared; no account was created and nothing was stored.")}</p>}
-  </div>;
+    <div className="auth-consents">
+      <label className="auth-checkbox"><input type="checkbox" required checked={agreementAccepted} onChange={(event) => setAgreementAccepted(event.target.checked)} /> <span>{words(locale, "我同意用户服务条款。", "I agree to the user terms of service.")}</span></label>
+      <label className="auth-checkbox"><input type="checkbox" required checked={privacyAccepted} onChange={(event) => setPrivacyAccepted(event.target.checked)} /> <span>{words(locale, "我已阅读并同意隐私政策。", "I have read and agree to the privacy policy.")}</span></label>
+    </div>
+
+    <button className="full-width" type="submit" disabled={pending}>{pending ? words(locale, "正在创建账户…", "Creating account…") : words(locale, "创建账户", "Create account")}</button>
+    {message && <p className={`login-status auth-status-${message.tone}`} role={message.tone === "error" ? "alert" : "status"} aria-live="polite">{message.text}</p>}
+  </form>;
 }

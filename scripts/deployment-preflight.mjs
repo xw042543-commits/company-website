@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 export const REQUIRED_DEPLOYMENT_VARIABLES = [
   "PUBLIC_SITE_URL",
+  "PUBLIC_INDEXING_ENABLED",
   "API_BASE_URL",
   "SPRING_PROFILES_ACTIVE",
   "CORS_ALLOWED_ORIGINS",
@@ -60,6 +61,20 @@ export function validateDeploymentEnv(environment) {
   if (valueFor("PUBLIC_SITE_URL") && !validUrl(valueFor("PUBLIC_SITE_URL"), ["https:"])) {
     errors.push("PUBLIC_SITE_URL must be a valid HTTPS URL.");
   }
+  const publicIndexing = valueFor("PUBLIC_INDEXING_ENABLED");
+  if (publicIndexing && publicIndexing !== "true" && publicIndexing !== "false") {
+    errors.push("PUBLIC_INDEXING_ENABLED must be true or false.");
+  }
+  if (publicIndexing === "true") {
+    try {
+      const host = new URL(valueFor("PUBLIC_SITE_URL")).hostname.toLowerCase();
+      if (host !== "yangdoujiao.com" && !host.endsWith(".yangdoujiao.com")) {
+        errors.push("PUBLIC_INDEXING_ENABLED may be true only for yangdoujiao.com.");
+      }
+    } catch {
+      // PUBLIC_SITE_URL format is reported separately.
+    }
+  }
   if (valueFor("CORS_ALLOWED_ORIGINS") && !valueFor("CORS_ALLOWED_ORIGINS").split(",").every((origin) => validUrl(origin.trim(), ["https:"]))) {
     errors.push("CORS_ALLOWED_ORIGINS must contain only valid HTTPS origins.");
   }
@@ -78,6 +93,38 @@ export function validateDeploymentEnv(environment) {
   }
   if (valueFor("APP_CONSULTATION_SUBMISSION_ENABLED") && valueFor("APP_CONSULTATION_SUBMISSION_ENABLED") !== "false") {
     errors.push("APP_CONSULTATION_SUBMISSION_ENABLED must remain false for the private preview.");
+  }
+
+  const wechatEnabled = valueFor("APP_AUTH_WECHAT_ENABLED");
+  if (wechatEnabled && wechatEnabled !== "true" && wechatEnabled !== "false") {
+    errors.push("APP_AUTH_WECHAT_ENABLED must be true or false.");
+  }
+  if (wechatEnabled === "true") {
+    for (const name of ["APP_AUTH_WECHAT_APP_ID", "APP_AUTH_WECHAT_APP_SECRET", "APP_AUTH_WECHAT_CALLBACK_URL"]) {
+      const value = valueFor(name);
+      if (!value) errors.push(`${name} is required when WeChat login is enabled.`);
+      else if (/^(change[_-]?me|replace[_-]?with|example|your[_-]|todo)/i.test(value)) {
+        errors.push(`${name} still contains a placeholder value.`);
+      }
+    }
+    const callback = valueFor("APP_AUTH_WECHAT_CALLBACK_URL");
+    const publicSite = valueFor("PUBLIC_SITE_URL");
+    if (callback && !validUrl(callback, ["https:"])) {
+      errors.push("APP_AUTH_WECHAT_CALLBACK_URL must be a valid HTTPS URL.");
+    } else if (callback && publicSite) {
+      try {
+        const callbackUrl = new URL(callback);
+        if (callbackUrl.origin !== new URL(publicSite).origin) {
+          errors.push("APP_AUTH_WECHAT_CALLBACK_URL must use the PUBLIC_SITE_URL origin.");
+        }
+        if (callbackUrl.pathname !== "/api/v1/auth/wechat/callback"
+            || callbackUrl.search || callbackUrl.hash) {
+          errors.push("APP_AUTH_WECHAT_CALLBACK_URL must use /api/v1/auth/wechat/callback without query or fragment.");
+        }
+      } catch {
+        // URL format errors are already reported above.
+      }
+    }
   }
 
   return [...new Set(errors)];

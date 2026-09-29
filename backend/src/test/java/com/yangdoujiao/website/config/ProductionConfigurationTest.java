@@ -26,13 +26,19 @@ class ProductionConfigurationTest {
                 .contains("${ELASTICSEARCH_URL}")
                 .contains("${CORS_ALLOWED_ORIGINS}")
                 .doesNotContain("localhost")
-                .contains("forward-headers-strategy: framework")
+                .contains("forward-headers-strategy: none")
+                .contains("secure: ${APP_SESSION_COOKIE_SECURE:false}")
                 .contains("include: health")
                 .contains("probes:")
                 .contains("enabled: true")
                 .contains("include-message: never")
                 .contains("include-stacktrace: never")
                 .contains("submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}");
+        assertThat(configuration)
+                .contains("enabled: ${APP_AUTH_WECHAT_ENABLED:false}")
+                .contains("app-id: ${APP_AUTH_WECHAT_APP_ID:}")
+                .contains("app-secret: ${APP_AUTH_WECHAT_APP_SECRET:}")
+                .contains("callback-url: ${APP_AUTH_WECHAT_CALLBACK_URL:}");
     }
 
     @Test

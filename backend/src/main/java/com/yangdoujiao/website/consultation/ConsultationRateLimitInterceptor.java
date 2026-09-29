@@ -3,6 +3,8 @@ package com.yangdoujiao.website.consultation;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import com.yangdoujiao.website.common.web.ClientAddressResolver;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -10,11 +12,11 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ConsultationRateLimitInterceptor implements HandlerInterceptor {
 
     private final ConsultationRateLimiter rateLimiter;
-    private final ConsultationClientAddressResolver clientAddressResolver;
+    private final ClientAddressResolver clientAddressResolver;
 
     public ConsultationRateLimitInterceptor(
             ConsultationRateLimiter rateLimiter,
-            ConsultationClientAddressResolver clientAddressResolver
+            ClientAddressResolver clientAddressResolver
     ) {
         this.rateLimiter = rateLimiter;
         this.clientAddressResolver = clientAddressResolver;

@@ -10,9 +10,11 @@ The current target is a private preview. Do not make it public until every appli
 
 ## Accounts and communication
 
-- [ ] Replace demo sessions with real authentication, secure server-side sessions, verified logout, authorization, rate limits, and audit logging.
-- [ ] Complete account registration, password reset, email verification, and account deletion flows.
+- [x] Replace demo sessions with real authentication, secure server-side sessions, verified logout, authorization, and rate limits.
+- [x] Complete account registration, password reset, email verification, and account deletion flows.
+- [ ] Complete the production authentication security review and add the required audit-log retention process.
 - [ ] Configure and verify production email, SMS, and WeChat providers, callback domains, templates, consent, failure handling, and vendor credentials.
+- [ ] 使用正式微信开放平台网站应用完成 HTTPS 扫码、取消、失败、首次绑定和再次登录的浏览器验收。
 - [ ] Add abuse prevention and support procedures before enabling consultation submission.
 
 ## Privacy and legal
