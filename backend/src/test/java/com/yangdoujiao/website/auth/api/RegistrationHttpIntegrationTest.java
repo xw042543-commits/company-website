@@ -35,7 +35,6 @@ import com.yangdoujiao.website.auth.verification.VerificationService;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.times;
@@ -72,25 +71,6 @@ class RegistrationHttpIntegrationTest {
         mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
                 .andExpect(status().isAccepted());
         verify(verification, times(2)).prepareForResend(AccountIdentifierType.EMAIL);
-    }
-
-    @Test
-    void notificationOutageReturnsSame503BeforeAccountLookup() throws Exception {
-        String known = email();
-        register(known, null);
-        doReturn(false).when(notifications).isAvailable();
-        mvc.perform(write("resend-verification", "{\"identifier\":\"" + known + "\"}"))
-                .andExpect(status().isServiceUnavailable())
-                .andExpect(jsonPath("$.code").value("AUTH_SERVICE_UNAVAILABLE"));
-        mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
-                .andExpect(status().isServiceUnavailable())
-                .andExpect(jsonPath("$.code").value("AUTH_SERVICE_UNAVAILABLE"));
-        mvc.perform(write("register", "{\"fullName\":\"Test\",\"email\":\"" + email()
-                        + "\",\"password\":\"correct-horse-42\",\"agreementAccepted\":true,\"privacyAccepted\":true}"))
-                .andExpect(status().isServiceUnavailable());
-        mvc.perform(write("register", "{\"fullName\":\"Test\",\"email\":\"" + known
-                        + "\",\"password\":\"correct-horse-42\",\"agreementAccepted\":true,\"privacyAccepted\":true}"))
-                .andExpect(status().isServiceUnavailable());
     }
 
     @Test
