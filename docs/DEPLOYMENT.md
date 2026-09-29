@@ -11,6 +11,10 @@ chmod 600 .env.production
 
 Replace every placeholder with a generated secret and the real HTTPS preview origin. Keep `APP_CONSULTATION_SUBMISSION_ENABLED=false`. Never commit `.env.production`.
 
+微信登录在没有正式资质时必须保持 `APP_AUTH_WECHAT_ENABLED=false`。取得公司主体的微信开放平台
+网站应用资质后，再通过部署密钥存储配置 AppID、AppSecret 和 HTTPS 回调地址，并重新执行预检。
+真实密钥不能写入仓库、群聊、截图或普通运行日志。详细步骤见 [WECHAT_LOGIN.md](WECHAT_LOGIN.md)。
+
 ```bash
 node scripts/deployment-preflight.mjs .env.production
 docker compose --env-file .env.production -f compose.production.yaml config --quiet
@@ -43,8 +47,7 @@ The backend readiness endpoint is private. Check it inside its container:
 
 ```bash
 docker compose --env-file .env.production -f compose.production.yaml exec -T backend curl --fail --silent http://localhost:8080/actuator/health/readiness
-curl --fail --silent --show-error http://127.0.0.1:3000/en >/dev/null
-curl --fail --silent --show-error http://127.0.0.1:3000/zh >/dev/null
+node scripts/launch-smoke.mjs "$(grep '^PUBLIC_SITE_URL=' .env.production | cut -d= -f2-)"
 ```
 
 Smoke check these flows in a browser:
@@ -54,6 +57,9 @@ Smoke check these flows in a browser:
 3. An anonymous protected route redirects to login.
 4. University browsing and search return reviewed records.
 5. Consultation submission remains disabled for the private preview.
+
+`PUBLIC_INDEXING_ENABLED` must remain `false` during preview. Set it to `true` only after the
+official `yangdoujiao.com` HTTPS deployment, content approval, SEO review, and final launch approval.
 
 Inspect failures without printing the environment file:
 

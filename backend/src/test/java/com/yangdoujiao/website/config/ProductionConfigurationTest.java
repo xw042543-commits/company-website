@@ -34,6 +34,11 @@ class ProductionConfigurationTest {
                 .contains("include-message: never")
                 .contains("include-stacktrace: never")
                 .contains("submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}");
+        assertThat(configuration)
+                .contains("enabled: ${APP_AUTH_WECHAT_ENABLED:false}")
+                .contains("app-id: ${APP_AUTH_WECHAT_APP_ID:}")
+                .contains("app-secret: ${APP_AUTH_WECHAT_APP_SECRET:}")
+                .contains("callback-url: ${APP_AUTH_WECHAT_CALLBACK_URL:}");
     }
 
     @Test

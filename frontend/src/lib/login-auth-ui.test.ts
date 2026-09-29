@@ -11,7 +11,7 @@ test("login page uses a focused portal shell for the real account flow", () => {
   assert.match(page, /auth-portal-header/);
   assert.match(page, /auth-login-card/);
   assert.match(panel, /auth-form-column/);
-  assert.doesNotMatch(page, /WeChatLogin|auth-qr-column/);
+  assert.doesNotMatch(page, /auth-qr-column/);
   assert.match(page, /Back to website|返回网站/);
 });
 
@@ -39,6 +39,21 @@ test("account form provides password and phone tabs with keyboard navigation", (
   assert.match(source, /role="tablist"/);
   assert.match(source, /ArrowRight/);
   assert.match(source, /ArrowLeft/);
+});
+
+test("WeChat login is deployment-gated and first use binds an existing verified account", () => {
+  const entry = read("../components/wechat-login-entry.tsx");
+  const binding = read("../components/wechat-bind-form.tsx");
+  const panel = read("../components/auth-account-panel.tsx");
+  const page = read("../app/[locale]/login/page.tsx");
+  assert.match(entry, /getAuthProviders/);
+  assert.match(entry, /result\.status === "ready" && result\.wechat/);
+  assert.match(entry, /\/api\/v1\/auth\/wechat\/start/);
+  assert.match(binding, /bindWechatAccount/);
+  assert.match(binding, /verified email or phone account/);
+  assert.match(panel, /"wechat-bind"/);
+  assert.match(page, /wechatError/);
+  assert.doesNotMatch(`${entry}\n${binding}`, /fake qr|demo session|startDemoSession/i);
 });
 
 test("account forms submit to the real versioned authentication client", () => {

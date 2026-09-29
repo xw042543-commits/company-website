@@ -20,6 +20,9 @@ frontend/coverage/
 backend/target/
 *.class
 
+# Accidental nested local checkout; never commit its Git metadata or local secrets.
+/backend/company-website/
+
 # Environment variables and secrets
 .env
 .env.local

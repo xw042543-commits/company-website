@@ -34,6 +34,8 @@ test("frontend and backend wait for healthy dependencies and use production conf
   const frontend = serviceBlock("frontend");
   const backend = serviceBlock("backend");
   assert.match(frontend, /API_BASE_URL: http:\/\/backend:8080/);
+  assert.match(frontend, /PUBLIC_SITE_URL: \$\{PUBLIC_SITE_URL\}/);
+  assert.match(frontend, /PUBLIC_INDEXING_ENABLED: \$\{PUBLIC_INDEXING_ENABLED:-false\}/);
   assert.match(frontend, /backend:\n\s+condition: service_healthy/);
   assert.match(backend, /SPRING_PROFILES_ACTIVE: prod/);
   assert.match(backend, /APP_CONSULTATION_SUBMISSION_ENABLED: \$\{APP_CONSULTATION_SUBMISSION_ENABLED:-false\}/);
