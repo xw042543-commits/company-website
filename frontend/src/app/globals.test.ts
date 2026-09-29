@@ -18,6 +18,8 @@ test("global styles cover the rendered header and homepage layout", () => {
   ]) {
     assert.match(css, new RegExp(`\\${selector}\\b`), `${selector} is missing from globals.css`);
   }
+
+  assert.match(css, /\.hero-intro\s*\{[^}]*font-size:\s*clamp\(1\.125rem,\s*1\.7vw,\s*1\.3rem\)/s);
 });
 
 test("global styles include the shared motion and loading system", () => {

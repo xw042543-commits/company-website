@@ -32,6 +32,8 @@ test("legacy consultation route redirects to the about enquiry section", () => {
 test("homepage uses the approved positioning and enquiry destination", () => {
   const home = read("../app/[locale]/page.tsx");
   assert.match(home, /科学规划/);
+  assert.match(home, /科学规划留学院校与专业。科学定位留学人生发展。/);
+  assert.doesNotMatch(home, /科学规划留学院校与专业，/);
   assert.match(home, /全球第一家留学生综合服务平台/);
   assert.match(home, /留学热门院校/);
   assert.match(home, /留学常见问题解答/);

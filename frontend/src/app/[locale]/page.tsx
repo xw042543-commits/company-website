@@ -47,7 +47,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <div className="hero-copy">
         <p className="section-label">{words(locale, "科学规划 · 科学定位", "Plan with evidence · Choose with purpose")}</p>
         <h1>{words(locale, "全球第一家留学生综合服务平台", "A comprehensive service platform for international students")}</h1>
-        <p className="hero-intro">{words(locale, "科学规划留学院校与专业，科学定位留学人生发展。洋豆角提供留学生全周期陪跑。", "Plan universities, courses, and long-term development with full-journey support from UDAJO.")}</p>
+        <p className="hero-intro">{words(locale, "科学规划留学院校与专业。科学定位留学人生发展。洋豆角提供留学生全周期陪跑。", "Plan universities, courses, and long-term development with full-journey support from UDAJO.")}</p>
         {signedIn ? <form action={`/${locale}/planning`} className="home-search">
           <label htmlFor="home-keyword">{words(locale, "院校查询系统", "University search")}</label>
           <div className="search-row"><SearchAutocomplete id="home-keyword" name="q" locale={locale} suggestions={courseSuggestions(locale)} placeholder={words(locale, "输入想学习的专业", "What would you like to study?")} /><button type="submit">{words(locale, "查询专业", "Find a course")}</button></div>

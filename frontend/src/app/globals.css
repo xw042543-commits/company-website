@@ -124,7 +124,7 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(340px, .82fr); align-items: center; gap: clamp(44px, 7vw, 92px); }
 .hero-copy { min-width: 0; }
 .hero h1 { margin-bottom: 24px; }
-.hero-intro { max-width: 61ch; margin-bottom: 28px; color: var(--muted); font-size: clamp(1.05rem, 1.6vw, 1.22rem); line-height: 1.65; }
+.hero-intro { max-width: 61ch; margin-bottom: 28px; color: var(--muted); font-size: clamp(1.125rem, 1.7vw, 1.3rem); line-height: 1.65; }
 .home-search { margin-top: 26px; }
 .home-search label, .directory-search label { display: block; margin-bottom: 8px; }
 .search-row { display: flex; gap: 10px; }
