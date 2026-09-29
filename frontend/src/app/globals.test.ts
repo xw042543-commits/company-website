@@ -20,7 +20,7 @@ test("global styles cover the rendered header and homepage layout", () => {
     assert.match(css, new RegExp(`\\${selector}\\b`), `${selector} is missing from globals.css`);
   }
 
-  assert.match(css, /\.hero-intro\s*\{[^}]*font-size:\s*clamp\(1\.125rem,\s*1\.7vw,\s*1\.3rem\)/s);
+  assert.match(css, /\.hero-intro\s*\{[\s\S]*?font-size:\s*clamp\(1\.125rem,\s*1\.7vw,\s*1\.3rem\)/);
 });
 
 test("global styles include the shared motion and loading system", () => {
@@ -40,7 +40,7 @@ test("global styles include the shared motion and loading system", () => {
 test("directory logos use a centered safe area with a separate hover caption", () => {
   assert.match(schoolCard, /className="school-logo-block"/);
   assert.match(schoolCard, /className="school-logo-caption"/);
-  assert.match(css, /\.school-image img\s*\{[^}]*width:\s*82%[^}]*height:\s*82%[^}]*object-position:\s*center/s);
-  assert.match(css, /\.school-logo-caption\s*\{[^}]*position:\s*static/s);
+  assert.match(css, /\.school-image img\s*\{[\s\S]*?width:\s*82%[\s\S]*?height:\s*82%[\s\S]*?object-position:\s*center/);
+  assert.match(css, /\.school-logo-caption\s*\{[\s\S]*?position:\s*static/);
   assert.match(css, /\.school-card-link:hover \.school-logo-caption/);
 });

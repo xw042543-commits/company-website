@@ -19,7 +19,7 @@ export function UniversityComparison({ locale }: { locale: Locale }) {
   const rows = [
     [words(locale, "地点", "Location"), (id: string) => { const item = UNIVERSITY_CATALOG.find((university) => university.id === id)!; return `${locale === "zh" ? item.cityZh : item.cityEn}, ${locale === "zh" ? item.countryZh : item.countryEn}`; }],
     [words(locale, "参考学费", "Tuition guidance"), (id: string) => locale === "zh" ? universityProfile(id).tuitionZh : universityProfile(id).tuitionEn],
-    [words(locale, "排名资料", "Ranking"), (id: string) => universityProfile(id).ranking],
+    [words(locale, "参考排名", "Ranking information"), (id: string) => locale === "zh" ? universityProfile(id).rankingZh : universityProfile(id).rankingEn],
     [words(locale, "入学要求", "Entry requirements"), (id: string) => locale === "zh" ? universityProfile(id).requirementsZh : universityProfile(id).requirementsEn],
     [words(locale, "热门课程方向", "Popular programmes"), (id: string) => (locale === "zh" ? universityProfile(id).subjectsZh : universityProfile(id).subjectsEn).join(" · ")],
     [words(locale, "入学时间", "Intake periods"), (id: string) => locale === "zh" ? universityProfile(id).intakesZh : universityProfile(id).intakesEn],

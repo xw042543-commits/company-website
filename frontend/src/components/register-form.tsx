@@ -37,8 +37,8 @@ export function RegisterForm({ locale, returnTo }: { locale: Locale; returnTo?: 
 
   return <div className="login-form" onInput={updateProgress} onChange={updateProgress} aria-describedby="register-preview-notice">
     <p id="register-preview-notice" className="login-notice">
-      <strong>{words(locale, "注册界面预览", "Registration interface preview")}</strong>
-      <span>{words(locale, "账户服务尚未接入。请勿填写真实个人资料或密码；此页面不会发送或保存内容。", "Account services are not connected yet. Do not enter real personal details or passwords; this page will not send or store anything.")}</span>
+      <strong>{words(locale, "注册功能预览", "Registration preview")}</strong>
+      <span>{words(locale, "注册功能目前仅供预览。请勿填写真实个人资料或密码；此页面不会发送或保存任何内容。", "Registration is currently available in preview mode only. Do not enter real personal details or passwords; nothing entered here will be sent or stored.")}</span>
     </p>
 
     <FormProgress completed={completed} total={4} locale={locale} />
@@ -64,8 +64,8 @@ export function RegisterForm({ locale, returnTo }: { locale: Locale; returnTo?: 
       {status === "mismatch" && <p id="password-mismatch" className="field-error" role="alert">{words(locale, "两次输入的密码不一致。", "The passwords do not match.")}</p>}
     </div>
 
-    <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "创建演示账户并继续", "Create demo account and continue")}</button>
-    <p className="login-support-note">{words(locale, "正式开放时，注册还需要邮箱验证和隐私同意。", "Email verification and privacy consent will be required when registration opens.")}</p>
+    <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "预览会员服务", "Preview member services")}</button>
+    <p className="login-support-note">{words(locale, "正式开放后，注册将需要完成邮箱验证并同意隐私政策。", "When registration opens, you will need to verify your email address and accept the privacy policy.")}</p>
     {status === "reviewed" && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览完成。资料已从页面清除，没有建立账户或保存内容。", "Preview complete. The details were cleared; no account was created and nothing was stored.")}</p>}
   </div>;
 }

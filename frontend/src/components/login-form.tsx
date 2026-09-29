@@ -136,11 +136,11 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: { locale: Loca
         </div>
       </div>
 
-      {codeRequested && <p className="login-status" role="status" aria-live="polite">{words(locale, "倒计时已开始，等待后端接入验证码服务。", "Countdown started, ready for the backend verification service.")}</p>}
+      {codeRequested && <p className="login-status" role="status" aria-live="polite">{words(locale, "验证码功能目前仅供预览，倒计时已开始。", "Verification codes are currently available in preview mode only. The countdown has started.")}</p>}
       <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "验证并登录", "Verify and sign in")}</button>
     </div>}
 
-    <p className="auth-integration-note"><strong>{words(locale, "前端演示", "Frontend demo")}</strong> · {words(locale, "登录服务尚未接入；输入内容不会发送或保存。继续后将开启本机会员预览。", "Authentication is not connected; entries are never sent or stored. Continuing opens the local member preview.")}</p>
-    {reviewed && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览操作完成，没有资料被发送或保存。", "Preview complete. No information was sent or stored.")}</p>}
+    <p className="auth-integration-note"><strong>{words(locale, "预览模式", "Preview mode")}</strong> · {words(locale, "请勿输入真实账户资料。此页面不会发送或保存任何内容；继续后可预览会员服务。", "Do not enter real account details. Nothing entered here will be sent or stored; continue to preview member services.")}</p>
+    {reviewed && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览已完成，没有任何资料被发送或保存。", "Preview complete. No information was sent or stored.")}</p>}
   </div>;
 }

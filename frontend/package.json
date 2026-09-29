@@ -12,7 +12,7 @@
     "test:access": "node --test src/lib/access-policy.test.ts src/lib/demo-session.test.ts src/proxy.test.ts",
     "test:api": "node --test src/lib/university-api.test.ts src/lib/filter-options-api.test.ts src/lib/article-api.test.ts src/lib/universities.test.ts",
     "test:catalog": "node --test src/data/university-catalog.test.ts src/data/local-programmes.test.ts",
-    "test:company": "node --test src/data/company-profile.test.ts src/lib/site-content.test.ts",
+    "test:company": "node --test src/data/company-profile.test.ts src/data/university-profiles.test.ts src/lib/site-content.test.ts",
     "test:styles": "node --test src/app/globals.test.ts src/app/error-pages.test.ts src/components/visual-polish.test.ts src/lib/deployment-config.test.ts"
   },
   "dependencies": {

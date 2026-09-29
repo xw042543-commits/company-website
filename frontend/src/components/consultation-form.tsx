@@ -17,7 +17,7 @@ export function ConsultationForm({ locale }: { locale: Locale }) {
   }
 
   return <form className="consultation-form" onSubmit={event => { event.preventDefault(); setReviewed(true); }} onInput={updateProgress} onChange={updateProgress}>
-    <p id="form-availability" className="form-notice">{words(locale, "咨询提交功能正在接入。请勿填写真实个人资料，此页面目前不会发送或保存内容。", "Enquiry submission is being connected. Do not enter real personal information because this page does not currently send or save anything.")}</p>
+    <p id="form-availability" className="form-notice">{words(locale, "咨询表单目前仅供预览。请勿填写真实个人资料；此页面不会发送或保存任何内容。", "The enquiry form is currently available in preview mode only. Do not enter real personal information; nothing entered here will be sent or stored.")}</p>
     <FormProgress completed={completed} total={6} locale={locale} />
     <div className="form-grid" aria-describedby="form-availability">
       <div className="field"><label htmlFor="name">{words(locale, "姓名", "Name")}</label><input id="name" name="name" autoComplete="off" maxLength={100} /></div>
@@ -28,8 +28,8 @@ export function ConsultationForm({ locale }: { locale: Locale }) {
     </div>
     <div className="field"><label htmlFor="notes">{words(locale, "备注", "Notes")}</label><textarea id="notes" name="notes" rows={5} maxLength={2000} autoComplete="off" /></div>
     <div className="consent"><input type="checkbox" id="privacy" name="privacyConsent" disabled aria-describedby="privacy-pending" /><label htmlFor="privacy">{words(locale, "隐私同意", "Privacy consent")}</label></div>
-    <p id="privacy-pending" className="muted">{words(locale, "隐私声明与必填规则确认后，才会开放同意与提交。", "Consent and submission will be enabled after the privacy notice and required-field rules are approved.")}</p>
-    <div className="form-actions"><button type="submit" className="secondary">{words(locale, "检查当前填写", "Review current entries")}</button><button type="button" disabled>{words(locale, "提交咨询，暂未开放", "Submit enquiry, unavailable")}</button></div>
+    <p id="privacy-pending" className="muted">{words(locale, "正式开放后，你需要阅读并同意隐私声明，才能提交咨询。", "When the form opens, you will need to review and accept the privacy notice before submitting an enquiry.")}</p>
+    <div className="form-actions"><button type="submit" className="secondary">{words(locale, "检查填写内容", "Review your details")}</button><button type="button" disabled>{words(locale, "咨询提交暂未开放", "Enquiry submission unavailable")}</button></div>
     {reviewed && <p role="status" aria-live="polite" className="form-notice">{words(locale, "检查完成。没有任何内容被发送或保存。", "Review complete. Nothing was sent or saved.")}</p>}
   </form>;
 }

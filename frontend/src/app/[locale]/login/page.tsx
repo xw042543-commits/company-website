@@ -41,12 +41,12 @@ export default async function LoginPage({ params, searchParams }: { params: Prom
     <section className="auth-portal-content" aria-labelledby="login-title">
       <div className="auth-portal-heading">
         <h1 id="login-title">{words(locale, "继续你的留学规划", "Continue your study journey")}</h1>
-        <p>{words(locale, "一个账户，连接你的院校选择、申请进度与顾问支持。", "One account for university choices, application progress, and adviser support.")}</p>
+        <p>{words(locale, "一个账户，集中管理你的院校选择、申请进度与顾问支持。", "One account brings together your university choices, application progress, and adviser support.")}</p>
       </div>
 
       <div className="auth-login-card">
         <aside className="auth-qr-column" aria-labelledby="wechat-login-title">
-          <p className="auth-column-label">{words(locale, "快捷登录", "Quick access")}</p>
+          <p className="auth-column-label">{words(locale, "快捷登录", "Quick sign-in")}</p>
           <h2 id="wechat-login-title">{words(locale, "微信扫码登录", "Sign in with WeChat")}</h2>
           <WeChatLogin locale={locale} returnTo={returnTo} />
         </aside>
