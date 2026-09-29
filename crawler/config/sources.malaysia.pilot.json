@@ -1,0 +1,28 @@
+{
+  "userAgent": "YangdoujiaoResearchBot/0.1",
+  "requestDelayMs": 2000,
+  "maxPagesPerSource": 12,
+  "sources": [
+    {
+      "sourceKey": "university-of-malaya",
+      "displayName": "Universiti Malaya",
+      "seedUrls": ["https://study.um.edu.my/programmes"],
+      "allowedHosts": ["study.um.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "taylors-university",
+      "displayName": "Taylor's University",
+      "seedUrls": ["https://university.taylors.edu.my/en/study/explore-all-programmes.html"],
+      "allowedHosts": ["university.taylors.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "monash-university-malaysia",
+      "displayName": "Monash University Malaysia",
+      "seedUrls": ["https://www.monash.edu.my/study/undergraduate"],
+      "allowedHosts": ["www.monash.edu.my", "monash.edu.my"],
+      "countryRaw": "Malaysia"
+    }
+  ]
+}

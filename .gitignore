@@ -15,9 +15,21 @@ frontend/node_modules/
 frontend/.next/
 frontend/out/
 frontend/coverage/
+crawler/.data/
+crawler/node_modules/
+crawler/coverage/
 
 # Java / Maven
 backend/target/
+.m2-cache/
+
+# Local database backups
+outputs/**/database-backups/
+
+# Local intake and generated working templates
+outputs/raw-data-intake-*/
+outputs/boss-data-template-*/
+outputs/website_project_template_*/
 *.class
 
 # Accidental nested local checkout; never commit its Git metadata or local secrets.

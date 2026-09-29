@@ -1,0 +1,147 @@
+{
+  "userAgent": "YangdoujiaoResearchBot/0.1 (contact: REPLACE_BEFORE_RUN)",
+  "requestDelayMs": 2000,
+  "maxPagesPerSource": 30,
+  "sources": [
+    {
+      "sourceKey": "university-of-malaya",
+      "displayName": "Universiti Malaya",
+      "seedUrls": ["https://study.um.edu.my/programmes"],
+      "allowedHosts": ["study.um.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "universiti-kebangsaan-malaysia",
+      "displayName": "Universiti Kebangsaan Malaysia",
+      "seedUrls": ["https://www.ukm.my/portal/undergraduate-programmes/"],
+      "allowedHosts": ["www.ukm.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "universiti-teknologi-malaysia",
+      "displayName": "Universiti Teknologi Malaysia",
+      "seedUrls": ["https://admission.utm.my/e-brochure/", "https://admission.utm.my/offered-allcourses-malaysian/"],
+      "allowedHosts": ["admission.utm.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "universiti-putra-malaysia",
+      "displayName": "Universiti Putra Malaysia",
+      "seedUrls": ["https://webupmwww.upm.edu.my/admission/programmes/undergraduate-75800"],
+      "allowedHosts": ["webupmwww.upm.edu.my", "www.upm.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "universiti-sains-malaysia",
+      "displayName": "Universiti Sains Malaysia",
+      "seedUrls": ["https://admission.usm.my/undergraduate/undergraduate-international"],
+      "allowedHosts": ["admission.usm.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "universiti-utara-malaysia",
+      "displayName": "Universiti Utara Malaysia",
+      "seedUrls": ["https://www.uum.edu.my/admissions/application-guidelines/undergraduate-local/local"],
+      "allowedHosts": ["www.uum.edu.my", "uum.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "taylors-university",
+      "displayName": "Taylor's University",
+      "seedUrls": ["https://university.taylors.edu.my/en/study/explore-all-programmes.html"],
+      "allowedHosts": ["university.taylors.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "ucsi-university",
+      "displayName": "UCSI University",
+      "seedUrls": ["https://www.ucsiuniversity.edu.my/programmes"],
+      "allowedHosts": ["www.ucsiuniversity.edu.my", "ucsiuniversity.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "inti-international-university",
+      "displayName": "INTI International University",
+      "seedUrls": ["https://newinti.edu.my/academic-programmes/undergraduate/"],
+      "allowedHosts": ["newinti.edu.my", "www.newinti.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "sunway-university",
+      "displayName": "Sunway University",
+      "seedUrls": ["https://sunwayuniversity.edu.my/courses"],
+      "allowedHosts": ["sunwayuniversity.edu.my", "www.sunwayuniversity.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "asia-pacific-university",
+      "displayName": "Asia Pacific University of Technology & Innovation",
+      "seedUrls": ["https://www.apu.edu.my/"],
+      "allowedHosts": ["www.apu.edu.my", "apu.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "segi-university",
+      "displayName": "SEGi University",
+      "seedUrls": ["https://www.segi.edu.my/discover-our-programmes/"],
+      "allowedHosts": ["www.segi.edu.my", "segi.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "universiti-tunku-abdul-rahman",
+      "displayName": "Universiti Tunku Abdul Rahman",
+      "seedUrls": ["https://study.utar.edu.my/undergraduate.php"],
+      "allowedHosts": ["study.utar.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "tar-umt",
+      "displayName": "Tunku Abdul Rahman University of Management and Technology",
+      "seedUrls": ["https://www.tarumt.edu.my/"],
+      "allowedHosts": ["www.tarumt.edu.my", "tarumt.edu.my", "www.tarc.edu.my", "tarc.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "monash-university-malaysia",
+      "displayName": "Monash University Malaysia",
+      "seedUrls": ["https://www.monash.edu.my/study/undergraduate"],
+      "allowedHosts": ["www.monash.edu.my", "monash.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "university-of-nottingham-malaysia",
+      "displayName": "University of Nottingham Malaysia",
+      "seedUrls": ["https://www.nottingham.edu.my/Study/Undergraduate-courses/Undergraduate-courses.aspx"],
+      "allowedHosts": ["www.nottingham.edu.my", "nottingham.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "university-of-southampton-malaysia",
+      "displayName": "University of Southampton Malaysia",
+      "seedUrls": ["https://www.southampton.ac.uk/my/undergraduate/courses.page"],
+      "allowedHosts": ["www.southampton.ac.uk", "southampton.ac.uk"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "heriot-watt-university-malaysia",
+      "displayName": "Heriot-Watt University Malaysia",
+      "seedUrls": ["https://www.hw.ac.uk/malaysia/study"],
+      "allowedHosts": ["www.hw.ac.uk", "hw.ac.uk"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "curtin-university-malaysia",
+      "displayName": "Curtin University Malaysia",
+      "seedUrls": ["https://curtin.edu.my/study/find-a-course/"],
+      "allowedHosts": ["curtin.edu.my", "www.curtin.edu.my"],
+      "countryRaw": "Malaysia"
+    },
+    {
+      "sourceKey": "university-of-reading-malaysia",
+      "displayName": "University of Reading Malaysia",
+      "seedUrls": ["https://www.reading.edu.my/admissions/programmes-intakes"],
+      "allowedHosts": ["www.reading.edu.my", "reading.edu.my"],
+      "countryRaw": "Malaysia"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+﻿code,name_zh,name_en,sort_order,status
+ON_CAMPUS,线下授课,On campus,10,DRAFT
+ONLINE,在线授课,Online,20,DRAFT
+HYBRID,混合授课,Hybrid,30,DRAFT
