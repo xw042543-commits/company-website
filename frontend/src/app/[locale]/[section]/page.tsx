@@ -25,7 +25,7 @@ const sectionCopy = {
   language: {
     label: ["语言学习与考试准备", "Language learning and test preparation"],
     title: ["语言学习", "Language learning"],
-    description: ["提供每期 4,980 元起的集中式雅思培训、实用语言指导与真实成绩案例。", "Explore focused IELTS training from CNY 4,980 per course, practical language guidance, and verified student results."],
+    description: ["提供每期 4,980 元的封闭式雅思培训，并结合实用语言指导与真实成绩案例。", "Explore an intensive IELTS programme delivered in a closed learning environment at CNY 4,980 per session, supported by practical language guidance and verified student results."],
   },
   scholarships: {
     label: ["奖学金计划", "Scholarship opportunities"],

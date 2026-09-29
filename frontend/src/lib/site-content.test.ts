@@ -88,6 +88,14 @@ test("key planning and company pages use natural bilingual copy", () => {
   assert.doesNotMatch(about, /exacting|supplied location/i);
 });
 
+test("language programme copy preserves the approved price and format", () => {
+  const sections = read("../app/[locale]/[section]/page.tsx");
+
+  assert.match(sections, /每期 4,980 元的封闭式雅思培训/);
+  assert.match(sections, /closed learning environment at CNY 4,980 per session/);
+  assert.doesNotMatch(sections, /4,980 元起|from CNY 4,980/);
+});
+
 test("directory and planning pages use clear bilingual headings", () => {
   const planning = read("../app/[locale]/planning/page.tsx");
   const universities = read("../app/[locale]/universities/page.tsx");
