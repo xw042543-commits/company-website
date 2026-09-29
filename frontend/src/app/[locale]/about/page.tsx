@@ -12,7 +12,7 @@ export default async function About({ params }: { params: Promise<{ locale: stri
   return <main id="main" className="company-page">
     <section className="company-hero" aria-labelledby="company-page-title">
       <div className="company-hero-media" aria-hidden="true">
-        <Image className="company-hero-photo" src="/brand/udajo-office.png" alt="" fill priority unoptimized sizes="(max-width: 760px) 100vw, 900px" />
+        <Image className="company-hero-photo" src="/brand/udajo-office.webp" alt="" fill priority sizes="(max-width: 760px) 100vw, 900px" />
       </div>
       <div className="container company-hero-content">
         <p className="section-label">{words(locale, "关于洋豆角", "About UDAJO")}</p>

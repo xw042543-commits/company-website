@@ -18,6 +18,8 @@ test("about page contains the enquiry journey instead of the service strip", () 
   const about = read("../app/[locale]/about/page.tsx");
   assert.match(about, /ConsultationForm/);
   assert.match(about, /CompanyContacts/);
+  assert.match(about, /udajo-office\.webp/);
+  assert.doesNotMatch(about, /udajo-office\.png|unoptimized/);
   assert.match(about, /id="enquiry"/);
   assert.match(about, /品牌使命/);
   assert.match(about, /品牌愿景/);
