@@ -1,0 +1,32 @@
+﻿code,name_zh,name_en,parent_code,sort_order,status
+BUSINESS,商科,Business,,100,DRAFT
+ACCOUNTING_FINANCE,会计与金融,Accounting and Finance,BUSINESS,110,DRAFT
+BUSINESS_MANAGEMENT,商业与管理,Business and Management,BUSINESS,120,DRAFT
+ECONOMICS,经济学,Economics,BUSINESS,130,DRAFT
+STEM,理工科,"Science, Technology, Engineering and Mathematics",,200,DRAFT
+COMPUTING_IT,计算机与信息技术,Computing and Information Technology,STEM,210,DRAFT
+ENGINEERING,工程,Engineering,STEM,220,DRAFT
+NATURAL_SCIENCES,自然科学,Natural Sciences,STEM,230,DRAFT
+MATHEMATICS_STATISTICS,数学、统计与精算,"Mathematics, Statistics and Actuarial Science",STEM,240,DRAFT
+AGRICULTURE_ENVIRONMENT,农业与环境,Agriculture and Environment,STEM,250,DRAFT
+ARCHITECTURE_BUILT_ENVIRONMENT,建筑与建成环境,Architecture and Built Environment,STEM,260,DRAFT
+HEALTH,医学与健康,Medicine and Health,,300,DRAFT
+MEDICINE,医学,Medicine,HEALTH,310,DRAFT
+DENTISTRY,牙科,Dentistry,HEALTH,320,DRAFT
+PHARMACY,药学,Pharmacy,HEALTH,330,DRAFT
+NURSING,护理,Nursing,HEALTH,340,DRAFT
+ALLIED_HEALTH,健康科学,Allied Health,HEALTH,350,DRAFT
+HUMANITIES_SOCIAL,人文与社会科学,Humanities and Social Sciences,,400,DRAFT
+ARTS_HUMANITIES,人文,Arts and Humanities,HUMANITIES_SOCIAL,410,DRAFT
+SOCIAL_SCIENCES,社会科学,Social Sciences,HUMANITIES_SOCIAL,420,DRAFT
+LANGUAGES_LINGUISTICS,语言与语言学,Languages and Linguistics,HUMANITIES_SOCIAL,430,DRAFT
+MEDIA_COMMUNICATION,媒体与传播,Media and Communication,HUMANITIES_SOCIAL,440,DRAFT
+ISLAMIC_STUDIES,伊斯兰研究,Islamic Studies,HUMANITIES_SOCIAL,450,DRAFT
+PROFESSIONAL,专业与应用学科,Professional and Applied Studies,,500,DRAFT
+LAW,法律,Law,PROFESSIONAL,510,DRAFT
+EDUCATION,教育,Education,PROFESSIONAL,520,DRAFT
+DESIGN_CREATIVE_ARTS,设计与创意艺术,Design and Creative Arts,PROFESSIONAL,530,DRAFT
+SPORTS,体育与运动,Sports and Exercise,PROFESSIONAL,540,DRAFT
+HOSPITALITY_TOURISM,酒店与旅游,Hospitality and Tourism,PROFESSIONAL,550,DRAFT
+INTERDISCIPLINARY,跨学科,Interdisciplinary Studies,PROFESSIONAL,560,DRAFT
+VETERINARY_MEDICINE,兽医学,Veterinary Medicine,HEALTH,360,DRAFT
