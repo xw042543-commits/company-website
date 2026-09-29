@@ -18,6 +18,8 @@ test("about page contains the enquiry journey instead of the service strip", () 
   const about = read("../app/[locale]/about/page.tsx");
   assert.match(about, /ConsultationForm/);
   assert.match(about, /CompanyContacts/);
+  assert.match(about, /udajo-office\.webp/);
+  assert.doesNotMatch(about, /udajo-office\.png|unoptimized/);
   assert.match(about, /id="enquiry"/);
   assert.match(about, /品牌使命/);
   assert.match(about, /品牌愿景/);
@@ -32,7 +34,7 @@ test("legacy consultation route redirects to the about enquiry section", () => {
 test("homepage uses professional bilingual positioning and enquiry destination", () => {
   const home = read("../app/[locale]/page.tsx");
   assert.match(home, /专业规划 · 清晰选择/);
-  assert.match(home, /一站式留学规划与申请支持/);
+  assert.match(home, /从选校到入学，全程安心规划/);
   assert.match(home, /From choosing a university and programme to preparing your application/);
   assert.doesNotMatch(home, /全球第一家/);
   assert.match(home, /留学热门院校/);

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
-const compose = readFileSync(new URL("../compose.production.yaml", import.meta.url), "utf8");
+const compose = readFileSync(new URL("../compose.production.yaml", import.meta.url), "utf8").replace(/\r\n/g, "\n");
 
 function serviceBlock(name) {
   const match = compose.match(new RegExp(`^  ${name}:\\n([\\s\\S]*?)(?=^  [a-z][a-z0-9_-]*:|^volumes:|^networks:|(?![\\s\\S]))`, "m"));
