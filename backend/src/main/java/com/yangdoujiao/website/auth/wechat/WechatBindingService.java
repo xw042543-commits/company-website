@@ -26,15 +26,18 @@ import jakarta.servlet.http.HttpSession;
 
 @Service
 public class WechatBindingService {
+    private final WechatAuthProperties properties;
     private final AuthenticationService authentication;
     private final UserAccountRepository accounts;
     private final UserExternalIdentityRepository identities;
     private final WechatAuthAuditLogger audit;
     private final TransactionTemplate transaction;
 
-    public WechatBindingService(AuthenticationService authentication, UserAccountRepository accounts,
+    public WechatBindingService(WechatAuthProperties properties, AuthenticationService authentication,
+            UserAccountRepository accounts,
             UserExternalIdentityRepository identities, WechatAuthAuditLogger audit,
             PlatformTransactionManager manager) {
+        this.properties = properties;
         this.authentication = authentication;
         this.accounts = accounts;
         this.identities = identities;
@@ -45,6 +48,7 @@ public class WechatBindingService {
     public AuthSessionResponse bind(BindWechatAccountRequest body, String clientAddress,
             HttpServletRequest request, HttpServletResponse response) {
         try {
+            if (!properties.enabled()) throw providerUnavailable();
             HttpSession session = request.getSession(false);
             PendingWechatIdentity pending = pending(session);
             UserPrincipal verified = authentication.verifyCredentials(
@@ -107,5 +111,10 @@ public class WechatBindingService {
     private ApiException unavailable() {
         return new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "AUTH_SERVICE_UNAVAILABLE",
                 "Authentication service is temporarily unavailable");
+    }
+
+    private ApiException providerUnavailable() {
+        return new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "WECHAT_AUTH_UNAVAILABLE",
+                "WeChat sign-in is unavailable");
     }
 }

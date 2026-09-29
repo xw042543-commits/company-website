@@ -7,6 +7,10 @@ test("checks public pages, discovery files, and backend APIs through the fronten
   const requested = [];
   const fetcher = async (url) => {
     requested.push(url);
+    if (url.endsWith("/zh")) return new Response('<meta name="robots" content="noindex, nofollow"/>');
+    if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nDisallow: /\n");
+    if (url.endsWith("/sitemap.xml")) return new Response("<urlset></urlset>");
+    if (url.endsWith("/api/v1/auth/providers")) return Response.json({ wechat: false });
     return new Response("ok", { status: 200, headers: { "content-type": "text/plain" } });
   };
   const result = await runLaunchSmoke("https://preview.yangdoujiao.com", fetcher);
@@ -23,6 +27,40 @@ test("checks public pages, discovery files, and backend APIs through the fronten
     "https://preview.yangdoujiao.com/api/v1/universities/search?page=1&size=1",
     "https://preview.yangdoujiao.com/api/v1/auth/providers",
   ]);
+});
+
+test("fails private-preview smoke when indexing is unexpectedly enabled", async () => {
+  const response = async (url) => {
+    if (url.endsWith("/zh")) return new Response('<meta name="robots" content="index, follow"/>');
+    if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nAllow: /\n");
+    if (url.endsWith("/sitemap.xml")) return new Response("<urlset><url><loc>https://preview.yangdoujiao.com/zh</loc></url></urlset>");
+    if (url.endsWith("/api/v1/auth/providers")) return Response.json({ wechat: false });
+    return new Response("ok");
+  };
+  await assert.rejects(() => runLaunchSmoke("https://preview.yangdoujiao.com", response), /noindex/);
+});
+
+test("fails smoke when WeChat availability differs from the expected launch mode", async () => {
+  const response = async (url) => {
+    if (url.endsWith("/zh")) return new Response('<meta name="robots" content="noindex, nofollow"/>');
+    if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nDisallow: /\n");
+    if (url.endsWith("/sitemap.xml")) return new Response("<urlset></urlset>");
+    if (url.endsWith("/api/v1/auth/providers")) return Response.json({ wechat: true });
+    return new Response("ok");
+  };
+  await assert.rejects(() => runLaunchSmoke("https://preview.yangdoujiao.com", response), /wechat=false/);
+});
+
+test("public smoke requires indexable metadata, robots, and a populated sitemap", async () => {
+  const response = async (url) => {
+    if (url.endsWith("/zh")) return new Response('<meta name="robots" content="index, follow"/>');
+    if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nAllow: /\nSitemap: https://yangdoujiao.com/sitemap.xml\n");
+    if (url.endsWith("/sitemap.xml")) return new Response("<urlset><url><loc>https://yangdoujiao.com/zh</loc></url></urlset>");
+    if (url.endsWith("/api/v1/auth/providers")) return Response.json({ wechat: false });
+    return new Response("ok");
+  };
+  const result = await runLaunchSmoke("https://yangdoujiao.com", response, { indexing: true, wechat: false });
+  assert.deepEqual(result, { checked: 10, failed: 0 });
 });
 
 test("fails closed for an invalid origin or unsuccessful endpoint", async () => {

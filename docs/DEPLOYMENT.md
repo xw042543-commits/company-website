@@ -50,6 +50,14 @@ docker compose --env-file .env.production -f compose.production.yaml exec -T bac
 node scripts/launch-smoke.mjs "$(grep '^PUBLIC_SITE_URL=' .env.production | cut -d= -f2-)"
 ```
 
+默认冒烟检查按私有预览模式验证：HTML 必须包含 `noindex`，`robots.txt` 必须禁止抓取，
+`sitemap.xml` 必须为空，微信登录必须关闭。获得公开收录批准后加上 `--public`；只有微信开放平台
+验收通过后才加上 `--wechat`：
+
+```bash
+node scripts/launch-smoke.mjs "https://yangdoujiao.com" --public --wechat
+```
+
 Smoke check these flows in a browser:
 
 1. English and Chinese homepages render.

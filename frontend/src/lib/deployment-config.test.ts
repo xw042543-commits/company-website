@@ -25,5 +25,6 @@ test("applies the private-preview browser security header baseline", () => {
 test("gates search indexing through an explicit server-side launch flag", () => {
   assert.match(rootLayout, /resolvePublicIndexing\(process\.env\)/);
   assert.match(rootLayout, /generateMetadata/);
+  assert.match(rootLayout, /export const dynamic = ["']force-dynamic["']/);
   assert.doesNotMatch(rootLayout, /robots:\s*\{\s*index:\s*true/);
 });

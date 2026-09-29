@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { resolvePublicIndexing } from "@/lib/public-indexing";
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
+
 export function generateMetadata(): Metadata {
   const publicIndexing = resolvePublicIndexing(process.env);
   return {
