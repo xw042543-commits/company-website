@@ -60,7 +60,16 @@ app:
       verification-per-ip: ${APP_AUTH_VERIFICATION_PER_IP:30}
       login-per-ip: ${APP_AUTH_LOGIN_PER_IP:20}
       login-per-identifier: ${APP_AUTH_LOGIN_PER_IDENTIFIER:10}
+      wechat-start-per-ip: ${APP_AUTH_WECHAT_START_PER_IP:20}
+      wechat-callback-per-ip: ${APP_AUTH_WECHAT_CALLBACK_PER_IP:30}
       window: ${APP_AUTH_RATE_LIMIT_WINDOW:1h}
+    wechat:
+      enabled: ${APP_AUTH_WECHAT_ENABLED:false}
+      app-id: ${APP_AUTH_WECHAT_APP_ID:}
+      app-secret: ${APP_AUTH_WECHAT_APP_SECRET:}
+      callback-url: ${APP_AUTH_WECHAT_CALLBACK_URL:}
+      state-ttl: ${APP_AUTH_WECHAT_STATE_TTL:5m}
+      binding-ttl: ${APP_AUTH_WECHAT_BINDING_TTL:15m}
   consultation:
     submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}
     privacy-notice-version: ${APP_CONSULTATION_PRIVACY_NOTICE_VERSION:}

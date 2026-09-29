@@ -47,6 +47,13 @@ app:
     submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}
   auth:
     registration-enabled: ${APP_AUTH_REGISTRATION_ENABLED:false}
+    wechat:
+      enabled: ${APP_AUTH_WECHAT_ENABLED:false}
+      app-id: ${APP_AUTH_WECHAT_APP_ID:}
+      app-secret: ${APP_AUTH_WECHAT_APP_SECRET:}
+      callback-url: ${APP_AUTH_WECHAT_CALLBACK_URL:}
+      state-ttl: ${APP_AUTH_WECHAT_STATE_TTL:5m}
+      binding-ttl: ${APP_AUTH_WECHAT_BINDING_TTL:15m}
     production:
       notification-provider: ${APP_AUTH_PRODUCTION_NOTIFICATION_PROVIDER:NONE}
       approved-domain: ${APP_AUTH_APPROVED_DOMAIN:NONE}

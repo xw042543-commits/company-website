@@ -21,6 +21,7 @@ const validEnvironment = {
   REDIS_PASSWORD: "redis-secret-value",
   ELASTICSEARCH_URL: "http://elasticsearch:9200",
   APP_CONSULTATION_SUBMISSION_ENABLED: "false",
+  PUBLIC_INDEXING_ENABLED: "false",
 };
 
 test("parses comments, whitespace, and quoted env values", () => {
@@ -73,6 +74,59 @@ test("requires the production profile and keeps preview submissions disabled", (
 
 test("accepts a complete private-preview environment", () => {
   assert.deepEqual(validateDeploymentEnv(validEnvironment), []);
+});
+
+test("requires an explicit indexing flag and only enables it on the official domain", () => {
+  assert.match(validateDeploymentEnv({ ...validEnvironment, PUBLIC_INDEXING_ENABLED: "yes" }).join("\n"),
+    /PUBLIC_INDEXING_ENABLED.*true or false/);
+  assert.match(validateDeploymentEnv({
+    ...validEnvironment,
+    PUBLIC_INDEXING_ENABLED: "true",
+    PUBLIC_SITE_URL: "https://preview.example.test",
+  }).join("\n"), /PUBLIC_INDEXING_ENABLED.*yangdoujiao\.com/);
+  assert.deepEqual(validateDeploymentEnv({
+    ...validEnvironment,
+    PUBLIC_INDEXING_ENABLED: "true",
+    PUBLIC_SITE_URL: "https://yangdoujiao.com",
+    CORS_ALLOWED_ORIGINS: "https://yangdoujiao.com",
+  }), []);
+});
+
+test("accepts disabled WeChat login without credentials", () => {
+  assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, APP_AUTH_WECHAT_ENABLED: "false" }), []);
+});
+
+test("requires safe complete WeChat configuration when enabled", () => {
+  const incomplete = validateDeploymentEnv({ ...validEnvironment, APP_AUTH_WECHAT_ENABLED: "true" });
+  assert.match(incomplete.join("\n"), /APP_AUTH_WECHAT_APP_ID/);
+  assert.match(incomplete.join("\n"), /APP_AUTH_WECHAT_APP_SECRET/);
+  assert.match(incomplete.join("\n"), /APP_AUTH_WECHAT_CALLBACK_URL/);
+
+  const wrongOrigin = validateDeploymentEnv({
+    ...validEnvironment,
+    APP_AUTH_WECHAT_ENABLED: "true",
+    APP_AUTH_WECHAT_APP_ID: "wx-company-client",
+    APP_AUTH_WECHAT_APP_SECRET: "company-owned-secret",
+    APP_AUTH_WECHAT_CALLBACK_URL: "https://evil.example/api/v1/auth/wechat/callback",
+  });
+  assert.match(wrongOrigin.join("\n"), /PUBLIC_SITE_URL origin/);
+
+  const wrongPath = validateDeploymentEnv({
+    ...validEnvironment,
+    APP_AUTH_WECHAT_ENABLED: "true",
+    APP_AUTH_WECHAT_APP_ID: "wx-company-client",
+    APP_AUTH_WECHAT_APP_SECRET: "company-owned-secret",
+    APP_AUTH_WECHAT_CALLBACK_URL: "https://preview.yangdoujiao.com/oauth/callback",
+  });
+  assert.match(wrongPath.join("\n"), /api\/v1\/auth\/wechat\/callback/);
+
+  assert.deepEqual(validateDeploymentEnv({
+    ...validEnvironment,
+    APP_AUTH_WECHAT_ENABLED: "true",
+    APP_AUTH_WECHAT_APP_ID: "wx-company-client",
+    APP_AUTH_WECHAT_APP_SECRET: "company-owned-secret",
+    APP_AUTH_WECHAT_CALLBACK_URL: "https://preview.yangdoujiao.com/api/v1/auth/wechat/callback",
+  }), []);
 });
 
 test("never includes secret values in validation errors", () => {

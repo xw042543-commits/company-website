@@ -335,3 +335,24 @@ APP_TRUSTED_PROXIES=
 直接访问后端。未配置可信代理时，后端始终使用直连地址进行限流。
 咨询、认证和生产 HTTPS 转发判断共用此名单。旧 `APP_CONSULTATION_TRUSTED_PROXIES`
 与 `APP_AUTH_TRUSTED_PROXIES` 可暂时回退；若多个名单不一致，应用启动失败。
+
+## 微信网站扫码登录
+
+微信登录默认关闭。`GET /api/v1/auth/providers` 只返回可用性，例如
+`{"wechat":false}`，不会返回 AppID、AppSecret 或回调地址。关闭时，前端不显示微信入口。
+
+启用后的流程如下：
+
+1. `GET /api/v1/auth/wechat/start?locale=zh&returnTo=/zh/account` 发起授权；
+2. 微信开放平台回调 `GET /api/v1/auth/wechat/callback`；
+3. 已绑定的有效账号直接建立现有服务端 Session；
+4. 未绑定身份跳回登录页，通过 `POST /api/v1/auth/wechat/bind` 验证已有邮箱或手机号账号后绑定。
+
+绑定请求格式为：
+
+```json
+{"identifier":"member@example.com","password":"账户密码","rememberMe":false}
+```
+
+授权 `state`、待绑定微信身份和登录 Session 都只保存在服务端。接口不会根据微信身份自动
+创建未验证账号，也不会把授权 code、Token、Session ID 或微信原始标识写入公开响应。

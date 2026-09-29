@@ -11,6 +11,7 @@ test("frontend CI uses the server-only API base URL", () => {
 
 test("CI validates deployment contracts and Compose configuration", () => {
   assert.match(workflow, /^  deployment:/m);
+  assert.match(workflow, /^\s+PUBLIC_INDEXING_ENABLED=false$/m);
   for (const file of [
     "deployment-preflight.test.mjs",
     "deployment-artifacts.test.mjs",

@@ -16,6 +16,7 @@ import com.yangdoujiao.website.auth.account.AuthValidationException;
 import com.yangdoujiao.website.auth.config.AuthProperties;
 import com.yangdoujiao.website.auth.config.AuthRateLimitProperties;
 import com.yangdoujiao.website.auth.config.SessionCookieConfig;
+import com.yangdoujiao.website.auth.account.UserAccount;
 import com.yangdoujiao.website.auth.ratelimit.AuthRateLimiter;
 import com.yangdoujiao.website.common.exception.ApiException;
 
@@ -44,6 +45,11 @@ public class AuthenticationService {
 
     public UserPrincipal login(String identifier, String password, boolean rememberMe,
             String clientAddress, HttpServletRequest request, HttpServletResponse response) {
+        UserPrincipal principal = verifyCredentials(identifier, password, clientAddress);
+        return establishSession(principal, rememberMe, request, response);
+    }
+
+    public UserPrincipal verifyCredentials(String identifier, String password, String clientAddress) {
         String canonical = canonical(identifier);
         String subject = AuthHash.sha256(canonical);
         if (password == null || password.isEmpty()) {
@@ -55,21 +61,34 @@ public class AuthenticationService {
                     UsernamePasswordAuthenticationToken.unauthenticated(canonical, password));
             UserPrincipal principal = (UserPrincipal) authentication.getPrincipal();
             limiter.clear("login-identifier", subject);
-            SecurityContext context = SecurityContextHolder.createEmptyContext();
-            context.setAuthentication(authentication);
-            SecurityContextHolder.setContext(context);
-            if (rememberMe) {
-                request.setAttribute(SessionCookieConfig.REMEMBER_ME_REQUEST_ATTRIBUTE, Boolean.TRUE);
-            }
-            contexts.saveContext(context, request, response);
-            request.changeSessionId();
-            request.getSession(false).setMaxInactiveInterval(Math.toIntExact(
-                    (rememberMe ? properties.rememberedSessionTimeout() : properties.sessionTimeout()).toSeconds()));
             return principal;
         } catch (AuthenticationException exception) {
             fail(clientAddress, subject);
             throw invalid();
         }
+    }
+
+    public UserPrincipal establishExternalSession(UserAccount account, HttpServletRequest request,
+            HttpServletResponse response) {
+        return establishSession(UserPrincipal.from(account), false, request, response);
+    }
+
+    public UserPrincipal establishSession(UserPrincipal principal, boolean rememberMe,
+            HttpServletRequest request, HttpServletResponse response) {
+        // Never persist password hashes in Spring Session. Password authentication normally
+        // erases credentials in ProviderManager; external-login paths must get the same guarantee.
+        principal.eraseCredentials();
+        Authentication authentication = UsernamePasswordAuthenticationToken.authenticated(
+                principal, null, principal.getAuthorities());
+        SecurityContext context = SecurityContextHolder.createEmptyContext();
+        context.setAuthentication(authentication);
+        SecurityContextHolder.setContext(context);
+        if (rememberMe) request.setAttribute(SessionCookieConfig.REMEMBER_ME_REQUEST_ATTRIBUTE, Boolean.TRUE);
+        contexts.saveContext(context, request, response);
+        request.changeSessionId();
+        request.getSession(false).setMaxInactiveInterval(Math.toIntExact(
+                (rememberMe ? properties.rememberedSessionTimeout() : properties.sessionTimeout()).toSeconds()));
+        return principal;
     }
 
     private String canonical(String identifier) {
