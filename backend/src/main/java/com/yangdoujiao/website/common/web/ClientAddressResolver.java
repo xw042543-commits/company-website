@@ -1,6 +1,7 @@
-package com.yangdoujiao.website.consultation;
+package com.yangdoujiao.website.common.web;
 
 import java.net.InetAddress;
+import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -9,21 +10,24 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import jakarta.servlet.http.HttpServletRequest;
 
 @Component
-public class ConsultationClientAddressResolver {
+public class ClientAddressResolver {
 
     private static final int MAXIMUM_FORWARDED_HEADER_LENGTH = 2_048;
 
     private final Set<String> trustedProxies;
 
-    public ConsultationClientAddressResolver(
-            @Value("${app.consultation.trusted-proxies:}") String[] trustedProxies
-    ) {
+    @Autowired
+    public ClientAddressResolver(TrustedProxySettings settings) {
+        this(settings.addresses());
+    }
+
+    public ClientAddressResolver(String[] trustedProxies) {
         this.trustedProxies = new HashSet<>();
         Arrays.stream(trustedProxies)
                 .map(String::trim)
@@ -91,7 +95,13 @@ public class ConsultationClientAddressResolver {
         }
         try {
             InetAddress address = InetAddress.getByName(candidate);
-            return address instanceof Inet6Address ? address.getHostAddress() : null;
+            if (address instanceof Inet6Address) {
+                return address.getHostAddress();
+            }
+            if (address instanceof Inet4Address) {
+                return address.getHostAddress();
+            }
+            return null;
         } catch (UnknownHostException exception) {
             return null;
         }

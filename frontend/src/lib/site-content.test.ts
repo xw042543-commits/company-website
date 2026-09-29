@@ -53,10 +53,10 @@ test("public copy uses consistent professional bilingual terminology", () => {
   assert.match(sections, /Study abroad insights and company updates/);
   assert.match(results, /院校资料正在完善/);
   assert.match(results, /University information is being prepared/);
-  assert.match(registration, /注册功能预览/);
-  assert.match(registration, /Registration preview/);
-  assert.match(recovery, /密码重设功能预览/);
-  assert.match(recovery, /Password reset preview/);
+  assert.match(registration, /创建账户/);
+  assert.match(registration, /Create account/);
+  assert.match(recovery, /发送重设说明/);
+  assert.match(recovery, /Send reset instructions/);
   assert.doesNotMatch([sections, results, registration, recovery].join("\n"), /正在接入|being connected|backend integration/i);
 });
 
@@ -66,13 +66,11 @@ test("user-facing status copy avoids implementation language", () => {
     read("../components/filter-panel.tsx"),
     read("../components/login-form.tsx"),
     read("../components/school-card.tsx"),
-    read("../components/wechat-login.tsx"),
     read("../app/[locale]/universities/[slug]/page.tsx"),
   ].join("\n");
 
   assert.doesNotMatch(sources, /正在接入|尚未接入|等待后端|being connected|not connected|backend integration|awaiting approval|after approval/i);
-  assert.match(sources, /预览模式/);
-  assert.match(sources, /preview mode/);
+  assert.doesNotMatch(read("../components/login-form.tsx"), /预览模式|preview mode/i);
 });
 
 test("key planning and company pages use natural bilingual copy", () => {

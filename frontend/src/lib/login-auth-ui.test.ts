@@ -5,14 +5,13 @@ import test from "node:test";
 
 const read = (path: string) => readFileSync(fileURLToPath(new URL(path, import.meta.url)), "utf8");
 
-test("login page uses a focused portal shell with QR and account columns", () => {
+test("login page uses a focused portal shell for the real account flow", () => {
   const page = read("../app/[locale]/login/page.tsx");
   const panel = read("../components/auth-account-panel.tsx");
   assert.match(page, /auth-portal-header/);
   assert.match(page, /auth-login-card/);
-  assert.match(page, /auth-qr-column/);
   assert.match(panel, /auth-form-column/);
-  assert.match(page, /WeChatLogin/);
+  assert.doesNotMatch(page, /WeChatLogin|auth-qr-column/);
   assert.match(page, /Back to website|返回网站/);
 });
 
@@ -42,11 +41,14 @@ test("account form provides password and phone tabs with keyboard navigation", (
   assert.match(source, /ArrowLeft/);
 });
 
-test("WeChat column exposes backend-ready QR states", () => {
-  const source = read("../components/wechat-login.tsx");
-  for (const state of ["waiting", "scanned", "expired", "error"]) assert.match(source, new RegExp(state));
-  assert.match(source, /wechatQrUrl/);
-  assert.match(source, /Refresh QR|刷新二维码/);
+test("account forms submit to the real versioned authentication client", () => {
+  const login = read("../components/login-form.tsx");
+  const register = read("../components/register-form.tsx");
+  assert.match(login, /import \{ login \} from "@\/lib\/auth-api"/);
+  assert.match(register, /registerAccount/);
+  assert.match(login, /browserApiBaseUrl/);
+  assert.match(register, /browserApiBaseUrl/);
+  assert.doesNotMatch(`${login}\n${register}`, /demo|尚未接入|not connected/i);
 });
 
 test("login background uses scroll-linked transform motion with a reduced-motion fallback", () => {
@@ -96,11 +98,11 @@ test("account mode switch remains readable on hover", () => {
   assert.match(css, /\.auth-form-switch:hover\s*\{[\s\S]*?background:\s*transparent[\s\S]*?color:\s*var\(--brand-deep\)/);
 });
 
-test("demo account actions require completed visible fields", () => {
-  const login = read("../components/login-form.tsx");
-  const register = read("../components/register-form.tsx");
-  assert.match(login, /reportValidity/);
-  assert.match(register, /reportValidity/);
-  assert.match(login, /required/);
-  assert.match(register, /required/);
+test("verification forms let users request replacement instructions", () => {
+  const email = read("../components/email-verification-form.tsx");
+  const phone = read("../components/phone-verification-form.tsx");
+  assert.match(email, /resendVerification/);
+  assert.match(email, /Resend verification email/);
+  assert.match(phone, /resendVerification/);
+  assert.match(phone, /Resend verification code/);
 });

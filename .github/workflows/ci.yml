@@ -31,6 +31,10 @@ jobs:
       ELASTICSEARCH_PORT: "9200"
       ELASTICSEARCH_URL: http://localhost:9200
       CORS_ALLOWED_ORIGINS: http://localhost:3000
+      APP_AUTH_PRODUCTION_NOTIFICATION_PROVIDER: NONE
+      APP_AUTH_APPROVED_DOMAIN: NONE
+      APP_AUTH_PRODUCTION_LAUNCH_APPROVED: "false"
+      APP_SESSION_COOKIE_SECURE: "false"
 
     steps:
       - name: Check out repository
