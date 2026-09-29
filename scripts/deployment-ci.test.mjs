@@ -27,3 +27,18 @@ test("CI builds both production images", () => {
   assert.match(workflow, /docker build --tag udajo\/frontend:ci frontend/);
   assert.match(workflow, /docker build --tag udajo\/backend:ci backend/);
 });
+
+test("CI starts and probes the production topology before cleanup", () => {
+  assert.match(workflow, /PUBLIC_SITE_URL=https:\/\/preview\.yangdoujiao\.com/);
+  assert.match(workflow, /CORS_ALLOWED_ORIGINS=https:\/\/preview\.yangdoujiao\.com/);
+  assert.match(workflow, /APP_AUTH_PUBLIC_SITE_ORIGIN=https:\/\/preview\.yangdoujiao\.com/);
+  assert.match(workflow, /FRONTEND_IMAGE=udajo\/frontend:ci/);
+  assert.match(workflow, /BACKEND_IMAGE=udajo\/backend:ci/);
+  assert.match(workflow, /compose\.production\.yaml[^\n]*up -d --no-build --wait/);
+  assert.match(workflow, /X-Forwarded-Proto: https/);
+  assert.match(workflow, /--fail-with-body[^\n]*3000\/healthz/);
+  assert.doesNotMatch(workflow, /3000\/zh\/universities/);
+  assert.match(workflow, /api\/v1\/auth\/providers/);
+  assert.match(workflow, /if: always\(\)/);
+  assert.match(workflow, /compose\.production\.yaml[^\n]*down --volumes/);
+});

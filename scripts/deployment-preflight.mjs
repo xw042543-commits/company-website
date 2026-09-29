@@ -18,7 +18,35 @@ export const REQUIRED_DEPLOYMENT_VARIABLES = [
   "REDIS_PASSWORD",
   "ELASTICSEARCH_URL",
   "APP_CONSULTATION_SUBMISSION_ENABLED",
+  "DEPLOYMENT_NETWORK_SUBNET",
+  "FRONTEND_INTERNAL_IP",
+  "BACKEND_INTERNAL_IP",
 ];
+
+function ipv4Number(value) {
+  const octets = value.split(".");
+  if (octets.length !== 4 || octets.some((octet) => !/^(?:0|[1-9]\d{0,2})$/.test(octet)
+      || Number(octet) > 255)) return null;
+  return octets.reduce((address, octet) => address * 256 + Number(octet), 0);
+}
+
+function ipv4Cidr(value) {
+  const match = value.match(/^([^/]+)\/(\d{1,2})$/);
+  if (!match) return null;
+  const address = ipv4Number(match[1]);
+  const prefix = Number(match[2]);
+  if (address === null || prefix < 16 || prefix > 29) return null;
+  const blockSize = 2 ** (32 - prefix);
+  if (address % blockSize !== 0) return null;
+  const endAddress = address + blockSize - 1;
+  const privateRanges = [
+    [ipv4Number("10.0.0.0"), ipv4Number("10.255.255.255")],
+    [ipv4Number("172.16.0.0"), ipv4Number("172.31.255.255")],
+    [ipv4Number("192.168.0.0"), ipv4Number("192.168.255.255")],
+  ];
+  if (!privateRanges.some(([start, end]) => address >= start && endAddress <= end)) return null;
+  return { address, blockSize };
+}
 
 export function parseEnv(source) {
   const values = {};
@@ -93,6 +121,23 @@ export function validateDeploymentEnv(environment) {
   }
   if (valueFor("APP_CONSULTATION_SUBMISSION_ENABLED") && valueFor("APP_CONSULTATION_SUBMISSION_ENABLED") !== "false") {
     errors.push("APP_CONSULTATION_SUBMISSION_ENABLED must remain false for the private preview.");
+  }
+
+  const network = ipv4Cidr(valueFor("DEPLOYMENT_NETWORK_SUBNET"));
+  if (valueFor("DEPLOYMENT_NETWORK_SUBNET") && !network) {
+    errors.push("DEPLOYMENT_NETWORK_SUBNET must be a network-aligned private IPv4 CIDR between /16 and /29.");
+  }
+  const frontendAddress = ipv4Number(valueFor("FRONTEND_INTERNAL_IP"));
+  const backendAddress = ipv4Number(valueFor("BACKEND_INTERNAL_IP"));
+  for (const [name, address] of [["FRONTEND_INTERNAL_IP", frontendAddress], ["BACKEND_INTERNAL_IP", backendAddress]]) {
+    if (valueFor(name) && address === null) errors.push(`${name} must be a literal IPv4 address.`);
+    else if (network && address !== null
+        && (address <= network.address || address >= network.address + network.blockSize - 1)) {
+      errors.push(`${name} must be a usable address inside DEPLOYMENT_NETWORK_SUBNET.`);
+    }
+  }
+  if (frontendAddress !== null && backendAddress !== null && frontendAddress === backendAddress) {
+    errors.push("FRONTEND_INTERNAL_IP and BACKEND_INTERNAL_IP must be different.");
   }
 
   const wechatEnabled = valueFor("APP_AUTH_WECHAT_ENABLED");

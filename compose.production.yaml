@@ -9,6 +9,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 10s
@@ -23,6 +25,8 @@ services:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     volumes:
       - redis-data:/data
+    networks:
+      - data
     healthcheck:
       test: ["CMD-SHELL", "redis-cli -a \"$$REDIS_PASSWORD\" ping | grep PONG"]
       interval: 10s
@@ -38,6 +42,8 @@ services:
       ES_JAVA_OPTS: -Xms512m -Xmx512m
     volumes:
       - elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - data
     healthcheck:
       test: ["CMD-SHELL", "curl --fail --silent http://localhost:9200/_cluster/health?wait_for_status=yellow >/dev/null"]
       interval: 15s
@@ -67,7 +73,7 @@ services:
       APP_CONSULTATION_MAXIMUM_BODY_SIZE: ${APP_CONSULTATION_MAXIMUM_BODY_SIZE:-16KB}
       APP_CONSULTATION_RATE_LIMIT_MAXIMUM_SUBMISSIONS: ${APP_CONSULTATION_RATE_LIMIT_MAXIMUM_SUBMISSIONS:-5}
       APP_CONSULTATION_RATE_LIMIT_WINDOW: ${APP_CONSULTATION_RATE_LIMIT_WINDOW:-10m}
-      APP_TRUSTED_PROXIES: ${APP_TRUSTED_PROXIES:-}
+      APP_TRUSTED_PROXIES: "127.0.0.1,${FRONTEND_INTERNAL_IP}"
       APP_AUTH_REGISTRATION_ENABLED: ${APP_AUTH_REGISTRATION_ENABLED:-false}
       APP_AUTH_AGREEMENT_VERSION: ${APP_AUTH_AGREEMENT_VERSION:-}
       APP_AUTH_PRIVACY_VERSION: ${APP_AUTH_PRIVACY_VERSION:-}
@@ -89,8 +95,12 @@ services:
         condition: service_healthy
       elasticsearch:
         condition: service_healthy
+    networks:
+      frontend-backend:
+        ipv4_address: ${BACKEND_INTERNAL_IP}
+      data:
     healthcheck:
-      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8080/actuator/health/readiness"]
+      test: ["CMD", "curl", "--fail", "--silent", "--header", "X-Forwarded-Proto: https", "http://127.0.0.1:8080/actuator/health/readiness"]
       interval: 15s
       timeout: 5s
       retries: 20
@@ -111,6 +121,9 @@ services:
         condition: service_healthy
     ports:
       - "${FRONTEND_BIND_ADDRESS:-127.0.0.1}:${FRONTEND_PORT:-3000}:3000"
+    networks:
+      frontend-backend:
+        ipv4_address: ${FRONTEND_INTERNAL_IP}
     healthcheck:
       test: ["CMD", "node", "-e", "fetch('http://localhost:3000').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
       interval: 15s
@@ -123,3 +136,10 @@ volumes:
   postgres-data:
   redis-data:
   elasticsearch-data:
+
+networks:
+  frontend-backend:
+    ipam:
+      config:
+        - subnet: ${DEPLOYMENT_NETWORK_SUBNET}
+  data:
