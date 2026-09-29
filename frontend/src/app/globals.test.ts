@@ -44,3 +44,9 @@ test("directory logos use a centered safe area with a separate hover caption", (
   assert.match(css, /\.school-logo-caption\s*\{[\s\S]*?position:\s*static/);
   assert.match(css, /\.school-card-link:hover \.school-logo-caption/);
 });
+
+test("benefit cards use an even two-column alignment", () => {
+  assert.match(css, /\.benefits\s*\{[^}]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(css, /\.benefits\s*\{[^}]*grid-auto-rows:\s*minmax\(140px,\s*auto\)/);
+  assert.doesNotMatch(css, /\.benefits article:nth-child/);
+});

@@ -207,11 +207,9 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .pathway-card h3 { margin-bottom: 10px; font-size: clamp(1.25rem, 2vw, 1.55rem); }
 .pathway-card p { max-width: 36ch; color: var(--muted); }
 .pathway-action { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 24px; color: var(--brand-action); font-size: .9rem; font-weight: 760; }
-.benefits { display: grid; grid-template-columns: 1.12fr .88fr; gap: 0 clamp(38px, 6vw, 88px); border-top: 1px solid var(--line); }
+.benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(140px, auto); gap: 0 clamp(38px, 6vw, 88px); border-top: 1px solid var(--line); }
 .benefits article { min-height: 140px; padding: 28px 0; border-bottom: 1px solid var(--line); transition: background-color 200ms var(--ease-out), padding-left 200ms var(--ease-out); }
-.benefits article:nth-child(2), .benefits article:nth-child(3) { padding-inline: 24px; }
 .benefits article:hover { padding-left: 12px; background: linear-gradient(90deg, rgb(232 242 245 / 72%), transparent); }
-.benefits article:nth-child(2):hover, .benefits article:nth-child(3):hover { padding-left: 36px; }
 .benefits h3 { margin-bottom: 10px; }
 .benefits p { max-width: 46ch; color: var(--muted); }
 .process-section { border-top: 1px solid var(--line); background: var(--wash); color: var(--ink); }
@@ -552,8 +550,8 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .pathway-grid { grid-template-columns: minmax(0, 1fr); }
   .pathway-card { min-height: 0; }
   .benefits { grid-template-columns: 1fr; gap: 0; }
-  .benefits article, .benefits article:nth-child(2), .benefits article:nth-child(3) { min-height: 0; margin-top: 0; padding: 24px 0; }
-  .benefits article:hover, .benefits article:nth-child(2):hover, .benefits article:nth-child(3):hover { padding-left: 0; }
+  .benefits article { min-height: 0; margin-top: 0; padding: 24px 0; }
+  .benefits article:hover { padding-left: 0; }
   .process { grid-template-columns: 1fr; border-top: 0; }
   .process li, .process li + li { display: grid; grid-template-columns: 46px 1fr; align-items: center; gap: 12px; padding: 17px 0; border-left: 0; border-bottom: 1px solid var(--line); }
   .process h3 { margin: 0; }
