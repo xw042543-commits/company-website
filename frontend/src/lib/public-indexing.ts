@@ -4,22 +4,12 @@ export type PublicIndexingConfig = {
 };
 
 const DEFAULT_ORIGIN = "https://yangdoujiao.com";
-const PUBLIC_ROUTES = [
+export const PUBLIC_INDEX_ROUTES = [
   "/zh",
   "/en",
-  "/zh/universities",
-  "/en/universities",
   "/zh/about",
   "/en/about",
-  "/zh/language",
-  "/en/language",
-  "/zh/scholarships",
-  "/en/scholarships",
-  "/zh/programmes",
-  "/en/programmes",
-  "/zh/news",
-  "/en/news",
-];
+] as const;
 
 export function resolvePublicIndexing(environment: Record<string, string | undefined>): PublicIndexingConfig {
   const requested = environment.PUBLIC_INDEXING_ENABLED === "true";
@@ -37,7 +27,7 @@ export function buildRobotsText(config: PublicIndexingConfig): string {
 
 export function buildSitemapXml(config: PublicIndexingConfig): string {
   const urls = config.enabled
-    ? PUBLIC_ROUTES.map((route) => `<url><loc>${config.origin}${route}</loc></url>`).join("")
+    ? PUBLIC_INDEX_ROUTES.map((route) => `<url><loc>${config.origin}${route}</loc></url>`).join("")
     : "";
   return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`;
 }
