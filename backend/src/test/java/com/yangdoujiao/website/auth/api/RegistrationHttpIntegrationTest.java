@@ -9,15 +9,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.UUID;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,13 +34,10 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import com.jayway.jsonpath.JsonPath;
 import com.yangdoujiao.website.TestContainersConfiguration;
 import com.yangdoujiao.website.auth.account.AccountIdentifierType;
+import com.yangdoujiao.website.auth.verification.AuthNotificationSender;
 import com.yangdoujiao.website.auth.verification.LocalAuthNotificationStore;
 import com.yangdoujiao.website.auth.verification.VerificationService;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -43,14 +45,20 @@ import static org.mockito.Mockito.verify;
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-@Import(TestContainersConfiguration.class)
+@Import({TestContainersConfiguration.class, RegistrationHttpIntegrationTest.ControlledNotifications.class})
 class RegistrationHttpIntegrationTest {
     private static final AtomicInteger ADDRESS = new AtomicInteger();
     @Autowired private MockMvc mvc;
     @Autowired private JdbcTemplate jdbc;
     @MockitoSpyBean private PasswordEncoder passwords;
     @MockitoSpyBean private VerificationService verification;
-    @MockitoSpyBean private LocalAuthNotificationStore notifications;
+    @Autowired private LocalAuthNotificationStore notifications;
+    @Autowired private ControlledNotificationSender notificationSender;
+
+    @BeforeEach
+    void resetNotificationSender() {
+        notificationSender.reset();
+    }
 
     @Test
     void duplicateRegistrationStillRunsPasswordEncoding() throws Exception {
@@ -74,15 +82,30 @@ class RegistrationHttpIntegrationTest {
     }
 
     @Test
+    void notificationOutageReturnsSame503BeforeAccountLookup() throws Exception {
+        String known = email();
+        register(known, null);
+        notificationSender.setAvailable(false);
+        mvc.perform(write("resend-verification", "{\"identifier\":\"" + known + "\"}"))
+                .andExpect(status().isServiceUnavailable())
+                .andExpect(jsonPath("$.code").value("AUTH_SERVICE_UNAVAILABLE"));
+        mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
+                .andExpect(status().isServiceUnavailable())
+                .andExpect(jsonPath("$.code").value("AUTH_SERVICE_UNAVAILABLE"));
+        mvc.perform(write("register", "{\"fullName\":\"Test\",\"email\":\"" + email()
+                        + "\",\"password\":\"correct-horse-42\",\"agreementAccepted\":true,\"privacyAccepted\":true}"))
+                .andExpect(status().isServiceUnavailable());
+        mvc.perform(write("register", "{\"fullName\":\"Test\",\"email\":\"" + known
+                        + "\",\"password\":\"correct-horse-42\",\"agreementAccepted\":true,\"privacyAccepted\":true}"))
+                .andExpect(status().isServiceUnavailable());
+    }
+
+    @Test
     void unexpectedPostCommitDeliveryFailureDoesNotExposeAccountExistence() throws Exception {
         String known = email();
         register(known, null);
         CountDownLatch deliveryFailed = new CountDownLatch(1);
-        doAnswer(invocation -> {
-            deliveryFailed.countDown();
-            throw new IllegalStateException("secret-provider-message");
-        }).when(notifications)
-                .sendEmailVerification(anyString(), anyString(), any(), anyLong(), any(Instant.class));
+        notificationSender.failEmailDeliveries(deliveryFailed);
         String knownResponse = mvc.perform(write("resend-verification", "{\"identifier\":\"" + known + "\"}"))
                 .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
         String unknownResponse = mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
@@ -203,4 +226,82 @@ class RegistrationHttpIntegrationTest {
     }
 
     private String email() { return "task5-" + UUID.randomUUID() + "@example.com"; }
+
+    @TestConfiguration(proxyBeanMethods = false)
+    static class ControlledNotifications {
+        @Bean
+        @Primary
+        ControlledNotificationSender controlledNotificationSender(LocalAuthNotificationStore delegate) {
+            return new ControlledNotificationSender(delegate);
+        }
+    }
+
+    static final class ControlledNotificationSender implements AuthNotificationSender {
+        private final LocalAuthNotificationStore delegate;
+        private volatile boolean available = true;
+        private volatile CountDownLatch emailFailure;
+
+        ControlledNotificationSender(LocalAuthNotificationStore delegate) {
+            this.delegate = delegate;
+        }
+
+        void reset() {
+            available = true;
+            emailFailure = null;
+        }
+
+        void setAvailable(boolean available) {
+            this.available = available;
+        }
+
+        void failEmailDeliveries(CountDownLatch failure) {
+            emailFailure = failure;
+        }
+
+        @Override
+        public boolean isAvailable() {
+            return available;
+        }
+
+        @Override
+        public long reserveIssueSequence() {
+            return delegate.reserveIssueSequence();
+        }
+
+        @Override
+        public void sendEmailVerification(String email, String token, Locale locale) {
+            delegate.sendEmailVerification(email, token, locale);
+        }
+
+        @Override
+        public void sendPhoneVerification(String phone, String code, Locale locale) {
+            delegate.sendPhoneVerification(phone, code, locale);
+        }
+
+        @Override
+        public void sendPasswordReset(String identifier, String token, Locale locale) {
+            delegate.sendPasswordReset(identifier, token, locale);
+        }
+
+        @Override
+        public void sendEmailVerification(String email, String token, Locale locale, long sequence, Instant expiresAt) {
+            CountDownLatch failure = emailFailure;
+            if (failure != null) {
+                failure.countDown();
+                throw new IllegalStateException("secret-provider-message");
+            }
+            delegate.sendEmailVerification(email, token, locale, sequence, expiresAt);
+        }
+
+        @Override
+        public void sendPhoneVerification(String phone, String code, Locale locale, long sequence, Instant expiresAt) {
+            delegate.sendPhoneVerification(phone, code, locale, sequence, expiresAt);
+        }
+
+        @Override
+        public void sendPasswordReset(String identifier, String token, Locale locale,
+                long sequence, Instant expiresAt) {
+            delegate.sendPasswordReset(identifier, token, locale, sequence, expiresAt);
+        }
+    }
 }
