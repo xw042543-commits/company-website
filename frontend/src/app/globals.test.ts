@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const css = readFileSync(fileURLToPath(new URL("./globals.css", import.meta.url)), "utf8");
+const schoolCard = readFileSync(fileURLToPath(new URL("../components/school-card.tsx", import.meta.url)), "utf8");
 
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
@@ -34,4 +35,12 @@ test("global styles include the shared motion and loading system", () => {
   }
 
   assert.match(css, /prefers-reduced-motion:\s*reduce/, "reduced-motion support is missing");
+});
+
+test("directory logos use a centered safe area with a separate hover caption", () => {
+  assert.match(schoolCard, /className="school-logo-block"/);
+  assert.match(schoolCard, /className="school-logo-caption"/);
+  assert.match(css, /\.school-image img\s*\{[^}]*width:\s*82%[^}]*height:\s*82%[^}]*object-position:\s*center/s);
+  assert.match(css, /\.school-logo-caption\s*\{[^}]*position:\s*static/s);
+  assert.match(css, /\.school-card-link:hover \.school-logo-caption/);
 });

@@ -313,9 +313,12 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .school-card-link:hover .school-card { background: var(--support-blue); box-shadow: inset 3px 0 var(--brand); transform: translateY(-2px); }
 .school-card-link:active .school-card { transform: translateY(0); }
 .school-card-link:focus-visible { outline-offset: 2px; }
-.school-image { position: relative; height: 150px; min-height: 150px; display: grid; place-items: center; overflow: hidden; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; color: #53746a; }
-.school-image img { width: 100%; height: 100%; object-fit: contain; }
-.school-image span { font-size: 1rem; font-weight: 800; letter-spacing: .06em; }
+.school-logo-block { min-width: 0; align-self: start; display: grid; gap: 7px; }
+.school-image { position: relative; height: 150px; min-height: 150px; display: grid; place-items: center; overflow: hidden; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; color: #53746a; }
+.school-image img { width: 82%; height: 82%; display: block; object-fit: contain; object-position: center; }
+.school-initials { font-size: 1rem; font-weight: 800; letter-spacing: .06em; }
+.school-logo-caption { position: static; min-height: 1.35em; overflow: hidden; color: var(--brand-action); font-size: .7rem; font-weight: 700; line-height: 1.35; text-align: center; text-overflow: ellipsis; white-space: nowrap; opacity: 0; transform: translateY(-3px); transition: opacity 170ms var(--ease-out), transform 170ms var(--ease-out); }
+.school-card-link:hover .school-logo-caption, .school-card-link:focus-visible .school-logo-caption { opacity: 1; transform: translateY(0); }
 .school-content { min-width: 0; overflow-wrap: anywhere; }
 .school-content h3 { margin-bottom: 5px; font-size: 1.35rem; }
 .school-secondary-name, .detail-secondary-name { margin: 0 0 6px; color: var(--brand-deep); font-size: .92rem; font-weight: 650; }
@@ -395,7 +398,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .country-flag { width: 22px; height: 14px; flex: 0 0 22px; overflow: hidden; border: 1px solid rgb(21 63 54 / 14%); border-radius: 2px; box-shadow: 0 1px 2px rgb(21 63 54 / 8%); }
 .country-code { padding: 1px 5px; border: 1px solid var(--line); border-radius: 3px; font-size: .62rem; font-weight: 800; letter-spacing: .04em; }
 .university-logo-label { position: absolute; z-index: 2; left: 50%; bottom: 8px; max-width: calc(100% - 16px); padding: 5px 8px; border-radius: 4px; background: rgb(21 63 54 / 92%); color: #fff; font-size: .68rem !important; font-weight: 700 !important; line-height: 1.25; text-align: center; opacity: 0; pointer-events: none; transform: translate(-50%, 5px); transition: opacity 170ms var(--ease-out), transform 170ms var(--ease-out); }
-.school-card-link:hover .university-logo-label, .school-card-link:focus-visible .university-logo-label, .university-logo-track a:hover .university-logo-label, .university-logo-track a:focus-visible .university-logo-label { opacity: 1; transform: translate(-50%, 0); }
+.university-logo-track a:hover .university-logo-label, .university-logo-track a:focus-visible .university-logo-label { opacity: 1; transform: translate(-50%, 0); }
 .university-logo-track a { position: relative; }
 .loading-page { min-height: 62vh; }
 .loading-status { color: var(--muted); font-size: .86rem; }

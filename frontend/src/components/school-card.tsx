@@ -20,10 +20,13 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
   const detailHref = `/${locale}/universities/${school ? encodeURIComponent(school.slug) : "preview"}`;
 
   return <Link className="school-card-link" href={detailHref}><article className="school-card">
-    <div className="school-image">
-      {school?.logoSrc
-        ? <><Image src={school.logoSrc} width={320} height={180} sizes="(max-width: 520px) 100vw, 150px" alt={words(locale, `${name} 标志`, `${name} logo`)} /><span className="university-logo-label" aria-hidden="true">{name}</span></>
-        : <span aria-hidden="true">{initials(name)}</span>}
+    <div className="school-logo-block">
+      <div className="school-image">
+        {school?.logoSrc
+          ? <Image src={school.logoSrc} width={320} height={180} sizes="(max-width: 520px) 100vw, 150px" alt={words(locale, `${name} 标志`, `${name} logo`)} />
+          : <span className="school-initials" aria-hidden="true">{initials(name)}</span>}
+      </div>
+      {school?.logoSrc && <span className="school-logo-caption" aria-hidden="true">{name}</span>}
     </div>
     <div className="school-content">
       {!school && <p className="section-label">{words(locale, "展示格式，不代表真实院校资料", "Example format, not a university record")}</p>}
