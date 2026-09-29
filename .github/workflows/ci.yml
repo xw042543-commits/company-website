@@ -130,11 +130,11 @@ jobs:
         shell: bash
         run: |
           cat > "$RUNNER_TEMP/deployment.env" <<'EOF'
-          PUBLIC_SITE_URL=https://preview.example.test
+          PUBLIC_SITE_URL=https://preview.yangdoujiao.com
           PUBLIC_INDEXING_ENABLED=false
           API_BASE_URL=http://backend:8080
           SPRING_PROFILES_ACTIVE=prod
-          CORS_ALLOWED_ORIGINS=https://preview.example.test
+          CORS_ALLOWED_ORIGINS=https://preview.yangdoujiao.com
           POSTGRES_DB=company_website
           POSTGRES_USER=company_app
           POSTGRES_PASSWORD=ci-only-postgres-secret
@@ -146,8 +146,17 @@ jobs:
           ELASTICSEARCH_URL=http://elasticsearch:9200
           ELASTICSEARCH_PORT=9200
           APP_CONSULTATION_SUBMISSION_ENABLED=false
+          APP_AUTH_REGISTRATION_ENABLED=false
+          APP_SESSION_COOKIE_SECURE=true
+          APP_AUTH_PRODUCTION_NOTIFICATION_PROVIDER=NONE
+          APP_AUTH_APPROVED_DOMAIN=YANGDOUJIAO_COM
+          APP_AUTH_PUBLIC_SITE_ORIGIN=https://preview.yangdoujiao.com
+          APP_AUTH_PRODUCTION_LAUNCH_APPROVED=false
+          APP_AUTH_WECHAT_ENABLED=false
           FRONTEND_BIND_ADDRESS=127.0.0.1
           FRONTEND_PORT=3000
+          FRONTEND_IMAGE=udajo/frontend:ci
+          BACKEND_IMAGE=udajo/backend:ci
           EOF
 
       - name: Validate deployment contracts
@@ -163,3 +172,19 @@ jobs:
 
       - name: Build backend production image
         run: docker build --tag udajo/backend:ci backend
+
+      - name: Start and verify production topology
+        run: |
+          docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml up -d --no-build --wait --wait-timeout 300
+          curl --fail --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:3000/zh >/dev/null
+          curl --fail --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:3000/api/v1/auth/providers >/dev/null
+
+      - name: Show production topology logs after a failure
+        if: failure()
+        run: |
+          docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml ps
+          docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml logs --no-color --tail=200 frontend backend
+
+      - name: Stop production topology
+        if: always()
+        run: docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml down --volumes

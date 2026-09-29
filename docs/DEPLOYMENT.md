@@ -22,6 +22,10 @@ docker compose --env-file .env.production -f compose.production.yaml config --qu
 
 Both commands must pass before deployment.
 
+## HTTPS proxy boundary
+
+The public HTTPS reverse proxy must connect only to `127.0.0.1:3000`; never publish or proxy the backend port directly. Before forwarding a request, remove all client-supplied forwarded headers (`Forwarded` and `X-Forwarded-*`), then set exactly one `X-Forwarded-Proto: https` header. This boundary lets the frontend identify HTTPS requests without allowing clients to forge trusted proxy metadata.
+
 ## 2. Build and start
 
 For a host build:
@@ -46,7 +50,7 @@ Do not use a moving `latest` tag for a release.
 The backend readiness endpoint is private. Check it inside its container:
 
 ```bash
-docker compose --env-file .env.production -f compose.production.yaml exec -T backend curl --fail --silent http://localhost:8080/actuator/health/readiness
+docker compose --env-file .env.production -f compose.production.yaml exec -T backend curl --fail --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:8080/actuator/health/readiness
 node scripts/launch-smoke.mjs "$(grep '^PUBLIC_SITE_URL=' .env.production | cut -d= -f2-)"
 ```
 

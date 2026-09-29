@@ -100,7 +100,7 @@ services:
         ipv4_address: 172.30.0.20
       data:
     healthcheck:
-      test: ["CMD", "curl", "--fail", "--silent", "--header", "X-Forwarded-Proto: https", "http://localhost:8080/actuator/health/readiness"]
+      test: ["CMD", "curl", "--fail", "--silent", "--header", "X-Forwarded-Proto: https", "http://127.0.0.1:8080/actuator/health/readiness"]
       interval: 15s
       timeout: 5s
       retries: 20
