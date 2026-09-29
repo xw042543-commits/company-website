@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AuthAccountPanel } from "@/components/auth-account-panel";
-import { WeChatLogin } from "@/components/wechat-login";
 import { safeReturnTo } from "@/lib/access-policy";
 import { isLocale, words } from "@/lib/site";
 
@@ -41,16 +40,10 @@ export default async function LoginPage({ params, searchParams }: { params: Prom
     <section className="auth-portal-content" aria-labelledby="login-title">
       <div className="auth-portal-heading">
         <h1 id="login-title">{words(locale, "继续你的留学规划", "Continue your study journey")}</h1>
-        <p>{words(locale, "一个账户，连接你的院校选择、申请进度与顾问支持。", "One account for university choices, application progress, and adviser support.")}</p>
+        <p>{words(locale, "使用邮箱或手机号码安全登录并管理个人账户。", "Sign in securely with your email address or phone number and manage your account.")}</p>
       </div>
 
       <div className="auth-login-card">
-        <aside className="auth-qr-column" aria-labelledby="wechat-login-title">
-          <p className="auth-column-label">{words(locale, "快捷登录", "Quick access")}</p>
-          <h2 id="wechat-login-title">{words(locale, "微信扫码登录", "Sign in with WeChat")}</h2>
-          <WeChatLogin locale={locale} returnTo={returnTo} />
-        </aside>
-
         <AuthAccountPanel locale={locale} initialMode={accountMode} returnTo={returnTo} />
       </div>
     </section>

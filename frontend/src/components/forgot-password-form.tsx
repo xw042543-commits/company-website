@@ -1,28 +1,35 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { Locale, words } from "@/lib/site";
+import { type FormEvent, useState } from "react";
+import { requestPasswordReset } from "@/lib/auth-api";
+import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
+import { type Locale, words } from "@/lib/site";
 
 export function ForgotPasswordForm({ locale }: { locale: Locale }) {
-  const [reviewed, setReviewed] = useState(false);
-  const emailRef = useRef<HTMLInputElement>(null);
+  const [identifier, setIdentifier] = useState("");
+  const [pending, setPending] = useState(false);
+  const [message, setMessage] = useState<AuthMessage | null>(null);
 
-  function handlePreview() {
-    if (emailRef.current) emailRef.current.value = "";
-    setReviewed(true);
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setPending(true);
+    setMessage(null);
+    const result = await requestPasswordReset(browserApiBaseUrl(), {
+      identifier: identifier.trim(), locale,
+    });
+    setPending(false);
+    setMessage(result.status === "accepted"
+      ? { tone: "success", text: words(locale, "如果该账户存在，我们会发送密码重设说明。", "If the account exists, password reset instructions will be sent.") }
+      : authMessage(locale, result));
   }
 
-  return <div className="login-form" onChange={() => setReviewed(false)} aria-describedby="recovery-preview-notice">
-    <p id="recovery-preview-notice" className="login-notice">
-      <strong>{words(locale, "密码重设预览", "Password reset preview")}</strong>
-      <span>{words(locale, "邮件服务尚未接入。请勿填写真实邮箱；此页面不会发送邮件或保存资料。", "Email delivery is not connected yet. Do not enter a real email address; this page will not send an email or store any details.")}</span>
-    </p>
+  return <form className="login-form" onSubmit={handleSubmit}>
     <div className="field">
-      <label htmlFor="recovery-email">{words(locale, "账户邮箱", "Account email")}</label>
-      <input ref={emailRef} id="recovery-email" type="email" autoComplete="off" maxLength={160} placeholder={words(locale, "请输入注册邮箱", "Enter your registered email")} />
+      <label htmlFor="recovery-identifier">{words(locale, "邮箱或手机号码", "Email or phone number")}</label>
+      <input id="recovery-identifier" type="text" autoComplete="username" maxLength={160} required value={identifier} onChange={(event) => { setIdentifier(event.target.value); setMessage(null); }} placeholder={words(locale, "请输入注册邮箱或手机号码", "Enter your registered email or phone number")} />
     </div>
-    <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "预览发送重设链接", "Preview reset link")}</button>
-    <p className="login-support-note">{words(locale, "正式开放后，重设链接将设有有效期限并只能使用一次。", "When enabled, reset links will expire and can only be used once.")}</p>
-    {reviewed && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览完成。没有发送邮件，邮箱资料已从页面清除。", "Preview complete. No email was sent, and the address was cleared from the page.")}</p>}
-  </div>;
+    <button className="full-width" type="submit" disabled={pending}>{pending ? words(locale, "正在提交…", "Submitting…") : words(locale, "发送重设说明", "Send reset instructions")}</button>
+    {message && <p className={`login-status auth-status-${message.tone}`} role={message.tone === "error" ? "alert" : "status"} aria-live="polite">{message.text}</p>}
+  </form>;
 }

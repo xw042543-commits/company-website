@@ -1,12 +1,21 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { DEMO_SESSION_COOKIE } from "@/lib/demo-session";
+import { isProtectedPath } from "@/lib/access-policy";
+import { hasAuthenticatedSession } from "@/lib/auth-session-core";
 import { proxyRedirectPath } from "@/lib/proxy-policy";
+import { resolveApiBaseUrl } from "@/lib/runtime-config-core";
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
+  const protectedPath = isProtectedPath(request.nextUrl.pathname);
+  const authenticated = protectedPath
+    ? await hasAuthenticatedSession(
+        resolveApiBaseUrl(process.env, process.env.NODE_ENV),
+        request.headers.get("cookie"),
+      )
+    : false;
   const redirectPath = proxyRedirectPath(
     request.nextUrl.pathname,
     request.nextUrl.search,
-    request.cookies.get(DEMO_SESSION_COOKIE)?.value,
+    authenticated,
   );
 
   return redirectPath

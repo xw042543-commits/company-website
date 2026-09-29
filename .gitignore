@@ -28,3 +28,6 @@ backend/target/
 # Logs
 *.log
 npm-debug.log*
+
+# Local Superpowers coordination ledger and review reports
+.superpowers/sdd/

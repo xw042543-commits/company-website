@@ -50,7 +50,7 @@ curl --fail --silent --show-error http://127.0.0.1:3000/zh >/dev/null
 Smoke check these flows in a browser:
 
 1. English and Chinese homepages render.
-2. Registration, password reset, and login pages render without claiming real authentication.
+2. Login and password-reset forms use the real authentication service; registration remains closed until its production gate is approved.
 3. An anonymous protected route redirects to login.
 4. University browsing and search return reviewed records.
 5. Consultation submission remains disabled for the private preview.

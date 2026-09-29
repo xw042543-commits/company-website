@@ -10,8 +10,9 @@ The current target is a private preview. Do not make it public until every appli
 
 ## Accounts and communication
 
-- [ ] Replace demo sessions with real authentication, secure server-side sessions, verified logout, authorization, rate limits, and audit logging.
-- [ ] Complete account registration, password reset, email verification, and account deletion flows.
+- [x] Replace demo sessions with real authentication, secure server-side sessions, verified logout, authorization, and rate limits.
+- [x] Complete account registration, password reset, email verification, and account deletion flows.
+- [ ] Complete the production authentication security review and add the required audit-log retention process.
 - [ ] Configure and verify production email, SMS, and WeChat providers, callback domains, templates, consent, failure handling, and vendor credentials.
 - [ ] Add abuse prevention and support procedures before enabling consultation submission.
 

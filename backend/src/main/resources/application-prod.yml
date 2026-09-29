@@ -14,10 +14,15 @@ spring:
       password: ${REDIS_PASSWORD}
 
 server:
-  forward-headers-strategy: framework
+  # 只允许应用自己的可信代理校验处理转发头，避免信任客户端伪造的 Forwarded 信息。
+  forward-headers-strategy: none
   error:
     include-message: never
     include-stacktrace: never
+  servlet:
+    session:
+      cookie:
+        secure: ${APP_SESSION_COOKIE_SECURE:false}
 
 management:
   endpoints:
@@ -40,3 +45,10 @@ app:
     allowed-origins: ${CORS_ALLOWED_ORIGINS}
   consultation:
     submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}
+  auth:
+    registration-enabled: ${APP_AUTH_REGISTRATION_ENABLED:false}
+    production:
+      notification-provider: ${APP_AUTH_PRODUCTION_NOTIFICATION_PROVIDER:NONE}
+      approved-domain: ${APP_AUTH_APPROVED_DOMAIN:NONE}
+      public-site-origin: ${APP_AUTH_PUBLIC_SITE_ORIGIN:}
+      launch-approved: ${APP_AUTH_PRODUCTION_LAUNCH_APPROVED:false}

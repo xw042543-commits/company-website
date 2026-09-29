@@ -17,7 +17,19 @@ spring:
       time-to-live: 10m
       cache-null-values: false
 
+  session:
+    timeout: ${APP_AUTH_SESSION_TIMEOUT:24h}
+    jdbc:
+      table-name: spring_session
+      initialize-schema: never
+
 server:
+  servlet:
+    session:
+      cookie:
+        name: JSESSIONID
+        http-only: true
+        same-site: lax
   error:
     include-message: never
     include-stacktrace: never
@@ -28,6 +40,27 @@ logging:
     com.yangdoujiao.website: INFO
 
 app:
+  trusted-proxies: ${APP_TRUSTED_PROXIES:}
+  auth:
+    registration-enabled: ${APP_AUTH_REGISTRATION_ENABLED:false}
+    agreement-version: ${APP_AUTH_AGREEMENT_VERSION:}
+    privacy-version: ${APP_AUTH_PRIVACY_VERSION:}
+    session-timeout: ${APP_AUTH_SESSION_TIMEOUT:24h}
+    remembered-session-timeout: ${APP_AUTH_REMEMBERED_SESSION_TIMEOUT:30d}
+    email-verification-ttl: ${APP_AUTH_EMAIL_VERIFICATION_TTL:30m}
+    phone-verification-ttl: ${APP_AUTH_PHONE_VERIFICATION_TTL:10m}
+    password-reset-ttl: ${APP_AUTH_PASSWORD_RESET_TTL:30m}
+    maximum-body-size: ${APP_AUTH_MAXIMUM_BODY_SIZE:8KB}
+    trusted-proxies: ${APP_AUTH_TRUSTED_PROXIES:}
+    rate-limit:
+      registration-per-ip: ${APP_AUTH_REGISTRATION_PER_IP:5}
+      registration-per-identifier: ${APP_AUTH_REGISTRATION_PER_IDENTIFIER:3}
+      resend-per-ip: ${APP_AUTH_RESEND_PER_IP:10}
+      resend-per-identifier: ${APP_AUTH_RESEND_PER_IDENTIFIER:3}
+      verification-per-ip: ${APP_AUTH_VERIFICATION_PER_IP:30}
+      login-per-ip: ${APP_AUTH_LOGIN_PER_IP:20}
+      login-per-identifier: ${APP_AUTH_LOGIN_PER_IDENTIFIER:10}
+      window: ${APP_AUTH_RATE_LIMIT_WINDOW:1h}
   consultation:
     submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}
     privacy-notice-version: ${APP_CONSULTATION_PRIVACY_NOTICE_VERSION:}

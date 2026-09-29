@@ -1,18 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
 import { FeaturedUniversityCarousel } from "@/components/featured-university-carousel";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
-import { DEMO_SESSION_COOKIE, isDemoSessionValue } from "@/lib/demo-session";
+import { isRequestAuthenticated } from "@/lib/server-auth";
 import { isLocale, words } from "@/lib/site";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  const cookieStore = await cookies();
-  const signedIn = isDemoSessionValue(cookieStore.get(DEMO_SESSION_COOKIE)?.value);
+  const signedIn = await isRequestAuthenticated();
   const memberHref = (path: string) => signedIn
     ? `/${locale}/${path}`
     : `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/${path}`)}`;
