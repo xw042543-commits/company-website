@@ -44,6 +44,16 @@ test("frontend and backend wait for healthy dependencies and use production conf
   }
 });
 
+test("frontend has a stable trusted proxy identity and backend readiness reports HTTPS", () => {
+  const frontend = serviceBlock("frontend");
+  const backend = serviceBlock("backend");
+  assert.match(frontend, /ipv4_address: 172\.30\.0\.10/);
+  assert.match(backend, /ipv4_address: 172\.30\.0\.20/);
+  assert.match(backend, /APP_TRUSTED_PROXIES: "127\.0\.0\.1,172\.30\.0\.10"/);
+  assert.match(backend, /X-Forwarded-Proto: https/);
+  assert.match(compose, /subnet: 172\.30\.0\.0\/24/);
+});
+
 test("stateful services use named volumes", () => {
   assert.match(serviceBlock("postgres"), /postgres-data:\/var\/lib\/postgresql\/data/);
   assert.match(serviceBlock("redis"), /redis-data:\/data/);
