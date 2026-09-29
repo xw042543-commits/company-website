@@ -8,6 +8,97 @@
 所有响应都带有 `X-Trace-Id`。客户端可传入由 1～64 个字母、数字、点、
 下划线或短横线组成的 `X-Trace-Id`；未传或格式不合法时，后端自动生成 UUID。
 
+## 用户注册与登录
+
+认证使用 PostgreSQL 会话和 `JSESSIONID` Cookie，不使用前端保存的 JWT。浏览器
+请求必须带 `credentials: "include"`。所有会改变数据的请求必须先取得 CSRF
+Token，再将返回的 `headerName` 和 `token` 加入请求头。
+
+### 公开认证接口
+
+| 方法 | 路径 | 用途 |
+| --- | --- | --- |
+| `GET` | `/api/v1/auth/csrf` | 获取 CSRF 请求头名称和 Token |
+| `GET` | `/api/v1/auth/session` | 查询当前是否已登录 |
+| `POST` | `/api/v1/auth/register` | 使用邮箱或手机号注册 |
+| `POST` | `/api/v1/auth/resend-verification` | 重发验证信息 |
+| `POST` | `/api/v1/auth/verify-email` | 使用邮件 Token 完成验证 |
+| `POST` | `/api/v1/auth/verify-phone` | 使用手机号和验证码完成验证 |
+| `POST` | `/api/v1/auth/login` | 邮箱/手机号与密码登录 |
+| `POST` | `/api/v1/auth/logout` | 退出并作废当前会话 |
+| `POST` | `/api/v1/auth/forgot-password` | 申请重置密码，响应不暴露账号是否存在 |
+| `POST` | `/api/v1/auth/reset-password` | 使用一次性 Token 重置密码 |
+
+各写接口的 JSON 字段：
+
+| 路径 | 请求字段 |
+| --- | --- |
+| `/register` | `fullName`、`email`、`phone`、`password`、`agreementAccepted`、`privacyAccepted`、`locale` |
+| `/resend-verification` | `identifier`、`locale` |
+| `/verify-email` | `token` |
+| `/verify-phone` | `phone`、`code` |
+| `/login` | `identifier`、`password`、`rememberMe` |
+| `/forgot-password` | `identifier`、`locale` |
+| `/reset-password` | `token`、`newPassword` |
+
+注册请求示例：
+
+```json
+{
+  "fullName": "Example User",
+  "email": "user@example.com",
+  "phone": null,
+  "password": "example-password",
+  "agreementAccepted": true,
+  "privacyAccepted": true,
+  "locale": "zh"
+}
+```
+
+邮箱和手机号二选一。注册和找回密码返回通用结果，避免被用来批量探测已注册
+账号。完成验证后才能登录。`rememberMe=false` 时会话默认有效 24 小时，
+`rememberMe=true` 时默认有效 30 天。
+
+下面示例使用临时 Cookie 文件演示 CSRF 与登录顺序，请不要在命令或文档中填写真实密码：
+
+```bash
+curl -c /tmp/udajo-cookie.txt http://localhost:8080/api/v1/auth/csrf
+curl -b /tmp/udajo-cookie.txt -c /tmp/udajo-cookie.txt \
+  -H 'Content-Type: application/json' \
+  -H 'X-XSRF-TOKEN: <value-from-csrf-response>' \
+  -d '{"identifier":"student@example.com","password":"local-test-password","rememberMe":false}' \
+  http://localhost:8080/api/v1/auth/login
+```
+
+### 需要登录的账号接口
+
+| 方法 | 路径 | 用途 |
+| --- | --- | --- |
+| `GET` | `/api/v1/account` | 查询脱敏后的账号资料 |
+| `PUT` | `/api/v1/account/password` | 校验旧密码后修改密码，并作废已有会话 |
+| `DELETE` | `/api/v1/account` | 校验密码和确认字段后软删除账号 |
+
+`PUT /password` 的 JSON 为 `currentPassword` 和 `newPassword`；`DELETE /account` 的 JSON
+为 `currentPassword` 和 `confirmation`，其中 `confirmation` 必须精确填写 `DELETE`。
+
+### 本地联调
+
+在 `dev` 或 `test` Profile 中，只有从本机回环地址访问时才能读取最新的一次性
+验证通知：
+本地开放注册还需要在本人 `.env` 中设置
+`APP_AUTH_REGISTRATION_ENABLED=true`，并为 `APP_AUTH_AGREEMENT_VERSION` 和
+`APP_AUTH_PRIVACY_VERSION` 填写非空的本地版本号。
+
+```text
+GET /api/dev/auth/notifications/latest?identifier=user@example.com
+```
+
+读取成功后该条通知立即消费。此接口在 `prod` Profile 不存在，不能作为正式邮件
+或短信服务的替代。
+
+正式环境启用注册前，必须同时确认 HTTPS、官网域名、CORS 来源、Secure Cookie、
+正式协议版本和真实邮件/短信通道。默认配置会保持生产注册关闭。
+
 ## 筛选字典
 
 ### `GET /api/v1/catalog/filter-options`

@@ -58,3 +58,12 @@ test("login page no longer exposes the admin preview", () => {
   const source = read("../app/[locale]/login/page.tsx");
   assert.doesNotMatch(source, /admin|管理员界面预览/i);
 });
+
+test("verification forms let users request replacement instructions", () => {
+  const email = read("../components/email-verification-form.tsx");
+  const phone = read("../components/phone-verification-form.tsx");
+  assert.match(email, /resendVerification/);
+  assert.match(email, /Resend verification email/);
+  assert.match(phone, /resendVerification/);
+  assert.match(phone, /Resend verification code/);
+});

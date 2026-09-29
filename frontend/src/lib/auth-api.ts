@@ -2,8 +2,6 @@ export type AuthSession = {
   authenticated: boolean;
   userId: number | null;
   fullName: string | null;
-  email: string | null;
-  phone: string | null;
 };
 
 export type AccountProfile = {
@@ -27,6 +25,7 @@ export type RegisterAccountRequest = {
 };
 
 export type LoginRequest = { identifier: string; password: string; rememberMe: boolean };
+export type ResendVerificationRequest = { identifier: string; locale: string };
 export type VerifyEmailRequest = { token: string };
 export type VerifyPhoneRequest = { phone: string; code: string };
 export type PasswordResetRequest = { identifier: string; locale: string };
@@ -97,15 +96,13 @@ function parseCsrf(payload: unknown): { headerName: string; token: string } | nu
 
 function parseSession(payload: unknown): AuthSession | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["authenticated", "userId", "fullName", "email", "phone"])
+    || !hasExactKeys(payload, ["authenticated", "userId", "fullName"])
     || typeof payload.authenticated !== "boolean"
-    || !isNullableString(payload.fullName)
-    || !isNullableString(payload.email)
-    || !isNullableString(payload.phone)) return null;
+    || !isNullableString(payload.fullName)) return null;
 
   if (payload.authenticated) {
     if (!isPositiveInteger(payload.userId) || !payload.fullName?.trim()) return null;
-  } else if (payload.userId !== null || payload.fullName !== null || payload.email !== null || payload.phone !== null) {
+  } else if (payload.userId !== null || payload.fullName !== null) {
     return null;
   }
   return payload as AuthSession;
@@ -248,6 +245,13 @@ export async function login(baseUrl: string | undefined, body: LoginRequest, req
 
 export async function registerAccount(baseUrl: string | undefined, body: RegisterAccountRequest, request: typeof fetch = fetch): Promise<RegistrationResult> {
   const result = await authWrite(baseUrl, "/api/v1/auth/register", "POST", body, 202, parseRegistration, request);
+  return result.status === "accepted" && "value" in result
+    ? { status: "accepted", verificationMethod: result.value.verificationMethod }
+    : result as FailureResult;
+}
+
+export async function resendVerification(baseUrl: string | undefined, body: ResendVerificationRequest, request: typeof fetch = fetch): Promise<RegistrationResult> {
+  const result = await authWrite(baseUrl, "/api/v1/auth/resend-verification", "POST", body, 202, parseRegistration, request);
   return result.status === "accepted" && "value" in result
     ? { status: "accepted", verificationMethod: result.value.verificationMethod }
     : result as FailureResult;

@@ -10,6 +10,7 @@ import {
   login,
   logout,
   registerAccount,
+  resendVerification,
   requestPasswordReset,
   resetPassword,
   verifyEmail,
@@ -39,8 +40,6 @@ const session = {
   authenticated: true,
   userId: 7,
   fullName: "Wang Xin",
-  email: "student@example.com",
-  phone: null,
 };
 
 test("loads csrf and sends credentials on login", async () => {
@@ -67,7 +66,7 @@ test("strictly validates csrf and session payloads", async () => {
   const malformedSession = requestQueue([jsonResponse({ authenticated: true, userId: "7" })]);
   assert.deepEqual(await getSession("http://localhost:8080", malformedSession.request), { status: "error" });
 
-  const anonymous = { authenticated: false, userId: null, fullName: null, email: null, phone: null };
+  const anonymous = { authenticated: false, userId: null, fullName: null };
   const validSession = requestQueue([jsonResponse(anonymous)]);
   assert.deepEqual(await getSession("http://localhost:8080", validSession.request), {
     status: "ready",
@@ -134,6 +133,18 @@ test("uses the correct methods and csrf protection for every write endpoint", as
     assert.equal(calls[1].init?.credentials, "include");
     assert.equal(new Headers(calls[1].init?.headers).get(csrf.headerName), csrf.token);
   }
+});
+
+test("resends verification instructions through the versioned auth endpoint", async () => {
+  const accepted = { verificationMethod: "PHONE", message: "Instructions sent" };
+  const { calls, request } = requestQueue([jsonResponse(csrf), jsonResponse(accepted, 202)]);
+
+  assert.deepEqual(await resendVerification("http://localhost:8080", {
+    identifier: "+60123456789",
+    locale: "en",
+  }, request), { status: "accepted", verificationMethod: "PHONE" });
+  assert.equal(new URL(calls[1].url).pathname, "/api/v1/auth/resend-verification");
+  assert.equal(calls[1].init?.method, "POST");
 });
 
 test("loads and strictly validates the masked account profile", async () => {

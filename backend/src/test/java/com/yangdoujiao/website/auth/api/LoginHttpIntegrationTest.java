@@ -63,6 +63,7 @@ class LoginHttpIntegrationTest {
                 .andExpect(jsonPath("$.authenticated").value(true))
                 .andExpect(jsonPath("$.userId").value((int) userId))
                 .andReturn();
+        assertThat(cookie(login.getResponse(), "JSESSIONID").getMaxAge()).isEqualTo(2_592_000);
         String newId = sessionId(userId);
         assertThat(newId).isNotEqualTo(oldId);
         assertThat(jdbc.queryForObject("SELECT max_inactive_interval FROM spring_session WHERE session_id = ?",

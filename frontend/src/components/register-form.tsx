@@ -42,7 +42,8 @@ export function RegisterForm({ locale }: { locale: Locale }) {
     setPending(false);
     if (result.status === "accepted") {
       const destination = registrationDestination(locale, result.verificationMethod);
-      const query = result.verificationMethod === "PHONE" ? `?phone=${encodeURIComponent(identifier.trim())}` : "";
+      const queryName = result.verificationMethod === "PHONE" ? "phone" : "email";
+      const query = `?${queryName}=${encodeURIComponent(identifier.trim())}`;
       router.push(`${destination}${query}`);
       return;
     }

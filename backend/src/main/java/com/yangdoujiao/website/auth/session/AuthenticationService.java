@@ -15,6 +15,7 @@ import com.yangdoujiao.website.auth.account.AccountIdentifierNormalizer;
 import com.yangdoujiao.website.auth.account.AuthValidationException;
 import com.yangdoujiao.website.auth.config.AuthProperties;
 import com.yangdoujiao.website.auth.config.AuthRateLimitProperties;
+import com.yangdoujiao.website.auth.config.SessionCookieConfig;
 import com.yangdoujiao.website.auth.ratelimit.AuthRateLimiter;
 import com.yangdoujiao.website.common.exception.ApiException;
 
@@ -57,6 +58,9 @@ public class AuthenticationService {
             SecurityContext context = SecurityContextHolder.createEmptyContext();
             context.setAuthentication(authentication);
             SecurityContextHolder.setContext(context);
+            if (rememberMe) {
+                request.setAttribute(SessionCookieConfig.REMEMBER_ME_REQUEST_ATTRIBUTE, Boolean.TRUE);
+            }
             contexts.saveContext(context, request, response);
             request.changeSessionId();
             request.getSession(false).setMaxInactiveInterval(Math.toIntExact(
