@@ -20,7 +20,10 @@ test("deployment runbook covers validation, startup, checks, immutable updates, 
     /launch-smoke\.mjs/,
   ]) assert.match(document, pattern);
   assert.match(document, /Database rollback is never automatic/i);
-  assert.match(document, /127\.0\.0\.1:3000/);
+  assert.match(document, /Caddy/);
+  assert.match(document, /automatic HTTPS/i);
+  assert.match(document, /ports 80 and 443/i);
+  assert.match(document, /frontend:3000/);
   assert.match(document, /X-Forwarded-Proto/);
   assert.match(document, /X-Forwarded-For/);
   assert.match(document, /remove[^\n]*client[^\n]*forwarded headers/i);

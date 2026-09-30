@@ -11,23 +11,39 @@ function serviceBlock(name) {
 }
 
 test("production topology includes all required services with health checks", () => {
-  for (const name of ["frontend", "backend", "postgres", "redis", "elasticsearch"]) {
+  for (const name of ["caddy", "frontend", "backend", "postgres", "redis", "elasticsearch"]) {
     assert.match(serviceBlock(name), /^    healthcheck:/m, `${name} needs a health check`);
     assert.match(serviceBlock(name), /^    restart: unless-stopped/m, `${name} needs a restart policy`);
   }
 });
 
 test("production data services preserve the project-pinned versions", () => {
+  assert.match(serviceBlock("caddy"), /image: caddy:2\.11\.4-alpine/);
   assert.match(serviceBlock("postgres"), /image: postgres:17\.11/);
   assert.match(serviceBlock("redis"), /image: redis:8\.2\.9/);
   assert.match(serviceBlock("elasticsearch"), /image: docker\.elastic\.co\/elasticsearch\/elasticsearch:9\.4\.5/);
 });
 
-test("only the frontend publishes a host port", () => {
-  assert.match(serviceBlock("frontend"), /^    ports:/m);
-  for (const name of ["backend", "postgres", "redis", "elasticsearch"]) {
+test("only Caddy publishes the public HTTP and HTTPS ports", () => {
+  const caddy = serviceBlock("caddy");
+  assert.match(caddy, /^    ports:/m);
+  assert.match(caddy, /"80:80"/);
+  assert.match(caddy, /"443:443"/);
+  assert.match(caddy, /"443:443\/udp"/);
+  for (const name of ["frontend", "backend", "postgres", "redis", "elasticsearch"]) {
     assert.doesNotMatch(serviceBlock(name), /^    ports:/m, `${name} must remain private`);
   }
+});
+
+test("Caddy terminates HTTPS and waits for the private frontend", () => {
+  const caddy = serviceBlock("caddy");
+  assert.match(caddy, /CADDY_SITE_ADDRESSES: \$\{CADDY_SITE_ADDRESSES\}/);
+  assert.match(caddy, /CADDY_ACME_EMAIL: \$\{CADDY_ACME_EMAIL\}/);
+  assert.match(caddy, /\.\/deploy\/Caddyfile:\/etc\/caddy\/Caddyfile:ro/);
+  assert.match(caddy, /caddy-data:\/data/);
+  assert.match(caddy, /caddy-config:\/config/);
+  assert.match(caddy, /frontend:\n\s+condition: service_healthy/);
+  assert.match(caddy, /- frontend-backend/);
 });
 
 test("frontend and backend wait for healthy dependencies and use production configuration", () => {
@@ -60,5 +76,5 @@ test("stateful services use named volumes", () => {
   assert.match(serviceBlock("postgres"), /postgres-data:\/var\/lib\/postgresql\/data/);
   assert.match(serviceBlock("redis"), /redis-data:\/data/);
   assert.match(serviceBlock("elasticsearch"), /elasticsearch-data:\/usr\/share\/elasticsearch\/data/);
-  assert.match(compose, /^volumes:\n  postgres-data:\n  redis-data:\n  elasticsearch-data:/m);
+  assert.match(compose, /^volumes:\n  postgres-data:\n  redis-data:\n  elasticsearch-data:\n  caddy-data:\n  caddy-config:/m);
 });

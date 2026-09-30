@@ -33,3 +33,16 @@ test("docker build contexts exclude dependencies, outputs, secrets, and VCS data
   for (const entry of ["node_modules", ".next", ".env", ".git"]) assert.match(frontendIgnore, new RegExp(entry.replace(".", "\\.")));
   for (const entry of ["target", ".env", ".git"]) assert.match(backendIgnore, new RegExp(entry.replace(".", "\\.")));
 });
+
+test("Caddy automatically serves the canonical domain without trusting client forwarding headers", () => {
+  const caddyfile = read("deploy/Caddyfile");
+  assert.match(caddyfile, /\{\$CADDY_SITE_ADDRESSES\}/);
+  assert.match(caddyfile, /@www host www\.yangdoujiao\.com/);
+  assert.match(caddyfile, /redir @www https:\/\/yangdoujiao\.com\{uri\} permanent/);
+  assert.match(caddyfile, /reverse_proxy frontend:3000/);
+  assert.match(caddyfile, /header_up -Forwarded/);
+  assert.match(caddyfile, /header_up -X-Forwarded-\*/);
+  assert.match(caddyfile, /header_up -X-Real-IP/);
+  assert.match(caddyfile, /header_up X-Forwarded-Proto https/);
+  assert.match(caddyfile, /header_up X-Forwarded-For \{remote_host\}/);
+});

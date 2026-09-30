@@ -8,6 +8,8 @@ export const REQUIRED_DEPLOYMENT_VARIABLES = [
   "API_BASE_URL",
   "SPRING_PROFILES_ACTIVE",
   "CORS_ALLOWED_ORIGINS",
+  "CADDY_SITE_ADDRESSES",
+  "CADDY_ACME_EMAIL",
   "POSTGRES_DB",
   "POSTGRES_USER",
   "POSTGRES_PASSWORD",
@@ -105,6 +107,24 @@ export function validateDeploymentEnv(environment) {
   }
   if (valueFor("CORS_ALLOWED_ORIGINS") && !valueFor("CORS_ALLOWED_ORIGINS").split(",").every((origin) => validUrl(origin.trim(), ["https:"]))) {
     errors.push("CORS_ALLOWED_ORIGINS must contain only valid HTTPS origins.");
+  }
+  const certificateEmail = valueFor("CADDY_ACME_EMAIL");
+  if (certificateEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(certificateEmail)) {
+    errors.push("CADDY_ACME_EMAIL must be a valid email address.");
+  }
+  let officialPublicSite = false;
+  try {
+    officialPublicSite = new URL(valueFor("PUBLIC_SITE_URL")).origin === "https://yangdoujiao.com";
+  } catch {
+    // PUBLIC_SITE_URL format is reported separately.
+  }
+  if (officialPublicSite) {
+    const caddySites = valueFor("CADDY_SITE_ADDRESSES")
+      .split(",")
+      .map((site) => site.trim().toLowerCase());
+    if (!caddySites.includes("yangdoujiao.com") || !caddySites.includes("www.yangdoujiao.com")) {
+      errors.push("CADDY_SITE_ADDRESSES must include yangdoujiao.com and www.yangdoujiao.com for the official launch.");
+    }
   }
   for (const name of ["API_BASE_URL", "ELASTICSEARCH_URL"]) {
     const value = valueFor(name);

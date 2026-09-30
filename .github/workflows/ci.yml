@@ -135,6 +135,8 @@ jobs:
           API_BASE_URL=http://backend:8080
           SPRING_PROFILES_ACTIVE=prod
           CORS_ALLOWED_ORIGINS=https://preview.yangdoujiao.com
+          CADDY_SITE_ADDRESSES=:80
+          CADDY_ACME_EMAIL=ci@example.test
           POSTGRES_DB=company_website
           POSTGRES_USER=company_app
           POSTGRES_PASSWORD=ci-only-postgres-secret
@@ -153,8 +155,6 @@ jobs:
           APP_AUTH_PUBLIC_SITE_ORIGIN=https://preview.yangdoujiao.com
           APP_AUTH_PRODUCTION_LAUNCH_APPROVED=false
           APP_AUTH_WECHAT_ENABLED=false
-          FRONTEND_BIND_ADDRESS=127.0.0.1
-          FRONTEND_PORT=3000
           DEPLOYMENT_NETWORK_SUBNET=172.30.0.0/24
           FRONTEND_INTERNAL_IP=172.30.0.10
           BACKEND_INTERNAL_IP=172.30.0.20
@@ -166,6 +166,9 @@ jobs:
         run: |
           node --test scripts/deployment-preflight.test.mjs scripts/deployment-artifacts.test.mjs scripts/deployment-compose.test.mjs scripts/deployment-ci.test.mjs scripts/deployment-documentation.test.mjs
           node scripts/deployment-preflight.mjs "$RUNNER_TEMP/deployment.env"
+
+      - name: Validate public Caddy domain configuration
+        run: docker run --rm -e CADDY_SITE_ADDRESSES='yangdoujiao.com, www.yangdoujiao.com' -e CADDY_ACME_EMAIL=ci@example.test -v "$PWD/deploy/Caddyfile:/etc/caddy/Caddyfile:ro" caddy:2.11.4-alpine caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
 
       - name: Validate production Compose configuration
         run: docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml config --quiet
@@ -179,15 +182,16 @@ jobs:
       - name: Start and verify production topology
         run: |
           docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml up -d --no-build --wait --wait-timeout 300
-          curl --fail --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:3000/zh >/dev/null
-          curl --fail-with-body --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:3000/healthz >/dev/null
-          curl --fail --silent --header 'X-Forwarded-Proto: https' http://127.0.0.1:3000/api/v1/auth/providers >/dev/null
+          curl --fail --silent http://127.0.0.1/zh >/dev/null
+          curl --fail-with-body --silent http://127.0.0.1/healthz >/dev/null
+          curl --fail --silent http://127.0.0.1/api/v1/auth/providers >/dev/null
+          curl --silent --head --header 'Host: www.yangdoujiao.com' http://127.0.0.1/ | grep --ignore-case --quiet '^location: https://yangdoujiao.com/'
 
       - name: Show production topology logs after a failure
         if: failure()
         run: |
           docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml ps
-          docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml logs --no-color --tail=200 frontend backend
+          docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml logs --no-color --tail=200 caddy frontend backend
 
       - name: Stop production topology
         if: always()
