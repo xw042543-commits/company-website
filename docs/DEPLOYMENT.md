@@ -9,7 +9,7 @@ cp deploy/.env.production.example .env.production
 chmod 600 .env.production
 ```
 
-Replace every placeholder with a generated secret and the real HTTPS preview origin. Keep `APP_CONSULTATION_SUBMISSION_ENABLED=false`. Never commit `.env.production`.
+Replace every placeholder with a generated secret and the real HTTPS preview origin. To accept enquiries, set `APP_CONSULTATION_SUBMISSION_ENABLED=true` and set `APP_CONSULTATION_PRIVACY_NOTICE_VERSION` to the approved notice version shown to users. Keep submission disabled when that version has not been approved. Never commit `.env.production`.
 
 Set `DEPLOYMENT_NETWORK_SUBNET`, `FRONTEND_INTERNAL_IP`, and `BACKEND_INTERNAL_IP` to an unused RFC1918 private IPv4 range. Check existing Docker and VPN networks first; the preflight rejects public ranges and verifies address syntax and membership, while `docker compose ... config` and startup reveal host-level overlap.
 
@@ -73,7 +73,7 @@ Smoke check these flows in a browser:
 2. Login and password-reset forms use the real authentication service; registration remains closed until its production gate is approved.
 3. An anonymous protected route redirects to login.
 4. University browsing and search return reviewed records.
-5. Consultation submission remains disabled for the private preview.
+5. Submit a consented consultation and confirm that the success reference appears and a `NEW` enquiry is stored. When consultation collection is intentionally disabled, confirm the form shows the unavailable message instead.
 
 `PUBLIC_INDEXING_ENABLED` must remain `false` during preview. Set it to `true` only after the
 official `yangdoujiao.com` HTTPS deployment, content approval, SEO review, and final launch approval.

@@ -39,6 +39,7 @@ test("frontend and backend wait for healthy dependencies and use production conf
   assert.match(frontend, /backend:\n\s+condition: service_healthy/);
   assert.match(backend, /SPRING_PROFILES_ACTIVE: prod/);
   assert.match(backend, /APP_CONSULTATION_SUBMISSION_ENABLED: \$\{APP_CONSULTATION_SUBMISSION_ENABLED:-false\}/);
+  assert.match(backend, /APP_CONSULTATION_PRIVACY_NOTICE_VERSION: \$\{APP_CONSULTATION_PRIVACY_NOTICE_VERSION:-\}/);
   for (const name of ["postgres", "redis", "elasticsearch"]) {
     assert.match(backend, new RegExp(`${name}:\\n\\s+condition: service_healthy`));
   }

@@ -20,7 +20,8 @@ const validEnvironment = {
   REDIS_PORT: "6379",
   REDIS_PASSWORD: "redis-secret-value",
   ELASTICSEARCH_URL: "http://elasticsearch:9200",
-  APP_CONSULTATION_SUBMISSION_ENABLED: "false",
+  APP_CONSULTATION_SUBMISSION_ENABLED: "true",
+  APP_CONSULTATION_PRIVACY_NOTICE_VERSION: "web-enquiry-v1",
   PUBLIC_INDEXING_ENABLED: "false",
   DEPLOYMENT_NETWORK_SUBNET: "172.30.0.0/24",
   FRONTEND_INTERNAL_IP: "172.30.0.10",
@@ -40,7 +41,7 @@ test("parses comments, whitespace, and quoted env values", () => {
 
 test("reports every missing required deployment variable", () => {
   const errors = validateDeploymentEnv({});
-  for (const name of Object.keys(validEnvironment)) {
+  for (const name of Object.keys(validEnvironment).filter((name) => name !== "APP_CONSULTATION_PRIVACY_NOTICE_VERSION")) {
     assert.match(errors.join("\n"), new RegExp(name));
   }
 });
@@ -65,14 +66,19 @@ test("requires HTTPS for the public site and CORS origin", () => {
   assert.match(errors.join("\n"), /CORS_ALLOWED_ORIGINS.*HTTPS/);
 });
 
-test("requires the production profile and keeps preview submissions disabled", () => {
+test("requires the production profile and complete consultation settings", () => {
   const errors = validateDeploymentEnv({
     ...validEnvironment,
     SPRING_PROFILES_ACTIVE: "dev",
-    APP_CONSULTATION_SUBMISSION_ENABLED: "true",
+    APP_CONSULTATION_PRIVACY_NOTICE_VERSION: "",
   });
   assert.match(errors.join("\n"), /SPRING_PROFILES_ACTIVE.*prod/);
-  assert.match(errors.join("\n"), /APP_CONSULTATION_SUBMISSION_ENABLED.*false/);
+  assert.match(errors.join("\n"), /APP_CONSULTATION_PRIVACY_NOTICE_VERSION/);
+  assert.deepEqual(validateDeploymentEnv({
+    ...validEnvironment,
+    APP_CONSULTATION_SUBMISSION_ENABLED: "false",
+    APP_CONSULTATION_PRIVACY_NOTICE_VERSION: "",
+  }), []);
 });
 
 test("accepts a complete private-preview environment", () => {

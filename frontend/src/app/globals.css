@@ -319,7 +319,8 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .public-home-enquiry .field { gap: 4px; }
 .public-home-enquiry .field label { font-size: .82rem; }
 .public-home-enquiry textarea { min-height: 86px; }
-.public-home-enquiry .consent, .public-home-enquiry #privacy-pending { display: none; }
+.public-home-enquiry .consent { margin-top: 14px; }
+.public-home-enquiry #privacy-notice { font-size: .76rem; }
 .public-home-enquiry .form-actions { margin-top: 18px; }
 .public-home-enquiry .form-actions button { flex: 1 1 180px; }
 
