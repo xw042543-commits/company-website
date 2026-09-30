@@ -1,6 +1,14 @@
 import type { Locale } from "./site.ts";
 
-const protectedSections = new Set(["planning", "universities", "language", "scholarships", "news"]);
+const protectedSections = new Set([
+  "account",
+  "planning",
+  "universities",
+  "language",
+  "scholarships",
+  "news",
+  "review",
+]);
 const accountSections = new Set(["login", "register", "forgot-password"]);
 
 function pathSegments(pathname: string) {
