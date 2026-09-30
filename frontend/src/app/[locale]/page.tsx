@@ -5,6 +5,7 @@ import { FeaturedUniversityCarousel } from "@/components/featured-university-car
 import { PublicHome } from "@/components/public-home";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
+import { UNIVERSITY_CATALOG } from "@/data/university-catalog";
 import { isRequestAuthenticated } from "@/lib/server-auth";
 import { isLocale, words } from "@/lib/site";
 
@@ -43,25 +44,35 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   ] as const;
 
   return <main id="main">
-    <section className="hero"><div className="container hero-grid">
-      <div className="hero-copy">
-        <p className="section-label">{words(locale, "专业规划 · 清晰选择", "Expert guidance · Clear choices")}</p>
-        <h1>{words(locale, "从选校到入学，全程安心规划", "Plan with confidence, from university choice to enrolment")}</h1>
-        <p className="hero-intro">{words(locale, "从院校与专业筛选，到申请准备与入学支持，洋豆角陪伴你的每一步。", "From choosing a university and programme to preparing your application and starting your studies, UDAJO supports you at every stage.")}</p>
-        {signedIn ? <form action={`/${locale}/planning`} className="home-search">
-          <label htmlFor="home-keyword">{words(locale, "院校查询系统", "University search")}</label>
-          <div className="search-row"><SearchAutocomplete id="home-keyword" name="q" locale={locale} suggestions={courseSuggestions(locale)} placeholder={words(locale, "输入想学习的专业", "What would you like to study?")} /><button type="submit">{words(locale, "查询专业", "Find a course")}</button></div>
-        </form> : <div className="public-hero-actions">
-          <Link className="button" href={`/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/planning`)}`}>{words(locale, "登录并开始规划", "Sign in to start planning")}</Link>
-          <Link className="button secondary" href={`/${locale}/login?mode=register&returnTo=${encodeURIComponent(`/${locale}/planning`)}`}>{words(locale, "免费注册", "Create an account")}</Link>
-        </div>}
-        <Link className="text-link hero-enquiry" href={`/${locale}/about#enquiry`}>{words(locale, "需要协助？联系顾问", "Need guidance? Contact an adviser")}</Link>
-        {signedIn && <div className="shortcuts" aria-label={words(locale, "学习方向", "Study options")}>
-          {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor’s"], ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
-        </div>}
+    <section className="member-home-hero"><div className="container member-home-hero-grid">
+      <div className="member-home-copy">
+        <p className="section-label">{words(locale, "你的留学规划中心", "Your study planning hub")}</p>
+        <h1>{words(locale, "把留学目标变成清晰的行动计划", "Turn your study goals into a clear action plan")}</h1>
+        <p className="member-home-intro">{words(locale, "查询院校与专业，比较适合你的选择，并在每个申请阶段获得清晰指引。", "Explore universities and programmes, compare the options that suit you, and get clear guidance at every application stage.")}</p>
+        <div className="member-home-actions">
+          <Link className="button" href={`/${locale}/planning`}>{words(locale, "开始规划", "Start planning")}</Link>
+          <Link className="member-home-secondary-action" href={`/${locale}/universities`}>{words(locale, "浏览院校", "Browse universities")} <span aria-hidden="true">→</span></Link>
+        </div>
       </div>
-      <div className="hero-media" aria-label={words(locale, "洋豆角留学规划指南针", "UDAJO study planning compass")}>
-        <Image src="/brand/udajo-logo.jpg" width={480} height={480} sizes="(max-width: 760px) 42vw, 195px" alt="" aria-hidden="true" />
+      <div className="member-home-visual">
+        <Image src="/universities/campuses/apu-campus.webp" fill sizes="(max-width: 980px) 92vw, 52vw" priority alt={words(locale, "马来西亚大学校园", "A university campus in Malaysia")} />
+        <div className="member-home-visual-overlay">
+          <strong>{words(locale, `${UNIVERSITY_CATALOG.length} 所已收录院校`, `${UNIVERSITY_CATALOG.length} universities listed`)}</strong>
+          <span>{words(locale, "本科 · 硕士 · 博士", "Bachelor’s · Master’s · Doctorate")}</span>
+          <span>{words(locale, "顾问支持贯穿申请全程", "Adviser support throughout your application")}</span>
+        </div>
+      </div>
+    </div></section>
+    <section className="member-search-band" aria-label={words(locale, "院校和专业查询", "University and programme search")}><div className="member-search-panel container">
+      <form action={`/${locale}/planning`} className="home-search">
+        <label htmlFor="home-keyword">{words(locale, "查找适合你的专业", "Find the right programme for you")}</label>
+        <div className="search-row"><SearchAutocomplete id="home-keyword" name="q" locale={locale} suggestions={courseSuggestions(locale)} placeholder={words(locale, "输入专业名称或关键词", "Enter a subject or keyword")} /><button type="submit">{words(locale, "查询专业", "Search programmes")}</button></div>
+      </form>
+      <div className="member-search-support">
+        <Link className="text-link" href={`/${locale}/about#enquiry`}>{words(locale, "需要协助？联系顾问", "Need guidance? Contact an adviser")} <span aria-hidden="true">→</span></Link>
+        <div className="shortcuts" aria-label={words(locale, "按学历或方向查询", "Search by study level or subject")}>
+          {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor’s"], ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
+        </div>
       </div>
     </div></section>
     {signedIn ? <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">

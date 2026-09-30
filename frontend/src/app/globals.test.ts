@@ -6,6 +6,7 @@ import test from "node:test";
 const css = readFileSync(fileURLToPath(new URL("./globals.css", import.meta.url)), "utf8");
 const schoolCard = readFileSync(fileURLToPath(new URL("../components/school-card.tsx", import.meta.url)), "utf8");
 const publicHome = readFileSync(fileURLToPath(new URL("../components/public-home.tsx", import.meta.url)), "utf8");
+const memberHome = readFileSync(fileURLToPath(new URL("./[locale]/page.tsx", import.meta.url)), "utf8");
 
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
@@ -93,6 +94,24 @@ test("university result cards collapse matching programmes behind an accessible 
   assert.doesNotMatch(schoolCard, /<Link className="school-card-link"[^>]*><article/);
   assert.match(css, /\.school-programme-disclosure\s*\{/);
   assert.match(css, /\.school-programme-disclosure\[open\] \.school-programme-chevron/);
+});
+
+test("signed-in homepage uses an image-led action hero and separate search panel", () => {
+  assert.match(memberHome, /className="member-home-hero"/);
+  assert.match(memberHome, /把留学目标变成清晰的行动计划/);
+  assert.match(memberHome, /Turn your study goals into a clear action plan/);
+  assert.match(memberHome, /\/universities\/campuses\/apu-campus\.webp/);
+  assert.match(memberHome, /className="member-search-panel/);
+  assert.match(css, /\.member-home-hero-grid\s*\{[\s\S]*?grid-template-columns:/);
+  assert.match(css, /\.member-home-visual img\s*\{[\s\S]*?object-fit:\s*cover/);
+});
+
+test("sticky header uses restrained dimensional styling", () => {
+  assert.match(css, /\.site-header\s*\{[\s\S]*?linear-gradient/);
+  assert.match(css, /\.site-header\s*\{[\s\S]*?box-shadow:/);
+  assert.match(css, /\.brand img\s*\{[\s\S]*?filter:\s*drop-shadow/);
+  assert.match(css, /\.navigation a:hover\s*\{[\s\S]*?transform:\s*translateY/);
+  assert.match(css, /\.site-header \.login-link\s*\{[\s\S]*?box-shadow:/);
 });
 
 test("benefit cards use an even two-column alignment", () => {
