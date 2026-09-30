@@ -33,13 +33,12 @@ test("login portal uses the full company wordmark from the public header", () =>
   assert.doesNotMatch(page, /src="\/icon\.png"/);
 });
 
-test("account form provides password and phone tabs with keyboard navigation", () => {
+test("account form exposes only the launch-ready email login", () => {
   const source = read("../components/login-form.tsx");
-  assert.match(source, /\["password", "phone"\]/);
+  assert.doesNotMatch(source, /login-tab-phone/);
+  assert.doesNotMatch(source, /Phone sign in|手机号登录/);
   assert.doesNotMatch(source, /login-tab-wechat/);
-  assert.match(source, /role="tablist"/);
-  assert.match(source, /ArrowRight/);
-  assert.match(source, /ArrowLeft/);
+  assert.match(source, /Email address|邮箱/);
 });
 
 test("WeChat QR access remains visible, deployment-gated, and supports verified-account binding", () => {
@@ -72,6 +71,16 @@ test("account forms submit to the real versioned authentication client and isola
   assert.doesNotMatch(register, /startDemoSession/);
 });
 
+test("registration and password recovery accept email only for the initial launch", () => {
+  const register = read("../components/register-form.tsx");
+  const recovery = read("../components/forgot-password-form.tsx");
+  assert.doesNotMatch(register, /registration-method/);
+  assert.doesNotMatch(register, /Phone number|手机号/);
+  assert.match(register, /type="email"/);
+  assert.match(recovery, /type="email"/);
+  assert.doesNotMatch(recovery, /Email or phone number|邮箱或手机号码/);
+});
+
 test("privacy policy discloses WeChat identifiers and unavailable-function handling", () => {
   const policy = read("../app/[locale]/privacy/page.tsx");
   const chrome = read("../components/site-chrome.tsx");
@@ -79,6 +88,7 @@ test("privacy policy discloses WeChat identifiers and unavailable-function handl
   assert.match(policy, /UnionID/);
   assert.match(policy, /微信密码/);
   assert.match(policy, /功能尚未开放或仅供预览/);
+  assert.match(policy, /Resend/);
   assert.match(chrome, /\/privacy/);
 });
 

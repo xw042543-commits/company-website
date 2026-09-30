@@ -47,6 +47,7 @@ app:
     submission-enabled: ${APP_CONSULTATION_SUBMISSION_ENABLED:false}
   auth:
     registration-enabled: ${APP_AUTH_REGISTRATION_ENABLED:false}
+    phone-registration-enabled: ${APP_AUTH_PHONE_REGISTRATION_ENABLED:false}
     wechat:
       enabled: ${APP_AUTH_WECHAT_ENABLED:false}
       app-id: ${APP_AUTH_WECHAT_APP_ID:}

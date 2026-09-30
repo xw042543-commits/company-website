@@ -58,19 +58,19 @@ class AuthPropertiesTest {
 
     @Test
     void rejectsInvalidTtlsAndRememberedSessionShorterThanNormal() {
-        assertThatThrownBy(() -> new AuthProperties(false, "", "", Duration.ofHours(24),
+        assertThatThrownBy(() -> new AuthProperties(false, true, "", "", Duration.ofHours(24),
                 Duration.ofHours(1), Duration.ofMinutes(30), Duration.ofMinutes(10),
                 Duration.ofMinutes(30), DataSize.ofKilobytes(8), new String[0]).validate())
                 .isInstanceOf(IllegalStateException.class);
-        assertThatThrownBy(() -> new AuthProperties(false, "", "", Duration.ZERO,
+        assertThatThrownBy(() -> new AuthProperties(false, true, "", "", Duration.ZERO,
                 Duration.ofDays(30), Duration.ofMinutes(30), Duration.ofMinutes(10),
                 Duration.ofMinutes(30), DataSize.ofKilobytes(8), new String[0]).validate())
                 .isInstanceOf(IllegalStateException.class);
-        assertThatThrownBy(() -> new AuthProperties(false, "", "", Duration.ofHours(24),
+        assertThatThrownBy(() -> new AuthProperties(false, true, "", "", Duration.ofHours(24),
                 Duration.ofDays(30), Duration.ofMinutes(-1), Duration.ofMinutes(10),
                 Duration.ofMinutes(30), DataSize.ofKilobytes(8), new String[0]).validate())
                 .isInstanceOf(IllegalStateException.class);
-        assertThatThrownBy(() -> new AuthProperties(false, "", "", Duration.ofHours(24),
+        assertThatThrownBy(() -> new AuthProperties(false, true, "", "", Duration.ofHours(24),
                 Duration.ofDays(30), Duration.ofMinutes(30), Duration.ofMinutes(10),
                 Duration.ofMinutes(30), DataSize.ofBytes(0), new String[0]).validate())
                 .isInstanceOf(IllegalStateException.class);
@@ -79,7 +79,7 @@ class AuthPropertiesTest {
     @Test
     void rejectsHostnamesAndAllCidrTrustedProxies() {
         for (String invalid : new String[] {"proxy.example.com", "192.168.1.999", "10.0.0.0/8", "2001:db8::/32"}) {
-            assertThatThrownBy(() -> new AuthProperties(false, "", "", Duration.ofHours(24),
+            assertThatThrownBy(() -> new AuthProperties(false, true, "", "", Duration.ofHours(24),
                     Duration.ofDays(30), Duration.ofMinutes(30), Duration.ofMinutes(10),
                     Duration.ofMinutes(30), DataSize.ofKilobytes(8), new String[] {invalid}).validate())
                     .isInstanceOf(IllegalStateException.class);
@@ -88,14 +88,14 @@ class AuthPropertiesTest {
 
     @Test
     void acceptsOnlyExactLiteralIpTrustedProxies() {
-        new AuthProperties(false, "", "", Duration.ofHours(24), Duration.ofDays(30),
+        new AuthProperties(false, true, "", "", Duration.ofHours(24), Duration.ofDays(30),
                 Duration.ofMinutes(30), Duration.ofMinutes(10), Duration.ofMinutes(30),
                 DataSize.ofKilobytes(8), new String[] {"192.0.2.1", "2001:db8::1"})
                 .validate();
     }
 
     private AuthProperties valid(boolean registration, String agreement, String privacy) {
-        return new AuthProperties(registration, agreement, privacy, Duration.ofHours(24),
+        return new AuthProperties(registration, true, agreement, privacy, Duration.ofHours(24),
                 Duration.ofDays(30), Duration.ofMinutes(30), Duration.ofMinutes(10),
                 Duration.ofMinutes(30), DataSize.ofKilobytes(8), new String[0]);
     }

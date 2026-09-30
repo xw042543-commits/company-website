@@ -74,8 +74,8 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
       <section>
         <h2>{words(locale, "五、共享、委托处理与跨境", "5. Sharing, processors, and transfers")}</h2>
         <p>{words(locale,
-          "除完成您选择的登录、履行合同、履行法定义务或获得有效授权外，我们不会向其他个人信息处理者提供您的个人信息。云托管、邮件、短信等受托服务商仅可按照我们的指示处理必要信息；正式接入前会在本政策或单独清单中列明。",
-          "We do not disclose personal information to another controller except to complete the sign-in you choose, perform a contract, meet a legal obligation, or act with valid authorisation. Hosting, email, SMS, and similar processors may handle only what is necessary under our instructions and will be listed before production use.",
+          "除完成您选择的登录、履行合同、履行法定义务或获得有效授权外，我们不会向其他个人信息处理者提供您的个人信息。账号验证与密码恢复邮件由 Plus Five Five, Inc. 提供的 Resend 服务受托发送；其处理收件邮箱、邮件主题与正文以及必要的投递记录，仅用于发送和保障账号邮件。其他云托管、短信等受托服务商仅可按照我们的指示处理必要信息，并将在正式接入前列明。",
+          "We do not disclose personal information to another controller except to complete the sign-in you choose, perform a contract, meet a legal obligation, or act with valid authorisation. Account-verification and password-recovery emails are delivered by the Resend service provided by Plus Five Five, Inc. It processes the recipient address, email subject and content, and necessary delivery records solely to deliver and protect account emails. Other hosting, SMS, and similar processors may handle only what is necessary under our instructions and will be identified before production use.",
         )}</p>
         <p>{words(locale,
           "如需向中国境外提供个人信息，我们会在传输前告知境外接收方、处理目的、方式、信息种类及权利渠道，并履行适用的单独同意和数据出境程序。",

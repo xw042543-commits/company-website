@@ -57,6 +57,7 @@ public class RegistrationService {
         limiter.consume("register-ip", AuthHash.sha256(clientAddress), limits.registrationPerIp(), limits.window());
         ValidatedRegistration validated = validate(request);
         NormalizedIdentifier identifier = validated.identifier();
+        requireSupported(identifier);
         limiter.consume("register-identifier", AuthHash.sha256(identifier.value()),
                 limits.registrationPerIdentifier(), limits.window());
         verification.requireNotificationAvailable();
@@ -81,6 +82,7 @@ public class RegistrationService {
         requireEnabled();
         limiter.consume("resend-ip", AuthHash.sha256(clientAddress), limits.resendPerIp(), limits.window());
         NormalizedIdentifier identifier = normalize(request == null ? null : request.identifier());
+        requireSupported(identifier);
         limiter.consume("resend-identifier", AuthHash.sha256(identifier.value()),
                 limits.resendPerIdentifier(), limits.window());
         verification.requireNotificationAvailable();
@@ -124,6 +126,12 @@ public class RegistrationService {
     private NormalizedIdentifier normalize(String value) {
         try { return normalizer.normalizeLogin(value); }
         catch (AuthValidationException exception) { throw invalid(); }
+    }
+
+    private void requireSupported(NormalizedIdentifier identifier) {
+        if (identifier.type() == AccountIdentifierType.PHONE && !properties.phoneRegistrationEnabled()) {
+            throw invalid();
+        }
     }
 
     private Locale locale(String value) {
