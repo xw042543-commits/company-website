@@ -2,9 +2,11 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  bindWechatAccount,
   changePassword,
   deleteAccount,
   getAccount,
+  getAuthProviders,
   getCsrfToken,
   getSession,
   login,
@@ -57,6 +59,29 @@ test("loads csrf and sends credentials on login", async () => {
   assert.equal(calls[1].init?.method, "POST");
   assert.equal(new Headers(calls[1].init?.headers).get("X-XSRF-TOKEN"), "csrf-token");
   assert.deepEqual(result, { status: "ready", session });
+});
+
+test("discovers WeChat availability with strict no-store parsing", async () => {
+  const available = requestQueue([jsonResponse({ wechat: true })]);
+  assert.deepEqual(await getAuthProviders("http://localhost:8080", available.request), {
+    status: "ready", wechat: true,
+  });
+  assert.equal(available.calls[0].url, "http://localhost:8080/api/v1/auth/providers");
+  assert.equal(available.calls[0].init?.credentials, "include");
+  assert.equal(available.calls[0].init?.cache, "no-store");
+
+  const leaked = requestQueue([jsonResponse({ wechat: true, appSecret: "secret" })]);
+  assert.deepEqual(await getAuthProviders("http://localhost:8080", leaked.request), { status: "error" });
+});
+
+test("binds a pending WeChat identity through csrf protected account verification", async () => {
+  const { calls, request } = requestQueue([jsonResponse(csrf), jsonResponse(session)]);
+  assert.deepEqual(await bindWechatAccount("http://localhost:8080", {
+    identifier: "student@example.com", password: "correct-horse-42", rememberMe: false,
+  }, request), { status: "ready", session });
+  assert.equal(calls[1].url, "http://localhost:8080/api/v1/auth/wechat/bind");
+  assert.equal(calls[1].init?.method, "POST");
+  assert.equal(calls[1].init?.credentials, "include");
 });
 
 test("strictly validates csrf and session payloads", async () => {

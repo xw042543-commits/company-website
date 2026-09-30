@@ -946,6 +946,14 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .auth-integration-note { margin: 16px 0 0; color: #5c706a; font-size: .77rem; text-align: center; }
 .auth-form-support { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); text-align: center; }
 .auth-form-support a { color: var(--brand-action); font-size: .86rem; font-weight: 720; }
+.wechat-login-entry { display: grid; gap: 12px; margin-top: 22px; text-align: center; color: var(--text-muted); }
+.wechat-login-entry > span { display: flex; align-items: center; gap: 12px; font-size: .82rem; }
+.wechat-login-entry > span::before, .wechat-login-entry > span::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.wechat-login-button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--brand-action); border-radius: 8px; color: var(--brand-action); font-weight: 760; }
+.wechat-login-button:hover { background: rgb(56 126 108 / 8%); }
+.wechat-bind-guidance { margin-bottom: 22px; color: var(--text-muted); line-height: 1.7; }
+.wechat-register-guidance { margin-top: 16px; text-align: center; }
+.wechat-register-guidance a { color: var(--brand-action); font-weight: 720; }
 .auth-portal-footer { position: relative; z-index: 1; min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 12px clamp(24px, 4vw, 64px); color: #587069; font-size: .78rem; }
 .auth-portal-footer span:first-child { color: var(--brand-deep); font-weight: 800; }
 

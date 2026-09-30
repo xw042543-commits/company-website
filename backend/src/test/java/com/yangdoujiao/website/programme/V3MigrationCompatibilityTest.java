@@ -54,7 +54,7 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("8");
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("9");
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT COUNT(*) FROM universities WHERE slug = 'university-of-malaya'
                     """, Integer.class)).isEqualTo(1);
@@ -62,11 +62,13 @@ class V3MigrationCompatibilityTest {
                     SELECT table_name FROM information_schema.tables
                     WHERE table_schema = 'public' AND table_name IN (
                         'user_accounts', 'user_verification_tokens', 'password_reset_tokens',
-                        'auth_rate_limit_buckets', 'spring_session', 'spring_session_attributes'
+                        'auth_rate_limit_buckets', 'spring_session', 'spring_session_attributes',
+                        'user_external_identities'
                     )
                     """, String.class)).containsExactlyInAnyOrder(
                     "user_accounts", "user_verification_tokens", "password_reset_tokens",
-                    "auth_rate_limit_buckets", "spring_session", "spring_session_attributes"
+                    "auth_rate_limit_buckets", "spring_session", "spring_session_attributes",
+                    "user_external_identities"
             );
         }
     }

@@ -25,6 +25,7 @@ export type RegisterAccountRequest = {
 };
 
 export type LoginRequest = { identifier: string; password: string; rememberMe: boolean };
+export type BindWechatAccountRequest = LoginRequest;
 export type ResendVerificationRequest = { identifier: string; locale: string };
 export type VerifyEmailRequest = { token: string };
 export type VerifyPhoneRequest = { phone: string; code: string };
@@ -132,7 +133,8 @@ function parseRegistration(payload: unknown): { verificationMethod: "EMAIL" | "P
 }
 
 function parseAuthProviders(payload: unknown): { wechat: boolean } | null {
-  if (!isRecord(payload) || !hasExactKeys(payload, ["wechat"]) || typeof payload.wechat !== "boolean") return null;
+  if (!isRecord(payload) || !hasExactKeys(payload, ["wechat"])
+    || typeof payload.wechat !== "boolean") return null;
   return { wechat: payload.wechat };
 }
 
@@ -254,6 +256,13 @@ export async function getAuthProviders(baseUrl: string | undefined, request: typ
   return result.status === "ready" ? { status: "ready", wechat: result.value.wechat } : result;
 }
 
+export async function bindWechatAccount(baseUrl: string | undefined, body: BindWechatAccountRequest,
+  request: typeof fetch = fetch): Promise<LoginResult> {
+  const result = await authWrite(baseUrl, "/api/v1/auth/wechat/bind", "POST", body, 200, parseSession, request);
+  return result.status === "ready" && "value" in result
+    ? { status: "ready", session: result.value }
+    : result as FailureResult;
+}
 export async function registerAccount(baseUrl: string | undefined, body: RegisterAccountRequest, request: typeof fetch = fetch): Promise<RegistrationResult> {
   const result = await authWrite(baseUrl, "/api/v1/auth/register", "POST", body, 202, parseRegistration, request);
   return result.status === "accepted" && "value" in result

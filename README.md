@@ -8,8 +8,11 @@ Elasticsearch 用于搜索。
 
 - `frontend/`：官网页面与认证界面。
 - `backend/`：REST API、数据库迁移和自动化测试。
+- `crawler/`：仅生成待审核资料包的院校官网采集工具。
 - `docs/`：API、数据库和开发说明。
 - `compose.yaml`：本地 PostgreSQL、Redis 和 Elasticsearch。
+- `.env.example`：本地及部署环境变量示例。
+- `AGENTS.md`：开发与协作规则。
 
 ## 本地运行
 

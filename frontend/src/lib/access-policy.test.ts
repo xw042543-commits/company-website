@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { isProtectedPath, safeReturnTo } from "./access-policy.ts";
+import { isProtectedPath, safeReturnTo, signedInLoginDestination } from "./access-policy.ts";
 
 test("keeps company, account, and contact pages public", () => {
   for (const path of ["/en", "/zh/about", "/en/login", "/zh/register", "/en/forgot-password"]) {
@@ -23,4 +23,10 @@ test("accepts only same-locale relative return destinations", () => {
   assert.equal(safeReturnTo("/en/../zh/planning", "en"), "/en");
   assert.equal(safeReturnTo("/en/../en/login", "en"), "/en");
   assert.equal(safeReturnTo(undefined, "zh"), "/zh");
+});
+
+test("sends signed-in visitors from login to their localized account page", () => {
+  assert.equal(signedInLoginDestination(true, "zh"), "/zh/account");
+  assert.equal(signedInLoginDestination(true, "en"), "/en/account");
+  assert.equal(signedInLoginDestination(false, "zh"), null);
 });

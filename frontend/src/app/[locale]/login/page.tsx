@@ -1,16 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { AuthAccountPanel } from "@/components/auth-account-panel";
-import { safeReturnTo } from "@/lib/access-policy";
+import { safeReturnTo, signedInLoginDestination } from "@/lib/access-policy";
+import { isRequestAuthenticated } from "@/lib/server-auth";
 import { isLocale, words } from "@/lib/site";
 
-export default async function LoginPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ mode?: string; returnTo?: string }> }) {
+export default async function LoginPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ mode?: string; returnTo?: string; wechatError?: string }> }) {
   const { locale } = await params;
-  const { mode, returnTo: requestedReturnTo } = await searchParams;
+  const { mode, returnTo: requestedReturnTo, wechatError } = await searchParams;
   if (!isLocale(locale)) notFound();
+  const accountDestination = signedInLoginDestination(await isRequestAuthenticated(), locale);
+  if (accountDestination) redirect(accountDestination);
   const otherLocale = locale === "zh" ? "en" : "zh";
-  const accountMode = mode === "register" || mode === "recovery" ? mode : "login";
+  const accountMode = mode === "register" || mode === "recovery" || mode === "wechat-bind" ? mode : "login";
   const returnTo = safeReturnTo(requestedReturnTo, locale);
   const otherReturnTo = returnTo.replace(`/${locale}`, `/${otherLocale}`);
   const languageParameters = new URLSearchParams({ returnTo: otherReturnTo });
@@ -44,7 +47,7 @@ export default async function LoginPage({ params, searchParams }: { params: Prom
       </div>
 
       <div className="auth-login-card">
-        <AuthAccountPanel locale={locale} initialMode={accountMode} returnTo={returnTo} />
+        <AuthAccountPanel locale={locale} initialMode={accountMode} returnTo={returnTo} wechatError={wechatError} />
       </div>
     </section>
 

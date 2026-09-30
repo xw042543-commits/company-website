@@ -6,17 +6,21 @@ import { ForgotPasswordForm } from "@/components/forgot-password-form";
 import { LoginForm } from "@/components/login-form";
 import { RegisterForm } from "@/components/register-form";
 import { WechatQrPanel } from "@/components/wechat-qr-panel";
+import { WechatBindForm } from "@/components/wechat-bind-form";
 import { type Locale, words } from "@/lib/site";
 
-type AccountMode = "login" | "register" | "recovery";
+type AccountMode = "login" | "register" | "recovery" | "wechat-bind";
 
-export function AuthAccountPanel({ locale, initialMode = "login", returnTo }: { locale: Locale; initialMode?: AccountMode; returnTo?: string }) {
+export function AuthAccountPanel({ locale, initialMode = "login", returnTo, wechatError }: { locale: Locale; initialMode?: AccountMode; returnTo?: string; wechatError?: string }) {
   const [mode, setMode] = useState<AccountMode>(initialMode);
   const registering = mode === "register";
   const recovering = mode === "recovery";
+  const bindingWechat = mode === "wechat-bind";
   const title = registering
     ? words(locale, "注册新账户", "Create account")
-    : recovering
+    : bindingWechat
+      ? words(locale, "绑定微信账号", "Link WeChat account")
+      : recovering
       ? words(locale, "重设密码", "Reset password")
       : words(locale, "登录", "Sign in");
 
@@ -33,8 +37,14 @@ export function AuthAccountPanel({ locale, initialMode = "login", returnTo }: { 
       </button>
     </div>
 
+    {wechatError && mode === "login" && <p className="login-status auth-status-error" role="alert">
+      {words(locale, "微信授权未完成，请重试或使用账号密码登录。", "WeChat authorization was not completed. Try again or use your password.")}
+    </p>}
+
     {registering
       ? <RegisterForm locale={locale} returnTo={returnTo} />
+      : bindingWechat
+        ? <WechatBindForm locale={locale} returnTo={returnTo ?? `/${locale}/account`} />
       : recovering
         ? <ForgotPasswordForm locale={locale} />
         : <LoginForm locale={locale} returnTo={returnTo} onForgotPassword={() => setMode("recovery")} />}

@@ -1,0 +1,49 @@
+\set ON_ERROR_STOP on
+BEGIN;
+
+UPDATE programmes
+SET status='ARCHIVED', published_at=NULL, updated_at=CURRENT_TIMESTAMP
+WHERE programme_code IN (
+    'MONASH_BACHELOR_004',
+    'MONASH_BACHELOR_021',
+    'MONASH_DOCTOR_001',
+    'MONASH_DOCTOR_002',
+    'MONASH_DOCTOR_004',
+    'MONASH_DOCTOR_005',
+    'MONASH_MASTER_001',
+    'MONASH_MASTER_003',
+    'MONASH_MASTER_009',
+    'MONASH_MASTER_013',
+    'UM_DOCTOR_021',
+    'UM_DOCTOR_022',
+    'UM_DOCTOR_025',
+    'UM_MASTER_122',
+    'UM_MASTER_123',
+    'UM_MASTER_125'
+);
+
+DO $$
+BEGIN
+  IF (SELECT count(*) FROM programmes WHERE programme_code IN (
+    'MONASH_BACHELOR_004',
+    'MONASH_BACHELOR_021',
+    'MONASH_DOCTOR_001',
+    'MONASH_DOCTOR_002',
+    'MONASH_DOCTOR_004',
+    'MONASH_DOCTOR_005',
+    'MONASH_MASTER_001',
+    'MONASH_MASTER_003',
+    'MONASH_MASTER_009',
+    'MONASH_MASTER_013',
+    'UM_DOCTOR_021',
+    'UM_DOCTOR_022',
+    'UM_DOCTOR_025',
+    'UM_MASTER_122',
+    'UM_MASTER_123',
+    'UM_MASTER_125'
+  ) AND status='ARCHIVED') <> 16 THEN
+    RAISE EXCEPTION 'Removed programme archive count mismatch';
+  END IF;
+END $$;
+
+COMMIT;
