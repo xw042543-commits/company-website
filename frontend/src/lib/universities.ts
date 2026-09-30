@@ -1,4 +1,5 @@
 import {
+  backendUniversitySlug,
   filterUniversityCatalog,
   findUniversityBySlug,
   localizeUniversity,
@@ -51,6 +52,26 @@ function localSchools(query: string, country: string, continent: string, locale:
     ...university,
     ...localizeUniversity(university, locale),
   }));
+}
+
+export function enrichSchoolSummary(
+  school: SchoolSummary,
+  locale: Locale,
+): SchoolSummary {
+  const university = findUniversityBySlug(school.slug);
+  if (!university) return school;
+
+  const localized = localizeUniversity(university, locale);
+  return {
+    ...school,
+    slug: university.slug,
+    city: school.city?.trim() || localized.city,
+    cityZh: school.cityZh?.trim() || university.cityZh,
+    cityEn: school.cityEn?.trim() || university.cityEn,
+    logoSrc: university.logoSrc,
+    aliases: university.aliases,
+    programmeStatus: university.programmeStatus,
+  };
 }
 
 // The reviewed local catalogue is the public fallback until the API catalogue is configured.
@@ -114,7 +135,7 @@ export async function getUniversitySearch(
 
   return {
     status: "ready",
-    schools: result.page.items.map((item) => toSchoolSummary(item, locale)),
+    schools: result.page.items.map((item) => enrichSchoolSummary(toSchoolSummary(item, locale), locale)),
     page: result.page.page,
     pageSize: result.page.pageSize,
     totalItems: result.page.totalItems,
@@ -126,7 +147,7 @@ export async function getUniversityDetailWithFallback(
   slug: string,
   baseUrl?: string,
 ) {
-  if (baseUrl) return getUniversityDetail(baseUrl, slug);
+  if (baseUrl) return getUniversityDetail(baseUrl, backendUniversitySlug(slug));
 
   const university = findUniversityBySlug(slug);
   if (!university) return { status: "not-found" as const };
@@ -156,7 +177,7 @@ export async function getUniversityProgrammesWithFallback(
   query: Query,
   baseUrl?: string,
 ) {
-  if (baseUrl) return getUniversityProgrammes(baseUrl, slug, query);
+  if (baseUrl) return getUniversityProgrammes(baseUrl, backendUniversitySlug(slug), query);
 
   return {
     status: "ready" as const,
