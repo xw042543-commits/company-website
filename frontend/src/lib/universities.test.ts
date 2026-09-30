@@ -76,6 +76,19 @@ test("loads a reviewed university profile without an external API", async () => 
   assert.match(result.university.descriptionEn ?? "", /public research university/i);
 });
 
+test("falls back to reviewed university data when the configured API has no matching record", async () => {
+  const request = (async () => new Response(null, { status: 404 })) as typeof fetch;
+  const result = await universities.getUniversityDetailWithFallback(
+    "asia-pacific-university",
+    "https://api.example.test",
+    request,
+  );
+
+  assert.equal(result.status, "ready");
+  if (result.status !== "ready") return;
+  assert.equal(result.university.nameEn, "Asia Pacific University of Technology & Innovation");
+});
+
 test("loads reviewed local programmes when the API is not configured", async () => {
   const loadProgrammes = Reflect.get(universities, "getUniversityProgrammesWithFallback");
   assert.equal(typeof loadProgrammes, "function");
@@ -85,6 +98,20 @@ test("loads reviewed local programmes when the API is not configured", async () 
   assert.ok(result.page.items.length > 0);
   assert.ok(result.page.totalItems > 0);
   assert.equal(result.page.items[0]?.studyLevelCode, "bachelor");
+});
+
+test("falls back to reviewed programmes when the configured API has no matching record", async () => {
+  const request = (async () => new Response(null, { status: 404 })) as typeof fetch;
+  const result = await universities.getUniversityProgrammesWithFallback(
+    "university-of-malaya",
+    {},
+    "https://api.example.test",
+    request,
+  );
+
+  assert.equal(result.status, "ready");
+  if (result.status !== "ready") return;
+  assert.ok(result.page.items.length > 0);
 });
 
 test("filters reviewed local programmes by degree level", async () => {
