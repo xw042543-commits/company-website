@@ -488,8 +488,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .university-logo-track a:hover .university-logo-label, .university-logo-track a:focus-visible .university-logo-label { opacity: 1; transform: translate(-50%, 0); }
 .university-logo-track a { position: relative; }
 .loading-page { min-height: 62vh; }
-.loading-status { color: var(--muted); font-size: .86rem; }
-.loading-heading-skeleton { display: grid; gap: 12px; width: min(560px, 82%); margin: 24px 0 42px; }
+.loading-heading-skeleton { display: grid; gap: 12px; width: min(560px, 82%); margin: 0 0 42px; }
 .loading-heading-skeleton span, .skeleton-media, .skeleton-line, .skeleton-button { display: block; overflow: hidden; border-radius: 6px; background: linear-gradient(100deg, #e3ece8 30%, #f5f8f6 48%, #e3ece8 66%); background-size: 220% 100%; animation: skeleton-shimmer 1.35s ease-in-out infinite; }
 .loading-heading-skeleton span:first-child { width: 38%; height: 16px; }
 .loading-heading-skeleton span:last-child { height: 48px; }
