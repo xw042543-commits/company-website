@@ -53,6 +53,7 @@ test("WeChat QR access remains visible, deployment-gated, and supports verified-
   assert.match(wechat, /wechat-qr-frame/);
   assert.match(wechat, /微信扫码登录或注册/);
   assert.match(wechat, /\/api\/v1\/auth\/wechat\/start/);
+  assert.match(wechat, /\/privacy/);
   assert.match(binding, /bindWechatAccount/);
   assert.match(binding, /verified email or phone account/);
   assert.match(panel, /"wechat-bind"/);
@@ -69,6 +70,32 @@ test("account forms submit to the real versioned authentication client and isola
   assert.match(register, /browserApiBaseUrl/);
   assert.match(login, /startDemoSession/);
   assert.doesNotMatch(register, /startDemoSession/);
+});
+
+test("privacy policy discloses WeChat identifiers and unavailable-function handling", () => {
+  const policy = read("../app/[locale]/privacy/page.tsx");
+  const chrome = read("../components/site-chrome.tsx");
+  assert.match(policy, /OpenID/);
+  assert.match(policy, /UnionID/);
+  assert.match(policy, /微信密码/);
+  assert.match(policy, /功能尚未开放或仅供预览/);
+  assert.match(chrome, /\/privacy/);
+});
+
+test("privacy policy and user agreement are linked from account and public pages", () => {
+  const agreement = read("../app/[locale]/terms/page.tsx");
+  const privacy = read("../app/[locale]/privacy/page.tsx");
+  const login = read("../app/[locale]/login/page.tsx");
+  const register = read("../components/register-form.tsx");
+  const chrome = read("../components/site-chrome.tsx");
+  assert.match(agreement, /主动确认本协议/);
+  assert.match(agreement, /不构成录取、签证、奖学金、就业或其他结果保证/);
+  assert.match(agreement, /\/privacy/);
+  assert.match(privacy, /当您提交咨询时处理姓名/);
+  for (const source of [login, register, chrome]) {
+    assert.match(source, /\/privacy/);
+    assert.match(source, /\/terms/);
+  }
 });
 
 test("login background uses scroll-linked transform motion with a reduced-motion fallback", () => {

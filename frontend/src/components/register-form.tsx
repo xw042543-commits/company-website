@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 import { FormProgress } from "@/components/form-progress";
@@ -80,8 +81,8 @@ export function RegisterForm({ locale }: { locale: Locale; returnTo?: string }) 
     </div>
 
     <div className="auth-consents">
-      <label className="auth-checkbox"><input type="checkbox" required checked={agreementAccepted} onChange={(event) => setAgreementAccepted(event.target.checked)} /> <span>{words(locale, "我同意用户服务条款。", "I agree to the user terms of service.")}</span></label>
-      <label className="auth-checkbox"><input type="checkbox" required checked={privacyAccepted} onChange={(event) => setPrivacyAccepted(event.target.checked)} /> <span>{words(locale, "我已阅读并同意隐私政策。", "I have read and agree to the privacy policy.")}</span></label>
+      <label className="auth-checkbox"><input type="checkbox" required checked={agreementAccepted} onChange={(event) => setAgreementAccepted(event.target.checked)} /> <span>{words(locale, "我已阅读并同意", "I have read and agree to the ")}<Link href={`/${locale}/terms`}>{words(locale, "《用户协议》", "User Agreement")}</Link>{words(locale, "。", ".")}</span></label>
+      <label className="auth-checkbox"><input type="checkbox" required checked={privacyAccepted} onChange={(event) => setPrivacyAccepted(event.target.checked)} /> <span>{words(locale, "我已阅读并同意", "I have read and agree to the ")}<Link href={`/${locale}/privacy`}>{words(locale, "《隐私政策》", "Privacy Policy")}</Link>{words(locale, "。", ".")}</span></label>
     </div>
 
     <button className="full-width" type="submit" disabled={pending}>{pending ? words(locale, "正在创建账户…", "Creating account…") : words(locale, "创建账户", "Create account")}</button>

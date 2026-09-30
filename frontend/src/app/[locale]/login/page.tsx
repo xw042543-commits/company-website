@@ -53,7 +53,7 @@ export default async function LoginPage({ params, searchParams }: { params: Prom
 
     <footer className="auth-portal-footer">
       <span>UDAJO 洋豆角</span>
-      <span>{words(locale, "清晰规划，安心申请。", "Clear planning, confident applications.")}</span>
+      <span>{words(locale, "清晰规划，安心申请。", "Clear planning, confident applications.")} · <Link href={`/${locale}/privacy`}>{words(locale, "隐私政策", "Privacy policy")}</Link> · <Link href={`/${locale}/terms`}>{words(locale, "用户协议", "User agreement")}</Link></span>
     </footer>
   </main>;
 }
