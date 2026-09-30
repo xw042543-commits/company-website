@@ -27,7 +27,9 @@ export type RegisterAccountRequest = {
 export type LoginRequest = { identifier: string; password: string; rememberMe: boolean };
 export type BindWechatAccountRequest = LoginRequest;
 export type ResendVerificationRequest = { identifier: string; locale: string };
-export type VerifyEmailRequest = { token: string };
+export type VerifyEmailRequest =
+  | { email: string; code: string; token?: never }
+  | { token: string; email?: never; code?: never };
 export type VerifyPhoneRequest = { phone: string; code: string };
 export type PasswordResetRequest = { identifier: string; locale: string };
 export type ResetPasswordRequest = { token: string; newPassword: string };

@@ -141,7 +141,7 @@ test("uses the correct methods and csrf protection for every write endpoint", as
     run: (request: typeof fetch) => Promise<unknown>;
     responseStatus?: number;
   }> = [
-    { path: "/api/v1/auth/verify-email", method: "POST", run: (r) => verifyEmail("http://localhost:8080", { token: "email-token" }, r), responseStatus: 204 },
+    { path: "/api/v1/auth/verify-email", method: "POST", run: (r) => verifyEmail("http://localhost:8080", { email: "student@example.com", code: "123456" }, r), responseStatus: 204 },
     { path: "/api/v1/auth/verify-phone", method: "POST", run: (r) => verifyPhone("http://localhost:8080", { phone: "+60123456789", code: "123456" }, r), responseStatus: 204 },
     { path: "/api/v1/auth/logout", method: "POST", run: (r) => logout("http://localhost:8080", r), responseStatus: 204 },
     { path: "/api/v1/auth/forgot-password", method: "POST", run: (r) => requestPasswordReset("http://localhost:8080", { identifier: "student@example.com", locale: "en" }, r), responseStatus: 202 },
@@ -199,7 +199,7 @@ test("maps backend and network failures to stable client states", async () => {
 
   for (const [httpStatus, expected] of [[401, "unauthorized"], [429, "rate-limited"], [503, "unavailable"]] as const) {
     const queued = requestQueue([jsonResponse(csrf), jsonResponse({}, httpStatus)]);
-    assert.deepEqual(await verifyEmail("http://localhost:8080", { token: "x" }, queued.request), { status: expected });
+    assert.deepEqual(await verifyEmail("http://localhost:8080", { email: "student@example.com", code: "000000" }, queued.request), { status: expected });
   }
 
   const network = (async () => { throw new TypeError("offline"); }) as typeof fetch;

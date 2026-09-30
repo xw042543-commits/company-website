@@ -159,9 +159,18 @@ test("verification forms let users request replacement instructions", () => {
   const email = read("../components/email-verification-form.tsx");
   const phone = read("../components/phone-verification-form.tsx");
   assert.match(email, /resendVerification/);
-  assert.match(email, /Resend verification email/);
+  assert.match(email, /Resend verification code/);
   assert.match(phone, /resendVerification/);
   assert.match(phone, /Resend verification code/);
+});
+
+test("email verification accepts a six digit code and enforces a resend countdown", () => {
+  const email = read("../components/email-verification-form.tsx");
+  assert.match(email, /inputMode="numeric"/);
+  assert.match(email, /autoComplete="one-time-code"/);
+  assert.match(email, /maxLength=\{6\}/);
+  assert.match(email, /cooldown/);
+  assert.match(email, /60/);
 });
 
 test("local demo accounts load a profile without exposing production account actions", () => {

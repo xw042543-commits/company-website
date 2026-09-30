@@ -61,6 +61,7 @@ public class RegistrationService {
         limiter.consume("register-identifier", AuthHash.sha256(identifier.value()),
                 limits.registrationPerIdentifier(), limits.window());
         verification.requireNotificationAvailable();
+        consumeEmailCooldown(identifier);
         String passwordHash = passwords.encode(request.password());
         RegistrationResponse accepted = RegistrationResponse.accepted(identifier.type());
         try {
@@ -86,10 +87,11 @@ public class RegistrationService {
         limiter.consume("resend-identifier", AuthHash.sha256(identifier.value()),
                 limits.resendPerIdentifier(), limits.window());
         verification.requireNotificationAvailable();
+        boolean deliveryAllowed = consumeResendCooldown(identifier);
         VerificationService.PreparedChallenge challenge = verification.prepareForResend(identifier.type());
         transaction.executeWithoutResult(status -> lookup.findLoginAccount(identifier).ifPresent(account -> {
             accounts.findLockedById(account.getId()).ifPresent(locked -> {
-                if (locked.getStatus() == UserAccountStatus.PENDING_VERIFICATION) {
+                if (deliveryAllowed && locked.getStatus() == UserAccountStatus.PENDING_VERIFICATION) {
                     verification.issue(locked, identifier, locale(request.locale()), challenge);
                 }
             });
@@ -131,6 +133,23 @@ public class RegistrationService {
     private void requireSupported(NormalizedIdentifier identifier) {
         if (identifier.type() == AccountIdentifierType.PHONE && !properties.phoneRegistrationEnabled()) {
             throw invalid();
+        }
+    }
+
+    private void consumeEmailCooldown(NormalizedIdentifier identifier) {
+        if (identifier.type() == AccountIdentifierType.EMAIL) {
+            limiter.consume("email-verification-cooldown", AuthHash.sha256(identifier.value()), 1,
+                    limits.resendCooldown());
+        }
+    }
+
+    private boolean consumeResendCooldown(NormalizedIdentifier identifier) {
+        try {
+            consumeEmailCooldown(identifier);
+            return true;
+        } catch (ApiException exception) {
+            if ("AUTH_RATE_LIMITED".equals(exception.getCode())) return false;
+            throw exception;
         }
     }
 

@@ -48,7 +48,7 @@ app:
     privacy-version: ${APP_AUTH_PRIVACY_VERSION:}
     session-timeout: ${APP_AUTH_SESSION_TIMEOUT:24h}
     remembered-session-timeout: ${APP_AUTH_REMEMBERED_SESSION_TIMEOUT:30d}
-    email-verification-ttl: ${APP_AUTH_EMAIL_VERIFICATION_TTL:30m}
+    email-verification-ttl: ${APP_AUTH_EMAIL_VERIFICATION_TTL:5m}
     phone-verification-ttl: ${APP_AUTH_PHONE_VERIFICATION_TTL:10m}
     password-reset-ttl: ${APP_AUTH_PASSWORD_RESET_TTL:30m}
     maximum-body-size: ${APP_AUTH_MAXIMUM_BODY_SIZE:8KB}
@@ -63,6 +63,7 @@ app:
       login-per-identifier: ${APP_AUTH_LOGIN_PER_IDENTIFIER:10}
       wechat-start-per-ip: ${APP_AUTH_WECHAT_START_PER_IP:20}
       wechat-callback-per-ip: ${APP_AUTH_WECHAT_CALLBACK_PER_IP:30}
+      resend-cooldown: ${APP_AUTH_RESEND_COOLDOWN:60s}
       window: ${APP_AUTH_RATE_LIMIT_WINDOW:1h}
     wechat:
       enabled: ${APP_AUTH_WECHAT_ENABLED:false}

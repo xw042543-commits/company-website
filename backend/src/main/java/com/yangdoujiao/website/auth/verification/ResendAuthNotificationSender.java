@@ -64,14 +64,16 @@ public class ResendAuthNotificationSender implements AuthNotificationSender, Pro
     @Override
     public void sendEmailVerification(String normalizedEmail, String rawToken, Locale locale,
             long issueSequence, Instant expiresAt) {
+        if (rawToken == null || !rawToken.matches("[0-9]{6}")) {
+            throw new IllegalArgumentException("Email verification code must contain six digits");
+        }
         boolean chinese = Locale.CHINESE.getLanguage().equals(locale == null ? "" : locale.getLanguage());
-        String url = actionUrl(chinese ? "zh" : "en", "verify-email", rawToken);
         String subject = chinese ? "验证您的 UDAJO 洋豆角账户" : "Verify your UDAJO account";
-        String heading = chinese ? "验证邮箱" : "Verify your email";
+        String heading = chinese ? "邮箱验证码" : "Email verification code";
         String instruction = chinese
-                ? "请点击下面的链接完成邮箱验证。此链接有时效，请勿转发。"
-                : "Use the link below to verify your email. This link expires and must not be shared.";
-        send(normalizedEmail, subject, heading, instruction, url, chinese ? "验证邮箱" : "Verify email");
+                ? "请在网页中输入下方 6 位验证码。验证码 5 分钟内有效，请勿转发。"
+                : "Enter the six-digit code below on the website. It expires in 5 minutes and must not be shared.";
+        sendCode(normalizedEmail, subject, heading, instruction, rawToken);
     }
 
     @Override
@@ -107,6 +109,31 @@ public class ResendAuthNotificationSender implements AuthNotificationSender, Pro
                 </body></html>
                 """.formatted(heading, instruction, url, buttonLabel);
         String text = heading + "\n\n" + instruction + "\n\n" + url + "\n\nUDAJO 洋豆角";
+        Map<String, Object> payload = Map.of(
+                "from", properties.from(),
+                "to", List.of(recipient),
+                "subject", subject,
+                "html", html,
+                "text", text);
+        client.post()
+                .uri(properties.endpoint())
+                .contentType(MediaType.APPLICATION_JSON)
+                .header("Authorization", "Bearer " + properties.apiKey())
+                .body(payload)
+                .retrieve()
+                .toBodilessEntity();
+    }
+
+    private void sendCode(String recipient, String subject, String heading, String instruction, String code) {
+        if (!isReady()) throw new IllegalStateException("Resend notification provider is not configured");
+        String html = """
+                <!doctype html><html><body style="font-family:Arial,sans-serif;color:#173f36">
+                <h1>%s</h1><p>%s</p>
+                <p style="font-size:32px;font-weight:700;letter-spacing:8px">%s</p>
+                <p style="color:#61756f">UDAJO 洋豆角 · yangdoujiao.com</p>
+                </body></html>
+                """.formatted(heading, instruction, code);
+        String text = heading + "\n\n" + instruction + "\n\n" + code + "\n\nUDAJO 洋豆角";
         Map<String, Object> payload = Map.of(
                 "from", properties.from(),
                 "to", List.of(recipient),

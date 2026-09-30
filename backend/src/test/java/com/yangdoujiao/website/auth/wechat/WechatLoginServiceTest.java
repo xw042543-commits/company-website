@@ -40,7 +40,8 @@ class WechatLoginServiceTest {
         service = new WechatLoginService(properties, providers, states,
                 mock(UserExternalIdentityRepository.class), mock(AuthenticationService.class),
                 mock(AuthRateLimiter.class), new AuthRateLimitProperties(
-                        5, 5, 5, 5, 5, 5, 5, 5, 5, Duration.ofMinutes(10)),
+                        5, 5, 5, 5, 5, 5, 5, 5, 5,
+                        Duration.ofSeconds(60), Duration.ofMinutes(10)),
                 audit, mock(PlatformTransactionManager.class));
     }
 

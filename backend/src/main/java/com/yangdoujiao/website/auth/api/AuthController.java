@@ -68,7 +68,12 @@ public class AuthController {
 
     @PostMapping("/verify-email")
     public ResponseEntity<Void> verifyEmail(@RequestBody VerifyEmailRequest body, HttpServletRequest request) {
-        verification.verifyEmail(body == null ? null : body.token(), addresses.resolve(request));
+        if (body != null && body.token() != null && !body.token().isBlank()) {
+            verification.verifyEmail(body.token(), addresses.resolve(request));
+        } else {
+            verification.verifyEmailCode(body == null ? null : body.email(), body == null ? null : body.code(),
+                    addresses.resolve(request));
+        }
         return ResponseEntity.noContent().build();
     }
 
