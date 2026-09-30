@@ -5,6 +5,7 @@ import test from "node:test";
 
 const css = readFileSync(fileURLToPath(new URL("./globals.css", import.meta.url)), "utf8");
 const schoolCard = readFileSync(fileURLToPath(new URL("../components/school-card.tsx", import.meta.url)), "utf8");
+const publicHome = readFileSync(fileURLToPath(new URL("../components/public-home.tsx", import.meta.url)), "utf8");
 
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
@@ -33,6 +34,16 @@ test("public homepage uses a compact enquiry desk and responsive university card
   assert.match(css, /\.public-home-contact-photo img\s*\{[\s\S]*?object-position:\s*center/);
   assert.match(css, /\.public-home-school-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.public-home-contact-desk/);
+});
+
+test("public homepage balances the process heading and emphasizes contact details", () => {
+  assert.match(publicHome, /每一步都清楚/);
+  assert.match(publicHome, /下一步怎么走/);
+  assert.doesNotMatch(publicHome, /每一步，都知道接下来做什么/);
+  assert.match(publicHome, /className="public-home-contact-action"/);
+  assert.match(css, /\.public-home-process-heading\s*\{[\s\S]*?text-wrap:\s*balance/);
+  assert.match(css, /\.public-home-contact-details\s*\{[\s\S]*?border:\s*1px solid/);
+  assert.match(css, /\.public-home-contact-action\s*\{[\s\S]*?font-weight:\s*800/);
 });
 
 test("global styles include the shared motion and loading system", () => {
