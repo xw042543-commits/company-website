@@ -11,7 +11,7 @@ test("login page uses a focused portal shell for the real account flow", () => {
   assert.match(page, /auth-portal-header/);
   assert.match(page, /auth-login-card/);
   assert.match(panel, /auth-form-column/);
-  assert.doesNotMatch(page, /WeChatLogin|auth-qr-column/);
+  assert.match(panel, /WechatQrPanel/);
   assert.match(page, /Back to website|返回网站/);
 });
 
@@ -41,14 +41,25 @@ test("account form provides password and phone tabs with keyboard navigation", (
   assert.match(source, /ArrowLeft/);
 });
 
-test("account forms submit to the real versioned authentication client", () => {
+test("WeChat QR access remains visible for both sign in and registration", () => {
+  const panel = read("../components/auth-account-panel.tsx");
+  const wechat = read("../components/wechat-qr-panel.tsx");
+  assert.match(panel, /mode=\{registering \? "register" : "login"\}/);
+  assert.match(wechat, /getAuthProviders/);
+  assert.match(wechat, /wechat-qr-frame/);
+  assert.match(wechat, /微信扫码登录或注册/);
+  assert.match(wechat, /\/api\/v1\/auth\/wechat\/start/);
+});
+
+test("account forms submit to the real versioned authentication client and isolate local demo access", () => {
   const login = read("../components/login-form.tsx");
   const register = read("../components/register-form.tsx");
   assert.match(login, /import \{ login \} from "@\/lib\/auth-api"/);
   assert.match(register, /registerAccount/);
   assert.match(login, /browserApiBaseUrl/);
   assert.match(register, /browserApiBaseUrl/);
-  assert.doesNotMatch(`${login}\n${register}`, /demo|尚未接入|not connected/i);
+  assert.match(login, /startDemoSession/);
+  assert.doesNotMatch(register, /startDemoSession/);
 });
 
 test("login background uses scroll-linked transform motion with a reduced-motion fallback", () => {
@@ -105,4 +116,14 @@ test("verification forms let users request replacement instructions", () => {
   assert.match(email, /Resend verification email/);
   assert.match(phone, /resendVerification/);
   assert.match(phone, /Resend verification code/);
+});
+
+test("local demo accounts load a profile without exposing production account actions", () => {
+  const account = read("../components/account-panel.tsx");
+  const route = read("../app/api/demo-session/route.ts");
+  assert.match(account, /loadDemoAccount/);
+  assert.match(account, /demo-account-note/);
+  assert.match(account, /!demoAccount/);
+  assert.match(route, /export async function GET/);
+  assert.match(route, /UDAJO Demo Student/);
 });

@@ -12,21 +12,41 @@ export function AccountPanel({ locale }: { locale: Locale }) {
   const [account, setAccount] = useState<AccountProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState<AuthMessage | null>(null);
+  const [demoAccount, setDemoAccount] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [deletePassword, setDeletePassword] = useState("");
   const [deleteConfirmation, setDeleteConfirmation] = useState("");
   const [pendingAction, setPendingAction] = useState<"password" | "logout" | "delete" | null>(null);
 
+  async function loadDemoAccount(): Promise<AccountProfile | null> {
+    try {
+      const response = await fetch("/api/demo-session", { credentials: "include", cache: "no-store" });
+      if (!response.ok) return null;
+      return await response.json() as AccountProfile;
+    } catch {
+      return null;
+    }
+  }
+
   useEffect(() => {
     let active = true;
-    void getAccount(browserApiBaseUrl()).then((result) => {
+    void (async () => {
+      const demo = await loadDemoAccount();
       if (!active) return;
-      setLoading(false);
+      if (demo) {
+        setAccount(demo);
+        setDemoAccount(true);
+        setLoading(false);
+        return;
+      }
+      const result = await getAccount(browserApiBaseUrl());
+      if (!active) return;
       if (result.status === "ready") setAccount(result.account);
       else if (result.status === "unauthorized") router.replace(`/${locale}/login`);
       else setMessage(authMessage(locale, result));
-    });
+      setLoading(false);
+    })();
     return () => { active = false; };
   }, [locale, router]);
 
@@ -46,6 +66,13 @@ export function AccountPanel({ locale }: { locale: Locale }) {
 
   async function handleLogout() {
     setPendingAction("logout");
+    if (demoAccount) {
+      await fetch("/api/demo-session", { method: "DELETE", credentials: "include" });
+      setPendingAction(null);
+      router.replace(`/${locale}/login`);
+      router.refresh();
+      return;
+    }
     const result = await logout(browserApiBaseUrl());
     setPendingAction(null);
     if (result.status === "ready") {
@@ -81,9 +108,10 @@ export function AccountPanel({ locale }: { locale: Locale }) {
         <div><dt>{words(locale, "邮箱", "Email")}</dt><dd>{account.email ?? words(locale, "未设置", "Not set")} · {account.emailVerified ? words(locale, "已验证", "Verified") : words(locale, "未验证", "Not verified")}</dd></div>
         <div><dt>{words(locale, "手机", "Phone")}</dt><dd>{account.phone ?? words(locale, "未设置", "Not set")} · {account.phoneVerified ? words(locale, "已验证", "Verified") : words(locale, "未验证", "Not verified")}</dd></div>
       </dl>
+      {demoAccount && <p className="demo-account-note">{words(locale, "这是仅用于本地测试的演示账户，不会保存任何账户更改。", "This local demo account is for testing only and does not save account changes.")}</p>}
     </section>
 
-    <section className="account-section" aria-labelledby="password-title">
+    {!demoAccount && <><section className="account-section" aria-labelledby="password-title">
       <h2 id="password-title">{words(locale, "修改密码", "Change password")}</h2>
       <p>{words(locale, "修改后所有设备都会退出登录。", "Changing your password signs you out on every device.")}</p>
       <form onSubmit={handlePassword}>
@@ -101,7 +129,7 @@ export function AccountPanel({ locale }: { locale: Locale }) {
         <div className="field"><label htmlFor="delete-confirmation">{words(locale, "确认文字", "Confirmation text")}</label><input id="delete-confirmation" type="text" autoComplete="off" required pattern="DELETE" value={deleteConfirmation} onChange={(event) => setDeleteConfirmation(event.target.value)} placeholder="DELETE" /></div>
         <button type="submit" className="danger-button" disabled={pendingAction !== null || deleteConfirmation !== "DELETE"}>{pendingAction === "delete" ? words(locale, "正在注销…", "Deleting…") : words(locale, "注销账户", "Delete account")}</button>
       </form>
-    </section>
+    </section></>}
     {message && <p className={`login-status auth-status-${message.tone}`} role={message.tone === "error" ? "alert" : "status"} aria-live="polite">{message.text}</p>}
   </div>;
 }

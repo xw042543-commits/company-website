@@ -33,6 +33,17 @@ test("legacy consultation route redirects to the about enquiry section", () => {
 
 test("homepage uses professional bilingual positioning and enquiry destination", () => {
   const home = read("../app/[locale]/page.tsx");
+  const publicHome = read("../components/public-home.tsx");
+  assert.match(home, /if \(!signedIn\) return <PublicHome locale=\{locale\} \/>/);
+  assert.match(publicHome, /public-home-hero/);
+  assert.match(publicHome, /public-home-campus-grid/);
+  assert.match(publicHome, /public-home-contact-desk/);
+  assert.match(publicHome, /ConsultationForm/);
+  assert.match(publicHome, /udajo-office\.webp/);
+  assert.match(publicHome, /um-modern-campus\.webp/);
+  assert.match(publicHome, /UNIVERSITY_CATALOG\.map/);
+  assert.match(publicHome, /public-home-school-card/);
+  assert.doesNotMatch(publicHome, /easyunime\.com/);
   assert.match(home, /专业规划 · 清晰选择/);
   assert.match(home, /从选校到入学，全程安心规划/);
   assert.match(home, /From choosing a university and programme to preparing your application/);

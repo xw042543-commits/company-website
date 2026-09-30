@@ -43,6 +43,7 @@ type FailureResult =
 export type MutationResult = { status: "ready" } | { status: "accepted" } | FailureResult;
 export type CsrfResult = { status: "ready"; headerName: string; token: string } | FailureResult;
 export type LoginResult = { status: "ready"; session: AuthSession } | FailureResult;
+export type AuthProvidersResult = { status: "ready"; wechat: boolean } | FailureResult;
 export type SessionResult = { status: "ready"; session: AuthSession } | FailureResult;
 export type AccountResult = { status: "ready"; account: AccountProfile } | FailureResult;
 export type RegistrationResult =
@@ -128,6 +129,11 @@ function parseRegistration(payload: unknown): { verificationMethod: "EMAIL" | "P
     || (payload.verificationMethod !== "EMAIL" && payload.verificationMethod !== "PHONE")
     || typeof payload.message !== "string" || !payload.message.trim()) return null;
   return { verificationMethod: payload.verificationMethod };
+}
+
+function parseAuthProviders(payload: unknown): { wechat: boolean } | null {
+  if (!isRecord(payload) || !hasExactKeys(payload, ["wechat"]) || typeof payload.wechat !== "boolean") return null;
+  return { wechat: payload.wechat };
 }
 
 function parseFieldErrors(payload: unknown): Record<string, string> {
@@ -241,6 +247,11 @@ export async function login(baseUrl: string | undefined, body: LoginRequest, req
   return result.status === "ready" && "value" in result
     ? { status: "ready", session: result.value }
     : result as FailureResult;
+}
+
+export async function getAuthProviders(baseUrl: string | undefined, request: typeof fetch = fetch): Promise<AuthProvidersResult> {
+  const result = await authRead(baseUrl, "/api/v1/auth/providers", parseAuthProviders, request);
+  return result.status === "ready" ? { status: "ready", wechat: result.value.wechat } : result;
 }
 
 export async function registerAccount(baseUrl: string | undefined, body: RegisterAccountRequest, request: typeof fetch = fetch): Promise<RegistrationResult> {

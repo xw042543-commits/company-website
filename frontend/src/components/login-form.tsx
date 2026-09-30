@@ -26,6 +26,7 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps
   const [rememberMe, setRememberMe] = useState(false);
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<AuthMessage | null>(null);
+  const [demoPending, setDemoPending] = useState(false);
 
   function selectMethod(nextMethod: AccountLoginMethod) {
     setMethod(nextMethod);
@@ -57,6 +58,20 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps
       return;
     }
     setMessage(authMessage(locale, result));
+  }
+
+  async function startDemoSession() {
+    setDemoPending(true);
+    setMessage(null);
+    try {
+      const response = await fetch("/api/demo-session", { method: "POST", credentials: "include" });
+      if (!response.ok) throw new Error("demo unavailable");
+      router.push(returnTo ?? `/${locale}`);
+      router.refresh();
+    } catch {
+      setMessage({ tone: "error", text: words(locale, "本地演示登录暂时无法启动。", "The local demo session could not be started.") });
+      setDemoPending(false);
+    }
   }
 
   const methodLabels: Record<AccountLoginMethod, string> = {
@@ -98,6 +113,7 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps
 
       <label className="auth-checkbox"><input type="checkbox" checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} /> <span>{words(locale, "保持登录", "Keep me signed in")}</span></label>
       <button className="full-width" type="submit" disabled={pending}>{pending ? words(locale, "正在登录…", "Signing in…") : words(locale, "立即登录", "Sign in now")}</button>
+      {process.env.NODE_ENV !== "production" && <button className="full-width demo-login-button" type="button" disabled={demoPending} onClick={startDemoSession}>{demoPending ? words(locale, "正在进入演示…", "Opening demo…") : words(locale, "进入本地演示账户", "Open local demo account")}</button>}
     </div>
 
     {message && <p className={`login-status auth-status-${message.tone}`} role={message.tone === "error" ? "alert" : "status"} aria-live="polite">{message.text}</p>}

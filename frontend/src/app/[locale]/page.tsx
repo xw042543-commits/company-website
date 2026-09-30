@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FeaturedUniversityCarousel } from "@/components/featured-university-carousel";
+import { PublicHome } from "@/components/public-home";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
 import { isRequestAuthenticated } from "@/lib/server-auth";
@@ -11,6 +12,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const signedIn = await isRequestAuthenticated();
+  if (!signedIn) return <PublicHome locale={locale} />;
   const memberHref = (path: string) => signedIn
     ? `/${locale}/${path}`
     : `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/${path}`)}`;

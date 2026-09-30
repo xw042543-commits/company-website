@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "npm run test:auth && npm run test:auth-ui && npm run test:api && npm run test:catalog && npm run test:company && npm run test:styles && npm run test:access && node --test src/lib/login-auth-ui.test.ts src/lib/runtime-config.test.ts",
+    "test": "npm run test:auth && npm run test:auth-ui && npm run test:api && npm run test:catalog && npm run test:company && npm run test:styles && npm run test:access && node --test src/lib/login-auth-ui.test.ts src/lib/runtime-config.test.ts src/lib/demo-session.test.ts",
     "test:auth": "node --test src/lib/auth-api.test.ts",
     "test:auth-ui": "node --test src/lib/auth-form-state.test.ts",
     "test:access": "node --test src/lib/access-policy.test.ts src/lib/auth-session-core.test.ts src/proxy.test.ts",

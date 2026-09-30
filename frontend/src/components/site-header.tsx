@@ -42,8 +42,14 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
   async function handleLogout() {
     setSigningOut(true);
     const result = await logout(browserApiBaseUrl());
+    if (result.status !== "ready" && result.status !== "unauthorized") {
+      const demoResponse = await fetch("/api/demo-session", { method: "DELETE", credentials: "include" });
+      if (!demoResponse.ok) {
+        setSigningOut(false);
+        return;
+      }
+    }
     setSigningOut(false);
-    if (result.status !== "ready" && result.status !== "unauthorized") return;
     setAuthenticated(false);
     router.push(`/${locale}`);
     router.refresh();
