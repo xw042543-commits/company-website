@@ -2,14 +2,34 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { isProtectedPath, safeReturnTo, signedInLoginDestination } from "./access-policy.ts";
 
-test("keeps company, account, and contact pages public", () => {
-  for (const path of ["/en", "/zh/about", "/en/login", "/zh/register", "/en/forgot-password"]) {
+test("keeps company, authentication support, and contact pages public", () => {
+  for (const path of [
+    "/en",
+    "/zh/about",
+    "/en/login",
+    "/zh/register",
+    "/en/forgot-password",
+    "/zh/reset-password",
+    "/en/verify-email",
+    "/zh/verify-phone",
+    "/en/privacy",
+    "/zh/terms",
+  ]) {
     assert.equal(isProtectedPath(path), false, path);
   }
 });
 
-test("protects member planning and content tools", () => {
-  for (const path of ["/en/planning", "/zh/universities", "/en/universities/university-of-malaya", "/zh/language", "/en/scholarships", "/zh/news"]) {
+test("protects every member tool and private account route", () => {
+  for (const path of [
+    "/en/planning",
+    "/zh/universities",
+    "/en/universities/university-of-malaya",
+    "/zh/language",
+    "/en/scholarships",
+    "/zh/news",
+    "/en/account",
+    "/zh/review",
+  ]) {
     assert.equal(isProtectedPath(path), true, path);
   }
 });
