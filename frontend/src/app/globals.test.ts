@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
@@ -47,6 +47,23 @@ test("global styles include the shared motion and loading system", () => {
   }
 
   assert.match(css, /prefers-reduced-motion:\s*reduce/, "reduced-motion support is missing");
+});
+
+test("university loading skeleton is scoped to data-heavy routes without visible copy", () => {
+  const localeRoot = fileURLToPath(new URL("./[locale]/", import.meta.url));
+  assert.equal(existsSync(`${localeRoot}/loading.tsx`), false, "locale-wide loading UI causes every navigation to flash university copy");
+
+  for (const section of ["planning", "universities"]) {
+    const loadingPath = `${localeRoot}/${section}/loading.tsx`;
+    assert.equal(existsSync(loadingPath), true, `${section} needs a route-scoped loading boundary`);
+    const source = readFileSync(loadingPath, "utf8");
+    assert.match(source, /UniversityLoadingSkeleton/);
+  }
+
+  const skeleton = readFileSync(fileURLToPath(new URL("../components/university-loading-skeleton.tsx", import.meta.url)), "utf8");
+  assert.match(skeleton, /aria-busy="true"/);
+  assert.match(skeleton, /aria-hidden="true"/);
+  assert.doesNotMatch(skeleton, /正在加载院校资料|Loading university information/);
 });
 
 test("directory logos use a centered safe area with a separate hover caption", () => {
