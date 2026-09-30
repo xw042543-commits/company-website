@@ -31,6 +31,10 @@ export function SiteChrome({ locale, signedIn, children }: { locale: Locale; sig
           {words(locale, "联系我们", "Contact us")}
         </Link>
         <span>{words(locale, "与留学顾问沟通你的升学计划。", "Talk with an adviser about your study plans.")}</span>
+        <span className="footer-legal-links">
+          <Link className="footer-legal-link" href={`/${locale}/privacy`}>{words(locale, "隐私政策", "Privacy policy")}</Link>
+          <Link className="footer-legal-link" href={`/${locale}/terms`}>{words(locale, "用户协议", "User agreement")}</Link>
+        </span>
       </div>
       <p className="footer-note"><a href={`https://${companyProfile.domain}`}>{companyProfile.domain}</a><br /><a href={`mailto:${companyProfile.publicEmail}`}>{companyProfile.publicEmail}</a></p>
     </div></footer>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { getAuthProviders } from "@/lib/auth-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
@@ -30,6 +31,7 @@ export function WechatQrPanel({ locale, mode }: { locale: Locale; mode: "login" 
     <div className="wechat-login-copy">
       <strong>{available ? words(locale, "微信服务已启用", "WeChat access is available") : words(locale, "等待微信服务启用", "Waiting for WeChat service")}</strong>
       <p>{available ? words(locale, "打开微信授权页面并使用手机确认。", "Open WeChat authorization and confirm on your phone.") : words(locale, "后端完成微信开放平台配置后，此处会生成可扫描的登录二维码。", "A scannable code will appear after the backend WeChat Open Platform setup is enabled.")}</p>
+      <Link className="wechat-privacy-link" href={`/${locale}/privacy`}>{words(locale, "查看微信登录隐私说明", "Read the WeChat privacy notice")}</Link>
       {available ? <a className="wechat-login-button" href={href}>{words(locale, "打开微信登录", "Continue with WeChat")}</a> : <span className="wechat-login-disabled">{words(locale, "微信登录暂未启用", "WeChat sign-in is not enabled yet")}</span>}
     </div>
   </aside>;

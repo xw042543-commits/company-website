@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
-import { filterUniversityCatalog, findUniversityBySlug, localizeUniversity, searchUniversityCatalog, UNIVERSITY_CATALOG } from "./university-catalog.ts";
+import { backendUniversitySlug, filterUniversityCatalog, findUniversityBySlug, localizeUniversity, searchUniversityCatalog, UNIVERSITY_CATALOG } from "./university-catalog.ts";
 import { universityProfile } from "./university-profiles.ts";
 import { localProgrammeLevels } from "./local-programmes.ts";
 import { isNavigationActive } from "../lib/site.ts";
@@ -59,6 +59,24 @@ test("finds a reviewed university by slug", () => {
   assert.equal(findUniversityBySlug("sunway-university")?.nameZh, "双威大学");
 });
 
+test("resolves database slugs to the same reviewed university", () => {
+  assert.equal(findUniversityBySlug("segi")?.slug, "segi-university");
+  assert.equal(findUniversityBySlug("taylor")?.slug, "taylors-university");
+  assert.equal(backendUniversitySlug("segi-university"), "segi");
+  assert.equal(backendUniversitySlug("unknown-university"), "unknown-university");
+});
+
+test("catalogue matches the twenty imported university records", () => {
+  assert.deepEqual(
+    UNIVERSITY_CATALOG.map((university) => university.apiSlug).sort(),
+    [
+      "apu", "city", "help", "inti", "mahsa", "monash", "nilai", "nottingham",
+      "segi", "southampton", "sunway", "taylor", "ucsi", "ukm", "um", "upm",
+      "usm", "utar", "utm", "uum",
+    ],
+  );
+});
+
 test("returns undefined for an unknown slug", () => {
   assert.equal(findUniversityBySlug("unknown-university"), undefined);
 });
@@ -95,7 +113,7 @@ test("APU and UTAR use the supplied local logos", () => {
 test("every supplied logo reference resolves to a nonempty public file", () => {
   const publicRoot = fileURLToPath(new URL("../../public/", import.meta.url));
   for (const university of UNIVERSITY_CATALOG) {
-    if (!university.logoSrc) continue;
+    assert.ok(university.logoSrc, `${university.slug} logo reference is missing`);
     const path = resolve(publicRoot, university.logoSrc.slice(1));
     assert.equal(existsSync(path), true, `${university.slug} logo is missing`);
     assert.ok(statSync(path).size > 0, `${university.slug} logo is empty`);
@@ -124,11 +142,15 @@ test("every campus photo reference resolves to a nonempty public file", () => {
   }
 });
 
+test("University of Malaya uses the supplied modern campus photo", () => {
+  assert.equal(universityProfile("um")?.campusImageSrc, "/universities/campuses/um-modern-campus.webp");
+  assert.equal(universityProfile("um")?.imageCredit, undefined);
+});
+
 test("catalogue marks universities with supplied programme records as available", () => {
   for (const university of UNIVERSITY_CATALOG) {
     if (!localProgrammeLevels(university.slug).length) continue;
     assert.equal(university.programmeStatus, "available", `${university.id} should show available programme data`);
   }
 });
-
 

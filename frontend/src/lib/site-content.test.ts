@@ -86,6 +86,17 @@ test("user-facing status copy avoids implementation language", () => {
   assert.doesNotMatch(read("../components/login-form.tsx"), /预览模式|preview mode/i);
 });
 
+test("enquiry form submits to the consultation API with explicit consent", () => {
+  const form = read("../components/consultation-form.tsx");
+  assert.match(form, /submitConsultation/);
+  assert.match(form, /browserApiBaseUrl/);
+  assert.match(form, /privacyConsent:\s*true/);
+  assert.match(form, /type="submit"/);
+  assert.match(form, /referenceCode/);
+  assert.doesNotMatch(form, /preview mode only|仅供预览|consultation submission unavailable|咨询提交暂未开放/i);
+  assert.doesNotMatch(form, /name="privacyConsent" disabled/);
+});
+
 test("key planning and company pages use natural bilingual copy", () => {
   const about = read("../app/[locale]/about/page.tsx");
   const planning = read("../app/[locale]/planning/page.tsx");
