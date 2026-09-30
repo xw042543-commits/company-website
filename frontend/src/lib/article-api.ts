@@ -1,4 +1,5 @@
 import type { Locale } from "./site.ts";
+import { requestInternalApi } from "./internal-api-request.ts";
 
 export const articleSections = ["language", "scholarships", "news"] as const;
 export type ArticleSection = typeof articleSections[number];
@@ -145,7 +146,7 @@ export async function getArticles(
     const url = new URL(`/api/v1/articles/${section}`, baseUrl);
     url.searchParams.set("page", String(normalizeArticlePage(page)));
     url.searchParams.set("size", "12");
-    const response = await request(url, {
+    const response = await requestInternalApi(request, url, {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });
@@ -173,7 +174,7 @@ export async function getArticle(
 
   try {
     const path = `/api/v1/articles/${section}/${encodeURIComponent(slug.trim())}`;
-    const response = await request(new URL(path, baseUrl), {
+    const response = await requestInternalApi(request, new URL(path, baseUrl), {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });

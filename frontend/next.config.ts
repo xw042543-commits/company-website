@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   output: "standalone",
+  async rewrites() {
+    const apiBaseUrl = process.env.API_BASE_URL?.replace(/\/$/, "");
+    return apiBaseUrl ? [{ source: "/api/:path*", destination: `${apiBaseUrl}/api/:path*` }] : [];
+  },
   async headers() {
     return [{
       source: "/(.*)",

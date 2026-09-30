@@ -1,82 +1,85 @@
 "use client";
 
 import Link from "next/link";
-import { type KeyboardEvent, useEffect, useRef, useState } from "react";
-import { authEndpoints } from "@/lib/login-auth";
-import { startDemoSession } from "@/app/actions/demo-session";
+import { useRouter } from "next/navigation";
+import { type FormEvent, type KeyboardEvent, useState } from "react";
+import { login } from "@/lib/auth-api";
+import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
 
 const loginMethods = ["password", "phone"] as const;
 type AccountLoginMethod = (typeof loginMethods)[number];
 
-export function LoginForm({ locale, returnTo, onForgotPassword }: { locale: Locale; returnTo?: string; onForgotPassword?: () => void }) {
-  const [method, setMethod] = useState<AccountLoginMethod>("password");
-  const [showPassword, setShowPassword] = useState(false);
-  const [reviewed, setReviewed] = useState(false);
-  const [phoneError, setPhoneError] = useState(false);
-  const [countdown, setCountdown] = useState(0);
-  const [codeRequested, setCodeRequested] = useState(false);
-  const accountRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const phoneRef = useRef<HTMLInputElement>(null);
-  const codeRef = useRef<HTMLInputElement>(null);
+type LoginFormProps = {
+  locale: Locale;
+  returnTo?: string;
+  onForgotPassword?: () => void;
+};
 
-  useEffect(() => {
-    if (countdown <= 0) return;
-    const timer = window.setTimeout(() => setCountdown((value) => value - 1), 1000);
-    return () => window.clearTimeout(timer);
-  }, [countdown]);
+export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps) {
+  const router = useRouter();
+  const [method, setMethod] = useState<AccountLoginMethod>("password");
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [message, setMessage] = useState<AuthMessage | null>(null);
+  const [demoPending, setDemoPending] = useState(false);
 
   function selectMethod(nextMethod: AccountLoginMethod) {
     setMethod(nextMethod);
-    setReviewed(false);
-    setPhoneError(false);
-    setCodeRequested(false);
+    setIdentifier("");
+    setMessage(null);
   }
 
   function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
     event.preventDefault();
     const direction = event.key === "ArrowRight" ? 1 : -1;
-    const nextIndex = (index + direction + loginMethods.length) % loginMethods.length;
-    const nextMethod = loginMethods[nextIndex];
+    const nextMethod = loginMethods[(index + direction + loginMethods.length) % loginMethods.length];
     selectMethod(nextMethod);
     window.requestAnimationFrame(() => document.getElementById(`login-tab-${nextMethod}`)?.focus());
   }
 
-  function clearFields() {
-    for (const input of [accountRef, passwordRef, phoneRef, codeRef]) {
-      if (input.current) input.current.value = "";
-    }
-    setShowPassword(false);
-  }
-
-  async function handlePreview() {
-    const inputs = method === "password" ? [accountRef.current, passwordRef.current] : [phoneRef.current, codeRef.current];
-    if (!inputs.every((input) => input?.reportValidity())) return;
-    clearFields();
-    setReviewed(true);
-    await startDemoSession(locale, returnTo);
-  }
-
-  function requestCode() {
-    const digits = phoneRef.current?.value.replace(/\D/g, "") ?? "";
-    if (digits.length < 8) {
-      setPhoneError(true);
-      phoneRef.current?.focus();
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setPending(true);
+    setMessage(null);
+    const result = await login(browserApiBaseUrl(), {
+      identifier: identifier.trim(), password, rememberMe,
+    });
+    setPending(false);
+    if (result.status === "ready") {
+      setMessage(authMessage(locale, result));
+      router.push(returnTo ?? `/${locale}/account`);
+      router.refresh();
       return;
     }
-    setPhoneError(false);
-    setCodeRequested(true);
-    setCountdown(60);
+    setMessage(authMessage(locale, result));
+  }
+
+  async function startDemoSession() {
+    setDemoPending(true);
+    setMessage(null);
+    try {
+      const response = await fetch("/api/demo-session", { method: "POST", credentials: "include" });
+      if (!response.ok) throw new Error("demo unavailable");
+      router.push(returnTo ?? `/${locale}`);
+      router.refresh();
+    } catch {
+      setMessage({ tone: "error", text: words(locale, "本地演示登录暂时无法启动。", "The local demo session could not be started.") });
+      setDemoPending(false);
+    }
   }
 
   const methodLabels: Record<AccountLoginMethod, string> = {
-    password: words(locale, "账户登录", "Account login"),
-    phone: words(locale, "手机号登录", "Phone login"),
+    password: words(locale, "邮箱登录", "Email sign in"),
+    phone: words(locale, "手机号登录", "Phone sign in"),
   };
 
-  return <div className="login-form account-login-form">
+  return <form className="login-form account-login-form" onSubmit={handleSubmit}>
     <div className="login-method-tabs" role="tablist" aria-label={words(locale, "选择登录方式", "Choose a sign-in method")}>
       {loginMethods.map((item, index) => <button
         key={item}
@@ -91,56 +94,28 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: { locale: Loca
       >{methodLabels[item]}</button>)}
     </div>
 
-    {method === "password" && <div id="login-panel-password" role="tabpanel" aria-labelledby="login-tab-password" data-endpoint={authEndpoints.password}>
+    <div id={`login-panel-${method}`} role="tabpanel" aria-labelledby={`login-tab-${method}`}>
       <div className="field">
-        <label htmlFor="account-id">{words(locale, "邮箱或用户名", "Email or username")}</label>
-        <input ref={accountRef} id="account-id" type="text" autoComplete="username" maxLength={160} required placeholder={words(locale, "请输入邮箱或用户名", "Enter your email or username")} onInput={() => setReviewed(false)} />
+        <label htmlFor="account-id">{method === "phone" ? words(locale, "手机号码", "Phone number") : words(locale, "邮箱", "Email address")}</label>
+        <input id="account-id" name="identifier" type={method === "phone" ? "tel" : "email"} inputMode={method === "phone" ? "tel" : "email"} autoComplete={method === "phone" ? "tel" : "email"} maxLength={160} required value={identifier} onChange={(event) => { setIdentifier(event.target.value); setMessage(null); }} placeholder={method === "phone" ? words(locale, "例如 +60123456789", "For example +60123456789") : words(locale, "请输入注册邮箱", "Enter your registered email")} />
       </div>
 
       <div className="field">
         <label htmlFor="account-password">{words(locale, "密码", "Password")}</label>
         <div className="password-input-wrap">
-          <input ref={passwordRef} id="account-password" type={showPassword ? "text" : "password"} autoComplete="current-password" maxLength={128} required placeholder={words(locale, "请输入密码", "Enter your password")} onInput={() => setReviewed(false)} />
-          <button className="password-toggle" type="button" aria-controls="account-password" aria-pressed={showPassword} onClick={() => setShowPassword((value) => !value)}>
-            {showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}
-          </button>
+          <input id="account-password" name="password" type={showPassword ? "text" : "password"} autoComplete="current-password" maxLength={128} minLength={8} required value={password} onChange={(event) => { setPassword(event.target.value); setMessage(null); }} placeholder={words(locale, "请输入密码", "Enter your password")} />
+          <button className="password-toggle" type="button" aria-controls="account-password" aria-pressed={showPassword} onClick={() => setShowPassword((value) => !value)}>{showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}</button>
         </div>
         {onForgotPassword
           ? <button className="forgot-password-link" type="button" onClick={onForgotPassword}>{words(locale, "忘记密码？", "Forgot password?")}</button>
           : <Link className="forgot-password-link" href={`/${locale}/forgot-password`}>{words(locale, "忘记密码？", "Forgot password?")}</Link>}
       </div>
 
-      <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "立即登录", "Sign in now")}</button>
-    </div>}
+      <label className="auth-checkbox"><input type="checkbox" checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} /> <span>{words(locale, "保持登录", "Keep me signed in")}</span></label>
+      <button className="full-width" type="submit" disabled={pending}>{pending ? words(locale, "正在登录…", "Signing in…") : words(locale, "立即登录", "Sign in now")}</button>
+      {process.env.NODE_ENV !== "production" && <button className="full-width demo-login-button" type="button" disabled={demoPending} onClick={startDemoSession}>{demoPending ? words(locale, "正在进入演示…", "Opening demo…") : words(locale, "进入本地演示账户", "Open local demo account")}</button>}
+    </div>
 
-    {method === "phone" && <div id="login-panel-phone" role="tabpanel" aria-labelledby="login-tab-phone" data-endpoint={authEndpoints.phone}>
-      <div className="field">
-        <label htmlFor="account-phone">{words(locale, "手机号码", "Phone number")}</label>
-        <div className="phone-input-row">
-          <select aria-label={words(locale, "国家或地区代码", "Country or region code")} defaultValue="+60">
-            <option value="+60">MY +60</option>
-            <option value="+86">CN +86</option>
-          </select>
-          <input ref={phoneRef} id="account-phone" type="tel" inputMode="tel" autoComplete="tel-national" minLength={8} maxLength={18} required aria-invalid={phoneError} aria-describedby={phoneError ? "phone-error" : undefined} placeholder={words(locale, "请输入手机号码", "Enter phone number")} onInput={() => { setPhoneError(false); setReviewed(false); }} />
-        </div>
-        {phoneError && <p id="phone-error" className="field-error" role="alert">{words(locale, "请输入有效的手机号码。", "Enter a valid phone number.")}</p>}
-      </div>
-
-      <div className="field">
-        <label htmlFor="verification-code">{words(locale, "验证码", "Verification code")}</label>
-        <div className="verification-code-row">
-          <input ref={codeRef} id="verification-code" type="text" inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" minLength={6} maxLength={6} required placeholder={words(locale, "6 位验证码", "6-digit code")} onInput={() => setReviewed(false)} />
-          <button className="secondary" type="button" disabled={countdown > 0} data-endpoint={authEndpoints.requestPhoneCode} onClick={requestCode}>
-            {countdown > 0 ? words(locale, `${countdown} 秒后重发`, `Resend in ${countdown}s`) : words(locale, "发送验证码", "Send code")}
-          </button>
-        </div>
-      </div>
-
-      {codeRequested && <p className="login-status" role="status" aria-live="polite">{words(locale, "倒计时已开始，等待后端接入验证码服务。", "Countdown started, ready for the backend verification service.")}</p>}
-      <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "验证并登录", "Verify and sign in")}</button>
-    </div>}
-
-    <p className="auth-integration-note"><strong>{words(locale, "前端演示", "Frontend demo")}</strong> · {words(locale, "登录服务尚未接入；输入内容不会发送或保存。继续后将开启本机会员预览。", "Authentication is not connected; entries are never sent or stored. Continuing opens the local member preview.")}</p>
-    {reviewed && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览操作完成，没有资料被发送或保存。", "Preview complete. No information was sent or stored.")}</p>}
-  </div>;
+    {message && <p className={`login-status auth-status-${message.tone}`} role={message.tone === "error" ? "alert" : "status"} aria-live="polite">{message.text}</p>}
+  </form>;
 }

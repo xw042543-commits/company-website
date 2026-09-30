@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const css = readFileSync(fileURLToPath(new URL("./globals.css", import.meta.url)), "utf8");
+const schoolCard = readFileSync(fileURLToPath(new URL("../components/school-card.tsx", import.meta.url)), "utf8");
 
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
@@ -15,9 +16,23 @@ test("global styles cover the rendered header and homepage layout", () => {
     ".contact-card",
     ".programme-detail-list",
     ".programme-level-filters",
+    ".public-home-hero",
+    ".public-home-campus-grid",
+    ".public-home-contact-desk",
+    ".public-home-enquiry",
+    ".public-home-school-grid",
   ]) {
     assert.match(css, new RegExp(`\\${selector}\\b`), `${selector} is missing from globals.css`);
   }
+
+  assert.match(css, /\.hero-intro\s*\{[\s\S]*?font-size:\s*clamp\(1\.125rem,\s*1\.7vw,\s*1\.3rem\)/);
+});
+
+test("public homepage uses a compact enquiry desk and responsive university cards", () => {
+  assert.match(css, /\.public-home-contact-desk\s*\{[\s\S]*?grid-template-columns:/);
+  assert.match(css, /\.public-home-contact-photo img\s*\{[\s\S]*?object-position:\s*center/);
+  assert.match(css, /\.public-home-school-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3/);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.public-home-contact-desk/);
 });
 
 test("global styles include the shared motion and loading system", () => {
@@ -32,4 +47,18 @@ test("global styles include the shared motion and loading system", () => {
   }
 
   assert.match(css, /prefers-reduced-motion:\s*reduce/, "reduced-motion support is missing");
+});
+
+test("directory logos use a centered safe area with a separate hover caption", () => {
+  assert.match(schoolCard, /className="school-logo-block"/);
+  assert.match(schoolCard, /className="school-logo-caption"/);
+  assert.match(css, /\.school-image img\s*\{[\s\S]*?width:\s*82%[\s\S]*?height:\s*82%[\s\S]*?object-position:\s*center/);
+  assert.match(css, /\.school-logo-caption\s*\{[\s\S]*?position:\s*static/);
+  assert.match(css, /\.school-card-link:hover \.school-logo-caption/);
+});
+
+test("benefit cards use an even two-column alignment", () => {
+  assert.match(css, /\.benefits\s*\{[^}]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(css, /\.benefits\s*\{[^}]*grid-auto-rows:\s*minmax\(140px,\s*auto\)/);
+  assert.doesNotMatch(css, /\.benefits article:nth-child/);
 });

@@ -124,6 +124,11 @@ test("every campus photo reference resolves to a nonempty public file", () => {
   }
 });
 
+test("University of Malaya uses the supplied modern campus photo", () => {
+  assert.equal(universityProfile("um")?.campusImageSrc, "/universities/campuses/um-modern-campus.webp");
+  assert.equal(universityProfile("um")?.imageCredit, undefined);
+});
+
 test("catalogue marks universities with supplied programme records as available", () => {
   for (const university of UNIVERSITY_CATALOG) {
     if (!localProgrammeLevels(university.slug).length) continue;

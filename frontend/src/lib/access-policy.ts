@@ -33,3 +33,7 @@ export function loginRedirectPath(pathname: string, search: string) {
   const returnTo = safeReturnTo(`${pathname}${search}`, safeLocale);
   return `/${safeLocale}/login?returnTo=${encodeURIComponent(returnTo)}`;
 }
+
+export function signedInLoginDestination(authenticated: boolean, locale: Locale) {
+  return authenticated ? `/${locale}/account` : null;
+}

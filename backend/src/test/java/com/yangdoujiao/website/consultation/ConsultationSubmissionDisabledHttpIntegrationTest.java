@@ -1,6 +1,7 @@
 package com.yangdoujiao.website.consultation;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -29,6 +30,7 @@ class ConsultationSubmissionDisabledHttpIntegrationTest {
     @Test
     void refusesSubmissionAndStoresNothingWhileFeatureIsDisabled() throws Exception {
         mockMvc.perform(post("/api/v1/consultations")
+                        .with(csrf())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {

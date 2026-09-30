@@ -6,7 +6,7 @@ import { Locale, words } from "@/lib/site";
 
 export function CompanyProfilePage({ locale }: { locale: Locale }) {
   return <main id="main" className="container page-main company-page">
-    <p className="section-label">{words(locale, "公司资料", "Company information")}</p>
+    <p className="section-label">{words(locale, "公司资料", "Company profile")}</p>
     <h1>{words(locale, "关于洋豆角", "About UDAJO")}</h1>
     <p className="page-intro">{words(
       locale,
@@ -18,13 +18,13 @@ export function CompanyProfilePage({ locale }: { locale: Locale }) {
       <div>
         <p className="company-wordmark">{companyProfile.brandNameEn}</p>
         <h2 id="company-overview-title">{companyProfile.brandNameZh}</h2>
-        <p>{words(locale, "清晰规划留学选择，一步一步走向适合你的院校。", "Clear study planning, one practical step at a time.")}</p>
+        <p>{words(locale, "清晰规划每一个留学选择，稳步走向适合你的院校。", "Make each study decision with clarity and move confidently towards the right university.")}</p>
       </div>
       <dl className="company-facts">
         <div><dt>{words(locale, "注册名称", "Registered name")}</dt><dd>{companyProfile.legalNameZh}</dd></div>
         <div><dt>{words(locale, "统一社会信用代码", "Registration number")}</dt><dd>{companyProfile.registrationNumber}</dd></div>
         <div><dt>{words(locale, "官方域名", "Official domain")}</dt><dd><a href={`https://${companyProfile.domain}`}>{companyProfile.domain}</a></dd></div>
-        <div><dt>{words(locale, "办公地址资料", "Office location information")}</dt><dd><a href={companyProfile.addressSourceUrl} target="_blank" rel="noopener noreferrer">{words(locale, "查看提供的微信公众号链接", "View the supplied WeChat article")}</a></dd></div>
+        <div><dt>{words(locale, "办公地址资料", "Office locations")}</dt><dd><a href={companyProfile.addressSourceUrl} target="_blank" rel="noopener noreferrer">{words(locale, "查看办公地址资料", "View office location information")}</a></dd></div>
       </dl>
     </section>
 

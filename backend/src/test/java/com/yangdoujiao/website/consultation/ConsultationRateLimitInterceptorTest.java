@@ -8,12 +8,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
+import com.yangdoujiao.website.common.web.ClientAddressResolver;
+
 class ConsultationRateLimitInterceptorTest {
 
     @Test
     void checksPostAttemptsBeforeControllerArgumentResolution() {
         ConsultationRateLimiter limiter = mock(ConsultationRateLimiter.class);
-        ConsultationClientAddressResolver resolver = mock(ConsultationClientAddressResolver.class);
+        ClientAddressResolver resolver = mock(ClientAddressResolver.class);
         MockHttpServletRequest request = new MockHttpServletRequest(
                 "POST",
                 "/api/v1/consultations"
@@ -33,7 +35,7 @@ class ConsultationRateLimitInterceptorTest {
     @Test
     void ignoresNonPostRequests() {
         ConsultationRateLimiter limiter = mock(ConsultationRateLimiter.class);
-        ConsultationClientAddressResolver resolver = mock(ConsultationClientAddressResolver.class);
+        ClientAddressResolver resolver = mock(ClientAddressResolver.class);
         ConsultationRateLimitInterceptor interceptor = new ConsultationRateLimitInterceptor(
                 limiter,
                 resolver

@@ -5,14 +5,14 @@ import test from "node:test";
 
 const read = (path: string) => readFileSync(fileURLToPath(new URL(path, import.meta.url)), "utf8");
 
-test("login page uses a focused portal shell with QR and account columns", () => {
+test("login page uses a focused portal shell for the real account flow", () => {
   const page = read("../app/[locale]/login/page.tsx");
   const panel = read("../components/auth-account-panel.tsx");
   assert.match(page, /auth-portal-header/);
   assert.match(page, /auth-login-card/);
-  assert.match(page, /auth-qr-column/);
   assert.match(panel, /auth-form-column/);
-  assert.match(page, /WeChatLogin/);
+  assert.match(panel, /WechatQrPanel/);
+  assert.doesNotMatch(page, /auth-qr-column/);
   assert.match(page, /Back to website|返回网站/);
 });
 
@@ -42,12 +42,34 @@ test("account form provides password and phone tabs with keyboard navigation", (
   assert.match(source, /ArrowLeft/);
 });
 
-test("WeChat column exposes backend-ready QR states", () => {
-  const source = read("../components/wechat-login.tsx");
-  for (const state of ["waiting", "scanned", "expired", "error"]) assert.match(source, new RegExp(state));
-  assert.match(source, /wechatQrUrl/);
-  assert.match(source, /Refresh QR|刷新二维码/);
-  assert.match(source, /privacy|隐私政策/);
+test("WeChat QR access remains visible, deployment-gated, and supports verified-account binding", () => {
+  const panel = read("../components/auth-account-panel.tsx");
+  const wechat = read("../components/wechat-qr-panel.tsx");
+  const binding = read("../components/wechat-bind-form.tsx");
+  const page = read("../app/[locale]/login/page.tsx");
+  assert.match(panel, /mode=\{registering \? "register" : "login"\}/);
+  assert.match(wechat, /getAuthProviders/);
+  assert.match(wechat, /result\.status === "ready" && result\.wechat/);
+  assert.match(wechat, /wechat-qr-frame/);
+  assert.match(wechat, /微信扫码登录或注册/);
+  assert.match(wechat, /\/api\/v1\/auth\/wechat\/start/);
+  assert.match(wechat, /\/privacy/);
+  assert.match(binding, /bindWechatAccount/);
+  assert.match(binding, /verified email or phone account/);
+  assert.match(panel, /"wechat-bind"/);
+  assert.match(page, /wechatError/);
+  assert.doesNotMatch(`${wechat}\n${binding}`, /fake qr|demo session|startDemoSession/i);
+});
+
+test("account forms submit to the real versioned authentication client and isolate local demo access", () => {
+  const login = read("../components/login-form.tsx");
+  const register = read("../components/register-form.tsx");
+  assert.match(login, /import \{ login \} from "@\/lib\/auth-api"/);
+  assert.match(register, /registerAccount/);
+  assert.match(login, /browserApiBaseUrl/);
+  assert.match(register, /browserApiBaseUrl/);
+  assert.match(login, /startDemoSession/);
+  assert.doesNotMatch(register, /startDemoSession/);
 });
 
 test("privacy policy discloses WeChat identifiers and unavailable-function handling", () => {
@@ -123,11 +145,21 @@ test("account mode switch remains readable on hover", () => {
   assert.match(css, /\.auth-form-switch:hover\s*\{[\s\S]*?background:\s*transparent[\s\S]*?color:\s*var\(--brand-deep\)/);
 });
 
-test("demo account actions require completed visible fields", () => {
-  const login = read("../components/login-form.tsx");
-  const register = read("../components/register-form.tsx");
-  assert.match(login, /reportValidity/);
-  assert.match(register, /reportValidity/);
-  assert.match(login, /required/);
-  assert.match(register, /required/);
+test("verification forms let users request replacement instructions", () => {
+  const email = read("../components/email-verification-form.tsx");
+  const phone = read("../components/phone-verification-form.tsx");
+  assert.match(email, /resendVerification/);
+  assert.match(email, /Resend verification email/);
+  assert.match(phone, /resendVerification/);
+  assert.match(phone, /Resend verification code/);
+});
+
+test("local demo accounts load a profile without exposing production account actions", () => {
+  const account = read("../components/account-panel.tsx");
+  const route = read("../app/api/demo-session/route.ts");
+  assert.match(account, /loadDemoAccount/);
+  assert.match(account, /demo-account-note/);
+  assert.match(account, /!demoAccount/);
+  assert.match(route, /export async function GET/);
+  assert.match(route, /UDAJO Demo Student/);
 });

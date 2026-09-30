@@ -5,9 +5,9 @@ export function ResultsState({ locale, state, actionHref }: { locale: Locale; st
   const messages = {
     loading: ["正在加载院校", "Loading universities", "请稍候。", "Please wait."],
     empty: ["没有找到符合条件的院校", "No matching universities", "请调整筛选条件后重试。", "Try adjusting your filters."],
-    error: ["暂时无法加载院校", "Unable to load universities", "请稍后重试，或通过咨询页面联系我们。", "Try again later, or use the enquiry page."],
-    unconfigured: ["院校资料正在接入", "University information is being connected", "当前不会显示未经审核的院校资料。", "Unreviewed university records are not shown."],
-    pending: ["筛选服务正在接入", "Filtered results are being connected", "筛选条件会保留在网址中。服务接入后将显示匹配院校。", "Your choices remain in the URL. Matching universities will appear when the service is connected."],
+    error: ["暂时无法加载院校资料", "University information is temporarily unavailable", "请稍后重试，或联系留学顾问获取帮助。", "Please try again later or contact an adviser for assistance."],
+    unconfigured: ["院校资料正在完善", "University information is being prepared", "我们只会展示已经审核的院校资料。", "Only reviewed university information will be displayed."],
+    pending: ["筛选结果暂未开放", "Filtered results are not yet available", "你的筛选条件已保留。功能开放后，这里将显示匹配的院校。", "Your filter selections have been retained. Matching universities will appear here when the feature becomes available."],
   } as const;
   const [zh, en, bodyZh, bodyEn] = messages[state];
 

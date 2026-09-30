@@ -3,6 +3,7 @@ package com.yangdoujiao.website.consultation;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -25,14 +26,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mock.web.MockCookie;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.yangdoujiao.website.TestContainersConfiguration;
 import com.yangdoujiao.website.common.exception.ApiException;
+
+import jakarta.servlet.http.Cookie;
 
 @SpringBootTest(properties = {
         "app.consultation.submission-enabled=true",
@@ -46,13 +51,32 @@ class ConsultationHttpIntegrationTest {
     @Autowired private MockMvc mockMvc;
     @Autowired private JdbcTemplate jdbc;
     @Autowired private StringRedisTemplate redis;
+    private Cookie csrfCookie;
 
     @BeforeEach
-    void clearRateLimits() {
+    void clearRateLimits() throws Exception {
+        var csrfResponse = mockMvc.perform(get("/api/v1/auth/csrf"))
+                .andExpect(status().isOk()).andReturn().getResponse();
+        csrfCookie = csrfResponse.getHeaders(HttpHeaders.SET_COOKIE).stream()
+                .map(MockCookie::parse)
+                .filter(cookie -> "XSRF-TOKEN".equals(cookie.getName()))
+                .findFirst().orElseThrow();
         Set<String> keys = redis.keys("consultation:rate:*");
         if (keys != null && !keys.isEmpty()) {
             redis.delete(keys);
         }
+    }
+
+    @Test
+    void rejectsAnonymousConsultationWithoutCsrfToken() throws Exception {
+        mockMvc.perform(post("/api/v1/consultations")
+                        .header("X-Trace-Id", "consultation-csrf-trace")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{}"))
+                .andExpect(status().isForbidden())
+                .andExpect(header().string("X-Trace-Id", "consultation-csrf-trace"))
+                .andExpect(jsonPath("$.code").value("CSRF_REJECTED"))
+                .andExpect(jsonPath("$.traceId").value("consultation-csrf-trace"));
     }
 
     @AfterEach
@@ -66,6 +90,8 @@ class ConsultationHttpIntegrationTest {
     @Test
     void acceptsConsentedEnquiryAndStoresNormalizedPersonalData() throws Exception {
         mockMvc.perform(post("/api/v1/consultations")
+                        .cookie(csrfCookie)
+                        .header("X-XSRF-TOKEN", csrfCookie.getValue())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
@@ -106,6 +132,8 @@ class ConsultationHttpIntegrationTest {
     @Test
     void rejectsMissingConsentAndUnsupportedQualificationWithoutSaving() throws Exception {
         mockMvc.perform(post("/api/v1/consultations")
+                        .cookie(csrfCookie)
+                        .header("X-XSRF-TOKEN", csrfCookie.getValue())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
@@ -133,6 +161,8 @@ class ConsultationHttpIntegrationTest {
         String maximumLengthName = "王".repeat(100);
 
         mockMvc.perform(post("/api/v1/consultations")
+                        .cookie(csrfCookie)
+                        .header("X-XSRF-TOKEN", csrfCookie.getValue())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
@@ -171,6 +201,8 @@ class ConsultationHttpIntegrationTest {
 
         for (int attempt = 1; attempt <= 5; attempt++) {
             mockMvc.perform(post("/api/v1/consultations")
+                            .cookie(csrfCookie)
+                            .header("X-XSRF-TOKEN", csrfCookie.getValue())
                             .with(request -> {
                                 request.setRemoteAddr("203.0.113.10");
                                 return request;
@@ -181,6 +213,8 @@ class ConsultationHttpIntegrationTest {
         }
 
         mockMvc.perform(post("/api/v1/consultations")
+                        .cookie(csrfCookie)
+                        .header("X-XSRF-TOKEN", csrfCookie.getValue())
                         .with(request -> {
                             request.setRemoteAddr("203.0.113.10");
                             return request;
@@ -195,6 +229,8 @@ class ConsultationHttpIntegrationTest {
     void rateLimitsMalformedRequestsBeforeReadingTheRequestBody() throws Exception {
         for (int attempt = 1; attempt <= 5; attempt++) {
             mockMvc.perform(post("/api/v1/consultations")
+                            .cookie(csrfCookie)
+                            .header("X-XSRF-TOKEN", csrfCookie.getValue())
                             .with(request -> {
                                 request.setRemoteAddr("203.0.113.11");
                                 return request;
@@ -205,6 +241,8 @@ class ConsultationHttpIntegrationTest {
         }
 
         mockMvc.perform(post("/api/v1/consultations")
+                        .cookie(csrfCookie)
+                        .header("X-XSRF-TOKEN", csrfCookie.getValue())
                         .with(request -> {
                             request.setRemoteAddr("203.0.113.11");
                             return request;
@@ -228,6 +266,8 @@ class ConsultationHttpIntegrationTest {
                 """.formatted("x".repeat(17_000));
 
         mockMvc.perform(post("/api/v1/consultations")
+                        .cookie(csrfCookie)
+                        .header("X-XSRF-TOKEN", csrfCookie.getValue())
                         .header("Origin", "http://localhost:3000")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body))
