@@ -30,7 +30,7 @@ class AuthenticationServiceExternalSessionTest {
         AuthenticationService service = new AuthenticationService(mock(AuthenticationManager.class), contexts,
                 new AccountIdentifierNormalizer(), mock(AuthRateLimiter.class),
                 new AuthRateLimitProperties(5, 5, 5, 5, 5, 5, 5, 5, 5, Duration.ofMinutes(10)),
-                new AuthProperties(false, "", "", Duration.ofHours(24), Duration.ofDays(30),
+                new AuthProperties(false, true, "", "", Duration.ofHours(24), Duration.ofDays(30),
                         Duration.ofMinutes(30), Duration.ofMinutes(10), Duration.ofMinutes(30),
                         DataSize.ofKilobytes(8), new String[0]));
         UserAccount account = new UserAccount("Test User", "test@example.com", null,

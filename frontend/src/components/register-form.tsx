@@ -11,7 +11,6 @@ import { type Locale, words } from "@/lib/site";
 
 export function RegisterForm({ locale }: { locale: Locale; returnTo?: string }) {
   const router = useRouter();
-  const [method, setMethod] = useState<"EMAIL" | "PHONE">("EMAIL");
   const [fullName, setFullName] = useState("");
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
@@ -34,8 +33,8 @@ export function RegisterForm({ locale }: { locale: Locale; returnTo?: string }) 
     setMessage(null);
     const result = await registerAccount(browserApiBaseUrl(), {
       fullName: fullName.trim(),
-      email: method === "EMAIL" ? identifier.trim() : null,
-      phone: method === "PHONE" ? identifier.trim() : null,
+      email: identifier.trim(),
+      phone: null,
       password,
       agreementAccepted,
       privacyAccepted,
@@ -44,8 +43,7 @@ export function RegisterForm({ locale }: { locale: Locale; returnTo?: string }) 
     setPending(false);
     if (result.status === "accepted") {
       const destination = registrationDestination(locale, result.verificationMethod);
-      const queryName = result.verificationMethod === "PHONE" ? "phone" : "email";
-      const query = `?${queryName}=${encodeURIComponent(identifier.trim())}`;
+      const query = `?email=${encodeURIComponent(identifier.trim())}`;
       router.push(`${destination}${query}`);
       return;
     }
@@ -54,19 +52,13 @@ export function RegisterForm({ locale }: { locale: Locale; returnTo?: string }) 
 
   return <form className="login-form" onSubmit={handleSubmit}>
     <FormProgress completed={completed} total={4} locale={locale} />
-    <fieldset className="auth-choice">
-      <legend>{words(locale, "验证方式", "Verification method")}</legend>
-      <label><input type="radio" name="registration-method" value="EMAIL" checked={method === "EMAIL"} onChange={() => { setMethod("EMAIL"); setIdentifier(""); setMessage(null); }} /> {words(locale, "邮箱", "Email")}</label>
-      <label><input type="radio" name="registration-method" value="PHONE" checked={method === "PHONE"} onChange={() => { setMethod("PHONE"); setIdentifier(""); setMessage(null); }} /> {words(locale, "手机号", "Phone")}</label>
-    </fieldset>
-
     <div className="field">
       <label htmlFor="register-name">{words(locale, "姓名", "Full name")}</label>
       <input id="register-name" type="text" autoComplete="name" maxLength={100} required value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder={words(locale, "请输入姓名", "Enter your full name")} />
     </div>
     <div className="field">
-      <label htmlFor="register-identifier">{method === "EMAIL" ? words(locale, "邮箱", "Email address") : words(locale, "手机号码", "Phone number")}</label>
-      <input id="register-identifier" type={method === "EMAIL" ? "email" : "tel"} inputMode={method === "EMAIL" ? "email" : "tel"} autoComplete={method === "EMAIL" ? "email" : "tel"} maxLength={160} required value={identifier} onChange={(event) => setIdentifier(event.target.value)} placeholder={method === "EMAIL" ? words(locale, "请输入邮箱", "Enter your email address") : words(locale, "例如 +60123456789", "For example +60123456789")} />
+      <label htmlFor="register-identifier">{words(locale, "邮箱", "Email address")}</label>
+      <input id="register-identifier" type="email" inputMode="email" autoComplete="email" maxLength={160} required value={identifier} onChange={(event) => setIdentifier(event.target.value)} placeholder={words(locale, "请输入邮箱", "Enter your email address")} />
     </div>
     <div className="field">
       <label htmlFor="register-password">{words(locale, "创建密码", "Create password")}</label>

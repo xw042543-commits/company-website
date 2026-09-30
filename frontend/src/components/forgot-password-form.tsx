@@ -26,8 +26,8 @@ export function ForgotPasswordForm({ locale }: { locale: Locale }) {
 
   return <form className="login-form" onSubmit={handleSubmit}>
     <div className="field">
-      <label htmlFor="recovery-identifier">{words(locale, "邮箱或手机号码", "Email or phone number")}</label>
-      <input id="recovery-identifier" type="text" autoComplete="username" maxLength={160} required value={identifier} onChange={(event) => { setIdentifier(event.target.value); setMessage(null); }} placeholder={words(locale, "请输入注册邮箱或手机号码", "Enter your registered email or phone number")} />
+      <label htmlFor="recovery-identifier">{words(locale, "邮箱", "Email address")}</label>
+      <input id="recovery-identifier" type="email" inputMode="email" autoComplete="email" maxLength={160} required value={identifier} onChange={(event) => { setIdentifier(event.target.value); setMessage(null); }} placeholder={words(locale, "请输入注册邮箱", "Enter your registered email")} />
     </div>
     <button className="full-width" type="submit" disabled={pending}>{pending ? words(locale, "正在提交…", "Submitting…") : words(locale, "发送重设说明", "Send reset instructions")}</button>
     {message && <p className={`login-status auth-status-${message.tone}`} role={message.tone === "error" ? "alert" : "status"} aria-live="polite">{message.text}</p>}

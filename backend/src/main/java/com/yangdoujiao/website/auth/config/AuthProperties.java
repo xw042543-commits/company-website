@@ -13,6 +13,7 @@ import jakarta.annotation.PostConstruct;
 @ConfigurationProperties("app.auth")
 public record AuthProperties(
         boolean registrationEnabled,
+        boolean phoneRegistrationEnabled,
         String agreementVersion,
         String privacyVersion,
         Duration sessionTimeout,
