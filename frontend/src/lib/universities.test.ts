@@ -5,6 +5,44 @@ import * as universities from "./universities.ts";
 
 const { getUniversitySearch } = universities;
 
+test("enriches database search results with the reviewed public identity", () => {
+  const enrichSchoolSummary = Reflect.get(universities, "enrichSchoolSummary");
+  assert.equal(typeof enrichSchoolSummary, "function");
+
+  assert.deepEqual(
+    enrichSchoolSummary({
+      id: "9",
+      slug: "segi",
+      name: "世纪大学",
+      nameZh: "世纪大学",
+      nameEn: "SEGi University",
+      country: "马来西亚",
+      countryZh: "马来西亚",
+      countryEn: "Malaysia",
+      matchedProgrammeCount: 0,
+      matchedCourses: [],
+    }, "zh"),
+    {
+      id: "9",
+      slug: "segi-university",
+      name: "世纪大学",
+      nameZh: "世纪大学",
+      nameEn: "SEGi University",
+      country: "马来西亚",
+      countryZh: "马来西亚",
+      countryEn: "Malaysia",
+      city: "哥打白沙罗",
+      cityZh: "哥打白沙罗",
+      cityEn: "Kota Damansara",
+      logoSrc: "/universities/segi-university.jpg",
+      aliases: ["SEGi", "SEGI", "世纪"],
+      programmeStatus: "available",
+      matchedProgrammeCount: 0,
+      matchedCourses: [],
+    },
+  );
+});
+
 test("uses the reviewed local catalogue when the API is not configured", async () => {
   const result = await getUniversitySearch({}, "en", "");
 
