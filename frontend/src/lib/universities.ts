@@ -146,10 +146,14 @@ export async function getUniversitySearch(
 export async function getUniversityDetailWithFallback(
   slug: string,
   baseUrl?: string,
+  request: typeof fetch = fetch,
 ) {
-  if (baseUrl) return getUniversityDetail(baseUrl, backendUniversitySlug(slug));
-
   const university = findUniversityBySlug(slug);
+  if (baseUrl) {
+    const remoteResult = await getUniversityDetail(baseUrl, backendUniversitySlug(slug), request);
+    if (remoteResult.status === "ready" || !university) return remoteResult;
+  }
+
   if (!university) return { status: "not-found" as const };
   const profile = universityProfile(university.id);
 
@@ -176,8 +180,13 @@ export async function getUniversityProgrammesWithFallback(
   slug: string,
   query: Query,
   baseUrl?: string,
+  request: typeof fetch = fetch,
 ) {
-  if (baseUrl) return getUniversityProgrammes(baseUrl, backendUniversitySlug(slug), query);
+  const university = findUniversityBySlug(slug);
+  if (baseUrl) {
+    const remoteResult = await getUniversityProgrammes(baseUrl, backendUniversitySlug(slug), query, request);
+    if (remoteResult.status === "ready" || !university) return remoteResult;
+  }
 
   return {
     status: "ready" as const,
