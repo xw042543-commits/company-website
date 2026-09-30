@@ -263,7 +263,6 @@ export async function bindWechatAccount(baseUrl: string | undefined, body: BindW
     ? { status: "ready", session: result.value }
     : result as FailureResult;
 }
-
 export async function registerAccount(baseUrl: string | undefined, body: RegisterAccountRequest, request: typeof fetch = fetch): Promise<RegistrationResult> {
   const result = await authWrite(baseUrl, "/api/v1/auth/register", "POST", body, 202, parseRegistration, request);
   return result.status === "accepted" && "value" in result

@@ -5,8 +5,8 @@ import Link from "next/link";
 import { ForgotPasswordForm } from "@/components/forgot-password-form";
 import { LoginForm } from "@/components/login-form";
 import { RegisterForm } from "@/components/register-form";
+import { WechatQrPanel } from "@/components/wechat-qr-panel";
 import { WechatBindForm } from "@/components/wechat-bind-form";
-import { WechatLoginEntry } from "@/components/wechat-login-entry";
 import { type Locale, words } from "@/lib/site";
 
 type AccountMode = "login" | "register" | "recovery" | "wechat-bind";
@@ -24,7 +24,9 @@ export function AuthAccountPanel({ locale, initialMode = "login", returnTo, wech
       ? words(locale, "重设密码", "Reset password")
       : words(locale, "登录", "Sign in");
 
-  return <section className="auth-form-column" aria-labelledby="account-form-title">
+  return <div className={`auth-account-layout${recovering ? " auth-account-layout-focused" : ""}`}>
+    {!recovering && <WechatQrPanel locale={locale} mode={registering ? "register" : "login"} />}
+    <section className="auth-form-column" aria-labelledby="account-form-title">
     <div className="auth-form-heading">
       <div>
         <p className="auth-column-label">{words(locale, "UDAJO 账户", "UDAJO account")}</p>
@@ -45,11 +47,11 @@ export function AuthAccountPanel({ locale, initialMode = "login", returnTo, wech
         ? <WechatBindForm locale={locale} returnTo={returnTo ?? `/${locale}/account`} />
       : recovering
         ? <ForgotPasswordForm locale={locale} />
-        : <><LoginForm locale={locale} returnTo={returnTo} onForgotPassword={() => setMode("recovery")} />
-          <WechatLoginEntry locale={locale} returnTo={returnTo ?? `/${locale}/account`} /></>}
+        : <LoginForm locale={locale} returnTo={returnTo} onForgotPassword={() => setMode("recovery")} />}
 
     <div className="auth-form-support">
       <Link href={`/${locale}/about#enquiry`}>{words(locale, "需要帮助？联系顾问", "Need help? Contact an adviser")}</Link>
     </div>
-  </section>;
+    </section>
+  </div>;
 }

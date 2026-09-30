@@ -16,11 +16,23 @@ test("global styles cover the rendered header and homepage layout", () => {
     ".contact-card",
     ".programme-detail-list",
     ".programme-level-filters",
+    ".public-home-hero",
+    ".public-home-campus-grid",
+    ".public-home-contact-desk",
+    ".public-home-enquiry",
+    ".public-home-school-grid",
   ]) {
     assert.match(css, new RegExp(`\\${selector}\\b`), `${selector} is missing from globals.css`);
   }
 
   assert.match(css, /\.hero-intro\s*\{[\s\S]*?font-size:\s*clamp\(1\.125rem,\s*1\.7vw,\s*1\.3rem\)/);
+});
+
+test("public homepage uses a compact enquiry desk and responsive university cards", () => {
+  assert.match(css, /\.public-home-contact-desk\s*\{[\s\S]*?grid-template-columns:/);
+  assert.match(css, /\.public-home-contact-photo img\s*\{[\s\S]*?object-position:\s*center/);
+  assert.match(css, /\.public-home-school-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3/);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.public-home-contact-desk/);
 });
 
 test("global styles include the shared motion and loading system", () => {
