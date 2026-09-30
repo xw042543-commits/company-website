@@ -7,6 +7,7 @@ const css = readFileSync(fileURLToPath(new URL("./globals.css", import.meta.url)
 const schoolCard = readFileSync(fileURLToPath(new URL("../components/school-card.tsx", import.meta.url)), "utf8");
 const publicHome = readFileSync(fileURLToPath(new URL("../components/public-home.tsx", import.meta.url)), "utf8");
 const memberHome = readFileSync(fileURLToPath(new URL("./[locale]/page.tsx", import.meta.url)), "utf8");
+const siteHeader = readFileSync(fileURLToPath(new URL("../components/site-header.tsx", import.meta.url)), "utf8");
 
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
@@ -96,13 +97,18 @@ test("university result cards collapse matching programmes behind an accessible 
   assert.match(css, /\.school-programme-disclosure\[open\] \.school-programme-chevron/);
 });
 
-test("signed-in homepage uses an image-led action hero and separate search panel", () => {
+test("signed-in homepage uses the approved positioning with a restrained action hero", () => {
   assert.match(memberHome, /className="member-home-hero"/);
-  assert.match(memberHome, /把留学目标变成清晰的行动计划/);
-  assert.match(memberHome, /Turn your study goals into a clear action plan/);
+  assert.match(memberHome, /全球第一家留学生综合服务平台/);
+  assert.match(memberHome, /科学规划留学院校专业/);
+  assert.match(memberHome, /科学定位留学人生发展/);
+  assert.doesNotMatch(memberHome, /把留学目标变成清晰的行动计划/);
   assert.match(memberHome, /\/universities\/campuses\/apu-campus\.webp/);
   assert.match(memberHome, /className="member-search-panel/);
   assert.match(css, /\.member-home-hero-grid\s*\{[\s\S]*?grid-template-columns:/);
+  assert.match(css, /\.member-home-copy h1\s*\{[^}]*font-size:\s*clamp\(2\.35rem,\s*3\.45vw,\s*3\.9rem\)/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.member-home-copy h1\s*\{[^}]*font-size:\s*clamp\(2\.1rem,\s*7vw,\s*2\.35rem\)/);
+  assert.match(css, /\.member-home-positioning\s*\{[^}]*font-size:\s*clamp\(1rem,\s*1\.2vw,\s*1\.125rem\)/);
   assert.match(css, /\.member-home-visual img\s*\{[\s\S]*?object-fit:\s*cover/);
 });
 
@@ -114,6 +120,9 @@ test("member search panel reserves its full height instead of being covered by t
 });
 
 test("sticky header uses restrained dimensional styling", () => {
+  assert.match(siteHeader, /\/brand\/udajo-logo-transparent\.png/);
+  assert.doesNotMatch(siteHeader, /\/brand\/udajo-logo\.jpg/);
+  assert.match(css, /\.site-header\s*\{[^}]*position:\s*sticky;[^}]*top:\s*0/);
   assert.match(css, /\.site-header\s*\{[\s\S]*?linear-gradient/);
   assert.match(css, /\.site-header\s*\{[\s\S]*?box-shadow:/);
   assert.match(css, /\.brand img\s*\{[\s\S]*?filter:\s*drop-shadow/);

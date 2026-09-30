@@ -44,11 +44,12 @@ test("homepage uses professional bilingual positioning and enquiry destination",
   assert.match(publicHome, /UNIVERSITY_CATALOG\.map/);
   assert.match(publicHome, /public-home-school-card/);
   assert.doesNotMatch(publicHome, /easyunime\.com/);
-  assert.match(home, /你的留学规划中心/);
-  assert.match(home, /把留学目标变成清晰的行动计划/);
-  assert.match(home, /Explore universities and programmes, compare the options that suit you/);
+  assert.match(home, /科学规划｜科学定位/);
+  assert.match(home, /全球第一家留学生综合服务平台/);
+  assert.match(home, /科学规划留学院校专业/);
+  assert.match(home, /科学定位留学人生发展/);
+  assert.doesNotMatch(home, /把留学目标变成清晰的行动计划/);
   assert.match(home, /apu-campus\.webp/);
-  assert.doesNotMatch(home, /全球第一家/);
   assert.match(home, /留学热门院校/);
   assert.match(home, /留学常见问题解答/);
   assert.doesNotMatch(home, /\$\{locale\}\/consultation/);

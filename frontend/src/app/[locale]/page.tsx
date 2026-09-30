@@ -46,9 +46,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return <main id="main">
     <section className="member-home-hero"><div className="container member-home-hero-grid">
       <div className="member-home-copy">
-        <p className="section-label">{words(locale, "你的留学规划中心", "Your study planning hub")}</p>
-        <h1>{words(locale, "把留学目标变成清晰的行动计划", "Turn your study goals into a clear action plan")}</h1>
-        <p className="member-home-intro">{words(locale, "查询院校与专业，比较适合你的选择，并在每个申请阶段获得清晰指引。", "Explore universities and programmes, compare the options that suit you, and get clear guidance at every application stage.")}</p>
+        <p className="section-label">{words(locale, "科学规划｜科学定位", "Informed planning · Clear direction")}</p>
+        <h1>{words(locale, "全球第一家留学生综合服务平台", "The world’s first all-in-one platform for international students")}</h1>
+        <div className="member-home-positioning">
+          <p>{words(locale, "科学规划留学院校专业", "Plan university and programme choices with clarity")}</p>
+          <p>{words(locale, "科学定位留学人生发展", "Define a study direction for long-term growth")}</p>
+        </div>
         <div className="member-home-actions">
           <Link className="button" href={`/${locale}/planning`}>{words(locale, "开始规划", "Start planning")}</Link>
           <Link className="member-home-secondary-action" href={`/${locale}/universities`}>{words(locale, "浏览院校", "Browse universities")} <span aria-hidden="true">→</span></Link>

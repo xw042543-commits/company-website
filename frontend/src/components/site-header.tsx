@@ -60,7 +60,7 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
   return <header className={`site-header${scrolled ? " site-header-scrolled" : ""}`}>
     <div className="header-shell container">
       <Link href={`/${locale}`} className="brand" aria-label={words(locale, "洋豆角首页", "UDAJO home")}>
-        <Image src="/brand/udajo-logo.jpg" width={480} height={480} sizes="(max-width: 760px) 58px, 70px" priority alt={words(locale, "洋豆角 UDAJO 标志", "UDAJO logo")} />
+        <Image src="/brand/udajo-logo-transparent.png" width={1254} height={1254} sizes="(max-width: 760px) 58px, 70px" priority alt={words(locale, "洋豆角 UDAJO 标志", "UDAJO logo")} />
       </Link>
       <nav id="primary-navigation" className={`navigation${menuOpen ? " navigation-open" : ""}`} aria-label={words(locale, "主导航", "Main navigation")}>
         {visibleNavigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={isNavigationActive(pathname, locale, path) ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
