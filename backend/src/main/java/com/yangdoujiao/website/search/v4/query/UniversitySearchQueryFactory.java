@@ -18,12 +18,66 @@ import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 @Component
 public class UniversitySearchQueryFactory {
     public static final String MATCHED_PROGRAMMES = "matched_programmes";
+    public static final String KEYWORD_MATCHED_PROGRAMMES = "keyword_matched_programmes";
     public static final int MAX_MATCHED_PROGRAMMES = 3;
 
     public NativeQuery create(UniversitySearchCriteria criteria, ResolvedSearchTerm resolvedTerm) {
         BoolQuery.Builder root = new BoolQuery.Builder();
-        BoolQuery.Builder programme = new BoolQuery.Builder();
+        BoolQuery.Builder programme = programmeFilters(criteria);
         terms(root, "countryCode", criteria.countries());
+
+        boolean hasKeyword = resolvedTerm.isAlias()
+                || (resolvedTerm.text() != null && !resolvedTerm.text().isBlank());
+        if (resolvedTerm.isAlias()) {
+            switch (resolvedTerm.targetType()) {
+                case COUNTRY -> root.filter(term("countryCode", resolvedTerm.targetCode()));
+                case SUBJECT_CATEGORY -> programme.filter(term("programmes.categoryCode", resolvedTerm.targetCode()));
+                case PROGRAMME -> programme.filter(term("programmes.programmeCode", resolvedTerm.targetCode()));
+            }
+        } else if (hasKeyword) {
+            Query programmeKeyword = programmeKeyword(resolvedTerm.text());
+            if (!hasProgrammeFilters(criteria)) {
+                programme.filter(q -> q.matchAll(m -> m));
+            }
+            programme.should(programmeKeyword).minimumShouldMatch("0");
+
+            BoolQuery.Builder filteredProgrammeKeyword = programmeFilters(criteria);
+            filteredProgrammeKeyword.must(programmeKeyword);
+            root.must(q -> q.bool(b -> b.minimumShouldMatch("1")
+                    .should(universityKeyword(resolvedTerm.text()))
+                    .should(s -> s.nested(n -> n.path("programmes")
+                            .query(filteredProgrammeKeyword.build()._toQuery())
+                            .scoreMode(ChildScoreMode.Max)
+                            .innerHits(i -> i.name(KEYWORD_MATCHED_PROGRAMMES).size(MAX_MATCHED_PROGRAMMES)
+                                    .sort(sort -> sort.score(score -> score.order(SortOrder.Desc)))
+                                    .sort(sort -> sort.field(field -> field.field("programmes.id")
+                                            .order(SortOrder.Asc))))))));
+        }
+
+        // A single nested query also excludes universities without any public programme.
+        root.must(q -> q.nested(n -> n.path("programmes").query(programme.build()._toQuery())
+                .scoreMode(ChildScoreMode.Max)
+                .innerHits(i -> i.name(MATCHED_PROGRAMMES).size(MAX_MATCHED_PROGRAMMES)
+                        .sort(s -> s.score(score -> score.order(SortOrder.Desc)))
+                        .sort(s -> s.field(f -> f.field("programmes.id").order(SortOrder.Asc))))));
+
+        var builder = NativeQuery.builder().withQuery(root.build()._toQuery())
+                .withPageable(PageRequest.of(criteria.page() - 1, criteria.pageSize()))
+                .withTrackTotalHits(true);
+        if (hasKeyword) {
+            builder.withSort(s -> s.score(score -> score.order(SortOrder.Desc)));
+        }
+        builder.withSort(s -> s.field(f -> f.field("popular").order(SortOrder.Desc)));
+        if (!hasKeyword) {
+            builder.withSort(s -> s.field(f -> f.field("nameZh.keyword").order(SortOrder.Asc)));
+        }
+        // Task 4 maps id itself as keyword; neither _id nor id.keyword is sortable here.
+        builder.withSort(s -> s.field(f -> f.field("id").order(SortOrder.Asc)));
+        return builder.build();
+    }
+
+    private static BoolQuery.Builder programmeFilters(UniversitySearchCriteria criteria) {
+        BoolQuery.Builder programme = new BoolQuery.Builder();
         terms(programme, "programmes.categoryCode", criteria.categories());
         terms(programme, "programmes.studyLevelCode", criteria.levels());
         terms(programme, "programmes.courseModeCode", criteria.modes());
@@ -47,43 +101,45 @@ public class UniversitySearchQueryFactory {
             programme.filter(q -> q.range(r -> r.number(n -> n.field("programmes.tuitionTotalRmbMin")
                     .lte(criteria.tuitionMax().doubleValue()))));
         }
+        return programme;
+    }
 
-        boolean hasKeyword = resolvedTerm.isAlias()
-                || (resolvedTerm.text() != null && !resolvedTerm.text().isBlank());
-        if (resolvedTerm.isAlias()) {
-            switch (resolvedTerm.targetType()) {
-                case COUNTRY -> root.filter(term("countryCode", resolvedTerm.targetCode()));
-                case SUBJECT_CATEGORY -> programme.filter(term("programmes.categoryCode", resolvedTerm.targetCode()));
-                case PROGRAMME -> programme.filter(term("programmes.programmeCode", resolvedTerm.targetCode()));
+    private static Query universityKeyword(String keyword) {
+        return Query.of(q -> q.multiMatch(m -> {
+            m.query(keyword).fields("nameZh^4", "nameEn^4", "countryNameZh^2", "countryNameEn^2", "cityZh", "cityEn");
+            if (fuzzyEligible(keyword)) {
+                m.fuzziness("AUTO");
             }
-        } else if (hasKeyword) {
-            programme.must(q -> q.bool(b -> b.minimumShouldMatch("1")
-                    .should(s -> s.multiMatch(m -> m.query(resolvedTerm.text())
-                            .fields("programmes.nameZh", "programmes.nameEn")))
-                    .should(s -> s.term(t -> t.field("programmes.categoryCode")
-                            .value(resolvedTerm.text()).caseInsensitive(true)))));
-        }
+            return m;
+        }));
+    }
 
-        // A single nested query also excludes universities without any public programme.
-        root.must(q -> q.nested(n -> n.path("programmes").query(programme.build()._toQuery())
-                .scoreMode(ChildScoreMode.Max)
-                .innerHits(i -> i.name(MATCHED_PROGRAMMES).size(MAX_MATCHED_PROGRAMMES)
-                        .sort(s -> s.score(score -> score.order(SortOrder.Desc)))
-                        .sort(s -> s.field(f -> f.field("programmes.id").order(SortOrder.Asc))))));
+    private static Query programmeKeyword(String keyword) {
+        return Query.of(q -> q.bool(b -> b.minimumShouldMatch("1")
+                .should(s -> s.multiMatch(m -> {
+                    m.query(keyword).fields("programmes.nameZh", "programmes.nameEn");
+                    if (fuzzyEligible(keyword)) {
+                        m.fuzziness("AUTO");
+                    }
+                    return m;
+                }))
+                .should(s -> s.term(t -> t.field("programmes.categoryCode")
+                        .value(keyword).caseInsensitive(true)))));
+    }
 
-        var builder = NativeQuery.builder().withQuery(root.build()._toQuery())
-                .withPageable(PageRequest.of(criteria.page() - 1, criteria.pageSize()))
-                .withTrackTotalHits(true);
-        if (hasKeyword) {
-            builder.withSort(s -> s.score(score -> score.order(SortOrder.Desc)));
-        }
-        builder.withSort(s -> s.field(f -> f.field("popular").order(SortOrder.Desc)));
-        if (!hasKeyword) {
-            builder.withSort(s -> s.field(f -> f.field("nameZh.keyword").order(SortOrder.Asc)));
-        }
-        // Task 4 maps id itself as keyword; neither _id nor id.keyword is sortable here.
-        builder.withSort(s -> s.field(f -> f.field("id").order(SortOrder.Asc)));
-        return builder.build();
+    private static boolean fuzzyEligible(String keyword) {
+        return keyword != null && keyword.matches("(?i)[a-z][a-z0-9 ]{3,}");
+    }
+
+    private static boolean hasProgrammeFilters(UniversitySearchCriteria criteria) {
+        return !criteria.categories().isEmpty()
+                || !criteria.levels().isEmpty()
+                || !criteria.modes().isEmpty()
+                || !criteria.languages().isEmpty()
+                || criteria.durationMonths() != null
+                || criteria.intakeMonth() != null
+                || criteria.tuitionMin() != null
+                || criteria.tuitionMax() != null;
     }
 
     private static void terms(BoolQuery.Builder query, String field, Set<String> values) {

@@ -18,14 +18,44 @@ export function courseSuggestions(locale: SearchLocale): string[] {
 export function matchingSuggestions(suggestions: string[], query: string, limit = 7): string[] {
   const normalizedQuery = query.normalize("NFKC").trim().toLocaleLowerCase();
   if (!normalizedQuery) return [];
-  return suggestions
-    .filter(suggestion => suggestion.normalize("NFKC").toLocaleLowerCase().includes(normalizedQuery))
-    .sort((a, b) => {
-      const aStarts = a.normalize("NFKC").toLocaleLowerCase().startsWith(normalizedQuery);
-      const bStarts = b.normalize("NFKC").toLocaleLowerCase().startsWith(normalizedQuery);
-      return Number(bStarts) - Number(aStarts) || a.localeCompare(b);
-    })
-    .slice(0, limit);
+
+  const fuzzyEnabled = /^[a-z][a-z0-9 ]{3,}$/i.test(normalizedQuery);
+  const ranked = suggestions.flatMap((suggestion) => {
+    const normalizedSuggestion = suggestion.normalize("NFKC").toLocaleLowerCase();
+    if (normalizedSuggestion.startsWith(normalizedQuery)) return [{ suggestion, rank: 0, distance: 0 }];
+    if (normalizedSuggestion.includes(normalizedQuery)) return [{ suggestion, rank: 1, distance: 0 }];
+    if (!fuzzyEnabled) return [];
+
+    const distances = normalizedSuggestion
+      .split(/[^a-z0-9]+/i)
+      .filter(Boolean)
+      .map(word => editDistance(word, normalizedQuery));
+    const distance = Math.min(...distances);
+    const maximumDistance = normalizedQuery.length >= 8 ? 2 : 1;
+    return distance <= maximumDistance ? [{ suggestion, rank: 2, distance }] : [];
+  });
+
+  return ranked
+    .sort((a, b) => a.rank - b.rank || a.distance - b.distance || a.suggestion.localeCompare(b.suggestion))
+    .slice(0, limit)
+    .map(({ suggestion }) => suggestion);
+}
+
+function editDistance(left: string, right: string): number {
+  const previous = Array.from({ length: right.length + 1 }, (_, index) => index);
+  for (let leftIndex = 1; leftIndex <= left.length; leftIndex += 1) {
+    const current = [leftIndex];
+    for (let rightIndex = 1; rightIndex <= right.length; rightIndex += 1) {
+      const substitutionCost = left[leftIndex - 1] === right[rightIndex - 1] ? 0 : 1;
+      current[rightIndex] = Math.min(
+        current[rightIndex - 1] + 1,
+        previous[rightIndex] + 1,
+        previous[rightIndex - 1] + substitutionCost,
+      );
+    }
+    previous.splice(0, previous.length, ...current);
+  }
+  return previous[right.length];
 }
 
 export function universitySuggestions(locale: SearchLocale): string[] {

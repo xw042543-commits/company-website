@@ -36,7 +36,10 @@ public class ElasticsearchUniversitySearchGateway implements UniversitySearchGat
 
     private UniversitySearchResult toResult(SearchHit<UniversityProgrammeSearchDocument> hit) {
         var university = hit.getContent();
-        SearchHits<?> innerHits = hit.getInnerHits(UniversitySearchQueryFactory.MATCHED_PROGRAMMES);
+        SearchHits<?> innerHits = hit.getInnerHits(UniversitySearchQueryFactory.KEYWORD_MATCHED_PROGRAMMES);
+        if (innerHits == null || innerHits.getTotalHits() == 0) {
+            innerHits = hit.getInnerHits(UniversitySearchQueryFactory.MATCHED_PROGRAMMES);
+        }
         if (innerHits == null) {
             throw new IllegalStateException("Search response is missing matched programmes");
         }

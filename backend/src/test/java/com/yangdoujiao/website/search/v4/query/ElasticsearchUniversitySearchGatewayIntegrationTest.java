@@ -99,6 +99,18 @@ class ElasticsearchUniversitySearchGatewayIntegrationTest {
     }
 
     @Test
+    void keywordSearchToleratesLatinTyposAndAlsoSearchesUniversityNames() {
+        Request typo = new Request(); typo.keyword = "scince";
+        assertThat(codes(search(typo))).containsExactly("P-GB-DS-01");
+
+        Request universityName = new Request(); universityName.keyword = "Northstar";
+        assertThat(ids(search(universityName))).containsExactly(1L);
+        universityName.modes = Set.of("ONLINE");
+        assertThat(ids(search(universityName))).containsExactly(1L);
+        assertThat(codes(search(universityName))).containsExactly("P-GB-AI-02");
+    }
+
+    @Test
     void f03CategoryAndF05LevelFilterActualProgrammeFields() {
         Request request = new Request(); request.categories = Set.of("COMPUTING");
         assertThat(ids(search(request))).containsExactlyInAnyOrder(1L, 3L, 4L);
