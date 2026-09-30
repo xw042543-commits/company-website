@@ -1,6 +1,32 @@
 name: company-website-preview
 
 services:
+  caddy:
+    image: caddy:2.11.4-alpine
+    environment:
+      CADDY_SITE_ADDRESSES: ${CADDY_SITE_ADDRESSES}
+      CADDY_ACME_EMAIL: ${CADDY_ACME_EMAIL}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    depends_on:
+      frontend:
+        condition: service_healthy
+    networks:
+      - frontend-backend
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:2019/config/ >/dev/null"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    restart: unless-stopped
+
   postgres:
     image: postgres:17.11
     environment:
@@ -124,8 +150,6 @@ services:
     depends_on:
       backend:
         condition: service_healthy
-    ports:
-      - "${FRONTEND_BIND_ADDRESS:-127.0.0.1}:${FRONTEND_PORT:-3000}:3000"
     networks:
       frontend-backend:
         ipv4_address: ${FRONTEND_INTERNAL_IP}
@@ -141,6 +165,8 @@ volumes:
   postgres-data:
   redis-data:
   elasticsearch-data:
+  caddy-data:
+  caddy-config:
 
 networks:
   frontend-backend:

@@ -1,6 +1,6 @@
 # Private Preview Deployment
 
-This runbook targets a single Linux host with Docker Engine and Docker Compose v2. The preview publishes only the frontend. The backend, PostgreSQL, Redis, and Elasticsearch remain on the Compose network.
+This runbook targets a single Linux host with Docker Engine and Docker Compose v2. Caddy is the only public service. The frontend, backend, PostgreSQL, Redis, and Elasticsearch remain on Compose networks.
 
 ## 1. Prepare configuration
 
@@ -10,6 +10,8 @@ chmod 600 .env.production
 ```
 
 Replace every placeholder with a generated secret and the real HTTPS preview origin. To accept enquiries, set `APP_CONSULTATION_SUBMISSION_ENABLED=true` and set `APP_CONSULTATION_PRIVACY_NOTICE_VERSION` to the approved notice version shown to users. Keep submission disabled when that version has not been approved. Never commit `.env.production`.
+
+Set `CADDY_SITE_ADDRESSES=yangdoujiao.com, www.yangdoujiao.com` and provide a monitored address in `CADDY_ACME_EMAIL`. Allow inbound TCP ports 80 and 443 plus UDP port 443 in the VPS firewall. Caddy uses ports 80 and 443 for automatic HTTPS, certificate renewal, HTTP-to-HTTPS redirects, and HTTP/3.
 
 Set `DEPLOYMENT_NETWORK_SUBNET`, `FRONTEND_INTERNAL_IP`, and `BACKEND_INTERNAL_IP` to an unused RFC1918 private IPv4 range. Check existing Docker and VPN networks first; the preflight rejects public ranges and verifies address syntax and membership, while `docker compose ... config` and startup reveal host-level overlap.
 
@@ -26,7 +28,7 @@ Both commands must pass before deployment.
 
 ## HTTPS proxy boundary
 
-The public HTTPS reverse proxy must connect only to `127.0.0.1:3000`; never publish or proxy the backend port directly. Before forwarding a request, remove all client-supplied forwarded headers (`Forwarded` and `X-Forwarded-*`), set exactly one `X-Forwarded-Proto: https` header, and set exactly one `X-Forwarded-For` value to the validated client IP. The frontend forwards that single client address to the backend from its fixed trusted address. This boundary preserves per-client rate limits without allowing clients to forge trusted proxy metadata.
+The public Caddy HTTPS reverse proxy connects to the private `frontend:3000` service; never publish or proxy the frontend or backend port directly. Before forwarding a request, Caddy removes all client-supplied forwarded headers (`Forwarded` and `X-Forwarded-*`), sets exactly one `X-Forwarded-Proto: https` header, and sets exactly one `X-Forwarded-For` value from the direct client address. The frontend forwards that single client address to the backend from its fixed trusted address. This boundary preserves per-client rate limits without allowing clients to forge trusted proxy metadata.
 
 ## 2. Build and start
 
@@ -82,7 +84,7 @@ Inspect failures without printing the environment file:
 
 ```bash
 docker compose --env-file .env.production -f compose.production.yaml ps
-docker compose --env-file .env.production -f compose.production.yaml logs --no-color --tail=200 frontend backend
+docker compose --env-file .env.production -f compose.production.yaml logs --no-color --tail=200 caddy frontend backend
 ```
 
 ## Database migration behavior

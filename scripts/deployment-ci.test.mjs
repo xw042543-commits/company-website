@@ -21,6 +21,8 @@ test("CI validates deployment contracts and Compose configuration", () => {
   ]) assert.match(workflow, new RegExp(`scripts/${file.replaceAll(".", "\\.")}`));
   assert.match(workflow, /node scripts\/deployment-preflight\.mjs/);
   assert.match(workflow, /docker compose[^\n]*compose\.production\.yaml[^\n]*config --quiet/);
+  assert.match(workflow, /caddy:2\.11\.4-alpine caddy validate/);
+  assert.match(workflow, /CADDY_SITE_ADDRESSES='yangdoujiao\.com, www\.yangdoujiao\.com'/);
 });
 
 test("CI builds both production images", () => {
@@ -32,11 +34,16 @@ test("CI starts and probes the production topology before cleanup", () => {
   assert.match(workflow, /PUBLIC_SITE_URL=https:\/\/preview\.yangdoujiao\.com/);
   assert.match(workflow, /CORS_ALLOWED_ORIGINS=https:\/\/preview\.yangdoujiao\.com/);
   assert.match(workflow, /APP_AUTH_PUBLIC_SITE_ORIGIN=https:\/\/preview\.yangdoujiao\.com/);
+  assert.match(workflow, /CADDY_SITE_ADDRESSES=:80/);
+  assert.match(workflow, /CADDY_ACME_EMAIL=ci@example\.test/);
   assert.match(workflow, /FRONTEND_IMAGE=udajo\/frontend:ci/);
   assert.match(workflow, /BACKEND_IMAGE=udajo\/backend:ci/);
   assert.match(workflow, /compose\.production\.yaml[^\n]*up -d --no-build --wait/);
-  assert.match(workflow, /X-Forwarded-Proto: https/);
-  assert.match(workflow, /--fail-with-body[^\n]*3000\/healthz/);
+  assert.match(workflow, /--fail-with-body[^\n]*127\.0\.0\.1\/healthz/);
+  assert.match(workflow, /Host: www\.yangdoujiao\.com/);
+  assert.match(workflow, /location: https:\/\/yangdoujiao\.com\//);
+  assert.doesNotMatch(workflow, /127\.0\.0\.1:3000/);
+  assert.match(workflow, /logs --no-color --tail=200 caddy frontend backend/);
   assert.doesNotMatch(workflow, /3000\/zh\/universities/);
   assert.match(workflow, /api\/v1\/auth\/providers/);
   assert.match(workflow, /if: always\(\)/);

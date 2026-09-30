@@ -23,6 +23,8 @@ const validEnvironment = {
   APP_CONSULTATION_SUBMISSION_ENABLED: "true",
   APP_CONSULTATION_PRIVACY_NOTICE_VERSION: "web-enquiry-v1",
   PUBLIC_INDEXING_ENABLED: "false",
+  CADDY_SITE_ADDRESSES: ":80",
+  CADDY_ACME_EMAIL: "ci@example.test",
   DEPLOYMENT_NETWORK_SUBNET: "172.30.0.0/24",
   FRONTEND_INTERNAL_IP: "172.30.0.10",
   BACKEND_INTERNAL_IP: "172.30.0.20",
@@ -64,6 +66,29 @@ test("requires HTTPS for the public site and CORS origin", () => {
   });
   assert.match(errors.join("\n"), /PUBLIC_SITE_URL.*HTTPS/);
   assert.match(errors.join("\n"), /CORS_ALLOWED_ORIGINS.*HTTPS/);
+});
+
+test("requires a certificate contact and both public hostnames for the official launch", () => {
+  assert.match(validateDeploymentEnv({
+    ...validEnvironment,
+    CADDY_ACME_EMAIL: "not-an-email",
+  }).join("\n"), /CADDY_ACME_EMAIL/);
+
+  const official = {
+    ...validEnvironment,
+    PUBLIC_SITE_URL: "https://yangdoujiao.com",
+    CORS_ALLOWED_ORIGINS: "https://yangdoujiao.com",
+    CADDY_SITE_ADDRESSES: "yangdoujiao.com",
+  };
+  assert.match(validateDeploymentEnv(official).join("\n"), /CADDY_SITE_ADDRESSES.*www\.yangdoujiao\.com/);
+  assert.match(validateDeploymentEnv({
+    ...official,
+    PUBLIC_SITE_URL: "https://yangdoujiao.com/",
+  }).join("\n"), /CADDY_SITE_ADDRESSES.*www\.yangdoujiao\.com/);
+  assert.deepEqual(validateDeploymentEnv({
+    ...official,
+    CADDY_SITE_ADDRESSES: "yangdoujiao.com, www.yangdoujiao.com",
+  }), []);
 });
 
 test("requires the production profile and complete consultation settings", () => {
@@ -122,6 +147,7 @@ test("requires an explicit indexing flag and only enables it on the official dom
     PUBLIC_INDEXING_ENABLED: "true",
     PUBLIC_SITE_URL: "https://yangdoujiao.com",
     CORS_ALLOWED_ORIGINS: "https://yangdoujiao.com",
+    CADDY_SITE_ADDRESSES: "yangdoujiao.com, www.yangdoujiao.com",
   }), []);
 });
 
