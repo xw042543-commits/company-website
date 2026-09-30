@@ -1,3 +1,3 @@
 package com.yangdoujiao.website.auth.api;
 
-public record VerifyEmailRequest(String token) {}
+public record VerifyEmailRequest(String email, String code, String token) {}

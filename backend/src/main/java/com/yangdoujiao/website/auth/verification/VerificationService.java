@@ -3,7 +3,6 @@ package com.yangdoujiao.website.auth.verification;
 import java.security.SecureRandom;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
-import java.util.Base64;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -32,6 +31,7 @@ import jakarta.persistence.EntityManager;
 
 @Service
 public class VerificationService {
+    private static final int MAX_EMAIL_CODE_ATTEMPTS = 5;
     private static final int MAX_PHONE_ATTEMPTS = 5;
     private final UserVerificationTokenRepository tokens;
     private final UserAccountRepository accounts;
@@ -77,7 +77,7 @@ public class VerificationService {
 
     /** The same random generation and SHA-256 work is done before account lookup on resend. */
     public PreparedChallenge prepareForResend(AccountIdentifierType type) {
-        String raw = type == AccountIdentifierType.EMAIL ? emailToken() : phoneCode();
+        String raw = verificationCode();
         String probeHash = tokenHash(0L, type, raw);
         return new PreparedChallenge(type, raw, probeHash);
     }
@@ -103,9 +103,7 @@ public class VerificationService {
         do {
             if (++tries > 10) throw unavailable();
             if (tries > 1) raw = prepareForResend(identifier.type()).raw();
-            hash = identifier.type() == AccountIdentifierType.EMAIL
-                    ? (tries == 1 ? prepared.probeHash() : AuthHash.sha256(raw))
-                    : tokenHash(account.getId(), identifier.type(), raw);
+            hash = tokenHash(account.getId(), identifier.type(), raw);
         } while (tokens.existsByTokenHash(hash));
         tokens.invalidateActive(account.getId(), identifier.type(), now);
         OffsetDateTime expiresAt = now.plus(identifier.type() == AccountIdentifierType.EMAIL
@@ -160,6 +158,43 @@ public class VerificationService {
         if (!valid) throw invalid();
     }
 
+    public void verifyEmailCode(String rawEmail, String rawCode) {
+        verifyEmailCode(rawEmail, rawCode, null);
+    }
+
+    public void verifyEmailCode(String rawEmail, String rawCode, String clientAddress) {
+        if (clientAddress != null) limit(clientAddress);
+        if (rawCode == null || !rawCode.matches("[0-9]{6}")) throw invalid();
+        NormalizedIdentifier identifier;
+        try { identifier = normalizer.normalizeLogin(rawEmail); }
+        catch (AuthValidationException exception) { throw invalid(); }
+        if (identifier.type() != AccountIdentifierType.EMAIL) throw invalid();
+        boolean valid = Boolean.TRUE.equals(transaction.execute(status -> {
+            Optional<UserAccount> found = accounts.findByNormalizedEmailAndStatusNot(
+                    identifier.value(), UserAccountStatus.DELETED);
+            if (found.isEmpty()) return false;
+            Optional<UserAccount> account = accounts.findLockedById(found.get().getId());
+            if (account.isEmpty() || account.get().getStatus() != UserAccountStatus.PENDING_VERIFICATION) return false;
+            Optional<UserVerificationToken> candidate = tokens.findTopByUserIdAndTokenTypeOrderByIdDesc(
+                    account.get().getId(), AccountIdentifierType.EMAIL);
+            if (candidate.isEmpty()) return false;
+            Optional<UserVerificationToken> locked = tokens.findLockedById(candidate.get().getId());
+            if (locked.isEmpty()) return false;
+            entityManager.refresh(locked.get());
+            OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+            if (!locked.get().usableAt(now, MAX_EMAIL_CODE_ATTEMPTS)) return false;
+            String hash = tokenHash(account.get().getId(), AccountIdentifierType.EMAIL, rawCode);
+            if (!AuthHash.constantTimeEquals(locked.get().getTokenHash(), hash)) {
+                locked.get().failedAttempt();
+                return false;
+            }
+            locked.get().consume(now);
+            account.get().verifyEmail(now);
+            return true;
+        }));
+        if (!valid) throw invalid();
+    }
+
     public void verifyPhone(String rawPhone, String rawCode) { verifyPhone(rawPhone, rawCode, null); }
 
     public void verifyPhone(String rawPhone, String rawCode, String clientAddress) {
@@ -200,16 +235,12 @@ public class VerificationService {
     }
 
     private String tokenHash(Long accountId, AccountIdentifierType type, String raw) {
-        return AuthHash.sha256(type == AccountIdentifierType.PHONE ? accountId + ":" + raw : raw);
+        return AuthHash.sha256(type == AccountIdentifierType.PHONE
+                ? accountId + ":" + raw
+                : accountId + ":email:" + raw);
     }
 
-    private String emailToken() {
-        byte[] bytes = new byte[32];
-        random.nextBytes(bytes);
-        return Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
-    }
-
-    private String phoneCode() { return "%06d".formatted(random.nextInt(1_000_000)); }
+    private String verificationCode() { return "%06d".formatted(random.nextInt(1_000_000)); }
 
     private ApiException invalid() {
         return new ApiException(HttpStatus.BAD_REQUEST, "INVALID_VERIFICATION_TOKEN",

@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.MediaType;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -33,6 +34,7 @@ class RegistrationDispatchHttpIntegrationTest {
     @Autowired private MockMvc mvc;
     @Autowired private LocalAuthNotificationStore notifications;
     @Autowired private QueuedExecutor queue;
+    @Autowired private JdbcTemplate jdbc;
 
     @Test
     void httpReturnsAcceptedBeforeDeliveryAndResendBranchesSharePublicResult() throws Exception {
@@ -46,6 +48,8 @@ class RegistrationDispatchHttpIntegrationTest {
         assertThat(queue.size()).isEqualTo(1);
         queue.runNext();
         assertThat(notifications.take(known)).isPresent();
+        jdbc.update("DELETE FROM auth_rate_limit_buckets WHERE scope = 'email-verification-cooldown' AND subject_hash = ?",
+                com.yangdoujiao.website.auth.AuthHash.sha256(known));
 
         String knownResult = mvc.perform(post("/api/v1/auth/resend-verification").with(csrf())
                         .contentType(MediaType.APPLICATION_JSON).content("{\"identifier\":\"" + known + "\"}"))

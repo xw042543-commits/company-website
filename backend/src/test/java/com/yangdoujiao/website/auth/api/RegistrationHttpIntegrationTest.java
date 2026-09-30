@@ -65,6 +65,7 @@ class RegistrationHttpIntegrationTest {
         String email = email();
         register(email, null);
         verify(passwords, times(1)).encode("correct-horse-42");
+        clearEmailCooldown(email);
         register(email, null);
         verify(passwords, times(2)).encode("correct-horse-42");
     }
@@ -73,6 +74,7 @@ class RegistrationHttpIntegrationTest {
     void resendPreparesChallengeForKnownAndUnknownIdentifiers() throws Exception {
         String known = email();
         register(known, null);
+        clearEmailCooldown(known);
         clearInvocations(verification);
         mvc.perform(write("resend-verification", "{\"identifier\":\"" + known + "\"}"))
                 .andExpect(status().isAccepted());
@@ -104,6 +106,7 @@ class RegistrationHttpIntegrationTest {
     void unexpectedPostCommitDeliveryFailureDoesNotExposeAccountExistence() throws Exception {
         String known = email();
         register(known, null);
+        clearEmailCooldown(known);
         CountDownLatch deliveryFailed = new CountDownLatch(1);
         notificationSender.failEmailDeliveries(deliveryFailed);
         String knownResponse = mvc.perform(write("resend-verification", "{\"identifier\":\"" + known + "\"}"))
@@ -115,7 +118,7 @@ class RegistrationHttpIntegrationTest {
     }
 
     @Test
-    void registersEmailAccountWithoutExposingTokenAndConsumesItOnce() throws Exception {
+    void registersEmailAccountWithFiveMinuteCodeAndConsumesItOnce() throws Exception {
         String email = email();
         String response = register(email.toUpperCase(), null);
         assertThat(JsonPath.<String>read(response, "$.verificationMethod")).isEqualTo("EMAIL");
@@ -124,12 +127,32 @@ class RegistrationHttpIntegrationTest {
         assertThat(passwords.matches("correct-horse-42", hash)).isTrue();
         String notification = latest(email);
         String token = JsonPath.read(notification, "$.token");
+        assertThat(token).matches("[0-9]{6}");
         assertThat(jdbc.queryForObject("SELECT token_hash FROM user_verification_tokens WHERE user_id = (SELECT id FROM user_accounts WHERE normalized_email = ?)", String.class, email))
                 .hasSize(64).isNotEqualTo(token);
-        mvc.perform(write("verify-email", "{\"token\":\"" + token + "\"}")).andExpect(status().isNoContent());
+        assertThat(jdbc.queryForObject("""
+                SELECT expires_at <= created_at + INTERVAL '5 minutes'
+                FROM user_verification_tokens
+                WHERE user_id = (SELECT id FROM user_accounts WHERE normalized_email = ?)
+                """, Boolean.class, email)).isTrue();
+        mvc.perform(write("verify-email", "{\"email\":\"" + email + "\",\"code\":\"" + token + "\"}"))
+                .andExpect(status().isNoContent());
         assertThat(jdbc.queryForObject("SELECT status FROM user_accounts WHERE normalized_email = ?", String.class, email)).isEqualTo("ACTIVE");
-        mvc.perform(write("verify-email", "{\"token\":\"" + token + "\"}"))
+        mvc.perform(write("verify-email", "{\"email\":\"" + email + "\",\"code\":\"" + token + "\"}"))
                 .andExpect(status().isBadRequest()).andExpect(jsonPath("$.code").value("INVALID_VERIFICATION_TOKEN"));
+    }
+
+    @Test
+    void suppressesRepeatedEmailCodeDeliveryForSixtySecondsWithoutRevealingTheAccount() throws Exception {
+        String email = email();
+        register(email, null);
+        int before = jdbc.queryForObject("SELECT count(*) FROM user_verification_tokens WHERE user_id = (SELECT id FROM user_accounts WHERE normalized_email = ?)", Integer.class, email);
+        String known = mvc.perform(write("resend-verification", "{\"identifier\":\"" + email + "\"}"))
+                .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
+        String unknown = mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
+                .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
+        assertThat(known).isEqualTo(unknown);
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM user_verification_tokens WHERE user_id = (SELECT id FROM user_accounts WHERE normalized_email = ?)", Integer.class, email)).isEqualTo(before);
     }
 
     @Test
@@ -137,6 +160,7 @@ class RegistrationHttpIntegrationTest {
         String email = email();
         String first = register(email, null);
         String token = latest(email);
+        clearEmailCooldown(email);
         assertThat(register(email, null)).isEqualTo(first);
         mvc.perform(get("/api/dev/auth/notifications/latest").param("identifier", email))
                 .andExpect(status().isNotFound());
@@ -192,15 +216,16 @@ class RegistrationHttpIntegrationTest {
         String email = email();
         register(email, null);
         String old = JsonPath.read(latest(email), "$.token");
+        clearEmailCooldown(email);
         var known = mvc.perform(write("resend-verification", "{\"identifier\":\"" + email + "\"}"))
                 .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
         var unknown = mvc.perform(write("resend-verification", "{\"identifier\":\"" + email() + "\"}"))
                 .andExpect(status().isAccepted()).andReturn().getResponse().getContentAsString();
         assertThat(known).isEqualTo(unknown);
-        mvc.perform(write("verify-email", "{\"token\":\"" + old + "\"}"))
+        mvc.perform(write("verify-email", "{\"email\":\"" + email + "\",\"code\":\"" + old + "\"}"))
                 .andExpect(status().isBadRequest());
         String fresh = JsonPath.read(latest(email), "$.token");
-        mvc.perform(write("verify-email", "{\"token\":\"" + fresh + "\"}"))
+        mvc.perform(write("verify-email", "{\"email\":\"" + email + "\",\"code\":\"" + fresh + "\"}"))
                 .andExpect(status().isNoContent());
     }
 
@@ -226,6 +251,11 @@ class RegistrationHttpIntegrationTest {
     }
 
     private String email() { return "task5-" + UUID.randomUUID() + "@example.com"; }
+
+    private void clearEmailCooldown(String email) {
+        jdbc.update("DELETE FROM auth_rate_limit_buckets WHERE scope = 'email-verification-cooldown' AND subject_hash = ?",
+                com.yangdoujiao.website.auth.AuthHash.sha256(email.toLowerCase(Locale.ROOT)));
+    }
 
     @TestConfiguration(proxyBeanMethods = false)
     static class ControlledNotifications {

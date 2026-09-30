@@ -48,6 +48,7 @@ class RegistrationServiceEmailOnlyTest {
     }
 
     private AuthRateLimitProperties limits() {
-        return new AuthRateLimitProperties(5, 3, 10, 3, 30, 20, 10, 20, 30, Duration.ofHours(1));
+        return new AuthRateLimitProperties(5, 3, 10, 3, 30, 20, 10, 20, 30,
+                Duration.ofSeconds(60), Duration.ofHours(1));
     }
 }

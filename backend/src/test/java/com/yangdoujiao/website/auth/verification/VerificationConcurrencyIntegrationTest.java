@@ -33,7 +33,7 @@ class VerificationConcurrencyIntegrationTest {
     @Autowired private JdbcTemplate jdbc;
 
     @Test
-    void allowsOnlyOneConcurrentUseOfVerificationToken() throws Exception {
+    void allowsOnlyOneConcurrentUseOfVerificationCode() throws Exception {
         String email = "concurrent-" + UUID.randomUUID() + "@example.com";
         register(email, null);
         assertThat(notifications.awaitAvailable(email, Duration.ofSeconds(5))).isTrue();
@@ -45,7 +45,7 @@ class VerificationConcurrencyIntegrationTest {
                 results.add(executor.submit(() -> {
                     start.await();
                     try {
-                        verification.verifyEmail(rawToken);
+                        verification.verifyEmailCode(email, rawToken);
                         return true;
                     } catch (ApiException exception) {
                         assertThat(exception.getCode()).isEqualTo("INVALID_VERIFICATION_TOKEN");
@@ -65,8 +65,22 @@ class VerificationConcurrencyIntegrationTest {
         assertThat(notifications.awaitAvailable(email, Duration.ofSeconds(5))).isTrue();
         String token = notifications.take(email).orElseThrow().token();
         jdbc.update("UPDATE user_verification_tokens SET expires_at = CURRENT_TIMESTAMP - INTERVAL '1 second' WHERE user_id = (SELECT id FROM user_accounts WHERE normalized_email = ?)", email);
-        assertInvalid(() -> verification.verifyEmail(token));
+        assertInvalid(() -> verification.verifyEmailCode(email, token));
         assertThat(jdbc.queryForObject("SELECT status FROM user_accounts WHERE normalized_email = ?", String.class, email)).isEqualTo("PENDING_VERIFICATION");
+    }
+
+    @Test
+    void emailGuessAttemptsAreCommittedAndExhaustedCodeStaysUnusable() throws Exception {
+        String email = "guesses-" + UUID.randomUUID() + "@example.com";
+        register(email, null);
+        assertThat(notifications.awaitAvailable(email, Duration.ofSeconds(5))).isTrue();
+        String code = notifications.take(email).orElseThrow().token();
+        String incorrect = code.equals("000000") ? "000001" : "000000";
+        for (int attempt = 0; attempt < 5; attempt++) {
+            assertInvalid(() -> verification.verifyEmailCode(email, incorrect));
+        }
+        assertInvalid(() -> verification.verifyEmailCode(email, code));
+        assertThat(jdbc.queryForObject("SELECT attempts FROM user_verification_tokens WHERE user_id = (SELECT id FROM user_accounts WHERE normalized_email = ?)", Integer.class, email)).isEqualTo(5);
     }
 
     @Test

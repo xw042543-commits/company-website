@@ -23,7 +23,7 @@ import org.springframework.web.client.RestClient;
 class ResendAuthNotificationSenderTest {
 
     @Test
-    void sendsLocalizedEmailVerificationThroughResendWithoutPuttingTheSecretInThePayload() {
+    void sendsLocalizedSixDigitEmailCodeThroughResendWithoutPuttingTheSecretInThePayload() {
         RestClient.Builder builder = RestClient.builder();
         MockRestServiceServer server = MockRestServiceServer.bindTo(builder).build();
         var sender = new ResendAuthNotificationSender(builder,
@@ -35,14 +35,16 @@ class ResendAuthNotificationSenderTest {
                 .andExpect(jsonPath("$.from").value("UDAJO 洋豆角 <no-reply@notify.yangdoujiao.com>"))
                 .andExpect(jsonPath("$.to[0]").value("student@example.com"))
                 .andExpect(jsonPath("$.subject").value("验证您的 UDAJO 洋豆角账户"))
-                .andExpect(jsonPath("$.html").value(org.hamcrest.Matchers.containsString(
-                        "https://yangdoujiao.com/zh/verify-email?token=abc_123")))
+                .andExpect(jsonPath("$.html").value(org.hamcrest.Matchers.containsString("123456")))
+                .andExpect(jsonPath("$.text").value(org.hamcrest.Matchers.containsString("5 分钟")))
+                .andExpect(jsonPath("$.html").value(org.hamcrest.Matchers.not(
+                        org.hamcrest.Matchers.containsString("verify-email?token="))))
                 .andExpect(jsonPath("$.html").value(org.hamcrest.Matchers.not(
                         org.hamcrest.Matchers.containsString("re_test_secret"))))
                 .andRespond(withSuccess("{\"id\":\"email_123\"}", MediaType.APPLICATION_JSON));
 
-        sender.sendEmailVerification("student@example.com", "abc_123", Locale.CHINESE,
-                1L, Instant.now().plus(Duration.ofMinutes(30)));
+        sender.sendEmailVerification("student@example.com", "123456", Locale.CHINESE,
+                1L, Instant.now().plus(Duration.ofMinutes(5)));
 
         server.verify();
     }

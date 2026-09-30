@@ -29,7 +29,8 @@ class AuthenticationServiceExternalSessionTest {
         SecurityContextRepository contexts = mock(SecurityContextRepository.class);
         AuthenticationService service = new AuthenticationService(mock(AuthenticationManager.class), contexts,
                 new AccountIdentifierNormalizer(), mock(AuthRateLimiter.class),
-                new AuthRateLimitProperties(5, 5, 5, 5, 5, 5, 5, 5, 5, Duration.ofMinutes(10)),
+                new AuthRateLimitProperties(5, 5, 5, 5, 5, 5, 5, 5, 5,
+                        Duration.ofSeconds(60), Duration.ofMinutes(10)),
                 new AuthProperties(false, true, "", "", Duration.ofHours(24), Duration.ofDays(30),
                         Duration.ofMinutes(30), Duration.ofMinutes(10), Duration.ofMinutes(30),
                         DataSize.ofKilobytes(8), new String[0]));
