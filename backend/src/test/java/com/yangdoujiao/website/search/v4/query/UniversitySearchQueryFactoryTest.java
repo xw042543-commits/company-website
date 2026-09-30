@@ -33,8 +33,8 @@ class UniversitySearchQueryFactoryTest {
         NativeQuery query = factory.create(criteria, text("data"));
         assertThat(query.getQuery().bool().filter()).hasSize(1);
         assertTerms(query.getQuery().bool().filter().getFirst(), "countryCode", "GB", "AU");
-        assertThat(query.getQuery().bool().must()).hasSize(1);
-        var nested = query.getQuery().bool().must().getFirst().nested();
+        assertThat(query.getQuery().bool().must()).hasSize(2);
+        var nested = matchedProgrammesNested(query);
         assertThat(nested.path()).isEqualTo("programmes");
         assertThat(nested.innerHits().name()).isEqualTo("matched_programmes");
         assertThat(nested.innerHits().size()).isEqualTo(3);
@@ -57,8 +57,10 @@ class UniversitySearchQueryFactoryTest {
         assertThat(ranges.get(1).field()).isEqualTo("programmes.tuitionTotalRmbMin");
         assertThat(ranges.get(1).lte()).isEqualTo(236000.99);
         assertThat(ranges.get(1).gte()).isNull();
-        assertThat(programme.must()).hasSize(1);
-        assertTextQuery(programme.must().getFirst(), "data");
+        assertThat(programme.must()).isEmpty();
+        assertThat(programme.should()).hasSize(1);
+        assertThat(programme.minimumShouldMatch()).isEqualTo("0");
+        assertProgrammeTextQuery(programme.should().getFirst(), "data", true);
         assertThat(query.getPageable().getPageNumber()).isEqualTo(1);
         assertThat(query.getPageable().getPageSize()).isEqualTo(12);
         assertThat(query.getTrackTotalHits()).isTrue();
@@ -97,11 +99,32 @@ class UniversitySearchQueryFactoryTest {
     @ValueSource(strings = {"data science", "数据科学", "c++ (data) AND * : \\\"", "COMPUTING"})
     void textRemainsLiteralMultiMatchAndKeepsNestedRelevance(String keyword) {
         NativeQuery query = factory.create(criteria(keyword, null, null), text(keyword));
-        assertTextQuery(nested(query).must().getFirst(), keyword);
+        assertThat(nested(query).should()).hasSize(1);
+        assertThat(nested(query).minimumShouldMatch()).isEqualTo("0");
+        assertThat(nested(query).filter()).singleElement().satisfies(filter -> assertThat(filter.isMatchAll()).isTrue());
+        assertProgrammeTextQuery(nested(query).should().getFirst(), keyword, fuzzyEligible(keyword));
+        assertRootKeywordQuery(query, keyword, fuzzyEligible(keyword));
         assertThat(query.getSortOptions().get(0).isScore()).isTrue();
         assertThat(query.getSortOptions().get(0).score().order()).isEqualTo(SortOrder.Desc);
         assertThat(query.getSortOptions().subList(1, 3).stream().map(s -> s.field().field()))
                 .containsExactly("popular", "id");
+    }
+
+    @Test
+    void latinTypingMistakesUseControlledFuzzinessAcrossUniversityAndProgrammeText() {
+        NativeQuery query = factory.create(criteria("computr", null, null), text("computr"));
+
+        assertRootKeywordQuery(query, "computr", true);
+        assertProgrammeTextQuery(nested(query).should().getFirst(), "computr", true);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"um", "计算机"})
+    void shortOrNonLatinKeywordsDoNotEnableFuzzyMatching(String keyword) {
+        NativeQuery query = factory.create(criteria(keyword, null, null), text(keyword));
+
+        assertRootKeywordQuery(query, keyword, false);
+        assertProgrammeTextQuery(nested(query).should().getFirst(), keyword, false);
     }
 
     @ParameterizedTest
@@ -144,19 +167,55 @@ class UniversitySearchQueryFactoryTest {
     }
 
     private static BoolQuery nested(NativeQuery query) {
-        return query.getQuery().bool().must().getFirst().nested().query().bool();
+        return matchedProgrammesNested(query).query().bool();
     }
 
-    private static void assertTextQuery(Query query, String keyword) {
+    private static co.elastic.clients.elasticsearch._types.query_dsl.NestedQuery matchedProgrammesNested(
+            NativeQuery query) {
+        return query.getQuery().bool().must().stream()
+                .filter(Query::isNested)
+                .map(Query::nested)
+                .filter(nested -> nested.innerHits() != null)
+                .findFirst()
+                .orElseThrow();
+    }
+
+    private static void assertRootKeywordQuery(NativeQuery query, String keyword, boolean fuzzy) {
+        Query keywordQuery = query.getQuery().bool().must().stream()
+                .filter(Query::isBool)
+                .findFirst()
+                .orElseThrow();
+        assertThat(keywordQuery.bool().minimumShouldMatch()).isEqualTo("1");
+        assertThat(keywordQuery.bool().should()).hasSize(2);
+        var universityText = keywordQuery.bool().should().getFirst().multiMatch();
+        assertThat(universityText.query()).isEqualTo(keyword);
+        assertThat(universityText.fields()).containsExactlyInAnyOrder(
+                "nameZh^4", "nameEn^4", "countryNameZh^2", "countryNameEn^2", "cityZh", "cityEn");
+        assertThat(universityText.fuzziness()).isEqualTo(fuzzy ? "AUTO" : null);
+        Query nestedProgramme = keywordQuery.bool().should().get(1);
+        assertThat(nestedProgramme.isNested()).isTrue();
+        assertThat(nestedProgramme.nested().path()).isEqualTo("programmes");
+        assertThat(nestedProgramme.nested().innerHits().name()).isEqualTo("keyword_matched_programmes");
+        assertThat(nestedProgramme.nested().innerHits().size()).isEqualTo(3);
+        assertThat(nestedProgramme.nested().query().bool().must()).hasSize(1);
+        assertProgrammeTextQuery(nestedProgramme.nested().query().bool().must().getFirst(), keyword, fuzzy);
+    }
+
+    private static void assertProgrammeTextQuery(Query query, String keyword, boolean fuzzy) {
         assertThat(query.isBool()).isTrue();
         assertThat(query.bool().minimumShouldMatch()).isEqualTo("1");
         assertThat(query.bool().should()).hasSize(2);
         assertThat(query.bool().should().get(0).multiMatch().query()).isEqualTo(keyword);
         assertThat(query.bool().should().get(0).multiMatch().fields())
                 .containsExactlyInAnyOrder("programmes.nameZh", "programmes.nameEn");
+        assertThat(query.bool().should().get(0).multiMatch().fuzziness()).isEqualTo(fuzzy ? "AUTO" : null);
         assertThat(query.bool().should().get(1).term().field()).isEqualTo("programmes.categoryCode");
         assertThat(query.bool().should().get(1).term().value().stringValue()).isEqualTo(keyword);
         assertThat(query.bool().should().get(1).term().caseInsensitive()).isTrue();
+    }
+
+    private static boolean fuzzyEligible(String keyword) {
+        return keyword.matches("(?i)[a-z][a-z0-9 ]{3,}");
     }
 
     private static void assertTerms(Query query, String field, String... values) {
