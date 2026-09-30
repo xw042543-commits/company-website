@@ -84,7 +84,7 @@ export function PublicHome({ locale }: { locale: Locale }) {
     </section>
 
     <section className="public-home-process" aria-labelledby="public-process-heading"><div className="container section">
-      <div className="public-home-heading"><h2 id="public-process-heading">{words(locale, "每一步，都知道接下来做什么", "Know what comes next at every stage")}</h2><p>{words(locale, "把分散的申请信息整理成容易理解的路径。", "Follow a clear application journey from initial planning to enrolment.")}</p></div>
+      <div className="public-home-heading"><h2 id="public-process-heading" className="public-home-process-heading">{locale === "zh" ? <>每一步都清楚<br />下一步怎么走</> : "Know what comes next at every stage"}</h2><p>{words(locale, "把分散的申请信息整理成容易理解的路径。", "Follow a clear application journey from initial planning to enrolment.")}</p></div>
       <ol>{steps.map(([zh, en, bodyZh, bodyEn], index) => <li key={zh}><span>{String(index + 1).padStart(2, "0")}</span><h3>{words(locale, zh, en)}</h3><p>{words(locale, bodyZh, bodyEn)}</p></li>)}</ol>
     </div></section>
 
@@ -101,7 +101,7 @@ export function PublicHome({ locale }: { locale: Locale }) {
         <div className="public-home-contact-details">
           <h3>{words(locale, "咨询安排", "Enquiry details")}</h3>
           <dl><div><dt>{words(locale, "预计回复", "Expected response")}</dt><dd>{words(locale, companyProfile.responseTime.zh, companyProfile.responseTime.en)}</dd></div><div><dt>{words(locale, "联系邮箱", "Email")}</dt><dd><a href={`mailto:${companyProfile.publicEmail}`}>{companyProfile.publicEmail}</a></dd></div><div><dt>{words(locale, "电话", "Telephone")}</dt><dd><a href={contactTelephoneHref(malaysiaAdviser)}>{malaysiaAdviser.phone}</a></dd></div></dl>
-          <Link className="text-link" href={`/${locale}/about#contact-directory`}>{words(locale, "查看微信与全部联系方式", "View WeChat and all contact options")} →</Link>
+          <Link className="public-home-contact-action" href={`/${locale}/about#contact-directory`}>{words(locale, "查看微信与全部联系方式", "View WeChat and all contact options")} <span aria-hidden="true">→</span></Link>
         </div>
       </aside>
     </div></section>
