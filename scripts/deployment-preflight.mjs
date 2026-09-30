@@ -119,8 +119,16 @@ export function validateDeploymentEnv(environment) {
   if (valueFor("SPRING_PROFILES_ACTIVE") && valueFor("SPRING_PROFILES_ACTIVE") !== "prod") {
     errors.push("SPRING_PROFILES_ACTIVE must be prod for deployment.");
   }
-  if (valueFor("APP_CONSULTATION_SUBMISSION_ENABLED") && valueFor("APP_CONSULTATION_SUBMISSION_ENABLED") !== "false") {
-    errors.push("APP_CONSULTATION_SUBMISSION_ENABLED must remain false for the private preview.");
+  const consultationEnabled = valueFor("APP_CONSULTATION_SUBMISSION_ENABLED");
+  const privacyNoticeVersion = valueFor("APP_CONSULTATION_PRIVACY_NOTICE_VERSION");
+  if (consultationEnabled && consultationEnabled !== "true" && consultationEnabled !== "false") {
+    errors.push("APP_CONSULTATION_SUBMISSION_ENABLED must be true or false.");
+  }
+  if (consultationEnabled === "true" && !privacyNoticeVersion) {
+    errors.push("APP_CONSULTATION_PRIVACY_NOTICE_VERSION is required when consultation submission is enabled.");
+  }
+  if (privacyNoticeVersion.length > 50) {
+    errors.push("APP_CONSULTATION_PRIVACY_NOTICE_VERSION must not exceed 50 characters.");
   }
 
   const network = ipv4Cidr(valueFor("DEPLOYMENT_NETWORK_SUBNET"));
