@@ -65,7 +65,17 @@ test("directory logos use a centered safe area with a separate hover caption", (
   assert.match(schoolCard, /className="school-logo-caption"/);
   assert.match(css, /\.school-image img\s*\{[\s\S]*?width:\s*82%[\s\S]*?height:\s*82%[\s\S]*?object-position:\s*center/);
   assert.match(css, /\.school-logo-caption\s*\{[\s\S]*?position:\s*static/);
-  assert.match(css, /\.school-card-link:hover \.school-logo-caption/);
+  assert.match(css, /\.school-card:hover \.school-logo-caption/);
+});
+
+test("university result cards collapse matching programmes behind an accessible disclosure", () => {
+  assert.match(schoolCard, /<details className="school-programme-disclosure">/);
+  assert.match(schoolCard, /<summary>/);
+  assert.match(schoolCard, /school-programme-chevron/);
+  assert.match(schoolCard, /<Link className="school-card-action"/);
+  assert.doesNotMatch(schoolCard, /<Link className="school-card-link"[^>]*><article/);
+  assert.match(css, /\.school-programme-disclosure\s*\{/);
+  assert.match(css, /\.school-programme-disclosure\[open\] \.school-programme-chevron/);
 });
 
 test("benefit cards use an even two-column alignment", () => {

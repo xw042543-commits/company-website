@@ -394,18 +394,14 @@ legend { padding-right: 8px; font-size: .9rem; }
 .state-symbol { display: block; margin-bottom: 10px; color: var(--brand-action); font-size: 1.6rem; font-weight: 700; }
 .structure-preview { margin-top: 28px; }
 summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--brand-action); font-size: .9rem; font-weight: 700; }
-.school-card-link { display: block; color: inherit; text-decoration: none; }
 .school-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 26px; margin-top: 6px; padding: 24px 12px; border-bottom: 1px solid var(--line); transition: background-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out); }
-.school-card-link:hover { color: inherit; }
-.school-card-link:hover .school-card { background: var(--support-blue); box-shadow: inset 3px 0 var(--brand); transform: translateY(-2px); }
-.school-card-link:active .school-card { transform: translateY(0); }
-.school-card-link:focus-visible { outline-offset: 2px; }
+.school-card:hover { background: var(--support-blue); box-shadow: inset 3px 0 var(--brand); transform: translateY(-2px); }
 .school-logo-block { min-width: 0; align-self: start; display: grid; gap: 7px; }
 .school-image { position: relative; height: 150px; min-height: 150px; display: grid; place-items: center; overflow: hidden; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; color: #53746a; }
 .school-image img { width: 82%; height: 82%; display: block; object-fit: contain; object-position: center; }
 .school-initials { font-size: 1rem; font-weight: 800; letter-spacing: .06em; }
 .school-logo-caption { position: static; min-height: 1.35em; overflow: hidden; color: var(--brand-action); font-size: .7rem; font-weight: 700; line-height: 1.35; text-align: center; text-overflow: ellipsis; white-space: nowrap; opacity: 0; transform: translateY(-3px); transition: opacity 170ms var(--ease-out), transform 170ms var(--ease-out); }
-.school-card-link:hover .school-logo-caption, .school-card-link:focus-visible .school-logo-caption { opacity: 1; transform: translateY(0); }
+.school-card:hover .school-logo-caption, .school-card:focus-within .school-logo-caption { opacity: 1; transform: translateY(0); }
 .school-content { min-width: 0; overflow-wrap: anywhere; }
 .school-content h3 { margin-bottom: 5px; font-size: 1.35rem; }
 .school-secondary-name, .detail-secondary-name { margin: 0 0 6px; color: var(--brand-deep); font-size: .92rem; font-weight: 650; }
@@ -414,9 +410,16 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .course-list li { padding: 9px 0; border-bottom: 1px solid #dfe8e5; }
 .course-list strong { font-size: .95rem; font-weight: 650; }
 .course-list span { display: block; color: var(--muted); font-size: .82rem; }
+.school-programme-disclosure { margin: 16px 0 4px; border-block: 1px solid #d3e1dc; }
+.school-programme-disclosure summary { justify-content: space-between; gap: 20px; list-style: none; color: var(--brand-deep); font-weight: 780; }
+.school-programme-disclosure summary::-webkit-details-marker { display: none; }
+.school-programme-disclosure .course-list { margin-bottom: 8px; }
+.school-programme-chevron { width: 10px; height: 10px; flex: 0 0 10px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translate(-2px, 2px); transition: transform 180ms var(--ease-out); }
+.school-programme-disclosure[open] .school-programme-chevron { transform: rotate(225deg) translate(-2px, 2px); }
 .programme-status { margin: 16px 0 12px; color: var(--muted); font-size: .86rem; line-height: 1.55; }
 .programme-status strong { color: var(--brand-deep); font-size: inherit; }
-.school-card-action { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--brand-action); font-size: .9rem; font-weight: 750; }
+.school-card-action { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--brand-action); font-size: .9rem; font-weight: 750; text-decoration: none; }
+.school-card-action:hover { color: var(--brand-deep); text-decoration: underline; text-underline-offset: 4px; }
 .pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 34px; }
 .pagination span { font-size: .9rem; }
 .pagination button, .pagination .button { padding: 9px 16px; font-size: .9rem; }
@@ -696,7 +699,7 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .login-introduction { padding-top: 0; }
   .form-grid { grid-template-columns: minmax(0, 1fr); }
   .school-card { grid-template-columns: 110px minmax(0, 1fr); gap: 18px; padding: 22px 0; }
-  .school-card-link:hover .school-card { transform: none; }
+  .school-card:hover { transform: none; }
   .school-image { height: 110px; min-height: 110px; }
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .footer-note { grid-column: auto; }

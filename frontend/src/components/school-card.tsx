@@ -16,10 +16,13 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
   const secondaryName = school ? (locale === "zh" ? school.nameEn : school.nameZh) : undefined;
   const country = school ? (locale === "zh" ? school.countryZh ?? school.country : school.countryEn ?? school.country) : words(locale, "国家", "Country");
   const city = school ? (locale === "zh" ? school.cityZh ?? school.city : school.cityEn ?? school.city) : undefined;
+  const courseCountLabel = locale === "zh"
+    ? `${courses.length} 个匹配课程`
+    : `${courses.length} matching programme${courses.length === 1 ? "" : "s"}`;
 
   const detailHref = `/${locale}/universities/${school ? encodeURIComponent(school.slug) : "preview"}`;
 
-  return <Link className="school-card-link" href={detailHref}><article className="school-card">
+  return <article className="school-card">
     <div className="school-logo-block">
       <div className="school-image">
         {school?.logoSrc
@@ -33,8 +36,11 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
       <h3>{name}</h3>
       {secondaryName && secondaryName !== name && <p className="school-secondary-name">{secondaryName}</p>}
       <p className="muted"><LocationLabel city={city || (school ? missing : words(locale, "城市", "City"))} country={country} locale={locale} /></p>
-      {courses.length ? <><h4>{words(locale, "匹配课程", "Matching programmes")}</h4><ul className="course-list">{courses.map(course => <li key={course.id}><strong>{course.name}</strong><span>{words(locale, "学历层次", "Qualification")}: {course.level || missing}<br />{words(locale, "授课语言", "Language of instruction")}: {course.language || missing}</span></li>)}</ul></> : school ? <p className="programme-status"><strong>{words(locale, "课程资料正在完善", "Programme information coming soon")}</strong> {words(locale, "你可以先向顾问了解课程与申请安排。", "In the meantime, ask an adviser about programmes and applications.")}</p> : <ul className="course-list"><li><strong>{words(locale, "课程资料", "Programme information")}</strong><span>{words(locale, "完成审核后，课程资料将在这里显示。", "Reviewed programme information will appear here.")}</span></li></ul>}
-      <span className="school-card-action">{words(locale, "查看院校详情", "View university details")} <span aria-hidden="true">→</span></span>
+      {courses.length ? <details className="school-programme-disclosure">
+        <summary><span>{courseCountLabel}</span><span className="school-programme-chevron" aria-hidden="true" /></summary>
+        <ul className="course-list">{courses.map(course => <li key={course.id}><strong>{course.name}</strong><span>{words(locale, "学历层次", "Qualification")}: {course.level || missing}<br />{words(locale, "授课语言", "Language of instruction")}: {course.language || missing}</span></li>)}</ul>
+      </details> : school ? <p className="programme-status"><strong>{words(locale, "课程资料正在完善", "Programme information coming soon")}</strong> {words(locale, "你可以先向顾问了解课程与申请安排。", "In the meantime, ask an adviser about programmes and applications.")}</p> : <ul className="course-list"><li><strong>{words(locale, "课程资料", "Programme information")}</strong><span>{words(locale, "完成审核后，课程资料将在这里显示。", "Reviewed programme information will appear here.")}</span></li></ul>}
+      <Link className="school-card-action" href={detailHref}>{words(locale, "查看院校详情", "View university details")} <span aria-hidden="true">→</span></Link>
     </div>
-  </article></Link>;
+  </article>;
 }
