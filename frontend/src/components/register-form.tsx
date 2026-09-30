@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { FormProgress } from "@/components/form-progress";
 import { Locale, words } from "@/lib/site";
 import { startDemoSession } from "@/app/actions/demo-session";
@@ -65,7 +66,7 @@ export function RegisterForm({ locale, returnTo }: { locale: Locale; returnTo?: 
     </div>
 
     <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "创建演示账户并继续", "Create demo account and continue")}</button>
-    <p className="login-support-note">{words(locale, "正式开放时，注册还需要邮箱验证和隐私同意。", "Email verification and privacy consent will be required when registration opens.")}</p>
+    <p className="login-support-note">{words(locale, "正式开放时，注册还需要邮箱验证，并须阅读和同意", "When registration opens, email verification will be required, together with acceptance of the ")} <Link href={`/${locale}/terms`}>{words(locale, "《用户协议》", "User Agreement")}</Link> {words(locale, "与", "and")} <Link href={`/${locale}/privacy`}>{words(locale, "《隐私政策》", "Privacy Policy")}</Link>{words(locale, "。", ".")}</p>
     {status === "reviewed" && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览完成。资料已从页面清除，没有建立账户或保存内容。", "Preview complete. The details were cleared; no account was created and nothing was stored.")}</p>}
   </div>;
 }
