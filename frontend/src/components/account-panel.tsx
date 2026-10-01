@@ -6,6 +6,7 @@ import { changePassword, deleteAccount, getAccount, logout, type AccountProfile 
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
+import { SavedItemsPanel } from "@/components/saved-items-panel";
 
 export function AccountPanel({ locale }: { locale: Locale }) {
   const router = useRouter();
@@ -110,6 +111,8 @@ export function AccountPanel({ locale }: { locale: Locale }) {
       </dl>
       {demoAccount && <p className="demo-account-note">{words(locale, "这是仅用于本地测试的演示账户，不会保存任何账户更改。", "This local demo account is for testing only and does not save account changes.")}</p>}
     </section>
+
+    <SavedItemsPanel locale={locale} />
 
     {!demoAccount && <><section className="account-section" aria-labelledby="password-title">
       <h2 id="password-title">{words(locale, "修改密码", "Change password")}</h2>

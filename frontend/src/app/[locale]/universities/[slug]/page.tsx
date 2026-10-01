@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 
 import { Pagination } from "@/components/pagination";
 import { ResultsState } from "@/components/results-state";
+import { SaveToggle } from "@/components/save-toggle";
 import { universityProfile } from "@/data/university-profiles";
 import { findUniversityBySlug } from "@/data/university-catalog";
 import { localProgrammeLevels } from "@/data/local-programmes";
@@ -81,6 +82,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
       {[view.country, view.city].filter(Boolean).join(" · ")
         || words(locale, "地区资料待补充", "Location information pending")}
     </p>
+    <div className="detail-quick-actions"><SaveToggle locale={locale} item={{ key: `university:${slug}`, kind: "university", name: view.name, secondaryName: view.secondaryName, context: [view.city, view.country].filter(Boolean).join(", "), path: detailPath }} /><Link href={`/${locale}/about#enquiry`}>{words(locale, "咨询顾问", "Ask an adviser")} <span aria-hidden="true">→</span></Link></div>
 
     <div className="detail-layout">
       <div>
@@ -122,8 +124,8 @@ export default async function Detail({ params, searchParams }: DetailProps) {
             </div>
             : view.programmes.length
               ? <div className="programme-detail-list">
-                {view.programmes.map((programme) => <article className="programme-detail-card" key={programme.id}>
-                  <h3>{programme.name}</h3>
+                {view.programmes.map((programme) => <article className="programme-detail-card" id={`programme-${programme.id}`} key={programme.id}>
+                  <div className="programme-card-heading"><h3>{programme.name}</h3><SaveToggle compact locale={locale} item={{ key: `programme:${slug}:${programme.id}`, kind: "programme", name: programme.name, secondaryName: programme.secondaryName, context: view.name, path: `${detailPath}#programme-${programme.id}`, facts: [[words(locale, "学历", "Level"), programme.level], [words(locale, "学制", "Duration"), programme.duration], [words(locale, "参考学费", "Tuition"), programme.tuition]].filter((fact): fact is [string, string] => Boolean(fact[1])).map(([label, value]) => ({ label, value })) }} /></div>
                   {programme.secondaryName && <p className="detail-secondary-name">{programme.secondaryName}</p>}
                   {programme.description && <p>{programme.description}</p>}
                   <dl className="course-details">

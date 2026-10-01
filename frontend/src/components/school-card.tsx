@@ -4,6 +4,8 @@ import Link from "next/link";
 import type { SchoolSummary } from "@/lib/universities";
 import { LocationLabel } from "@/components/location-label";
 import { SchoolComparisonToggle } from "@/components/school-comparison-toggle";
+import { SaveToggle } from "@/components/save-toggle";
+import { findUniversityBySlug } from "@/data/university-catalog";
 import { Locale, words } from "@/lib/site";
 
 function initials(name: string) {
@@ -23,6 +25,7 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
     : `${matchedProgrammeCount} matching programme${matchedProgrammeCount === 1 ? "" : "s"}`;
 
   const detailHref = `/${locale}/universities/${school ? encodeURIComponent(school.slug) : "preview"}`;
+  const comparisonId = school ? findUniversityBySlug(school.slug)?.id ?? school.id : "";
 
   return <article className="school-card">
     <div className="school-logo-block">
@@ -42,7 +45,7 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
         <summary><span>{courseCountLabel}</span><span className="school-programme-chevron" aria-hidden="true" /></summary>
         <ul className="course-list">{courses.map(course => <li key={course.id}><strong>{course.name}</strong><span>{words(locale, "学历层次", "Qualification")}: {course.level || missing}<br />{words(locale, "授课语言", "Language of instruction")}: {course.language || missing}</span></li>)}</ul>
       </details> : school ? <p className="programme-status"><strong>{words(locale, "课程资料正在完善", "Programme information coming soon")}</strong> {words(locale, "你可以先向顾问了解课程与申请安排。", "In the meantime, ask an adviser about programmes and applications.")}</p> : <ul className="course-list"><li><strong>{words(locale, "课程资料", "Programme information")}</strong><span>{words(locale, "完成审核后，课程资料将在这里显示。", "Reviewed programme information will appear here.")}</span></li></ul>}
-      <div className="school-card-actions"><Link className="school-card-action" href={detailHref}>{words(locale, "查看院校详情", "View university details")} <span aria-hidden="true">→</span></Link>{school && <SchoolComparisonToggle id={school.id} locale={locale} />}</div>
+      <div className="school-card-actions"><Link className="school-card-action" href={detailHref}>{words(locale, "查看院校详情", "View university details")} <span aria-hidden="true">→</span></Link>{school && <><SaveToggle compact locale={locale} item={{ key: `university:${school.slug}`, kind: "university", name, secondaryName, context: [city, country].filter(Boolean).join(", "), path: detailHref }} /><SchoolComparisonToggle id={comparisonId} locale={locale} /></>}</div>
     </div>
   </article>;
 }
