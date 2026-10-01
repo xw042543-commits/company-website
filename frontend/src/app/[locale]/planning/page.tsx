@@ -3,6 +3,7 @@ import { FilterPanel } from "@/components/filter-panel";
 import { ResultsState } from "@/components/results-state";
 import { Pagination } from "@/components/pagination";
 import { SchoolCard } from "@/components/school-card";
+import { ComparisonTray } from "@/components/comparison-tray";
 import { getFilterOptions } from "@/lib/filter-options-api";
 import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { getUniversitySearch } from "@/lib/universities";
@@ -31,6 +32,6 @@ export default async function Planning({ params, searchParams }: { params: Promi
       {result.status === "ready" && <p className="muted results-summary">{words(locale, `找到 ${totalItems} 所匹配院校。`, `${totalItems} matching universities found.`)}</p>}
       {result.status === "ready" ? schools.length ? <div className="school-results-grid">{[0, 1].map(column => <div className="school-results-column" key={column}>{schools.map((school, index) => index % 2 === column ? <div className="school-result-item" style={{ order: index }} key={school.id}><SchoolCard school={school} locale={locale} /></div> : null)}</div>)}</div> : <ResultsState locale={locale} state="empty" actionHref={`/${locale}/planning`} /> : <ResultsState locale={locale} state="error" />}
       <Pagination locale={locale} path={`/${locale}/planning`} query={query} page={page} total={totalItems} />
-    </section></div>
+    </section></div><ComparisonTray locale={locale} />
   </main>;
 }

@@ -8,6 +8,8 @@ const schoolCard = readFileSync(fileURLToPath(new URL("../components/school-card
 const publicHome = readFileSync(fileURLToPath(new URL("../components/public-home.tsx", import.meta.url)), "utf8");
 const memberHome = readFileSync(fileURLToPath(new URL("./[locale]/page.tsx", import.meta.url)), "utf8");
 const siteHeader = readFileSync(fileURLToPath(new URL("../components/site-header.tsx", import.meta.url)), "utf8");
+const filterPanel = readFileSync(fileURLToPath(new URL("../components/filter-panel.tsx", import.meta.url)), "utf8");
+const comparisonTray = readFileSync(fileURLToPath(new URL("../components/comparison-tray.tsx", import.meta.url)), "utf8");
 
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
@@ -134,4 +136,18 @@ test("benefit cards use an even two-column alignment", () => {
   assert.match(css, /\.benefits\s*\{[^}]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
   assert.match(css, /\.benefits\s*\{[^}]*grid-auto-rows:\s*minmax\(140px,\s*auto\)/);
   assert.doesNotMatch(css, /\.benefits article:nth-child/);
+});
+
+test("catalog filters stay compact and removable across tablet layouts", () => {
+  assert.match(filterPanel, /className="active-filter-chips"/);
+  assert.match(filterPanel, /withoutFilter\(name\)/);
+  assert.match(css, /@media \(max-width: 980px\)[\s\S]*?\.listing-layout\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+  assert.match(css, /@media \(max-width: 980px\)[\s\S]*?\.mobile-filter-toggle\s*\{[^}]*display:\s*flex/);
+});
+
+test("comparison tray stays viewport-fixed and adapts on small screens", () => {
+  assert.match(comparisonTray, /createPortal\(/);
+  assert.match(comparisonTray, /document\.body/);
+  assert.match(css, /\.comparison-tray\s*\{[^}]*position:\s*fixed/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.comparison-tray\s*\{/);
 });
