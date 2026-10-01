@@ -5,6 +5,7 @@ import { SchoolCard } from "@/components/school-card";
 import { Pagination } from "@/components/pagination";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { UniversityComparison } from "@/components/university-comparison";
+import { ComparisonTray } from "@/components/comparison-tray";
 import { universitySuggestions } from "@/data/search-suggestions";
 import { getFilterOptions } from "@/lib/filter-options-api";
 import { serverApiBaseUrl } from "@/lib/runtime-config";
@@ -36,6 +37,6 @@ export default async function Universities({ params, searchParams }: { params: P
       {result.status === "ready" ? schools.length ? <div className="school-results-grid">{[0, 1].map(column => <div className="school-results-column" key={column}>{schools.map((school, index) => index % 2 === column ? <div className="school-result-item" style={{ order: index }} key={school.id}><SchoolCard school={school} locale={locale} /></div> : null)}</div>)}</div> : <ResultsState locale={locale} state="empty" actionHref={`/${locale}/universities`} /> : <ResultsState locale={locale} state="error" />}
       <Pagination locale={locale} path={`/${locale}/universities`} query={query} page={page} total={totalItems} />
     </section></div>
-    <UniversityComparison locale={locale} />
+    <UniversityComparison locale={locale} /><ComparisonTray locale={locale} onDirectory />
   </main>;
 }

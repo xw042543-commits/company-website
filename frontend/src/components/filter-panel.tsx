@@ -17,6 +17,23 @@ export function FilterPanel({ locale, query, options, directory = false }: { loc
   const hasAdvancedFilters = advancedNames.some((name) => Boolean(first(query, name)));
   const optionTuples = (items: FilterOptions[keyof FilterOptions] | undefined): Option[] =>
     items?.map((item) => [item.code, item.nameZh, item.nameEn]) ?? [];
+  const withoutFilter = (name: string) => {
+    const next = new URLSearchParams();
+    Object.entries(query).forEach(([key, value]) => {
+      if (key === name || key === "page" || value == null) return;
+      (Array.isArray(value) ? value : [value]).forEach((item) => next.append(key, item));
+    });
+    const suffix = next.toString();
+    return `${path}${suffix ? `?${suffix}` : ""}`;
+  };
+  const labels: Record<string, readonly [string, string]> = {
+    q: ["关键词", "Keyword"], category: ["专业领域", "Subject"], level: ["学历", "Qualification"], country: ["国家", "Country"],
+    mode: ["模式", "Mode"], language: ["语言", "Language"], duration: ["学制", "Duration"], intake: ["入学时间", "Intake"], tuitionMin: ["最低学费", "Minimum fee"], tuitionMax: ["最高学费", "Maximum fee"],
+  };
+  const filterLabel = (name: string) => {
+    const label = labels[name] ?? [name, name];
+    return words(locale, label[0], label[1]);
+  };
   const select = (name: string, zh: string, en: string, options: readonly Option[]) => {
     const value = first(query, name);
     const unknown = value && !options.some(([id]) => id === value);
@@ -31,6 +48,7 @@ export function FilterPanel({ locale, query, options, directory = false }: { loc
     <div id="filter-fields" className={expanded ? "filter-fields expanded" : "filter-fields"}>
       <div className="filter-heading"><div><p className="filter-eyebrow">{words(locale, "缩小搜索范围", "Narrow your search")}</p><h2>{words(locale, "筛选条件", "Filters")}{activeCount > 0 && <span className="filter-count">{activeCount}</span>}</h2></div>{activeCount > 0 && <Link href={path}>{words(locale, "重置", "Reset")}</Link>}</div>
       <form action={path} method="get" key={`${locale}:${JSON.stringify(query)}`}>
+        {activeCount > 0 && <div className="active-filter-chips" aria-label={words(locale, "已选择的筛选条件", "Active filters")}>{filterNames.map((name) => first(query, name) ? <Link key={name} href={withoutFilter(name)} title={words(locale, "移除此条件", "Remove this filter")}><span>{filterLabel(name)}: {first(query, name)}</span><span aria-hidden="true">×</span></Link> : null)}</div>}
         {!options && <p className="filter-note">{words(locale, "筛选选项暂时无法加载，仍可使用关键词搜索。", "Filter options are temporarily unavailable. Keyword search is still available.")}</p>}
         <div className="filter-group"><p className="filter-group-title">{words(locale, directory ? "院校所在地" : "主要条件", directory ? "University location" : "Essentials")}</p>
         {!directory && <><div className="field"><label htmlFor="q">{words(locale, "专业关键词", "Course keyword")}</label><SearchAutocomplete id="q" name="q" locale={locale} suggestions={courseSuggestions(locale)} defaultValue={first(query, "q")} /><small>{words(locale, "输入专业名称或关键词", "Enter a programme or keyword")}</small></div>

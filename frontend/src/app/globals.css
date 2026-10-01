@@ -399,7 +399,7 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .listing-page > .page-intro { margin-bottom: 28px; }
 .listing-layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: clamp(24px, 3vw, 44px); align-items: start; margin-top: 28px; }
 .listing-results { min-width: 0; }
-.filter-panel { position: sticky; z-index: 4; top: 112px; max-height: calc(100vh - 132px); overflow: auto; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--wash); scrollbar-width: thin; }
+.filter-panel { position: sticky; z-index: 4; top: 112px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--wash); }
 .filter-fields { padding: 22px; }
 .filter-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
 .filter-heading h2 { display: flex; align-items: center; gap: 9px; margin: 0; font-size: 1.4rem; }
@@ -425,7 +425,12 @@ legend { padding-right: 8px; font-size: .9rem; }
 .filter-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .filter-pair .field { min-width: 0; }
 .filter-pair input { min-width: 0; padding-inline: 10px; }
-.filter-actions { position: sticky; bottom: 0; margin: 0 -8px -8px; padding: 14px 8px 8px; background: linear-gradient(180deg, transparent 0, var(--wash) 16px); }
+.active-filter-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+.active-filter-chips a { min-width: 0; display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border: 1px solid #a9c5bc; border-radius: 999px; background: var(--paper); color: var(--brand-deep); font-size: .72rem; font-weight: 700; line-height: 1.2; text-decoration: none; }
+.active-filter-chips a:hover { border-color: var(--brand-action); background: #e8f1ee; }
+.active-filter-chips a span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.active-filter-chips a span:last-child { color: var(--brand-action); font-size: .9rem; line-height: 1; }
+.filter-actions { margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--line); }
 .filter-actions p { margin: 0 0 9px; color: var(--muted); font-size: .74rem; text-align: center; }
 .filter-actions > a { min-height: 34px; display: flex; align-items: center; justify-content: center; color: var(--brand-action); font-size: .76rem; font-weight: 700; }
 .mobile-filter-toggle { display: none; }
@@ -473,6 +478,20 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .programme-status strong { color: var(--brand-deep); font-size: inherit; }
 .school-card-action { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--brand-action); font-size: .84rem; font-weight: 680; text-decoration: none; }
 .school-card-action:hover { color: var(--brand-deep); text-decoration: underline; text-underline-offset: 4px; }
+.school-card-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px; }
+.school-compare-toggle { min-height: 40px; display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; border: 1px solid #9bbab1; border-radius: 999px; background: transparent; color: var(--brand-deep); font-size: .76rem; font-weight: 700; }
+.school-compare-toggle:hover:not(:disabled), .school-compare-toggle.selected { border-color: var(--brand-action); background: #e7f1ed; color: var(--brand-action); }
+.school-compare-toggle:disabled { cursor: not-allowed; opacity: .55; }
+.comparison-tray { position: fixed; z-index: 55; right: clamp(16px, 3vw, 42px); bottom: 20px; left: clamp(16px, 3vw, 42px); max-width: 1180px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 16px; margin-inline: auto; padding: 14px 16px; border: 1px solid #8eafa5; border-radius: 14px; background: rgb(250 251 247 / 97%); box-shadow: 0 18px 50px rgb(14 52 44 / 20%); backdrop-filter: blur(14px); }
+.comparison-tray-copy { display: grid; gap: 2px; }
+.comparison-tray-copy strong { font-size: .86rem; }
+.comparison-tray-copy span { color: var(--muted); font-size: .7rem; }
+.comparison-tray-schools { min-width: 0; display: flex; flex-wrap: wrap; gap: 7px; }
+.comparison-tray-schools > span { min-width: 0; display: inline-flex; align-items: center; gap: 7px; padding: 6px 8px 6px 10px; border-radius: 999px; background: #e7f0ed; color: var(--brand-deep); font-size: .74rem; font-weight: 700; }
+.comparison-tray-schools button, .comparison-tray-clear { min-width: 28px; min-height: 28px; padding: 0; border: 0; background: transparent; color: var(--brand-action); }
+.comparison-tray .button { min-height: 42px; padding: 8px 14px; font-size: .8rem; white-space: nowrap; }
+.comparison-tray .button.disabled { pointer-events: none; opacity: .55; }
+.comparison-tray-clear { font-size: .76rem; font-weight: 700; }
 .pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 34px; }
 .pagination span { font-size: .9rem; }
 .pagination button, .pagination .button { padding: 9px 16px; font-size: .9rem; }
@@ -481,6 +500,8 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
   .school-results-grid { display: flex; flex-direction: column; }
   .school-results-column { display: contents; }
   .school-result-item { width: 100%; }
+  .member-home-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 42px; }
+  .member-home-visual { width: 100%; max-height: 520px; }
 }
 
 .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: clamp(30px, 5vw, 64px); align-items: start; margin-top: 38px; }
@@ -694,13 +715,36 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .featured-university-card { flex-basis: calc((100% - 20px) / 2); }
   .university-skeleton-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .comparison-heading { grid-template-columns: minmax(0, 1fr); gap: 18px; align-items: start; }
-  .listing-layout { grid-template-columns: 250px minmax(0, 1fr); gap: 26px; }
+  .listing-layout { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .mobile-filter-toggle { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); color: var(--ink); font-weight: 800; }
+  .filter-fields { display: none; margin-top: 10px; }
+  .filter-fields.expanded { display: block; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-soft); }
+  .filter-panel { position: static; padding: 0; border: 0; background: transparent; box-shadow: none; }
+  .filter-panel form { padding: 0; border: 0; background: transparent; }
+  .directory-search-sticky { position: static; }
   .detail-layout { grid-template-columns: minmax(0, 1fr) 270px; gap: 30px; }
   .login-layout { grid-template-columns: minmax(0, 1fr) minmax(330px, .8fr); gap: 38px; }
   .adviser-contact { padding: 22px; }
   .adviser-contact img { height: 220px; }
   .footer-grid { grid-template-columns: .7fr 1.3fr; }
   .footer-note { grid-column: 2; text-align: left; }
+}
+
+@media (max-width: 760px) {
+  .comparison-tray { right: 12px; bottom: 12px; left: 12px; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 12px; padding: 12px; border-radius: 12px; }
+  .comparison-tray-copy { min-width: 0; }
+  .comparison-tray-copy span { display: none; }
+  .comparison-tray-schools { grid-column: 1 / -1; grid-row: 2; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
+  .comparison-tray-schools > span { flex: 0 0 auto; max-width: min(78vw, 300px); }
+  .comparison-tray .button { grid-column: 2; grid-row: 1; }
+  .comparison-tray-clear { grid-column: 1 / -1; justify-self: start; min-height: 24px; }
+}
+
+@media (max-width: 460px) {
+  .comparison-tray { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .comparison-tray-schools { display: none; }
+  .comparison-tray .button { grid-column: 2; }
+  .comparison-tray-clear { grid-column: 3; grid-row: 1; }
 }
 
 @media (max-width: 760px) {

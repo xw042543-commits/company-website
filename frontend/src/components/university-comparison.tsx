@@ -1,16 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { UNIVERSITY_CATALOG } from "@/data/university-catalog";
 import { universityProfile } from "@/data/university-profiles";
 import { Locale, words } from "@/lib/site";
+import { COMPARISON_EVENT, readComparisonSelection } from "@/lib/comparison-selection";
 
 const initialSelection = ["um", "taylors", ""];
 
 export function UniversityComparison({ locale }: { locale: Locale }) {
   const [selection, setSelection] = useState(initialSelection);
+  useEffect(() => {
+    const applyStored = (event?: Event) => {
+      const stored = event instanceof CustomEvent ? event.detail : readComparisonSelection();
+      if (stored.length >= 2) setSelection([...stored, "", ""].slice(0, 3));
+    };
+    applyStored();
+    window.addEventListener(COMPARISON_EVENT, applyStored);
+    return () => window.removeEventListener(COMPARISON_EVENT, applyStored);
+  }, []);
   const selected = useMemo(() => selection.map((id) => UNIVERSITY_CATALOG.find((item) => item.id === id)).filter(Boolean), [selection]);
 
   const update = (index: number, value: string) => setSelection((current) => current.map((item, itemIndex) => itemIndex === index ? value : item));
