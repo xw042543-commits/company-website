@@ -19,10 +19,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     : `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/${path}`)}`;
 
   const benefits = [
-    ["可靠留学信息", "Reliable information", "通过全面、经过审核的留学资料，帮助你更有依据地作出选择。", "Make informed choices using comprehensive, reviewed study information."],
-    ["流程清晰透明", "Clear processes", "清楚掌握服务与申请进度，随时了解当前阶段和下一步安排。", "Track each stage of your application and understand what comes next."],
-    ["不收取中介服务费", "No agency service fee", "你只需承担必要的第三方费用，洋豆角不收取留学中介服务费。", "Pay only necessary third-party costs; UDAJO does not charge an agency service fee."],
-    ["全程专业支持", "End-to-end support", "从前期规划、院校申请到入学准备与学习支持，全程都有顾问协助。", "Receive adviser support from initial planning and applications through enrolment and study."],
+    ["留学信息真实全面", "Reliable, comprehensive information", "提供真实、全面的留学信息，帮助你安心作出选择。", "Make informed choices with reliable, comprehensive study-abroad information."],
+    ["服务流程透明可视", "A clear, visible process", "服务进度清晰可查，每一步做到哪里都心中有数。", "See your progress clearly and understand what is happening at every stage."],
+    ["零中介服务费", "No agency service fee", "你只需支付必要的第三方费用，洋豆角不收取中介服务费。", "Pay only necessary third-party costs. UDAJO does not charge an agency service fee."],
+    ["留学全周期服务", "Support throughout your journey", "从语言培训、规划申请到抵达与学习支持，全程都有专业团队陪伴。", "Receive professional support from language preparation and applications through arrival and study."],
   ] as const;
   const pathways = [
     ["01", "明确留学方向", "Define your study goals", "结合目标学历与专业兴趣，逐步缩小适合你的选择范围。", "Use your intended qualification and academic interests to narrow your options.", memberHref("planning"), "开始规划", "Start planning"],
@@ -46,9 +46,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return <main id="main">
     <section className="member-home-hero"><div className="container member-home-hero-grid">
       <div className="member-home-copy">
-        <p className="section-label">{words(locale, "你的留学规划中心", "Your study planning hub")}</p>
-        <h1>{words(locale, "把留学目标变成清晰的行动计划", "Turn your study goals into a clear action plan")}</h1>
-        <p className="member-home-intro">{words(locale, "查询院校与专业，比较适合你的选择，并在每个申请阶段获得清晰指引。", "Explore universities and programmes, compare the options that suit you, and get clear guidance at every application stage.")}</p>
+        <p className="section-label">{words(locale, "科学规划 · 科学定位", "Strategic planning · Informed direction")}</p>
+        <h1>{words(locale, "全球第一家留学生综合服务平台", "A comprehensive service platform for international students worldwide")}</h1>
+        <p className="member-home-intro">{words(locale, "科学规划留学院校与专业，科学定位留学人生发展。洋豆角提供留学生全周期服务与支持。", "Plan the right university and programme, define your long-term direction, and access UDAJO support throughout your study-abroad journey.")}</p>
         <div className="member-home-actions">
           <Link className="button" href={`/${locale}/planning`}>{words(locale, "开始规划", "Start planning")}</Link>
           <Link className="member-home-secondary-action" href={`/${locale}/universities`}>{words(locale, "浏览院校", "Browse universities")} <span aria-hidden="true">→</span></Link>
@@ -85,7 +85,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </div>
     </div></section>}
     <section className="pathway-section" aria-labelledby="pathway-heading"><div className="container section">
-      <div className="section-heading"><p className="section-label">{words(locale, "个性化规划", "Personalised planning")}</p><h2 id="pathway-heading">{words(locale, "根据你的目标规划留学路径", "Build a study plan around your goals")}</h2><p>{words(locale, "明确方向、比较院校，再与顾问确认适合你的申请方案。", "Define your goals, compare universities, and confirm your application plan with an adviser.")}</p></div>
+      <div className="section-heading"><p className="section-label">{words(locale, "定制方案", "Personalised plan")}</p><h2 id="pathway-heading">{words(locale, "根据你的情况定制留学方案", "Build a study plan around your circumstances")}</h2><p>{words(locale, "先定专业，再选院校，最后联系顾问确认适合你的申请方案。", "Choose your subject, compare universities, then confirm the right application plan with an adviser.")}</p></div>
       <div className="pathway-grid">{pathways.map(([number, zh, en, bodyZh, bodyEn, href, actionZh, actionEn]) => <Link className="pathway-card" href={href} key={number}>
         <span className="pathway-number" aria-hidden="true">{number}</span>
         <h3>{words(locale, zh, en)}</h3>

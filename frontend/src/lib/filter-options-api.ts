@@ -1,4 +1,5 @@
 import { requestInternalApi } from "./internal-api-request.ts";
+import { localFilterOptions } from "../data/local-programmes.ts";
 
 export type FilterOption = {
   code: string;
@@ -54,7 +55,7 @@ export async function getFilterOptions(
   baseUrl: string | undefined,
   request: typeof fetch = fetch,
 ): Promise<FilterOptionsResult> {
-  if (!baseUrl) return { status: "error" };
+  if (!baseUrl) return { status: "ready", options: localFilterOptions() };
 
   try {
     const response = await requestInternalApi(request, new URL("/api/v1/catalog/filter-options", baseUrl), {

@@ -49,11 +49,14 @@ test("requests the V1 catalog filter-options endpoint", async () => {
   assert.equal(requestedUrl, "http://localhost:8080/api/v1/catalog/filter-options");
 });
 
-test("returns an error state for unavailable or malformed filter options", async () => {
+test("returns an error for malformed remote options and reviewed options locally", async () => {
   const unavailable = (async () => new Response(null, { status: 503 })) as typeof fetch;
   const malformed = (async () => new Response(JSON.stringify({}), { status: 200 })) as typeof fetch;
 
   assert.deepEqual(await requestOptions("http://localhost:8080", unavailable), { status: "error" });
   assert.deepEqual(await requestOptions("http://localhost:8080", malformed), { status: "error" });
-  assert.deepEqual(await requestOptions(undefined, malformed), { status: "error" });
+  const local = await requestOptions(undefined, malformed) as { status: string; options: typeof validOptions };
+  assert.equal(local.status, "ready");
+  assert.ok(local.options.subjectCategories.some((option) => option.code === "computing"));
+  assert.ok(local.options.courseModes.some((option) => option.code === "research"));
 });

@@ -27,7 +27,7 @@ test("global styles cover the rendered header and homepage layout", () => {
     assert.match(css, new RegExp(`\\${selector}\\b`), `${selector} is missing from globals.css`);
   }
 
-  assert.match(css, /\.hero-intro\s*\{[\s\S]*?font-size:\s*clamp\(1\.125rem,\s*1\.7vw,\s*1\.3rem\)/);
+  assert.match(css, /\.hero-intro\s*\{[\s\S]*?font-size:\s*clamp\(1\.03rem,\s*1\.35vw,\s*1\.16rem\)/);
 });
 
 test("public homepage uses a compact enquiry desk and responsive university cards", () => {
@@ -98,8 +98,8 @@ test("university result cards collapse matching programmes behind an accessible 
 
 test("signed-in homepage uses an image-led action hero and separate search panel", () => {
   assert.match(memberHome, /className="member-home-hero"/);
-  assert.match(memberHome, /把留学目标变成清晰的行动计划/);
-  assert.match(memberHome, /Turn your study goals into a clear action plan/);
+  assert.match(memberHome, /全球第一家留学生综合服务平台/);
+  assert.match(memberHome, /A comprehensive service platform for international students worldwide/);
   assert.match(memberHome, /\/universities\/campuses\/apu-campus\.webp/);
   assert.match(memberHome, /className="member-search-panel/);
   assert.match(css, /\.member-home-hero-grid\s*\{[\s\S]*?grid-template-columns:/);
@@ -109,8 +109,8 @@ test("signed-in homepage uses an image-led action hero and separate search panel
 test("member search panel reserves its full height instead of being covered by the next section", () => {
   const panelRule = css.match(/\.member-search-panel\s*\{([^}]*)\}/)?.[1] ?? "";
   assert.doesNotMatch(panelRule, /transform:\s*translateY/);
-  assert.match(css, /\.member-search-band\s*\{[^}]*padding-bottom:\s*42px/);
-  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.member-search-band\s*\{[^}]*padding-bottom:\s*26px/);
+  assert.match(css, /\.member-search-band\s*\{[^}]*padding-block:\s*26px/);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.member-search-band\s*\{[^}]*padding-block:\s*22px/);
 });
 
 test("sticky header uses restrained dimensional styling", () => {
