@@ -7,7 +7,7 @@ import {
   type ProgrammeStatus,
 } from "../data/university-catalog.ts";
 import { FEATURED_UNIVERSITY_IDS, universityProfile } from "../data/university-profiles.ts";
-import { localProgrammePage } from "../data/local-programmes.ts";
+import { localProgrammeMatches, localProgrammePage } from "../data/local-programmes.ts";
 import {
   getUniversityDetail,
   getUniversityProgrammes,
@@ -106,15 +106,25 @@ export async function getUniversitySearch(
   query: Query,
   locale: Locale,
   baseUrl?: string,
+  options: { programmeSearch?: boolean } = {},
 ): Promise<SchoolSearchResult> {
   if (!baseUrl) {
     const pageSize = 12;
+    const programmeResult = localProgrammeMatches(options.programmeSearch ? query : {}, locale);
     const allSchools = localSchools(
-      first(query, "q"),
+      options.programmeSearch && programmeResult.hasProgrammeFilter ? "" : first(query, "q"),
       first(query, "country"),
       first(query, "continent"),
       locale,
-    );
+    ).flatMap((school) => {
+      const match = programmeResult.matches.get(school.id);
+      if (options.programmeSearch && programmeResult.hasProgrammeFilter && !match) return [];
+      return [{
+        ...school,
+        matchedProgrammeCount: match?.count ?? 0,
+        matchedCourses: match?.courses ?? [],
+      }];
+    });
     const totalItems = allSchools.length;
     const totalPages = totalItems ? Math.ceil(totalItems / pageSize) : 0;
     const page = boundedPage(pageNumber(first(query, "page")), totalPages);

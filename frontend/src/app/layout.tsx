@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
   return {
     metadataBase: new URL(publicIndexing.origin),
     title: "UDAJO | 洋豆角",
-    description: "UDAJO study planning and university search | 洋豆角留学规划与院校查询",
+    description: "UDAJO full-cycle international student services | 洋豆角留学生全周期服务",
     robots: { index: publicIndexing.enabled, follow: publicIndexing.enabled },
   };
 }

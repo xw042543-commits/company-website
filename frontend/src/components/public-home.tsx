@@ -35,9 +35,9 @@ export function PublicHome({ locale }: { locale: Locale }) {
     <section className="public-home-hero">
       <div className="container public-home-hero-grid">
         <div className="public-home-hero-copy">
-          <p className="public-home-kicker">{words(locale, "留学规划，从清晰选择开始", "Clear choices for your study plans")}</p>
-          <h1>{words(locale, "从选校到入学，全程安心规划", "Plan with confidence, from university choice to enrolment")}</h1>
-          <p>{words(locale, "查看经过审核的院校与专业资料，比较适合你的选择，并与顾问一起规划申请步骤。", "Explore reviewed university and programme information, compare suitable choices, and plan each application step with an adviser.")}</p>
+          <p className="public-home-kicker">{words(locale, "科学规划 · 科学定位", "Strategic planning · Informed direction")}</p>
+          <h1>{words(locale, "全球第一家留学生综合服务平台", "A comprehensive service platform for international students worldwide")}</h1>
+          <p>{words(locale, "科学规划留学院校与专业，科学定位留学人生发展。洋豆角提供留学生全周期服务与支持。", "Plan the right university and programme, define your long-term direction, and access UDAJO support throughout your study-abroad journey.")}</p>
           <div className="public-home-actions">
             <Link className="button" href={loginHref}>{words(locale, "登录并开始规划", "Sign in to start planning")}</Link>
             <Link className="button secondary" href={registerHref}>{words(locale, "创建免费账户", "Create a free account")}</Link>

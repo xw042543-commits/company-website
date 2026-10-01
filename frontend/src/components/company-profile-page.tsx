@@ -6,12 +6,12 @@ import { Locale, words } from "@/lib/site";
 
 export function CompanyProfilePage({ locale }: { locale: Locale }) {
   return <main id="main" className="container page-main company-page">
-    <p className="section-label">{words(locale, "公司资料", "Company profile")}</p>
-    <h1>{words(locale, "关于洋豆角", "About UDAJO")}</h1>
+    <p className="section-label">{words(locale, "关于洋豆角", "About UDAJO")}</p>
+    <h1>{words(locale, "让留学变得更简单", "Making study abroad simpler")}</h1>
     <p className="page-intro">{words(
       locale,
-      "洋豆角提供留学规划、语言学习与课程辅导支持。以下为已确认的公司和联系资料。",
-      "UDAJO provides study planning, language learning and tutoring support. The company and contact information below has been confirmed.",
+      "洋豆角提供语言培训、留学规划与申请、海外落地、课程辅导与安全保障服务，覆盖留学全周期。",
+      "UDAJO supports the full study-abroad journey through language training, planning and applications, arrival support, tutoring, and personal safety guidance.",
     )}</p>
 
     <section className="company-overview" aria-labelledby="company-overview-title">

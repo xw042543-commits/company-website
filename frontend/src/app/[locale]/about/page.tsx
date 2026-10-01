@@ -23,10 +23,10 @@ export default async function About({ params }: { params: Promise<{ locale: stri
 
     <div className="container company-page-content">
       <section className="company-overview brand-profile" aria-labelledby="company-identity-heading">
-        <div><p className="section-label">{words(locale, "品牌简介", "Brand profile")}</p><h2 id="company-identity-heading">{words(locale, "让每位留学生在海外安心成长", "Helping students thrive abroad")}</h2><p>{words(locale, "“洋”代表跨越海洋、走向世界，“豆角”象征充满活力的新生命。洋豆角希望每一位留学生都能在新的环境中安心学习、自信成长。", "Our name combines the idea of crossing oceans with the vitality of new growth. UDAJO helps international students study with confidence and thrive in a new environment.")}</p></div>
+        <div><p className="section-label">{words(locale, "品牌简介", "Brand profile")}</p><h2 id="company-identity-heading">{words(locale, "让留学变得更简单", "Making study abroad simpler")}</h2><p>{words(locale, "“洋”代表跨越海洋、走向世界，“豆角”象征绿色而充满活力的新生命。洋豆角希望每一位漂洋过海的留学生，都能在新的土壤中茁壮成长。", "Our name combines crossing oceans with the vitality of new green growth. UDAJO helps every international student settle, grow, and thrive in a new environment.")}</p></div>
         <dl className="brand-principles">
           <div><dt>{words(locale, "品牌使命", "Mission")}</dt><dd>{words(locale, "让留学变得更简单。", "Make studying abroad simpler.")}</dd></div>
-          <div><dt>{words(locale, "品牌愿景", "Vision")}</dt><dd>{words(locale, "成为全球留学生信赖的服务平台。", "Become a trusted platform for international students worldwide.")}</dd></div>
+          <div><dt>{words(locale, "品牌愿景", "Vision")}</dt><dd>{words(locale, "成为服务全球留学生的领先平台。", "Become a leading service platform for international students worldwide.")}</dd></div>
           <div><dt>{words(locale, "品牌价值观", "Values")}</dt><dd>{words(locale, "专业、创新、高标准、可信赖。", "Professional, innovative, committed to high standards, and trustworthy.")}</dd></div>
         </dl>
       </section>
