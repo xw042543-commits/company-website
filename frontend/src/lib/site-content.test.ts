@@ -64,8 +64,8 @@ test("public copy uses consistent professional bilingual terminology", () => {
 
   assert.match(site, /留学规划/);
   assert.match(site, /Study planning/);
-  assert.match(sections, /留学资讯与公司动态/);
-  assert.match(sections, /Study abroad insights and company updates/);
+  assert.match(sections, /关注第一手信息/);
+  assert.match(sections, /First-hand updates/);
   assert.match(results, /院校资料正在完善/);
   assert.match(results, /University information is being prepared/);
   assert.match(registration, /创建账户/);
@@ -104,10 +104,10 @@ test("key planning and company pages use natural bilingual copy", () => {
   const planning = read("../app/[locale]/planning/page.tsx");
   const login = read("../app/[locale]/login/page.tsx");
 
-  assert.match(about, /让每位留学生在海外安心成长/);
-  assert.match(about, /Helping students thrive abroad/);
-  assert.match(planning, /明确专业与留学方向/);
-  assert.match(planning, /Find programmes that fit your goals/);
+  assert.match(about, /让留学变得更简单/);
+  assert.match(about, /Making study abroad simpler/);
+  assert.match(planning, /选专业，定方向/);
+  assert.match(planning, /Choose a programme and define your direction/);
   assert.match(login, /One account brings together/);
   assert.doesNotMatch(about, /exacting|supplied location/i);
 });
@@ -116,15 +116,15 @@ test("language programme copy preserves the approved price and format", () => {
   const sections = read("../app/[locale]/[section]/page.tsx");
 
   assert.match(sections, /每期 4,980 元的封闭式雅思培训/);
-  assert.match(sections, /closed learning environment at CNY 4,980 per session/);
+  assert.match(sections, /Intensive IELTS training at CNY 4,980 per session/);
   assert.doesNotMatch(sections, /4,980 元起|from CNY 4,980/);
 });
 
 test("directory and planning pages use clear bilingual headings", () => {
   const planning = read("../app/[locale]/planning/page.tsx");
   const universities = read("../app/[locale]/universities/page.tsx");
-  assert.match(planning, /留学规划/);
-  assert.match(planning, /明确专业与留学方向/);
+  assert.match(planning, /规划专业/);
+  assert.match(planning, /选专业，定方向/);
   assert.match(universities, /留学目的地/);
 });
 

@@ -16,9 +16,10 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
   const secondaryName = school ? (locale === "zh" ? school.nameEn : school.nameZh) : undefined;
   const country = school ? (locale === "zh" ? school.countryZh ?? school.country : school.countryEn ?? school.country) : words(locale, "国家", "Country");
   const city = school ? (locale === "zh" ? school.cityZh ?? school.city : school.cityEn ?? school.city) : undefined;
+  const matchedProgrammeCount = school?.matchedProgrammeCount ?? courses.length;
   const courseCountLabel = locale === "zh"
-    ? `${courses.length} 个匹配课程`
-    : `${courses.length} matching programme${courses.length === 1 ? "" : "s"}`;
+    ? `${matchedProgrammeCount} 个匹配课程`
+    : `${matchedProgrammeCount} matching programme${matchedProgrammeCount === 1 ? "" : "s"}`;
 
   const detailHref = `/${locale}/universities/${school ? encodeURIComponent(school.slug) : "preview"}`;
 

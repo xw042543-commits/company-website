@@ -10,7 +10,7 @@ export const publicNavigation = [
 ] as const;
 export const memberNavigation = [
   ["", "首页", "Home"], ["planning", "留学规划", "Study planning"],
-  ["universities", "院校一览", "Universities"], ["language", "语言", "Language"],
+  ["universities", "院校一览", "Universities"], ["language", "语言学习", "Language learning"],
   ["scholarships", "奖学金", "Scholarships"], ["news", "留学资讯", "Insights"],
   ["about", "关于我们", "About us"],
 ] as const;

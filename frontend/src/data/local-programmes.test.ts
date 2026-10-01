@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { LOCAL_PROGRAMMES } from "./local-programmes.generated.ts";
-import { formatProgrammeDuration } from "./local-programmes.ts";
+import { formatProgrammeDuration, localProgrammeMatches } from "./local-programmes.ts";
 
 test("generated programme records exclude worksheet headers and shifted columns", () => {
   assert.equal(LOCAL_PROGRAMMES.some((record) => /^(programmes?|courses?)$/i.test(record.nameEn.trim())), false);
@@ -22,4 +22,18 @@ test("duration formatting preserves explicit source units", () => {
   assert.equal(formatProgrammeDuration("2Y - 5 Y"), "2Y - 5 Y");
   assert.equal(formatProgrammeDuration("2-6S"), "2-6S");
   assert.equal(formatProgrammeDuration("6 Semesters"), "6 Semesters");
+});
+
+test("programme matches change with keyword and qualification filters", () => {
+  const computing = localProgrammeMatches({ q: "computer", level: "bachelor" }, "en");
+  const masters = localProgrammeMatches({ q: "computer", level: "master" }, "en");
+
+  assert.equal(computing.hasProgrammeFilter, true);
+  assert.ok(computing.matches.size > 0);
+  assert.ok([...computing.matches.values()].flatMap((item) => item.courses).every((course) => course.level === "BACHELOR"));
+  assert.ok([...masters.matches.values()].flatMap((item) => item.courses).every((course) => course.level === "MASTER"));
+  assert.notDeepEqual(
+    [...computing.matches.values()].flatMap((item) => item.courses).map((course) => course.id),
+    [...masters.matches.values()].flatMap((item) => item.courses).map((course) => course.id),
+  );
 });
