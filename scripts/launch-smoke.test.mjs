@@ -55,7 +55,7 @@ test("public smoke requires indexable metadata, robots, and a populated sitemap"
   const response = async (url) => {
     if (url.endsWith("/zh")) return new Response('<meta name="robots" content="index, follow"/>');
     if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nAllow: /\nSitemap: https://yangdoujiao.com/sitemap.xml\n");
-    if (url.endsWith("/sitemap.xml")) return new Response("<urlset><url><loc>https://yangdoujiao.com/zh</loc></url></urlset>");
+    if (url.endsWith("/sitemap.xml")) return new Response("<urlset><url><loc>https://yangdoujiao.com/</loc></url></urlset>");
     if (url.endsWith("/api/v1/auth/providers")) return Response.json({ wechat: false });
     return new Response("ok");
   };

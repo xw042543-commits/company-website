@@ -35,6 +35,7 @@ test("robots and sitemap stay closed in preview and expose canonical public rout
   const preview = resolvePublicIndexing({});
   assert.match(buildRobotsText(preview), /Disallow: \//);
   assert.doesNotMatch(buildRobotsText(preview), /Sitemap:/);
+  assert.doesNotMatch(buildSitemapXml(preview), /<url>/);
 
   const live = resolvePublicIndexing({
     PUBLIC_INDEXING_ENABLED: "true",
@@ -43,7 +44,8 @@ test("robots and sitemap stay closed in preview and expose canonical public rout
   assert.match(buildRobotsText(live), /Allow: \//);
   assert.match(buildRobotsText(live), /Sitemap: https:\/\/yangdoujiao\.com\/sitemap\.xml/);
   const sitemap = buildSitemapXml(live);
-  assert.deepEqual(PUBLIC_INDEX_ROUTES, ["/", "/en", "/zh/about", "/en/about"]);
+  assert.match(sitemap, /<loc>https:\/\/yangdoujiao\.com\/<\/loc>/);
+  assert.doesNotMatch(sitemap, /<loc>https:\/\/yangdoujiao\.com\/zh<\/loc>/);
   assert.equal(PUBLIC_INDEX_ROUTES.some(isProtectedPath), false);
   for (const route of PUBLIC_INDEX_ROUTES) {
     assert.match(sitemap, new RegExp(`<loc>https://yangdoujiao\\.com${route}</loc>`));
