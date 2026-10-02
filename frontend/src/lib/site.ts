@@ -16,8 +16,8 @@ export const memberNavigation = [
 ] as const;
 export const navigation = memberNavigation;
 export const levels = [
-  ["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor’s"],
-  ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"],
+  ["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor\u2019\u2060s"],
+  ["master", "硕士", "Master\u2019\u2060s"], ["doctorate", "博士", "Doctorate"],
 ] as const;
 export const countries = [
   ["GB", "英国", "United Kingdom"], ["US", "美国", "United States"],

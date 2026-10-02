@@ -461,7 +461,7 @@ export function toUniversityDetailView(
         : programme.nameZh;
 
       return {
-        id: String(programme.id),
+        id: programme.slug,
         name: programmeName,
         ...(programmeSecondaryName?.trim()
           && programmeSecondaryName.trim() !== programmeName

@@ -431,7 +431,7 @@ test("maps university details and programmes to localized display data", () => {
       city: "吉隆坡",
       description: "院校中文介绍",
       programmes: [{
-        id: "11",
+        id: "bachelor-computer-science",
         name: "计算机科学学士",
         secondaryName: "Bachelor of Computer Science",
         description: "课程中文介绍",
@@ -468,7 +468,7 @@ test("localizes programme dictionary codes with catalog options", () => {
       city: "吉隆坡",
       description: "院校中文介绍",
       programmes: [{
-        id: "11",
+        id: "bachelor-computer-science",
         name: "计算机科学学士",
         secondaryName: "Bachelor of Computer Science",
         description: "课程中文介绍",

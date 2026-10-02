@@ -10,6 +10,20 @@ function normalize(value: string) {
   return value.normalize("NFKC").trim().toLocaleLowerCase("en");
 }
 
+export function cleanProgrammeName(value: string) {
+  return value.replace(/\s*#+\s*$/, "").trim();
+}
+
+export function splitProgrammeName(value: string) {
+  const cleaned = cleanProgrammeName(value);
+  const parts = cleaned.split(/\s+(?:specialisations?|specializations?|专业)\s*[:：]\s*/i);
+  if (parts.length < 2) return { name: cleaned, specialisations: [] as string[] };
+  return {
+    name: cleanProgrammeName(parts[0]),
+    specialisations: parts.slice(1).join(" ").split(/[\\|;/]+/).map(cleanProgrammeName).filter(Boolean),
+  };
+}
+
 const SUBJECT_GROUPS = [
   ["business", "商业与管理", "Business and management", /business|management|account|finance|econom|marketing|entrepreneur|logistic/i],
   ["computing", "计算机与信息技术", "Computing and IT", /comput|information technology|data|software|cyber|artificial intelligence/i],
@@ -46,8 +60,8 @@ export function localFilterOptions(): FilterOptions {
       { code: "other", nameZh: "其他专业", nameEn: "Other subjects" },
     ],
     studyLevels: [
-      { code: "bachelor", nameZh: "本科", nameEn: "Bachelor’s" },
-      { code: "master", nameZh: "硕士", nameEn: "Master’s" },
+      { code: "bachelor", nameZh: "本科", nameEn: "Bachelor\u2019\u2060s" },
+      { code: "master", nameZh: "硕士", nameEn: "Master\u2019\u2060s" },
       { code: "doctorate", nameZh: "博士", nameEn: "Doctorate" },
     ],
     courseModes: [
@@ -121,7 +135,7 @@ export function localProgrammeMatches(query: Query, locale: "zh" | "en") {
     current.count += 1;
     if (current.courses.length < 3) current.courses.push({
       id: `${record.universityId}-${record.level}-${index + 1}`,
-      name: (locale === "zh" ? record.nameZh : record.nameEn) || record.nameEn || record.nameZh,
+      name: splitProgrammeName((locale === "zh" ? record.nameZh : record.nameEn) || record.nameEn || record.nameZh).name,
       level: record.level.toUpperCase(),
       language: "ENGLISH",
     });
@@ -143,6 +157,26 @@ export function formatProgrammeDuration(value: string) {
     : value;
 }
 
+export function formatFeeDisplay(value: string) {
+  return value.replace(/\d{4,}(?:\.\d+)?/g, (amount) => {
+    const number = Number(amount);
+    return Number.isFinite(number)
+      ? number.toLocaleString("en-MY", { maximumFractionDigits: 2 })
+      : amount;
+  });
+}
+
+export function formatIntakeDisplay(value: string, locale: "zh" | "en") {
+  const monthNames = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  return value.split(/[,;·]+/).map((part) => {
+    const item = part.trim();
+    const month = Number(item);
+    if (Number.isInteger(month) && month >= 1 && month <= 12) return locale === "zh" ? `${month}月` : monthNames[month];
+    if (/^[A-Z]+$/.test(item)) return `${item.charAt(0)}${item.slice(1).toLocaleLowerCase("en")}`;
+    return item;
+  }).filter(Boolean).join(locale === "zh" ? "、" : ", ");
+}
+
 function interviewDisplay(value: string, locale: "zh" | "en") {
   if (!value) return "";
   if (["√", "Y", "YES"].includes(value.toUpperCase())) return locale === "zh" ? "需要" : "Required";
@@ -154,20 +188,24 @@ function description(record: LocalProgrammeRecord, locale: "zh" | "en") {
   const parts = [
     record.academicRequirement && `${locale === "zh" ? "学术要求" : "Academic requirement"}: ${record.academicRequirement}`,
     record.englishRequirement && `${locale === "zh" ? "英语要求" : "English requirement"}: ${record.englishRequirement}`,
-    record.registrationFee && `${locale === "zh" ? "注册费" : "Registration fee"}: ${record.registrationFee}`,
+    record.registrationFee && `${locale === "zh" ? "注册费" : "Registration fee"}: ${formatFeeDisplay(record.registrationFee)}`,
     record.interview && `${locale === "zh" ? "面试" : "Interview"}: ${interviewDisplay(record.interview, locale)}`,
   ].filter(Boolean);
   return parts.join(" · ");
 }
 
+function stableProgrammeSlug(record: LocalProgrammeRecord, index: number) {
+  return `${record.universityId}-${record.level}-${index + 1}`;
+}
+
 function toProgramme(record: LocalProgrammeRecord, index: number) {
-  const code = `${record.universityId}-${record.level}-${index + 1}`;
+  const code = stableProgrammeSlug(record, index);
   return {
     id: index + 1,
     programmeCode: code.toUpperCase(),
     slug: code,
-    nameZh: record.nameZh || null,
-    nameEn: record.nameEn || null,
+    nameZh: splitProgrammeName(record.nameZh).name || null,
+    nameEn: splitProgrammeName(record.nameEn).name || null,
     descriptionZh: description(record, "zh") || null,
     descriptionEn: description(record, "en") || null,
     categoryCode: record.facultyEn || record.facultyZh,
@@ -186,9 +224,9 @@ function toProgramme(record: LocalProgrammeRecord, index: number) {
     tuitionTotalRmbMax: null,
     exchangeRate: null,
     exchangeRateDate: null,
-    tuitionDisplay: record.tuition || null,
+    tuitionDisplay: record.tuition ? formatFeeDisplay(record.tuition) : null,
     intakeMonths: [],
-    intakeDisplayTexts: record.intakes ? record.intakes.split(" · ") : [],
+    intakeDisplayTexts: record.intakes ? [formatIntakeDisplay(record.intakes, "en")] : [],
   };
 }
 
@@ -198,7 +236,7 @@ export function localProgrammePage(slug: string, query: Query): UniversityProgra
 
   const levels = selectedLevels(query);
   const keyword = normalize(first(query, "q"));
-  const records = LOCAL_PROGRAMMES.filter((record) =>
+  const records = LOCAL_PROGRAMMES.map((record, index) => ({ record, index })).filter(({ record }) =>
     record.universityId === university.id
     && (!levels.size || levels.has(record.level))
     && (!keyword || normalize([record.nameZh, record.nameEn, record.facultyZh, record.facultyEn].join(" ")).includes(keyword)),
@@ -209,11 +247,33 @@ export function localProgrammePage(slug: string, query: Query): UniversityProgra
   const start = (page - 1) * PAGE_SIZE;
 
   return {
-    items: records.slice(start, start + PAGE_SIZE).map((record, offset) => toProgramme(record, start + offset)),
+    items: records.slice(start, start + PAGE_SIZE).map(({ record, index }) => toProgramme(record, index)),
     page,
     pageSize: PAGE_SIZE,
     totalItems,
     totalPages,
+  };
+}
+
+export type LocalProgrammeDetail = LocalProgrammeRecord & {
+  slug: string;
+  descriptionZh: string;
+  descriptionEn: string;
+};
+
+export function findLocalProgrammeBySlug(universitySlug: string, programmeSlug: string): LocalProgrammeDetail | undefined {
+  const university = findUniversityBySlug(universitySlug);
+  if (!university) return undefined;
+  const index = LOCAL_PROGRAMMES.findIndex((record, recordIndex) =>
+    record.universityId === university.id && stableProgrammeSlug(record, recordIndex) === programmeSlug,
+  );
+  if (index < 0) return undefined;
+  const record = LOCAL_PROGRAMMES[index];
+  return {
+    ...record,
+    slug: stableProgrammeSlug(record, index),
+    descriptionZh: description(record, "zh"),
+    descriptionEn: description(record, "en"),
   };
 }
 

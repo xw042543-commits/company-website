@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { LOCAL_PROGRAMMES } from "./local-programmes.generated.ts";
-import { formatProgrammeDuration, localProgrammeMatches, localProgrammePage } from "./local-programmes.ts";
+import { cleanProgrammeName, findLocalProgrammeBySlug, formatFeeDisplay, formatIntakeDisplay, formatProgrammeDuration, localProgrammeMatches, localProgrammePage, splitProgrammeName } from "./local-programmes.ts";
 
 test("generated programme records exclude worksheet headers and shifted columns", () => {
   assert.equal(LOCAL_PROGRAMMES.some((record) => /^(programmes?|courses?)$/i.test(record.nameEn.trim())), false);
@@ -22,6 +22,28 @@ test("duration formatting preserves explicit source units", () => {
   assert.equal(formatProgrammeDuration("2Y - 5 Y"), "2Y - 5 Y");
   assert.equal(formatProgrammeDuration("2-6S"), "2-6S");
   assert.equal(formatProgrammeDuration("6 Semesters"), "6 Semesters");
+});
+
+test("fee formatting adds thousands separators without changing smaller values", () => {
+  assert.equal(formatFeeDisplay("RM 57400"), "RM 57,400");
+  assert.equal(formatFeeDisplay("RM 2520"), "RM 2,520");
+  assert.equal(formatFeeDisplay("RM 950"), "RM 950");
+  assert.equal(formatFeeDisplay("RM 125000.50 total"), "RM 125,000.5 total");
+});
+
+test("programme name formatting removes stray source markers", () => {
+  assert.equal(cleanProgrammeName("Bachelor of Agricultural Science #"), "Bachelor of Agricultural Science");
+  assert.equal(cleanProgrammeName("农业科学荣誉学士学位#"), "农业科学荣誉学士学位");
+});
+
+test("programme presentation separates specialisations and normalizes intake months", () => {
+  assert.deepEqual(splitProgrammeName("Bachelor of Business Specialisations: Finance\\Marketing"), {
+    name: "Bachelor of Business",
+    specialisations: ["Finance", "Marketing"],
+  });
+  assert.equal(formatIntakeDisplay("MARCH, September", "en"), "March, September");
+  assert.equal(formatIntakeDisplay("2,5,9", "en"), "February, May, September");
+  assert.equal(formatIntakeDisplay("2,5,9", "zh"), "2月、5月、9月");
 });
 
 test("programme matches change with keyword and qualification filters", () => {
@@ -50,4 +72,13 @@ test("university programme pages search names and faculties", () => {
     programme.categoryDisplayEn,
     programme.categoryDisplayZh,
   ].filter(Boolean).join(" "))));
+});
+
+test("programme URLs remain stable across filters and resolve to their source record", () => {
+  const filtered = localProgrammePage("university-of-malaya", { q: "computer" });
+  const programme = filtered.items[0];
+
+  assert.ok(programme);
+  assert.equal(findLocalProgrammeBySlug("university-of-malaya", programme.slug)?.nameEn, programme.nameEn);
+  assert.equal(findLocalProgrammeBySlug("taylors-university", programme.slug), undefined);
 });

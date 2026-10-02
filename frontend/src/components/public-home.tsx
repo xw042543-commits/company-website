@@ -13,8 +13,8 @@ export function PublicHome({ locale }: { locale: Locale }) {
   const loginHref = `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/planning`)}`;
   const malaysiaAdviser = publicAdvisers.find(adviser => adviser.region === "MY") ?? publicAdvisers[0];
   const levels = [
-    ["bachelor", "本科", "Bachelor’s"],
-    ["master", "硕士", "Master’s"],
+    ["bachelor", "本科", "Bachelor\u2019\u2060s"],
+    ["master", "硕士", "Master\u2019\u2060s"],
     ["doctorate", "博士", "Doctorate"],
     ["language", "语言课程", "Language courses"],
   ] as const;
