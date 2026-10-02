@@ -25,7 +25,7 @@ export function AuthAccountPanel({ locale, initialMode = "login", returnTo, wech
       : words(locale, "登录", "Sign in");
 
   return <div className={`auth-account-layout${recovering ? " auth-account-layout-focused" : ""}`}>
-    {!recovering && <WechatQrPanel locale={locale} mode={registering ? "register" : "login"} />}
+    {!recovering && <WechatQrPanel locale={locale} mode={registering ? "register" : "login"} returnTo={returnTo} />}
     <section className="auth-form-column" aria-labelledby="account-form-title">
     <div className="auth-form-heading">
       <div>

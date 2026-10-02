@@ -7,6 +7,7 @@ import {
   deleteAccount,
   getAccount,
   getAuthProviders,
+  getWechatQrConfig,
   getCsrfToken,
   getSession,
   login,
@@ -72,6 +73,29 @@ test("discovers WeChat availability with strict no-store parsing", async () => {
 
   const leaked = requestQueue([jsonResponse({ wechat: true, appSecret: "secret" })]);
   assert.deepEqual(await getAuthProviders("http://localhost:8080", leaked.request), { status: "error" });
+});
+
+test("loads a session-bound public WeChat QR configuration", async () => {
+  const payload = {
+    appId: "wx-public-app",
+    scope: "snsapi_login",
+    redirectUri: "https://yangdoujiao.com/api/v1/auth/wechat/callback",
+    state: "one-time-state",
+  };
+  const ready = requestQueue([jsonResponse(payload)]);
+
+  assert.deepEqual(await getWechatQrConfig(
+    "http://localhost:8080", "zh", "/zh/account", ready.request,
+  ), { status: "ready", config: payload });
+  assert.equal(ready.calls[0].url,
+    "http://localhost:8080/api/v1/auth/wechat/qr-config?locale=zh&returnTo=%2Fzh%2Faccount");
+  assert.equal(ready.calls[0].init?.credentials, "include");
+  assert.equal(ready.calls[0].init?.cache, "no-store");
+
+  const leaked = requestQueue([jsonResponse({ ...payload, appSecret: "must-not-leak" })]);
+  assert.deepEqual(await getWechatQrConfig(
+    "http://localhost:8080", "zh", "/zh/account", leaked.request,
+  ), { status: "error" });
 });
 
 test("binds a pending WeChat identity through csrf protected account verification", async () => {

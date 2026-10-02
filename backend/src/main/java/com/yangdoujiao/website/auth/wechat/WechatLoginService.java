@@ -56,13 +56,25 @@ public class WechatLoginService {
     public URI start(String locale, String returnTo, String clientAddress, HttpServletRequest request) {
         try {
             WechatAuthorizationProvider client = client();
-            limiter.consume("wechat-start-ip", AuthHash.sha256(clientAddress), limits.wechatStartPerIp(), limits.window());
-            HttpSession session = request.getSession(true);
-            String state = states.issue(session, locale, returnTo, Instant.now());
+            String state = issueState(locale, returnTo, clientAddress, request);
             audit.record("start", "redirected", null, clientAddress, request);
             return client.authorizationUri(state);
         } catch (ApiException exception) {
             audit.record("start", exception.getCode(), null, clientAddress, request);
+            throw exception;
+        }
+    }
+
+    public WechatQrConfigResponse qrConfiguration(String locale, String returnTo,
+            String clientAddress, HttpServletRequest request) {
+        try {
+            client();
+            String state = issueState(locale, returnTo, clientAddress, request);
+            audit.record("qr_config", "issued", null, clientAddress, request);
+            return new WechatQrConfigResponse(properties.appId(), "snsapi_login",
+                    properties.callbackUrl().toString(), state);
+        } catch (ApiException exception) {
+            audit.record("qr_config", exception.getCode(), null, clientAddress, request);
             throw exception;
         }
     }
@@ -128,6 +140,14 @@ public class WechatLoginService {
         if (value == null) throw new ApiException(HttpStatus.SERVICE_UNAVAILABLE,
                 "WECHAT_AUTH_UNAVAILABLE", "WeChat sign-in is unavailable");
         return value;
+    }
+
+    private String issueState(String locale, String returnTo, String clientAddress,
+            HttpServletRequest request) {
+        limiter.consume("wechat-start-ip", AuthHash.sha256(clientAddress),
+                limits.wechatStartPerIp(), limits.window());
+        HttpSession session = request.getSession(true);
+        return states.issue(session, locale, returnTo, Instant.now());
     }
 
     private URI loginRedirect(WechatOAuthState issued, String error) {

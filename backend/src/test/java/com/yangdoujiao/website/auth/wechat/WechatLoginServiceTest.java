@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import java.net.URI;
 import java.time.Duration;
+import java.time.Instant;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,5 +70,24 @@ class WechatLoginServiceTest {
         assertThat(redirect.toString()).isEqualTo(
                 "/en/login?wechatError=failed&returnTo=/en/account");
         verify(audit).record("callback", "WECHAT_AUTH_REJECTED", null, "127.0.0.1", request);
+    }
+
+    @Test
+    void qrConfigurationContainsOnlyPublicOAuthValuesAndIssuesConsumableState() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+
+        WechatQrConfigResponse configuration = service.qrConfiguration(
+                "en", "/en/account", "127.0.0.1", request);
+
+        assertThat(configuration.appId()).isEqualTo("wx-app");
+        assertThat(configuration.scope()).isEqualTo("snsapi_login");
+        assertThat(configuration.redirectUri()).isEqualTo(
+                "https://yangdoujiao.com/api/v1/auth/wechat/callback");
+        assertThat(configuration.state()).isNotBlank();
+        WechatOAuthState issued = states.consume(request.getSession(false),
+                configuration.state(), Instant.now());
+        assertThat(issued.locale()).isEqualTo("en");
+        assertThat(issued.returnTo()).isEqualTo("/en/account");
+        verify(audit).record("qr_config", "issued", null, "127.0.0.1", request);
     }
 }

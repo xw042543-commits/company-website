@@ -5,7 +5,7 @@ export type PublicIndexingConfig = {
 
 const DEFAULT_ORIGIN = "https://yangdoujiao.com";
 export const PUBLIC_INDEX_ROUTES = [
-  "/zh",
+  "/",
   "/en",
   "/zh/about",
   "/en/about",

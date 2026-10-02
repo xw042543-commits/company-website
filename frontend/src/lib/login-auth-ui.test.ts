@@ -62,14 +62,24 @@ test("successful logout shows confirmation before returning home", () => {
   assert.match(header, /window\.location\.replace/);
 });
 
-test("WeChat QR access remains visible, deployment-gated, and supports verified-account binding", () => {
+test("WeChat QR access embeds the official scanner and supports verified-account binding", () => {
   const panel = read("../components/auth-account-panel.tsx");
   const wechat = read("../components/wechat-qr-panel.tsx");
   const binding = read("../components/wechat-bind-form.tsx");
   const page = read("../app/[locale]/login/page.tsx");
   assert.match(panel, /mode=\{registering \? "register" : "login"\}/);
-  assert.match(wechat, /getAuthProviders/);
-  assert.match(wechat, /result\.status === "ready" && result\.wechat/);
+  assert.match(panel, /returnTo=\{returnTo\}/);
+  assert.match(wechat, /getWechatQrConfig/);
+  assert.match(wechat, /res\.wx\.qq\.com\/connect\/zh_CN\/htmledition\/js\/wxLogin\.js/);
+  assert.match(wechat, /new window\.WxLogin/);
+  assert.match(wechat, /wechat-login-container/);
+  assert.match(wechat, /iframe\.addEventListener\("load"/);
+  assert.match(wechat, /WeChat QR iframe timed out/);
+  assert.match(wechat, /existing\?\.remove\(\)/);
+  assert.match(wechat, /retryNonce/);
+  assert.match(wechat, /重试二维码/);
+  assert.match(wechat, /aria-busy/);
+  assert.match(wechat, /role="alert"/);
   assert.match(wechat, /wechat-qr-frame/);
   assert.match(wechat, /微信扫码登录或注册/);
   assert.match(wechat, /\/api\/v1\/auth\/wechat\/start/);
@@ -78,6 +88,7 @@ test("WeChat QR access remains visible, deployment-gated, and supports verified-
   assert.match(binding, /verified email or phone account/);
   assert.match(panel, /"wechat-bind"/);
   assert.match(page, /wechatError/);
+  assert.doesNotMatch(wechat, /qrPattern|wechat-qr-grid/);
   assert.doesNotMatch(`${wechat}\n${binding}`, /fake qr|demo session|startDemoSession/i);
 });
 
