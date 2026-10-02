@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -51,6 +52,35 @@ class WechatLoginHttpIntegrationTest {
     @Autowired private JdbcTemplate jdbc;
     @Autowired private PasswordEncoder passwords;
     @MockitoBean private WechatAuthorizationProvider provider;
+
+    @Test
+    void qrConfigurationReturnsPublicValuesAndBindsStateToTheBrowserSession() throws Exception {
+        when(provider.exchange("new-code"))
+                .thenReturn(new WechatProviderIdentity("test-wechat-client", "new-subject"));
+
+        MvcResult config = mvc.perform(get("/api/v1/auth/wechat/qr-config")
+                        .param("locale", "zh").param("returnTo", "/zh/account"))
+                .andExpect(status().isOk())
+                .andExpect(header().string(HttpHeaders.CACHE_CONTROL,
+                        CacheControl.noStore().getHeaderValue()))
+                .andExpect(jsonPath("$.appId").value("test-wechat-client"))
+                .andExpect(jsonPath("$.scope").value("snsapi_login"))
+                .andExpect(jsonPath("$.redirectUri").value(
+                        "https://yangdoujiao.com/api/v1/auth/wechat/callback"))
+                .andExpect(jsonPath("$.state").isNotEmpty())
+                .andReturn();
+
+        assertThat(config.getResponse().getContentAsString()).doesNotContain("test-wechat-secret");
+        Cookie session = cookie(config.getResponse(), "JSESSIONID");
+        String state = com.jayway.jsonpath.JsonPath.read(
+                config.getResponse().getContentAsString(), "$.state");
+
+        mvc.perform(get("/api/v1/auth/wechat/callback")
+                        .param("code", "new-code").param("state", state).cookie(session))
+                .andExpect(status().isFound())
+                .andExpect(header().string("Location",
+                        "/zh/login?mode=wechat-bind&returnTo=/zh/account"));
+    }
 
     @Test
     void linkedWechatIdentitySignsInAndRotatesTheSession() throws Exception {
