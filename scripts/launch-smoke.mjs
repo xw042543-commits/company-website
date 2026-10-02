@@ -75,7 +75,7 @@ function assertLaunchGates(origin, bodies, expected) {
   if (!/^Allow:\s*\/$/im.test(robots) || !robots.includes(`Sitemap: ${origin}/sitemap.xml`)) {
     throw new Error("/robots.txt must allow crawling and reference the canonical sitemap in public mode");
   }
-  if (!/<url>/i.test(sitemap) || !sitemap.includes(`<loc>${origin}/zh</loc>`)) {
+  if (!/<url>/i.test(sitemap) || !sitemap.includes(`<loc>${origin}/</loc>`)) {
     throw new Error("/sitemap.xml must contain the canonical Chinese homepage in public mode");
   }
 }
