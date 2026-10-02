@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,8 +7,45 @@ import { PublicHome } from "@/components/public-home";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
 import { UNIVERSITY_CATALOG } from "@/data/university-catalog";
+import { resolvePublicIndexing } from "@/lib/public-indexing";
 import { isRequestAuthenticated } from "@/lib/server-auth";
 import { isLocale, words } from "@/lib/site";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+
+  const { origin } = resolvePublicIndexing(process.env);
+  const isChinese = locale === "zh";
+  const canonical = isChinese ? origin : `${origin}/en`;
+  const title = isChinese
+    ? "洋豆角留学｜留学规划与院校查询"
+    : "UDAJO Study Abroad | University Planning and Search";
+  const description = isChinese
+    ? "洋豆角留学（洋豆角教育）提供留学院校与专业查询、留学规划、申请咨询及留学全周期服务。"
+    : "UDAJO provides university and programme search, study-abroad planning, application guidance, and support throughout the international student journey.";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonical,
+      languages: {
+        "zh-CN": origin,
+        en: `${origin}/en`,
+        "x-default": origin,
+      },
+    },
+    openGraph: {
+      type: "website",
+      url: canonical,
+      siteName: "洋豆角留学",
+      title,
+      description,
+      locale: isChinese ? "zh_CN" : "en_GB",
+    },
+  };
+}
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

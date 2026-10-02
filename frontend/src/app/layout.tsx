@@ -8,8 +8,8 @@ export function generateMetadata(): Metadata {
   const publicIndexing = resolvePublicIndexing(process.env);
   return {
     metadataBase: new URL(publicIndexing.origin),
-    title: "UDAJO | 洋豆角",
-    description: "UDAJO full-cycle international student services | 洋豆角留学生全周期服务",
+    title: "洋豆角留学｜留学规划与院校查询 | UDAJO",
+    description: "洋豆角留学（洋豆角教育）提供留学院校与专业查询、留学规划、申请咨询及留学全周期服务。",
     robots: { index: publicIndexing.enabled, follow: publicIndexing.enabled },
   };
 }
