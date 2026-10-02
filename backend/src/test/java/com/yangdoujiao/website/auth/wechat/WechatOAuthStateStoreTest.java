@@ -47,4 +47,19 @@ class WechatOAuthStateStoreTest {
         assertThatThrownBy(() -> store.consume(session, state, now.plus(Duration.ofMinutes(5))))
                 .isInstanceOf(ApiException.class);
     }
+
+    @Test
+    void keepsMultipleTabsStatesIndependentAndOneTime() {
+        Instant now = Instant.parse("2026-09-29T02:00:00Z");
+        MockHttpSession session = new MockHttpSession();
+        String planning = store.issue(session, "zh", "/zh/planning", now);
+        String universities = store.issue(session, "zh", "/zh/universities", now.plusSeconds(1));
+
+        assertThat(store.consume(session, planning, now.plusSeconds(2)).returnTo())
+                .isEqualTo("/zh/planning");
+        assertThat(store.consume(session, universities, now.plusSeconds(3)).returnTo())
+                .isEqualTo("/zh/universities");
+        assertThatThrownBy(() -> store.consume(session, planning, now.plusSeconds(4)))
+                .isInstanceOf(ApiException.class);
+    }
 }

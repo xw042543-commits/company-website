@@ -2,6 +2,7 @@ package com.yangdoujiao.website.auth.wechat;
 
 import java.net.URI;
 
+import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +36,14 @@ public class WechatLoginController {
             @RequestParam(required = false) String returnTo, HttpServletRequest request) {
         URI location = login.start(locale, returnTo, addresses.resolve(request), request);
         return ResponseEntity.status(302).location(location).build();
+    }
+
+    @GetMapping("/qr-config")
+    public ResponseEntity<WechatQrConfigResponse> qrConfiguration(@RequestParam(defaultValue = "zh") String locale,
+            @RequestParam(required = false) String returnTo, HttpServletRequest request) {
+        WechatQrConfigResponse configuration = login.qrConfiguration(
+                locale, returnTo, addresses.resolve(request), request);
+        return ResponseEntity.ok().cacheControl(CacheControl.noStore()).body(configuration);
     }
 
     @GetMapping("/callback")

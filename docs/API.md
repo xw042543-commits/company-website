@@ -339,14 +339,15 @@ APP_TRUSTED_PROXIES=
 ## 微信网站扫码登录
 
 微信登录默认关闭。`GET /api/v1/auth/providers` 只返回可用性，例如
-`{"wechat":false}`，不会返回 AppID、AppSecret 或回调地址。关闭时，前端不显示微信入口。
+`{"wechat":false}`，不会返回 AppID、AppSecret 或回调地址。关闭时，二维码配置接口返回服务不可用，账号密码登录不受影响。
 
 启用后的流程如下：
 
-1. `GET /api/v1/auth/wechat/start?locale=zh&returnTo=/zh/account` 发起授权；
-2. 微信开放平台回调 `GET /api/v1/auth/wechat/callback`；
-3. 已绑定的有效账号直接建立现有服务端 Session；
-4. 未绑定身份跳回登录页，通过 `POST /api/v1/auth/wechat/bind` 验证已有邮箱或手机号账号后绑定。
+1. 登录页通过 `GET /api/v1/auth/wechat/qr-config?locale=zh&returnTo=/zh/account` 获取与当前浏览器会话绑定的公开二维码参数；响应禁止缓存，且绝不包含 AppSecret；
+2. 页面使用微信官方 `WxLogin` 组件展示二维码；无法嵌入时可回退到 `GET /api/v1/auth/wechat/start?locale=zh&returnTo=/zh/account` 发起授权；
+3. 微信开放平台回调 `GET /api/v1/auth/wechat/callback`；
+4. 已绑定的有效账号直接建立现有服务端 Session；
+5. 未绑定身份跳回登录页，通过 `POST /api/v1/auth/wechat/bind` 验证已有邮箱或手机号账号后绑定。
 
 绑定请求格式为：
 

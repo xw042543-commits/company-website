@@ -47,6 +47,13 @@ export type MutationResult = { status: "ready" } | { status: "accepted" } | Fail
 export type CsrfResult = { status: "ready"; headerName: string; token: string } | FailureResult;
 export type LoginResult = { status: "ready"; session: AuthSession } | FailureResult;
 export type AuthProvidersResult = { status: "ready"; wechat: boolean } | FailureResult;
+export type WechatQrConfig = {
+  appId: string;
+  scope: "snsapi_login";
+  redirectUri: string;
+  state: string;
+};
+export type WechatQrConfigResult = { status: "ready"; config: WechatQrConfig } | FailureResult;
 export type SessionResult = { status: "ready"; session: AuthSession } | FailureResult;
 export type AccountResult = { status: "ready"; account: AccountProfile } | FailureResult;
 export type RegistrationResult =
@@ -138,6 +145,23 @@ function parseAuthProviders(payload: unknown): { wechat: boolean } | null {
   if (!isRecord(payload) || !hasExactKeys(payload, ["wechat"])
     || typeof payload.wechat !== "boolean") return null;
   return { wechat: payload.wechat };
+}
+
+function parseWechatQrConfig(payload: unknown): WechatQrConfig | null {
+  if (!isRecord(payload)
+    || !hasExactKeys(payload, ["appId", "scope", "redirectUri", "state"])
+    || typeof payload.appId !== "string" || !payload.appId.trim()
+    || payload.scope !== "snsapi_login"
+    || typeof payload.redirectUri !== "string"
+    || typeof payload.state !== "string" || !payload.state.trim()) return null;
+  try {
+    const redirect = new URL(payload.redirectUri);
+    if (redirect.protocol !== "https:" || redirect.username || redirect.password
+      || redirect.search || redirect.hash) return null;
+  } catch {
+    return null;
+  }
+  return payload as WechatQrConfig;
 }
 
 function parseFieldErrors(payload: unknown): Record<string, string> {
@@ -256,6 +280,14 @@ export async function login(baseUrl: string | undefined, body: LoginRequest, req
 export async function getAuthProviders(baseUrl: string | undefined, request: typeof fetch = fetch): Promise<AuthProvidersResult> {
   const result = await authRead(baseUrl, "/api/v1/auth/providers", parseAuthProviders, request);
   return result.status === "ready" ? { status: "ready", wechat: result.value.wechat } : result;
+}
+
+export async function getWechatQrConfig(baseUrl: string | undefined, locale: string, returnTo: string,
+  request: typeof fetch = fetch): Promise<WechatQrConfigResult> {
+  const query = new URLSearchParams({ locale, returnTo });
+  const result = await authRead(baseUrl, `/api/v1/auth/wechat/qr-config?${query.toString()}`,
+    parseWechatQrConfig, request);
+  return result.status === "ready" ? { status: "ready", config: result.value } : result;
 }
 
 export async function bindWechatAccount(baseUrl: string | undefined, body: BindWechatAccountRequest,
