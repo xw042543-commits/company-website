@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { AuthSuccessFeedback } from "@/components/auth-success-feedback";
 import { getSession, logout } from "@/lib/auth-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { isNavigationActive, type Locale, memberNavigation, publicNavigation, words } from "@/lib/site";
@@ -16,6 +17,7 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
   const [scrolled, setScrolled] = useState(false);
   const [authenticated, setAuthenticated] = useState(signedIn);
   const [signingOut, setSigningOut] = useState(false);
+  const [signedOut, setSignedOut] = useState(false);
   const other = locale === "zh" ? "en" : "zh";
   const languagePath = pathname.replace(/^\/(zh|en)(?=\/|$)/, `/${other}`);
 
@@ -51,13 +53,16 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
     }
     setSigningOut(false);
     setAuthenticated(false);
-    router.push(`/${locale}`);
-    router.refresh();
+    setSignedOut(true);
+    window.setTimeout(() => {
+      router.push(`/${locale}`);
+      router.refresh();
+    }, 900);
   }
 
   const visibleNavigation = authenticated ? memberNavigation : publicNavigation;
 
-  return <header className={`site-header${scrolled ? " site-header-scrolled" : ""}`}>
+  return <><header className={`site-header${scrolled ? " site-header-scrolled" : ""}`}>
     <div className="header-shell container">
       <Link href={`/${locale}`} className="brand" aria-label={words(locale, "洋豆角首页", "UDAJO home")}>
         <Image src="/brand/udajo-logo-transparent.png" width={1254} height={1254} sizes="(max-width: 760px) 58px, 70px" priority alt={words(locale, "洋豆角 UDAJO 标志", "UDAJO logo")} />
@@ -84,5 +89,5 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
         </button>
       </div>
     </div>
-  </header>;
+  </header>{signedOut && <div className="auth-success-overlay"><AuthSuccessFeedback locale={locale} kind="logout" /></div>}</>;
 }

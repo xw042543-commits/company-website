@@ -146,4 +146,13 @@ test("university details expose programme level filters and a data review note",
   assert.match(detail, /硕士/);
   assert.match(detail, /博士/);
   assert.match(detail, /费用与入学要求可能调整/);
+  assert.match(detail, /programme-search/);
+  assert.match(detail, /搜索此院校的课程/);
+  assert.match(detail, /programme-requirements/);
+  assert.match(detail, /<Link scroll=\{false\}[^>]*aria-current=\{!selectedLevel/);
+  assert.match(detail, /<Link scroll=\{false\} key=\{level\}/);
+  assert.match(detail, /university-detail-header/);
+  assert.match(detail, /university-detail-nav/);
+  assert.match(detail, /Helpful details to prepare/);
+  assert.doesNotMatch(detail, /Adviser QR code coming soon/);
 });

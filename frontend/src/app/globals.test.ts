@@ -10,6 +10,8 @@ const memberHome = readFileSync(fileURLToPath(new URL("./[locale]/page.tsx", imp
 const siteHeader = readFileSync(fileURLToPath(new URL("../components/site-header.tsx", import.meta.url)), "utf8");
 const filterPanel = readFileSync(fileURLToPath(new URL("../components/filter-panel.tsx", import.meta.url)), "utf8");
 const comparisonTray = readFileSync(fileURLToPath(new URL("../components/comparison-tray.tsx", import.meta.url)), "utf8");
+const saveToggle = readFileSync(fileURLToPath(new URL("../components/save-toggle.tsx", import.meta.url)), "utf8");
+const searchAutocomplete = readFileSync(fileURLToPath(new URL("../components/search-autocomplete.tsx", import.meta.url)), "utf8");
 
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
@@ -97,6 +99,32 @@ test("university result cards collapse matching programmes behind an accessible 
   assert.doesNotMatch(schoolCard, /<Link className="school-card-link"[^>]*><article/);
   assert.match(css, /\.school-programme-disclosure\s*\{/);
   assert.match(css, /\.school-programme-disclosure\[open\] \.school-programme-chevron/);
+  assert.match(schoolCard, /className="school-card-secondary-actions"/);
+  assert.match(schoolCard, /className="course-list-link"/);
+  assert.match(schoolCard, /encodeURIComponent\(course\.name\).*#programmes/);
+  assert.match(css, /\.school-card-secondary-actions\s*\{[^}]*gap:\s*6px/);
+  assert.match(css, /\.course-list-link:hover/);
+});
+
+test("save controls use a restrained bookmark icon", () => {
+  assert.match(saveToggle, /className="save-toggle-icon"/);
+  assert.doesNotMatch(saveToggle, /★|☆/);
+  assert.match(css, /\.save-toggle-icon\s*\{[^}]*fill:\s*none/);
+  assert.match(css, /\.save-toggle\.saved \.save-toggle-icon\s*\{[^}]*fill:\s*currentColor/);
+});
+
+test("account workspace uses restrained warm accents", () => {
+  assert.match(css, /\.account-page\s*\{[^}]*radial-gradient/);
+  assert.match(css, /\.account-summary\s*\{[^}]*border-color:\s*#decf9d[^}]*linear-gradient/);
+  assert.match(css, /\.saved-items-section\s*\{[^}]*background:\s*linear-gradient/);
+  assert.match(css, /\.saved-items-heading > span\s*\{[^}]*background:\s*#c9a653/);
+});
+
+test("autocomplete suggestions keep words intact while highlighting matches", () => {
+  assert.match(searchAutocomplete, /className="search-suggestion-label"/);
+  assert.match(searchAutocomplete, /<mark>\{text\.slice/);
+  assert.match(css, /\.search-suggestion-label\s*\{[^}]*display:\s*inline/);
+  assert.match(css, /\.search-suggestion mark\s*\{[^}]*background:\s*transparent[^}]*color:\s*var\(--brand-action\)/);
 });
 
 test("signed-in homepage uses the approved positioning with a restrained action hero", () => {
@@ -104,14 +132,29 @@ test("signed-in homepage uses the approved positioning with a restrained action 
   assert.match(memberHome, /全球第一家留学生综合服务平台/);
   assert.match(memberHome, /科学规划留学院校专业/);
   assert.match(memberHome, /科学定位留学人生发展/);
+  assert.match(memberHome, /Explore · Compare · Decide/);
+  assert.match(memberHome, /Plan your study journey with confidence/);
+  assert.match(memberHome, /Find universities and programmes that fit your goals\./);
+  assert.match(memberHome, /Get clear guidance from planning through application\./);
+  assert.doesNotMatch(memberHome, /The world’s first all-in-one platform for international students/);
   assert.doesNotMatch(memberHome, /把留学目标变成清晰的行动计划/);
   assert.match(memberHome, /\/universities\/campuses\/apu-campus\.webp/);
   assert.match(memberHome, /className="member-search-panel/);
   assert.match(css, /\.member-home-hero-grid\s*\{[\s\S]*?grid-template-columns:/);
-  assert.match(css, /\.member-home-copy h1\s*\{[^}]*font-size:\s*clamp\(2\.35rem,\s*3\.45vw,\s*3\.9rem\)/);
-  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.member-home-copy h1\s*\{[^}]*font-size:\s*clamp\(2\.1rem,\s*7vw,\s*2\.35rem\)/);
+  assert.match(css, /\.member-home-copy h1\s*\{[^}]*font-size:\s*clamp\(2\.2rem,\s*3vw,\s*3\.45rem\)/);
+  assert.match(css, /\.member-home-copy-en h1\s*\{[^}]*max-width:\s*16ch/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.member-home-copy h1\s*\{[^}]*font-size:\s*clamp\(1\.95rem,\s*7vw,\s*2\.2rem\)/);
   assert.match(css, /\.member-home-positioning\s*\{[^}]*font-size:\s*clamp\(1rem,\s*1\.2vw,\s*1\.125rem\)/);
   assert.match(css, /\.member-home-visual img\s*\{[\s\S]*?object-fit:\s*cover/);
+  assert.match(memberHome, /className="directory-view-all"/);
+  assert.match(css, /\.directory-view-all\s*\{[^}]*border:\s*1px solid/);
+});
+
+test("featured university actions use solid buttons without arrows", () => {
+  const featuredCarousel = readFileSync(fileURLToPath(new URL("../components/featured-university-carousel.tsx", import.meta.url)), "utf8");
+  assert.match(featuredCarousel, /className="button full-width"/);
+  assert.doesNotMatch(featuredCarousel, /→/);
+  assert.doesNotMatch(featuredCarousel, /button secondary full-width/);
 });
 
 test("member search panel reserves its full height instead of being covered by the next section", () => {

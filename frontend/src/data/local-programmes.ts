@@ -197,8 +197,11 @@ export function localProgrammePage(slug: string, query: Query): UniversityProgra
   if (!university) return { items: [], page: 1, pageSize: PAGE_SIZE, totalItems: 0, totalPages: 0 };
 
   const levels = selectedLevels(query);
+  const keyword = normalize(first(query, "q"));
   const records = LOCAL_PROGRAMMES.filter((record) =>
-    record.universityId === university.id && (!levels.size || levels.has(record.level)),
+    record.universityId === university.id
+    && (!levels.size || levels.has(record.level))
+    && (!keyword || normalize([record.nameZh, record.nameEn, record.facultyZh, record.facultyEn].join(" ")).includes(keyword)),
   );
   const totalItems = records.length;
   const totalPages = totalItems ? Math.ceil(totalItems / PAGE_SIZE) : 0;

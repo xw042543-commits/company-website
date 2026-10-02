@@ -60,7 +60,7 @@ export function FeaturedUniversityCarousel({ locale }: { locale: Locale }) {
               <div><dt>{words(locale, "热门方向", "Popular subjects")}</dt><dd>{subjects.join(" · ")}</dd></div>
               <div><dt>{words(locale, "入学时间", "Intake periods")}</dt><dd>{intakes}</dd></div>
             </dl>
-            <Link className="button secondary full-width" href={`/${locale}/universities/${university.slug}`}>{words(locale, "查看院校", "View university")} <span aria-hidden="true">→</span></Link>
+            <Link className="button full-width" href={`/${locale}/universities/${university.slug}`}>{words(locale, "查看院校", "View university")}</Link>
           </div>
         </article>;
       })}
