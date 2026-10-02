@@ -16,8 +16,8 @@ type SearchAutocompleteProps = {
 
 function Highlight({ text, query }: { text: string; query: string }) {
   const index = text.toLocaleLowerCase().indexOf(query.trim().toLocaleLowerCase());
-  if (index < 0 || !query.trim()) return text;
-  return <>{text.slice(0, index)}<mark>{text.slice(index, index + query.trim().length)}</mark>{text.slice(index + query.trim().length)}</>;
+  if (index < 0 || !query.trim()) return <span className="search-suggestion-label">{text}</span>;
+  return <span className="search-suggestion-label">{text.slice(0, index)}<mark>{text.slice(index, index + query.trim().length)}</mark>{text.slice(index + query.trim().length)}</span>;
 }
 
 export function SearchAutocomplete({ id, name, locale, suggestions, defaultValue = "", placeholder, maxLength = 100 }: SearchAutocompleteProps) {

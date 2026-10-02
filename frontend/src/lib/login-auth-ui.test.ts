@@ -41,6 +41,26 @@ test("account form exposes only the launch-ready email login", () => {
   assert.match(source, /Email address|邮箱/);
 });
 
+test("successful login and registration show an engaging transition", () => {
+  const login = read("../components/login-form.tsx");
+  const register = read("../components/register-form.tsx");
+  const feedback = read("../components/auth-success-feedback.tsx");
+  assert.match(login, /AuthSuccessFeedback/);
+  assert.match(login, /kind="login"/);
+  assert.match(register, /kind="registration"/);
+  assert.match(feedback, /Welcome back/);
+  assert.match(feedback, /Your account is ready/);
+  assert.match(feedback, /Signed out successfully/);
+  assert.match(feedback, /aria-live="polite"/);
+});
+
+test("successful logout shows confirmation before returning home", () => {
+  const header = read("../components/site-header.tsx");
+  assert.match(header, /kind="logout"/);
+  assert.match(header, /className="auth-success-overlay"/);
+  assert.match(header, /setSignedOut\(true\)/);
+});
+
 test("WeChat QR access embeds the official scanner and supports verified-account binding", () => {
   const panel = read("../components/auth-account-panel.tsx");
   const wechat = read("../components/wechat-qr-panel.tsx");

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
+import { AuthSuccessFeedback } from "@/components/auth-success-feedback";
 import { login } from "@/lib/auth-api";
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
@@ -23,6 +24,7 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<AuthMessage | null>(null);
   const [demoPending, setDemoPending] = useState(false);
+  const [completed, setCompleted] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -33,9 +35,11 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps
     });
     setPending(false);
     if (result.status === "ready") {
-      setMessage(authMessage(locale, result));
-      router.push(returnTo ?? `/${locale}/account`);
-      router.refresh();
+      setCompleted(true);
+      window.setTimeout(() => {
+        router.push(returnTo ?? `/${locale}/account`);
+        router.refresh();
+      }, 900);
       return;
     }
     setMessage(authMessage(locale, result));
@@ -54,6 +58,8 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps
       setDemoPending(false);
     }
   }
+
+  if (completed) return <AuthSuccessFeedback locale={locale} kind="login" />;
 
   return <form className="login-form account-login-form" onSubmit={handleSubmit}>
     <div>

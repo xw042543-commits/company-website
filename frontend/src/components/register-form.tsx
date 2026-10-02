@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
+import { AuthSuccessFeedback } from "@/components/auth-success-feedback";
 import { FormProgress } from "@/components/form-progress";
 import { registerAccount } from "@/lib/auth-api";
 import { authMessage, registrationDestination, type AuthMessage } from "@/lib/auth-form-state";
@@ -20,6 +21,7 @@ export function RegisterForm({ locale }: { locale: Locale; returnTo?: string }) 
   const [showPassword, setShowPassword] = useState(false);
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<AuthMessage | null>(null);
+  const [registrationComplete, setRegistrationComplete] = useState(false);
 
   const completed = [fullName, identifier, password, confirmation].filter((value) => value.trim()).length;
 
@@ -44,11 +46,14 @@ export function RegisterForm({ locale }: { locale: Locale; returnTo?: string }) 
     if (result.status === "accepted") {
       const destination = registrationDestination(locale, result.verificationMethod);
       const query = `?email=${encodeURIComponent(identifier.trim())}&sent=1`;
-      router.push(`${destination}${query}`);
+      setRegistrationComplete(true);
+      window.setTimeout(() => router.push(`${destination}${query}`), 1100);
       return;
     }
     setMessage(authMessage(locale, result));
   }
+
+  if (registrationComplete) return <AuthSuccessFeedback locale={locale} kind="registration" />;
 
   return <form className="login-form" onSubmit={handleSubmit}>
     <FormProgress completed={completed} total={4} locale={locale} />

@@ -15,7 +15,9 @@ export function SaveToggle({ locale, item, compact = false }: { locale: Locale; 
   }, [item.key]);
 
   return <button type="button" className={`save-toggle${saved ? " saved" : ""}${compact ? " compact" : ""}`} aria-pressed={saved} onClick={() => setSaved(toggleSavedItem(item).some((candidate) => candidate.key === item.key))}>
-    <span aria-hidden="true">{saved ? "★" : "☆"}</span>
+    <svg className="save-toggle-icon" viewBox="0 0 20 20" aria-hidden="true">
+      <path d="M5.25 3.25h9.5v13.1L10 13.45l-4.75 2.9V3.25Z" />
+    </svg>
     {saved ? words(locale, "已收藏", "Saved") : words(locale, "收藏", "Save")}
   </button>;
 }
