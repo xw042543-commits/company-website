@@ -61,7 +61,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Image src="/universities/campuses/apu-campus.webp" fill sizes="(max-width: 980px) 92vw, 52vw" priority alt={words(locale, "马来西亚大学校园", "A university campus in Malaysia")} />
         <div className="member-home-visual-overlay">
           <strong>{words(locale, `${UNIVERSITY_CATALOG.length} 所已收录院校`, `${UNIVERSITY_CATALOG.length} universities listed`)}</strong>
-          <span>{words(locale, "本科 · 硕士 · 博士", "Bachelor’s · Master’s · Doctorate")}</span>
+          <span>{words(locale, "本科 · 硕士 · 博士", "Bachelor\u2019\u2060s · Master\u2019\u2060s · Doctorate")}</span>
           <span>{words(locale, "顾问支持贯穿申请全程", "Adviser support throughout your application")}</span>
         </div>
       </div>
@@ -74,7 +74,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <div className="member-search-support">
         <Link className="text-link" href={`/${locale}/about#enquiry`}>{words(locale, "需要协助？联系顾问", "Need guidance? Contact an adviser")} <span aria-hidden="true">→</span></Link>
         <div className="shortcuts" aria-label={words(locale, "按学历或方向查询", "Search by study level or subject")}>
-          {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor’s"], ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
+          {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor\u2019\u2060s"], ["master", "硕士", "Master\u2019\u2060s"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
         </div>
       </div>
     </div></section>

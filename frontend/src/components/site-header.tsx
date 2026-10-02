@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AuthSuccessFeedback } from "@/components/auth-success-feedback";
 import { getSession, logout } from "@/lib/auth-api";
@@ -12,7 +12,6 @@ import { isNavigationActive, type Locale, memberNavigation, publicNavigation, wo
 export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boolean }) {
   const pathname = usePathname();
   const query = useSearchParams();
-  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [authenticated, setAuthenticated] = useState(signedIn);
@@ -54,10 +53,7 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
     setSigningOut(false);
     setAuthenticated(false);
     setSignedOut(true);
-    window.setTimeout(() => {
-      router.push(`/${locale}`);
-      router.refresh();
-    }, 900);
+    window.setTimeout(() => window.location.replace(`/${locale}`), 900);
   }
 
   const visibleNavigation = authenticated ? memberNavigation : publicNavigation;

@@ -101,7 +101,7 @@ test("university result cards collapse matching programmes behind an accessible 
   assert.match(css, /\.school-programme-disclosure\[open\] \.school-programme-chevron/);
   assert.match(schoolCard, /className="school-card-secondary-actions"/);
   assert.match(schoolCard, /className="course-list-link"/);
-  assert.match(schoolCard, /encodeURIComponent\(course\.name\).*#programmes/);
+  assert.match(schoolCard, /\/programmes\/\$\{encodeURIComponent\(course\.id\)\}/);
   assert.match(css, /\.school-card-secondary-actions\s*\{[^}]*gap:\s*6px/);
   assert.match(css, /\.course-list-link:hover/);
 });

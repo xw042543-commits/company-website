@@ -59,6 +59,7 @@ test("successful logout shows confirmation before returning home", () => {
   assert.match(header, /kind="logout"/);
   assert.match(header, /className="auth-success-overlay"/);
   assert.match(header, /setSignedOut\(true\)/);
+  assert.match(header, /window\.location\.replace/);
 });
 
 test("WeChat QR access remains visible, deployment-gated, and supports verified-account binding", () => {
