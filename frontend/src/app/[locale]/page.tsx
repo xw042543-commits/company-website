@@ -45,12 +45,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return <main id="main">
     <section className="member-home-hero"><div className="container member-home-hero-grid">
-      <div className="member-home-copy">
-        <p className="section-label">{words(locale, "科学规划｜科学定位", "Informed planning · Clear direction")}</p>
-        <h1>{words(locale, "全球第一家留学生综合服务平台", "The world’s first all-in-one platform for international students")}</h1>
+      <div className={`member-home-copy member-home-copy-${locale}`}>
+        <p className="section-label">{words(locale, "科学规划｜科学定位", "Explore · Compare · Decide")}</p>
+        <h1>{words(locale, "全球第一家留学生综合服务平台", "Plan your study journey with confidence")}</h1>
         <div className="member-home-positioning">
-          <p>{words(locale, "科学规划留学院校专业", "Plan university and programme choices with clarity")}</p>
-          <p>{words(locale, "科学定位留学人生发展", "Define a study direction for long-term growth")}</p>
+          <p>{words(locale, "科学规划留学院校专业", "Find universities and programmes that fit your goals.")}</p>
+          <p>{words(locale, "科学定位留学人生发展", "Get clear guidance from planning through application.")}</p>
         </div>
         <div className="member-home-actions">
           <Link className="button" href={`/${locale}/planning`}>{words(locale, "开始规划", "Start planning")}</Link>
@@ -79,7 +79,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </div>
     </div></section>
     {signedIn ? <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
-      <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "热门", "Popular")}</p><h2 id="reviewed-universities-heading">{words(locale, "留学热门院校", "Popular universities")}</h2><p>{words(locale, "热门专业、费用与录取信息一目了然。", "Compare popular subjects, fees, and admission information at a glance.")}</p></div><Link className="text-link" href={`/${locale}/universities`}>{words(locale, "查看并比较全部院校", "View and compare all universities")}</Link></div>
+      <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "热门", "Popular")}</p><h2 id="reviewed-universities-heading">{words(locale, "留学热门院校", "Popular universities")}</h2><p>{words(locale, "热门专业、费用与录取信息一目了然。", "Compare popular subjects, fees, and admission information at a glance.")}</p></div><Link className="directory-view-all" href={`/${locale}/universities`}>{words(locale, "查看并比较全部院校", "View and compare all universities")} <span aria-hidden="true">→</span></Link></div>
       <FeaturedUniversityCarousel locale={locale} />
     </div></section> : <section className="member-preview" aria-labelledby="member-preview-heading"><div className="container section member-preview-layout">
       <div className="member-preview-copy"><p className="section-label">{words(locale, "登录后可使用", "Inside your account")}</p><h2 id="member-preview-heading">{words(locale, "把留学选择整理成清晰的下一步", "Turn study choices into clear next steps")}</h2><p>{words(locale, "注册后即可查询已审核院校与专业、比较选择，并保存你的规划方向。", "Create an account to explore reviewed universities and programmes, compare choices, and organise your study direction.")}</p><Link className="text-link" href={`/${locale}/login?mode=register&returnTo=${encodeURIComponent(`/${locale}/universities`)}`}>{words(locale, "查看会员工具", "Explore member tools")} <span aria-hidden="true">→</span></Link></div>

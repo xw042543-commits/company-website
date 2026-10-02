@@ -71,22 +71,32 @@ export default async function Detail({ params, searchParams }: DetailProps) {
   const directoryUniversity = findUniversityBySlug(slug);
   const profile = directoryUniversity ? universityProfile(directoryUniversity.id) : undefined;
   const selectedLevel = first(query, "level");
+  const programmeKeyword = first(query, "q");
   const availableLevels = localProgrammeLevels(slug);
 
   return <main id="main" className="container page-main">
     <BackLink locale={locale} />
-    <p className="section-label">{words(locale, "院校资料", "University information")}</p>
-    <h1>{view.name}</h1>
-    {view.secondaryName && <p className="detail-secondary-name">{view.secondaryName}</p>}
-    <p className="page-intro">
-      {[view.country, view.city].filter(Boolean).join(" · ")
-        || words(locale, "地区资料待补充", "Location information pending")}
-    </p>
-    <div className="detail-quick-actions"><SaveToggle locale={locale} item={{ key: `university:${slug}`, kind: "university", name: view.name, secondaryName: view.secondaryName, context: [view.city, view.country].filter(Boolean).join(", "), path: detailPath }} /><Link href={`/${locale}/about#enquiry`}>{words(locale, "咨询顾问", "Ask an adviser")} <span aria-hidden="true">→</span></Link></div>
+    <header className="university-detail-header">
+      <div className="university-detail-heading">
+        <p className="section-label">{words(locale, "院校资料", "University information")}</p>
+        <h1>{view.name}</h1>
+        {view.secondaryName && <p className="detail-secondary-name">{view.secondaryName}</p>}
+        <p className="page-intro">
+          {[view.country, view.city].filter(Boolean).join(" · ")
+            || words(locale, "地区资料待补充", "Location information pending")}
+        </p>
+      </div>
+      <div className="detail-quick-actions"><SaveToggle locale={locale} item={{ key: `university:${slug}`, kind: "university", name: view.name, secondaryName: view.secondaryName, context: [view.city, view.country].filter(Boolean).join(", "), path: detailPath }} /><Link className="button" href={`/${locale}/about#enquiry`}>{words(locale, "咨询顾问", "Ask an adviser")} <span aria-hidden="true">→</span></Link></div>
+    </header>
+    <nav className="university-detail-nav" aria-label={words(locale, "院校页面导航", "University page navigation")}>
+      <a href="#overview">{words(locale, "院校概览", "Overview")}</a>
+      <a href="#programmes">{words(locale, "课程", "Programmes")}</a>
+      <a href="#enquiry">{words(locale, "咨询", "Enquiry")}</a>
+    </nav>
 
     <div className="detail-layout">
       <div>
-        <section className="detail-section">
+        <section className="detail-section" id="overview">
           <h2>{words(locale, "院校介绍", "University profile")}</h2>
           <div className={`detail-image university-profile-media${profile?.campusImageSrc ? " has-photo" : ""}`}>
             {profile?.campusImageSrc
@@ -103,7 +113,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
           {profile?.imageCredit && <p className="image-credit">{words(locale, "图片来源", "Image source")}: <a href={profile.imageCredit.href} target="_blank" rel="noreferrer">{profile.imageCredit.label}</a></p>}
         </section>
 
-        <section className="detail-section" aria-labelledby="programme-list-heading">
+        <section className="detail-section" id="programmes" aria-labelledby="programme-list-heading">
           <div className="results-heading">
             <h2 id="programme-list-heading">{words(locale, "课程列表", "Programmes")}</h2>
             {programmePage && <span>{words(
@@ -112,10 +122,20 @@ export default async function Detail({ params, searchParams }: DetailProps) {
               `${programmePage.totalItems} reviewed programmes`,
             )}</span>}
           </div>
-          {availableLevels.length > 0 && <nav className="programme-level-filters" aria-label={words(locale, "按学历层次筛选", "Filter by study level")}>
-            <Link aria-current={!selectedLevel ? "page" : undefined} href={programmeLevelLink(detailPath, query, "")}>{words(locale, "全部", "All")}</Link>
-            {[["bachelor", "本科", "Bachelor’s"], ["master", "硕士", "Master’s"], ["doctorate", "博士", "Doctorate"]].filter(([level]) => availableLevels.includes(level as "bachelor" | "master" | "doctorate")).map(([level, zh, en]) => <Link key={level} aria-current={selectedLevel === level ? "page" : undefined} href={programmeLevelLink(detailPath, query, level)}>{words(locale, zh, en)}</Link>)}
-          </nav>}
+          <div className="programme-tools">
+            <form className="programme-search" action={detailPath} method="get">
+              <label htmlFor="programme-query">{words(locale, "搜索此院校的课程", "Search programmes at this university")}</label>
+              <div><input id="programme-query" name="q" type="search" defaultValue={programmeKeyword} placeholder={words(locale, "输入课程名称或专业关键词", "Programme name or subject keyword")} /><button type="submit">{words(locale, "搜索", "Search")}</button></div>
+              {selectedLevel && <input type="hidden" name="level" value={selectedLevel} />}
+            </form>
+            <div className="programme-filter-row">
+              {availableLevels.length > 0 && <nav className="programme-level-filters" aria-label={words(locale, "按学历层次筛选", "Filter by study level")}>
+                <Link scroll={false} aria-current={!selectedLevel ? "page" : undefined} href={programmeLevelLink(detailPath, query, "")}>{words(locale, "全部", "All")}</Link>
+                {[["bachelor", "本科", "Bachelor's"], ["master", "硕士", "Master's"], ["doctorate", "博士", "Doctorate"]].filter(([level]) => availableLevels.includes(level as "bachelor" | "master" | "doctorate")).map(([level, zh, en]) => <Link scroll={false} key={level} aria-current={selectedLevel === level ? "page" : undefined} href={programmeLevelLink(detailPath, query, level)}>{words(locale, zh, en)}</Link>)}
+              </nav>}
+              {programmeKeyword && <Link scroll={false} className="programme-search-clear" href={programmeLevelLink(detailPath, { level: selectedLevel }, selectedLevel)}>{words(locale, "清除搜索", "Clear search")}</Link>}
+            </div>
+          </div>
           <p className="programme-review-note">{words(locale, "以下资料已经审核。费用与入学要求可能调整，请在申请前向顾问确认最新信息。", "The information below has been reviewed. Fees and entry requirements may change, so confirm the latest details with an adviser before applying.")}</p>
 
           {programmeResult.status === "error"
@@ -127,7 +147,6 @@ export default async function Detail({ params, searchParams }: DetailProps) {
                 {view.programmes.map((programme) => <article className="programme-detail-card" id={`programme-${programme.id}`} key={programme.id}>
                   <div className="programme-card-heading"><h3>{programme.name}</h3><SaveToggle compact locale={locale} item={{ key: `programme:${slug}:${programme.id}`, kind: "programme", name: programme.name, secondaryName: programme.secondaryName, context: view.name, path: `${detailPath}#programme-${programme.id}`, facts: [[words(locale, "学历", "Level"), programme.level], [words(locale, "学制", "Duration"), programme.duration], [words(locale, "参考学费", "Tuition"), programme.tuition]].filter((fact): fact is [string, string] => Boolean(fact[1])).map(([label, value]) => ({ label, value })) }} /></div>
                   {programme.secondaryName && <p className="detail-secondary-name">{programme.secondaryName}</p>}
-                  {programme.description && <p>{programme.description}</p>}
                   <dl className="course-details">
                     <ProgrammeFact locale={locale} zh="专业分类" en="Subject" value={programme.category} />
                     <ProgrammeFact locale={locale} zh="学历层次" en="Study level" value={programme.level} />
@@ -137,16 +156,18 @@ export default async function Detail({ params, searchParams }: DetailProps) {
                     <ProgrammeFact locale={locale} zh="参考学费" en="Tuition" value={programme.tuition} />
                     <ProgrammeFact locale={locale} zh="入学时间" en="Intakes" value={programme.intakes} />
                   </dl>
+                  {programme.description && <details className="programme-requirements"><summary>{words(locale, "查看入学要求与其他费用", "View entry requirements and other fees")}</summary><p>{programme.description}</p></details>}
                 </article>)}
               </div>
               : <div className="results-state" role="status">
                 <span className="state-symbol" aria-hidden="true">○</span>
-                <h3>{words(locale, "暂无已审核课程", "No reviewed programmes yet")}</h3>
+                <h3>{programmeKeyword ? words(locale, "没有找到匹配课程", "No matching programmes found") : words(locale, "暂无已审核课程", "No reviewed programmes yet")}</h3>
                 <p>{words(
                   locale,
-                  "课程资料完成审核后将在这里显示。",
-                  "Programmes will appear here after their information is reviewed.",
+                  programmeKeyword ? "请尝试更简短的关键词，或清除搜索查看全部课程。" : "课程资料完成审核后将在这里显示。",
+                  programmeKeyword ? "Try a shorter keyword or clear the search to see every programme." : "Programmes will appear here after their information is reviewed.",
                 )}</p>
+                {programmeKeyword && <Link className="button" href={programmeLevelLink(detailPath, { level: selectedLevel }, selectedLevel)}>{words(locale, "查看全部课程", "View all programmes")}</Link>}
               </div>}
 
           {programmePage && <Pagination
@@ -159,7 +180,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
         </section>
       </div>
 
-      <aside className="detail-aside">
+      <aside className="detail-aside university-enquiry-card" id="enquiry">
         <h2>{words(locale, "咨询此院校", "Enquire about this university")}</h2>
         <p>{words(
           locale,
@@ -169,11 +190,14 @@ export default async function Detail({ params, searchParams }: DetailProps) {
         <Link className="button full-width" href={`/${locale}/about#enquiry`}>
           {words(locale, "开始咨询", "Start an enquiry")} <span aria-hidden="true">→</span>
         </Link>
-        <div className="qr-placeholder">{words(
-          locale,
-          "顾问二维码即将上线",
-          "Adviser QR code coming soon",
-        )}</div>
+        <div className="enquiry-preparation">
+          <h3>{words(locale, "咨询前可以准备", "Helpful details to prepare")}</h3>
+          <ul>
+            <li>{words(locale, "计划申请的学历层次", "Your intended study level")}</li>
+            <li>{words(locale, "感兴趣的专业方向", "Subjects you are interested in")}</li>
+            <li>{words(locale, "预计入学时间", "Your preferred intake period")}</li>
+          </ul>
+        </div>
       </aside>
     </div>
   </main>;

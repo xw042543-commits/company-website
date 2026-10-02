@@ -19,7 +19,6 @@ export function SchoolComparisonToggle({ id, locale }: { id: string; locale: Loc
   const toggle = () => setSelection(writeComparisonSelection(selected ? selection.filter((item) => item !== id) : [...selection, id]));
 
   return <button type="button" className={`school-compare-toggle${selected ? " selected" : ""}`} aria-pressed={selected} disabled={full} onClick={toggle}>
-    <span aria-hidden="true">{selected ? "✓" : "+"}</span>
     {selected ? words(locale, "已加入比较", "Added to compare") : full ? words(locale, "最多比较三所", "Maximum three") : words(locale, "加入比较", "Add to compare")}
   </button>;
 }

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { LOCAL_PROGRAMMES } from "./local-programmes.generated.ts";
-import { formatProgrammeDuration, localProgrammeMatches } from "./local-programmes.ts";
+import { formatProgrammeDuration, localProgrammeMatches, localProgrammePage } from "./local-programmes.ts";
 
 test("generated programme records exclude worksheet headers and shifted columns", () => {
   assert.equal(LOCAL_PROGRAMMES.some((record) => /^(programmes?|courses?)$/i.test(record.nameEn.trim())), false);
@@ -36,4 +36,18 @@ test("programme matches change with keyword and qualification filters", () => {
     [...computing.matches.values()].flatMap((item) => item.courses).map((course) => course.id),
     [...masters.matches.values()].flatMap((item) => item.courses).map((course) => course.id),
   );
+});
+
+test("university programme pages search names and faculties", () => {
+  const all = localProgrammePage("university-of-malaya", {});
+  const computing = localProgrammePage("university-of-malaya", { q: "computer" });
+
+  assert.ok(computing.totalItems > 0);
+  assert.ok(computing.totalItems < all.totalItems);
+  assert.ok(computing.items.every((programme) => /computer/i.test([
+    programme.nameEn,
+    programme.nameZh,
+    programme.categoryDisplayEn,
+    programme.categoryDisplayZh,
+  ].filter(Boolean).join(" "))));
 });
