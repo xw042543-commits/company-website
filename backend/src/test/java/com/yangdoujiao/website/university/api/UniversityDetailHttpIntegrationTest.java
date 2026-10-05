@@ -127,6 +127,43 @@ class UniversityDetailHttpIntegrationTest {
     }
 
     @Test
+    void returnsOnePublishedProgrammeByDatabaseIdAndLegacySlug() throws Exception {
+        Long programmeId = createPublishedProgramme();
+
+        mockMvc.perform(get(
+                        "/api/v1/universities/{slug}/programmes/{programmeIdentifier}",
+                        UNIVERSITY_SLUG,
+                        programmeId
+                ))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(programmeId))
+                .andExpect(jsonPath("$.programmeCode").value("DETAIL_MSC_DATA"))
+                .andExpect(jsonPath("$.slug").value("msc-data-science"))
+                .andExpect(jsonPath("$.nameEn").value("MSc Data Science"));
+
+        mockMvc.perform(get(
+                        "/api/v1/universities/{slug}/programmes/{programmeIdentifier}",
+                        UNIVERSITY_SLUG,
+                        "msc-data-science"
+                ))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(programmeId));
+    }
+
+    @Test
+    void returnsNotFoundForUnknownProgrammeIdentifier() throws Exception {
+        createPublishedProgramme();
+
+        mockMvc.perform(get(
+                        "/api/v1/universities/{slug}/programmes/{programmeIdentifier}",
+                        UNIVERSITY_SLUG,
+                        999999999
+                ))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code").value("RESOURCE_NOT_FOUND"));
+    }
+
+    @Test
     void appliesCategoryLevelModeAndLanguageToTheSameProgramme() throws Exception {
         createPublishedProgramme();
         createAlternativePublishedProgramme();
@@ -228,7 +265,7 @@ class UniversityDetailHttpIntegrationTest {
                 .andExpect(jsonPath("$.fieldErrors.page").value("is too large for requested size"));
     }
 
-    private void createPublishedProgramme() {
+    private Long createPublishedProgramme() {
         Long universityId = jdbc.queryForObject(
                 "SELECT id FROM universities WHERE university_code = 'DETAIL_PUBLISHED'",
                 Long.class
@@ -282,6 +319,7 @@ class UniversityDetailHttpIntegrationTest {
                 VALUES (?, DATE '2027-09-01', 'September 2027'),
                        (?, DATE '2027-01-01', 'January 2027')
                 """, programmeId, programmeId);
+        return programmeId;
     }
 
     private void createAlternativePublishedProgramme() {

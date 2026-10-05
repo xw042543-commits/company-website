@@ -29,6 +29,7 @@ type UniversitySearchRequest = (
 type SchoolSummaryMapper = (item: unknown, locale: "zh" | "en") => unknown;
 type UniversityDetailParser = (payload: unknown) => unknown;
 type UniversityProgrammePageParser = (payload: unknown) => unknown;
+type UniversityProgrammeParser = (payload: unknown) => unknown;
 type UniversityDetailRequest = (
   baseUrl: string | undefined,
   slug: string,
@@ -38,6 +39,12 @@ type UniversityProgrammesRequest = (
   baseUrl: string | undefined,
   slug: string,
   query: site.Query,
+  request?: typeof fetch,
+) => Promise<unknown>;
+type UniversityProgrammeRequest = (
+  baseUrl: string | undefined,
+  slug: string,
+  programmeId: string,
   request?: typeof fetch,
 ) => Promise<unknown>;
 type UniversityDetailViewMapper = (
@@ -86,6 +93,13 @@ function parseUniversityProgrammePage(payload: unknown): unknown {
     : undefined;
 }
 
+function parseUniversityProgramme(payload: unknown): unknown {
+  const candidate = Reflect.get(universityApi, "parseUniversityProgramme");
+  return typeof candidate === "function"
+    ? (candidate as UniversityProgrammeParser)(payload)
+    : undefined;
+}
+
 async function requestUniversityDetail(
   baseUrl: string | undefined,
   slug: string,
@@ -106,6 +120,18 @@ async function requestUniversityProgrammes(
   const candidate = Reflect.get(universityApi, "getUniversityProgrammes");
   return typeof candidate === "function"
     ? (candidate as UniversityProgrammesRequest)(baseUrl, slug, query, request)
+    : undefined;
+}
+
+async function requestUniversityProgramme(
+  baseUrl: string | undefined,
+  slug: string,
+  programmeId: string,
+  request?: typeof fetch,
+): Promise<unknown> {
+  const candidate = Reflect.get(universityApi, "getUniversityProgramme");
+  return typeof candidate === "function"
+    ? (candidate as UniversityProgrammeRequest)(baseUrl, slug, programmeId, request)
     : undefined;
 }
 
@@ -417,6 +443,45 @@ test("requests and parses a university programme page", async () => {
   );
 });
 
+test("requests one programme by its database id and preserves not-found separately from failures", async () => {
+  const programme = validUniversityProgrammePage.items[0];
+  let requestedUrl = "";
+  const successful = (async (input: string | URL | Request) => {
+    requestedUrl = String(input);
+    return new Response(JSON.stringify(programme), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  }) as typeof fetch;
+
+  assert.deepEqual(parseUniversityProgramme(programme), programme);
+  assert.deepEqual(
+    await requestUniversityProgramme(
+      "http://localhost:8080",
+      "segi",
+      "584",
+      successful,
+    ),
+    { status: "ready", programme },
+  );
+  assert.equal(
+    requestedUrl,
+    "http://localhost:8080/api/v1/universities/segi/programmes/584",
+  );
+
+  const missing = (async () => new Response(null, { status: 404 })) as typeof fetch;
+  assert.deepEqual(
+    await requestUniversityProgramme("http://localhost:8080", "segi", "999999", missing),
+    { status: "not-found" },
+  );
+
+  const unavailable = (async () => new Response(null, { status: 503 })) as typeof fetch;
+  assert.deepEqual(
+    await requestUniversityProgramme("http://localhost:8080", "segi", "584", unavailable),
+    { status: "error" },
+  );
+});
+
 test("maps university details and programmes to localized display data", () => {
   assert.deepEqual(
     toUniversityDetailView(
@@ -431,7 +496,7 @@ test("maps university details and programmes to localized display data", () => {
       city: "吉隆坡",
       description: "院校中文介绍",
       programmes: [{
-        id: "bachelor-computer-science",
+        id: "11",
         name: "计算机科学学士",
         secondaryName: "Bachelor of Computer Science",
         description: "课程中文介绍",
@@ -468,7 +533,7 @@ test("localizes programme dictionary codes with catalog options", () => {
       city: "吉隆坡",
       description: "院校中文介绍",
       programmes: [{
-        id: "bachelor-computer-science",
+        id: "11",
         name: "计算机科学学士",
         secondaryName: "Bachelor of Computer Science",
         description: "课程中文介绍",

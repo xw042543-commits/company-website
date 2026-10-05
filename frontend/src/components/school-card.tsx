@@ -6,6 +6,7 @@ import { LocationLabel } from "@/components/location-label";
 import { SchoolComparisonToggle } from "@/components/school-comparison-toggle";
 import { SaveToggle } from "@/components/save-toggle";
 import { findUniversityBySlug } from "@/data/university-catalog";
+import { programmeDetailPath } from "@/lib/programme-routes";
 import { Locale, words } from "@/lib/site";
 
 function initials(name: string) {
@@ -43,7 +44,7 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
       <p className="muted"><LocationLabel city={city || (school ? missing : words(locale, "城市", "City"))} country={country} locale={locale} /></p>
       {courses.length ? <details className="school-programme-disclosure">
         <summary><span>{courseCountLabel}</span><span className="school-programme-chevron" aria-hidden="true" /></summary>
-        <ul className="course-list">{courses.map(course => <li key={course.id}><Link className="course-list-link" href={`${detailHref}/programmes/${encodeURIComponent(course.id)}`}><strong>{course.name}<span className="course-link-arrow" aria-hidden="true">→</span></strong><span>{words(locale, "学历层次", "Qualification")}: {course.level || missing}<br />{words(locale, "授课语言", "Language of instruction")}: {course.language || missing}</span></Link></li>)}</ul>
+        <ul className="course-list">{courses.map(course => <li key={course.id}><Link className="course-list-link" href={programmeDetailPath(locale, school?.slug ?? "preview", course.id)}><strong>{course.name}<span className="course-link-arrow" aria-hidden="true">→</span></strong><span>{words(locale, "学历层次", "Qualification")}: {course.level || missing}<br />{words(locale, "授课语言", "Language of instruction")}: {course.language || missing}</span></Link></li>)}</ul>
       </details> : school ? <p className="programme-status"><strong>{words(locale, "课程资料正在完善", "Programme information coming soon")}</strong> {words(locale, "你可以先向顾问了解课程与申请安排。", "In the meantime, ask an adviser about programmes and applications.")}</p> : <ul className="course-list"><li><strong>{words(locale, "课程资料", "Programme information")}</strong><span>{words(locale, "完成审核后，课程资料将在这里显示。", "Reviewed programme information will appear here.")}</span></li></ul>}
       <div className="school-card-actions"><Link className="school-card-action" href={detailHref}>{words(locale, "查看院校详情", "View university details")}</Link>{school && <div className="school-card-secondary-actions"><SaveToggle compact locale={locale} item={{ key: `university:${school.slug}`, kind: "university", name, secondaryName, context: [city, country].filter(Boolean).join(", "), path: detailHref }} /><SchoolComparisonToggle id={comparisonId} locale={locale} /></div>}</div>
     </div>

@@ -3,6 +3,7 @@ package com.yangdoujiao.website.university.api;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -99,5 +100,27 @@ public class UniversityDetailService {
                 criteria.pageSize(),
                 idPage.getTotalElements()
         );
+    }
+
+    @Transactional(readOnly = true)
+    public UniversityProgrammeResponse getPublishedProgramme(String slug, String programmeIdentifier) {
+        University university = universities.findBySlugAndStatus(slug, CategoryStatus.PUBLISHED)
+                .orElseThrow(() -> new ResourceNotFoundException("University not found"));
+        Programme programme = findPublishedProgramme(university.getId(), programmeIdentifier)
+                .orElseThrow(() -> new ResourceNotFoundException("Programme not found"));
+        List<ProgrammeIntake> programmeIntakes = intakes
+                .findByProgrammeIdOrderByIntakeDateAsc(programme.getId());
+        return UniversityProgrammeResponse.from(programme, programmeIntakes);
+    }
+
+    private Optional<Programme> findPublishedProgramme(Long universityId, String identifier) {
+        if (identifier != null && identifier.matches("[1-9]\\d*")) {
+            try {
+                return programmes.findPublishedDetailedByIdAndUniversityId(Long.valueOf(identifier), universityId);
+            } catch (NumberFormatException ignored) {
+                return Optional.empty();
+            }
+        }
+        return programmes.findPublishedDetailedBySlugAndUniversityId(identifier, universityId);
     }
 }

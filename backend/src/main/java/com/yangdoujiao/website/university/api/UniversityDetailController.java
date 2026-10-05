@@ -31,4 +31,12 @@ public class UniversityDetailController {
     ) {
         return universityDetailService.getPublishedProgrammes(slug, query);
     }
+
+    @GetMapping("/{slug}/programmes/{programmeIdentifier}")
+    public UniversityProgrammeResponse getProgramme(
+            @PathVariable String slug,
+            @PathVariable String programmeIdentifier
+    ) {
+        return universityDetailService.getPublishedProgramme(slug, programmeIdentifier);
+    }
 }
