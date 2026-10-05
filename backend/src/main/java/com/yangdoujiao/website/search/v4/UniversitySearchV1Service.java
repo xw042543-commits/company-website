@@ -20,24 +20,28 @@ public class UniversitySearchV1Service {
 
     private final UniversitySearchCriteriaFactory criteriaFactory;
     private final SearchFilterCodeValidator validator;
+    private final SubjectCategoryFilterExpander categoryFilterExpander;
     private final SearchAliasResolver aliasResolver;
     private final UniversitySearchGateway gateway;
 
     public UniversitySearchV1Service(
             UniversitySearchCriteriaFactory criteriaFactory,
             SearchFilterCodeValidator validator,
+            SubjectCategoryFilterExpander categoryFilterExpander,
             SearchAliasResolver aliasResolver,
             UniversitySearchGateway gateway
     ) {
         this.criteriaFactory = criteriaFactory;
         this.validator = validator;
+        this.categoryFilterExpander = categoryFilterExpander;
         this.aliasResolver = aliasResolver;
         this.gateway = gateway;
     }
 
     public PageResponse<UniversitySearchItemResponse> search(UniversitySearchQuery query) {
-        var criteria = criteriaFactory.create(query);
-        validator.validate(criteria);
+        var requestedCriteria = criteriaFactory.create(query);
+        validator.validate(requestedCriteria);
+        var criteria = categoryFilterExpander.expand(requestedCriteria);
         var resolvedTerm = aliasResolver.resolve(criteria.keyword());
         PageResponse<UniversitySearchResult> results;
         try {
