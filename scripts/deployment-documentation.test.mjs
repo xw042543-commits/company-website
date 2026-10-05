@@ -33,7 +33,7 @@ test("production CD runbook covers operator setup and SSH host verification", ()
   const document = read("docs/DEPLOYMENT.md");
   for (const value of [
     "production Environment",
-    "required reviewers",
+    "Run workflow",
     "PRODUCTION_SSH_HOST",
     "PRODUCTION_SSH_PORT",
     "PRODUCTION_SSH_USER",
@@ -42,6 +42,8 @@ test("production CD runbook covers operator setup and SSH host verification", ()
     "ssh-keyscan",
     "/opt/company-website",
   ]) assert.match(document, new RegExp(value));
+  assert.doesNotMatch(document, /required reviewers/i);
+  assert.match(document, /manual approval/i);
   assert.match(document, /Never disable SSH host-key checking/);
 });
 

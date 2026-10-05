@@ -1,5 +1,7 @@
 # Production CD Implementation Plan
 
+> **Post-implementation amendment (2026-10-05):** The private repository's current GitHub plan does not expose Environment required reviewers. The deployed design was therefore changed in a follow-up to manual-only `workflow_dispatch`, with an exact-SHA successful-CI check inside the job. The task steps below preserve the original implementation history and are superseded where they describe `workflow_run` or reviewer approval.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Add a GitHub Environment-gated CD workflow that deploys the exact successful `main` commit to `/opt/company-website` and verifies the live production topology without exposing secrets or deleting data.
