@@ -16,6 +16,15 @@ test("production CD waits for successful main CI and environment approval", () =
   assert.match(workflow, /cancel-in-progress: false/);
 });
 
+test("production CD accepts automatic releases only from repository push CI", () => {
+  assert.match(workflow, /github\.event\.workflow_run\.event == 'push'/);
+  assert.match(workflow, /github\.event_name == 'workflow_run'/);
+});
+
+test("production CD rejects automatic releases from other repositories", () => {
+  assert.match(workflow, /github\.event\.workflow_run\.head_repository\.full_name == github\.repository/);
+});
+
 test("production CD verifies SSH identity and streams the exact release script", () => {
   for (const secret of [
     "PRODUCTION_SSH_HOST",
