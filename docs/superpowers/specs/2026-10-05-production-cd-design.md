@@ -2,24 +2,21 @@
 
 ## Goal
 
-Deploy the exact `main` commit to the production host only after the existing `CI` workflow has completed successfully and an authorized reviewer has approved the GitHub `production` environment deployment.
+Deploy the exact `main` commit to the production host only after the existing `CI` workflow has completed successfully and an authorized operator has explicitly started the manual production workflow.
 
 The deployment must preserve `.env.production`, PostgreSQL, Redis, Elasticsearch, and Caddy volumes. It must fail closed when the release commit, SSH host identity, repository state, deployment configuration, container health, or public smoke checks are invalid.
 
 ## Trigger and approval boundary
 
-A separate `.github/workflows/deploy-production.yml` workflow will run in two cases:
+A separate `.github/workflows/deploy-production.yml` workflow runs only through `workflow_dispatch` for an explicitly requested deployment of the current `main` commit. This repository is private and its current GitHub plan does not provide Environment required reviewers, so the deliberate **Run workflow** action is the approval boundary; there is no automatic `workflow_run`, `push`, or scheduled deployment trigger.
 
-1. `workflow_run` after the existing `CI` workflow completes for `main`.
-2. `workflow_dispatch` for an explicitly requested redeployment of the current `main` commit.
-
-The deployment job runs only when CI concluded with `success`. It targets the GitHub Environment named `production`. Repository administrators must configure that Environment with required reviewers; GitHub then pauses the job before any production secret is exposed or any SSH connection is made.
+The deployment job is restricted to `main` and targets the GitHub Environment named `production`, whose deployment branch policy must also allow only `main`. Before exposing the SSH step, the job queries GitHub Actions and requires a successful `CI` push run whose `head_sha` exactly matches the release SHA.
 
 Production deployments use a non-cancelling concurrency group so a newer merge cannot interrupt an in-progress `docker compose up` operation. A later deployment waits for the current deployment to finish.
 
 ## Release identity
 
-For a `workflow_run`, the release SHA is `github.event.workflow_run.head_sha`. For a manual dispatch, it is the workflow commit SHA on `main`.
+The release SHA is the manually dispatched workflow commit SHA on `main`.
 
 The remote script fetches `origin/main`, verifies that `origin/main` equals the requested release SHA, requires a clean tracked working tree, checks out `main`, and advances it with a fast-forward-only merge. It never uses `git reset --hard`, force checkout, or a moving release selected independently by the workflow.
 
@@ -74,4 +71,4 @@ The implementation will run:
 - `shellcheck` when available, otherwise `bash -n scripts/deploy-production.sh` plus behavior assertions;
 - `git diff --check`.
 
-The first real deployment remains pending until the repository owner configures the `production` Environment, required reviewers, and all five SSH secrets. The first approval should be observed while an operator is available to confirm container health and the course-detail route on the live site.
+The first real deployment remains pending until the repository owner restricts the `production` Environment to `main` and configures all five SSH secrets. The first manual run should be started and observed while an operator is available to confirm container health and the course-detail route on the live site.
