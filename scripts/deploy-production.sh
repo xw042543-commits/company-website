@@ -26,8 +26,17 @@ docker run --rm --mount "type=bind,source=$PWD,target=/app,readonly" -w /app nod
 public_site_url="$(docker run --rm --mount "type=bind,source=$PWD,target=/app,readonly" -w /app node:24-bookworm-slim node --input-type=module -e 'import fs from "node:fs"; import { parseEnv } from "./scripts/deployment-preflight.mjs"; process.stdout.write(parseEnv(fs.readFileSync(".env.production", "utf8")).PUBLIC_SITE_URL ?? "")')"
 [[ $public_site_url == https://* ]] || { echo "PUBLIC_SITE_URL must be HTTPS" >&2; exit 68; }
 docker compose --env-file .env.production -f compose.production.yaml config --quiet
+# Retain the running images before a host build overwrites the configured tags.
+for service in frontend backend; do
+  container_id="$(docker compose --env-file .env.production -f compose.production.yaml ps --status running -q "$service")"
+  if [[ -n $container_id ]]; then
+    running_image_id="$(docker container inspect --format '{{.Image}}' "$container_id")"
+    docker image tag "$running_image_id" "udajo/$service:production-rollback"
+  fi
+done
 docker compose --env-file .env.production -f compose.production.yaml build --pull backend frontend
 docker compose --env-file .env.production -f compose.production.yaml up -d --wait --wait-timeout 300
-docker compose --env-file .env.production -f compose.production.yaml exec -T backend curl --fail --silent --connect-timeout 10 --max-time 30 --header 'X-Forwarded-Proto: https' http://127.0.0.1:8080/actuator/health/readiness
+# Bash receives this script on stdin; the probe must not consume later commands.
+docker compose --env-file .env.production -f compose.production.yaml exec -T --interactive=false backend curl --fail --silent --connect-timeout 10 --max-time 30 --header 'X-Forwarded-Proto: https' http://127.0.0.1:8080/actuator/health/readiness < /dev/null
 curl --fail-with-body --silent --connect-timeout 10 --max-time 30 "$public_site_url/healthz"
 docker run --rm --mount "type=bind,source=$PWD,target=/app,readonly" -w /app node:24-bookworm-slim node scripts/launch-smoke.mjs "$public_site_url" --public --wechat

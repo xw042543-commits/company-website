@@ -45,6 +45,25 @@ test("production CD runbook covers operator setup and SSH host verification", ()
   assert.match(document, /Never disable SSH host-key checking/);
 });
 
+test("production setup requires empty git status output before the first deployment", () => {
+  const document = read("docs/DEPLOYMENT.md");
+  assert.match(document, /[Rr]equire empty output from `git -C \/opt\/company-website status --short`/);
+});
+
+test("host-build recovery uses the previous local images without building or pulling", () => {
+  const document = read("docs/DEPLOYMENT.md");
+  const recovery = document.split("## Update and application rollback\n")[1]?.split("\n## ")[0];
+  assert.ok(recovery, "the application rollback procedure must exist");
+  assert.match(recovery, /FRONTEND_IMAGE=udajo\/frontend:production-rollback/);
+  assert.match(recovery, /BACKEND_IMAGE=udajo\/backend:production-rollback/);
+  assert.match(recovery, /docker image inspect udajo\/frontend:production-rollback udajo\/backend:production-rollback/);
+  assert.match(recovery, /up -d --no-build --wait --wait-timeout 300 --pull never/);
+  assert.doesNotMatch(recovery, /docker compose[^\n]*\bpull frontend backend|down --volumes|rm -v/);
+  assert.match(recovery, /only the immediately previous application release/i);
+  assert.match(recovery, /local tags[^\n]*not being pruned/i);
+  assert.match(recovery, /Never delete named volumes/i);
+});
+
 test("recovery runbook covers PostgreSQL rehearsal and derived-service recovery", () => {
   const document = read("docs/BACKUP_AND_RESTORE.md");
   for (const pattern of [
