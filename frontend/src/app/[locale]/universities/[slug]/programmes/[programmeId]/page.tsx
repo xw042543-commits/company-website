@@ -3,14 +3,85 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { SaveToggle } from "@/components/save-toggle";
-import { findLocalProgrammeBySlug, formatFeeDisplay, formatIntakeDisplay, formatProgrammeDuration, splitProgrammeName } from "@/data/local-programmes";
-import { findUniversityBySlug, localizeUniversity } from "@/data/university-catalog";
+import { findLocalProgrammeBySlug, formatFeeDisplay, formatIntakeDisplay, formatProgrammeDuration, splitProgrammeName, type LocalProgrammeDetail } from "@/data/local-programmes";
+import { backendUniversitySlug, findUniversityBySlug, localizeUniversity } from "@/data/university-catalog";
 import { universityProfile } from "@/data/university-profiles";
+import { getFilterOptions, type FilterOption, type FilterOptions } from "@/lib/filter-options-api";
+import { programmeDetailPath } from "@/lib/programme-routes";
+import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { isLocale, words } from "@/lib/site";
+import { getUniversityProgramme, type UniversityProgramme } from "@/lib/university-api";
 
 type ProgrammePageProps = {
   params: Promise<{ locale: string; slug: string; programmeId: string }>;
 };
+
+type ProgrammeDetail = Pick<
+  LocalProgrammeDetail,
+  | "nameZh"
+  | "nameEn"
+  | "facultyZh"
+  | "facultyEn"
+  | "mode"
+  | "duration"
+  | "tuition"
+  | "registrationFee"
+  | "intakes"
+  | "descriptionZh"
+  | "descriptionEn"
+> & {
+  level: string;
+  routeIdentifier: string;
+  sourceSlug: string;
+};
+
+function optionLabel(options: FilterOption[] | undefined, code: string | null, locale: "zh" | "en") {
+  if (!code) return "";
+  const option = options?.find((candidate) => candidate.code === code);
+  if (!option) return code;
+  return locale === "zh"
+    ? option.nameZh.trim() || option.nameEn.trim() || code
+    : option.nameEn.trim() || option.nameZh.trim() || code;
+}
+
+function normalizedLevel(code: string | null) {
+  const levels: Record<string, string> = {
+    BACHELOR: "bachelor",
+    MASTER: "master",
+    DOCTORATE: "doctorate",
+  };
+  return levels[code?.toUpperCase() ?? ""] ?? code?.toLocaleLowerCase("en") ?? "";
+}
+
+function remoteProgrammeDetail(
+  programme: UniversityProgramme,
+  options: FilterOptions | undefined,
+  locale: "zh" | "en",
+): ProgrammeDetail {
+  const facultyZh = optionLabel(options?.subjectCategories, programme.categoryCode, "zh");
+  const facultyEn = optionLabel(options?.subjectCategories, programme.categoryCode, "en");
+  const intakeSeparator = locale === "zh" ? "、" : ", ";
+  const intakeDisplay = programme.intakeDisplayTexts.length
+    ? programme.intakeDisplayTexts
+    : programme.intakeMonths;
+  return {
+    level: normalizedLevel(programme.studyLevelCode),
+    nameZh: programme.nameZh?.trim() || programme.nameEn?.trim() || programme.programmeCode,
+    nameEn: programme.nameEn?.trim() || programme.nameZh?.trim() || programme.programmeCode,
+    facultyZh,
+    facultyEn,
+    duration: programme.durationDisplay
+      ?? (programme.durationMonths ? `${programme.durationMonths} months` : ""),
+    registrationFee: "",
+    tuition: programme.tuitionDisplay ?? "",
+    intakes: intakeDisplay.join(intakeSeparator),
+    mode: optionLabel(options?.courseModes, programme.courseModeCode, locale),
+    sourceSlug: programme.slug,
+    routeIdentifier: String(programme.id),
+    descriptionZh: programme.descriptionZh?.trim() || "",
+    descriptionEn: programme.descriptionEn?.trim() || "",
+  };
+}
 
 function levelName(locale: "zh" | "en", level: string) {
   const values: Record<string, [string, string]> = {
@@ -83,8 +154,35 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   if (!isLocale(locale)) notFound();
 
   const university = findUniversityBySlug(slug);
-  const programme = findLocalProgrammeBySlug(slug, programmeId);
-  if (!university || !programme) notFound();
+  if (!university) notFound();
+
+  const baseUrl = serverApiBaseUrl();
+  let programme: ProgrammeDetail | undefined;
+  if (baseUrl) {
+    const [programmeResult, filterResult] = await Promise.all([
+      getUniversityProgramme(baseUrl, backendUniversitySlug(slug), programmeId),
+      getFilterOptions(baseUrl),
+    ]);
+    if (programmeResult.status === "not-found") notFound();
+    if (programmeResult.status === "error") {
+      throw new Error("Programme detail service is unavailable");
+    }
+    programme = remoteProgrammeDetail(
+      programmeResult.programme,
+      filterResult.status === "ready" ? filterResult.options : undefined,
+      locale,
+    );
+  } else {
+    const localProgramme = findLocalProgrammeBySlug(slug, programmeId);
+    if (localProgramme) {
+      programme = {
+        ...localProgramme,
+        sourceSlug: localProgramme.slug,
+        routeIdentifier: localProgramme.slug,
+      };
+    }
+  }
+  if (!programme) notFound();
 
   const school = localizeUniversity(university, locale);
   const profile = universityProfile(university.id);
@@ -93,10 +191,10 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   const name = presentation.name;
   const secondaryName = secondaryPresentation.name;
   const faculty = (locale === "zh" ? programme.facultyZh : programme.facultyEn) || programme.facultyEn || programme.facultyZh;
-  const detailPath = `/${locale}/universities/${encodeURIComponent(university.slug)}/programmes/${encodeURIComponent(programme.slug)}`;
+  const detailPath = programmeDetailPath(locale, university.slug, programme.routeIdentifier);
   const universityPath = `/${locale}/universities/${encodeURIComponent(university.slug)}`;
   const requirements = locale === "zh" ? programme.descriptionZh : programme.descriptionEn;
-  const isVerifiedTaylorsBusiness = programme.slug === "taylors-bachelor-403";
+  const isVerifiedTaylorsBusiness = programme.sourceSlug === "taylors-bachelor-403";
   const duration = isVerifiedTaylorsBusiness ? words(locale, "3年（全日制）", "3 years (full time)") : formatProgrammeDuration(programme.duration) || "";
   const tuition = isVerifiedTaylorsBusiness
     ? words(locale, "本地生 MYR 129,830；国际生 USD 42,309", "Local MYR 129,830; international USD 42,309")
@@ -148,7 +246,7 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
             <div className="programme-hero-actions">
               <Link className="button" href={adviserPath}>{words(locale, "咨询此课程", "Enquire about this programme")}</Link>
               <SaveToggle locale={locale} item={{
-                key: `programme:${university.slug}:${programme.slug}`,
+                key: `programme:${university.slug}:${programme.routeIdentifier}`,
                 kind: "programme",
                 name,
                 secondaryName,

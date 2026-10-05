@@ -108,6 +108,11 @@ export type UniversityProgrammesRequestResult =
   | { status: "ready"; page: UniversityProgrammePage }
   | { status: "error" };
 
+export type UniversityProgrammeRequestResult =
+  | { status: "ready"; programme: UniversityProgramme }
+  | { status: "not-found" }
+  | { status: "error" };
+
 export type SchoolSummaryData = {
   id: string;
   slug: string;
@@ -236,6 +241,10 @@ function isUniversityProgramme(value: unknown): value is UniversityProgramme {
     && isNullableString(value.tuitionDisplay)
     && isStringArray(value.intakeMonths)
     && isStringArray(value.intakeDisplayTexts);
+}
+
+export function parseUniversityProgramme(payload: unknown): UniversityProgramme | null {
+  return isUniversityProgramme(payload) ? payload : null;
 }
 
 export function parseUniversitySearchPage(payload: unknown): UniversitySearchPage | null {
@@ -369,6 +378,31 @@ export async function getUniversityProgrammes(
   }
 }
 
+export async function getUniversityProgramme(
+  baseUrl: string | undefined,
+  slug: string,
+  programmeIdentifier: string,
+  request: typeof fetch = fetch,
+): Promise<UniversityProgrammeRequestResult> {
+  if (!baseUrl) return { status: "error" };
+  try {
+    const url = new URL(
+      `/api/v1/universities/${encodeURIComponent(slug)}/programmes/${encodeURIComponent(programmeIdentifier)}`,
+      baseUrl,
+    );
+    const response = await requestInternalApi(request, url, {
+      cache: "no-store",
+      signal: AbortSignal.timeout(5000),
+    });
+    if (response.status === 404) return { status: "not-found" };
+    if (!response.ok) return { status: "error" };
+    const programme = parseUniversityProgramme(await response.json());
+    return programme ? { status: "ready", programme } : { status: "error" };
+  } catch {
+    return { status: "error" };
+  }
+}
+
 function preferredText(
   locale: "zh" | "en",
   zh: string | null,
@@ -461,7 +495,7 @@ export function toUniversityDetailView(
         : programme.nameZh;
 
       return {
-        id: programme.slug,
+        id: String(programme.id),
         name: programmeName,
         ...(programmeSecondaryName?.trim()
           && programmeSecondaryName.trim() !== programmeName
