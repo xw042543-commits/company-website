@@ -1,0 +1,77 @@
+# Production CD Design
+
+## Goal
+
+Deploy the exact `main` commit to the production host only after the existing `CI` workflow has completed successfully and an authorized reviewer has approved the GitHub `production` environment deployment.
+
+The deployment must preserve `.env.production`, PostgreSQL, Redis, Elasticsearch, and Caddy volumes. It must fail closed when the release commit, SSH host identity, repository state, deployment configuration, container health, or public smoke checks are invalid.
+
+## Trigger and approval boundary
+
+A separate `.github/workflows/deploy-production.yml` workflow will run in two cases:
+
+1. `workflow_run` after the existing `CI` workflow completes for `main`.
+2. `workflow_dispatch` for an explicitly requested redeployment of the current `main` commit.
+
+The deployment job runs only when CI concluded with `success`. It targets the GitHub Environment named `production`. Repository administrators must configure that Environment with required reviewers; GitHub then pauses the job before any production secret is exposed or any SSH connection is made.
+
+Production deployments use a non-cancelling concurrency group so a newer merge cannot interrupt an in-progress `docker compose up` operation. A later deployment waits for the current deployment to finish.
+
+## Release identity
+
+For a `workflow_run`, the release SHA is `github.event.workflow_run.head_sha`. For a manual dispatch, it is the workflow commit SHA on `main`.
+
+The remote script fetches `origin/main`, verifies that `origin/main` equals the requested release SHA, requires a clean tracked working tree, checks out `main`, and advances it with a fast-forward-only merge. It never uses `git reset --hard`, force checkout, or a moving release selected independently by the workflow.
+
+## SSH trust and secrets
+
+The workflow uses the OpenSSH client already available on the GitHub-hosted runner. It does not use password authentication, disable host-key checking, or depend on an unpinned third-party SSH action.
+
+The `production` Environment must define these secrets:
+
+- `PRODUCTION_SSH_HOST`: server IP address or resolvable hostname.
+- `PRODUCTION_SSH_PORT`: SSH port, normally `22`.
+- `PRODUCTION_SSH_USER`: restricted deployment user. It must be able to access `/opt/company-website` and run the required Docker commands.
+- `PRODUCTION_SSH_PRIVATE_KEY`: private key dedicated to GitHub Actions deployment.
+- `PRODUCTION_SSH_KNOWN_HOSTS`: verified `known_hosts` line obtained from the server/provider and checked out-of-band.
+
+The application secrets remain only in `/opt/company-website/.env.production` on the server. They are not copied into GitHub Actions and are never printed.
+
+## Remote deployment sequence
+
+After approval, the workflow connects to the host and executes a repository-owned deployment script with the release SHA:
+
+1. Enter `/opt/company-website` and verify `.env.production` exists.
+2. Reject tracked working-tree changes.
+3. Fetch `origin/main`, verify the requested SHA is the current remote `main`, and fast-forward the server checkout.
+4. Run `scripts/deployment-preflight.mjs` in the pinned Node 24 container.
+5. Validate `compose.production.yaml` with the existing environment file.
+6. Build the `backend` and `frontend` images with `--pull`.
+7. Start/update the production topology with `--wait --wait-timeout 300`.
+8. Verify backend readiness inside the private backend container.
+9. Verify the public `/healthz` endpoint.
+10. Run the existing public launch smoke test with `--public --wechat` in the pinned Node 24 container.
+
+On failure, the script prints container status and the last 200 lines from Caddy, frontend, and backend logs without printing `.env.production`. It does not delete volumes and does not attempt an unsafe automatic database rollback.
+
+## Implementation boundaries
+
+- Add `.github/workflows/deploy-production.yml` for orchestration and approval.
+- Add `scripts/deploy-production.sh` for the audited remote deployment sequence.
+- Add `scripts/deployment-cd.test.mjs` to enforce trigger, approval, SHA pinning, SSH host verification, safe Git behavior, health checks, and the absence of destructive volume operations.
+- Update the existing CI deployment-contract test command so every pull request validates the CD workflow and script.
+- Update `docs/DEPLOYMENT.md` with GitHub Environment setup, secret names, deploy-user requirements, first-run verification, and failure recovery.
+
+No application source code, database schema, production environment values, or business data will be changed.
+
+## Verification
+
+The implementation will run:
+
+- `node --test scripts/deployment-cd.test.mjs scripts/deployment-ci.test.mjs scripts/deployment-documentation.test.mjs`
+- the complete deployment contract test suite already used by CI;
+- YAML parsing through GitHub-compatible static assertions and the existing repository workflow checks;
+- `shellcheck` when available, otherwise `bash -n scripts/deploy-production.sh` plus behavior assertions;
+- `git diff --check`.
+
+The first real deployment remains pending until the repository owner configures the `production` Environment, required reviewers, and all five SSH secrets. The first approval should be observed while an operator is available to confirm container health and the course-detail route on the live site.
