@@ -4,6 +4,33 @@ import test from "node:test";
 import { parseEnv } from "./deployment-preflight.mjs";
 
 const script = readFileSync(new URL("./deploy-production.sh", import.meta.url), "utf8");
+const workflow = readFileSync(new URL("../.github/workflows/deploy-production.yml", import.meta.url), "utf8");
+
+test("production CD waits for successful main CI and environment approval", () => {
+  assert.match(workflow, /workflow_run:/);
+  assert.match(workflow, /workflows: \["CI"\]/);
+  assert.match(workflow, /branches: \[main\]/);
+  assert.match(workflow, /github\.event\.workflow_run\.conclusion == 'success'/);
+  assert.match(workflow, /github\.ref == 'refs\/heads\/main'/);
+  assert.match(workflow, /environment:\s*\n\s*name: production/);
+  assert.match(workflow, /cancel-in-progress: false/);
+});
+
+test("production CD verifies SSH identity and streams the exact release script", () => {
+  for (const secret of [
+    "PRODUCTION_SSH_HOST",
+    "PRODUCTION_SSH_PORT",
+    "PRODUCTION_SSH_USER",
+    "PRODUCTION_SSH_PRIVATE_KEY",
+    "PRODUCTION_SSH_KNOWN_HOSTS",
+  ]) assert.match(workflow, new RegExp(`secrets\\.${secret}`));
+  assert.match(workflow, /StrictHostKeyChecking=yes/);
+  assert.match(workflow, /actions\/checkout@v7/);
+  assert.match(workflow, /ref: \$\{\{ steps\.release\.outputs\.sha \}\}/);
+  assert.match(workflow, /bash -s -- '\$release_sha'/);
+  assert.match(workflow, /< scripts\/deploy-production\.sh/);
+  assert.doesNotMatch(workflow, /StrictHostKeyChecking=no|sshpass|password=/);
+});
 
 test("production deploy validates and advances to the exact release SHA", () => {
   assert.match(script, /\[\[ \$release_sha =~ \^\[0-9a-f\]\{40\}\$ \]\]/);

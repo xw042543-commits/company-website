@@ -1,0 +1,73 @@
+name: Deploy production
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    branches: [main]
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: production
+      url: https://yangdoujiao.com
+
+    steps:
+      - name: Select and validate release SHA
+        id: release
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CI_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          DISPATCH_SHA: ${{ github.sha }}
+        run: |
+          if [[ "$EVENT_NAME" == "workflow_run" ]]; then
+            release_sha="$CI_HEAD_SHA"
+          else
+            release_sha="$DISPATCH_SHA"
+          fi
+          [[ $release_sha =~ ^[0-9a-f]{40}$ ]] || { echo "A full release SHA is required" >&2; exit 64; }
+          printf 'sha=%s\n' "$release_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Check out exact release
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.release.outputs.sha }}
+
+      - name: Deploy release through verified SSH
+        shell: bash
+        env:
+          RELEASE_SHA: ${{ steps.release.outputs.sha }}
+          PRODUCTION_SSH_HOST: ${{ secrets.PRODUCTION_SSH_HOST }}
+          PRODUCTION_SSH_PORT: ${{ secrets.PRODUCTION_SSH_PORT }}
+          PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
+          PRODUCTION_SSH_PRIVATE_KEY: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+          PRODUCTION_SSH_KNOWN_HOSTS: ${{ secrets.PRODUCTION_SSH_KNOWN_HOSTS }}
+        run: |
+          umask 077
+          printf '%s\n' "$PRODUCTION_SSH_PRIVATE_KEY" > "$RUNNER_TEMP/production_deploy_key"
+          printf '%s\n' "$PRODUCTION_SSH_KNOWN_HOSTS" > "$RUNNER_TEMP/production_known_hosts"
+          chmod 600 "$RUNNER_TEMP/production_deploy_key" "$RUNNER_TEMP/production_known_hosts"
+          release_sha="$RELEASE_SHA"
+          ssh -i "$RUNNER_TEMP/production_deploy_key" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o UserKnownHostsFile="$RUNNER_TEMP/production_known_hosts" \
+            -p "$PRODUCTION_SSH_PORT" \
+            "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
+            "bash -s -- '$release_sha'" \
+            < scripts/deploy-production.sh
