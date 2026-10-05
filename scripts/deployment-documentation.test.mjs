@@ -29,6 +29,22 @@ test("deployment runbook covers validation, startup, checks, immutable updates, 
   assert.match(document, /remove[^\n]*client[^\n]*forwarded headers/i);
 });
 
+test("production CD runbook covers operator setup and SSH host verification", () => {
+  const document = read("docs/DEPLOYMENT.md");
+  for (const value of [
+    "production Environment",
+    "required reviewers",
+    "PRODUCTION_SSH_HOST",
+    "PRODUCTION_SSH_PORT",
+    "PRODUCTION_SSH_USER",
+    "PRODUCTION_SSH_PRIVATE_KEY",
+    "PRODUCTION_SSH_KNOWN_HOSTS",
+    "ssh-keyscan",
+    "/opt/company-website",
+  ]) assert.match(document, new RegExp(value));
+  assert.match(document, /Never disable SSH host-key checking/);
+});
+
 test("recovery runbook covers PostgreSQL rehearsal and derived-service recovery", () => {
   const document = read("docs/BACKUP_AND_RESTORE.md");
   for (const pattern of [

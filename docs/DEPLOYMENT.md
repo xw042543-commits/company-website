@@ -26,6 +26,30 @@ docker compose --env-file .env.production -f compose.production.yaml config --qu
 
 Both commands must pass before deployment.
 
+## GitHub production CD
+
+The repository owner must create a `production Environment` in GitHub under **Settings → Environments → New environment**. Under its deployment protection rules, enable **required reviewers** and select the people or team authorized to approve production releases. This is a required GitHub-side setup step: the workflow's `environment: production` declaration alone does not configure reviewers or enforce approval. Restrict deployment branches to `main` in the Environment settings as an additional guard. Confirm the protection rules are active before enabling the first deployment.
+
+Add these five **Environment secrets** to `production` under **Environment secrets** (not repository or organization secrets):
+
+| Secret | Purpose |
+| --- | --- |
+| `PRODUCTION_SSH_HOST` | VPS DNS name or IP address reached by the runner. |
+| `PRODUCTION_SSH_PORT` | SSH port on that VPS. |
+| `PRODUCTION_SSH_USER` | Dedicated deploy account on the VPS. |
+| `PRODUCTION_SSH_PRIVATE_KEY` | Private half of a dedicated SSH deploy key for this workflow; preserve its multiline format. |
+| `PRODUCTION_SSH_KNOWN_HOSTS` | Verified OpenSSH `known_hosts` entry for that host and port. |
+
+These are SSH connection credentials only. Keep application passwords, API keys, and all other application configuration in the server-only `/opt/company-website/.env.production`; do not copy `.env.production` or application secrets into GitHub. Keep that file out of Git and readable only by the deploy account. The server's `.env.production` must already pass the preflight and Compose configuration checks above.
+
+Create a new SSH key pair dedicated to this deploy account and workflow. Install **only its public key** in the deploy account's `~/.ssh/authorized_keys` on the VPS; save its private key only as `PRODUCTION_SSH_PRIVATE_KEY` in the GitHub Environment. Do not reuse a personal SSH key. The deploy account must have a clean `main` checkout at `/opt/company-website`, noninteractive read access to its `origin` Git remote, permission to fast-forward that checkout, and permission to run Docker and Compose without `sudo` or interactive prompts. As that account, verify `git -C /opt/company-website status --short`, `git -C /opt/company-website fetch --dry-run origin main`, and `docker info` succeed before the first run. Set up and test the server-only `.env.production` in that checkout separately; a workflow never uploads or creates it.
+
+Collect the SSH host key from a trusted workstation using `ssh-keyscan -p <port> <host>`. Compare the resulting key fingerprint with the fingerprint shown by the VPS control panel or another independently trusted server channel before saving the matching OpenSSH line as `PRODUCTION_SSH_KNOWN_HOSTS`. Do not trust the output of `ssh-keyscan` alone. For a nondefault SSH port, retain its `[host]:port` prefix exactly as emitted. Never disable SSH host-key checking to work around a mismatch; investigate a changed key before updating the Environment secret.
+
+After a successful CI run for a push to `main`, open **Actions → Deploy production**. The deploy job should wait for the configured Environment reviewer; an authorized reviewer approves the pending deployment only after checking the release SHA, backup readiness, and production change. Watch the job through its exact-release checkout, server preflight, Compose build/start, readiness check, and launch smoke check. `workflow_dispatch` can also start a run from `main` when a manual deployment is needed; it uses the selected release SHA from that branch.
+
+If a run fails, inspect its Actions log. The server script automatically captures `docker compose ps` and the last 200 lines of Caddy, frontend, and backend logs on a failed command. Use that context to identify the failing stage without printing `.env.production`; handle logs as potentially sensitive operational data. For manual recovery, follow **Update and application rollback** below and the backup guidance linked there. Restore the previous immutable application image tags when appropriate, repeat health and smoke checks, and never delete named volumes during routine recovery. A database migration requires its separately reviewed recovery plan.
+
 ## HTTPS proxy boundary
 
 The public Caddy HTTPS reverse proxy connects to the private `frontend:3000` service; never publish or proxy the frontend or backend port directly. Before forwarding a request, Caddy removes all client-supplied forwarded headers (`Forwarded` and `X-Forwarded-*`), sets exactly one `X-Forwarded-Proto: https` header, and sets exactly one `X-Forwarded-For` value from the direct client address. The frontend forwards that single client address to the backend from its fixed trusted address. This boundary preserves per-client rate limits without allowing clients to forge trusted proxy metadata.
