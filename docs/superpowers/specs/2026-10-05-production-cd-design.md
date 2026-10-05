@@ -39,7 +39,7 @@ The application secrets remain only in `/opt/company-website/.env.production` on
 
 ## Remote deployment sequence
 
-After approval, the workflow connects to the host and executes a repository-owned deployment script with the release SHA:
+After approval, the workflow checks out the exact release SHA and streams that revision's repository-owned deployment script to the host with the release SHA. This avoids relying on an older or missing copy of the script in the pre-deployment server checkout. The streamed script then:
 
 1. Enter `/opt/company-website` and verify `.env.production` exists.
 2. Reject tracked working-tree changes.
