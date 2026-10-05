@@ -17,6 +17,7 @@ test("CI validates deployment contracts and Compose configuration", () => {
     "deployment-artifacts.test.mjs",
     "deployment-compose.test.mjs",
     "deployment-ci.test.mjs",
+    "deployment-cd.test.mjs",
     "deployment-documentation.test.mjs",
   ]) assert.match(workflow, new RegExp(`scripts/${file.replaceAll(".", "\\.")}`));
   assert.match(workflow, /node scripts\/deployment-preflight\.mjs/);

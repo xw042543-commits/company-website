@@ -164,7 +164,7 @@ jobs:
 
       - name: Validate deployment contracts
         run: |
-          node --test scripts/deployment-preflight.test.mjs scripts/deployment-artifacts.test.mjs scripts/deployment-compose.test.mjs scripts/deployment-ci.test.mjs scripts/deployment-documentation.test.mjs
+          node --test scripts/deployment-preflight.test.mjs scripts/deployment-artifacts.test.mjs scripts/deployment-compose.test.mjs scripts/deployment-ci.test.mjs scripts/deployment-cd.test.mjs scripts/deployment-documentation.test.mjs
           node scripts/deployment-preflight.mjs "$RUNNER_TEMP/deployment.env"
 
       - name: Validate public Caddy domain configuration
