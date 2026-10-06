@@ -115,8 +115,14 @@ export function AccountPanel({ locale }: { locale: Locale }) {
       </div>
       <button type="button" className="secondary" disabled={pendingAction !== null} onClick={handleLogout}>{pendingAction === "logout" ? words(locale, "正在退出…", "Signing out…") : words(locale, "退出登录", "Sign out")}</button>
       <dl>
-        <div><dt>{words(locale, "邮箱", "Email")}</dt><dd>{account.email ?? words(locale, "未设置", "Not set")} · {account.emailVerified ? words(locale, "已验证", "Verified") : words(locale, "未验证", "Not verified")}</dd></div>
-        <div><dt>{words(locale, "手机", "Phone")}</dt><dd>{account.phone ?? words(locale, "未设置", "Not set")} · {account.phoneVerified ? words(locale, "已验证", "Verified") : words(locale, "未验证", "Not verified")}</dd></div>
+        <div><dt>{words(locale, "邮箱", "Email")}</dt><dd className="account-contact-detail">
+          <span>{account.email ?? words(locale, "未设置", "Not set")}</span>
+          {account.email ? <VerificationStatus locale={locale} verified={account.emailVerified} /> : null}
+        </dd></div>
+        <div><dt>{words(locale, "手机", "Phone")}</dt><dd className="account-contact-detail">
+          <span>{account.phone ?? words(locale, "未设置", "Not set")}</span>
+          {account.phone ? <VerificationStatus locale={locale} verified={account.phoneVerified} /> : null}
+        </dd></div>
         <div><dt>{words(locale, "微信", "WeChat")}</dt><dd className="account-provider-detail">
           <strong className={account.wechatLinked ? "is-linked" : undefined}>{account.wechatLinked ? words(locale, "已绑定", "Linked") : words(locale, "未绑定", "Not linked")}</strong>
           {account.wechatDisplayName && account.wechatDisplayName !== account.fullName ? <span>{account.wechatDisplayName}</span> : null}
@@ -149,4 +155,12 @@ export function AccountPanel({ locale }: { locale: Locale }) {
     </section></>}
     {message && <p className={`login-status auth-status-${message.tone}`} role={message.tone === "error" ? "alert" : "status"} aria-live="polite">{message.text}</p>}
   </div>;
+}
+
+function VerificationStatus({ locale, verified }: { locale: Locale; verified: boolean }) {
+  if (!verified) return <span className="account-verification">{words(locale, "未验证", "Not verified")}</span>;
+  return <span className="account-verification is-verified">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3.1 8.2 3 3.1 6.8-7" /></svg>
+    <span>{words(locale, "已验证", "Verified")}</span>
+  </span>;
 }

@@ -754,6 +754,10 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .account-summary dl > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .account-summary dt { color: var(--muted); }
 .account-summary dd { min-width: 0; margin: 0; color: var(--brand-deep); overflow-wrap: anywhere; }
+.account-contact-detail { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 12px; }
+.account-verification { color: var(--muted); font-size: .82rem; }
+.account-verification.is-verified { display: inline-flex; align-items: center; gap: 5px; color: #24725e; font-weight: 740; }
+.account-verification.is-verified svg { width: 16px; height: 16px; flex: 0 0 auto; padding: 2px; border-radius: 50%; stroke: currentColor; stroke-width: 2.2; fill: none; background: #dcefe8; }
 .account-provider-detail { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; }
 .account-provider-detail strong { font-weight: 760; }
 .account-provider-detail strong.is-linked { color: var(--brand-action); }

@@ -233,6 +233,9 @@ test("account summary shows a safe WeChat connection status", () => {
   assert.match(account, /account\.wechatLastLoginAt/);
   assert.match(account, /account\.wechatAvatarUrl/);
   assert.match(account, /account-profile-avatar/);
+  assert.match(account, /VerificationStatus/);
+  assert.match(account, /account-verification is-verified/);
+  assert.match(account, /已验证/);
   assert.match(account, /已绑定/);
   assert.match(account, /最近登录/);
   assert.doesNotMatch(account, /providerSubject|providerClientId|openid/i);
