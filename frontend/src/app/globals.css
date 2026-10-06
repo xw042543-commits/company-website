@@ -1186,15 +1186,15 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .auth-portal-heading h1 { max-width: none; margin-bottom: 10px; font-size: clamp(2.15rem, 4.2vw, 4rem); letter-spacing: -.035em; }
 .auth-portal-heading p { margin: 0; color: #49645d; font-size: clamp(.98rem, 1.4vw, 1.12rem); }
 .auth-login-card { width: min(100%, 1080px); min-height: 500px; margin-inline: auto; border: 1px solid rgb(74 125 111 / 18%); border-radius: 14px; overflow: hidden; background: rgb(253 252 248 / 94%); box-shadow: 0 22px 70px rgb(22 66 56 / 13%); }
-.auth-account-layout { display: grid; grid-template-columns: minmax(290px, .82fr) minmax(0, 1.38fr); min-height: 500px; }
+.auth-account-layout { display: grid; grid-template-columns: minmax(390px, .9fr) minmax(0, 1.1fr); min-height: 500px; }
 .auth-account-layout-focused { grid-template-columns: minmax(0, 620px); justify-content: center; }
 .auth-form-column { min-width: 0; padding: clamp(34px, 5vw, 58px); }
 .auth-qr-column { min-width: 0; display: flex; flex-direction: column; align-items: center; padding: clamp(34px, 4vw, 54px); border-right: 1px solid var(--line); text-align: center; background: rgb(235 244 240 / 76%); }
 .auth-column-label { margin-bottom: 7px; color: var(--brand-action); font-size: .78rem; font-weight: 780; letter-spacing: .04em; }
 .auth-qr-column h2, .auth-form-column h2 { margin-bottom: 0; font-size: clamp(1.55rem, 2.4vw, 2.15rem); }
-.wechat-qr-frame { position: relative; width: 300px; max-width: 100%; height: 272px; display: grid; place-items: start center; margin: 24px auto 18px; overflow: hidden; border: 1px solid #abc5bc; border-radius: 14px; background: #fff; box-shadow: 0 12px 30px rgb(21 63 54 / 9%); }
-.wechat-login-container { width: 300px; max-width: 100%; height: 400px; display: grid; place-items: center; overflow: hidden; }
-.wechat-login-container iframe { display: block; width: 300px !important; max-width: 100%; height: 400px !important; margin-inline: auto; border: 0; }
+.wechat-qr-frame { position: relative; width: 324px; max-width: 100%; height: 412px; display: grid; place-items: center; margin: 22px auto 20px; overflow: hidden; border: 1px solid #b7ccc5; border-radius: 12px; background: #fff; box-shadow: 0 14px 34px rgb(21 63 54 / 8%); }
+.wechat-login-container { width: 300px; max-width: 100%; height: 400px; display: grid; place-items: center; overflow: hidden; background: #fff; }
+.wechat-login-container iframe { display: block; width: 300px !important; max-width: 100%; height: 400px !important; margin-inline: auto; border: 0; background: #fff; }
 .wechat-qr-status, .wechat-qr-error { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; padding: 24px; color: var(--muted); font-size: .82rem; text-align: center; background: #fff; }
 .wechat-qr-frame.is-loading .wechat-qr-status::before { content: ""; position: absolute; top: calc(50% - 34px); width: 24px; height: 24px; border: 3px solid #d8e5e1; border-top-color: var(--brand-action); border-radius: 50%; animation: wechat-qr-spin .8s linear infinite; }
 .wechat-qr-error { align-content: center; gap: 14px; color: #8f302d; background: #fff8f6; }
@@ -1203,8 +1203,8 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .wechat-qr-error button:hover { color: #fff; background: var(--brand-deep); }
 @keyframes wechat-qr-spin { to { transform: rotate(1turn); } }
 .wechat-login-copy { text-align: center; }
-.wechat-login-copy strong { color: var(--brand-deep); }
-.wechat-login-copy p { max-width: 32ch; margin: 8px auto 16px; color: var(--muted); font-size: .82rem; }
+.wechat-login-copy strong { display: block; color: var(--brand-deep); font-size: .96rem; }
+.wechat-login-copy p { max-width: 34ch; margin: 8px auto 16px; color: var(--muted); font-size: .84rem; line-height: 1.7; }
 .wechat-login-copy .wechat-legal-consent { max-width: 34ch; margin-top: -6px; font-size: .74rem; line-height: 1.65; }
 .wechat-legal-consent a { color: var(--brand-action); font-weight: 720; }
 .wechat-login-button, .wechat-login-disabled { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 9px 16px; border: 1px solid var(--brand-action); border-radius: 8px; font-size: .82rem; font-weight: 760; text-decoration: none; }
@@ -1306,6 +1306,8 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .auth-form-heading { align-items: flex-start; }
   .auth-form-heading a, .auth-form-switch { max-width: 96px; line-height: 1.25; text-align: right; white-space: normal; }
   .account-login-form .login-method-tabs { width: 100%; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .auth-qr-column { padding-inline: 12px; }
+  .wechat-qr-frame { width: 304px; height: 404px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
