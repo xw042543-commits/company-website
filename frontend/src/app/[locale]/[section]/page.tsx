@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
@@ -44,6 +45,12 @@ const sectionCopy = {
   },
 } as const;
 
+const newsChannels = [
+  ["留学政策", "Study abroad policies"],
+  ["院校动态", "University updates"],
+  ["洋豆角资讯", "UDAJO news"],
+] as const;
+
 type ContentSectionProps = {
   params: Promise<{ locale: string; section: string }>;
   searchParams: Promise<Query>;
@@ -82,6 +89,10 @@ export default async function ContentSection({ params, searchParams }: ContentSe
       sectionCopy[section].description[1],
     )}</p>
 
+    {section === "news" && <nav className="news-channel-nav" aria-label={words(locale, "留学资讯栏目", "News categories")}>
+      <ul>{newsChannels.map(([zh, en]) => <li key={zh}>{words(locale, zh, en)}</li>)}</ul>
+    </nav>}
+
     {result.status === "error"
       ? <div className="results-state" role="alert">
         <span className="state-symbol" aria-hidden="true">!</span>
@@ -103,11 +114,16 @@ export default async function ContentSection({ params, searchParams }: ContentSe
               `${result.page.totalItems} articles`,
             )}</span>
           </div>
-          <div className="article-list">
+          <div className={`article-list${section === "scholarships" ? " scholarship-article-grid" : ""}`} id={`${section}-articles`}>
             {result.page.items.map((article) => {
               const localized = localizeArticleSummary(article, locale);
               const articlePath = `${sectionPath}/${encodeURIComponent(article.slug)}`;
               return <article className="article-card" key={`${article.section}/${article.slug}`}>
+                {section === "scholarships" && <Link className="article-card-media" href={articlePath} aria-label={localized.title.text}>
+                  {article.coverPath
+                    ? <Image src={article.coverPath} alt="" fill sizes="(max-width: 760px) 100vw, (max-width: 1120px) 50vw, 25vw" />
+                    : <span aria-hidden="true">{words(locale, "奖学金资讯", "Scholarship update")}</span>}
+                </Link>}
                 <p className="article-date">
                   <time dateTime={article.publishedAt}>{formatPublishedDate(article.publishedAt, locale)}</time>
                 </p>
