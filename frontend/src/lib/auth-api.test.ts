@@ -204,6 +204,8 @@ test("loads and strictly validates the masked account profile", async () => {
     phone: null,
     emailVerified: true,
     phoneVerified: false,
+    wechatLinked: true,
+    wechatLastLoginAt: "2026-10-06T08:30:00Z",
     createdAt: "2026-09-28T10:00:00Z",
   };
   const valid = requestQueue([jsonResponse(account)]);

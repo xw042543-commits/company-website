@@ -100,6 +100,9 @@ export function AccountPanel({ locale }: { locale: Locale }) {
 
   if (loading) return <p className="login-status" role="status" aria-live="polite">{words(locale, "正在载入账户…", "Loading your account…")}</p>;
   if (!account) return message && <p className="login-status auth-status-error" role="alert">{message.text}</p>;
+  const wechatLastLogin = account.wechatLastLoginAt
+    ? new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB", { dateStyle: "medium", timeStyle: "short" }).format(new Date(account.wechatLastLoginAt))
+    : null;
 
   return <div className="account-panel">
     <section className="account-summary" aria-labelledby="account-summary-title">
@@ -108,6 +111,10 @@ export function AccountPanel({ locale }: { locale: Locale }) {
       <dl>
         <div><dt>{words(locale, "邮箱", "Email")}</dt><dd>{account.email ?? words(locale, "未设置", "Not set")} · {account.emailVerified ? words(locale, "已验证", "Verified") : words(locale, "未验证", "Not verified")}</dd></div>
         <div><dt>{words(locale, "手机", "Phone")}</dt><dd>{account.phone ?? words(locale, "未设置", "Not set")} · {account.phoneVerified ? words(locale, "已验证", "Verified") : words(locale, "未验证", "Not verified")}</dd></div>
+        <div><dt>{words(locale, "微信", "WeChat")}</dt><dd className="account-provider-detail">
+          <strong className={account.wechatLinked ? "is-linked" : undefined}>{account.wechatLinked ? words(locale, "已绑定", "Linked") : words(locale, "未绑定", "Not linked")}</strong>
+          {wechatLastLogin ? <span>{words(locale, "最近登录", "Last sign-in")} {wechatLastLogin}</span> : null}
+        </dd></div>
       </dl>
       {demoAccount && <p className="demo-account-note">{words(locale, "这是仅用于本地测试的演示账户，不会保存任何账户更改。", "This local demo account is for testing only and does not save account changes.")}</p>}
     </section>

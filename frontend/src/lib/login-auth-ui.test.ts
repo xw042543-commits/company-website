@@ -223,3 +223,12 @@ test("local demo accounts load a profile without exposing production account act
   assert.match(route, /export async function GET/);
   assert.match(route, /UDAJO Demo Student/);
 });
+
+test("account summary shows a safe WeChat connection status", () => {
+  const account = read("../components/account-panel.tsx");
+  assert.match(account, /account\.wechatLinked/);
+  assert.match(account, /account\.wechatLastLoginAt/);
+  assert.match(account, /已绑定/);
+  assert.match(account, /最近登录/);
+  assert.doesNotMatch(account, /providerSubject|providerClientId|openid/i);
+});

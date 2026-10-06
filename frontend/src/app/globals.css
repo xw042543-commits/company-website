@@ -751,6 +751,10 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .account-summary dl > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .account-summary dt { color: var(--muted); }
 .account-summary dd { min-width: 0; margin: 0; color: var(--brand-deep); overflow-wrap: anywhere; }
+.account-provider-detail { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; }
+.account-provider-detail strong { font-weight: 760; }
+.account-provider-detail strong.is-linked { color: var(--brand-action); }
+.account-provider-detail span { color: var(--muted); font-size: .86rem; }
 .demo-account-note { grid-column: 1 / -1; margin: 0; padding: 12px 14px; border: 1px solid #e3d4a8; border-radius: var(--radius-sm); background: #fff9e8; color: var(--muted); font-size: .84rem; }
 .account-section form { max-width: 540px; margin-top: 24px; }
 .saved-items-section { border-color: #ded0a5; background: linear-gradient(145deg, #fffdf7, #f8f0dc); }

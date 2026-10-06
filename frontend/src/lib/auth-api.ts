@@ -11,6 +11,8 @@ export type AccountProfile = {
   phone: string | null;
   emailVerified: boolean;
   phoneVerified: boolean;
+  wechatLinked: boolean;
+  wechatLastLoginAt: string | null;
   createdAt: string;
 };
 
@@ -121,13 +123,16 @@ function parseSession(payload: unknown): AuthSession | null {
 
 function parseAccount(payload: unknown): AccountProfile | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "createdAt"])
+    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatLastLoginAt", "createdAt"])
     || !isPositiveInteger(payload.id)
     || typeof payload.fullName !== "string" || !payload.fullName.trim()
     || !isNullableString(payload.email)
     || !isNullableString(payload.phone)
     || typeof payload.emailVerified !== "boolean"
     || typeof payload.phoneVerified !== "boolean"
+    || typeof payload.wechatLinked !== "boolean"
+    || !isNullableString(payload.wechatLastLoginAt)
+    || (payload.wechatLastLoginAt !== null && Number.isNaN(Date.parse(payload.wechatLastLoginAt)))
     || typeof payload.createdAt !== "string"
     || Number.isNaN(Date.parse(payload.createdAt))) return null;
   return payload as AccountProfile;

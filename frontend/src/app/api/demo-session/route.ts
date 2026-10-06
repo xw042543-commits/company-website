@@ -14,6 +14,8 @@ export async function GET() {
     phone: null,
     emailVerified: true,
     phoneVerified: false,
+    wechatLinked: false,
+    wechatLastLoginAt: null,
     createdAt: "2026-09-30T00:00:00.000Z",
   });
 }
@@ -37,4 +39,3 @@ export async function DELETE() {
   response.cookies.set(DEMO_SESSION_COOKIE, "", { httpOnly: true, sameSite: "lax", path: "/", maxAge: 0 });
   return response;
 }
-
