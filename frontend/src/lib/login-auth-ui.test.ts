@@ -92,13 +92,13 @@ test("WeChat QR access embeds the official scanner for direct sign-in or registr
   assert.doesNotMatch(wechat, /fake qr|demo session|startDemoSession/i);
 });
 
-test("WeChat's official iframe stays centered and remains fully visible in every login state", () => {
+test("WeChat's official iframe stays centered while its empty lower canvas is cropped", () => {
   const css = read("../app/globals.css");
   assert.match(css, /\.auth-qr-column\s*\{[^}]*display:\s*flex[^}]*align-items:\s*center[^}]*text-align:\s*center/);
-  assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*324px[^}]*max-width:\s*100%[^}]*height:\s*412px[^}]*overflow:\s*hidden/);
+  assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*260px[^}]*overflow:\s*hidden/);
   assert.match(css, /\.wechat-login-container\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*400px/);
   assert.match(css, /\.wechat-login-container iframe\s*\{[^}]*display:\s*block[^}]*width:\s*300px\s*!important[^}]*margin-inline:\s*auto/);
-  assert.match(css, /@media \(max-width:\s*420px\)[\s\S]*\.wechat-qr-frame\s*\{[^}]*width:\s*304px[^}]*height:\s*404px/);
+  assert.match(css, /@media \(max-width:\s*420px\)[\s\S]*\.wechat-qr-frame\s*\{[^}]*width:\s*300px[^}]*height:\s*260px/);
 });
 
 test("account forms submit to the real versioned authentication client and isolate local demo access", () => {
