@@ -145,14 +145,17 @@ export function WechatQrPanel({ locale, returnTo: requestedReturnTo }: {
       <span>{words(locale, "微信官方登录", "Official WeChat sign-in")}</span>
     </div>
     <div className="wechat-login-copy">
-      <strong>{words(locale, "扫码后直接登录", "Scan to sign in directly")}</strong>
-      <p>{words(locale, "首次扫码将自动创建账户，无需填写邮箱或密码。", "Your first scan creates an account automatically, with no email or password required.")}</p>
+      <strong>{words(locale, "扫码即可登录", "Scan to sign in")}</strong>
+      <p className="wechat-login-note">{words(locale, "首次使用将自动创建账户，无需邮箱或密码。", "Your first scan creates an account. No email or password needed.")}</p>
+      <a className="wechat-login-fallback" href={href}>
+        {words(locale, "二维码无法识别？在微信中打开", "QR code not working? Open in WeChat")}
+        <span aria-hidden="true">↗</span>
+      </a>
       <p className="wechat-legal-consent">
         {words(locale, "扫码即表示您同意", "By scanning, you agree to the")} <Link href={`/${locale}/terms`}>{words(locale, "用户协议", "User Agreement")}</Link>
         {words(locale, " 和 ", " and ")}<Link href={`/${locale}/privacy`}>{words(locale, "隐私政策", "Privacy Policy")}</Link>
         {words(locale, "。", ".")}
       </p>
-      <a className="wechat-login-button" href={href}>{words(locale, "无法扫码？打开微信登录", "Can't scan? Open WeChat sign-in")}</a>
     </div>
   </aside>;
 }

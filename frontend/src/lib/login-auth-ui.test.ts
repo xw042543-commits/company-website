@@ -87,6 +87,8 @@ test("WeChat QR access embeds the official scanner for direct sign-in or registr
   assert.match(wechat, /\/privacy/);
   assert.match(wechat, /\/terms/);
   assert.match(wechat, /扫码即表示您同意/);
+  assert.match(wechat, /wechat-login-fallback/);
+  assert.match(wechat, /二维码无法识别？在微信中打开/);
   assert.doesNotMatch(panel, /WechatBindForm|"wechat-bind"/);
   assert.doesNotMatch(page, /"wechat-bind"/);
   assert.match(page, /wechatError/);

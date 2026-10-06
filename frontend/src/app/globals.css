@@ -1217,10 +1217,13 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .wechat-qr-error button { min-height: 44px; padding: 8px 16px; border: 1px solid var(--brand-action); border-radius: 8px; color: var(--brand-action); background: #fff; font: inherit; font-weight: 760; cursor: pointer; }
 .wechat-qr-error button:hover { color: #fff; background: var(--brand-deep); }
 @keyframes wechat-qr-spin { to { transform: rotate(1turn); } }
-.wechat-login-copy { text-align: center; }
-.wechat-login-copy strong { display: block; color: var(--brand-deep); font-size: .96rem; }
-.wechat-login-copy p { max-width: 34ch; margin: 8px auto 16px; color: var(--muted); font-size: .84rem; line-height: 1.7; }
-.wechat-login-copy .wechat-legal-consent { max-width: 34ch; margin-top: -6px; font-size: .74rem; line-height: 1.65; }
+.wechat-login-copy { width: min(100%, 320px); display: grid; justify-items: center; text-align: center; }
+.wechat-login-copy > strong { color: var(--brand-deep); font-size: 1rem; }
+.wechat-login-copy .wechat-login-note { max-width: 31ch; margin: 6px auto 0; color: #526c65; font-size: .84rem; line-height: 1.6; text-wrap: pretty; }
+.wechat-login-fallback { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding-inline: 8px; color: var(--brand-action); font-size: .82rem; font-weight: 760; text-decoration: underline; text-decoration-color: rgb(56 126 108 / 35%); text-underline-offset: 4px; }
+.wechat-login-fallback:hover { color: var(--brand-deep); text-decoration-color: currentColor; }
+.wechat-login-fallback:focus-visible { border-radius: 4px; outline: 3px solid rgb(56 126 108 / 24%); outline-offset: 2px; }
+.wechat-login-copy .wechat-legal-consent { max-width: 34ch; margin: 4px auto 0; color: #627972; font-size: .74rem; line-height: 1.6; }
 .wechat-legal-consent a { color: var(--brand-action); font-weight: 720; }
 .wechat-login-button, .wechat-login-disabled { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 9px 16px; border: 1px solid var(--brand-action); border-radius: 8px; font-size: .82rem; font-weight: 760; text-decoration: none; }
 .wechat-login-disabled { border-color: #bdcec8; color: #687d76; background: rgb(255 255 255 / 55%); }
