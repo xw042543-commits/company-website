@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -25,6 +28,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yangdoujiao.website.common.api.ApiErrorResponse;
 import com.yangdoujiao.website.common.web.RequestTraceFilter;
+
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
 
 class GlobalExceptionHandlerTest {
 
@@ -58,6 +65,32 @@ class GlobalExceptionHandlerTest {
         assertThat(response.getBody().code()).isEqualTo("INTERNAL_ERROR");
         assertThat(response.getBody().message()).isEqualTo("An unexpected error occurred");
         assertThat(response.getBody().toString()).doesNotContain("database password");
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "/status"})
+    void unexpectedCommitErrorsRedactConsultationReferenceAndHashUntrustedTrace(String suffix) {
+        String reference = "00000000-0000-0000-0000-000000000123";
+        MockHttpServletRequest request = new MockHttpServletRequest("PATCH",
+                "/site/api/v1/adviser/consultations/" + reference + suffix);
+        request.setContextPath("/site");
+        request.setAttribute(RequestTraceFilter.TRACE_ID_ATTRIBUTE, reference);
+        Logger logger = (Logger) LoggerFactory.getLogger(GlobalExceptionHandler.class);
+        ListAppender<ILoggingEvent> logs = new ListAppender<>();
+        logs.start();
+        logger.addAppender(logs);
+        try {
+            var response = handler.handleUnexpected(
+                    new org.springframework.transaction.TransactionSystemException("private commit failure"), request);
+            assertThat(response.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+            assertThat(logs.list).hasSize(1);
+            assertThat(logs.list.getFirst().getFormattedMessage())
+                    .contains("/site/api/v1/adviser/consultations/[redacted]" + suffix, "traceId=sha256:")
+                    .doesNotContain(reference, "private commit failure");
+        } finally {
+            logger.detachAppender(logs);
+            logs.stop();
+        }
     }
 
     @Test

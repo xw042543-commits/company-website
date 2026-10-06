@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 
 import com.yangdoujiao.website.common.api.ApiErrorResponse;
+import com.yangdoujiao.website.auth.AuthHash;
 import com.yangdoujiao.website.common.web.RequestTraceFilter;
 import com.yangdoujiao.website.search.v4.SearchValidationException;
 import com.yangdoujiao.website.search.v4.SearchServiceUnavailableException;
@@ -128,12 +129,18 @@ public class GlobalExceptionHandler {
             Exception exception,
             HttpServletRequest request
     ) {
+        String requestUri = request.getRequestURI();
+        Object traceId = request.getAttribute(RequestTraceFilter.TRACE_ID_ATTRIBUTE);
+        if (requestUri.contains("/api/v1/adviser/consultations/")) {
+            requestUri = requestUri.replaceFirst("(/api/v1/adviser/consultations/)[^/]+", "$1[redacted]");
+            traceId = traceId == null ? "unavailable" : "sha256:" + AuthHash.sha256(traceId.toString());
+        }
         log.error(
                 "Unhandled exception type={} for {} {} traceId={}",
                 exception.getClass().getName(),
                 request.getMethod(),
-                request.getRequestURI(),
-                request.getAttribute(RequestTraceFilter.TRACE_ID_ATTRIBUTE)
+                requestUri,
+                traceId
         );
 
         return buildResponse(

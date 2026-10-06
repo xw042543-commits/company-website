@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
@@ -31,13 +33,24 @@ class ConsultationAuditLoggerTest {
             assertThat(captured.list.getFirst().getFormattedMessage())
                     .contains("event=consultation_status_update", "outcome=SUCCEEDED", "actorId=42",
                             "referenceHash=fc4ce5c20a6cd10567936d02f6c47d4f0ab86fa5d2b96a3bfc60af84aa8f94e4",
-                            "priorStatus=NEW", "newStatus=IN_PROGRESS", "traceId=status-trace-123")
+                            "priorStatus=NEW", "newStatus=IN_PROGRESS", "traceId=sha256:")
                     .doesNotContain("00000000-0000-0000-0000-000000000123", "Lim", "lim@example.test",
                             "School", "Course", "Submitted notes");
         } finally {
             logger.detachAppender(captured);
             captured.stop();
         }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"/api/v1/adviser/consultations/status", "/api/v1/adviser/consultations//status"})
+    void malformedStatusPathWithoutReferenceDoesNotThrowOrPreventDownstreamHandling(String path) {
+        var request = new org.springframework.mock.web.MockHttpServletRequest("PATCH", path);
+        var response = new org.springframework.mock.web.MockHttpServletResponse();
+        org.assertj.core.api.Assertions.assertThatCode(() -> new ConsultationAuditLogger().doFilter(request, response,
+                (incoming, outgoing) -> ((jakarta.servlet.http.HttpServletResponse) outgoing).setStatus(404)))
+                .doesNotThrowAnyException();
+        assertThat(response.getStatus()).isEqualTo(404);
     }
 
     @Test

@@ -43,13 +43,15 @@ public class ConsultationAuditLogger extends OncePerRequestFilter {
                 safe(outcome), actorId == null ? "unknown" : actorId,
                 reference == null ? "unknown" : AuthHash.sha256(reference.toString()),
                 priorStatus == null ? "unknown" : priorStatus.name(),
-                newStatus == null ? "unknown" : newStatus.name(), safe(traceId));
+                newStatus == null ? "unknown" : newStatus.name(),
+                traceId == null ? "unknown" : "sha256:" + AuthHash.sha256(traceId));
     }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI().substring(request.getContextPath().length());
         return !request.getMethod().equals("PATCH") || !path.startsWith(PREFIX) || !path.endsWith(SUFFIX)
+                || path.length() <= PREFIX.length() + SUFFIX.length()
                 || path.substring(PREFIX.length(), path.length() - SUFFIX.length()).contains("/");
     }
 

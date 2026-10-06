@@ -62,6 +62,7 @@ class AdviserConsultationStatusHttpIntegrationTest {
     void setUp() {
         store.enquiry = AdviserConsultationServiceTest.fixture();
         store.loseRace = false;
+        store.failAt = null;
         mvc = MockMvcBuilders.webAppContextSetup(context).addFilters(new RequestTraceFilter(), context.getBean(ConsultationAuditLogger.class))
                 .apply(springSecurity()).build();
         UserAccount account = UserAccount.external("Adviser", "terms-v1", "privacy-v1");
@@ -194,7 +195,7 @@ class AdviserConsultationStatusHttpIntegrationTest {
                 .andExpect(status().isForbidden());
         assertThat(logs.list).hasSize(6);
         assertThat(logs.list).extracting(ILoggingEvent::getFormattedMessage)
-                .anySatisfy(message -> assertThat(message).contains("outcome=SUCCEEDED", "actorId=42", "traceId=safe-audit-trace"))
+                .anySatisfy(message -> assertThat(message).contains("outcome=SUCCEEDED", "actorId=42", "traceId=sha256:"))
                 .anySatisfy(message -> assertThat(message).contains("outcome=CONFLICT", "priorStatus=IN_PROGRESS", "newStatus=COMPLETED"))
                 .anySatisfy(message -> assertThat(message).contains("outcome=REJECTED_HTTP_400"))
                 .anySatisfy(message -> assertThat(message).contains("outcome=REJECTED_HTTP_403", "actorId=42"))
@@ -204,18 +205,61 @@ class AdviserConsultationStatusHttpIntegrationTest {
                         "Submitted notes", "Private ordinary name", store.enquiry.getReferenceCode().toString()));
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"00000000-0000-0000-0000-000000000123", "Lim"})
+    void hashesUntrustedTraceForSuccessfulAndRejectedStatusAttempts(String untrustedTrace) throws Exception {
+        mvc.perform(patch(path()).with(user(adviser)).with(csrf()).header("X-Trace-Id", untrustedTrace)
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"status\":\"IN_PROGRESS\",\"version\":0}"))
+                .andExpect(status().isOk());
+        mvc.perform(patch(path()).with(user(adviser)).header("X-Trace-Id", untrustedTrace)
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"status\":\"COMPLETED\",\"version\":1}"))
+                .andExpect(status().isForbidden());
+        assertThat(logs.list).hasSize(2);
+        assertThat(logs.list).extracting(ILoggingEvent::getFormattedMessage).allSatisfy(message ->
+                assertThat(message).contains("traceId=sha256:").doesNotContain(untrustedTrace));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"lookup", "update"})
+    void unexpectedRepositoryFailuresNeverLogRawReferenceFromUriOrTrace(String failAt) throws Exception {
+        store.failAt = failAt;
+        Logger errors = (Logger) LoggerFactory.getLogger(GlobalExceptionHandler.class);
+        ListAppender<ILoggingEvent> errorLogs = new ListAppender<>();
+        errorLogs.start();
+        errors.addAppender(errorLogs);
+        try {
+            String reference = store.enquiry.getReferenceCode().toString();
+            mvc.perform(patch(path()).with(user(adviser)).with(csrf()).header("X-Trace-Id", reference)
+                            .contentType(MediaType.APPLICATION_JSON).content("{\"status\":\"COMPLETED\",\"version\":0}"))
+                    .andExpect(status().isInternalServerError()).andExpect(jsonPath("$.code").value("INTERNAL_ERROR"));
+            assertThat(errorLogs.list).hasSize(1);
+            assertThat(errorLogs.list.getFirst().getFormattedMessage())
+                    .contains("/api/v1/adviser/consultations/[redacted]/status", "traceId=sha256:")
+                    .doesNotContain(reference, "private database failure");
+            assertThat(logs.list).hasSize(1);
+            assertThat(logs.list.getFirst().getFormattedMessage())
+                    .contains("outcome=REJECTED_HTTP_500", "traceId=sha256:").doesNotContain(reference);
+        } finally {
+            errors.detachAppender(errorLogs);
+            errorLogs.stop();
+        }
+    }
+
     private String path() { return "/api/v1/adviser/consultations/" + store.enquiry.getReferenceCode() + "/status"; }
 
     static class FixtureStore {
         ConsultationEnquiry enquiry;
         boolean loseRace;
+        String failAt;
         ConsultationEnquiryRepository repository() {
             return mock(ConsultationEnquiryRepository.class, invocation -> {
                 if (invocation.getMethod().getName().equals("findByReferenceCode")) {
+                    if ("lookup".equals(failAt)) throw new IllegalStateException("private database failure");
                     return invocation.getArgument(0).equals(enquiry.getReferenceCode())
                             ? Optional.of(enquiry) : Optional.empty();
                 }
                 if (invocation.getMethod().getName().equals("updateStatus")) {
+                    if ("update".equals(failAt)) throw new IllegalStateException("private database failure");
                     if (loseRace || !invocation.getArgument(0).equals(enquiry.getReferenceCode())
                             || (long) invocation.getArgument(4) != enquiry.getVersion()) return 0;
                     ReflectionTestUtils.setField(enquiry, "status", invocation.getArgument(1));
