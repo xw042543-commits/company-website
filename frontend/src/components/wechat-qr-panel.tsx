@@ -96,9 +96,8 @@ function mountWechatLogin(config: WechatQrConfig): Promise<void> {
   });
 }
 
-export function WechatQrPanel({ locale, mode, returnTo: requestedReturnTo }: {
+export function WechatQrPanel({ locale, returnTo: requestedReturnTo }: {
   locale: Locale;
-  mode: "login" | "register";
   returnTo?: string;
 }) {
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -125,7 +124,7 @@ export function WechatQrPanel({ locale, mode, returnTo: requestedReturnTo }: {
     };
   }, [locale, retryNonce, returnTo]);
 
-  const query = new URLSearchParams({ locale, returnTo, intent: mode });
+  const query = new URLSearchParams({ locale, returnTo });
   const href = `/api/v1/auth/wechat/start?${query.toString()}`;
   return <aside className="auth-qr-column" aria-labelledby="wechat-access-title">
     <p className="auth-column-label">{words(locale, "快捷访问", "Quick access")}</p>
@@ -142,10 +141,14 @@ export function WechatQrPanel({ locale, mode, returnTo: requestedReturnTo }: {
       </div> : null}
     </div>
     <div className="wechat-login-copy">
-      <strong>{words(locale, "使用微信扫码登录", "Scan to continue with WeChat")}</strong>
-      <p>{words(locale, "打开微信扫一扫，在手机上确认登录或注册。", "Scan with WeChat and confirm sign-in or registration on your phone.")}</p>
-      <Link className="wechat-privacy-link" href={`/${locale}/privacy`}>{words(locale, "查看微信登录隐私说明", "Read the WeChat privacy notice")}</Link>
-      <a className="wechat-login-button" href={href}>{words(locale, "打开微信登录", "Continue with WeChat")}</a>
+      <strong>{words(locale, "扫码后直接登录", "Scan to sign in directly")}</strong>
+      <p>{words(locale, "首次扫码将自动创建账户，无需填写邮箱或密码。", "Your first scan creates an account automatically, with no email or password required.")}</p>
+      <p className="wechat-legal-consent">
+        {words(locale, "扫码即表示您同意", "By scanning, you agree to the")} <Link href={`/${locale}/terms`}>{words(locale, "用户协议", "User Agreement")}</Link>
+        {words(locale, " 和 ", " and ")}<Link href={`/${locale}/privacy`}>{words(locale, "隐私政策", "Privacy Policy")}</Link>
+        {words(locale, "。", ".")}
+      </p>
+      <a className="wechat-login-button" href={href}>{words(locale, "无法扫码？打开微信登录", "Can't scan? Open WeChat sign-in")}</a>
     </div>
   </aside>;
 }

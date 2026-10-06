@@ -3,9 +3,7 @@ package com.yangdoujiao.website.auth.wechat;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -21,7 +19,6 @@ import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mock.web.MockCookie;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -55,9 +52,6 @@ class WechatLoginHttpIntegrationTest {
 
     @Test
     void qrConfigurationReturnsPublicValuesAndBindsStateToTheBrowserSession() throws Exception {
-        when(provider.exchange("new-code"))
-                .thenReturn(new WechatProviderIdentity("test-wechat-client", "new-subject"));
-
         MvcResult config = mvc.perform(get("/api/v1/auth/wechat/qr-config")
                         .param("locale", "zh").param("returnTo", "/zh/account"))
                 .andExpect(status().isOk())
@@ -71,15 +65,7 @@ class WechatLoginHttpIntegrationTest {
                 .andReturn();
 
         assertThat(config.getResponse().getContentAsString()).doesNotContain("test-wechat-secret");
-        Cookie session = cookie(config.getResponse(), "JSESSIONID");
-        String state = com.jayway.jsonpath.JsonPath.read(
-                config.getResponse().getContentAsString(), "$.state");
-
-        mvc.perform(get("/api/v1/auth/wechat/callback")
-                        .param("code", "new-code").param("state", state).cookie(session))
-                .andExpect(status().isFound())
-                .andExpect(header().string("Location",
-                        "/zh/login?mode=wechat-bind&returnTo=/zh/account"));
+        assertThat(cookie(config.getResponse(), "JSESSIONID").getValue()).isNotBlank();
     }
 
     @Test
@@ -110,35 +96,45 @@ class WechatLoginHttpIntegrationTest {
     }
 
     @Test
-    void unlinkedWechatIdentityRequiresVerifiedExistingAccountBeforeBinding() throws Exception {
-        String email = email();
-        long userId = account(email);
+    void unlinkedWechatIdentityCreatesAnExternalAccountAndSignsIn() throws Exception {
+        String subject = "new-subject-" + UUID.randomUUID();
         when(provider.authorizationUri(anyString())).thenAnswer(invocation ->
                 URI.create("https://provider.example/authorize?state=" + invocation.getArgument(0, String.class)));
         when(provider.exchange("new-code"))
-                .thenReturn(new WechatProviderIdentity("test-wechat-client", "new-subject"));
+                .thenReturn(new WechatProviderIdentity("test-wechat-client", subject));
 
         MvcResult start = start("en", "/en/account");
-        Cookie session = cookie(start.getResponse(), "JSESSIONID");
+        Cookie oldSession = cookie(start.getResponse(), "JSESSIONID");
         String state = query(start, "state");
-        mvc.perform(get("/api/v1/auth/wechat/callback")
-                        .param("code", "new-code").param("state", state).cookie(session))
+        MvcResult callback = mvc.perform(get("/api/v1/auth/wechat/callback")
+                        .param("code", "new-code").param("state", state).cookie(oldSession))
                 .andExpect(status().isFound())
-                .andExpect(header().string("Location", "/en/login?mode=wechat-bind&returnTo=/en/account"));
+                .andExpect(header().string("Location", "/en/account"))
+                .andReturn();
 
-        mvc.perform(post("/api/v1/auth/wechat/bind").with(csrf()).cookie(session)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"identifier\":\"" + email + "\",\"password\":\"" + PASSWORD
-                                + "\",\"rememberMe\":false}"))
+        Cookie signedInSession = cookie(callback.getResponse(), "JSESSIONID");
+        assertThat(signedInSession.getValue()).isNotEqualTo(oldSession.getValue());
+        MvcResult authenticated = mvc.perform(get("/api/v1/auth/session").cookie(signedInSession))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.authenticated").value(true))
-                .andExpect(jsonPath("$.userId").value((int) userId));
+                .andReturn();
+        Number userId = com.jayway.jsonpath.JsonPath.read(
+                authenticated.getResponse().getContentAsString(), "$.userId");
 
-        assertThat(jdbc.queryForObject("""
-                SELECT COUNT(*) FROM user_external_identities
-                WHERE provider = 'WECHAT' AND provider_client_id = 'test-wechat-client'
-                    AND provider_subject = 'new-subject' AND user_account_id = ?
-                """, Integer.class, userId)).isEqualTo(1);
+        assertThat(jdbc.queryForMap("""
+                SELECT a.normalized_email, a.normalized_phone, a.password_hash, a.status,
+                       a.agreement_version, a.privacy_version
+                FROM user_accounts a
+                JOIN user_external_identities i ON i.user_account_id = a.id
+                WHERE i.provider = 'WECHAT' AND i.provider_client_id = 'test-wechat-client'
+                    AND i.provider_subject = ? AND a.id = ?
+                """, subject, userId.longValue()))
+                .containsEntry("status", "ACTIVE")
+                .containsEntry("agreement_version", "test-terms-v1")
+                .containsEntry("privacy_version", "test-privacy-v1")
+                .containsEntry("normalized_email", null)
+                .containsEntry("normalized_phone", null)
+                .containsEntry("password_hash", null);
     }
 
     private MvcResult start(String locale, String returnTo) throws Exception {
