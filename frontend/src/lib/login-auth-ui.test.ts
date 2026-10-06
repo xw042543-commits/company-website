@@ -62,12 +62,10 @@ test("successful logout shows confirmation before returning home", () => {
   assert.match(header, /window\.location\.replace/);
 });
 
-test("WeChat QR access embeds the official scanner and supports verified-account binding", () => {
+test("WeChat QR access embeds the official scanner for direct sign-in or registration", () => {
   const panel = read("../components/auth-account-panel.tsx");
   const wechat = read("../components/wechat-qr-panel.tsx");
-  const binding = read("../components/wechat-bind-form.tsx");
   const page = read("../app/[locale]/login/page.tsx");
-  assert.match(panel, /mode=\{registering \? "register" : "login"\}/);
   assert.match(panel, /returnTo=\{returnTo\}/);
   assert.match(wechat, /getWechatQrConfig/);
   assert.match(wechat, /res\.wx\.qq\.com\/connect\/zh_CN\/htmledition\/js\/wxLogin\.js/);
@@ -85,16 +83,18 @@ test("WeChat QR access embeds the official scanner and supports verified-account
   assert.match(wechat, /微信扫码登录或注册/);
   assert.match(wechat, /\/api\/v1\/auth\/wechat\/start/);
   assert.match(wechat, /\/privacy/);
-  assert.match(binding, /bindWechatAccount/);
-  assert.match(binding, /verified email or phone account/);
-  assert.match(panel, /"wechat-bind"/);
+  assert.match(wechat, /\/terms/);
+  assert.match(wechat, /扫码即表示您同意/);
+  assert.doesNotMatch(panel, /WechatBindForm|"wechat-bind"/);
+  assert.doesNotMatch(page, /"wechat-bind"/);
   assert.match(page, /wechatError/);
   assert.doesNotMatch(wechat, /qrPattern|wechat-qr-grid/);
-  assert.doesNotMatch(`${wechat}\n${binding}`, /fake qr|demo session|startDemoSession/i);
+  assert.doesNotMatch(wechat, /fake qr|demo session|startDemoSession/i);
 });
 
 test("WeChat's official iframe keeps its native aspect and stays centered", () => {
   const css = read("../app/globals.css");
+  assert.match(css, /\.auth-qr-column\s*\{[^}]*display:\s*flex[^}]*align-items:\s*center[^}]*text-align:\s*center/);
   assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*400px/);
   assert.match(css, /\.wechat-login-container\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*400px/);
   assert.match(css, /\.wechat-login-container iframe\s*\{[^}]*display:\s*block[^}]*width:\s*300px\s*!important[^}]*margin-inline:\s*auto/);
