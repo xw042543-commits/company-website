@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { getWechatQrConfig, type WechatQrConfig } from "@/lib/auth-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
@@ -113,6 +113,11 @@ export function WechatQrPanel({ locale, returnTo: requestedReturnTo }: {
   const [retryNonce, setRetryNonce] = useState(0);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const returnTo = requestedReturnTo ?? `/${locale}/account`;
+  const dismissConfirmation = useCallback(() => {
+    setConfirming(false);
+    setStatus("loading");
+    setRetryNonce(value => value + 1);
+  }, []);
   useEffect(() => {
     let active = true;
     void Promise.all([
@@ -144,13 +149,7 @@ export function WechatQrPanel({ locale, returnTo: requestedReturnTo }: {
     };
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
-  }, [confirming]);
-
-  const dismissConfirmation = () => {
-    setConfirming(false);
-    setStatus("loading");
-    setRetryNonce(value => value + 1);
-  };
+  }, [confirming, dismissConfirmation]);
 
   const query = new URLSearchParams({ locale, returnTo });
   const href = `/api/v1/auth/wechat/start?${query.toString()}`;
