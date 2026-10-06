@@ -12,6 +12,8 @@ export type AccountProfile = {
   emailVerified: boolean;
   phoneVerified: boolean;
   wechatLinked: boolean;
+  wechatDisplayName: string | null;
+  wechatAvatarUrl: string | null;
   wechatLastLoginAt: string | null;
   createdAt: string;
 };
@@ -123,7 +125,7 @@ function parseSession(payload: unknown): AuthSession | null {
 
 function parseAccount(payload: unknown): AccountProfile | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatLastLoginAt", "createdAt"])
+    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatDisplayName", "wechatAvatarUrl", "wechatLastLoginAt", "createdAt"])
     || !isPositiveInteger(payload.id)
     || typeof payload.fullName !== "string" || !payload.fullName.trim()
     || !isNullableString(payload.email)
@@ -131,11 +133,25 @@ function parseAccount(payload: unknown): AccountProfile | null {
     || typeof payload.emailVerified !== "boolean"
     || typeof payload.phoneVerified !== "boolean"
     || typeof payload.wechatLinked !== "boolean"
+    || !isNullableString(payload.wechatDisplayName)
+    || !isNullableString(payload.wechatAvatarUrl)
+    || (payload.wechatAvatarUrl !== null && !isSafeWechatAvatar(payload.wechatAvatarUrl))
     || !isNullableString(payload.wechatLastLoginAt)
     || (payload.wechatLastLoginAt !== null && Number.isNaN(Date.parse(payload.wechatLastLoginAt)))
     || typeof payload.createdAt !== "string"
     || Number.isNaN(Date.parse(payload.createdAt))) return null;
   return payload as AccountProfile;
+}
+
+function isSafeWechatAvatar(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:"
+      && (url.hostname === "qlogo.cn" || url.hostname.endsWith(".qlogo.cn"))
+      && !url.username && !url.password && !url.hash;
+  } catch {
+    return false;
+  }
 }
 
 function parseRegistration(payload: unknown): { verificationMethod: "EMAIL" | "PHONE" } | null {

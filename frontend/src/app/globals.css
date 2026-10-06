@@ -746,6 +746,9 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .account-summary, .account-section { padding: clamp(24px, 4vw, 36px); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--paper); }
 .account-summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 22px; align-items: start; border-color: #decf9d; background: linear-gradient(135deg, #fffdf7, #f7efd9); box-shadow: 0 14px 34px rgb(111 82 23 / 7%); }
 .account-summary h2, .account-section h2 { margin-bottom: 7px; font-size: clamp(1.35rem, 2.5vw, 1.8rem); }
+.account-summary-identity { min-width: 0; display: flex; align-items: center; gap: 18px; }
+.account-profile-avatar { width: 72px; height: 72px; flex: 0 0 72px; border: 1px solid #d5c89f; border-radius: 50%; object-fit: cover; background: #fff; box-shadow: 0 6px 18px rgb(67 53 22 / 10%); }
+.account-profile-avatar-fallback { display: grid; place-items: center; color: #fff; background: var(--brand-action); font-size: 1.45rem; font-weight: 800; }
 .account-summary p, .account-section > p { color: var(--muted); }
 .account-summary dl { grid-column: 1 / -1; margin: 4px 0 0; border-top: 1px solid var(--line); }
 .account-summary dl > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
@@ -963,6 +966,8 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .adviser-contact img { height: 160px; }
   .company-facts > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .account-summary { grid-template-columns: minmax(0, 1fr); }
+  .account-summary-identity { align-items: flex-start; }
+  .account-profile-avatar { width: 60px; height: 60px; flex-basis: 60px; }
   .account-summary dl { grid-column: auto; }
   .account-summary dl > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .site-footer { padding-top: 46px; }

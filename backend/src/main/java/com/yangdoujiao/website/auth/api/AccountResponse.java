@@ -8,11 +8,14 @@ import com.yangdoujiao.website.auth.external.UserExternalIdentity;
 
 public record AccountResponse(Long id, String fullName, String email, String phone,
         boolean emailVerified, boolean phoneVerified, boolean wechatLinked,
+        String wechatDisplayName, String wechatAvatarUrl,
         OffsetDateTime wechatLastLoginAt, OffsetDateTime createdAt) {
     public static AccountResponse from(UserAccount account, Optional<UserExternalIdentity> wechatIdentity) {
         return new AccountResponse(account.getId(), account.getFullName(), maskEmail(account.getNormalizedEmail()),
                 maskPhone(account.getNormalizedPhone()), account.getEmailVerifiedAt() != null,
                 account.getPhoneVerifiedAt() != null, wechatIdentity.isPresent(),
+                wechatIdentity.map(UserExternalIdentity::getDisplayName).orElse(null),
+                wechatIdentity.map(UserExternalIdentity::getAvatarUrl).orElse(null),
                 wechatIdentity.map(UserExternalIdentity::getLastLoginAt).orElse(null), account.getCreatedAt());
     }
 

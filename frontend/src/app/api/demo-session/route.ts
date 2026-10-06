@@ -15,6 +15,8 @@ export async function GET() {
     emailVerified: true,
     phoneVerified: false,
     wechatLinked: false,
+    wechatDisplayName: null,
+    wechatAvatarUrl: null,
     wechatLastLoginAt: null,
     createdAt: "2026-09-30T00:00:00.000Z",
   });

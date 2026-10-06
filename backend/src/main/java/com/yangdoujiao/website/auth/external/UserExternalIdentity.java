@@ -40,6 +40,12 @@ public class UserExternalIdentity {
     @Column(name = "provider_subject", nullable = false, length = 128)
     private String providerSubject;
 
+    @Column(name = "display_name", length = 100)
+    private String displayName;
+
+    @Column(name = "avatar_url", length = 500)
+    private String avatarUrl;
+
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;
 
@@ -50,21 +56,37 @@ public class UserExternalIdentity {
     }
 
     private UserExternalIdentity(UserAccount userAccount, ExternalIdentityProvider provider,
-            String providerClientId, String providerSubject, OffsetDateTime now) {
+            String providerClientId, String providerSubject, String displayName,
+            String avatarUrl, OffsetDateTime now) {
         this.userAccount = userAccount;
         this.provider = provider;
         this.providerClientId = providerClientId;
         this.providerSubject = providerSubject;
+        this.displayName = displayName;
+        this.avatarUrl = avatarUrl;
         this.createdAt = now;
         this.lastLoginAt = now;
     }
 
     public static UserExternalIdentity bind(UserAccount userAccount, ExternalIdentityProvider provider,
             String providerClientId, String providerSubject, OffsetDateTime now) {
-        return new UserExternalIdentity(userAccount, provider, providerClientId, providerSubject, now);
+        return bind(userAccount, provider, providerClientId, providerSubject, null, null, now);
+    }
+
+    public static UserExternalIdentity bind(UserAccount userAccount, ExternalIdentityProvider provider,
+            String providerClientId, String providerSubject, String displayName,
+            String avatarUrl, OffsetDateTime now) {
+        return new UserExternalIdentity(userAccount, provider, providerClientId, providerSubject,
+                displayName, avatarUrl, now);
     }
 
     public void markLogin(OffsetDateTime now) {
         lastLoginAt = now;
+    }
+
+    public void updateProfile(String displayName, String avatarUrl, OffsetDateTime now) {
+        if (displayName != null) this.displayName = displayName;
+        if (avatarUrl != null) this.avatarUrl = avatarUrl;
+        this.lastLoginAt = now;
     }
 }
