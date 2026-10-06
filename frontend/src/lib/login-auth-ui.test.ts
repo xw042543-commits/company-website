@@ -96,7 +96,7 @@ test("WeChat's official iframe is centered inside a compact square QR window", (
   const css = read("../app/globals.css");
   assert.match(css, /\.auth-qr-column\s*\{[^}]*display:\s*flex[^}]*align-items:\s*center[^}]*text-align:\s*center/);
   assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*180px[^}]*height:\s*180px[^}]*overflow:\s*hidden/);
-  assert.match(css, /\.wechat-login-container\s*\{[^}]*position:\s*absolute[^}]*left:\s*50%[^}]*width:\s*300px[^}]*height:\s*400px[^}]*translateX\(-50%\)/);
+  assert.match(css, /\.wechat-login-container\s*\{[^}]*position:\s*absolute[^}]*top:\s*10px[^}]*left:\s*50%[^}]*width:\s*300px[^}]*height:\s*400px[^}]*translateX\(-50%\)/);
   assert.match(css, /\.wechat-login-container iframe\s*\{[^}]*display:\s*block[^}]*width:\s*300px\s*!important[^}]*height:\s*400px\s*!important/);
   assert.match(css, /@media \(max-width:\s*420px\)[\s\S]*\.wechat-qr-frame\s*\{[^}]*width:\s*180px[^}]*height:\s*180px/);
 });
