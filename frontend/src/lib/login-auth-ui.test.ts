@@ -92,10 +92,10 @@ test("WeChat QR access embeds the official scanner for direct sign-in or registr
   assert.doesNotMatch(wechat, /fake qr|demo session|startDemoSession/i);
 });
 
-test("WeChat's official iframe keeps its native aspect and stays centered", () => {
+test("WeChat's official iframe stays centered without exposing its empty lower canvas", () => {
   const css = read("../app/globals.css");
   assert.match(css, /\.auth-qr-column\s*\{[^}]*display:\s*flex[^}]*align-items:\s*center[^}]*text-align:\s*center/);
-  assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*400px/);
+  assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*272px[^}]*overflow:\s*hidden/);
   assert.match(css, /\.wechat-login-container\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*400px/);
   assert.match(css, /\.wechat-login-container iframe\s*\{[^}]*display:\s*block[^}]*width:\s*300px\s*!important[^}]*margin-inline:\s*auto/);
 });
