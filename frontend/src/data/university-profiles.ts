@@ -9,8 +9,10 @@ export type UniversityProfile = {
   tuitionEn: string;
   rankingZh: string;
   rankingEn: string;
-  requirementsZh: string;
-  requirementsEn: string;
+  academicRequirementsZh: string;
+  academicRequirementsEn: string;
+  languageRequirementsZh: string;
+  languageRequirementsEn: string;
   campusImageSrc?: string;
   imageCredit?: { label: string; href: string };
 };
@@ -21,7 +23,12 @@ const branchIntake = { intakesZh: "通常有多个入学月份，视课程而定
 const publicFees = { tuitionZh: "公立大学学费按课程及学生身份而定，请索取最新费用表", tuitionEn: "Public university fees vary by programme and student status; request the current fee schedule" };
 const privateFees = { tuitionZh: "私立大学学费按课程及入学时间而定，请索取最新费用表", tuitionEn: "Private tuition varies by programme and intake; request the current fee schedule" };
 const branchFees = { tuitionZh: "分校学费按课程及入学时间而定，请索取最新费用表", tuitionEn: "Branch-campus tuition varies by programme and intake; request the current fee schedule" };
-const standardEntry = { requirementsZh: "需符合所选课程的学术及英语要求", requirementsEn: "Programme-specific academic and English requirements apply" };
+const standardEntry = {
+  academicRequirementsZh: "按所选课程及申请学历审核；具体成绩与先修科目要求正在逐项整理",
+  academicRequirementsEn: "Assessed by programme and prior qualification; detailed grade and prerequisite requirements are being compiled",
+  languageRequirementsZh: "英语要求按课程而定；具体 IELTS 或大学认可的同等成绩正在逐项整理",
+  languageRequirementsEn: "English requirements vary by programme; accepted IELTS or equivalent scores are being compiled",
+};
 const ranking = (value: string) => ({ rankingZh: value, rankingEn: value });
 const pendingRanking = { rankingZh: "最新排名资料正在审核", rankingEn: "Latest ranking information under review" };
 const globalRanking = (nameZh: string, nameEn: string) => ({
