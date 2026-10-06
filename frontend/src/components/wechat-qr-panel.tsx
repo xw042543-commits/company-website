@@ -17,6 +17,7 @@ type WxLoginOptions = {
   redirect_uri: string;
   state: string;
   style: "black";
+  stylelite: 1;
   href: string;
 };
 
@@ -64,6 +65,7 @@ function mountWechatLogin(config: WechatQrConfig): Promise<void> {
     redirect_uri: encodeURIComponent(config.redirectUri),
     state: config.state,
     style: "black",
+    stylelite: 1,
     href: "",
   });
   return new Promise((resolve, reject) => {

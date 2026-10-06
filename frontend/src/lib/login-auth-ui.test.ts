@@ -72,6 +72,7 @@ test("WeChat QR access embeds the official scanner and supports verified-account
   assert.match(wechat, /getWechatQrConfig/);
   assert.match(wechat, /res\.wx\.qq\.com\/connect\/zh_CN\/htmledition\/js\/wxLogin\.js/);
   assert.match(wechat, /new window\.WxLogin/);
+  assert.match(wechat, /stylelite:\s*1/);
   assert.match(wechat, /wechat-login-container/);
   assert.match(wechat, /iframe\.addEventListener\("load"/);
   assert.match(wechat, /WeChat QR iframe timed out/);
@@ -90,6 +91,13 @@ test("WeChat QR access embeds the official scanner and supports verified-account
   assert.match(page, /wechatError/);
   assert.doesNotMatch(wechat, /qrPattern|wechat-qr-grid/);
   assert.doesNotMatch(`${wechat}\n${binding}`, /fake qr|demo session|startDemoSession/i);
+});
+
+test("WeChat's official iframe keeps its native aspect and stays centered", () => {
+  const css = read("../app/globals.css");
+  assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*400px/);
+  assert.match(css, /\.wechat-login-container\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*400px/);
+  assert.match(css, /\.wechat-login-container iframe\s*\{[^}]*display:\s*block[^}]*width:\s*300px\s*!important[^}]*margin-inline:\s*auto/);
 });
 
 test("account forms submit to the real versioned authentication client and isolate local demo access", () => {
