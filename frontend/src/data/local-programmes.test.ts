@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { LOCAL_PROGRAMMES } from "./local-programmes.generated.ts";
-import { cleanProgrammeName, findLocalProgrammeBySlug, formatFeeDisplay, formatIntakeDisplay, formatProgrammeDuration, localProgrammeMatches, localProgrammePage, splitProgrammeName } from "./local-programmes.ts";
+import { cleanProgrammeName, findLocalProgrammeBySlug, formatAcademicRequirement, formatFeeDisplay, formatIntakeDisplay, formatProgrammeDuration, localProgrammeMatches, localProgrammePage, splitProgrammeName } from "./local-programmes.ts";
 
 test("generated programme records exclude worksheet headers and shifted columns", () => {
   assert.equal(LOCAL_PROGRAMMES.some((record) => /^(programmes?|courses?)$/i.test(record.nameEn.trim())), false);
@@ -42,8 +42,17 @@ test("programme presentation separates specialisations and normalizes intake mon
     specialisations: ["Finance", "Marketing"],
   });
   assert.equal(formatIntakeDisplay("MARCH, September", "en"), "March, September");
+  assert.equal(formatIntakeDisplay("MARCH, September", "zh"), "3月、9月");
   assert.equal(formatIntakeDisplay("2,5,9", "en"), "February, May, September");
   assert.equal(formatIntakeDisplay("2,5,9", "zh"), "2月、5月、9月");
+  assert.equal(formatIntakeDisplay("9月入学", "en"), "September");
+  assert.equal(formatIntakeDisplay("2月、4月、9月", "en"), "February, April, September");
+});
+
+test("academic requirements localize Gaokao and normalize separators", () => {
+  const source = "National Higher School Certificate (grade 65% )//gaokao 520/ CGPA of 3.00";
+  assert.equal(formatAcademicRequirement(source, "zh"), "National Higher School Certificate (grade 65%) / 高考 520 / CGPA of 3.00");
+  assert.equal(formatAcademicRequirement(source, "en"), "National Higher School Certificate (grade 65%) / Gaokao 520 / CGPA of 3.00");
 });
 
 test("programme matches change with keyword and qualification filters", () => {
@@ -72,6 +81,13 @@ test("university programme pages search names and faculties", () => {
     programme.categoryDisplayEn,
     programme.categoryDisplayZh,
   ].filter(Boolean).join(" "))));
+});
+
+test("APU programmes remain available when the published API catalogue is empty", () => {
+  const page = localProgrammePage("asia-pacific-university", {});
+  assert.equal(page.totalItems, 57);
+  assert.equal(page.items.length, 12);
+  assert.ok(page.items.every((programme) => programme.slug.startsWith("apu-")));
 });
 
 test("programme URLs remain stable across filters and resolve to their source record", () => {

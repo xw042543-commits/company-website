@@ -12,6 +12,7 @@ const filterPanel = readFileSync(fileURLToPath(new URL("../components/filter-pan
 const comparisonTray = readFileSync(fileURLToPath(new URL("../components/comparison-tray.tsx", import.meta.url)), "utf8");
 const saveToggle = readFileSync(fileURLToPath(new URL("../components/save-toggle.tsx", import.meta.url)), "utf8");
 const searchAutocomplete = readFileSync(fileURLToPath(new URL("../components/search-autocomplete.tsx", import.meta.url)), "utf8");
+const programmePage = readFileSync(fileURLToPath(new URL("./[locale]/universities/[slug]/programmes/[programmeId]/page.tsx", import.meta.url)), "utf8");
 
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
@@ -133,9 +134,9 @@ test("signed-in homepage uses the approved positioning with a restrained action 
   assert.match(memberHome, /科学规划留学院校专业/);
   assert.match(memberHome, /科学定位留学人生发展/);
   assert.match(memberHome, /Explore · Compare · Decide/);
-  assert.match(memberHome, /Plan your study journey with confidence/);
-  assert.match(memberHome, /Find universities and programmes that fit your goals\./);
-  assert.match(memberHome, /Get clear guidance from planning through application\./);
+  assert.match(memberHome, /Find the right university and programme/);
+  assert.match(memberHome, /Compare universities, programmes and entry requirements\./);
+  assert.match(memberHome, /Plan your next steps with support from an adviser\./);
   assert.doesNotMatch(memberHome, /The world’s first all-in-one platform for international students/);
   assert.doesNotMatch(memberHome, /把留学目标变成清晰的行动计划/);
   assert.match(memberHome, /\/universities\/campuses\/apu-campus\.webp/);
@@ -193,4 +194,41 @@ test("comparison tray stays viewport-fixed and adapts on small screens", () => {
   assert.match(comparisonTray, /document\.body/);
   assert.match(css, /\.comparison-tray\s*\{[^}]*position:\s*fixed/);
   assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.comparison-tray\s*\{/);
+});
+
+test("programme detail hero keeps its copy, actions, and campus image aligned on small screens", () => {
+  assert.match(programmePage, /getUniversityProgrammeWithFallback/);
+  assert.match(css, /\.programme-hero-copy > h1\s*\{[^}]*overflow-wrap:\s*anywhere;[^}]*text-wrap:\s*balance/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.programme-hero-actions\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\) auto/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.programme-hero-visual\.has-photo\s*\{[^}]*aspect-ratio:\s*16 \/ 9/);
+  assert.match(css, /@media \(max-width: 390px\)[\s\S]*?\.programme-hero-actions\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+  assert.match(programmePage, /className="programme-section-nav"/);
+  assert.match(programmePage, /"介绍", "Introduction"/);
+  assert.match(programmePage, /"基本信息", "Course details"/);
+  assert.match(programmePage, /"录取要求", "Entry requirements"/);
+  assert.match(programmePage, /"课程安排", "Programme structure"/);
+  assert.match(programmePage, /"未来职业方向", "Career directions"/);
+  assert.doesNotMatch(programmePage, /className="programme-header-facts"/);
+  assert.match(programmePage, /"收藏课程", "Save programme"/);
+  assert.match(programmePage, /className="programme-data-table"/);
+  assert.match(programmePage, /className="programme-applicant-note"/);
+  assert.doesNotMatch(programmePage, /"中国学生", "Applicants from China"/);
+  assert.doesNotMatch(programmePage, /label=\{words\(locale, "注册费"/);
+  assert.match(css, /\.programme-data-table\s*\{[^}]*border-collapse:\s*collapse/);
+  assert.match(programmePage, /className="programme-mobile-actions"/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.programme-mobile-actions\s*\{[^}]*position:\s*fixed/);
+});
+
+test("footer uses a spacious editorial layout with responsive link columns", () => {
+  assert.match(css, /\.site-footer\s*\{[^}]*background:\s*#f7f3e9/);
+  assert.match(css, /\.footer-main\s*\{[^}]*grid-template-columns:/);
+  assert.match(css, /\.footer-navigation\s*\{[^}]*grid-template-columns:\s*repeat\(3/);
+  assert.match(css, /\.footer-socials > a[^}]*border-radius:\s*50%/);
+  assert.match(css, /@media \(max-width: 520px\)[\s\S]*?\.footer-navigation\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/);
+});
+
+test("university result cards keep logos compact at narrow desktop and mobile widths", () => {
+  assert.match(css, /@media \(max-width: 520px\)[\s\S]*?\.school-card\s*\{[^}]*grid-template-columns:\s*88px minmax\(0,\s*1fr\)/);
+  assert.match(css, /@media \(max-width: 520px\)[\s\S]*?\.school-image\s*\{[^}]*width:\s*88px;[^}]*height:\s*88px/);
+  assert.doesNotMatch(css, /@media \(max-width: 520px\)[\s\S]*?\.school-image\s*\{[^}]*height:\s*150px/);
 });

@@ -68,7 +68,7 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
         {!authenticated && <Link className="navigation-register" onClick={() => setMenuOpen(false)} href={`/${locale}/login?mode=register`}>{words(locale, "注册账户", "Create account")}</Link>}
       </nav>
       <div className="header-actions">
-        <Link className="language-switch" href={`${languagePath}${query.size ? `?${query}` : ""}`} hrefLang={other} aria-label={words(locale, "切换为英文", "Switch to Simplified Chinese")}>
+        <Link className="language-switch" href={`${languagePath}${query.size ? `?${query}` : ""}`} hrefLang={other} scroll={false} aria-label={words(locale, "切换为英文", "Switch to Simplified Chinese")}>
           <span className="language-symbol" aria-hidden="true"><span>A</span><span>文</span></span>
           <span>{locale === "zh" ? "EN" : "中文"}</span>
         </Link>

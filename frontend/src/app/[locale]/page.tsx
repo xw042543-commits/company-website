@@ -20,10 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const canonical = isChinese ? origin : `${origin}/en`;
   const title = isChinese
     ? "洋豆角留学｜留学规划与院校查询"
-    : "UDAJO Study Abroad | University Planning and Search";
+    : "UDAJO | Find Universities and Plan Your Studies Abroad";
   const description = isChinese
     ? "洋豆角留学（洋豆角教育）提供留学院校与专业查询、留学规划、申请咨询及留学全周期服务。"
-    : "UDAJO provides university and programme search, study-abroad planning, application guidance, and support throughout the international student journey.";
+    : "Compare universities and programmes, plan your application and speak with a UDAJO adviser about studying abroad.";
 
   return {
     title,
@@ -57,10 +57,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     : `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/${path}`)}`;
 
   const benefits = [
-    ["留学信息真实全面", "Reliable, comprehensive information", "提供真实、全面的留学信息，帮助你安心作出选择。", "Make informed choices with reliable, comprehensive study-abroad information."],
-    ["服务流程透明可视", "A clear, visible process", "服务进度清晰可查，每一步做到哪里都心中有数。", "See your progress clearly and understand what is happening at every stage."],
+    ["留学信息真实全面", "Information you can use", "提供真实、全面的留学信息，帮助你安心作出选择。", "Compare reviewed university and programme information before you decide."],
+    ["服务流程透明可视", "A process you can follow", "服务进度清晰可查，每一步做到哪里都心中有数。", "See what has been completed and what needs to happen next."],
     ["零中介服务费", "No agency service fee", "你只需支付必要的第三方费用，洋豆角不收取中介服务费。", "Pay only necessary third-party costs. UDAJO does not charge an agency service fee."],
-    ["留学全周期服务", "Support throughout your journey", "从语言培训、规划申请到抵达与学习支持，全程都有专业团队陪伴。", "Receive professional support from language preparation and applications through arrival and study."],
+    ["留学全周期服务", "Support from planning to arrival", "从语言培训、规划申请到抵达与学习支持，全程都有专业团队陪伴。", "Get help with language preparation, applications, arrival and study support."],
   ] as const;
   const pathways = [
     ["01", "明确留学方向", "Define your study goals", "结合目标学历与专业兴趣，逐步缩小适合你的选择范围。", "Use your intended qualification and academic interests to narrow your options.", memberHref("planning"), "开始规划", "Start planning"],
@@ -85,10 +85,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     <section className="member-home-hero"><div className="container member-home-hero-grid">
       <div className={`member-home-copy member-home-copy-${locale}`}>
         <p className="section-label">{words(locale, "科学规划｜科学定位", "Explore · Compare · Decide")}</p>
-        <h1>{words(locale, "全球第一家留学生综合服务平台", "Plan your study journey with confidence")}</h1>
+        <h1>{words(locale, "全球第一家留学生综合服务平台", "Find the right university and programme")}</h1>
         <div className="member-home-positioning">
-          <p>{words(locale, "科学规划留学院校专业", "Find universities and programmes that fit your goals.")}</p>
-          <p>{words(locale, "科学定位留学人生发展", "Get clear guidance from planning through application.")}</p>
+          <p>{words(locale, "科学规划留学院校专业", "Compare universities, programmes and entry requirements.")}</p>
+          <p>{words(locale, "科学定位留学人生发展", "Plan your next steps with support from an adviser.")}</p>
         </div>
         <div className="member-home-actions">
           <Link className="button" href={`/${locale}/planning`}>{words(locale, "开始规划", "Start planning")}</Link>
@@ -99,7 +99,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Image src="/universities/campuses/apu-campus.webp" fill sizes="(max-width: 980px) 92vw, 52vw" priority alt={words(locale, "马来西亚大学校园", "A university campus in Malaysia")} />
         <div className="member-home-visual-overlay">
           <strong>{words(locale, `${UNIVERSITY_CATALOG.length} 所已收录院校`, `${UNIVERSITY_CATALOG.length} universities listed`)}</strong>
-          <span>{words(locale, "本科 · 硕士 · 博士", "Bachelor\u2019\u2060s · Master\u2019\u2060s · Doctorate")}</span>
+          <span>{words(locale, "本科 · 硕士 · 博士", "Bachelor's · Master's · Doctorate")}</span>
           <span>{words(locale, "顾问支持贯穿申请全程", "Adviser support throughout your application")}</span>
         </div>
       </div>
@@ -112,7 +112,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <div className="member-search-support">
         <Link className="text-link" href={`/${locale}/about#enquiry`}>{words(locale, "需要协助？联系顾问", "Need guidance? Contact an adviser")} <span aria-hidden="true">→</span></Link>
         <div className="shortcuts" aria-label={words(locale, "按学历或方向查询", "Search by study level or subject")}>
-          {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor\u2019\u2060s"], ["master", "硕士", "Master\u2019\u2060s"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
+          {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor's"], ["master", "硕士", "Master's"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
         </div>
       </div>
     </div></section>
@@ -126,7 +126,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </div>
     </div></section>}
     <section className="pathway-section" aria-labelledby="pathway-heading"><div className="container section">
-      <div className="section-heading"><p className="section-label">{words(locale, "定制方案", "Personalised plan")}</p><h2 id="pathway-heading">{words(locale, "根据你的情况定制留学方案", "Build a study plan around your circumstances")}</h2><p>{words(locale, "先定专业，再选院校，最后联系顾问确认适合你的申请方案。", "Choose your subject, compare universities, then confirm the right application plan with an adviser.")}</p></div>
+      <div className="section-heading"><p className="section-label">{words(locale, "定制方案", "Your study plan")}</p><h2 id="pathway-heading">{words(locale, "根据你的情况定制留学方案", "Plan around your goals and qualifications")}</h2><p>{words(locale, "先定专业，再选院校，最后联系顾问确认适合你的申请方案。", "Choose a subject, compare universities and ask an adviser to check your application plan.")}</p></div>
       <div className="pathway-grid">{pathways.map(([number, zh, en, bodyZh, bodyEn, href, actionZh, actionEn]) => <Link className="pathway-card" href={href} key={number}>
         <span className="pathway-number" aria-hidden="true">{number}</span>
         <h3>{words(locale, zh, en)}</h3>
@@ -135,7 +135,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </Link>)}</div>
     </div></section>
     <section className="container section">
-      <div className="section-heading"><p className="section-label">{words(locale, "选择更清晰", "A clearer way to choose")}</p><h2>{words(locale, "为什么选择洋豆角", "Why choose UDAJO")}</h2></div>
+      <div className="section-heading"><p className="section-label">{words(locale, "选择更清晰", "Why UDAJO")}</p><h2>{words(locale, "为什么选择洋豆角", "Practical support for studying abroad")}</h2></div>
       <div className="benefits">{benefits.map(([zh, en, bodyZh, bodyEn]) => <article key={zh}><h3>{words(locale, zh, en)}</h3><p>{words(locale, bodyZh, bodyEn)}</p></article>)}</div>
     </section>
     <section className="process-section"><div className="container section">
@@ -144,7 +144,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <Link className="button" href={`/${locale}/about#enquiry`}>{words(locale, "联系顾问", "Contact an adviser")}</Link>
     </div></section>
     <section className="faq-section" aria-labelledby="faq-heading"><div className="container section faq-layout">
-      <div className="faq-heading"><p className="section-label">{words(locale, "常见问题", "Frequently asked questions")}</p><h2 id="faq-heading">{words(locale, "留学常见问题解答", "Common study-abroad questions")}</h2><p>{words(locale, "联系顾问，更快获得适合你的方案。", "Contact an adviser to receive guidance suited to your situation.")}</p><Link className="text-link" href={`/${locale}/about#enquiry`}>{words(locale, "联系顾问", "Contact an adviser")} <span aria-hidden="true">→</span></Link></div>
+      <div className="faq-heading"><p className="section-label">{words(locale, "常见问题", "Frequently asked questions")}</p><h2 id="faq-heading">{words(locale, "留学常见问题解答", "Questions about studying abroad")}</h2><p>{words(locale, "联系顾问，更快获得适合你的方案。", "Speak with an adviser if you need an answer about your own situation.")}</p><Link className="text-link" href={`/${locale}/about#enquiry`}>{words(locale, "联系顾问", "Contact an adviser")} <span aria-hidden="true">→</span></Link></div>
       <div className="faq-list">{faqs.map(([questionZh, questionEn, answerZh, answerEn], index) => <details key={questionZh} open={index === 0}>
         <summary>{words(locale, questionZh, questionEn)}<span className="faq-toggle" aria-hidden="true" /></summary>
         <p>{words(locale, answerZh, answerEn)}</p>

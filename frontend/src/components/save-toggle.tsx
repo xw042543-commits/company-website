@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { readSavedItems, SAVED_ITEMS_EVENT, toggleSavedItem, type SavedItem } from "@/lib/saved-items";
 import { type Locale, words } from "@/lib/site";
 
-export function SaveToggle({ locale, item, compact = false }: { locale: Locale; item: SavedItem; compact?: boolean }) {
+export function SaveToggle({ locale, item, compact = false, label, savedLabel }: { locale: Locale; item: SavedItem; compact?: boolean; label?: string; savedLabel?: string }) {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
@@ -18,6 +18,6 @@ export function SaveToggle({ locale, item, compact = false }: { locale: Locale; 
     <svg className="save-toggle-icon" viewBox="0 0 20 20" aria-hidden="true">
       <path d="M5.25 3.25h9.5v13.1L10 13.45l-4.75 2.9V3.25Z" />
     </svg>
-    {saved ? words(locale, "已收藏", "Saved") : words(locale, "收藏", "Save")}
+    {saved ? savedLabel ?? words(locale, "已收藏", "Saved") : label ?? words(locale, "收藏", "Save")}
   </button>;
 }

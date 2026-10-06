@@ -25,21 +25,21 @@ const sectionCopy = {
   language: {
     label: ["洋豆角语言", "UDAJO Language"],
     title: ["语言学习", "Language learning"],
-    description: ["每期 4,980 元的封闭式雅思培训，涵盖语言培训、最新规则与真实出分案例。", "Intensive IELTS training at CNY 4,980 per session, with language instruction, current test guidance, and verified score results."],
+    description: ["每期 4,980 元的封闭式雅思培训，涵盖语言培训、最新规则与真实出分案例。", "Intensive IELTS training costs CNY 4,980 per session and covers language skills, current test requirements and verified student results."],
   },
   scholarships: {
     label: ["奖学金计划", "Scholarship opportunities"],
     title: ["洋豆角奖学金", "UDAJO Scholarships"],
-    description: ["帮助更多学生走向世界，了解不同院校的奖学金机会、申请条件与重要时间安排。", "Helping more students experience the world through university scholarships, eligibility guidance, and key application dates."],
+    description: ["帮助更多学生走向世界，了解不同院校的奖学金机会、申请条件与重要时间安排。", "Find university scholarships, check eligibility requirements and keep track of application dates."],
   },
   news: {
     label: ["关注第一手信息", "First-hand updates"],
     title: ["掌握最新留学资讯", "Stay informed with the latest updates"],
-    description: ["获取经过审核的留学政策、院校动态与洋豆角资讯。", "Read reviewed updates on study policies, universities, and UDAJO."],
+    description: ["获取经过审核的留学政策、院校动态与洋豆角资讯。", "Read reviewed updates on international education policies, universities and UDAJO."],
   },
   about: {
     label: ["关于洋豆角", "About UDAJO"],
-    title: ["让留学变得更简单", "Making study abroad simpler"],
+    title: ["让留学变得更简单", "Clear guidance for studying abroad"],
     description: ["了解洋豆角的品牌理念与联系方式。", "Learn about UDAJO and how to contact our team."],
   },
 } as const;
@@ -85,18 +85,18 @@ export default async function ContentSection({ params, searchParams }: ContentSe
     {result.status === "error"
       ? <div className="results-state" role="alert">
         <span className="state-symbol" aria-hidden="true">!</span>
-        <h2>{words(locale, "资讯暂时无法加载", "Information is temporarily unavailable")}</h2>
+        <h2>{words(locale, "资讯暂时无法加载", "We could not load this information")}</h2>
         <p>{words(locale, "请稍后刷新页面重试。", "Please refresh the page and try again later.")}</p>
       </div>
       : result.page.items.length === 0
         ? <div className="results-state" role="status">
           <span className="state-symbol" aria-hidden="true">○</span>
-          <h2>{words(locale, "暂无已发布内容", "No published information yet")}</h2>
-          <p>{words(locale, "内容审核并发布后将在这里显示。", "Information will appear here after review and publication.")}</p>
+          <h2>{words(locale, "暂无已发布内容", "Nothing has been published here yet")}</h2>
+          <p>{words(locale, "内容审核并发布后将在这里显示。", "New articles will appear here after they have been reviewed and published.")}</p>
         </div>
         : <>
           <div className="results-heading article-results-heading">
-            <h2>{words(locale, "最新内容", "Latest information")}</h2>
+            <h2>{words(locale, "最新内容", "Latest articles")}</h2>
             <span>{words(
               locale,
               `共 ${result.page.totalItems} 篇`,

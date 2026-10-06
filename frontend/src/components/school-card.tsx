@@ -13,10 +13,10 @@ function initials(name: string) {
 }
 
 export function SchoolCard({ locale, school }: { locale: Locale; school?: SchoolSummary }) {
-  const missing = words(locale, "请咨询", "Please enquire");
+  const missing = words(locale, "请咨询", "Ask an adviser");
   const courses = school?.matchedCourses?.slice(0, 3) ?? [];
   const name = school ? (locale === "zh" ? school.nameZh ?? school.name : school.nameEn ?? school.name) : words(locale, "院校名称", "University name");
-  const secondaryName = school ? (locale === "zh" ? school.nameEn : school.nameZh) : undefined;
+  const secondaryName = school && locale === "zh" ? school.nameEn : undefined;
   const country = school ? (locale === "zh" ? school.countryZh ?? school.country : school.countryEn ?? school.country) : words(locale, "国家", "Country");
   const city = school ? (locale === "zh" ? school.cityZh ?? school.city : school.cityEn ?? school.city) : undefined;
   const matchedProgrammeCount = school?.matchedProgrammeCount ?? courses.length;

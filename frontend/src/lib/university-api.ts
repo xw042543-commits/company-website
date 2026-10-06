@@ -1,4 +1,4 @@
-import { buildUniversitySearchPath, type Query } from "./site.ts";
+import { buildUniversitySearchPath, formatEnglishDisplayText, type Query } from "./site.ts";
 import type { FilterOption, FilterOptions } from "./filter-options-api.ts";
 import { requestInternalApi } from "./internal-api-request.ts";
 
@@ -369,15 +369,42 @@ export async function getUniversityProgrammes(
   }
 }
 
+export async function getUniversityProgramme(
+  baseUrl: string | undefined,
+  universitySlug: string,
+  programmeSlug: string,
+  request: typeof fetch = fetch,
+): Promise<{ status: "ready"; programme: UniversityProgramme } | { status: "not-found" | "error" }> {
+  if (!baseUrl || !universitySlug.trim() || !programmeSlug.trim()) return { status: "error" };
+
+  try {
+    const path = `/api/v1/universities/${encodeURIComponent(universitySlug)}/programmes/${encodeURIComponent(programmeSlug)}`;
+    const response = await requestInternalApi(request, new URL(path, baseUrl), {
+      cache: "no-store",
+      signal: AbortSignal.timeout(5000),
+    });
+    if (response.status === 404) return { status: "not-found" };
+    if (!response.ok) return { status: "error" };
+
+    const payload: unknown = await response.json();
+    return isUniversityProgramme(payload)
+      ? { status: "ready", programme: payload }
+      : { status: "error" };
+  } catch {
+    return { status: "error" };
+  }
+}
+
 function preferredText(
   locale: "zh" | "en",
   zh: string | null,
   en: string | null,
   fallback: string,
 ) {
-  return locale === "zh"
+  const selected = locale === "zh"
     ? zh?.trim() || en?.trim() || fallback
-    : en?.trim() || zh?.trim() || fallback;
+    : en?.trim() || fallback;
+  return locale === "en" ? formatEnglishDisplayText(selected) : selected;
 }
 
 export function toSchoolSummary(
@@ -429,7 +456,7 @@ export function toUniversityDetailView(
   options?: FilterOptions,
 ): UniversityDetailView {
   const name = preferredText(locale, university.nameZh, university.nameEn, university.slug);
-  const secondaryName = locale === "zh" ? university.nameEn : university.nameZh;
+  const secondaryName = locale === "zh" ? university.nameEn : null;
 
   return {
     name,
@@ -456,9 +483,7 @@ export function toUniversityDetailView(
         programme.nameEn,
         programme.programmeCode,
       );
-      const programmeSecondaryName = locale === "zh"
-        ? programme.nameEn
-        : programme.nameZh;
+      const programmeSecondaryName = locale === "zh" ? programme.nameEn : null;
 
       return {
         id: programme.slug,
@@ -499,5 +524,5 @@ function localizedOption(
   if (!option) return code;
   return locale === "zh"
     ? option.nameZh.trim() || option.nameEn.trim() || code
-    : option.nameEn.trim() || option.nameZh.trim() || code;
+    : formatEnglishDisplayText(option.nameEn.trim() || code);
 }

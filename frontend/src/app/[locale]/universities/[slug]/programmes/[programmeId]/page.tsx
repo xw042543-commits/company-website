@@ -3,10 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { SaveToggle } from "@/components/save-toggle";
-import { findLocalProgrammeBySlug, formatFeeDisplay, formatIntakeDisplay, formatProgrammeDuration, splitProgrammeName } from "@/data/local-programmes";
+import { formatFeeDisplay, formatIntakeDisplay, formatProgrammeDuration, splitProgrammeName } from "@/data/local-programmes";
 import { findUniversityBySlug, localizeUniversity } from "@/data/university-catalog";
 import { universityProfile } from "@/data/university-profiles";
-import { isLocale, words } from "@/lib/site";
+import { serverApiBaseUrl } from "@/lib/runtime-config";
+import { formatEnglishDisplayText, isLocale, words } from "@/lib/site";
+import { getUniversityProgrammeWithFallback } from "@/lib/universities";
 
 type ProgrammePageProps = {
   params: Promise<{ locale: string; slug: string; programmeId: string }>;
@@ -14,8 +16,8 @@ type ProgrammePageProps = {
 
 function levelName(locale: "zh" | "en", level: string) {
   const values: Record<string, [string, string]> = {
-    bachelor: ["本科", "Bachelor\u2019\u2060s"],
-    master: ["硕士", "Master\u2019\u2060s"],
+    bachelor: ["本科", "Bachelor's"],
+    master: ["硕士", "Master's"],
     doctorate: ["博士", "Doctorate"],
   };
   const value = values[level];
@@ -55,8 +57,8 @@ function programmeIntroduction({
     return `${name}是${university}${faculty ? `在${faculty}` : ""}开设的${level}课程${details ? `，目前已审核的课程资料显示其学制与授课安排为${details}` : ""}。你可以在本页查看费用、入学时间和申请条件；具体课程模块、选修方向与考核方式请在申请前向顾问索取大学最新课程说明。`;
   }
 
-  const details = [mode && `${mode} study`, duration && `a duration of ${duration}`].filter(Boolean);
-  return `${name} is a ${level.toLocaleLowerCase("en")} programme${faculty ? ` in ${faculty}` : ""} offered by ${university}.${details.length ? ` The reviewed course record lists ${details.join(" and ")}.` : ""} Use this page to review the available fees, intakes, and entry requirements. Ask an adviser for the university’s latest curriculum before applying, including confirmed modules, electives, and assessment details.`;
+  const studyDetails = [mode, duration].filter(Boolean).join(" and ");
+  return `${name} is a ${level.toLocaleLowerCase("en")} programme offered by ${university}${faculty ? ` through the ${faculty}` : ""}.${studyDetails ? ` The current listing gives the study format and duration as ${studyDetails}.` : ""} This page summarises the available fees, intake dates and entry requirements. Ask an adviser for the university’s latest course guide if you need confirmed modules, electives or assessment details.`;
 }
 
 function careerDirections(locale: "zh" | "en", subject: string) {
@@ -83,25 +85,39 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   if (!isLocale(locale)) notFound();
 
   const university = findUniversityBySlug(slug);
-  const programme = findLocalProgrammeBySlug(slug, programmeId);
-  if (!university || !programme) notFound();
+  if (!university) notFound();
+  const programmeResult = await getUniversityProgrammeWithFallback(slug, programmeId, serverApiBaseUrl());
+  if (programmeResult.status !== "ready") notFound();
+  const programme = programmeResult.programme;
 
   const school = localizeUniversity(university, locale);
   const profile = universityProfile(university.id);
-  const presentation = splitProgrammeName((locale === "zh" ? programme.nameZh : programme.nameEn) || programme.nameEn || programme.nameZh);
-  const secondaryPresentation = splitProgrammeName(locale === "zh" ? programme.nameEn : programme.nameZh);
-  const name = presentation.name;
-  const secondaryName = secondaryPresentation.name;
-  const faculty = (locale === "zh" ? programme.facultyZh : programme.facultyEn) || programme.facultyEn || programme.facultyZh;
+  const presentation = splitProgrammeName(locale === "zh"
+    ? programme.nameZh || programme.nameEn
+    : programme.nameEn || "English title pending");
+  const secondaryPresentation = splitProgrammeName(programme.nameEn);
+  const programmeNameZh = splitProgrammeName(programme.nameZh || programme.nameEn).name;
+  const programmeNameEn = formatEnglishDisplayText(splitProgrammeName(programme.nameEn || "English title pending").name);
+  const name = locale === "en" ? formatEnglishDisplayText(presentation.name) : presentation.name;
+  const secondaryName = locale === "zh" ? secondaryPresentation.name : "";
+  const faculty = locale === "zh"
+    ? programme.facultyZh || programme.facultyEn
+    : formatEnglishDisplayText(programme.facultyEn || "Faculty details pending");
   const detailPath = `/${locale}/universities/${encodeURIComponent(university.slug)}/programmes/${encodeURIComponent(programme.slug)}`;
   const universityPath = `/${locale}/universities/${encodeURIComponent(university.slug)}`;
   const requirements = locale === "zh" ? programme.descriptionZh : programme.descriptionEn;
+  const requirementItems = requirements.split(/\s*·\s*/).map((item) => {
+    const separator = item.indexOf(":");
+    return separator > 0
+      ? { label: item.slice(0, separator).trim(), value: item.slice(separator + 1).trim() }
+      : { label: words(locale, "其他要求", "Other requirement"), value: item.trim() };
+  }).filter((item) => item.value && !/^(注册费|registration fee)$/i.test(item.label));
   const isVerifiedTaylorsBusiness = programme.slug === "taylors-bachelor-403";
+  const isApuCatalogue = university.id === "apu";
   const duration = isVerifiedTaylorsBusiness ? words(locale, "3年（全日制）", "3 years (full time)") : formatProgrammeDuration(programme.duration) || "";
   const tuition = isVerifiedTaylorsBusiness
     ? words(locale, "本地生 MYR 129,830；国际生 USD 42,309", "Local MYR 129,830; international USD 42,309")
     : formatFeeDisplay(programme.tuition);
-  const registrationFee = formatFeeDisplay(programme.registrationFee);
   const intakes = isVerifiedTaylorsBusiness
     ? words(locale, "2月、4月、9月", "February, April, September")
     : formatIntakeDisplay(programme.intakes, locale);
@@ -139,15 +155,16 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
         </nav>
         <div className="programme-hero-grid">
           <div className="programme-hero-copy">
-            <p className="section-label">{faculty || words(locale, "已审核课程", "Reviewed programme")}</p>
-            <h1 className={name.length > 48 ? "long-title" : undefined}>{name}</h1>
             <div className="programme-school-affiliation">
               {university.logoSrc && <span className="programme-school-logo"><Image src={university.logoSrc} width={54} height={54} alt="" /></span>}
-              <div><p>{words(locale, "就读于", "At")} {school.name}</p>{secondaryName && secondaryName !== name && <span>{secondaryName}</span>}</div>
+              <div><p>{school.name}</p>{locale === "zh" && school.secondaryName && <span>{school.secondaryName}</span>}</div>
             </div>
+          <p className="programme-header-kicker">{faculty || words(locale, "课程资料", "Programme details")}</p>
+            <h1 className={name.length > 48 ? "long-title" : undefined}>{locale === "zh" ? programmeNameZh : programmeNameEn}</h1>
+            {locale === "zh" && programmeNameZh !== programmeNameEn && <p className="programme-header-secondary-title">{programmeNameEn}</p>}
             <div className="programme-hero-actions">
-              <Link className="button" href={adviserPath}>{words(locale, "咨询此课程", "Enquire about this programme")}</Link>
-              <SaveToggle locale={locale} item={{
+              <Link className="button" href={adviserPath}>{words(locale, "咨询顾问", "Enquire with an adviser")}</Link>
+              <SaveToggle locale={locale} label={words(locale, "收藏课程", "Save programme")} savedLabel={words(locale, "已收藏课程", "Programme saved")} item={{
                 key: `programme:${university.slug}:${programme.slug}`,
                 kind: "programme",
                 name,
@@ -171,7 +188,17 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
       </div>
     </section>
 
-    <dl className="container programme-fact-strip">
+    <nav className="programme-section-nav" aria-label={words(locale, "课程页面目录", "Programme page sections")}>
+      <div className="container">
+        <a href="#overview">{words(locale, "介绍", "Introduction")}</a>
+        <a href="#basic-information">{words(locale, "基本信息", "Course details")}</a>
+        <a href="#requirements">{words(locale, "录取要求", "Entry requirements")}</a>
+        <a href="#programme-structure">{words(locale, "课程安排", "Programme structure")}</a>
+        <a href="#careers">{words(locale, "未来职业方向", "Career directions")}</a>
+      </div>
+    </nav>
+
+    <dl className="container programme-fact-strip" id="basic-information">
       <Fact label={words(locale, "地点", "Location")} value={[school.city, school.country].filter(Boolean).join(", ")} />
       <Fact label={words(locale, "学历", "Qualification")} value={levelName(locale, programme.level)} />
       <Fact label={words(locale, "参考学费", "Indicative tuition")} value={tuition} />
@@ -182,18 +209,27 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
 
     <div className="container programme-page-layout">
       <div className="programme-content">
-        <section className="programme-section">
-          <p className="section-label">{words(locale, "课程资料", "Programme information")}</p>
+        <section className="programme-section" id="overview">
+          <p className="section-label">{words(locale, "课程资料", "Programme overview")}</p>
           <h2>{words(locale, "课程介绍", "About this programme")}</h2>
-          <p>{introduction}</p>
-          <div className="programme-highlights">
-            <span>{faculty || words(locale, "专业分类待确认", "Subject to be confirmed")}</span>
-            <span>{levelName(locale, programme.level)}</span>
-            <span>{words(locale, "英语授课", "Taught in English")}</span>
-          </div>
+          <p className="programme-introduction">{introduction}</p>
+          <dl className="programme-highlights">
+            <div>
+              <dt>{words(locale, "所属学院", "Faculty")}</dt>
+              <dd>{faculty || words(locale, "专业分类待确认", "Faculty to be confirmed")}</dd>
+            </div>
+            <div>
+              <dt>{words(locale, "学历层次", "Study level")}</dt>
+              <dd>{levelName(locale, programme.level)}</dd>
+            </div>
+            <div>
+              <dt>{words(locale, "授课语言", "Teaching language")}</dt>
+              <dd>{words(locale, "英语", "English")}</dd>
+            </div>
+          </dl>
           {specialisations.length > 0 && <div className="programme-specialisations">
             <h3>{words(locale, "可选专业方向", "Available specialisations")}</h3>
-            <p>{words(locale, "该课程名称中的专业方向是可选择的学习路径，并非一个需要同时修读的超长课程。", "These are selectable study pathways within the degree, rather than one long combined programme.")}</p>
+            <p>{words(locale, "该课程名称中的专业方向是可选择的学习路径，并非一个需要同时修读的超长课程。", "Choose one of these specialisations as part of the degree. They are separate study pathways, not subjects that must all be taken together.")}</p>
             <ul>{specialisations.map((item) => <li key={item}>{item}</li>)}</ul>
           </div>}
         </section>
@@ -209,47 +245,48 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
           </div>
         </details>}
 
-        <details className="programme-info-panel" open>
+        <details className="programme-info-panel" id="programme-structure" open>
           <summary>{words(locale, "费用与入学时间", "Fees and intakes")}</summary>
-          <div className="programme-info-body">
-            <p>{words(locale, "费用为参考资料，大学可能按入学时间、学生身份或课程安排调整。申请前请确认最新费用。", "Fees are indicative and may vary by intake, student status, or course structure. Confirm the latest amount before applying.")}</p>
-            <dl className="programme-inline-facts">
-              <Fact label={words(locale, "参考学费", "Indicative tuition")} value={tuition || words(locale, "请咨询顾问", "Confirm with an adviser")} />
-              <Fact label={words(locale, "注册费", "Registration fee")} value={registrationFee || words(locale, "请咨询顾问", "Confirm with an adviser")} />
-              <IntakeFact locale={locale} value={intakes || words(locale, "请咨询顾问", "Confirm with an adviser")} />
-            </dl>
-            <p className="programme-source-note">{isVerifiedTaylorsBusiness
-              ? words(locale, "2026年课程资料已与大学官网核对。官网目前公布2月、4月和9月三个入学月份；具体开课日、报到日期和时间会随每个入学批次公布。", "The 2026 programme information has been checked against the university website. It currently publishes February, April, and September intakes; exact commencement dates, registration dates, and times are issued for each intake.")
-              : words(locale, "这里会显示资料中提供的所有入学月份。若大学尚未公开具体开课日、报到日期或时间，请在安排行程或签证前向顾问确认。", "Every intake period supplied in the reviewed record is shown here. When the university has not published exact commencement dates, registration dates, or times, confirm them before arranging travel or a visa.")} {isVerifiedTaylorsBusiness && <a href="https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-business.html" target="_blank" rel="noreferrer">{words(locale, "查看官方课程页", "View official programme page")}</a>}</p>
-          </div>
-        </details>
-
-        <details className="programme-info-panel" open>
-          <summary>{words(locale, "入学要求与申请", "Entry requirements and application")}</summary>
-          <div className="programme-info-body">
-            {requirements ? <p>{requirements}</p> : <p>{words(locale, "详细入学要求尚未提供。顾问可以根据你的学历与成绩确认申请资格。", "Detailed entry requirements have not been supplied. An adviser can confirm eligibility based on your qualifications and results.")}</p>}
-            <div className="programme-applicant-grid">
-              <section><h3>{words(locale, "中国学生", "Applicants from China")}</h3><p>{words(locale, "请提交高中或大学阶段的完整成绩单与毕业证明。中国学历的具体等值要求需要按学生背景逐一审核；官网未公布的高考分数线不会在这里推测。", "Submit complete senior-secondary or tertiary transcripts and graduation evidence. Chinese qualifications require an individual equivalency assessment; this page does not invent a Gaokao threshold that the university has not published.")}</p></section>
-              <section><h3>{words(locale, "国际学生", "International applicants")}</h3>{isVerifiedTaylorsBusiness
-                ? <p>{words(locale, "官网列出的入学途径包括：Taylor’s Foundation 或 Diploma CGPA 2.00、STPM 至少 CC、A Level 至少 DD、IB 24分、CPU 六科平均60%、MUFY 50%，或其他获认可的同等学历。英语要求包括 MUET Band 3、CEFR Low B2，或以英语完成的预科／文凭课程。", "Published pathways include Taylor’s Foundation or Diploma with CGPA 2.00, STPM minimum CC, A Level minimum DD, IB 24 points, CPU 60% across six subjects, MUFY 50%, or another recognised equivalent. English routes include MUET Band 3, CEFR Low B2, or a pre-university/diploma programme taught in English.")}</p>
-                : <p>{words(locale, "此课程的已审核学术与英语要求显示在上方。不同国家的学历需要进行等值评估，请在申请前提交成绩单让顾问确认。", "The reviewed academic and English requirements appear above. Qualifications from different countries require an equivalency assessment, so submit your transcripts for confirmation before applying.")}</p>}</section>
+          <div className="programme-info-body programme-fees-layout">
+            <div className="programme-fees-context">
+              <h3>{words(locale, "申请前须知", "Before you apply")}</h3>
+              <p>{words(locale, "费用为参考资料，大学可能按入学时间、学生身份或课程安排调整。申请前请确认最新费用。", "The fees shown are a guide. The university may charge a different amount depending on the intake, student status or course structure. Confirm the latest fee before applying.")}</p>
+              <p className="programme-source-note">{isVerifiedTaylorsBusiness
+                ? words(locale, "2026年课程资料已与大学官网核对。官网目前公布2月、4月和9月三个入学月份；具体开课日、报到日期和时间会随每个入学批次公布。", "The 2026 programme information has been checked against the university website. It currently publishes February, April, and September intakes; exact commencement dates, registration dates, and times are issued for each intake.")
+                : words(locale, "这里会显示资料中提供的所有入学月份。若大学尚未公开具体开课日、报到日期或时间，请在安排行程或签证前向顾问确认。", "This page shows every intake month in the available course record. If exact start or registration dates have not been published, confirm them before booking travel or applying for a visa.")} {isVerifiedTaylorsBusiness && <a href="https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-business.html" target="_blank" rel="noreferrer">{words(locale, "查看官方课程页", "View the official course page")}</a>}</p>
             </div>
-            <h3>{words(locale, "申请前建议准备", "What to prepare")}</h3>
-            <ul className="programme-checklist">
-              <li>{words(locale, "最新的学历证书与成绩单", "Your latest qualification certificates and transcripts")}</li>
-              <li>{words(locale, "护照或身份证明", "Passport or identity document")}</li>
-              <li>{words(locale, "英语能力证明（如课程要求）", "English proficiency results, if required")}</li>
-              <li>{words(locale, "计划入学时间与预算", "Preferred intake and study budget")}</li>
-            </ul>
+            <div className="programme-table-wrap"><table className="programme-data-table"><tbody>
+              <tr><th scope="row">{words(locale, "参考学费", "Indicative tuition")}</th><td>{tuition || words(locale, "请咨询顾问", "Confirm with an adviser")}</td></tr>
+              <tr><th scope="row">{words(locale, "入学时间", "Intakes")}</th><td>{intakes || words(locale, "请咨询顾问", "Confirm with an adviser")}</td></tr>
+            </tbody></table></div>
           </div>
         </details>
 
-        <details className="programme-info-panel" open>
+        <details className="programme-info-panel" id="requirements" open>
+          <summary>{words(locale, "入学要求与申请", "Entry requirements and application")}</summary>
+          <div className="programme-info-body programme-requirements-body">
+            {requirementItems.length > 0 ? <div className="programme-table-wrap"><table className="programme-data-table"><tbody>{requirementItems.map((item) => <tr key={`${item.label}:${item.value}`}><th scope="row">{item.label}</th><td>{item.value}</td></tr>)}</tbody></table></div> : <div className="programme-empty-state"><strong>{words(locale, "需要顾问确认", "Confirmation required")}</strong><p>{words(locale, "详细入学要求尚未提供。提交你的学历与成绩后，顾问可以协助确认资格。", "Detailed entry requirements have not been supplied. Share your qualifications and results so an adviser can help confirm eligibility.")}</p><Link className="text-link" href={adviserPath}>{words(locale, "咨询入学资格", "Check my eligibility")}</Link></div>}
+            <section className="programme-applicant-note"><h3>{words(locale, "国际学生", "International applicants")}</h3>{isVerifiedTaylorsBusiness
+                ? <p>{words(locale, "官网列出的入学途径包括：Taylor’s Foundation 或 Diploma CGPA 2.00、STPM 至少 CC、A Level 至少 DD、IB 24分、CPU 六科平均60%、MUFY 50%，或其他获认可的同等学历。英语要求包括 MUET Band 3、CEFR Low B2，或以英语完成的预科／文凭课程。", "Published pathways include Taylor’s Foundation or Diploma with CGPA 2.00, STPM minimum CC, A Level minimum DD, IB 24 points, CPU 60% across six subjects, MUFY 50%, or another recognised equivalent. English routes include MUET Band 3, CEFR Low B2, or a pre-university/diploma programme taught in English.")}</p>
+                : <p>{words(locale, "此课程的学术与英语要求显示在上方。所有国际学历均需要进行等值评估，请在申请前提交完整成绩单与毕业证明，让顾问确认申请资格。", "The academic and English requirements are listed above. International qualifications may need an equivalency assessment. Send your transcripts and graduation documents to an adviser before applying so they can check your eligibility.")}</p>}</section>
+            <div className="programme-application-prep">
+              <h3>{words(locale, "申请前建议准备", "What to prepare")}</h3>
+              <ul className="programme-checklist">
+                <li>{words(locale, "最新的学历证书与成绩单", "Your latest qualification certificates and transcripts")}</li>
+                <li>{words(locale, "护照或身份证明", "Passport or identity document")}</li>
+                <li>{words(locale, "英语能力证明（如课程要求）", "English proficiency results, if required")}</li>
+                <li>{words(locale, "计划入学时间与预算", "Preferred intake and study budget")}</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details className="programme-info-panel" id="careers" open>
           <summary>{words(locale, "未来职业方向", "Future career directions")}</summary>
           <div className="programme-info-body">
             <p>{isVerifiedTaylorsBusiness
               ? words(locale, "以下职业方向由Taylor’s University官方课程页列出。实际职位取决于所选专业方向、经验与当地专业要求。", "These career directions are listed on Taylor’s University’s official programme page. Actual roles depend on the chosen specialisation, experience, and local professional requirements.")
-              : words(locale, "以下是根据课程所属学科整理的代表性职业方向，并非就业保证。申请前可向顾问索取大学公布的最新职业成果。", "These are representative directions based on the programme’s subject area and are not an employment guarantee. Ask an adviser for the university’s latest published graduate outcomes.")}</p>
+              : words(locale, "以下是根据课程所属学科整理的代表性职业方向，并非就业保证。申请前可向顾问索取大学公布的最新职业成果。", "These examples are based on the programme’s subject area and do not guarantee a particular job. Ask an adviser if you would like the university’s latest graduate outcomes.")}</p>
             <ul className="programme-career-list">{careers.map((career) => <li key={career}>{career}</li>)}</ul>
           </div>
         </details>
@@ -264,9 +301,10 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
       </div>
 
       <aside className="programme-contact-card">
+        <span className="programme-data-status">{isApuCatalogue ? words(locale, "课程资料待确认", "Programme details to confirm") : words(locale, "已审核资料", "Reviewed information")}</span>
         <p className="section-label">{words(locale, "需要协助？", "Need help?")}</p>
-        <h2>{words(locale, "让顾问帮你确认申请条件", "Let an adviser check your application")}</h2>
-        <p>{words(locale, "告诉我们你的学历、成绩与计划入学时间，我们会协助你确认课程是否适合。", "Share your qualifications, results, and preferred intake so we can help confirm whether this programme fits your plans.")}</p>
+        <h2>{words(locale, "让顾问帮你确认申请条件", "Ask an adviser to check your eligibility")}</h2>
+        <p>{words(locale, "告诉我们你的学历、成绩与计划入学时间，我们会协助你确认课程是否适合。", "Send us your qualifications, results and preferred intake. An adviser can then check whether the programme is a suitable option.")}</p>
         <Link className="button full-width" href={adviserPath}>{words(locale, "联系顾问", "Contact an adviser")}</Link>
         <small>{words(locale, "咨询前不会代表你提交申请。", "An enquiry does not submit an application.")}</small>
       </aside>
@@ -283,5 +321,9 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
         </div>
       </div>
     </section>
+    <div className="programme-mobile-actions" aria-label={words(locale, "课程操作", "Programme actions")}>
+      <Link className="button" href={adviserPath}>{words(locale, "咨询课程", "Enquire")}</Link>
+      <SaveToggle compact locale={locale} item={{ key: `programme:${university.slug}:${programme.slug}`, kind: "programme", name, secondaryName, context: school.name, path: detailPath }} />
+    </div>
   </main>;
 }

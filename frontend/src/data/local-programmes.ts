@@ -1,7 +1,7 @@
 import { findUniversityBySlug } from "./university-catalog.ts";
 import { LOCAL_PROGRAMMES, type LocalProgrammeRecord } from "./local-programmes.generated.ts";
 import type { UniversityProgrammePage } from "../lib/university-api.ts";
-import { boundedPage, first, pageNumber, type Query } from "../lib/site.ts";
+import { boundedPage, first, formatEnglishDisplayText, pageNumber, type Query } from "../lib/site.ts";
 import type { FilterOptions } from "../lib/filter-options-api.ts";
 
 const PAGE_SIZE = 12;
@@ -60,8 +60,8 @@ export function localFilterOptions(): FilterOptions {
       { code: "other", nameZh: "其他专业", nameEn: "Other subjects" },
     ],
     studyLevels: [
-      { code: "bachelor", nameZh: "本科", nameEn: "Bachelor\u2019\u2060s" },
-      { code: "master", nameZh: "硕士", nameEn: "Master\u2019\u2060s" },
+      { code: "bachelor", nameZh: "本科", nameEn: "Bachelor's" },
+      { code: "master", nameZh: "硕士", nameEn: "Master's" },
       { code: "doctorate", nameZh: "博士", nameEn: "Doctorate" },
     ],
     courseModes: [
@@ -135,7 +135,9 @@ export function localProgrammeMatches(query: Query, locale: "zh" | "en") {
     current.count += 1;
     if (current.courses.length < 3) current.courses.push({
       id: `${record.universityId}-${record.level}-${index + 1}`,
-      name: splitProgrammeName((locale === "zh" ? record.nameZh : record.nameEn) || record.nameEn || record.nameZh).name,
+      name: locale === "zh"
+        ? splitProgrammeName(record.nameZh || record.nameEn).name
+        : formatEnglishDisplayText(splitProgrammeName(record.nameEn || "English title pending").name),
       level: record.level.toUpperCase(),
       language: "ENGLISH",
     });
@@ -168,13 +170,30 @@ export function formatFeeDisplay(value: string) {
 
 export function formatIntakeDisplay(value: string, locale: "zh" | "en") {
   const monthNames = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  return value.split(/[,;·]+/).map((part) => {
+  return value.split(/[,;·、]+/).map((part) => {
     const item = part.trim();
+    const chineseMonth = item.match(/^(1[0-2]|[1-9])\s*月(?:\s*入学)?$/);
+    if (chineseMonth) {
+      const month = Number(chineseMonth[1]);
+      return locale === "zh" ? `${month}月` : monthNames[month];
+    }
+    const englishMonth = monthNames.findIndex((month) => month && new RegExp(`^${month}(?:\\s+intake)?$`, "i").test(item));
+    if (englishMonth > 0) return locale === "zh" ? `${englishMonth}月` : monthNames[englishMonth];
     const month = Number(item);
     if (Number.isInteger(month) && month >= 1 && month <= 12) return locale === "zh" ? `${month}月` : monthNames[month];
     if (/^[A-Z]+$/.test(item)) return `${item.charAt(0)}${item.slice(1).toLocaleLowerCase("en")}`;
     return item;
   }).filter(Boolean).join(locale === "zh" ? "、" : ", ");
+}
+
+export function formatAcademicRequirement(value: string, locale: "zh" | "en") {
+  return value
+    .replace(/\bgaokao\b/gi, locale === "zh" ? "高考" : "Gaokao")
+    .replace(/(?:\s*\/\s*)+/g, " / ")
+    .replace(/\s+([),])/g, "$1")
+    .replace(/\(\s+/g, "(")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
 
 function interviewDisplay(value: string, locale: "zh" | "en") {
@@ -186,9 +205,8 @@ function interviewDisplay(value: string, locale: "zh" | "en") {
 
 function description(record: LocalProgrammeRecord, locale: "zh" | "en") {
   const parts = [
-    record.academicRequirement && `${locale === "zh" ? "学术要求" : "Academic requirement"}: ${record.academicRequirement}`,
+    record.academicRequirement && `${locale === "zh" ? "学术要求" : "Academic requirement"}: ${formatAcademicRequirement(record.academicRequirement, locale)}`,
     record.englishRequirement && `${locale === "zh" ? "英语要求" : "English requirement"}: ${record.englishRequirement}`,
-    record.registrationFee && `${locale === "zh" ? "注册费" : "Registration fee"}: ${formatFeeDisplay(record.registrationFee)}`,
     record.interview && `${locale === "zh" ? "面试" : "Interview"}: ${interviewDisplay(record.interview, locale)}`,
   ].filter(Boolean);
   return parts.join(" · ");

@@ -19,6 +19,34 @@ public interface ProgrammeRepository extends JpaRepository<Programme, Long> {
     Optional<Programme> findByUniversityIdAndSlug(Long universityId, String slug);
 
     @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
+    @Query("""
+            SELECT DISTINCT programme
+            FROM Programme programme
+            WHERE programme.university.id = :universityId
+              AND programme.slug = :slug
+              AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+              AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+            """)
+    Optional<Programme> findPublishedDetailedByUniversityIdAndSlug(
+            @Param("universityId") Long universityId,
+            @Param("slug") String slug
+    );
+
+    @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
+    @Query("""
+            SELECT DISTINCT programme
+            FROM Programme programme
+            WHERE programme.university.id = :universityId
+              AND programme.id = :programmeId
+              AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+              AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+            """)
+    Optional<Programme> findPublishedDetailedByUniversityIdAndId(
+            @Param("universityId") Long universityId,
+            @Param("programmeId") Long programmeId
+    );
+
+    @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
     List<Programme> findAllByUniversity_IdAndStatusOrderByIdAsc(Long universityId, CategoryStatus status);
 
     @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})

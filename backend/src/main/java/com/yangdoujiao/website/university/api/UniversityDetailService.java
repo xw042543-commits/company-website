@@ -100,4 +100,18 @@ public class UniversityDetailService {
                 idPage.getTotalElements()
         );
     }
+
+    @Transactional(readOnly = true)
+    public UniversityProgrammeResponse getPublishedProgramme(String universitySlug, String programmeIdentifier) {
+        University university = universities.findBySlugAndStatus(universitySlug, CategoryStatus.PUBLISHED)
+                .orElseThrow(() -> new ResourceNotFoundException("University not found"));
+        Programme programme = programmeIdentifier.matches("[1-9][0-9]*")
+                ? programmes.findPublishedDetailedByUniversityIdAndId(university.getId(), Long.valueOf(programmeIdentifier))
+                    .orElseThrow(() -> new ResourceNotFoundException("Programme not found"))
+                : programmes.findPublishedDetailedByUniversityIdAndSlug(university.getId(), programmeIdentifier)
+                .orElseThrow(() -> new ResourceNotFoundException("Programme not found"));
+        List<ProgrammeIntake> programmeIntakes = intakes
+                .findAllByProgramme_IdInOrderByIntakeDateAsc(List.of(programme.getId()));
+        return UniversityProgrammeResponse.from(programme, programmeIntakes);
+    }
 }

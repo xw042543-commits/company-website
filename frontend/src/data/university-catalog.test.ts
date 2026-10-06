@@ -97,7 +97,7 @@ test("localizes a university identity for English pages", () => {
   assert.ok(university);
   assert.deepEqual(localizeUniversity(university, "en"), {
     name: "Sunway University",
-    secondaryName: "双威大学",
+    secondaryName: undefined,
     country: "Malaysia",
     city: "Bandar Sunway",
   });

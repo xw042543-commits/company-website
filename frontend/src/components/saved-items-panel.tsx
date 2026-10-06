@@ -30,9 +30,25 @@ export function SavedItemsPanel({ locale }: { locale: Locale }) {
 
 function SavedGroup({ locale, title, items, onRemove }: { locale: Locale; title: string; items: SavedItem[]; onRemove: (key: string) => void }) {
   if (!items.length) return null;
-  return <div className="saved-items-group"><h3>{title}<span>{items.length}</span></h3><div className="saved-items-list">{items.map((item) => <article key={item.key}>
-    <div><Link href={item.path}><strong>{item.name}</strong></Link>{item.secondaryName && <span>{item.secondaryName}</span>}{item.context && <p>{item.context}</p>}</div>
-    {item.facts?.length ? <dl>{item.facts.slice(0, 3).map((fact) => <div key={`${fact.label}:${fact.value}`}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl> : null}
-    <div className="saved-item-actions"><Link href={item.path}>{words(locale, "查看", "View")} <span aria-hidden="true">→</span></Link><button type="button" onClick={() => onRemove(item.key)}>{words(locale, "移除", "Remove")}</button></div>
-  </article>)}</div></div>;
+  return <div className="saved-items-group"><h3>{title}<span>{items.length}</span></h3><div className="saved-items-list">{items.map((item) => {
+    const englishName = locale === "en" && item.secondaryName && !containsChinese(item.secondaryName)
+      ? item.secondaryName
+      : item.name;
+    const secondaryName = locale === "zh" ? item.secondaryName : undefined;
+    const context = locale === "en" && item.context && containsChinese(item.context) ? undefined : item.context;
+    const facts = locale === "en"
+      ? item.facts?.filter((fact) => !containsChinese(fact.label) && !containsChinese(fact.value))
+      : item.facts;
+    const path = item.path.replace(/^\/(?:zh|en)(?=\/|$)/, `/${locale}`);
+
+    return <article key={item.key}>
+      <div><Link href={path}><strong>{englishName}</strong></Link>{secondaryName && <span>{secondaryName}</span>}{context && <p>{context}</p>}</div>
+      {facts?.length ? <dl>{facts.slice(0, 3).map((fact) => <div key={`${fact.label}:${fact.value}`}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl> : null}
+      <div className="saved-item-actions"><Link href={path}>{words(locale, "查看", "View")} <span aria-hidden="true">→</span></Link><button type="button" onClick={() => onRemove(item.key)}>{words(locale, "移除", "Remove")}</button></div>
+    </article>;
+  })}</div></div>;
+}
+
+function containsChinese(value: string) {
+  return /[\u3400-\u9fff]/.test(value);
 }

@@ -91,5 +91,5 @@ export function backendUniversitySlug(slug: string) {
 export function localizeUniversity(university: UniversityCatalogEntry, locale: "zh" | "en") {
   return locale === "zh"
     ? { name: university.nameZh, secondaryName: university.nameEn, country: university.countryZh, city: university.cityZh }
-    : { name: university.nameEn, secondaryName: university.nameZh, country: university.countryEn, city: university.cityEn };
+    : { name: university.nameEn, secondaryName: undefined, country: university.countryEn, city: university.cityEn };
 }

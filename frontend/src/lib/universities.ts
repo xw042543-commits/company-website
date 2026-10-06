@@ -7,14 +7,15 @@ import {
   type ProgrammeStatus,
 } from "../data/university-catalog.ts";
 import { FEATURED_UNIVERSITY_IDS, universityProfile } from "../data/university-profiles.ts";
-import { localProgrammeMatches, localProgrammePage } from "../data/local-programmes.ts";
+import { findLocalProgrammeBySlug, localProgrammeMatches, localProgrammePage, type LocalProgrammeDetail } from "../data/local-programmes.ts";
 import {
+  getUniversityProgramme,
   getUniversityDetail,
   getUniversityProgrammes,
   searchUniversities,
   toSchoolSummary,
 } from "./university-api.ts";
-import { boundedPage, first, pageNumber, type Locale, type Query } from "./site.ts";
+import { boundedPage, first, formatEnglishDisplayText, pageNumber, type Locale, type Query } from "./site.ts";
 import { requestInternalApi } from "./internal-api-request.ts";
 
 export type SchoolSummary = {
@@ -193,13 +194,64 @@ export async function getUniversityProgrammesWithFallback(
   request: typeof fetch = fetch,
 ) {
   const university = findUniversityBySlug(slug);
+  const localPage = university ? localProgrammePage(slug, query) : undefined;
   if (baseUrl) {
     const remoteResult = await getUniversityProgrammes(baseUrl, backendUniversitySlug(slug), query, request);
-    if (remoteResult.status === "ready" || !university) return remoteResult;
+    if (remoteResult.status === "ready" && (remoteResult.page.totalItems > 0 || !localPage?.totalItems)) return remoteResult;
+    if (!university) return remoteResult;
   }
 
   return {
     status: "ready" as const,
-    page: localProgrammePage(slug, query),
+    page: localPage ?? localProgrammePage(slug, query),
+  };
+}
+
+export async function getUniversityProgrammeWithFallback(
+  universitySlug: string,
+  programmeSlug: string,
+  baseUrl?: string,
+  request: typeof fetch = fetch,
+): Promise<{ status: "ready"; programme: LocalProgrammeDetail } | { status: "not-found" | "error" }> {
+  const localProgramme = findLocalProgrammeBySlug(universitySlug, programmeSlug);
+  if (localProgramme) return { status: "ready", programme: localProgramme };
+
+  const university = findUniversityBySlug(universitySlug);
+  if (!baseUrl || !university) return { status: "not-found" };
+
+  const remoteResult = await getUniversityProgramme(
+    baseUrl,
+    backendUniversitySlug(universitySlug),
+    programmeSlug,
+    request,
+  );
+  if (remoteResult.status !== "ready") return remoteResult;
+
+  const remote = remoteResult.programme;
+  const normalizedLevel = remote.studyLevelCode?.trim().toLocaleLowerCase("en");
+  const level: LocalProgrammeDetail["level"] = normalizedLevel === "master" || normalizedLevel === "doctorate"
+    ? normalizedLevel
+    : "bachelor";
+  return {
+    status: "ready",
+    programme: {
+      universityId: university.id,
+      level,
+      nameZh: remote.nameZh?.trim() || remote.nameEn?.trim() || remote.programmeCode,
+      nameEn: formatEnglishDisplayText(remote.nameEn?.trim() || remote.programmeCode),
+      facultyZh: remote.categoryDisplayZh?.trim() || remote.categoryCode,
+      facultyEn: formatEnglishDisplayText(remote.categoryDisplayEn?.trim() || remote.categoryCode),
+      academicRequirement: "",
+      englishRequirement: "",
+      duration: remote.durationDisplay?.trim() || "",
+      registrationFee: "",
+      tuition: remote.tuitionDisplay?.trim() || "",
+      intakes: remote.intakeDisplayTexts.join(", "),
+      mode: remote.courseModeCode?.trim() || "",
+      interview: "",
+      slug: remote.slug,
+      descriptionZh: remote.descriptionZh?.trim() || "",
+      descriptionEn: remote.descriptionEn?.trim() || "",
+    },
   };
 }
