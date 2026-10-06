@@ -1,6 +1,15 @@
 package com.yangdoujiao.website.consultation;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+import java.util.UUID;
 
-interface ConsultationEnquiryRepository extends JpaRepository<ConsultationEnquiry, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+interface ConsultationEnquiryRepository extends JpaRepository<ConsultationEnquiry, Long>,
+        JpaSpecificationExecutor<ConsultationEnquiry> {
+
+    Optional<ConsultationEnquiry> findByReferenceCode(UUID referenceCode);
+
+    long countByStatus(ConsultationStatus status);
 }
