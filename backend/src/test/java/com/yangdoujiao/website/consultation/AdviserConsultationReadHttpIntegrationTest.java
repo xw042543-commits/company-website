@@ -181,7 +181,8 @@ class AdviserConsultationReadHttpIntegrationTest {
     @EnableWebMvc
     @EnableWebSecurity
     @Import({SecurityConfig.class, PasswordEncodingConfig.class, AuthSecurityErrorWriter.class,
-            GlobalExceptionHandler.class, AdviserConsultationController.class, AdviserConsultationService.class})
+            GlobalExceptionHandler.class, AdviserConsultationController.class, AdviserConsultationService.class,
+            ConsultationAuditLogger.class})
     static class TestConfig {
         @Bean ObjectMapper objectMapper() { return new ObjectMapper(); }
     }

@@ -27,6 +27,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import com.yangdoujiao.website.common.exception.ApiException;
+import com.yangdoujiao.website.auth.account.UserAccount;
+import com.yangdoujiao.website.auth.session.UserPrincipal;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Expression;
@@ -43,7 +45,7 @@ class AdviserConsultationServiceTest {
     @SuppressWarnings("unchecked")
     void setUp() {
         repository = mock(ConsultationEnquiryRepository.class);
-        service = new AdviserConsultationService(repository);
+        service = new AdviserConsultationService(repository, new ConsultationAuditLogger());
         when(repository.findAll(any(Specification.class), any(Pageable.class)))
                 .thenAnswer(invocation -> new PageImpl<>(List.of(), invocation.getArgument(1), 0));
     }
@@ -153,7 +155,7 @@ class AdviserConsultationServiceTest {
         assertThat(capture.getValue().toPredicate(mock(Root.class), null, builder)).isSameAs(unfiltered);
 
         repository = mock(ConsultationEnquiryRepository.class);
-        service = new AdviserConsultationService(repository);
+        service = new AdviserConsultationService(repository, new ConsultationAuditLogger());
         when(repository.findAll(any(Specification.class), any(Pageable.class)))
                 .thenReturn(new PageImpl<>(List.of()));
         service.list(0, 20, null, "  %_\\  ");
@@ -207,6 +209,22 @@ class AdviserConsultationServiceTest {
         when(repository.findByReferenceCode(reference)).thenReturn(Optional.empty());
         assertThatThrownBy(() -> service.detail(reference)).isInstanceOfSatisfying(ApiException.class,
                 exception -> assertThat(exception.getStatus()).isEqualTo(HttpStatus.NOT_FOUND));
+    }
+
+    @Test
+    void statusUpdateAlsoEnforcesAdviserAuthorityWhenCalledWithoutHttpSecurity() {
+        UserAccount account = UserAccount.external("Ordinary", "terms-v1", "privacy-v1");
+        ReflectionTestUtils.setField(account, "id", 7L);
+        UserPrincipal ordinary = UserPrincipal.from(account);
+        assertThatThrownBy(() -> service.updateStatus(fixture().getReferenceCode(),
+                new ConsultationStatusUpdateRequest(ConsultationStatus.COMPLETED, 0L), ordinary))
+                .isInstanceOfSatisfying(ApiException.class,
+                        exception -> assertThat(exception.getStatus()).isEqualTo(HttpStatus.FORBIDDEN));
+        assertThatThrownBy(() -> service.updateStatus(fixture().getReferenceCode(),
+                new ConsultationStatusUpdateRequest(ConsultationStatus.COMPLETED, 0L), null))
+                .isInstanceOfSatisfying(ApiException.class,
+                        exception -> assertThat(exception.getStatus()).isEqualTo(HttpStatus.FORBIDDEN));
+        verifyNoInteractions(repository);
     }
 
     private void assertBadRequest(Runnable action) {

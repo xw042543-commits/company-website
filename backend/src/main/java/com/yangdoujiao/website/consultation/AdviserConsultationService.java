@@ -1,25 +1,34 @@
 package com.yangdoujiao.website.consultation;
 
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.Locale;
 import java.util.UUID;
 
+import org.slf4j.MDC;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionSynchronization;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
+import com.yangdoujiao.website.auth.session.UserPrincipal;
 import com.yangdoujiao.website.common.exception.ApiException;
 import com.yangdoujiao.website.common.exception.ResourceNotFoundException;
+import com.yangdoujiao.website.common.web.RequestTraceFilter;
 
 @Service
 @Transactional(readOnly = true)
 public class AdviserConsultationService {
     private final ConsultationEnquiryRepository repository;
+    private final ConsultationAuditLogger audit;
 
-    public AdviserConsultationService(ConsultationEnquiryRepository repository) {
+    public AdviserConsultationService(ConsultationEnquiryRepository repository, ConsultationAuditLogger audit) {
         this.repository = repository;
+        this.audit = audit;
     }
 
     public AdviserConsultationPage list(Integer page, Integer size, ConsultationStatus status, String query) {
@@ -45,6 +54,42 @@ public class AdviserConsultationService {
     public AdviserConsultationDetail detail(UUID referenceCode) {
         return repository.findByReferenceCode(referenceCode).map(AdviserConsultationDetail::from)
                 .orElseThrow(() -> new ResourceNotFoundException("Consultation not found"));
+    }
+
+    @Transactional
+    public ConsultationStatusUpdateResponse updateStatus(UUID referenceCode, ConsultationStatusUpdateRequest request,
+            UserPrincipal actor) {
+        String traceId = MDC.get(RequestTraceFilter.TRACE_ID_MDC_KEY);
+        Long actorId = actor == null ? null : actor.userId();
+        ConsultationStatus next = request == null ? null : request.status();
+        if (actor == null || !actor.isAdviser()) {
+            audit.record(referenceCode, actorId, null, next, "FORBIDDEN", traceId);
+            throw new ApiException(HttpStatus.FORBIDDEN, "FORBIDDEN", "Access is denied");
+        }
+        if (request == null || next == null || request.version() == null || request.version() < 0) {
+            audit.record(referenceCode, actorId, null, next, "INVALID_REQUEST", traceId);
+            throw new ApiException(HttpStatus.BAD_REQUEST, "VALIDATION_ERROR", "Request validation failed");
+        }
+        ConsultationEnquiry enquiry = repository.findByReferenceCode(referenceCode).orElse(null);
+        if (enquiry == null) {
+            audit.record(referenceCode, actorId, null, next, "NOT_FOUND", traceId);
+            throw new ResourceNotFoundException("Consultation not found");
+        }
+        ConsultationStatus prior = enquiry.getStatus();
+        OffsetDateTime updatedAt = OffsetDateTime.now(ZoneOffset.UTC);
+        if (repository.updateStatus(referenceCode, next, updatedAt, actor.userId(), request.version()) == 0) {
+            audit.record(referenceCode, actorId, prior, next, "CONFLICT", traceId);
+            throw new ApiException(HttpStatus.CONFLICT, "CONSULTATION_CONFLICT", "Consultation was updated; refresh and retry");
+        }
+        Runnable recordSuccess = () -> audit.record(referenceCode, actorId, prior, next, "SUCCEEDED", traceId);
+        if (TransactionSynchronizationManager.isSynchronizationActive()) {
+            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+                @Override public void afterCommit() { recordSuccess.run(); }
+            });
+        } else {
+            recordSuccess.run();
+        }
+        return new ConsultationStatusUpdateResponse(referenceCode, next, updatedAt, actor.userId(), request.version() + 1);
     }
 
     private Specification<ConsultationEnquiry> filters(ConsultationStatus status, String search) {
