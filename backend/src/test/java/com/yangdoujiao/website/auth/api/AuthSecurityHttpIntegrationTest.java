@@ -21,12 +21,16 @@ import org.springframework.mock.web.MockCookie;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yangdoujiao.website.TestContainersConfiguration;
+import com.yangdoujiao.website.auth.account.UserAccount;
+import com.yangdoujiao.website.auth.account.UserAccountRole;
+import com.yangdoujiao.website.auth.session.UserPrincipal;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,6 +43,40 @@ class AuthSecurityHttpIntegrationTest {
 
     @Autowired private MockMvc mockMvc;
     @Autowired private JdbcTemplate jdbc;
+
+    @Test
+    void anonymousSessionDoesNotExposeAdviserCapability() throws Exception {
+        mockMvc.perform(get("/api/v1/auth/session"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.authenticated").value(false))
+                .andExpect(jsonPath("$.adviser").value(false));
+    }
+
+    @Test
+    void ordinaryUserSessionDoesNotExposeAdviserCapability() throws Exception {
+        mockMvc.perform(get("/api/v1/auth/session").with(user(principal(UserAccountRole.USER))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.authenticated").value(true))
+                .andExpect(jsonPath("$.userId").value(42))
+                .andExpect(jsonPath("$.adviser").value(false));
+    }
+
+    @Test
+    void adviserSessionExposesAdviserCapability() throws Exception {
+        mockMvc.perform(get("/api/v1/auth/session").with(user(principal(UserAccountRole.ADVISER))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.authenticated").value(true))
+                .andExpect(jsonPath("$.userId").value(42))
+                .andExpect(jsonPath("$.fullName").value("Test User"))
+                .andExpect(jsonPath("$.adviser").value(true));
+    }
+
+    private UserPrincipal principal(UserAccountRole role) {
+        UserAccount account = UserAccount.external("Test User", "terms-v1", "privacy-v1");
+        ReflectionTestUtils.setField(account, "id", 42L);
+        ReflectionTestUtils.setField(account, "role", role);
+        return UserPrincipal.from(account);
+    }
 
     @Test
     void csrfEndpointIssuesReadableCookieAndPlainHeaderToken() throws Exception {

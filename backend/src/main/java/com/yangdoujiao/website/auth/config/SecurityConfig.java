@@ -75,6 +75,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/v1/auth/csrf", "/api/v1/auth/session").permitAll()
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
+                        .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")
                         .requestMatchers(HttpMethod.GET, PUBLIC_READ_PATHS).permitAll()
                         .requestMatchers(HttpMethod.HEAD, PUBLIC_READ_PATHS).permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/consultations").permitAll()
