@@ -102,7 +102,7 @@ test("university result cards collapse matching programmes behind an accessible 
   assert.match(css, /\.school-programme-disclosure\[open\] \.school-programme-chevron/);
   assert.match(schoolCard, /className="school-card-secondary-actions"/);
   assert.match(schoolCard, /className="course-list-link"/);
-  assert.match(schoolCard, /\/programmes\/\$\{encodeURIComponent\(course\.id\)\}/);
+  assert.match(schoolCard, /programmeDetailPath\(locale, school\?\.slug \?\? "preview", course\.id\)/);
   assert.match(css, /\.school-card-secondary-actions\s*\{[^}]*gap:\s*6px/);
   assert.match(css, /\.course-list-link:hover/);
 });
@@ -197,7 +197,8 @@ test("comparison tray stays viewport-fixed and adapts on small screens", () => {
 });
 
 test("programme detail hero keeps its copy, actions, and campus image aligned on small screens", () => {
-  assert.match(programmePage, /getUniversityProgrammeWithFallback/);
+  assert.match(programmePage, /getUniversityProgramme/);
+  assert.match(programmePage, /findLocalProgrammeBySlug/);
   assert.match(css, /\.programme-hero-copy > h1\s*\{[^}]*overflow-wrap:\s*anywhere;[^}]*text-wrap:\s*balance/);
   assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.programme-hero-actions\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\) auto/);
   assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.programme-hero-visual\.has-photo\s*\{[^}]*aspect-ratio:\s*16 \/ 9/);

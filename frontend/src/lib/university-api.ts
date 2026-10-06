@@ -108,6 +108,11 @@ export type UniversityProgrammesRequestResult =
   | { status: "ready"; page: UniversityProgrammePage }
   | { status: "error" };
 
+export type UniversityProgrammeRequestResult =
+  | { status: "ready"; programme: UniversityProgramme }
+  | { status: "not-found" }
+  | { status: "error" };
+
 export type SchoolSummaryData = {
   id: string;
   slug: string;
@@ -236,6 +241,10 @@ function isUniversityProgramme(value: unknown): value is UniversityProgramme {
     && isNullableString(value.tuitionDisplay)
     && isStringArray(value.intakeMonths)
     && isStringArray(value.intakeDisplayTexts);
+}
+
+export function parseUniversityProgramme(payload: unknown): UniversityProgramme | null {
+  return isUniversityProgramme(payload) ? payload : null;
 }
 
 export function parseUniversitySearchPage(payload: unknown): UniversitySearchPage | null {
@@ -372,24 +381,21 @@ export async function getUniversityProgrammes(
 export async function getUniversityProgramme(
   baseUrl: string | undefined,
   universitySlug: string,
-  programmeSlug: string,
+  programmeIdentifier: string,
   request: typeof fetch = fetch,
-): Promise<{ status: "ready"; programme: UniversityProgramme } | { status: "not-found" | "error" }> {
-  if (!baseUrl || !universitySlug.trim() || !programmeSlug.trim()) return { status: "error" };
+): Promise<UniversityProgrammeRequestResult> {
+  if (!baseUrl || !universitySlug.trim() || !programmeIdentifier.trim()) return { status: "error" };
 
   try {
-    const path = `/api/v1/universities/${encodeURIComponent(universitySlug)}/programmes/${encodeURIComponent(programmeSlug)}`;
+    const path = `/api/v1/universities/${encodeURIComponent(universitySlug)}/programmes/${encodeURIComponent(programmeIdentifier)}`;
     const response = await requestInternalApi(request, new URL(path, baseUrl), {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });
     if (response.status === 404) return { status: "not-found" };
     if (!response.ok) return { status: "error" };
-
-    const payload: unknown = await response.json();
-    return isUniversityProgramme(payload)
-      ? { status: "ready", programme: payload }
-      : { status: "error" };
+    const programme = parseUniversityProgramme(await response.json());
+    return programme ? { status: "ready", programme } : { status: "error" };
   } catch {
     return { status: "error" };
   }
@@ -486,7 +492,7 @@ export function toUniversityDetailView(
       const programmeSecondaryName = locale === "zh" ? programme.nameEn : null;
 
       return {
-        id: programme.slug,
+        id: String(programme.id),
         name: programmeName,
         ...(programmeSecondaryName?.trim()
           && programmeSecondaryName.trim() !== programmeName

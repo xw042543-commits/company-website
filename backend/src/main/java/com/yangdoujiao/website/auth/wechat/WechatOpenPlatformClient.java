@@ -2,6 +2,8 @@ package com.yangdoujiao.website.auth.wechat;
 
 import java.net.URI;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
@@ -9,16 +11,24 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.yangdoujiao.website.common.exception.ApiException;
 
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+
 public final class WechatOpenPlatformClient implements WechatAuthorizationProvider {
+    private static final Logger log = LoggerFactory.getLogger(WechatOpenPlatformClient.class);
     private static final String AUTHORIZE_URL = "https://open.weixin.qq.com/connect/qrconnect";
     private static final String TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token";
 
     private final WechatAuthProperties properties;
     private final RestClient restClient;
+    private final ObjectMapper objectMapper;
 
-    public WechatOpenPlatformClient(WechatAuthProperties properties, RestClient.Builder builder) {
+    public WechatOpenPlatformClient(WechatAuthProperties properties, RestClient.Builder builder,
+            ObjectMapper objectMapper) {
         this.properties = properties;
         this.restClient = builder.build();
+        this.objectMapper = objectMapper;
     }
 
     @Override
@@ -43,13 +53,24 @@ public final class WechatOpenPlatformClient implements WechatAuthorizationProvid
                 .queryParam("grant_type", "authorization_code")
                 .build().encode().toUri();
         try {
-            TokenResponse response = restClient.get().uri(uri).retrieve().body(TokenResponse.class);
-            if (response == null || response.errcode() != null || response.openid() == null
-                    || response.openid().isBlank()) throw rejected();
-            return new WechatProviderIdentity(properties.appId(), response.openid());
+            String body = restClient.get().uri(uri).retrieve().body(String.class);
+            JsonNode response = body == null ? null : objectMapper.readTree(body);
+            if (response == null || !response.isObject()) throw unavailable();
+            JsonNode providerCode = response.get("errcode");
+            if (providerCode != null && !providerCode.isNull()) {
+                log.warn("wechat token exchange rejected providerCode={}", providerCode.asText("unknown"));
+                throw rejected();
+            }
+            JsonNode subjectNode = response.get("openid");
+            if (subjectNode == null || !subjectNode.isTextual()) throw unavailable();
+            String subject = subjectNode.textValue().strip();
+            if (subject.isEmpty()) throw unavailable();
+            return new WechatProviderIdentity(properties.appId(), subject);
         } catch (ApiException exception) {
             throw exception;
-        } catch (RestClientException | IllegalArgumentException exception) {
+        } catch (RestClientException | JacksonException | IllegalArgumentException exception) {
+            log.warn("wechat token exchange unavailable failureType={}",
+                    exception.getClass().getSimpleName());
             throw unavailable();
         }
     }
@@ -66,8 +87,5 @@ public final class WechatOpenPlatformClient implements WechatAuthorizationProvid
     private ApiException unavailable() {
         return new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "WECHAT_AUTH_UNAVAILABLE",
                 "WeChat authorization is temporarily unavailable");
-    }
-
-    private record TokenResponse(String openid, Integer errcode) {
     }
 }

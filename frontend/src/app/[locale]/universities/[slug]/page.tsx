@@ -10,6 +10,7 @@ import { findUniversityBySlug } from "@/data/university-catalog";
 import { localProgrammeLevels } from "@/data/local-programmes";
 import { getFilterOptions } from "@/lib/filter-options-api";
 import { serverApiBaseUrl } from "@/lib/runtime-config";
+import { programmeDetailPath } from "@/lib/programme-routes";
 import {
   toUniversityDetailView,
 } from "@/lib/university-api";
@@ -148,7 +149,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
             : view.programmes.length
               ? <div className="programme-detail-list">
                 {view.programmes.map((programme) => {
-                  const programmePath = `${detailPath}/programmes/${encodeURIComponent(programme.id)}`;
+                  const programmePath = programmeDetailPath(locale, slug, programme.id);
                   return <article className="programme-detail-card" id={`programme-${programme.id}`} key={programme.id}>
                   <div className="programme-card-heading"><h3><Link className="programme-title-link" href={programmePath}>{programme.name}</Link></h3><SaveToggle compact locale={locale} item={{ key: `programme:${slug}:${programme.id}`, kind: "programme", name: programme.name, secondaryName: programme.secondaryName, context: view.name, path: programmePath, facts: [[words(locale, "学历", "Level"), programme.level], [words(locale, "学制", "Duration"), programme.duration], [words(locale, "参考学费", "Tuition"), programme.tuition]].filter((fact): fact is [string, string] => Boolean(fact[1])).map(([label, value]) => ({ label, value })) }} /></div>
                   {programme.secondaryName && <p className="detail-secondary-name">{programme.secondaryName}</p>}

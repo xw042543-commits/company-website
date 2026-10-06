@@ -32,11 +32,11 @@ public class UniversityDetailController {
         return universityDetailService.getPublishedProgrammes(slug, query);
     }
 
-    @GetMapping("/{slug}/programmes/{programmeSlug}")
+    @GetMapping("/{slug}/programmes/{programmeIdentifier}")
     public UniversityProgrammeResponse getProgramme(
             @PathVariable String slug,
-            @PathVariable String programmeSlug
+            @PathVariable String programmeIdentifier
     ) {
-        return universityDetailService.getPublishedProgramme(slug, programmeSlug);
+        return universityDetailService.getPublishedProgramme(slug, programmeIdentifier);
     }
 }

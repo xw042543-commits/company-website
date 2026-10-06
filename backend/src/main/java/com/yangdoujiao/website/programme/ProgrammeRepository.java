@@ -22,28 +22,28 @@ public interface ProgrammeRepository extends JpaRepository<Programme, Long> {
     @Query("""
             SELECT DISTINCT programme
             FROM Programme programme
-            WHERE programme.university.id = :universityId
-              AND programme.slug = :slug
+            WHERE programme.id = :id
+              AND programme.university.id = :universityId
               AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
               AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
             """)
-    Optional<Programme> findPublishedDetailedByUniversityIdAndSlug(
-            @Param("universityId") Long universityId,
-            @Param("slug") String slug
+    Optional<Programme> findPublishedDetailedByIdAndUniversityId(
+            @Param("id") Long id,
+            @Param("universityId") Long universityId
     );
 
     @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
     @Query("""
             SELECT DISTINCT programme
             FROM Programme programme
-            WHERE programme.university.id = :universityId
-              AND programme.id = :programmeId
+            WHERE programme.slug = :slug
+              AND programme.university.id = :universityId
               AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
               AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
             """)
-    Optional<Programme> findPublishedDetailedByUniversityIdAndId(
-            @Param("universityId") Long universityId,
-            @Param("programmeId") Long programmeId
+    Optional<Programme> findPublishedDetailedBySlugAndUniversityId(
+            @Param("slug") String slug,
+            @Param("universityId") Long universityId
     );
 
     @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
