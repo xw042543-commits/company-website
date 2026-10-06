@@ -80,6 +80,8 @@ test("WeChat QR access embeds the official scanner for direct sign-in or registr
   assert.match(wechat, /aria-busy/);
   assert.match(wechat, /role="alert"/);
   assert.match(wechat, /wechat-qr-frame/);
+  assert.match(wechat, /wechat-qr-brand/);
+  assert.match(wechat, /微信官方登录/);
   assert.match(wechat, /微信扫码登录或注册/);
   assert.match(wechat, /\/api\/v1\/auth\/wechat\/start/);
   assert.match(wechat, /\/privacy/);
@@ -98,6 +100,7 @@ test("WeChat's official iframe is centered inside a compact square QR window", (
   assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*180px[^}]*height:\s*180px[^}]*overflow:\s*hidden/);
   assert.match(css, /\.wechat-login-container\s*\{[^}]*position:\s*absolute[^}]*top:\s*10px[^}]*left:\s*50%[^}]*width:\s*300px[^}]*height:\s*400px[^}]*translateX\(-50%\)/);
   assert.match(css, /\.wechat-login-container iframe\s*\{[^}]*display:\s*block[^}]*width:\s*300px\s*!important[^}]*height:\s*400px\s*!important/);
+  assert.match(css, /\.wechat-qr-brand svg\s*\{[^}]*width:\s*18px[^}]*height:\s*18px[^}]*fill:\s*#07c160/);
   assert.match(css, /@media \(max-width:\s*420px\)[\s\S]*\.wechat-qr-frame\s*\{[^}]*width:\s*180px[^}]*height:\s*180px/);
 });
 

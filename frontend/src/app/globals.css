@@ -1201,9 +1201,11 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .auth-qr-column { min-width: 0; display: flex; flex-direction: column; align-items: center; padding: clamp(34px, 4vw, 54px); border-right: 1px solid var(--line); text-align: center; background: rgb(235 244 240 / 76%); }
 .auth-column-label { margin-bottom: 7px; color: var(--brand-action); font-size: .78rem; font-weight: 780; letter-spacing: .04em; }
 .auth-qr-column h2, .auth-form-column h2 { margin-bottom: 0; font-size: clamp(1.55rem, 2.4vw, 2.15rem); }
-.wechat-qr-frame { position: relative; width: 180px; height: 180px; display: grid; place-items: center; margin: 22px auto 20px; overflow: hidden; border: 1px solid #b7ccc5; border-radius: 8px; background: #fff; box-shadow: 0 8px 22px rgb(21 63 54 / 7%); }
+.wechat-qr-frame { position: relative; width: 180px; height: 180px; display: grid; place-items: center; margin: 22px auto 10px; overflow: hidden; border: 1px solid #b7ccc5; border-radius: 8px; background: #fff; box-shadow: 0 8px 22px rgb(21 63 54 / 7%); }
 .wechat-login-container { position: absolute; top: 10px; left: 50%; width: 300px; height: 400px; overflow: hidden; background: #fff; transform: translateX(-50%); }
 .wechat-login-container iframe { display: block; width: 300px !important; height: 400px !important; border: 0; background: #fff; }
+.wechat-qr-brand { display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 18px; color: #397968; font-size: .72rem; font-weight: 720; letter-spacing: .01em; }
+.wechat-qr-brand svg { width: 18px; height: 18px; flex: 0 0 auto; fill: #07c160; }
 .wechat-qr-status, .wechat-qr-error { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; padding: 24px; color: var(--muted); font-size: .82rem; text-align: center; background: #fff; }
 .wechat-qr-frame.is-loading .wechat-qr-status::before { content: ""; position: absolute; top: calc(50% - 34px); width: 24px; height: 24px; border: 3px solid #d8e5e1; border-top-color: var(--brand-action); border-radius: 50%; animation: wechat-qr-spin .8s linear infinite; }
 .wechat-qr-error { align-content: center; gap: 14px; color: #8f302d; background: #fff8f6; }

@@ -140,6 +140,10 @@ export function WechatQrPanel({ locale, returnTo: requestedReturnTo }: {
         }}>{words(locale, "重试二维码", "Retry QR code")}</button>
       </div> : null}
     </div>
+    <div className="wechat-qr-brand" aria-label={words(locale, "微信官方登录", "Official WeChat sign-in")}>
+      <WechatIcon />
+      <span>{words(locale, "微信官方登录", "Official WeChat sign-in")}</span>
+    </div>
     <div className="wechat-login-copy">
       <strong>{words(locale, "扫码后直接登录", "Scan to sign in directly")}</strong>
       <p>{words(locale, "首次扫码将自动创建账户，无需填写邮箱或密码。", "Your first scan creates an account automatically, with no email or password required.")}</p>
@@ -151,4 +155,11 @@ export function WechatQrPanel({ locale, returnTo: requestedReturnTo }: {
       <a className="wechat-login-button" href={href}>{words(locale, "无法扫码？打开微信登录", "Can't scan? Open WeChat sign-in")}</a>
     </div>
   </aside>;
+}
+
+function WechatIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M9.7 4.3c-4.2 0-7.5 2.6-7.5 5.9 0 1.9 1.1 3.6 2.9 4.7l-.7 2.5 2.9-1.5c.8.2 1.6.3 2.4.3h.5a5.6 5.6 0 0 1-.3-1.8c0-3.4 3.2-6.1 7.2-6.1h.1c-.9-2.3-3.8-4-7.5-4Zm-2.5 4a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm5 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z" />
+    <path d="M21.8 14.4c0-2.8-2.8-5-6.2-5s-6.2 2.2-6.2 5 2.8 5 6.2 5c.7 0 1.4-.1 2.1-.3l2.4 1.3-.6-2.1c1.4-1 2.3-2.3 2.3-3.9Zm-8.2-1a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6Zm4.1 0a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6Z" />
+  </svg>;
 }
