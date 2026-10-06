@@ -3,6 +3,7 @@ package com.yangdoujiao.website.consultation;
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -17,6 +18,7 @@ import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -144,6 +146,27 @@ class AdviserConsultationReadHttpIntegrationTest {
     void rejectsInvalidBoundedOrTypedParameters(String parameter) throws Exception {
         mockMvc.perform(get("/api/v1/adviser/consultations?" + parameter).with(user(adviser)))
                 .andExpect(status().isBadRequest());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"2147483647,20", "1073741824,2", "107374183,20"})
+    void excessiveOffsetReturnsBadRequestBeforeRepositoryAccess(int page, int size) throws Exception {
+        mockMvc.perform(get("/api/v1/adviser/consultations").param("page", Integer.toString(page))
+                        .param("size", Integer.toString(size)).with(user(adviser)))
+                .andExpect(status().isBadRequest());
+        verifyNoInteractions(repository);
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void maximumJpaOffsetIsStillAccepted() throws Exception {
+        when(repository.findAll(any(Specification.class), any(Pageable.class)))
+                .thenAnswer(invocation -> new PageImpl<>(List.of(), invocation.getArgument(1), 0));
+        mockMvc.perform(get("/api/v1/adviser/consultations").param("page", "2147483647")
+                        .param("size", "1").with(user(adviser)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.page").value(2147483647))
+                .andExpect(jsonPath("$.size").value(1));
     }
 
     @Test

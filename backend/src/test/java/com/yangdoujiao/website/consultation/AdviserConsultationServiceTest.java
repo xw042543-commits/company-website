@@ -6,6 +6,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 import java.time.OffsetDateTime;
@@ -51,6 +52,19 @@ class AdviserConsultationServiceTest {
     @CsvSource({"-1,20", "0,0", "0,-1", "0,101"})
     void rejectsOutOfBoundsPagination(int page, int size) {
         assertBadRequest(() -> service.list(page, size, null, null));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"2147483647,20", "1073741824,2", "107374183,20"})
+    void rejectsOffsetAboveJpaIntegerLimitBeforeRepositoryAccess(int page, int size) {
+        assertBadRequest(() -> service.list(page, size, null, null));
+        verifyNoInteractions(repository);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"2147483647,1", "107374182,20"})
+    void acceptsOffsetAtOrBelowJpaIntegerLimit(int page, int size) {
+        assertThat(service.list(page, size, null, null).page()).isEqualTo(page);
     }
 
     @Test

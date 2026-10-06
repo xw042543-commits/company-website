@@ -26,7 +26,8 @@ public class AdviserConsultationService {
         int pageNumber = page == null ? 0 : page;
         int pageSize = size == null ? 20 : size;
         String search = query == null ? "" : query.strip();
-        if (pageNumber < 0 || pageSize < 1 || pageSize > 100 || search.length() > 100) {
+        if (pageNumber < 0 || pageSize < 1 || pageSize > 100
+                || (long) pageNumber * pageSize > Integer.MAX_VALUE || search.length() > 100) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "VALIDATION_ERROR", "Request validation failed");
         }
 
