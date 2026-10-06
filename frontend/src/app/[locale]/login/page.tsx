@@ -13,7 +13,7 @@ export default async function LoginPage({ params, searchParams }: { params: Prom
   const accountDestination = signedInLoginDestination(await isRequestAuthenticated(), locale);
   if (accountDestination) redirect(accountDestination);
   const otherLocale = locale === "zh" ? "en" : "zh";
-  const accountMode = mode === "register" || mode === "recovery" || mode === "wechat-bind" ? mode : "login";
+  const accountMode = mode === "register" || mode === "recovery" ? mode : "login";
   const returnTo = safeReturnTo(requestedReturnTo, locale);
   const otherReturnTo = returnTo.replace(`/${locale}`, `/${otherLocale}`);
   const languageParameters = new URLSearchParams({ returnTo: otherReturnTo });
