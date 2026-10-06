@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { getWechatQrConfig, type WechatQrConfig } from "@/lib/auth-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
@@ -53,7 +53,7 @@ function loadWechatLoginScript(): Promise<void> {
   return result;
 }
 
-function mountWechatLogin(config: WechatQrConfig): Promise<void> {
+function mountWechatLogin(config: WechatQrConfig, onConfirmation: () => void): Promise<void> {
   const container = document.getElementById(CONTAINER_ID);
   if (!container || !window.WxLogin) throw new Error("WeChat login container unavailable");
   container.replaceChildren();
@@ -77,7 +77,15 @@ function mountWechatLogin(config: WechatQrConfig): Promise<void> {
       if (error) reject(error); else resolve();
     };
     const watch = (iframe: HTMLIFrameElement) => {
-      iframe.addEventListener("load", () => finish(), { once: true });
+      let initialLoadComplete = false;
+      iframe.addEventListener("load", () => {
+        if (!initialLoadComplete) {
+          initialLoadComplete = true;
+          finish();
+          return;
+        }
+        onConfirmation();
+      });
       iframe.addEventListener("error", () => finish(new Error("WeChat QR iframe failed")), { once: true });
     };
     const iframe = container.querySelector<HTMLIFrameElement>("iframe");
@@ -101,7 +109,9 @@ export function WechatQrPanel({ locale, returnTo: requestedReturnTo }: {
   returnTo?: string;
 }) {
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [confirming, setConfirming] = useState(false);
   const [retryNonce, setRetryNonce] = useState(0);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const returnTo = requestedReturnTo ?? `/${locale}/account`;
   useEffect(() => {
     let active = true;
@@ -111,7 +121,9 @@ export function WechatQrPanel({ locale, returnTo: requestedReturnTo }: {
     ]).then(([result]) => {
       if (!active) return;
       if (result.status !== "ready") throw new Error("WeChat QR configuration unavailable");
-      return mountWechatLogin(result.config);
+      return mountWechatLogin(result.config, () => {
+        if (active) setConfirming(true);
+      });
     }).then(() => {
       if (!active) return;
       setStatus("ready");
@@ -124,13 +136,43 @@ export function WechatQrPanel({ locale, returnTo: requestedReturnTo }: {
     };
   }, [locale, retryNonce, returnTo]);
 
+  useEffect(() => {
+    if (!confirming) return;
+    closeButtonRef.current?.focus();
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") dismissConfirmation();
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [confirming]);
+
+  const dismissConfirmation = () => {
+    setConfirming(false);
+    setStatus("loading");
+    setRetryNonce(value => value + 1);
+  };
+
   const query = new URLSearchParams({ locale, returnTo });
   const href = `/api/v1/auth/wechat/start?${query.toString()}`;
   return <aside className="auth-qr-column" aria-labelledby="wechat-access-title">
     <p className="auth-column-label">{words(locale, "快捷访问", "Quick access")}</p>
     <h2 id="wechat-access-title">{words(locale, "微信扫码登录或注册", "Sign in or register with WeChat")}</h2>
-    <div className={`wechat-qr-frame is-${status}`} aria-busy={status === "loading"} aria-label={words(locale, "微信登录二维码区域", "WeChat sign-in QR area")}>
+    {confirming ? <div className="wechat-confirmation-backdrop" aria-hidden="true" /> : null}
+    <div
+      className={`wechat-qr-frame is-${status}${confirming ? " is-confirming" : ""}`}
+      aria-busy={status === "loading"}
+      aria-label={confirming ? words(locale, "微信登录确认", "WeChat sign-in confirmation") : words(locale, "微信登录二维码区域", "WeChat sign-in QR area")}
+      role={confirming ? "dialog" : undefined}
+      aria-modal={confirming ? true : undefined}
+    >
       <div id={CONTAINER_ID} className="wechat-login-container" />
+      {confirming ? <button
+        ref={closeButtonRef}
+        className="wechat-confirmation-close"
+        type="button"
+        aria-label={words(locale, "关闭微信确认窗口", "Close WeChat confirmation")}
+        onClick={dismissConfirmation}
+      >×</button> : null}
       {status === "loading" ? <p className="wechat-qr-status">{words(locale, "正在加载微信二维码…", "Loading WeChat QR code…")}</p> : null}
       {status === "error" ? <div className="wechat-qr-error" role="alert">
         <p>{words(locale, "二维码加载失败，请重试或使用下方按钮继续。", "The QR code could not load. Retry or use the button below.")}</p>

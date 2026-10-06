@@ -1206,6 +1206,11 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .auth-column-label { margin-bottom: 7px; color: var(--brand-action); font-size: .78rem; font-weight: 780; letter-spacing: .04em; }
 .auth-qr-column h2, .auth-form-column h2 { margin-bottom: 0; font-size: clamp(1.55rem, 2.4vw, 2.15rem); }
 .wechat-qr-frame { position: relative; width: 180px; height: 180px; display: grid; place-items: center; margin: 22px auto 10px; overflow: hidden; border: 1px solid #b7ccc5; border-radius: 8px; background: #fff; box-shadow: 0 8px 22px rgb(21 63 54 / 7%); }
+.wechat-confirmation-backdrop { position: fixed; inset: 0; z-index: 90; background: rgb(7 31 26 / 36%); backdrop-filter: blur(3px); }
+.wechat-qr-frame.is-confirming { position: fixed; top: 50%; left: 50%; z-index: 91; width: min(230px, calc(100vw - 32px)); height: 258px; margin: 0; border-color: rgb(56 126 108 / 34%); border-radius: 14px; box-shadow: 0 24px 70px rgb(8 39 32 / 24%); transform: translate(-50%, -50%); }
+.wechat-confirmation-close { position: absolute; top: 6px; right: 6px; z-index: 3; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid rgb(56 126 108 / 24%); border-radius: 50%; color: var(--brand-deep); background: rgb(255 255 255 / 92%); font: 700 1.2rem/1 var(--font-sans); cursor: pointer; }
+.wechat-confirmation-close:hover { border-color: var(--brand-action); background: #f0f7f4; }
+.wechat-confirmation-close:focus-visible { outline: 3px solid rgb(56 126 108 / 24%); outline-offset: 2px; }
 .wechat-login-container { position: absolute; top: 10px; left: 50%; width: 300px; height: 400px; overflow: hidden; background: #fff; transform: translateX(-50%); }
 .wechat-login-container iframe { display: block; width: 300px !important; height: 400px !important; border: 0; background: #fff; }
 .wechat-qr-brand { display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 18px; color: #397968; font-size: .72rem; font-weight: 720; letter-spacing: .01em; }

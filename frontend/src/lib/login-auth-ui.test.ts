@@ -89,6 +89,10 @@ test("WeChat QR access embeds the official scanner for direct sign-in or registr
   assert.match(wechat, /扫码即表示您同意/);
   assert.match(wechat, /wechat-login-fallback/);
   assert.match(wechat, /二维码无法识别？在微信中打开/);
+  assert.match(wechat, /onConfirmation/);
+  assert.match(wechat, /wechat-confirmation-backdrop/);
+  assert.match(wechat, /role=\{confirming \? "dialog"/);
+  assert.match(wechat, /event\.key === "Escape"/);
   assert.doesNotMatch(panel, /WechatBindForm|"wechat-bind"/);
   assert.doesNotMatch(page, /"wechat-bind"/);
   assert.match(page, /wechatError/);
@@ -103,6 +107,8 @@ test("WeChat's official iframe is centered inside a compact square QR window", (
   assert.match(css, /\.wechat-login-container\s*\{[^}]*position:\s*absolute[^}]*top:\s*10px[^}]*left:\s*50%[^}]*width:\s*300px[^}]*height:\s*400px[^}]*translateX\(-50%\)/);
   assert.match(css, /\.wechat-login-container iframe\s*\{[^}]*display:\s*block[^}]*width:\s*300px\s*!important[^}]*height:\s*400px\s*!important/);
   assert.match(css, /\.wechat-qr-brand svg\s*\{[^}]*width:\s*18px[^}]*height:\s*18px[^}]*fill:\s*#07c160/);
+  assert.match(css, /\.wechat-qr-frame\.is-confirming\s*\{[^}]*position:\s*fixed[^}]*width:\s*min\(230px/);
+  assert.match(css, /\.wechat-confirmation-close\s*\{[^}]*width:\s*44px[^}]*height:\s*44px/);
   assert.match(css, /@media \(max-width:\s*420px\)[\s\S]*\.wechat-qr-frame\s*\{[^}]*width:\s*180px[^}]*height:\s*180px/);
 });
 
