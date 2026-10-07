@@ -13,6 +13,7 @@ const comparisonTray = readFileSync(fileURLToPath(new URL("../components/compari
 const saveToggle = readFileSync(fileURLToPath(new URL("../components/save-toggle.tsx", import.meta.url)), "utf8");
 const searchAutocomplete = readFileSync(fileURLToPath(new URL("../components/search-autocomplete.tsx", import.meta.url)), "utf8");
 const programmePage = readFileSync(fileURLToPath(new URL("./[locale]/universities/[slug]/programmes/[programmeId]/page.tsx", import.meta.url)), "utf8");
+const companyContacts = readFileSync(fileURLToPath(new URL("../components/company-contacts.tsx", import.meta.url)), "utf8");
 
 test("adviser styles isolate readable mobile cards and keyboard controls", () => {
   assert.match(css, /\.adviser-consultations \.adviser-table\s*\{[^}]*table-layout:\s*fixed/);
@@ -44,6 +45,15 @@ test("global styles cover the rendered header and homepage layout", () => {
   }
 
   assert.match(css, /\.hero-intro\s*\{[\s\S]*?font-size:\s*clamp\(1\.03rem,\s*1\.35vw,\s*1\.16rem\)/);
+});
+
+test("contact directory uses a lead contact and balanced adviser grid", () => {
+  assert.match(companyContacts, /contact-card-primary/);
+  assert.match(companyContacts, /contact-card-identity/);
+  assert.match(css, /\.contact-card-grid\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(css, /\.contact-card-primary\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/);
+  assert.match(css, /\.contact-qr\s*\{[^}]*border-left:\s*1px solid/);
+  assert.match(css, /@media \(max-width:\s*520px\)[\s\S]*?\.contact-qr\s*\{[^}]*border-left:\s*0/);
 });
 
 test("public homepage uses a compact enquiry desk and responsive university cards", () => {
