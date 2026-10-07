@@ -8,5 +8,6 @@ public record AdviserConsultationPage(
         int size,
         long totalElements,
         int totalPages,
-        ConsultationStatusCounts counts
+        ConsultationStatusCounts counts,
+        boolean submissionEnabled
 ) {}

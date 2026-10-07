@@ -78,7 +78,7 @@ class ConsultationAuditLoggerTest {
         ReflectionTestUtils.setField(account, "role", UserAccountRole.ADVISER);
         TransactionSynchronizationManager.initSynchronization();
         try {
-            new AdviserConsultationService(repository, new ConsultationAuditLogger()).updateStatus(
+            new AdviserConsultationService(repository, new ConsultationAuditLogger(), false).updateStatus(
                     enquiry.getReferenceCode(), new ConsultationStatusUpdateRequest(ConsultationStatus.COMPLETED, 0L),
                     UserPrincipal.from(account));
             assertThat(captured.list).isEmpty();

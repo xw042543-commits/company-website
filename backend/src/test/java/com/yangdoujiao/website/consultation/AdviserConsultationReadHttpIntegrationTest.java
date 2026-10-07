@@ -139,7 +139,8 @@ class AdviserConsultationReadHttpIntegrationTest {
                 .andExpect(jsonPath("$.totalPages").value(1))
                 .andExpect(jsonPath("$.counts.newCount").value(0))
                 .andExpect(jsonPath("$.counts.inProgressCount").value(0))
-                .andExpect(jsonPath("$.counts.completedCount").value(0));
+                .andExpect(jsonPath("$.counts.completedCount").value(0))
+                .andExpect(jsonPath("$.submissionEnabled").value(false));
     }
 
     @Test

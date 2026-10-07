@@ -60,6 +60,41 @@ test("browser filters stay one-based and reset pagination after a filter change"
   assert.equal(consultationQuery({ query: "A&B", status: "", page: 1 }, { page: 2 }), "query=A%26B&page=2");
 });
 
+test("contact actions only link validated email addresses and phone numbers", async () => {
+  const { contactAction } = await import("./adviser-consultations-ui.ts");
+  assert.deepEqual(contactAction(" student@example.com "),
+    { kind: "email", href: "mailto:student@example.com" });
+  assert.deepEqual(contactAction("+60 12-345 6789"),
+    { kind: "phone", href: "tel:+60123456789" });
+  for (const unsafe of ["wechat:student", "hello world", "javascript:alert(1)", "a@b"]) {
+    assert.equal(contactAction(unsafe), null);
+  }
+});
+
+test("focused portal paths include auth pages and locale adviser routes only", async () => {
+  const { isFocusedPortalPath } = await import("./site.ts");
+  for (const path of ["/zh/login", "/zh/register", "/zh/forgot-password", "/zh/adviser/consultations"]) {
+    assert.equal(isFocusedPortalPath("zh", path), true, path);
+  }
+  for (const path of ["/zh", "/zh/account", "/en/adviser/consultations", "/zh/advisers"]) {
+    assert.equal(isFocusedPortalPath("zh", path), false, path);
+  }
+});
+
+test("collection state copy never presents paused intake as active", async () => {
+  const { consultationCollectionState } = await import("./adviser-consultations-ui.ts");
+  assert.deepEqual(consultationCollectionState("zh", true), {
+    tone: "active",
+    title: "咨询收集已启用",
+    description: "网站访客可以提交新的咨询资料。",
+  });
+  assert.deepEqual(consultationCollectionState("en", false), {
+    tone: "paused",
+    title: "Consultation collection is paused",
+    description: "New submissions are paused; existing records remain available.",
+  });
+});
+
 test("superseded requests abort transport and cannot publish late results", async () => {
   const { createLatestRequest, abortableRequest } = await import("./adviser-consultations-ui.ts");
   const latest = createLatestRequest();

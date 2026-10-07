@@ -8,6 +8,28 @@ export function consultationConflictMessage(locale: Locale, pending: boolean, fa
   return conflict + words(locale, "已载入最新记录，请核对后再次更新。", "The latest record is loaded. Review it before updating again.");
 }
 
+export function contactAction(contact: string): { kind: "email" | "phone"; href: string } | null {
+  const value = contact.trim();
+  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return { kind: "email", href: `mailto:${value}` };
+  if (/^\+?[0-9][0-9 ()-]{6,20}$/.test(value)) {
+    const number = `${value.startsWith("+") ? "+" : ""}${value.replace(/\D/g, "")}`;
+    return { kind: "phone", href: `tel:${number}` };
+  }
+  return null;
+}
+
+export function consultationCollectionState(locale: Locale, enabled: boolean) {
+  return enabled ? {
+    tone: "active" as const,
+    title: words(locale, "咨询收集已启用", "Consultation collection is active"),
+    description: words(locale, "网站访客可以提交新的咨询资料。", "Website visitors can submit new enquiries."),
+  } : {
+    tone: "paused" as const,
+    title: words(locale, "咨询收集已暂停", "Consultation collection is paused"),
+    description: words(locale, "当前不会收到新咨询；已有记录仍可查看和跟进。", "New submissions are paused; existing records remain available."),
+  };
+}
+
 export type ConsultationFilters = { query: string; status: ConsultationStatus | ""; page: number };
 export function readConsultationFilters(params: URLSearchParams): ConsultationFilters {
   const rawPage = params.get("page") ?? "1";

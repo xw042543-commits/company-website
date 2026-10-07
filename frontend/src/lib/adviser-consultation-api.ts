@@ -26,6 +26,7 @@ export type AdviserConsultationPage = {
   totalElements: number;
   totalPages: number;
   counts: ConsultationStatusCounts;
+  submissionEnabled: boolean;
 };
 export type ConsultationStatusUpdateResponse = {
   referenceCode: string;
@@ -92,13 +93,14 @@ function parseSummary(value: unknown): AdviserConsultationSummary | null {
   return record(value) && exact(value, summaryKeys) && summaryFields(value) ? value as AdviserConsultationSummary : null;
 }
 function parsePage(value: unknown): AdviserConsultationPage | null {
-  if (!record(value) || !exact(value, ["items", "page", "size", "totalElements", "totalPages", "counts"])
+  if (!record(value) || !exact(value, ["items", "page", "size", "totalElements", "totalPages", "counts", "submissionEnabled"])
     || !integer(value.page) || value.page > 2147483647 || !integer(value.size, 1) || value.size > 100
     || value.page * value.size > 2147483647 || !integer(value.totalElements) || !integer(value.totalPages) || value.totalPages > 2147483647
     || value.totalPages !== Math.ceil(value.totalElements / value.size)
     || !Array.isArray(value.items) || value.items.length !== Math.min(value.size, Math.max(0, value.totalElements - value.page * value.size))
     || !value.items.every((item) => parseSummary(item) !== null)
     || !record(value.counts) || !exact(value.counts, ["newCount", "inProgressCount", "completedCount"])
+    || typeof value.submissionEnabled !== "boolean"
     || !Object.values(value.counts).every((count) => integer(count))) return null;
   return value as AdviserConsultationPage;
 }
