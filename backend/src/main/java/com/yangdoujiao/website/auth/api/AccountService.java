@@ -12,6 +12,8 @@ import com.yangdoujiao.website.auth.account.AccountIdentifierType;
 import com.yangdoujiao.website.auth.account.UserAccount;
 import com.yangdoujiao.website.auth.account.UserAccountRepository;
 import com.yangdoujiao.website.auth.account.UserAccountStatus;
+import com.yangdoujiao.website.auth.external.ExternalIdentityProvider;
+import com.yangdoujiao.website.auth.external.UserExternalIdentityRepository;
 import com.yangdoujiao.website.auth.password.PasswordResetTokenRepository;
 import com.yangdoujiao.website.auth.session.UserSessionService;
 import com.yangdoujiao.website.auth.verification.UserVerificationTokenRepository;
@@ -24,21 +26,25 @@ public class AccountService {
     private final UserVerificationTokenRepository verificationTokens;
     private final PasswordResetTokenRepository resetTokens;
     private final UserSessionService sessions;
+    private final UserExternalIdentityRepository externalIdentities;
 
     public AccountService(UserAccountRepository accounts, PasswordEncoder passwords,
             UserVerificationTokenRepository verificationTokens, PasswordResetTokenRepository resetTokens,
-            UserSessionService sessions) {
+            UserSessionService sessions, UserExternalIdentityRepository externalIdentities) {
         this.accounts = accounts;
         this.passwords = passwords;
         this.verificationTokens = verificationTokens;
         this.resetTokens = resetTokens;
         this.sessions = sessions;
+        this.externalIdentities = externalIdentities;
     }
 
     @Transactional(readOnly = true)
     public AccountResponse profile(long userId) {
-        return AccountResponse.from(accounts.findById(userId).filter(this::available)
-                .orElseThrow(this::unavailable));
+        UserAccount account = accounts.findById(userId).filter(this::available)
+                .orElseThrow(this::unavailable);
+        return AccountResponse.from(account, externalIdentities.findByProviderAndUserAccountId(
+                ExternalIdentityProvider.WECHAT, userId));
     }
 
     @Transactional

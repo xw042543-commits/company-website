@@ -127,6 +127,18 @@ test("language programme copy preserves the approved price and format", () => {
   assert.doesNotMatch(sections, /4,980 元起|from CNY 4,980/);
 });
 
+test("content pages expose the approved scholarship grid and news channels", () => {
+  const sections = read("../app/[locale]/[section]/page.tsx");
+  const styles = read("../app/globals.css");
+
+  assert.match(sections, /scholarship-article-grid/);
+  assert.match(sections, /留学政策/);
+  assert.match(sections, /院校动态/);
+  assert.match(sections, /洋豆角资讯/);
+  assert.match(styles, /\.scholarship-article-grid\s*\{[^}]*grid-template-columns:\s*repeat\(4/);
+  assert.match(styles, /@media \(max-width:\s*620px\)[\s\S]*?\.scholarship-article-grid\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+});
+
 test("English display copy normalizes imported all-caps titles", () => {
   assert.equal(
     formatEnglishDisplayText("BACHELOR OF ENTREPRENEURSHIP AND INNOVATION"),

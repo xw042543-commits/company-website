@@ -69,7 +69,7 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("11");
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("12");
             assertThat(jdbcTemplate.queryForObject(
                     "SELECT role FROM user_accounts WHERE id = ?", String.class, accountId)).isEqualTo("USER");
             assertThat(jdbcTemplate.queryForMap("""
@@ -79,6 +79,12 @@ class V3MigrationCompatibilityTest {
                     """, enquiryId)).containsExactlyInAnyOrderEntriesOf(Map.of(
                     "status", "NEW", "version", 0L, "timestamp_preserved", true, "no_updater", true
             ));
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT count(*) FROM information_schema.columns
+                    WHERE table_schema = 'public'
+                      AND table_name = 'user_external_identities'
+                      AND column_name IN ('display_name', 'avatar_url')
+                    """, Integer.class)).isEqualTo(2);
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT COUNT(*) FROM universities WHERE slug = 'university-of-malaya'
                     """, Integer.class)).isEqualTo(1);

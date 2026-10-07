@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { type FormEvent, useEffect, useState } from "react";
 import { changePassword, deleteAccount, getAccount, logout, type AccountProfile } from "@/lib/auth-api";
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
@@ -100,14 +101,33 @@ export function AccountPanel({ locale }: { locale: Locale }) {
 
   if (loading) return <p className="login-status" role="status" aria-live="polite">{words(locale, "正在载入账户…", "Loading your account…")}</p>;
   if (!account) return message && <p className="login-status auth-status-error" role="alert">{message.text}</p>;
+  const wechatLastLogin = account.wechatLastLoginAt
+    ? new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB", { dateStyle: "medium", timeStyle: "short" }).format(new Date(account.wechatLastLoginAt))
+    : null;
 
   return <div className="account-panel">
     <section className="account-summary" aria-labelledby="account-summary-title">
-      <div><h2 id="account-summary-title">{account.fullName}</h2><p>{words(locale, "账户建立于", "Account created")} {new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB", { dateStyle: "medium" }).format(new Date(account.createdAt))}</p></div>
+      <div className="account-summary-identity">
+        {account.wechatAvatarUrl
+          ? <Image className="account-profile-avatar" src={account.wechatAvatarUrl} alt={words(locale, "微信头像", "WeChat profile picture")} width={72} height={72} unoptimized />
+          : <span className="account-profile-avatar account-profile-avatar-fallback" aria-hidden="true">{account.fullName.trim().charAt(0).toUpperCase()}</span>}
+        <div><h2 id="account-summary-title">{account.wechatDisplayName ?? account.fullName}</h2><p>{words(locale, "账户建立于", "Account created")} {new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB", { dateStyle: "medium" }).format(new Date(account.createdAt))}</p></div>
+      </div>
       <button type="button" className="secondary" disabled={pendingAction !== null} onClick={handleLogout}>{pendingAction === "logout" ? words(locale, "正在退出…", "Signing out…") : words(locale, "退出登录", "Sign out")}</button>
       <dl>
-        <div><dt>{words(locale, "邮箱", "Email")}</dt><dd>{account.email ?? words(locale, "未设置", "Not set")} · {account.emailVerified ? words(locale, "已验证", "Verified") : words(locale, "未验证", "Not verified")}</dd></div>
-        <div><dt>{words(locale, "手机", "Phone")}</dt><dd>{account.phone ?? words(locale, "未设置", "Not set")} · {account.phoneVerified ? words(locale, "已验证", "Verified") : words(locale, "未验证", "Not verified")}</dd></div>
+        <div><dt>{words(locale, "邮箱", "Email")}</dt><dd className="account-contact-detail">
+          <span>{account.email ?? words(locale, "未设置", "Not set")}</span>
+          {account.email ? <VerificationStatus locale={locale} verified={account.emailVerified} /> : null}
+        </dd></div>
+        <div><dt>{words(locale, "手机", "Phone")}</dt><dd className="account-contact-detail">
+          <span>{account.phone ?? words(locale, "未设置", "Not set")}</span>
+          {account.phone ? <VerificationStatus locale={locale} verified={account.phoneVerified} /> : null}
+        </dd></div>
+        <div><dt>{words(locale, "微信", "WeChat")}</dt><dd className="account-provider-detail">
+          <strong className={account.wechatLinked ? "is-linked" : undefined}>{account.wechatLinked ? words(locale, "已绑定", "Linked") : words(locale, "未绑定", "Not linked")}</strong>
+          {account.wechatDisplayName && account.wechatDisplayName !== account.fullName ? <span>{account.wechatDisplayName}</span> : null}
+          {wechatLastLogin ? <span>{words(locale, "最近登录", "Last sign-in")} {wechatLastLogin}</span> : null}
+        </dd></div>
       </dl>
       {demoAccount && <p className="demo-account-note">{words(locale, "这是仅用于本地测试的演示账户，不会保存任何账户更改。", "This local demo account is for testing only and does not save account changes.")}</p>}
     </section>
@@ -135,4 +155,12 @@ export function AccountPanel({ locale }: { locale: Locale }) {
     </section></>}
     {message && <p className={`login-status auth-status-${message.tone}`} role={message.tone === "error" ? "alert" : "status"} aria-live="polite">{message.text}</p>}
   </div>;
+}
+
+function VerificationStatus({ locale, verified }: { locale: Locale; verified: boolean }) {
+  if (!verified) return <span className="account-verification">{words(locale, "未验证", "Not verified")}</span>;
+  return <span className="account-verification is-verified">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3.1 8.2 3 3.1 6.8-7" /></svg>
+    <span>{words(locale, "已验证", "Verified")}</span>
+  </span>;
 }

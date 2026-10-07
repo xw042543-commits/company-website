@@ -7,6 +7,7 @@ import { PublicHome } from "@/components/public-home";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
 import { UNIVERSITY_CATALOG } from "@/data/university-catalog";
+import { chineseBrandMetadata } from "@/lib/brand-metadata";
 import { resolvePublicIndexing } from "@/lib/public-indexing";
 import { isRequestAuthenticated } from "@/lib/server-auth";
 import { isLocale, words } from "@/lib/site";
@@ -19,14 +20,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isChinese = locale === "zh";
   const canonical = isChinese ? origin : `${origin}/en`;
   const title = isChinese
-    ? "洋豆角留学｜留学规划与院校查询"
+    ? chineseBrandMetadata.title
     : "UDAJO | Find Universities and Plan Your Studies Abroad";
   const description = isChinese
-    ? "洋豆角留学（洋豆角教育）提供留学院校与专业查询、留学规划、申请咨询及留学全周期服务。"
+    ? chineseBrandMetadata.description
     : "Compare universities and programmes, plan your application and speak with a UDAJO adviser about studying abroad.";
 
   return {
     title,
+    keywords: isChinese ? chineseBrandMetadata.keywords : undefined,
     description,
     alternates: {
       canonical: canonical,

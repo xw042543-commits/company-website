@@ -228,6 +228,10 @@ test("loads and strictly validates the masked account profile", async () => {
     phone: null,
     emailVerified: true,
     phoneVerified: false,
+    wechatLinked: true,
+    wechatDisplayName: "小王",
+    wechatAvatarUrl: "https://thirdwx.qlogo.cn/mmopen/example/132",
+    wechatLastLoginAt: "2026-10-06T08:30:00Z",
     createdAt: "2026-09-28T10:00:00Z",
   };
   const valid = requestQueue([jsonResponse(account)]);
@@ -236,6 +240,9 @@ test("loads and strictly validates the masked account profile", async () => {
 
   const leaked = requestQueue([jsonResponse({ ...account, passwordHash: "secret" })]);
   assert.deepEqual(await getAccount("http://localhost:8080", leaked.request), { status: "error" });
+
+  const unsafeAvatar = requestQueue([jsonResponse({ ...account, wechatAvatarUrl: "https://example.com/avatar.jpg" })]);
+  assert.deepEqual(await getAccount("http://localhost:8080", unsafeAvatar.request), { status: "error" });
 });
 
 test("maps backend and network failures to stable client states", async () => {

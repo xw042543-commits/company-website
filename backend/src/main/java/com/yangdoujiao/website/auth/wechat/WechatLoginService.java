@@ -122,7 +122,7 @@ public class WechatLoginService {
                 ExternalIdentityProvider.WECHAT, providerIdentity.clientId(), providerIdentity.subject())
                 .map(identity -> {
                     UserAccount account = active(identity.getUserAccount());
-                    identity.markLogin(OffsetDateTime.now());
+                    identity.updateProfile(providerIdentity.displayName(), providerIdentity.avatarUrl(), OffsetDateTime.now());
                     identities.saveAndFlush(identity);
                     return account;
                 }).orElseGet(() -> {
@@ -131,10 +131,12 @@ public class WechatLoginService {
                                 "Registration is unavailable");
                     }
                     UserAccount account = accounts.saveAndFlush(UserAccount.external(
-                            "zh".equals(locale) ? "微信用户" : "WeChat user",
+                            providerIdentity.displayName() != null ? providerIdentity.displayName()
+                                    : ("zh".equals(locale) ? "微信用户" : "WeChat user"),
                             authProperties.agreementVersion(), authProperties.privacyVersion()));
                     identities.saveAndFlush(UserExternalIdentity.bind(account, ExternalIdentityProvider.WECHAT,
-                            providerIdentity.clientId(), providerIdentity.subject(), OffsetDateTime.now()));
+                            providerIdentity.clientId(), providerIdentity.subject(), providerIdentity.displayName(),
+                            providerIdentity.avatarUrl(), OffsetDateTime.now()));
                     return account;
                 }));
         } catch (DataIntegrityViolationException exception) {

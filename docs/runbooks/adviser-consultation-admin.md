@@ -18,7 +18,7 @@ node --test scripts/deployment-compose.test.mjs scripts/deployment-preflight.tes
 
 The normal `npm test` entry point includes both adviser API and UI suites through `test:adviser`, so the existing CI frontend test step gates them. All commands must exit 0; backend tests must have zero failures and errors. Use Node 24 and Java 21. For a local browser rehearsal of the standalone build, launch the generated server as documented in `frontend/Dockerfile`, with its static/public assets present, rather than `next start`.
 
-Take, integrity-check and rehearse a PostgreSQL backup following [BACKUP_AND_RESTORE.md](../BACKUP_AND_RESTORE.md). Record pre-deploy account and consultation row counts and workflow status counts as aggregates only, with a known migration rehearsal containing pre-V11 `NEW` rows. Follow [DEPLOYMENT.md](../DEPLOYMENT.md): **Actions → Deploy production → Run workflow → main** is the existing manual approval/deployment workflow. It gates the exact release SHA, keeps the previous running images, validates configuration, starts healthy containers and runs credential-free launch smoke. Do not bypass it by running a separate release script.
+Take, integrity-check and rehearse a PostgreSQL backup following [BACKUP_AND_RESTORE.md](../BACKUP_AND_RESTORE.md). Record pre-deploy account and consultation row counts and workflow status counts as aggregates only, with a known migration rehearsal containing pre-V12 `NEW` rows. Follow [DEPLOYMENT.md](../DEPLOYMENT.md): **Actions → Deploy production → Run workflow → main** is the existing manual approval/deployment workflow. It gates the exact release SHA, keeps the previous running images, validates configuration, starts healthy containers and runs credential-free launch smoke. Do not bypass it by running a separate release script.
 
 After the workflow succeeds, verify all six services (`caddy`, `frontend`, `backend`, `postgres`, `redis`, `elasticsearch`) are running and healthy:
 
@@ -32,7 +32,7 @@ docker run --rm --mount "type=bind,source=$PWD,target=/app,readonly" -w /app nod
 
 The shown launch flags match the current production workflow; use only the approved indexing/WeChat launch configuration. Keep `launch-smoke.mjs` public and credential-free. Authenticated adviser checks are a separate manual browser procedure below. Never add adviser credentials to CI, smoke scripts or shell arguments.
 
-## 2. Verify V11 before promotion
+## 2. Verify V12 before promotion
 
 Run read-only SQL through the production Postgres container using its existing environment. `-X` disables psql startup customisations and `ON_ERROR_STOP` stops on any SQL error; no connection secret is printed or supplied in the command.
 
@@ -41,9 +41,9 @@ docker compose --env-file .env.production -f compose.production.yaml exec -T pos
 SELECT version, description, success
 FROM flyway_schema_history
 ORDER BY installed_rank DESC LIMIT 3;
-SELECT count(*) AS successful_v11
+SELECT count(*) AS successful_v12
 FROM flyway_schema_history
-WHERE version = '11' AND success;
+WHERE version = '12' AND success;
 SELECT count(*) AS failed_migrations FROM flyway_schema_history WHERE NOT success;
 SELECT table_name, column_name, data_type, is_nullable, column_default
 FROM information_schema.columns
@@ -64,7 +64,7 @@ WHERE status_updated_at IS NULL OR version IS NULL OR version < 0;
 SQL
 ```
 
-Require latest successful migration V11, `successful_v11 = 1`, `failed_migrations = 0`, and `invalid_workflow_rows = 0`. Confirm role is non-null with `USER` default and only `USER`/`ADVISER` allowed; status allows `NEW`/`IN_PROGRESS`/`COMPLETED`; timestamp is non-null TIMESTAMPTZ, updater is nullable BIGINT with `ON DELETE RESTRICT`, and version is non-null BIGINT with default zero. Confirm `(status, created_at DESC, id DESC)` and the retained newest-first index. Compare aggregates with the pre-deploy record, accounting for concurrent genuine submissions; investigate differences rather than rewriting rows. In the isolated migration rehearsal verify pre-V11 accounts became `USER`, existing `NEW` rows retained their content, `status_updated_at` was backfilled from `created_at`, version is zero and updater is null. This is mandatory migration acceptance evidence even if a fresh-schema test passes.
+Require latest successful migration V12, `successful_v12 = 1`, `failed_migrations = 0`, and `invalid_workflow_rows = 0`. Confirm role is non-null with `USER` default and only `USER`/`ADVISER` allowed; status allows `NEW`/`IN_PROGRESS`/`COMPLETED`; timestamp is non-null TIMESTAMPTZ, updater is nullable BIGINT with `ON DELETE RESTRICT`, and version is non-null BIGINT with default zero. Confirm `(status, created_at DESC, id DESC)` and the retained newest-first index. Compare aggregates with the pre-deploy record, accounting for concurrent genuine submissions; investigate differences rather than rewriting rows. In the isolated migration rehearsal verify pre-V12 accounts became `USER`, existing `NEW` rows retained their content, `status_updated_at` was backfilled from `created_at`, version is zero and updater is null. This is mandatory migration acceptance evidence even if a fresh-schema test passes.
 
 ## 3. Register, verify and inspect the existing account
 
@@ -249,4 +249,4 @@ SQL
 
 Pause requests during revocation and verify `remaining_target_sessions = 0`; already in-flight requests may have authenticated before revocation. Confirm all former adviser profiles lose access, then sign in again and require 403 from adviser list/detail/status (valid CSRF), with ordinary account access retained. Do not change other users' roles or clear all sessions.
 
-For application recovery use the retained images and exact commands in [DEPLOYMENT.md](../DEPLOYMENT.md#update-and-application-rollback), only after validating compatibility with V11. The previous `NEW`-only application may not understand `IN_PROGRESS`/`COMPLETED`; do not revert images blindly, rewrite genuine workflow data or drop V11 columns/Flyway history. Prefer a reviewed forward fix; database restoration requires a rehearsed, separately approved recovery plan under [BACKUP_AND_RESTORE.md](../BACKUP_AND_RESTORE.md). Never delete named volumes. Repeat health, credential-free launch smoke and the anonymous/user checks after recovery. Production acceptance remains pending until the merged release is deployed and the verified `udajoedu@gmail.com` adviser smoke succeeds.
+For application recovery use the retained images and exact commands in [DEPLOYMENT.md](../DEPLOYMENT.md#update-and-application-rollback), only after validating compatibility with V12. The previous `NEW`-only application may not understand `IN_PROGRESS`/`COMPLETED`; do not revert images blindly, rewrite genuine workflow data or drop V12 columns/Flyway history. Prefer a reviewed forward fix; database restoration requires a rehearsed, separately approved recovery plan under [BACKUP_AND_RESTORE.md](../BACKUP_AND_RESTORE.md). Never delete named volumes. Repeat health, credential-free launch smoke and the anonymous/user checks after recovery. Production acceptance remains pending until the merged release is deployed and the verified `udajoedu@gmail.com` adviser smoke succeeds.

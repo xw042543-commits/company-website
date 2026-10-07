@@ -54,7 +54,9 @@ class ExternalIdentitySchemaIntegrationTest {
                 "provider_client_id",
                 "provider_subject",
                 "created_at",
-                "last_login_at");
+                "last_login_at",
+                "display_name",
+                "avatar_url");
         assertThat(jdbc.queryForObject(
                 "SELECT normalized_email FROM user_accounts WHERE id = ?",
                 String.class,

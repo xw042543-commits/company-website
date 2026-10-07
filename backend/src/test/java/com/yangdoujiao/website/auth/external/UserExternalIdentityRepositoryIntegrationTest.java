@@ -46,6 +46,8 @@ class UserExternalIdentityRepositoryIntegrationTest {
                 ExternalIdentityProvider.WECHAT,
                 "wechat-app",
                 "wechat-subject",
+                "小王",
+                "https://thirdwx.qlogo.cn/mmopen/example/132",
                 boundAt));
         entityManager.clear();
 
@@ -58,6 +60,8 @@ class UserExternalIdentityRepositoryIntegrationTest {
         assertThat(saved.getProvider()).isEqualTo(ExternalIdentityProvider.WECHAT);
         assertThat(saved.getProviderClientId()).isEqualTo("wechat-app");
         assertThat(saved.getProviderSubject()).isEqualTo("wechat-subject");
+        assertThat(saved.getDisplayName()).isEqualTo("小王");
+        assertThat(saved.getAvatarUrl()).isEqualTo("https://thirdwx.qlogo.cn/mmopen/example/132");
         assertThat(saved.getCreatedAt()).isEqualTo(boundAt);
         assertThat(saved.getLastLoginAt()).isEqualTo(boundAt);
         assertThat(identities.existsByProviderAndUserAccountId(
@@ -77,7 +81,7 @@ class UserExternalIdentityRepositoryIntegrationTest {
                 "wechat-last-login-subject",
                 boundAt));
 
-        identity.markLogin(loggedInAt);
+        identity.updateProfile("Updated name", "https://wx.qlogo.cn/mmopen/updated/132", loggedInAt);
         identities.saveAndFlush(identity);
         entityManager.clear();
 
@@ -88,6 +92,8 @@ class UserExternalIdentityRepositoryIntegrationTest {
         assertThat(updated.getCreatedAt()).isEqualTo(boundAt);
         assertThat(updated.getLastLoginAt()).isEqualTo(loggedInAt);
         assertThat(updated.getProviderSubject()).isEqualTo("wechat-last-login-subject");
+        assertThat(updated.getDisplayName()).isEqualTo("Updated name");
+        assertThat(updated.getAvatarUrl()).isEqualTo("https://wx.qlogo.cn/mmopen/updated/132");
     }
 
     private long insertAccount(String email) {

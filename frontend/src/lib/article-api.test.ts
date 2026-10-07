@@ -54,6 +54,8 @@ test("accepts complete article pages and rejects malformed page metadata", () =>
   assert.equal(parse?.({ ...page, items: [] } as never), null);
   assert.equal(parse?.({ ...page, totalItems: 0, totalPages: 0 } as never), null);
   assert.equal(parse?.({ ...page, items: [{ ...summary, slug: "" }] } as never), null);
+  assert.equal(parse?.({ ...page, items: [{ ...summary, coverPath: "https://example.com/image.jpg" }] } as never), null);
+  assert.equal(parse?.({ ...page, items: [{ ...summary, coverPath: "/content/../private.jpg" }] } as never), null);
 });
 
 test("normalizes article pages that exceed the backend offset range", () => {
