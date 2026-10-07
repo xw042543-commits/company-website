@@ -218,10 +218,12 @@ test("university directory search stays opaque and flush beneath the header", ()
   assert.match(css, /@media \(max-width:\s*1400px\)[\s\S]*?\.directory-search-sticky\s*\{[^}]*top:\s*80px/);
 });
 
-test("benefit cards use an even two-column alignment", () => {
-  assert.match(css, /\.benefits\s*\{[^}]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
-  assert.match(css, /\.benefits\s*\{[^}]*grid-auto-rows:\s*minmax\(140px,\s*auto\)/);
-  assert.doesNotMatch(css, /\.benefits article:nth-child/);
+test("benefits use a colorful four-point layout that responds without cards", () => {
+  assert.match(css, /\.benefits\s*\{[^}]*grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(css, /\.benefits \.benefit-visible\s*\{[^}]*--benefit-accent:/);
+  assert.match(css, /\.benefits \.benefit-fair\s*\{[^}]*--benefit-accent:/);
+  assert.match(css, /\.benefits \.benefit-support\s*\{[^}]*--benefit-accent:/);
+  assert.match(css, /@media \(max-width:\s*520px\)[\s\S]*?\.benefits\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
 test("catalog filters stay compact and removable across tablet layouts", () => {

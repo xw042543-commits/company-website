@@ -361,11 +361,21 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .pathway-card h3 { margin-bottom: 10px; font-size: clamp(1.25rem, 2vw, 1.55rem); }
 .pathway-card p { max-width: 36ch; color: var(--muted); }
 .pathway-action { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 24px; color: var(--brand-action); font-size: .9rem; font-weight: 760; }
-.benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(140px, auto); gap: 0 clamp(38px, 6vw, 88px); border-top: 1px solid var(--line); }
-.benefits article { min-height: 140px; padding: 28px 0; border-bottom: 1px solid var(--line); transition: background-color 200ms var(--ease-out), padding-left 200ms var(--ease-out); }
-.benefits article:hover { padding-left: 12px; background: linear-gradient(90deg, rgb(232 242 245 / 72%), transparent); }
-.benefits h3 { margin-bottom: 10px; }
-.benefits p { max-width: 46ch; color: var(--muted); }
+.benefits-section { overflow: hidden; background: #f5f8f6; }
+.benefits-section .section-heading { margin-bottom: clamp(36px, 5vw, 58px); }
+.benefits-section .section-heading h2 { max-width: 17ch; }
+.benefits { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(24px, 3vw, 44px); }
+.benefits article { --benefit-accent: var(--brand-action); --benefit-soft: #dff0ea; min-width: 0; padding: 0 0 30px; border-bottom: 3px solid var(--benefit-accent); }
+.benefits .benefit-visible { --benefit-accent: #176fc1; --benefit-soft: #dcecf9; }
+.benefits .benefit-fair { --benefit-accent: #9a42ad; --benefit-soft: #f0e2f3; }
+.benefits .benefit-support { --benefit-accent: #d95f32; --benefit-soft: #f9e4da; }
+.benefit-symbol { width: 68px; height: 68px; display: grid; place-items: center; margin-bottom: 26px; border-radius: 50%; background: var(--benefit-soft); color: var(--benefit-accent); transition: transform 220ms var(--ease-out); }
+.benefit-symbol svg { width: 46px; height: 46px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.benefits h3 { min-height: 2.6em; margin-bottom: 13px; color: var(--ink); font-size: clamp(1.14rem, 1.45vw, 1.32rem); line-height: 1.3; }
+.benefits p { max-width: 35ch; margin: 0; color: #4f625b; font-size: .94rem; line-height: 1.72; }
+@media (hover: hover) and (pointer: fine) {
+  .benefits article:hover .benefit-symbol { transform: translateY(-5px) rotate(-3deg); }
+}
 .process-section { border-top: 1px solid var(--line); background: var(--wash); color: var(--ink); }
 .process-section h2, .process-section h3 { color: var(--support-navy); }
 .process-section .section-label { color: var(--brand-action); }
@@ -1039,9 +1049,8 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .comparison-table { min-width: 720px; }
   .pathway-grid { grid-template-columns: minmax(0, 1fr); }
   .pathway-card { min-height: 0; }
-  .benefits { grid-template-columns: 1fr; gap: 0; }
-  .benefits article { min-height: 0; margin-top: 0; padding: 24px 0; }
-  .benefits article:hover { padding-left: 0; }
+  .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 38px 28px; }
+  .benefits article { padding-bottom: 26px; }
   .process { grid-template-columns: 1fr; border-top: 0; }
   .process li, .process li + li { display: grid; grid-template-columns: 46px 1fr; align-items: center; gap: 12px; padding: 17px 0; border-left: 0; border-bottom: 1px solid var(--line); }
   .process h3 { margin: 0; }
@@ -1082,6 +1091,8 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 
 @media (max-width: 520px) {
   h1 { font-size: clamp(2rem, 9.5vw, 2.75rem); line-height: 1.16; }
+  .benefits { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .benefits h3 { min-height: 0; }
   .header-actions .button { display: none; }
   .navigation .navigation-register { display: inline-flex; color: var(--brand-action); font-weight: 760; }
   .language-switch .language-symbol { display: none; }

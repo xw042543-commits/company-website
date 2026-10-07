@@ -59,10 +59,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     : `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/${path}`)}`;
 
   const benefits = [
-    ["留学信息真实全面", "Information you can use", "提供真实、全面的留学信息，帮助你安心作出选择。", "Compare reviewed university and programme information before you decide."],
-    ["服务流程透明可视", "A process you can follow", "服务进度清晰可查，每一步做到哪里都心中有数。", "See what has been completed and what needs to happen next."],
-    ["零中介服务费", "No agency service fee", "你只需支付必要的第三方费用，洋豆角不收取中介服务费。", "Pay only necessary third-party costs. UDAJO does not charge an agency service fee."],
-    ["留学全周期服务", "Support from planning to arrival", "从语言培训、规划申请到抵达与学习支持，全程都有专业团队陪伴。", "Get help with language preparation, applications, arrival and study support."],
+    ["reviewed", "留学信息真实全面", "Reviewed information", "提供真实、全面的留学信息，帮助你安心作出选择。", "Compare reviewed university and programme information before you decide."],
+    ["visible", "服务流程透明可视", "Progress you can follow", "服务进度清晰可查，每一步做到哪里都心中有数。", "See what has been completed and what needs to happen next."],
+    ["fair", "零中介服务费", "No agency service fee", "你只需支付必要的第三方费用，洋豆角不收取中介服务费。", "Pay only necessary third-party costs. UDAJO does not charge an agency service fee."],
+    ["support", "留学全周期服务", "Support from planning to arrival", "从语言培训、规划申请到抵达与学习支持，全程都有专业团队陪伴。", "Get help with language preparation, applications, arrival and study support."],
   ] as const;
   const pathways = [
     ["01", "明确留学方向", "Define your study goals", "结合目标学历与专业兴趣，逐步缩小适合你的选择范围。", "Use your intended qualification and academic interests to narrow your options.", memberHref("planning"), "开始规划", "Start planning"],
@@ -136,10 +136,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <span className="pathway-action">{words(locale, actionZh, actionEn)} <span aria-hidden="true">→</span></span>
       </Link>)}</div>
     </div></section>
-    <section className="container section">
-      <div className="section-heading"><p className="section-label">{words(locale, "选择更清晰", "Why UDAJO")}</p><h2>{words(locale, "为什么选择洋豆角", "Practical support for studying abroad")}</h2></div>
-      <div className="benefits">{benefits.map(([zh, en, bodyZh, bodyEn]) => <article key={zh}><h3>{words(locale, zh, en)}</h3><p>{words(locale, bodyZh, bodyEn)}</p></article>)}</div>
-    </section>
+    <section className="benefits-section"><div className="container section">
+      <div className="section-heading"><p className="section-label">{words(locale, "选择更清晰", "Why UDAJO")}</p><h2>{words(locale, "为什么选择洋豆角", "Why students choose UDAJO")}</h2></div>
+      <div className="benefits">{benefits.map(([kind, zh, en, bodyZh, bodyEn]) => <article className={`benefit-${kind}`} key={kind}>
+        <BenefitSymbol kind={kind} />
+        <h3>{words(locale, zh, en)}</h3>
+        <p>{words(locale, bodyZh, bodyEn)}</p>
+      </article>)}</div>
+    </div></section>
     <section className="process-section"><div className="container section">
       <div className="section-heading"><p className="section-label">{words(locale, "从查找到入学", "From search to study")}</p><h2>{words(locale, "申请流程", "Application process")}</h2></div>
       <ol className="process">{steps.map(([zh, en, bodyZh, bodyEn], i) => <li key={zh}><span className="step-number">{String(i + 1).padStart(2, "0")}</span><h3>{words(locale, zh, en)}</h3><p>{words(locale, bodyZh, bodyEn)}</p></li>)}</ol>
@@ -153,4 +157,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </details>)}</div>
     </div></section>
   </main>;
+}
+
+function BenefitSymbol({ kind }: { kind: "reviewed" | "visible" | "fair" | "support" }) {
+  return <span className="benefit-symbol" aria-hidden="true">
+    {kind === "reviewed" && <svg viewBox="0 0 48 48"><circle cx="21" cy="21" r="13" /><path d="m15.5 21.5 4 4 8.5-9" /><path d="M31 31.5 39 39" /></svg>}
+    {kind === "visible" && <svg viewBox="0 0 48 48"><path d="M8 34 18 24l7 6 15-16" /><circle cx="8" cy="34" r="3" /><circle cx="18" cy="24" r="3" /><circle cx="25" cy="30" r="3" /><circle cx="40" cy="14" r="3" /></svg>}
+    {kind === "fair" && <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="15" /><path d="M29.5 17.5h-7a4 4 0 0 0 0 8h3a4 4 0 0 1 0 8h-7M24 13v5M24 34v4" /></svg>}
+    {kind === "support" && <svg viewBox="0 0 48 48"><path d="M24 38S9 30 9 19.5A8.5 8.5 0 0 1 24 14a8.5 8.5 0 0 1 15 5.5C39 30 24 38 24 38Z" /><path d="M18 24h4l2-5 3 10 2-5h4" /></svg>}
+  </span>;
 }
