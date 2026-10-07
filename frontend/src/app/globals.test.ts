@@ -56,6 +56,13 @@ test("contact directory uses a lead contact and balanced adviser grid", () => {
   assert.match(css, /@media \(max-width:\s*520px\)[\s\S]*?\.contact-qr\s*\{[^}]*border-left:\s*0/);
 });
 
+test("contact directory keeps adviser details readable", () => {
+  assert.match(css, /\.contact-card h3\s*\{[^}]*font-size:\s*1\.28rem;[^}]*line-height:\s*1\.35/);
+  assert.match(css, /\.contact-methods > div\s*\{[^}]*min-height:\s*64px;[^}]*font-size:\s*\.9rem/);
+  assert.match(css, /\.contact-methods dd\s*\{[^}]*font-size:\s*\.94rem;[^}]*line-height:\s*1\.5/);
+  assert.match(css, /\.contact-card-primary \.contact-methods > div\s*\{[^}]*display:\s*block;[^}]*padding:\s*18px 0 10px/);
+});
+
 test("public homepage uses a compact enquiry desk and responsive university cards", () => {
   assert.match(css, /\.public-home-contact-desk\s*\{[\s\S]*?grid-template-columns:/);
   assert.match(css, /\.public-home-contact-photo img\s*\{[\s\S]*?object-position:\s*center/);
