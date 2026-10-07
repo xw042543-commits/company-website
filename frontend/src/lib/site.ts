@@ -1,4 +1,9 @@
 export type Locale = "zh" | "en";
+
+export function isFocusedPortalPath(locale: Locale, pathname: string): boolean {
+  return [`/${locale}/login`, `/${locale}/register`, `/${locale}/forgot-password`].includes(pathname)
+    || pathname.startsWith(`/${locale}/adviser/`);
+}
 export const isLocale = (value: string): value is Locale => value === "zh" || value === "en";
 export const words = (locale: Locale, zh: string, en: string) => locale === "zh" ? zh : en;
 

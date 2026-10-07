@@ -9,7 +9,7 @@ const summary = { referenceCode, name: "Lim", contact: "+60123456789", intendedS
   intendedCourse: "Law", qualification: "bachelor", status: "NEW", createdAt: timestamp,
   statusUpdatedAt: timestamp, version: 0 };
 const page = { items: [summary], page: 0, size: 20, totalElements: 1, totalPages: 1,
-  counts: { newCount: 1, inProgressCount: 0, completedCount: 0 } };
+  counts: { newCount: 1, inProgressCount: 0, completedCount: 0 }, submissionEnabled: true };
 const consultation = { ...summary, notes: null, locale: "zh", privacyNoticeVersion: "2026-10-v1", statusUpdatedByUserId: null };
 const update = { referenceCode, status: "IN_PROGRESS", statusUpdatedAt: timestamp, statusUpdatedByUserId: 7, version: 1 };
 const csrf = { headerName: "X-XSRF-TOKEN", token: "valid-token" };
@@ -101,6 +101,7 @@ test("rejects malformed pagination, counts, enums, UUIDs and timestamps", async 
     { ...page, totalElements: 1.5 }, { ...page, totalPages: 2 }, { ...page, items: [] },
     { ...page, counts: { newCount: -1, inProgressCount: 0, completedCount: 0 } },
     { ...page, counts: { newCount: 1, inProgressCount: "0", completedCount: 0 } },
+    { ...page, submissionEnabled: undefined }, { ...page, submissionEnabled: "true" },
     { ...page, leaked: "unexpected" },
   ]) assert.deepEqual(await loadAdviserConsultations(base, {}, queue([Response.json(payload)]).request), { status: "error" });
   for (const replacement of [

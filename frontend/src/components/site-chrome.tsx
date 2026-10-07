@@ -7,14 +7,15 @@ import { usePathname } from "next/navigation";
 import { PageMotion } from "@/components/page-motion";
 import { SiteHeader } from "@/components/site-header";
 import { companyProfile } from "@/data/company-profile";
-import { type Locale, words } from "@/lib/site";
+import { isFocusedPortalPath, type Locale, words } from "@/lib/site";
 
 export function SiteChrome({ locale, signedIn, children }: { locale: Locale; signedIn: boolean; children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAuthPortal = [`/${locale}/login`, `/${locale}/register`, `/${locale}/forgot-password`].includes(pathname);
+  const isFocusedPortal = isFocusedPortalPath(locale, pathname);
+  const isAdviserPortal = pathname.startsWith(`/${locale}/adviser/`);
   const language = locale === "zh" ? "zh-CN" : "en";
 
-  if (isAuthPortal) return <div lang={language}>
+  if (isFocusedPortal) return <div lang={language} className={isAdviserPortal ? "adviser-portal" : undefined}>
     <a href="#main" className="skip-link">{words(locale, "跳至主要内容", "Skip to main content")}</a>
     {children}
   </div>;

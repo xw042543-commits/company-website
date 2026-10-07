@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.UUID;
 
 import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
@@ -25,10 +26,13 @@ import com.yangdoujiao.website.common.web.RequestTraceFilter;
 public class AdviserConsultationService {
     private final ConsultationEnquiryRepository repository;
     private final ConsultationAuditLogger audit;
+    private final boolean submissionEnabled;
 
-    public AdviserConsultationService(ConsultationEnquiryRepository repository, ConsultationAuditLogger audit) {
+    public AdviserConsultationService(ConsultationEnquiryRepository repository, ConsultationAuditLogger audit,
+            @Value("${app.consultation.submission-enabled:false}") boolean submissionEnabled) {
         this.repository = repository;
         this.audit = audit;
+        this.submissionEnabled = submissionEnabled;
     }
 
     public AdviserConsultationPage list(Integer page, Integer size, ConsultationStatus status, String query) {
@@ -48,7 +52,8 @@ public class AdviserConsultationService {
                 repository.countByStatus(ConsultationStatus.IN_PROGRESS),
                 repository.countByStatus(ConsultationStatus.COMPLETED));
         return new AdviserConsultationPage(result.getContent().stream().map(AdviserConsultationSummary::from).toList(),
-                result.getNumber(), result.getSize(), result.getTotalElements(), result.getTotalPages(), counts);
+                result.getNumber(), result.getSize(), result.getTotalElements(), result.getTotalPages(), counts,
+                submissionEnabled);
     }
 
     public AdviserConsultationDetail detail(UUID referenceCode) {

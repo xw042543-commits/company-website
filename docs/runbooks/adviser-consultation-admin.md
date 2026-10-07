@@ -32,6 +32,19 @@ docker run --rm --mount "type=bind,source=$PWD,target=/app,readonly" -w /app nod
 
 The shown launch flags match the current production workflow; use only the approved indexing/WeChat launch configuration. Keep `launch-smoke.mjs` public and credential-free. Authenticated adviser checks are a separate manual browser procedure below. Never add adviser credentials to CI, smoke scripts or shell arguments.
 
+### Collection-state banner
+
+The adviser console reports the backend value of `app.consultation.submission-enabled`. The banner is informational and cannot change production configuration.
+
+To accept new public submissions, production must have both values configured:
+
+```dotenv
+APP_CONSULTATION_SUBMISSION_ENABLED=true
+APP_CONSULTATION_PRIVACY_NOTICE_VERSION=2026-09-30
+```
+
+After an approved environment change, recreate the backend and verify the console says “咨询收集已启用”. Then submit one consented synthetic enquiry through the public form and confirm it appears in the adviser console. A paused banner together with an empty list means no new records can arrive; it is not proof that the console is unable to read submitted data.
+
 ## 2. Verify V12 before promotion
 
 Run read-only SQL through the production Postgres container using its existing environment. `-X` disables psql startup customisations and `ON_ERROR_STOP` stops on any SQL error; no connection secret is printed or supplied in the command.

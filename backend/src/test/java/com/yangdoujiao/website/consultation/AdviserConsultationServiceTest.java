@@ -45,7 +45,7 @@ class AdviserConsultationServiceTest {
     @SuppressWarnings("unchecked")
     void setUp() {
         repository = mock(ConsultationEnquiryRepository.class);
-        service = new AdviserConsultationService(repository, new ConsultationAuditLogger());
+        service = new AdviserConsultationService(repository, new ConsultationAuditLogger(), false);
         when(repository.findAll(any(Specification.class), any(Pageable.class)))
                 .thenAnswer(invocation -> new PageImpl<>(List.of(), invocation.getArgument(1), 0));
     }
@@ -112,6 +112,17 @@ class AdviserConsultationServiceTest {
     }
 
     @Test
+    void listReportsWhetherPublicSubmissionIsEnabled() {
+        AdviserConsultationService enabled = new AdviserConsultationService(
+                repository, new ConsultationAuditLogger(), true);
+        AdviserConsultationService paused = new AdviserConsultationService(
+                repository, new ConsultationAuditLogger(), false);
+
+        assertThat(enabled.list(0, 20, null, null).submissionEnabled()).isTrue();
+        assertThat(paused.list(0, 20, null, null).submissionEnabled()).isFalse();
+    }
+
+    @Test
     @SuppressWarnings("unchecked")
     void combinesStatusAndTrimmedCaseInsensitiveNameOrContactWithAnd() {
         service.list(0, 20, ConsultationStatus.NEW, "　 LiM  ");
@@ -155,7 +166,7 @@ class AdviserConsultationServiceTest {
         assertThat(capture.getValue().toPredicate(mock(Root.class), null, builder)).isSameAs(unfiltered);
 
         repository = mock(ConsultationEnquiryRepository.class);
-        service = new AdviserConsultationService(repository, new ConsultationAuditLogger());
+        service = new AdviserConsultationService(repository, new ConsultationAuditLogger(), false);
         when(repository.findAll(any(Specification.class), any(Pageable.class)))
                 .thenReturn(new PageImpl<>(List.of()));
         service.list(0, 20, null, "  %_\\  ");

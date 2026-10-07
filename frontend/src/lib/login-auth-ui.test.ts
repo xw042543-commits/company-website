@@ -18,11 +18,12 @@ test("login page uses a focused portal shell for the real account flow", () => {
 
 test("public chrome is hidden for focused account routes", () => {
   const source = read("../components/site-chrome.tsx");
+  const routes = read("./site.ts");
   const layout = read("../app/[locale]/layout.tsx");
   assert.match(source, /usePathname/);
-  assert.match(source, /isAuthPortal/);
-  assert.match(source, /\/login/);
-  assert.match(source, /forgot-password/);
+  assert.match(source, /isFocusedPortal/);
+  assert.match(routes, /\/login/);
+  assert.match(routes, /forgot-password/);
   assert.match(layout, /SiteChrome/);
   assert.doesNotMatch(layout, /<SiteHeader/);
 });

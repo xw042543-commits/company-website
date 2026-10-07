@@ -15,14 +15,19 @@ const searchAutocomplete = readFileSync(fileURLToPath(new URL("../components/sea
 const programmePage = readFileSync(fileURLToPath(new URL("./[locale]/universities/[slug]/programmes/[programmeId]/page.tsx", import.meta.url)), "utf8");
 const companyContacts = readFileSync(fileURLToPath(new URL("../components/company-contacts.tsx", import.meta.url)), "utf8");
 
-test("adviser styles isolate readable mobile cards and keyboard controls", () => {
-  assert.match(css, /\.adviser-consultations \.adviser-table\s*\{[^}]*table-layout:\s*fixed/);
-  assert.match(css, /\.adviser-consultations [^{]*\{[^}]*overflow-wrap:\s*anywhere/);
-  assert.match(css, /\.adviser-consultations [^{]*\{[^}]*min-height:\s*44px/);
-  assert.match(css, /\.adviser-consultations [^{]*:focus-visible/);
-  assert.match(css, /\.adviser-consultations \.adviser-notes\s*\{[^}]*white-space:\s*pre-wrap/);
-  assert.match(css, /@media \(max-width:\s*900px\)[\s\S]*?\.adviser-consultations \.adviser-table td::before\s*\{[^}]*content:\s*attr\(data-label\)/);
-  assert.match(css, /@media \(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.adviser-consultations/);
+test("adviser console keeps master-detail information readable and responsive", () => {
+  for (const selector of [".adviser-console-shell", ".adviser-collection-state", ".adviser-master-detail",
+    ".adviser-records", ".adviser-record", ".adviser-system-info"]) {
+    assert.match(css, new RegExp(selector.replace(".", "\\.")));
+  }
+  assert.match(css, /\.adviser-master-detail\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(320px,\s*0\.72fr\)/);
+  assert.match(css, /\.adviser-detail\s*\{[^}]*position:\s*sticky/);
+  assert.match(css, /\.adviser-record[^{]*\{[^}]*overflow-wrap:\s*anywhere/);
+  assert.match(css, /\.adviser-portal [^{]*:focus-visible/);
+  assert.match(css, /\.adviser-notes\s*\{[^}]*white-space:\s*pre-wrap/);
+  assert.match(css, /@media \(max-width:\s*800px\)[\s\S]*?\.adviser-master-detail\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+  assert.match(css, /@media \(max-width:\s*800px\)[\s\S]*?min-height:\s*44px/);
+  assert.match(css, /@media \(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.adviser-record/);
 });
 
 test("global styles cover the rendered header and homepage layout", () => {
