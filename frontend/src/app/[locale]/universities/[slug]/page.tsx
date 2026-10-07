@@ -133,13 +133,11 @@ export default async function Detail({ params, searchParams }: DetailProps) {
               {profile.imageCredit && <p className="image-credit">{words(locale, "图片来源", "Image source")}: <a href={profile.imageCredit.href} target="_blank" rel="noreferrer">{profile.imageCredit.label}</a></p>}
             </div>}
             <div className="university-overview-copy">
-              <p>{view.description || (profile ? (locale === "zh" ? profile.introductionZh : profile.introductionEn) : words(
+              <p>{(profile ? (locale === "zh" ? profile.introductionZh : profile.introductionEn) : view.description) || words(
                 locale,
                 "院校介绍正在审核整理中。如需了解校区与申请信息，请咨询顾问。",
                 "The university profile is still being reviewed. Speak with an adviser if you need campus or application information.",
-              ))}</p>
-              {profileSubjects.length > 0 && <p className="university-overview-subjects"><strong>{words(locale, "主要方向", "Main subjects")}</strong>{profileSubjects.join(" · ")}</p>}
-              <Link href="#programmes">{words(locale, "浏览课程", "Explore programmes")} <span aria-hidden="true">↓</span></Link>
+              )}</p>
             </div>
           </div>
         </section>

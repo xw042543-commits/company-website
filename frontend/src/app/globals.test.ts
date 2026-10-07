@@ -242,9 +242,11 @@ test("university profiles keep identity, facts, and introduction clear", () => {
   assert.match(universityDetailPage, /university-overview-grid/);
   assert.match(universityDetailPage, /className="enquiry-card-label"/);
   assert.doesNotMatch(universityDetailPage, /university-hero-orbit|Meet your next university|认识你的下一所大学/);
+  assert.doesNotMatch(universityDetailPage, /university-overview-subjects|浏览课程|Explore programmes/);
   assert.match(css, /\.university-detail-header\s*\{[^}]*grid-template-columns:/);
   assert.match(css, /\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*repeat\(3/);
   assert.match(css, /\.university-overview-grid\.has-photo\s*\{[^}]*grid-template-columns:/);
+  assert.match(css, /\.university-overview-grid\.no-photo\s*\{[^}]*width:\s*100%/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
