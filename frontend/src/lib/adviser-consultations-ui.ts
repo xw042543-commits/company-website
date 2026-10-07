@@ -1,4 +1,12 @@
 import type { ConsultationStatus } from "./adviser-consultation-api.ts";
+import { words, type Locale } from "./site.ts";
+
+export function consultationConflictMessage(locale: Locale, pending: boolean, failed: boolean): string {
+  const conflict = words(locale, "其他顾问已更新此记录，当前修改未保存。", "This record was updated by another adviser. Your change was not saved. ");
+  if (pending) return conflict + words(locale, "正在重新载入最新记录，请核对后再次更新。", "Reloading the latest record; review it before updating again.");
+  if (failed) return conflict + words(locale, "未能载入最新记录，请重试载入详情后再更新。", "Could not reload the latest record. Retry loading the details before updating.");
+  return conflict + words(locale, "已载入最新记录，请核对后再次更新。", "The latest record is loaded. Review it before updating again.");
+}
 
 export type ConsultationFilters = { query: string; status: ConsultationStatus | ""; page: number };
 export function readConsultationFilters(params: URLSearchParams): ConsultationFilters {

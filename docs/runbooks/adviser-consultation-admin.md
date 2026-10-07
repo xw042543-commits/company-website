@@ -10,13 +10,13 @@ Run these checks locally from the repository root:
 
 ```bash
 (cd backend && ./mvnw --batch-mode test)
-(cd frontend && npm test && node --test src/lib/adviser-consultation-api.test.ts src/lib/adviser-consultations-ui.test.ts && npm run lint && npm run build)
+(cd frontend && npm test && npm run lint && npm run build)
 git diff --check
 docker compose --env-file .env.example -f compose.yaml config >/dev/null
 node --test scripts/deployment-compose.test.mjs scripts/deployment-preflight.test.mjs scripts/deployment-cd.test.mjs
 ```
 
-The explicit adviser test command is required because the current `npm test` entry point does not include those two files. All commands must exit 0; backend tests must have zero failures and errors. Use Node 24 and Java 21. For a local browser rehearsal of the standalone build, launch the generated server as documented in `frontend/Dockerfile`, with its static/public assets present, rather than `next start`.
+The normal `npm test` entry point includes both adviser API and UI suites through `test:adviser`, so the existing CI frontend test step gates them. All commands must exit 0; backend tests must have zero failures and errors. Use Node 24 and Java 21. For a local browser rehearsal of the standalone build, launch the generated server as documented in `frontend/Dockerfile`, with its static/public assets present, rather than `next start`.
 
 Take, integrity-check and rehearse a PostgreSQL backup following [BACKUP_AND_RESTORE.md](../BACKUP_AND_RESTORE.md). Record pre-deploy account and consultation row counts and workflow status counts as aggregates only, with a known migration rehearsal containing pre-V11 `NEW` rows. Follow [DEPLOYMENT.md](../DEPLOYMENT.md): **Actions → Deploy production → Run workflow → main** is the existing manual approval/deployment workflow. It gates the exact release SHA, keeps the previous running images, validates configuration, starts healthy containers and runs credential-free launch smoke. Do not bypass it by running a separate release script.
 
@@ -137,7 +137,7 @@ Create exactly one dedicated synthetic consultation through the public consented
 | Adviser list, synthetic name/contact/UUID search, status filter and pagination | 200; newest first, matching total count, distinct zero-result state, filter resets page one and browser navigation restores filters. Search only synthetic strings. |
 | Adviser dedicated UUID detail | 200; all synthetic submission fields, locale, privacy version, timestamps, reference, updater and version visible and immutable. List/detail/PATCH responses have private no-store cache protection. |
 | Adviser dedicated record `NEW → IN_PROGRESS → COMPLETED` through UI | Each PATCH 200 with the loaded version, version increments once, counts and list refresh, success/pending feedback is clear; submitted content remains unchanged. |
-| Two adviser tabs loaded at the same version | After first tab updates, second stale PATCH receives 409; current detail remains visible and controls lock until reload. Conflict banner currently says “Reloading” after refresh settles; confirm reload/version and control state, not wording alone. |
+| Two adviser tabs loaded at the same version | After first tab updates, second stale PATCH receives 409; current detail remains visible and controls lock until reload. The conflict notice reports reloading while pending, asks staff to review the latest record after success, or asks staff to retry loading details after failure. Verify the loaded version and control state; failed reloads keep updates locked. |
 | Invalid enum/reference/oversized search/page, unknown valid UUID, PATCH without CSRF | Validation 400, unknown detail 404, missing CSRF 403; never an empty success list or sensitive error. Perform malformed/security cases in the isolated rehearsal; do not introduce student data into requests. |
 | Mobile, keyboard, retry, delayed responses | At 375px list/details wrap without horizontal overflow; visible focus and readable contacts; errors differ from empty results; retry recovers and superseded requests cannot replace newer results. Rehearse simulated outage/latency locally, without disrupting production. |
 

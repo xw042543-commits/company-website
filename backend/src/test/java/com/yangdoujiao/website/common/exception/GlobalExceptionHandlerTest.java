@@ -68,6 +68,32 @@ class GlobalExceptionHandlerTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {"", "/site"})
+    void unexpectedListErrorsHashUntrustedTraceIncludingContextPaths(String contextPath) {
+        String callerTrace = "private-caller-contact";
+        MockHttpServletRequest request = new MockHttpServletRequest("GET",
+                contextPath + "/api/v1/adviser/consultations");
+        request.setContextPath(contextPath);
+        request.setAttribute(RequestTraceFilter.TRACE_ID_ATTRIBUTE, callerTrace);
+        Logger logger = (Logger) LoggerFactory.getLogger(GlobalExceptionHandler.class);
+        ListAppender<ILoggingEvent> logs = new ListAppender<>();
+        logs.start();
+        logger.addAppender(logs);
+        try {
+            var response = handler.handleUnexpected(new IllegalStateException("private list failure"), request);
+            assertThat(response.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+            assertThat(response.getBody().traceId()).isEqualTo(callerTrace);
+            assertThat(logs.list).hasSize(1);
+            assertThat(logs.list.getFirst().getFormattedMessage())
+                    .contains(contextPath + "/api/v1/adviser/consultations", "traceId=sha256:")
+                    .doesNotContain(callerTrace, "private list failure");
+        } finally {
+            logger.detachAppender(logs);
+            logs.stop();
+        }
+    }
+
+    @ParameterizedTest
     @ValueSource(strings = {"", "/status"})
     void unexpectedCommitErrorsRedactConsultationReferenceAndHashUntrustedTrace(String suffix) {
         String reference = "00000000-0000-0000-0000-000000000123";

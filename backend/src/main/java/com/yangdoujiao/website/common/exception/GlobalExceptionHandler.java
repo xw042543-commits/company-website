@@ -131,7 +131,8 @@ public class GlobalExceptionHandler {
     ) {
         String requestUri = request.getRequestURI();
         Object traceId = request.getAttribute(RequestTraceFilter.TRACE_ID_ATTRIBUTE);
-        if (requestUri.contains("/api/v1/adviser/consultations/")) {
+        if (requestUri.endsWith("/api/v1/adviser/consultations")
+                || requestUri.contains("/api/v1/adviser/consultations/")) {
             requestUri = requestUri.replaceFirst("(/api/v1/adviser/consultations/)[^/]+", "$1[redacted]");
             traceId = traceId == null ? "unavailable" : "sha256:" + AuthHash.sha256(traceId.toString());
         }

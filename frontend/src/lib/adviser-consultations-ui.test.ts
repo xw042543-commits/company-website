@@ -28,7 +28,7 @@ test("dashboard includes bilingual labels, immutable details and accessible cont
   const panel = source("../components/adviser-consultations-panel.tsx");
   for (const phrase of ["待处理", "跟进中", "已完成", "New", "In progress", "Completed",
     "Submission time", "Name", "Contact", "University", "Course", "Qualification", "Status",
-    "Loading consultations", "No consultations", "Access denied", "updated by another adviser",
+    "Loading consultations", "No consultations", "Access denied",
     "privacyNoticeVersion", "statusUpdatedByUserId", "statusUpdatedAt", "referenceCode", "notes"]) {
     assert.ok(panel.includes(phrase), `missing ${phrase}`);
   }
@@ -74,4 +74,24 @@ test("superseded requests abort transport and cannot publish late results", asyn
   latest.cancel();
   assert.equal(second.isCurrent(), false);
   assert.equal((receivedSignal as unknown as AbortSignal).aborted, true);
+});
+
+test("conflict notice describes pending, refreshed, and failed reloads in both languages", async () => {
+  const { consultationConflictMessage } = await import("./adviser-consultations-ui.ts");
+  for (const locale of ["en", "zh"] as const) {
+    const pending = consultationConflictMessage(locale, true, false);
+    const refreshed = consultationConflictMessage(locale, false, false);
+    const failed = consultationConflictMessage(locale, false, true);
+    const retrying = consultationConflictMessage(locale, true, true);
+    for (const message of [pending, refreshed, failed]) {
+      assert.match(message, locale === "en" ? /Your change was not saved/ : /当前修改未保存/);
+      assert.match(message, locale === "en" ? /updated by another adviser/ : /其他顾问已更新此记录/);
+    }
+    assert.match(pending, locale === "en" ? /Reloading the latest record/ : /正在重新载入最新记录/);
+    assert.match(refreshed, locale === "en" ? /latest record is loaded.*Review it before updating again/ : /已载入最新记录.*核对后再次更新/);
+    assert.doesNotMatch(refreshed, locale === "en" ? /Reloading/ : /正在重新载入/);
+    assert.match(failed, locale === "en" ? /Could not reload.*Retry loading the details before updating/ : /未能载入最新记录.*重试载入详情后再更新/);
+    assert.doesNotMatch(failed, locale === "en" ? /Reloading|latest record is loaded/ : /正在重新载入|已载入最新记录/);
+    assert.equal(retrying, pending);
+  }
 });

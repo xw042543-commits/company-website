@@ -6,7 +6,7 @@ import {
   loadAdviserConsultations, loadAdviserConsultation, updateAdviserConsultationStatus,
   type AdviserConsultationDetail, type AdviserListResult, type AdviserFailure, type ConsultationStatus,
 } from "@/lib/adviser-consultation-api";
-import { abortableRequest, consultationQuery, createLatestRequest, readConsultationFilters } from "@/lib/adviser-consultations-ui";
+import { abortableRequest, consultationConflictMessage, consultationQuery, createLatestRequest, readConsultationFilters } from "@/lib/adviser-consultations-ui";
 import { getSession } from "@/lib/auth-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
@@ -187,7 +187,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
       <div className="adviser-detail-heading"><h2 id="consultation-detail-title" ref={detailHeading} tabIndex={-1}>{words(locale, "咨询详情", "Consultation details")}</h2>
         <button className="secondary" disabled={saving} onClick={() => { detailRequests.current.cancel(); setSelected(null); setDetail(null); opener.current?.focus(); }}>{words(locale, "关闭详情", "Close details")}</button></div>
       {detailPending && <p role="status" aria-live="polite">{words(locale, "正在载入详情…", "Loading details…")}</p>}
-      {stale && <p className="adviser-warning" role="alert">{words(locale, "其他顾问已更新此记录，当前修改未保存。正在重新载入最新记录，请核对后再次更新。", "This record was updated by another adviser. Your change was not saved. Reloading the latest record; review it before updating again.")}</p>}
+      {stale && <p className="adviser-warning" role="alert">{consultationConflictMessage(locale, detailPending, detailFailure !== null)}</p>}
       {detailFailure && <div className="adviser-error" role="alert"><p>{errorText(detailFailure.status)}</p><button className="secondary" disabled={detailPending || saving} onClick={() => void loadDetail(selected, true)}>{words(locale, "重新载入详情", "Reload details")}</button></div>}
       {detail && <><dl className="adviser-detail-fields">
         {[

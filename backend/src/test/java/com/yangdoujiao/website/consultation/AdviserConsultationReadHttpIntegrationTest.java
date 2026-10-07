@@ -1,5 +1,6 @@
 package com.yangdoujiao.website.consultation;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -20,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,6 +46,11 @@ import com.yangdoujiao.website.auth.config.SecurityConfig;
 import com.yangdoujiao.website.auth.session.UserAccountDetailsService;
 import com.yangdoujiao.website.auth.session.UserPrincipal;
 import com.yangdoujiao.website.common.exception.GlobalExceptionHandler;
+import com.yangdoujiao.website.common.web.RequestTraceFilter;
+
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
 
 import tools.jackson.databind.ObjectMapper;
 
@@ -58,7 +65,8 @@ class AdviserConsultationReadHttpIntegrationTest {
     @BeforeEach
     @SuppressWarnings("unchecked")
     void setUp() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
+        mockMvc = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity())
+                .addFilters(new RequestTraceFilter()).build();
         UserAccount account = UserAccount.external("Adviser", "terms-v1", "privacy-v1");
         ReflectionTestUtils.setField(account, "id", 42L);
         ReflectionTestUtils.setField(account, "role", UserAccountRole.ADVISER);
@@ -79,6 +87,33 @@ class AdviserConsultationReadHttpIntegrationTest {
                 .andExpect(status().isUnauthorized());
         mockMvc.perform(get("/api/v1/adviser/consultations" + suffix).with(user("ordinary").roles("USER")))
                 .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void unexpectedListFailureNeverLogsRawCallerTrace() throws Exception {
+        String callerTrace = "private-caller-contact";
+        when(repository.findAll(any(Specification.class), any(Pageable.class)))
+                .thenThrow(new IllegalStateException("private repository failure"));
+        Logger logger = (Logger) LoggerFactory.getLogger(GlobalExceptionHandler.class);
+        ListAppender<ILoggingEvent> logs = new ListAppender<>();
+        logs.start();
+        logger.addAppender(logs);
+        try {
+            mockMvc.perform(get("/api/v1/adviser/consultations").with(user(adviser))
+                            .header("X-Trace-Id", callerTrace))
+                    .andExpect(status().isInternalServerError())
+                    .andExpect(header().string("X-Trace-Id", callerTrace))
+                    .andExpect(jsonPath("$.code").value("INTERNAL_ERROR"))
+                    .andExpect(jsonPath("$.traceId").value(callerTrace));
+            assertThat(logs.list).hasSize(1);
+            assertThat(logs.list.getFirst().getFormattedMessage())
+                    .contains("/api/v1/adviser/consultations", "traceId=sha256:")
+                    .doesNotContain(callerTrace, "private repository failure");
+        } finally {
+            logger.detachAppender(logs);
+            logs.stop();
+        }
     }
 
     @Test
