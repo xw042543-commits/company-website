@@ -46,36 +46,49 @@ export default async function ArticleDetailPage({ params }: ArticleDetailProps) 
 
   const article = result.status === "ready" ? result.article : localArticle!;
   const localized = localizeArticle(article, locale);
+  const isScholarship = section === "scholarships";
 
-  return <main id="main" className="container page-main article-detail-page">
+  return <main id="main" className={`container page-main article-detail-page${isScholarship ? " scholarship-article-detail-page" : ""}`}>
     <Link className="back-link" href={sectionPath}>
       <span aria-hidden="true">←</span> {words(locale, `返回${sectionTitle}`, `Back to ${sectionTitle}`)}
     </Link>
-    <article className="article-detail">
+    <article className={`article-detail${isScholarship ? " scholarship-article-detail" : ""}`}>
       <header className="article-detail-header">
         <p className="section-label">{sectionTitle}</p>
+        {isScholarship && <div className="article-detail-meta">
+          {article.sourceName && <strong>{article.sourceName}</strong>}
+          <time dateTime={article.publishedAt}>{formatPublishedDate(article.publishedAt, locale)}</time>
+        </div>}
         <h1 lang={localized.title.lang}>{localized.title.text}</h1>
         {localized.summary.text && <p className="article-lead" lang={localized.summary.lang}>{localized.summary.text}</p>}
-        <p className="article-byline">
+        {!isScholarship && <p className="article-byline">
           {article.authorName && <span>{article.authorName}</span>}
           <time dateTime={article.publishedAt}>{formatPublishedDate(article.publishedAt, locale)}</time>
-        </p>
+        </p>}
       </header>
 
-      <div className="article-markdown" lang={localized.bodyMarkdown.lang}>
-        <ReactMarkdown components={{ h1: ({ children }) => <h2>{children}</h2> }}>
-          {localized.bodyMarkdown.text}
-        </ReactMarkdown>
-      </div>
+      <div className={isScholarship ? "article-reading-layout" : undefined}>
+        <div className="article-markdown" lang={localized.bodyMarkdown.lang}>
+          <ReactMarkdown components={{ h1: ({ children }) => <h2>{children}</h2> }}>
+            {localized.bodyMarkdown.text}
+          </ReactMarkdown>
+        </div>
 
-      {(article.sourceName || article.sourceUrl) && <footer className="article-source">
-        <strong>{words(locale, "资料来源", "Source")}</strong>
-        {article.sourceUrl
-          ? <a href={article.sourceUrl} target="_blank" rel="noreferrer">
-            {article.sourceName || article.sourceUrl}
-          </a>
-          : <span>{article.sourceName}</span>}
-      </footer>}
+        {(article.sourceName || article.sourceUrl) && (isScholarship ? <aside className="article-reference" aria-label={words(locale, "文章资料来源", "Article source")}>
+          <p>{words(locale, "审核资料来源", "Reviewed source")}</p>
+          <strong>{article.sourceName || words(locale, "官方资料", "Official information")}</strong>
+          <time dateTime={article.publishedAt}>{formatPublishedDate(article.publishedAt, locale)}</time>
+          {article.sourceUrl && <a href={article.sourceUrl} target="_blank" rel="noreferrer">{words(locale, "查看官方资料", "View official source")} <span aria-hidden="true">↗</span></a>}
+          <Link href={sectionPath}>{words(locale, "浏览更多奖学金", "Browse more scholarships")} <span aria-hidden="true">→</span></Link>
+        </aside> : <footer className="article-source">
+          <strong>{words(locale, "资料来源", "Source")}</strong>
+          {article.sourceUrl
+            ? <a href={article.sourceUrl} target="_blank" rel="noreferrer">
+              {article.sourceName || article.sourceUrl}
+            </a>
+            : <span>{article.sourceName}</span>}
+        </footer>)}
+      </div>
     </article>
   </main>;
 }

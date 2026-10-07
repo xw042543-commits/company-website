@@ -128,14 +128,15 @@ export default async function ContentSection({ params, searchParams }: ContentSe
                 ? article.sourceName
                 : null;
               return <article className="article-card" key={`${article.section}/${article.slug}`}>
-                {section === "scholarships" && (article.coverPath ? <Link className="article-card-media" href={articlePath} aria-label={localized.title.text}>
-                  {article.coverPath
-                    ? <Image src={article.coverPath} alt="" fill sizes="(max-width: 760px) 100vw, (max-width: 1120px) 50vw, 25vw" />
-                    : <span aria-hidden="true">{words(locale, "奖学金资讯", "Scholarship update")}</span>}
-                </Link> : <div className="article-card-source"><span>{words(locale, "审核资料来源", "Reviewed source")}</span><strong>{sourceName || words(locale, "洋豆角编辑部", "UDAJO Editorial Team")}</strong></div>)}
-                <p className="article-date">
+                {section === "scholarships" && article.coverPath && <Link className="article-card-media" href={articlePath} aria-label={localized.title.text}>
+                  <Image src={article.coverPath} alt="" fill sizes="(max-width: 620px) 100vw, 50vw" />
+                </Link>}
+                {section === "scholarships" ? <div className="article-card-meta">
+                  <strong>{sourceName || words(locale, "洋豆角编辑部", "UDAJO Editorial Team")}</strong>
                   <time dateTime={article.publishedAt}>{formatPublishedDate(article.publishedAt, locale)}</time>
-                </p>
+                </div> : <p className="article-date">
+                  <time dateTime={article.publishedAt}>{formatPublishedDate(article.publishedAt, locale)}</time>
+                </p>}
                 <h2 lang={localized.title.lang}><Link href={articlePath}>{localized.title.text}</Link></h2>
                 {localized.summary.text && <p lang={localized.summary.lang}>{localized.summary.text}</p>}
                 <Link className="article-read-link" href={articlePath}>

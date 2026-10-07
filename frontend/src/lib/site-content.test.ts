@@ -139,15 +139,20 @@ test("content pages provide reviewed bilingual guides when publishing is empty",
   assert.match(curated, /How UDAJO presents programme coverage and sources/);
 });
 
-test("content pages expose the approved scholarship grid and news channels", () => {
+test("content pages expose the approved scholarship journal and editorial article layout", () => {
   const sections = read("../app/[locale]/[section]/page.tsx");
+  const details = read("../app/[locale]/[section]/[slug]/page.tsx");
   const styles = read("../app/globals.css");
 
   assert.match(sections, /scholarship-article-grid/);
+  assert.match(sections, /article-card-meta/);
   assert.match(sections, /留学政策/);
   assert.match(sections, /院校动态/);
   assert.match(sections, /洋豆角资讯/);
-  assert.match(styles, /\.scholarship-article-grid\s*\{[^}]*grid-template-columns:\s*repeat\(4/);
+  assert.match(details, /scholarship-article-detail/);
+  assert.match(details, /article-reading-layout/);
+  assert.match(details, /article-reference/);
+  assert.match(styles, /\.scholarship-article-grid\s*\{[^}]*grid-template-columns:\s*repeat\(2/);
   assert.match(styles, /@media \(max-width:\s*620px\)[\s\S]*?\.scholarship-article-grid\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
