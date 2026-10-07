@@ -226,6 +226,14 @@ test("benefits use a colorful four-point layout that responds without cards", ()
   assert.match(css, /@media \(max-width:\s*520px\)[\s\S]*?\.benefits\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
+test("application process uses five colorful connected milestones", () => {
+  assert.match(css, /\.process\s*\{[^}]*grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(css, /\.process-step-advise\s*\{[^}]*--step-accent:/);
+  assert.match(css, /\.process-step-arrive\s*\{[^}]*--step-accent:/);
+  assert.match(css, /\.process-step:not\(:last-child\)::after/);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.process\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+});
+
 test("catalog filters stay compact and removable across tablet layouts", () => {
   assert.match(filterPanel, /className="active-filter-chips"/);
   assert.match(filterPanel, /withoutFilter\(name\)/);

@@ -376,15 +376,22 @@ main [id], section[id] { scroll-margin-top: 94px; }
 @media (hover: hover) and (pointer: fine) {
   .benefits article:hover .benefit-symbol { transform: translateY(-5px) rotate(-3deg); }
 }
-.process-section { border-top: 1px solid var(--line); background: var(--wash); color: var(--ink); }
+.process-section { border-top: 1px solid var(--line); background: #f6f2e9; color: var(--ink); }
 .process-section h2, .process-section h3 { color: var(--support-navy); }
 .process-section .section-label { color: var(--brand-action); }
-.process { position: relative; list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin: 38px 0 42px; padding: 0; border-top: 2px solid #9bbeb4; }
-.process li { position: relative; padding: 26px 24px 14px 0; transition: background-color 200ms var(--ease-out); }
-.process li + li { padding-left: 22px; border-left: 1px solid var(--line); }
-.process h3 { margin: 8px 0 0; font-size: 1rem; }
-.process p { margin: 9px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
-.step-number { color: var(--brand-action); font-size: .78rem; font-weight: 800; letter-spacing: .08em; }
+.process { position: relative; list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 22px); margin: 42px 0; padding: 0; }
+.process-step { --step-accent: #287965; --step-soft: #dcefe8; position: relative; min-width: 0; min-height: 230px; padding: 24px 22px 26px; border-top: 4px solid var(--step-accent); border-radius: 0 0 var(--radius-md) var(--radius-md); background: rgb(255 255 255 / 64%); transition: transform 220ms var(--ease-out), background-color 220ms var(--ease-out); }
+.process-step-advise { --step-accent: #176fc1; --step-soft: #dcecf9; }
+.process-step-apply { --step-accent: #9a42ad; --step-soft: #f0e2f3; }
+.process-step-offer { --step-accent: #d95f32; --step-soft: #f9e4da; }
+.process-step-arrive { --step-accent: #9a7508; --step-soft: #f4e9bd; }
+.process-step:not(:last-child)::after { position: absolute; z-index: 1; top: 43px; right: calc(clamp(12px, 1.6vw, 22px) * -.72); width: 10px; height: 10px; border-top: 2px solid #78958c; border-right: 2px solid #78958c; content: ""; transform: rotate(45deg); }
+.step-number { width: 48px; height: 48px; display: grid; place-items: center; margin-bottom: 30px; border-radius: 50%; background: var(--step-soft); color: var(--step-accent); font-size: .82rem; font-weight: 850; letter-spacing: .06em; }
+.process h3 { margin: 0; font-size: clamp(1rem, 1.25vw, 1.16rem); line-height: 1.4; }
+.process p { max-width: 28ch; margin: 13px 0 0; color: #4f625b; font-size: .86rem; line-height: 1.65; }
+@media (hover: hover) and (pointer: fine) {
+  .process-step:hover { background: rgb(255 255 255 / 90%); transform: translateY(-5px); }
+}
 .process-section .button { background: var(--brand-action); border-color: var(--brand-action); color: var(--paper); }
 .process-section .button:hover { background: var(--brand-deep); border-color: var(--brand-deep); color: var(--paper); }
 .faq-section { border-top: 1px solid var(--line); background: var(--paper); }
@@ -1051,10 +1058,11 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .pathway-card { min-height: 0; }
   .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 38px 28px; }
   .benefits article { padding-bottom: 26px; }
-  .process { grid-template-columns: 1fr; border-top: 0; }
-  .process li, .process li + li { display: grid; grid-template-columns: 46px 1fr; align-items: center; gap: 12px; padding: 17px 0; border-left: 0; border-bottom: 1px solid var(--line); }
-  .process h3 { margin: 0; }
-  .process p { grid-column: 2; margin-top: -6px; }
+  .process { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .process-step { min-height: 0; display: grid; grid-template-columns: 52px minmax(0, 1fr); align-items: center; gap: 6px 14px; padding: 18px; border-top-width: 3px; border-radius: 0 0 var(--radius-md) var(--radius-md); }
+  .process-step:not(:last-child)::after { top: auto; right: auto; bottom: -11px; left: 35px; transform: rotate(135deg); }
+  .step-number { width: 44px; height: 44px; grid-row: 1 / span 2; margin: 0; }
+  .process p { grid-column: 2; margin: 0; }
   .faq-layout { grid-template-columns: minmax(0, 1fr); gap: 34px; }
   .faq-heading { position: static; }
   .faq-heading h2 { max-width: 18ch; }

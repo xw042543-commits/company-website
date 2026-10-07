@@ -70,11 +70,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     ["03", "咨询留学顾问", "Speak with an adviser", "与顾问确认申请步骤、材料要求和时间安排。", "Confirm application steps, document requirements, and timelines with an adviser.", `/${locale}/about#enquiry`, "联系顾问", "Contact an adviser"],
   ] as const;
   const steps = [
-    ["查询院校与专业", "Explore universities and programmes", "从感兴趣的专业和目标学历开始筛选。", "Begin with your preferred subject and intended qualification."],
-    ["咨询留学顾问", "Speak with an adviser", "确认入学要求、申请时间和后续步骤。", "Confirm entry requirements, timelines, and next steps."],
-    ["准备并提交申请", "Prepare and apply", "整理并提交申请所需的材料。", "Prepare and submit the documents required for your application."],
-    ["获取录取通知", "Receive an offer", "查看录取条件与后续安排。", "Review the offer conditions and follow-up arrangements."],
-    ["入学上课", "Start your studies", "完成入学准备并开启学习。", "Complete enrolment preparation and begin your studies."],
+    ["explore", "查询院校与专业", "Explore universities and programmes", "从感兴趣的专业和目标学历开始筛选。", "Begin with your preferred subject and intended qualification."],
+    ["advise", "咨询留学顾问", "Speak with an adviser", "确认入学要求、申请时间和后续步骤。", "Confirm entry requirements, timelines, and next steps."],
+    ["apply", "准备并提交申请", "Prepare and apply", "整理并提交申请所需的材料。", "Prepare and submit the documents required for your application."],
+    ["offer", "获取录取通知", "Receive an offer", "查看录取条件与后续安排。", "Review the offer conditions and follow-up arrangements."],
+    ["arrive", "入学上课", "Start your studies", "完成入学准备并开启学习。", "Complete enrolment preparation and begin your studies."],
   ] as const;
   const faqs = [
     ["我应该从哪里开始？", "Where should I begin?", "可以先按专业关键词或学历层级进行查询，再比较院校资料。需要协助时，也可以直接联系顾问。", "Start by searching with a course keyword or study level, then compare university information. You can also contact an adviser whenever you need guidance."],
@@ -146,7 +146,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     </div></section>
     <section className="process-section"><div className="container section">
       <div className="section-heading"><p className="section-label">{words(locale, "从查找到入学", "From search to study")}</p><h2>{words(locale, "申请流程", "Application process")}</h2></div>
-      <ol className="process">{steps.map(([zh, en, bodyZh, bodyEn], i) => <li key={zh}><span className="step-number">{String(i + 1).padStart(2, "0")}</span><h3>{words(locale, zh, en)}</h3><p>{words(locale, bodyZh, bodyEn)}</p></li>)}</ol>
+      <ol className="process">{steps.map(([kind, zh, en, bodyZh, bodyEn], i) => <li className={`process-step process-step-${kind}`} key={kind}><span className="step-number">{String(i + 1).padStart(2, "0")}</span><h3>{words(locale, zh, en)}</h3><p>{words(locale, bodyZh, bodyEn)}</p></li>)}</ol>
       <Link className="button" href={`/${locale}/about#enquiry`}>{words(locale, "联系顾问", "Contact an adviser")}</Link>
     </div></section>
     <section className="faq-section" aria-labelledby="faq-heading"><div className="container section faq-layout">
