@@ -235,14 +235,16 @@ test("application process uses five colorful connected milestones", () => {
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.process\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
-test("university profiles use an engaging branded hero and scannable facts", () => {
-  assert.match(universityDetailPage, /className="university-hero-mark"/);
+test("university profiles keep identity, facts, and introduction clear", () => {
+  assert.match(universityDetailPage, /className="university-identity-logo"/);
+  assert.match(universityDetailPage, /className="university-summary-panel"/);
   assert.match(universityDetailPage, /className="university-fact-strip"/);
-  assert.match(universityDetailPage, /className="university-overview-grid"/);
+  assert.match(universityDetailPage, /university-overview-grid/);
   assert.match(universityDetailPage, /className="enquiry-card-label"/);
+  assert.doesNotMatch(universityDetailPage, /university-hero-orbit|Meet your next university|认识你的下一所大学/);
   assert.match(css, /\.university-detail-header\s*\{[^}]*grid-template-columns:/);
   assert.match(css, /\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*repeat\(3/);
-  assert.match(css, /\.university-overview-grid\s*\{[^}]*grid-template-columns:/);
+  assert.match(css, /\.university-overview-grid\.has-photo\s*\{[^}]*grid-template-columns:/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
