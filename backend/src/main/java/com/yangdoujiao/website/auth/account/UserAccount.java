@@ -36,6 +36,10 @@ public class UserAccount {
     @Column(nullable = false, length = 30)
     private UserAccountStatus status;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private UserAccountRole role = UserAccountRole.USER;
+
     @Column(name = "email_verified_at")
     private OffsetDateTime emailVerifiedAt;
 

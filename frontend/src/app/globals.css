@@ -20,6 +20,88 @@
   --shadow-sm: 0 4px 8px rgb(21 63 54 / 9%);
 }
 
+/* Adviser workspace: all dashboard styles stay inside this route scope. */
+.adviser-consultations .adviser-workspace { max-width: 1440px; }
+.adviser-consultations .adviser-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.adviser-consultations .adviser-heading h1 { max-width: none; font-size: clamp(2rem, 3.5vw, 3rem); }
+.adviser-consultations .adviser-heading p:last-child { color: var(--muted); margin-bottom: 0; }
+.adviser-consultations .adviser-panel { min-width: 0; }
+.adviser-consultations .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.adviser-consultations .adviser-identity { color: var(--muted); overflow-wrap: anywhere; }
+.adviser-consultations .adviser-counts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0 0 24px; }
+.adviser-consultations .adviser-counts > div { padding: 16px 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--wash); }
+.adviser-consultations .adviser-counts dt { color: var(--muted); }
+.adviser-consultations .adviser-counts dd { margin: 4px 0 0; color: var(--brand-deep); font-size: 1.9rem; line-height: 1.2; font-weight: 700; font-variant-numeric: tabular-nums; }
+.adviser-consultations .adviser-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(180px, 1fr); align-items: start; gap: 16px; margin-bottom: 24px; }
+.adviser-consultations label { display: block; margin-bottom: 8px; }
+.adviser-consultations input, .adviser-consultations select, .adviser-consultations button, .adviser-consultations .button { min-height: 44px; }
+.adviser-consultations .adviser-filters small { margin-top: 6px; }
+.adviser-consultations :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.adviser-consultations .adviser-results { min-height: 120px; }
+.adviser-consultations .adviser-message { padding: 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--wash); }
+.adviser-consultations .adviser-message p:last-child { margin-bottom: 0; }
+.adviser-consultations .adviser-error { color: var(--danger); }
+.adviser-consultations .adviser-warning { padding: 16px; color: var(--warning); background: var(--support-cream); border: 1px solid currentColor; border-radius: var(--radius-sm); }
+.adviser-consultations .adviser-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .94rem; }
+.adviser-consultations .adviser-table caption { padding: 0 0 12px; text-align: left; color: var(--muted); }
+.adviser-consultations .adviser-table th, .adviser-consultations .adviser-table td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; overflow-wrap: anywhere; }
+.adviser-consultations .adviser-table th { color: var(--brand-deep); background: var(--wash); font-weight: 700; }
+.adviser-consultations .adviser-table th:nth-child(1) { width: 14%; }
+.adviser-consultations .adviser-table th:nth-child(2) { width: 10%; }
+.adviser-consultations .adviser-table th:nth-child(3) { width: 16%; }
+.adviser-consultations .adviser-table th:nth-child(4), .adviser-consultations .adviser-table th:nth-child(5) { width: 14%; }
+.adviser-consultations .adviser-table th:nth-child(6), .adviser-consultations .adviser-table th:nth-child(7) { width: 10%; }
+.adviser-consultations .adviser-table th:nth-child(8) { width: 12%; }
+.adviser-consultations .adviser-table button { width: 100%; padding: 10px 8px; }
+.adviser-consultations .adviser-table tbody tr:hover { background: var(--wash); }
+.adviser-consultations .adviser-status { display: inline-block; padding: 4px 8px; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--brand-deep); background: var(--wash); font-size: .85rem; font-weight: 700; }
+.adviser-consultations .adviser-status-new { background: var(--support-cream); color: var(--warning); }
+.adviser-consultations .adviser-status-in_progress { background: var(--support-blue); color: var(--support-navy); }
+.adviser-consultations .adviser-pagination { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 20px; }
+.adviser-consultations .adviser-pagination p { margin: 0; color: var(--muted); text-align: center; font-variant-numeric: tabular-nums; }
+.adviser-consultations .adviser-detail { min-width: 0; margin-top: 32px; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--paper); scroll-margin-top: 110px; }
+.adviser-consultations .adviser-detail-heading { display: flex; align-items: start; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.adviser-consultations .adviser-detail-heading h2 { margin: 0; font-size: 1.6rem; }
+.adviser-consultations .adviser-detail-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; margin: 0; }
+.adviser-consultations .adviser-detail-fields > div { min-width: 0; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.adviser-consultations .adviser-detail-fields dt { font-weight: 700; color: var(--muted); }
+.adviser-consultations .adviser-detail-fields dd { margin: 4px 0 0; overflow-wrap: anywhere; }
+.adviser-consultations .adviser-notes { grid-column: 1 / -1; white-space: pre-wrap; }
+.adviser-consultations .adviser-status-form { display: flex; align-items: end; gap: 16px; margin: 24px 0 16px; }
+.adviser-consultations .adviser-status-form > div { width: min(100%, 320px); }
+.adviser-consultations .adviser-denied { max-width: 720px; }
+.adviser-consultations .adviser-denied h1 { max-width: none; }
+.adviser-consultations .adviser-denied nav { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+@media (max-width: 900px) {
+  .adviser-consultations .adviser-table, .adviser-consultations .adviser-table tbody { display: block; }
+  .adviser-consultations .adviser-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .adviser-consultations .adviser-table caption { display: block; }
+  .adviser-consultations .adviser-table tr { display: block; margin-bottom: 16px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+  .adviser-consultations .adviser-table td { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 12px; padding: 8px 0; }
+  .adviser-consultations .adviser-table td::before { content: attr(data-label); font-weight: 700; color: var(--muted); }
+  .adviser-consultations .adviser-table td:last-child { border: 0; align-items: center; }
+  .adviser-consultations .adviser-table button { width: auto; justify-self: start; }
+  .adviser-consultations .adviser-status { justify-self: start; }
+}
+@media (max-width: 520px) {
+  .adviser-consultations .adviser-workspace { width: calc(100% - 32px); }
+  .adviser-consultations .adviser-heading { flex-direction: column; gap: 16px; }
+  .adviser-consultations .adviser-counts { gap: 8px; }
+  .adviser-consultations .adviser-counts > div { padding: 12px 8px; }
+  .adviser-consultations .adviser-counts dt { font-size: .9rem; }
+  .adviser-consultations .adviser-filters { grid-template-columns: minmax(0, 1fr); }
+  .adviser-consultations .adviser-detail { padding: 16px; }
+  .adviser-consultations .adviser-detail-heading { flex-direction: column; }
+  .adviser-consultations .adviser-detail-fields { grid-template-columns: minmax(0, 1fr); }
+  .adviser-consultations .adviser-status-form { flex-direction: column; align-items: stretch; }
+  .adviser-consultations .adviser-status-form > div { width: 100%; }
+  .adviser-consultations .adviser-pagination { flex-wrap: wrap; gap: 12px; }
+  .adviser-consultations .adviser-pagination p { order: -1; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .adviser-consultations *, .adviser-consultations *::before, .adviser-consultations *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
 * { box-sizing: border-box; }
 html { min-height: 100%; overflow-x: clip; background: var(--paper); color: var(--ink); scroll-behavior: smooth; }
 body { min-height: 100vh; min-height: 100dvh; margin: 0; overflow-x: clip; background: linear-gradient(180deg, #f7faf8 0, var(--paper) 420px); color: var(--ink); font-family: Aptos, "Segoe UI Variable", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; font-size: 16px; line-height: 1.6; }

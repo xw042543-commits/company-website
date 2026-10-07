@@ -1,29 +1,28 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { isProtectedPath } from "@/lib/access-policy";
-import { hasAuthenticatedSession } from "@/lib/auth-session-core";
-import { proxyRedirectPath } from "@/lib/proxy-policy";
+import { isAdviserPath } from "@/lib/access-policy";
+import { loadProxySessionAccess, proxyRedirectPath } from "@/lib/proxy-policy";
 import { resolveApiBaseUrl } from "@/lib/runtime-config-core";
-import { DEMO_SESSION_COOKIE } from "@/lib/demo-session";
 
 export async function proxy(request: NextRequest) {
-  const protectedPath = isProtectedPath(request.nextUrl.pathname);
-  const authenticated = protectedPath
-    ? (process.env.NODE_ENV !== "production" && request.cookies.get(DEMO_SESSION_COOKIE)?.value === "1") || await hasAuthenticatedSession(
-        resolveApiBaseUrl(process.env, process.env.NODE_ENV),
-        request.headers.get("cookie"),
-        fetch,
-        request.headers.get("x-forwarded-for"),
-      )
-    : false;
+  const access = await loadProxySessionAccess(
+    request.nextUrl.pathname,
+    () => resolveApiBaseUrl(process.env, process.env.NODE_ENV),
+    request.headers.get("cookie"),
+    process.env.NODE_ENV,
+    fetch,
+    request.headers.get("x-forwarded-for"),
+  );
   const redirectPath = proxyRedirectPath(
     request.nextUrl.pathname,
     request.nextUrl.search,
-    authenticated,
+    access,
   );
 
-  return redirectPath
+  const response = redirectPath
     ? NextResponse.redirect(new URL(redirectPath, request.url))
     : NextResponse.next();
+  if (isAdviserPath(request.nextUrl.pathname)) response.headers.set("Cache-Control", "private, no-store");
+  return response;
 }
 
 export const config = {
