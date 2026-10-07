@@ -678,12 +678,13 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 }
 
 .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: clamp(30px, 5vw, 64px); align-items: start; margin-top: 38px; }
-.university-detail-header { display: grid; grid-template-columns: 152px minmax(0, 1fr); align-items: center; gap: clamp(24px, 3vw, 40px); padding: clamp(26px, 3vw, 38px); border: 1px solid var(--line); border-radius: 18px 18px 0 0; background: #fff; }
-.university-identity-logo { width: 152px; height: 120px; display: grid; place-items: center; overflow: hidden; padding: 16px; border: 1px solid #d8e1dd; border-radius: 12px; background: #fff; }
+.university-detail-header { display: grid; grid-template-columns: 152px minmax(0, 1fr); align-items: center; gap: clamp(24px, 3vw, 40px); padding: clamp(26px, 3vw, 38px); border: 1px solid var(--line); border-top: 4px solid var(--support-navy); border-radius: 18px 18px 0 0; background: #fff; }
+.university-identity-logo { width: 152px; height: 120px; display: grid; place-items: center; overflow: hidden; padding: 16px; border: 1px solid #cbd9df; border-radius: 12px; background: #fff; }
 .university-identity-logo img { width: 100%; height: 100%; object-fit: contain; }
 .university-identity-logo > span { color: var(--brand-action); font-size: 2.6rem; font-weight: 800; }
 .university-detail-heading { min-width: 0; }
-.university-detail-heading h1 { max-width: 24ch; margin-bottom: 7px; font-size: clamp(2.25rem, 3.5vw, 3.7rem); line-height: 1.05; letter-spacing: -.035em; text-wrap: balance; }
+.university-detail-heading h1 { max-width: 24ch; margin-bottom: 7px; color: var(--support-navy); font-size: clamp(2.25rem, 3.5vw, 3.7rem); line-height: 1.05; letter-spacing: -.035em; text-wrap: balance; }
+.university-detail-heading .detail-secondary-name { color: var(--support-navy); }
 .university-detail-heading .page-intro { margin-bottom: 0; }
 .university-location { display: flex; align-items: center; gap: 8px; color: #52655f; }
 .university-location svg { width: 17px; height: 17px; flex: 0 0 17px; fill: none; stroke: var(--brand-action); stroke-width: 1.8; }
