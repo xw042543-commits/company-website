@@ -186,6 +186,13 @@ test("sticky header uses restrained dimensional styling", () => {
   assert.match(css, /\.site-header \.login-link\s*\{[\s\S]*?box-shadow:/);
 });
 
+test("university directory search stays opaque and flush beneath the header", () => {
+  assert.match(css, /\.directory-search-sticky\s*\{[^}]*position:\s*sticky;[^}]*z-index:\s*5;[^}]*top:\s*82px/);
+  assert.match(css, /\.directory-search-sticky\s*\{[^}]*background:\s*var\(--paper\)/);
+  assert.doesNotMatch(css, /\.directory-search-sticky\s*\{[^}]*color-mix\([^}]*transparent/);
+  assert.match(css, /@media \(max-width:\s*1400px\)[\s\S]*?\.directory-search-sticky\s*\{[^}]*top:\s*80px/);
+});
+
 test("benefit cards use an even two-column alignment", () => {
   assert.match(css, /\.benefits\s*\{[^}]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
   assert.match(css, /\.benefits\s*\{[^}]*grid-auto-rows:\s*minmax\(140px,\s*auto\)/);
