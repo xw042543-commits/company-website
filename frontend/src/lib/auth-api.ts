@@ -107,16 +107,19 @@ function parseCsrf(payload: unknown): { headerName: string; token: string } | nu
 
 function parseSession(payload: unknown): AuthSession | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["authenticated", "userId", "fullName"])
+    || !(hasExactKeys(payload, ["authenticated", "userId", "fullName"])
+      || (hasExactKeys(payload, ["authenticated", "userId", "fullName", "adviser"])
+        && typeof payload.adviser === "boolean"))
     || typeof payload.authenticated !== "boolean"
     || !isNullableString(payload.fullName)) return null;
 
   if (payload.authenticated) {
     if (!isPositiveInteger(payload.userId) || !payload.fullName?.trim()) return null;
-  } else if (payload.userId !== null || payload.fullName !== null) {
+  } else if (payload.userId !== null || payload.fullName !== null || payload.adviser === true) {
     return null;
   }
-  return payload as AuthSession;
+  return { authenticated: payload.authenticated, userId: payload.userId as number | null,
+    fullName: payload.fullName };
 }
 
 function parseAccount(payload: unknown): AccountProfile | null {

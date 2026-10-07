@@ -45,6 +45,30 @@ const session = {
   fullName: "Wang Xin",
 };
 
+test("accepts backend adviser session field without widening the public session shape", async () => {
+  for (const adviser of [false, true]) {
+    const response = requestQueue([jsonResponse({ ...session, adviser })]);
+    assert.deepEqual(await getSession("http://localhost:8080", response.request), { status: "ready", session });
+    const write = requestQueue([jsonResponse(csrf), jsonResponse({ ...session, adviser })]);
+    assert.deepEqual(await login("http://localhost:8080", {
+      identifier: "adviser@example.com", password: "password", rememberMe: false,
+    }, write.request), { status: "ready", session });
+  }
+  const anonymous = { authenticated: false, userId: null, fullName: null };
+  assert.deepEqual(await getSession("http://localhost:8080",
+    requestQueue([jsonResponse({ ...anonymous, adviser: false })]).request), { status: "ready", session: anonymous });
+});
+
+test("rejects malformed capabilities and unexpected fields in backend sessions", async () => {
+  for (const payload of [
+    { ...session, adviser: "true" }, { ...session, adviser: null }, { ...session, adviser: true, role: "ADVISER" },
+    { authenticated: false, userId: null, fullName: null, adviser: true },
+  ]) {
+    assert.deepEqual(await getSession("http://localhost:8080", requestQueue([jsonResponse(payload)]).request),
+      { status: "error" });
+  }
+});
+
 test("loads csrf and sends credentials on login", async () => {
   const { calls, request } = requestQueue([jsonResponse(csrf), jsonResponse(session)]);
   const result = await login("http://localhost:8080", {
