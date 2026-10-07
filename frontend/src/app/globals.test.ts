@@ -14,6 +14,16 @@ const saveToggle = readFileSync(fileURLToPath(new URL("../components/save-toggle
 const searchAutocomplete = readFileSync(fileURLToPath(new URL("../components/search-autocomplete.tsx", import.meta.url)), "utf8");
 const programmePage = readFileSync(fileURLToPath(new URL("./[locale]/universities/[slug]/programmes/[programmeId]/page.tsx", import.meta.url)), "utf8");
 
+test("adviser styles isolate readable mobile cards and keyboard controls", () => {
+  assert.match(css, /\.adviser-consultations \.adviser-table\s*\{[^}]*table-layout:\s*fixed/);
+  assert.match(css, /\.adviser-consultations [^{]*\{[^}]*overflow-wrap:\s*anywhere/);
+  assert.match(css, /\.adviser-consultations [^{]*\{[^}]*min-height:\s*44px/);
+  assert.match(css, /\.adviser-consultations [^{]*:focus-visible/);
+  assert.match(css, /\.adviser-consultations \.adviser-notes\s*\{[^}]*white-space:\s*pre-wrap/);
+  assert.match(css, /@media \(max-width:\s*900px\)[\s\S]*?\.adviser-consultations \.adviser-table td::before\s*\{[^}]*content:\s*attr\(data-label\)/);
+  assert.match(css, /@media \(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.adviser-consultations/);
+});
+
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
     ".header-shell",
