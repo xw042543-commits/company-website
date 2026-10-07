@@ -246,7 +246,8 @@ test("university profiles keep identity, facts, and introduction clear", () => {
   assert.match(css, /\.university-detail-header\s*\{[^}]*grid-template-columns:/);
   assert.match(css, /\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*repeat\(3/);
   assert.match(css, /\.university-overview-grid\.has-photo\s*\{[^}]*grid-template-columns:/);
-  assert.match(css, /\.university-overview-grid\.no-photo\s*\{[^}]*width:\s*100%/);
+  assert.match(css, /\.university-overview-grid\.no-photo\s*\{[^}]*width:\s*100%[^}]*border:\s*0[^}]*background:\s*transparent/);
+  assert.match(css, /\.university-overview-grid\.no-photo \.university-overview-copy\s*\{[^}]*padding:\s*0[^}]*background:\s*transparent/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 

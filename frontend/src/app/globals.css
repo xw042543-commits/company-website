@@ -717,10 +717,10 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .detail-section-heading h2 { margin: 0; }
 .university-overview-grid { overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
 .university-overview-grid.has-photo { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); }
-.university-overview-grid.no-photo { width: 100%; }
+.university-overview-grid.no-photo { width: 100%; overflow: visible; border: 0; border-radius: 0; background: transparent; }
 .university-overview-grid .detail-image { height: 100%; min-height: 330px; margin: 0; border: 0; border-radius: 0; }
 .university-overview-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(30px, 4vw, 48px); background: #f6f5f0; }
-.university-overview-grid.no-photo .university-overview-copy { background: #fff; }
+.university-overview-grid.no-photo .university-overview-copy { padding: 0; background: transparent; }
 .university-overview-copy p { max-width: 78ch; margin: 0; color: #435851; font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.9; }
 .detail-image { min-height: 220px; display: grid; place-items: center; margin-bottom: 24px; padding: 24px; border-radius: var(--radius-sm); background: #e4eeeb; color: var(--muted); text-align: center; }
 .university-logo-panel { min-height: 200px; border: 1px solid var(--line); background: #fff; }
