@@ -6,6 +6,7 @@ const PATHS = [
   "/zh/universities",
   "/en/universities",
   "/zh/login",
+  "/favicon.ico",
   "/robots.txt",
   "/sitemap.xml",
   "/api/v1/catalog/filter-options",
@@ -33,6 +34,12 @@ export async function runLaunchSmoke(rawOrigin, fetcher = fetch, expectations = 
       throw new Error(`${path} request failed: ${safeMessage(error)}`);
     }
     if (!response.ok) throw new Error(`${path} returned HTTP ${response.status}`);
+    if (path === "/favicon.ico") {
+      const contentType = response.headers.get("content-type") ?? "";
+      if (!/^image\/(?:x-icon|vnd\.microsoft\.icon)(?:;|$)/i.test(contentType)) {
+        throw new Error(`/favicon.ico returned unexpected content type ${contentType || "missing"}`);
+      }
+    }
     if (["/zh", "/robots.txt", "/sitemap.xml", "/api/v1/auth/providers"].includes(path)) {
       bodies.set(path, await response.text());
     }
