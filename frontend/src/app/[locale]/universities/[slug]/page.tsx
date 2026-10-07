@@ -76,21 +76,49 @@ export default async function Detail({ params, searchParams }: DetailProps) {
   const availableLevels = localProgrammeLevels(slug);
   const isApuCatalogue = directoryUniversity?.id === "apu";
   const universityEnquiryPath = `/${locale}/about?university=${encodeURIComponent(view.name)}#enquiry`;
+  const profileSubjects = profile
+    ? (locale === "zh" ? profile.subjectsZh : profile.subjectsEn)
+    : [];
+  const profileFacts = profile ? [
+    [words(locale, "热门方向", "Popular subjects"), profileSubjects.join(" · ")],
+    [words(locale, "入学时间", "Intakes"), locale === "zh" ? profile.intakesZh : profile.intakesEn],
+    [words(locale, "参考排名", "Ranking reference"), locale === "zh" ? profile.rankingZh : profile.rankingEn],
+  ] : [];
 
-  return <main id="main" className="container page-main">
+  return <main id="main" className="container page-main university-detail-page">
     <BackLink locale={locale} />
     <header className="university-detail-header">
       <div className="university-detail-heading">
         <p className="section-label">{words(locale, "院校资料", "University information")}</p>
         <h1>{view.name}</h1>
         {view.secondaryName && <p className="detail-secondary-name">{view.secondaryName}</p>}
-        <p className="page-intro">
+        <p className="page-intro university-location">
+          <span aria-hidden="true">●</span>
           {[view.country, view.city].filter(Boolean).join(" · ")
             || words(locale, "地区资料待补充", "Location to be confirmed")}
         </p>
+        {profileSubjects.length > 0 && <div className="university-subject-tags" aria-label={words(locale, "热门方向", "Popular subjects")}>
+          {profileSubjects.map((subject) => <span key={subject}>{subject}</span>)}
+        </div>}
+        <div className="detail-quick-actions"><SaveToggle locale={locale} item={{ key: `university:${slug}`, kind: "university", name: view.name, secondaryName: view.secondaryName, context: [view.city, view.country].filter(Boolean).join(", "), path: detailPath }} /><Link className="button" href={universityEnquiryPath}>{words(locale, "咨询顾问", "Speak with an adviser")} <span aria-hidden="true">→</span></Link></div>
       </div>
-      <div className="detail-quick-actions"><SaveToggle locale={locale} item={{ key: `university:${slug}`, kind: "university", name: view.name, secondaryName: view.secondaryName, context: [view.city, view.country].filter(Boolean).join(", "), path: detailPath }} /><Link className="button" href={universityEnquiryPath}>{words(locale, "咨询顾问", "Speak with an adviser")} <span aria-hidden="true">→</span></Link></div>
+      <div className="university-hero-mark" aria-hidden="true">
+        <span className="university-hero-orbit" />
+        <div className="university-hero-logo">
+          {directoryUniversity?.logoSrc
+            ? <Image src={directoryUniversity.logoSrc} width={220} height={160} alt="" priority />
+            : <span>{view.name.slice(0, 1)}</span>}
+        </div>
+        <p>{words(locale, "认识你的下一所大学", "Meet your next university")}</p>
+      </div>
     </header>
+    {profileFacts.length > 0 && <dl className="university-fact-strip">
+      {profileFacts.map(([label, value], index) => <div key={label}>
+        <span aria-hidden="true">0{index + 1}</span>
+        <dt>{label}</dt>
+        <dd>{value}</dd>
+      </div>)}
+    </dl>}
     <nav className="university-detail-nav" aria-label={words(locale, "院校页面导航", "University page navigation")}>
       <a href="#overview">{words(locale, "院校概览", "Overview")}</a>
       <a href="#programmes">{words(locale, "课程", "Programmes")}</a>
@@ -100,20 +128,32 @@ export default async function Detail({ params, searchParams }: DetailProps) {
     <div className="detail-layout">
       <div>
         <section className="detail-section" id="overview">
-          <h2>{words(locale, "院校介绍", "University profile")}</h2>
-          <div className={`detail-image university-profile-media${profile?.campusImageSrc ? " has-photo" : ""}`}>
-            {profile?.campusImageSrc
-              ? <Image src={profile.campusImageSrc} fill sizes="(max-width: 760px) 100vw, 640px" alt={words(locale, `${view.name} 校园`, `${view.name} campus`)} priority />
-              : directoryUniversity?.logoSrc
-                ? <Image src={directoryUniversity.logoSrc} width={640} height={320} sizes="(max-width: 760px) 100vw, 640px" alt={words(locale, `${view.name} 标志`, `${view.name} logo`)} priority />
-                : <span>{view.name.slice(0, 1)}</span>}
+          <div className="detail-section-heading">
+            <p className="section-label">{words(locale, "认识院校", "Discover the university")}</p>
+            <h2>{words(locale, "院校介绍", "University profile")}</h2>
           </div>
-          <p>{view.description || (profile ? (locale === "zh" ? profile.introductionZh : profile.introductionEn) : words(
-            locale,
-            "院校介绍正在审核整理中。如需了解校区与申请信息，请咨询顾问。",
-            "The university profile is still being reviewed. Speak with an adviser if you need campus or application information.",
-          ))}</p>
-          {profile?.imageCredit && <p className="image-credit">{words(locale, "图片来源", "Image source")}: <a href={profile.imageCredit.href} target="_blank" rel="noreferrer">{profile.imageCredit.label}</a></p>}
+          <div className="university-overview-grid">
+            <div>
+              <div className={`detail-image university-profile-media${profile?.campusImageSrc ? " has-photo" : ""}`}>
+                {profile?.campusImageSrc
+                  ? <Image src={profile.campusImageSrc} fill sizes="(max-width: 760px) 100vw, 640px" alt={words(locale, `${view.name} 校园`, `${view.name} campus`)} priority />
+                  : <div className="university-profile-placeholder">
+                    <span>{view.name.slice(0, 1)}</span>
+                    <p>{[view.city, view.country].filter(Boolean).join(" · ")}</p>
+                  </div>}
+              </div>
+              {profile?.imageCredit && <p className="image-credit">{words(locale, "图片来源", "Image source")}: <a href={profile.imageCredit.href} target="_blank" rel="noreferrer">{profile.imageCredit.label}</a></p>}
+            </div>
+            <div className="university-overview-copy">
+              <span className="overview-kicker">{words(locale, "为什么值得了解", "Why it is worth exploring")}</span>
+              <p>{view.description || (profile ? (locale === "zh" ? profile.introductionZh : profile.introductionEn) : words(
+                locale,
+                "院校介绍正在审核整理中。如需了解校区与申请信息，请咨询顾问。",
+                "The university profile is still being reviewed. Speak with an adviser if you need campus or application information.",
+              ))}</p>
+              <Link href="#programmes">{words(locale, "浏览课程", "Explore programmes")} <span aria-hidden="true">↓</span></Link>
+            </div>
+          </div>
         </section>
 
         <section className="detail-section" id="programmes" aria-labelledby="programme-list-heading">
@@ -189,6 +229,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
       </div>
 
       <aside className="detail-aside university-enquiry-card" id="enquiry">
+        <span className="enquiry-card-label">{words(locale, "专属申请支持", "Personal application support")}</span>
         <h2>{words(locale, "咨询此院校", "Ask about this university")}</h2>
         <p>{words(
           locale,

@@ -13,6 +13,7 @@ const comparisonTray = readFileSync(fileURLToPath(new URL("../components/compari
 const saveToggle = readFileSync(fileURLToPath(new URL("../components/save-toggle.tsx", import.meta.url)), "utf8");
 const searchAutocomplete = readFileSync(fileURLToPath(new URL("../components/search-autocomplete.tsx", import.meta.url)), "utf8");
 const programmePage = readFileSync(fileURLToPath(new URL("./[locale]/universities/[slug]/programmes/[programmeId]/page.tsx", import.meta.url)), "utf8");
+const universityDetailPage = readFileSync(fileURLToPath(new URL("./[locale]/universities/[slug]/page.tsx", import.meta.url)), "utf8");
 const companyContacts = readFileSync(fileURLToPath(new URL("../components/company-contacts.tsx", import.meta.url)), "utf8");
 
 test("adviser console keeps master-detail information readable and responsive", () => {
@@ -232,6 +233,17 @@ test("application process uses five colorful connected milestones", () => {
   assert.match(css, /\.process-step-arrive\s*\{[^}]*--step-accent:/);
   assert.match(css, /\.process-step:not\(:last-child\)::after/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.process\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+});
+
+test("university profiles use an engaging branded hero and scannable facts", () => {
+  assert.match(universityDetailPage, /className="university-hero-mark"/);
+  assert.match(universityDetailPage, /className="university-fact-strip"/);
+  assert.match(universityDetailPage, /className="university-overview-grid"/);
+  assert.match(universityDetailPage, /className="enquiry-card-label"/);
+  assert.match(css, /\.university-detail-header\s*\{[^}]*grid-template-columns:/);
+  assert.match(css, /\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*repeat\(3/);
+  assert.match(css, /\.university-overview-grid\s*\{[^}]*grid-template-columns:/);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
 test("catalog filters stay compact and removable across tablet layouts", () => {
