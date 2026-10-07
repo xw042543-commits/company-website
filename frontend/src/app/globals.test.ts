@@ -146,6 +146,9 @@ test("account workspace uses restrained warm accents", () => {
   assert.match(css, /\.account-summary\s*\{[^}]*border-color:\s*#decf9d[^}]*linear-gradient/);
   assert.match(css, /\.saved-items-section\s*\{[^}]*background:\s*linear-gradient/);
   assert.match(css, /\.saved-items-heading > span\s*\{[^}]*background:\s*#c9a653/);
+  assert.match(css, /\.shortlist-summary\s*\{[^}]*grid-template-columns:\s*repeat\(3/);
+  assert.match(css, /\.saved-plan-fields\s*\{[^}]*display:\s*grid/);
+  assert.match(css, /\.consultation-history li\s*\{[^}]*grid-template-columns:/);
 });
 
 test("autocomplete suggestions keep words intact while highlighting matches", () => {
@@ -246,6 +249,8 @@ test("programme detail hero keeps its copy, actions, and campus image aligned on
   assert.doesNotMatch(programmePage, /className="programme-header-facts"/);
   assert.match(programmePage, /"收藏课程", "Save programme"/);
   assert.match(programmePage, /className="programme-data-table"/);
+  assert.match(programmePage, /className="container programme-trust-summary"/);
+  assert.match(css, /\.programme-trust-summary\s*\{[^}]*grid-template-columns:\s*repeat\(2/);
   assert.match(programmePage, /className="programme-applicant-note"/);
   assert.doesNotMatch(programmePage, /"中国学生", "Applicants from China"/);
   assert.doesNotMatch(programmePage, /label=\{words\(locale, "注册费"/);

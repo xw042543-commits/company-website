@@ -8,6 +8,7 @@ import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
 import { SavedItemsPanel } from "@/components/saved-items-panel";
+import { ConsultationHistoryPanel } from "@/components/consultation-history-panel";
 
 export function AccountPanel({ locale }: { locale: Locale }) {
   const router = useRouter();
@@ -133,6 +134,7 @@ export function AccountPanel({ locale }: { locale: Locale }) {
     </section>
 
     <SavedItemsPanel locale={locale} />
+    <ConsultationHistoryPanel locale={locale} />
 
     {!demoAccount && <><section className="account-section" aria-labelledby="password-title">
       <h2 id="password-title">{words(locale, "修改密码", "Change password")}</h2>

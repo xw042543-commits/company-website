@@ -27,6 +27,7 @@ export function UniversityComparison({ locale }: { locale: Locale }) {
   const available = (index: number, id: string) => !id || selection[index] === id || !selection.includes(id);
 
   const rows = [
+    [words(locale, "资料状态", "Data coverage"), (id: string) => profileCoverage(id, locale)],
     [words(locale, "地点", "Location"), (id: string) => { const item = UNIVERSITY_CATALOG.find((university) => university.id === id)!; return `${locale === "zh" ? item.cityZh : item.cityEn}, ${locale === "zh" ? item.countryZh : item.countryEn}`; }],
     [words(locale, "参考学费", "Tuition guidance"), (id: string) => locale === "zh" ? universityProfile(id).tuitionZh : universityProfile(id).tuitionEn],
     [words(locale, "参考排名", "Ranking information"), (id: string) => locale === "zh" ? universityProfile(id).rankingZh : universityProfile(id).rankingEn],
@@ -54,4 +55,19 @@ export function UniversityComparison({ locale }: { locale: Locale }) {
     </table></div>}
     <div className="comparison-note"><span aria-hidden="true">i</span><p>{words(locale, "排名为页面所示版本的参考资料。标注“正在整理”的内容会在核实后逐项更新；申请前请以院校最新正式资料为准。", "Rankings reflect the edition shown. Information marked as being compiled will be updated after verification; check the university's latest official information before applying.")} <a href="https://www.topuniversities.com/where-to-study/asia/malaysia/top-universities-malaysia" target="_blank" rel="noreferrer">{words(locale, "排名资料来源", "Ranking source")}</a></p></div>
   </section>;
+}
+
+function profileCoverage(id: string, locale: Locale) {
+  const profile = universityProfile(id);
+  const fields = [
+    profile.tuitionEn,
+    profile.rankingEn,
+    profile.academicRequirementsEn,
+    profile.languageRequirementsEn,
+    profile.intakesEn,
+    profile.subjectsEn.join(" "),
+  ];
+  const pending = /under review|being compiled|vary by programme|request the current|refer to/i;
+  const covered = fields.filter((value) => value.trim() && !pending.test(value)).length;
+  return words(locale, `已整理 ${covered}/${fields.length} 项，申请前仍需确认`, `${covered} of ${fields.length} fields reviewed; confirm before applying`);
 }

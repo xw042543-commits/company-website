@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
+import { curatedArticle } from "@/data/curated-articles";
 import {
   getArticle,
   isArticleSection,
@@ -23,13 +24,14 @@ export default async function ArticleDetailPage({ params }: ArticleDetailProps) 
     section,
     slug,
   );
-  if (result.status === "not-found") notFound();
+  const localArticle = curatedArticle(section, slug);
+  if (result.status === "not-found" && !localArticle) notFound();
 
   const item = navigation.find(([path]) => path === section);
   const sectionTitle = item ? words(locale, item[1], item[2]) : section;
   const sectionPath = `/${locale}/${section}`;
 
-  if (result.status === "error") {
+  if (result.status === "error" && !localArticle) {
     return <main id="main" className="container page-main">
       <Link className="back-link" href={sectionPath}>
         <span aria-hidden="true">←</span> {words(locale, `返回${sectionTitle}`, `Back to ${sectionTitle}`)}
@@ -42,7 +44,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailProps) 
     </main>;
   }
 
-  const { article } = result;
+  const article = result.status === "ready" ? result.article : localArticle!;
   const localized = localizeArticle(article, locale);
 
   return <main id="main" className="container page-main article-detail-page">

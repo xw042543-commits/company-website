@@ -102,6 +102,8 @@ test("enquiry form submits to the consultation API with explicit consent", () =>
   assert.match(form, /privacyConsent:\s*true/);
   assert.match(form, /type="submit"/);
   assert.match(form, /referenceCode/);
+  assert.match(form, /recordConsultation/);
+  assert.match(form, /initialSchool/);
   assert.doesNotMatch(form, /preview mode only|仅供预览|consultation submission unavailable|咨询提交暂未开放/i);
   assert.doesNotMatch(form, /name="privacyConsent" disabled/);
 });
@@ -125,6 +127,16 @@ test("language programme copy preserves the approved price and format", () => {
   assert.match(sections, /每期 4,980 元的封闭式雅思培训/);
   assert.match(sections, /Intensive IELTS training costs CNY 4,980 per session/);
   assert.doesNotMatch(sections, /4,980 元起|from CNY 4,980/);
+});
+
+test("content pages provide reviewed bilingual guides when publishing is empty", () => {
+  const sections = read("../app/[locale]/[section]/page.tsx");
+  const details = read("../app/[locale]/[section]/[slug]/page.tsx");
+  const curated = read("../data/curated-articles.ts");
+  assert.match(sections, /curatedArticles/);
+  assert.match(details, /curatedArticle/);
+  assert.match(curated, /Malaysia International Scholarship 2026/);
+  assert.match(curated, /How UDAJO presents programme coverage and sources/);
 });
 
 test("content pages expose the approved scholarship grid and news channels", () => {

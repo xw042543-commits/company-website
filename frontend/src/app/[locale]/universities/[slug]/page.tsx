@@ -75,6 +75,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
   const programmeKeyword = first(query, "q");
   const availableLevels = localProgrammeLevels(slug);
   const isApuCatalogue = directoryUniversity?.id === "apu";
+  const universityEnquiryPath = `/${locale}/about?university=${encodeURIComponent(view.name)}#enquiry`;
 
   return <main id="main" className="container page-main">
     <BackLink locale={locale} />
@@ -88,7 +89,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
             || words(locale, "地区资料待补充", "Location to be confirmed")}
         </p>
       </div>
-      <div className="detail-quick-actions"><SaveToggle locale={locale} item={{ key: `university:${slug}`, kind: "university", name: view.name, secondaryName: view.secondaryName, context: [view.city, view.country].filter(Boolean).join(", "), path: detailPath }} /><Link className="button" href={`/${locale}/about#enquiry`}>{words(locale, "咨询顾问", "Speak with an adviser")} <span aria-hidden="true">→</span></Link></div>
+      <div className="detail-quick-actions"><SaveToggle locale={locale} item={{ key: `university:${slug}`, kind: "university", name: view.name, secondaryName: view.secondaryName, context: [view.city, view.country].filter(Boolean).join(", "), path: detailPath }} /><Link className="button" href={universityEnquiryPath}>{words(locale, "咨询顾问", "Speak with an adviser")} <span aria-hidden="true">→</span></Link></div>
     </header>
     <nav className="university-detail-nav" aria-label={words(locale, "院校页面导航", "University page navigation")}>
       <a href="#overview">{words(locale, "院校概览", "Overview")}</a>
@@ -194,7 +195,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
           "向顾问了解院校、专业与申请安排。",
           "Speak with an adviser about programmes, entry requirements and the application process.",
         )}</p>
-        <Link className="button full-width" href={`/${locale}/about#enquiry`}>
+        <Link className="button full-width" href={universityEnquiryPath}>
           {words(locale, "开始咨询", "Contact an adviser")} <span aria-hidden="true">→</span>
         </Link>
         <div className="enquiry-preparation">

@@ -6,9 +6,12 @@ import { ConsultationForm } from "@/components/consultation-form";
 import { companyProfile, publicAdvisers } from "@/data/company-profile";
 import { isLocale, words } from "@/lib/site";
 
-export default async function About({ params }: { params: Promise<{ locale: string }> }) {
+export default async function About({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ university?: string | string[]; programme?: string | string[] }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  const query = await searchParams;
+  const initialSchool = typeof query.university === "string" ? query.university.slice(0, 200) : "";
+  const initialCourse = typeof query.programme === "string" ? query.programme.slice(0, 200) : "";
   return <main id="main" className="company-page">
     <section className="company-hero" aria-labelledby="company-page-title">
       <div className="company-hero-media" aria-hidden="true">
@@ -38,7 +41,7 @@ export default async function About({ params }: { params: Promise<{ locale: stri
 
       <div id="enquiry" className="about-enquiry" aria-labelledby="about-enquiry-heading">
         <div className="section-heading"><p className="section-label">{words(locale, "联系顾问", "Contact an adviser")}</p><h2 id="about-enquiry-heading">{words(locale, "定制你的留学方案", "Discuss your study plans")}</h2><p>{words(locale, "告诉我们你的学习方向和目标院校，或直接选择下方顾问联系。", "Tell us what you want to study and which universities you are considering, or contact an adviser directly.")}</p></div>
-        <div className="detail-layout about-enquiry-layout"><section className="about-enquiry-form"><h3>{words(locale, "咨询资料", "Enquiry details")}</h3><ConsultationForm locale={locale} /></section><aside className="detail-aside consultation-arrangement"><h3>{words(locale, "咨询安排", "Enquiry arrangements")}</h3><dl><div><dt>{words(locale, "预计回复", "Expected reply")}</dt><dd>{words(locale, companyProfile.responseTime.zh, companyProfile.responseTime.en)}</dd></div><div><dt>{words(locale, "联系邮箱", "Contact email")}</dt><dd><a href={`mailto:${companyProfile.publicEmail}`}>{companyProfile.publicEmail}</a></dd></div><div><dt>{words(locale, "官方域名", "Official domain")}</dt><dd>{companyProfile.domain}</dd></div></dl><p>{words(locale, "提交后请保存查询编号；如在线提交暂不可用，也可通过以上邮箱联系顾问。", "Keep your reference number after submitting. If online submission is temporarily unavailable, contact an adviser using the email above.")}</p></aside></div>
+        <div className="detail-layout about-enquiry-layout"><section className="about-enquiry-form"><h3>{words(locale, "咨询资料", "Enquiry details")}</h3>{(initialSchool || initialCourse) && <p className="enquiry-context-notice">{words(locale, "已从课程页面带入院校与课程资料，你可以在提交前修改。", "The university and programme have been added from the page you were viewing. You can edit them before submitting.")}</p>}<ConsultationForm locale={locale} initialSchool={initialSchool} initialCourse={initialCourse} /></section><aside className="detail-aside consultation-arrangement"><h3>{words(locale, "咨询安排", "Enquiry arrangements")}</h3><dl><div><dt>{words(locale, "预计回复", "Expected reply")}</dt><dd>{words(locale, companyProfile.responseTime.zh, companyProfile.responseTime.en)}</dd></div><div><dt>{words(locale, "联系邮箱", "Contact email")}</dt><dd><a href={`mailto:${companyProfile.publicEmail}`}>{companyProfile.publicEmail}</a></dd></div><div><dt>{words(locale, "官方域名", "Official domain")}</dt><dd>{companyProfile.domain}</dd></div></dl><p>{words(locale, "提交后请保存查询编号；如在线提交暂不可用，也可通过以上邮箱联系顾问。", "Keep your reference number after submitting. If online submission is temporarily unavailable, contact an adviser using the email above.")}</p></aside></div>
         <CompanyContacts locale={locale} advisers={publicAdvisers} title={words(locale, "直接联系顾问", "Contact an adviser directly")} introduction={words(locale, "可根据所在地区选择联系人。", "Choose a contact based on your region.")} />
       </div>
     </div>

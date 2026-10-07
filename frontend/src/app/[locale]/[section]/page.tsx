@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 
 import { CompanyProfilePage } from "@/components/company-profile-page";
 import { Pagination } from "@/components/pagination";
+import { curatedArticles } from "@/data/curated-articles";
 import {
   getArticles,
   isArticleSection,
@@ -72,6 +73,11 @@ export default async function ContentSection({ params, searchParams }: ContentSe
     requestedPage,
   );
   const sectionPath = `/${locale}/${section}`;
+  const reviewedFallback = curatedArticles(section);
+  const articles = result.status === "ready" && result.page.items.length > 0
+    ? result.page.items
+    : reviewedFallback;
+  const usingReviewedFallback = !(result.status === "ready" && result.page.items.length > 0);
 
   if (result.status === "ready") {
     const normalizedPage = boundedPage(result.page.page, result.page.totalPages);
@@ -93,13 +99,13 @@ export default async function ContentSection({ params, searchParams }: ContentSe
       <ul>{newsChannels.map(([zh, en]) => <li key={zh}>{words(locale, zh, en)}</li>)}</ul>
     </nav>}
 
-    {result.status === "error"
+    {result.status === "error" && articles.length === 0
       ? <div className="results-state" role="alert">
         <span className="state-symbol" aria-hidden="true">!</span>
         <h2>{words(locale, "资讯暂时无法加载", "We could not load this information")}</h2>
         <p>{words(locale, "请稍后刷新页面重试。", "Please refresh the page and try again later.")}</p>
       </div>
-      : result.page.items.length === 0
+      : articles.length === 0
         ? <div className="results-state" role="status">
           <span className="state-symbol" aria-hidden="true">○</span>
           <h2>{words(locale, "暂无已发布内容", "Nothing has been published here yet")}</h2>
@@ -110,20 +116,23 @@ export default async function ContentSection({ params, searchParams }: ContentSe
             <h2>{words(locale, "最新内容", "Latest articles")}</h2>
             <span>{words(
               locale,
-              `共 ${result.page.totalItems} 篇`,
-              `${result.page.totalItems} articles`,
+              `共 ${articles.length} 篇${usingReviewedFallback ? "已审核指南" : ""}`,
+              `${articles.length} reviewed ${articles.length === 1 ? "guide" : "guides"}`,
             )}</span>
           </div>
           <div className={`article-list${section === "scholarships" ? " scholarship-article-grid" : ""}`} id={`${section}-articles`}>
-            {result.page.items.map((article) => {
+            {articles.map((article) => {
               const localized = localizeArticleSummary(article, locale);
               const articlePath = `${sectionPath}/${encodeURIComponent(article.slug)}`;
+              const sourceName = "sourceName" in article && typeof article.sourceName === "string"
+                ? article.sourceName
+                : null;
               return <article className="article-card" key={`${article.section}/${article.slug}`}>
-                {section === "scholarships" && <Link className="article-card-media" href={articlePath} aria-label={localized.title.text}>
+                {section === "scholarships" && (article.coverPath ? <Link className="article-card-media" href={articlePath} aria-label={localized.title.text}>
                   {article.coverPath
                     ? <Image src={article.coverPath} alt="" fill sizes="(max-width: 760px) 100vw, (max-width: 1120px) 50vw, 25vw" />
                     : <span aria-hidden="true">{words(locale, "奖学金资讯", "Scholarship update")}</span>}
-                </Link>}
+                </Link> : <div className="article-card-source"><span>{words(locale, "审核资料来源", "Reviewed source")}</span><strong>{sourceName || words(locale, "洋豆角编辑部", "UDAJO Editorial Team")}</strong></div>)}
                 <p className="article-date">
                   <time dateTime={article.publishedAt}>{formatPublishedDate(article.publishedAt, locale)}</time>
                 </p>
@@ -135,13 +144,13 @@ export default async function ContentSection({ params, searchParams }: ContentSe
               </article>;
             })}
           </div>
-          <Pagination
+          {!usingReviewedFallback && result.status === "ready" && <Pagination
             locale={locale}
             path={sectionPath}
             query={query}
             page={result.page.page}
             total={result.page.totalItems}
-          />
+          />}
         </>}
   </main>;
 }

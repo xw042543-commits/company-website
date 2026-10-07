@@ -67,7 +67,7 @@ function remoteProgrammeDetail(
   return {
     level: normalizedLevel(programme.studyLevelCode),
     nameZh: programme.nameZh?.trim() || programme.nameEn?.trim() || programme.programmeCode,
-    nameEn: formatEnglishDisplayText(programme.nameEn?.trim() || "English title pending"),
+    nameEn: formatEnglishDisplayText(programme.nameEn?.trim() || "Programme title to be confirmed"),
     facultyZh,
     facultyEn,
     duration: programme.durationDisplay
@@ -126,8 +126,8 @@ function programmeIntroduction({
     return `${name}是${university}${faculty ? `在${faculty}` : ""}开设的${level}课程${details ? `，目前已审核的课程资料显示其学制与授课安排为${details}` : ""}。你可以在本页查看费用、入学时间和申请条件；具体课程模块、选修方向与考核方式请在申请前向顾问索取大学最新课程说明。`;
   }
 
-  const studyDetails = [mode, duration].filter(Boolean).join(" and ");
-  return `${name} is a ${level.toLocaleLowerCase("en")} programme offered by ${university}${faculty ? ` through the ${faculty}` : ""}.${studyDetails ? ` The current listing gives the study format and duration as ${studyDetails}.` : ""} This page summarises the available fees, intake dates and entry requirements. Ask an adviser for the university’s latest course guide if you need confirmed modules, electives or assessment details.`;
+  const studyDetails = [mode, duration].filter(Boolean).join(" over ");
+  return `${name} is a ${level.toLocaleLowerCase("en")} programme offered by ${university}${faculty ? ` in ${faculty}` : ""}.${studyDetails ? ` It is listed as ${studyDetails}.` : ""} You can review the available fees, intake dates and entry requirements on this page. For confirmed modules, electives and assessment details, request the university's latest course guide before applying.`;
 }
 
 function careerDirections(locale: "zh" | "en", subject: string) {
@@ -186,14 +186,14 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   const school = localizeUniversity(university, locale);
   const profile = universityProfile(university.id);
   const programmeNameZh = splitProgrammeName(programme.nameZh || programme.nameEn).name;
-  const programmeNameEn = formatEnglishDisplayText(splitProgrammeName(programme.nameEn || "English title pending").name);
+  const programmeNameEn = formatEnglishDisplayText(splitProgrammeName(programme.nameEn || "Programme title to be confirmed").name);
   const presentation = splitProgrammeName(locale === "zh" ? programme.nameZh || programme.nameEn : programmeNameEn);
   const secondaryPresentation = splitProgrammeName(programme.nameEn);
   const name = locale === "en" ? programmeNameEn : presentation.name;
   const secondaryName = locale === "zh" ? secondaryPresentation.name : "";
   const faculty = locale === "zh"
     ? programme.facultyZh || programme.facultyEn
-    : formatEnglishDisplayText(programme.facultyEn || "Faculty details pending");
+    : formatEnglishDisplayText(programme.facultyEn || "Faculty to be confirmed");
   const detailPath = programmeDetailPath(locale, university.slug, programme.routeIdentifier);
   const universityPath = `/${locale}/universities/${encodeURIComponent(university.slug)}`;
   const requirements = locale === "zh" ? programme.descriptionZh : programme.descriptionEn;
@@ -233,6 +233,9 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
     ? words(locale, "Taylor’s商业学士（荣誉）课程涵盖管理、营销、金融、商业运营与分析等核心领域。学生先建立广泛的商业基础，再选择一个专业方向，以项目、行业接触和实习经验发展实际应用能力。", "Taylor’s Bachelor of Business (Honours) covers core areas including management, marketing, finance, business operations, and analytics. Students first build a broad business foundation, then choose one specialisation and develop applied skills through projects, industry exposure, and internship experience.")
     : generatedIntroduction;
   const adviserPath = `/${locale}/about?university=${encodeURIComponent(school.name)}&programme=${encodeURIComponent(name)}#enquiry`;
+  const coverageFields = [faculty, duration, tuition, intakes, programme.mode, requirements];
+  const coverageCount = coverageFields.filter((value) => value.trim()).length;
+  const coverageComplete = coverageCount === coverageFields.length;
 
   return <main id="main" className="programme-page">
     <section className="programme-hero">
@@ -288,6 +291,19 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
         <a href="#careers">{words(locale, "未来职业方向", "Career directions")}</a>
       </div>
     </nav>
+
+    <section className="container programme-trust-summary" aria-label={words(locale, "课程资料状态", "Programme information status")}>
+      <div>
+        <strong>{coverageComplete ? words(locale, "主要资料已覆盖", "Key information covered") : words(locale, "部分资料需要确认", "Some information needs confirmation")}</strong>
+        <span>{words(locale, `已提供 ${coverageCount}/${coverageFields.length} 项重点资料`, `${coverageCount} of ${coverageFields.length} key fields are available`)}</span>
+      </div>
+      <div>
+        <strong>{isVerifiedTaylorsBusiness ? words(locale, "已核对官方课程页", "Checked against the official programme page") : words(locale, "洋豆角课程资料", "UDAJO programme record")}</strong>
+        {isVerifiedTaylorsBusiness
+          ? <a href="https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-business.html" target="_blank" rel="noreferrer">{words(locale, "查看资料来源", "View source")}</a>
+          : <Link href={adviserPath}>{words(locale, "申请前确认最新资料", "Confirm current details")}</Link>}
+      </div>
+    </section>
 
     <dl className="container programme-fact-strip" id="basic-information">
       <Fact label={words(locale, "地点", "Location")} value={[school.city, school.country].filter(Boolean).join(", ")} />
