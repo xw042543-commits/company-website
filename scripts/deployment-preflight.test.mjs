@@ -118,6 +118,21 @@ test("requires a shared community cursor key of at least 32 UTF-8 bytes", () => 
   assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_CURSOR_SECRET: "🔐".repeat(8) }), []);
 });
 
+test("validates community write limits even while disabled and requires configured production policy when enabled", () => {
+  for (const [name, value] of [
+    ["APP_COMMUNITY_ENABLED", "yes"], ["APP_COMMUNITY_POST_PER_MINUTE", "0"],
+    ["APP_COMMUNITY_POST_PER_MINUTE", "101"], ["APP_COMMUNITY_POST_PER_DAY", "1"],
+    ["APP_COMMUNITY_POST_PER_DAY", "1001"], ["APP_COMMUNITY_COMMENT_PER_MINUTE", "301"],
+    ["APP_COMMUNITY_COMMENT_PER_DAY", "9"], ["APP_COMMUNITY_COMMENT_PER_DAY", "10001"],
+    ["APP_COMMUNITY_REPORT_PER_DAY", "301"],
+  ]) {
+    assert.match(validateDeploymentEnv({ ...validEnvironment, [name]: value }).join("\n"), /APP_COMMUNITY/);
+  }
+  assert.match(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_ENABLED: "true" }).join("\n"), /community.*policy/i);
+  assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_ENABLED: "true", APP_COMMUNITY_REVIEW_TERMS: "policy-owned-term" }), []);
+  assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_ENABLED: "false" }), []);
+});
+
 test("requires distinct frontend and backend addresses inside the deployment subnet", () => {
   assert.match(validateDeploymentEnv({
     ...validEnvironment,

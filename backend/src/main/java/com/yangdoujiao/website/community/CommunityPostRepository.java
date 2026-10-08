@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CommunityPostRepository extends JpaRepository<CommunityPost, Long> {
+    @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)
+    @Query("select p from CommunityPost p where p.id = :id")
+    Optional<CommunityPost> findLockedById(Long id);
     Optional<CommunityPost> findByIdAndStatus(Long id, CommunityContentStatus status);
 
     List<CommunityPost> findByStatusOrderByPublishedAtDescIdDesc(CommunityContentStatus status, Pageable page);

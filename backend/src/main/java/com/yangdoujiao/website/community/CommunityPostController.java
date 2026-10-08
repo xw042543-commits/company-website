@@ -8,8 +8,28 @@ import com.yangdoujiao.website.auth.session.UserPrincipal;
 @RequestMapping("/api/v1/community/posts")
 public class CommunityPostController {
     private final CommunityReadService service;
+    private final CommunityWriteService writes;
+    private final com.yangdoujiao.website.common.web.ClientAddressResolver addresses;
 
-    public CommunityPostController(CommunityReadService service) { this.service = service; }
+    public CommunityPostController(CommunityReadService service, CommunityWriteService writes,
+            com.yangdoujiao.website.common.web.ClientAddressResolver addresses) {
+        this.service = service; this.writes = writes; this.addresses = addresses;
+    }
+
+    @PostMapping
+    public org.springframework.http.ResponseEntity<CommunityCreationResponse> create(
+            @RequestHeader(value = "Idempotency-Key", required = false) String key, @RequestBody CommunityPostRequest body,
+            @AuthenticationPrincipal UserPrincipal actor, jakarta.servlet.http.HttpServletRequest request) {
+        var result = writes.createPost(actor.userId(), addresses.resolve(request), key, body);
+        return org.springframework.http.ResponseEntity.status(result.replay() ? 200 : 201).body(result.response());
+    }
+
+    @DeleteMapping("/{id}")
+    public org.springframework.http.ResponseEntity<Void> delete(@PathVariable String id,
+            @AuthenticationPrincipal UserPrincipal actor) {
+        writes.deletePost(actor.userId(), CommunityWriteService.decimalId(id));
+        return org.springframework.http.ResponseEntity.noContent().build();
+    }
 
     @GetMapping
     public CommunityCursorPage<CommunityPostSummary> list(@RequestParam(defaultValue = "latest") String sort,

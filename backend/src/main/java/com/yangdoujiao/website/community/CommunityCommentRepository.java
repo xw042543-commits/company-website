@@ -8,6 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CommunityCommentRepository extends JpaRepository<CommunityComment, Long> {
+    @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)
+    @Query("select c from CommunityComment c where c.id = :id")
+    Optional<CommunityComment> findLockedById(Long id);
+    @Query("select c.postId from CommunityComment c where c.id = :id")
+    Optional<Long> findPostIdById(Long id);
+    long countByPostIdAndParentCommentIdAndStatus(Long postId, Long parentId, CommunityContentStatus status);
     List<CommunityComment> findByPostIdAndStatusAndParentCommentIdIsNullOrderByCreatedAtAscIdAsc(
             Long postId, CommunityContentStatus status, Pageable page);
 

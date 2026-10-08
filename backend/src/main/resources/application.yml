@@ -42,6 +42,14 @@ logging:
 app:
   community:
     cursor-secret: ${APP_COMMUNITY_CURSOR_SECRET:}
+    enabled: ${APP_COMMUNITY_ENABLED:false}
+    post-per-minute: ${APP_COMMUNITY_POST_PER_MINUTE:2}
+    post-per-day: ${APP_COMMUNITY_POST_PER_DAY:30}
+    comment-per-minute: ${APP_COMMUNITY_COMMENT_PER_MINUTE:10}
+    comment-per-day: ${APP_COMMUNITY_COMMENT_PER_DAY:300}
+    report-per-day: ${APP_COMMUNITY_REPORT_PER_DAY:30}
+    review-terms: ${APP_COMMUNITY_REVIEW_TERMS:}
+    reject-terms: ${APP_COMMUNITY_REJECT_TERMS:}
   trusted-proxies: ${APP_TRUSTED_PROXIES:}
   auth:
     registration-enabled: ${APP_AUTH_REGISTRATION_ENABLED:false}

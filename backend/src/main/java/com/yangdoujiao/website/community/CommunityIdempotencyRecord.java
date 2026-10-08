@@ -36,6 +36,9 @@ public class CommunityIdempotencyRecord {
     @Column(name = "result_target_id", nullable = false, updatable = false)
     private Long resultTargetId;
 
+    @Column(name = "result_response", columnDefinition = "TEXT", updatable = false)
+    private String resultResponse;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
@@ -51,6 +54,13 @@ public class CommunityIdempotencyRecord {
         record.requestHash = requestHash;
         record.resultTargetId = resultTargetId;
         record.createdAt = now;
+        return record;
+    }
+
+    static CommunityIdempotencyRecord create(Long accountId, String operationType, String idempotencyKey,
+            String requestHash, Long resultTargetId, String resultResponse, OffsetDateTime now) {
+        CommunityIdempotencyRecord record = create(accountId, operationType, idempotencyKey, requestHash, resultTargetId, now);
+        record.resultResponse = resultResponse;
         return record;
     }
 }
