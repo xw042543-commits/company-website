@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "洋豆角留学"
+  "navigationBarTitleText": "洋豆角留学",
+  "usingComponents": {
+    "app-state": "/components/app-state/index",
+    "university-card": "/components/university-card/index"
+  }
 }

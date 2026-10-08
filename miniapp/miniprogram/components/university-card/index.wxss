@@ -1,0 +1,9 @@
+.university-card { display:flex; align-items:center; min-height:180rpx; padding:22rpx; border-radius:22rpx; background:#fff; box-shadow:0 12rpx 36rpx rgba(20,70,58,.08); }
+.university-image,.university-fallback { width:144rpx; height:144rpx; flex:0 0 auto; border-radius:18rpx; }
+.university-fallback { display:flex; align-items:center; justify-content:center; background:linear-gradient(145deg,#e1f5ed,#c8eadf); color:#176b53; font-size:54rpx; font-weight:800; }
+.university-body { min-width:0; margin-left:22rpx; }
+.university-name { color:#143f35; font-size:30rpx; font-weight:760; }
+.university-name-en,.university-location,.programme-count { margin-top:6rpx; color:#74847f; font-size:21rpx; }
+.tag-row { display:flex; flex-wrap:wrap; gap:8rpx; margin-top:12rpx; }
+.subject-tag { padding:5rpx 10rpx; border-radius:8rpx; background:#eef7f3; color:#39705f; font-size:18rpx; }
+.card-arrow { margin-left:auto; color:#78918a; font-size:40rpx; }

@@ -37,10 +37,32 @@
 
   <view class="section-heading">
     <view class="section-title">热门院校</view>
-    <view class="section-hint">连接真实数据后展示</view>
+    <view class="section-hint" bindtap="openFeature" data-key="universities">查看更多 ›</view>
   </view>
-  <view class="surface-card honest-state">
-    <view class="honest-title">院校资料准备中</view>
-    <view class="honest-copy">这里不会展示样板中的虚构内容，下一步将直接连接现有院校接口。</view>
+  <view wx:if="{{previewState === 'ready'}}" class="home-university-list">
+    <university-card
+      wx:for="{{universities}}"
+      wx:key="slug"
+      university="{{item}}"
+      bind:select="openUniversity"
+    />
   </view>
+  <app-state
+    wx:elif="{{previewState === 'loading'}}"
+    kind="loading"
+    title="正在读取热门院校"
+    description="院校信息来自洋豆角真实数据库。"
+  />
+  <app-state
+    wx:elif="{{previewState === 'empty'}}"
+    kind="empty"
+    title="暂时没有院校资料"
+    description="数据库当前没有可展示的院校。"
+  />
+  <app-state
+    wx:else
+    kind="failed"
+    title="热门院校加载失败"
+    description="可进入院校页重新加载。"
+  />
 </view>

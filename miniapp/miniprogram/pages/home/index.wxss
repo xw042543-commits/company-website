@@ -129,20 +129,9 @@
   font-size: 24rpx;
 }
 
-.honest-state {
+.home-university-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
   margin-top: 18rpx;
-  padding: 32rpx;
-}
-
-.honest-title {
-  color: var(--color-deep);
-  font-size: 30rpx;
-  font-weight: 700;
-}
-
-.honest-copy {
-  margin-top: 12rpx;
-  color: var(--color-muted);
-  font-size: 26rpx;
-  line-height: 1.7;
 }
