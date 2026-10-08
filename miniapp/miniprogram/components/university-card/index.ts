@@ -1,8 +1,21 @@
 Component({
   properties: {
-    university: { type: Object, value: {} },
+    university: {
+      type: Object,
+      value: {},
+      observer() {
+        const university = this.data.university as { imageUrl?: unknown } | null;
+        const imageUrl = typeof university?.imageUrl === 'string'
+          ? university.imageUrl.trim() || null : null;
+        if (imageUrl !== this.data.lastImageUrl) {
+          this.setData({ lastImageUrl: imageUrl, imageFailed: false });
+        }
+      },
+    },
   },
+  data: { imageFailed: false, lastImageUrl: null as string | null },
   methods: {
+    imageError() { this.setData({ imageFailed: true }); },
     select() {
       const university = this.data.university as { slug?: unknown };
       this.triggerEvent('select', { slug: typeof university.slug === 'string' ? university.slug : undefined });
