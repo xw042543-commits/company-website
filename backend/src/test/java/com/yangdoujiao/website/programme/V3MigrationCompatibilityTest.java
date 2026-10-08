@@ -54,7 +54,7 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("9");
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("12");
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT COUNT(*) FROM universities WHERE slug = 'university-of-malaya'
                     """, Integer.class)).isEqualTo(1);

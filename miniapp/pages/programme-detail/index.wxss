@@ -1,0 +1,7 @@
+.hero { padding-top: 28rpx; overflow: hidden; } .hero-image { width: calc(100% + 56rpx); height: 310rpx; margin: -28rpx -28rpx 28rpx; display: block; background: #e7f1eb; } .eyebrow { color: #078e50; font-weight: 650; margin-bottom: 14rpx; }
+.chips { display: flex; flex-wrap: wrap; gap: 12rpx; margin: 24rpx 0; }.chips text { background: #eaf8f1; color: #16724a; padding: 9rpx 16rpx; border-radius: 30rpx; font-size: 23rpx; }
+.actions { display: grid; grid-template-columns: 2fr 1fr; gap: 16rpx; }.tabs { white-space: nowrap; background: #fff; margin: 0 -28rpx 22rpx; border-bottom: 1rpx solid #e8eee9; }
+.tab { display: inline-block; padding: 26rpx 24rpx 20rpx; color: #6f7a74; border-bottom: 5rpx solid transparent; }.tab.active { color: #078f50; font-weight: 650; border-color: #079653; }
+.number { color: #08a15b; font-size: 25rpx; font-weight: 700; }.body { color: #4c5c53; line-height: 1.8; margin-bottom: 12rpx; white-space: pre-wrap; }
+.fact { display: flex; justify-content: space-between; padding: 22rpx 0; border-bottom: 1rpx solid #edf1ee; gap: 30rpx; }.fact text:first-child { color: #78847d; }.fact text:last-child { text-align: right; }
+.detail-block { margin-bottom: 26rpx; }.block-title { font-weight: 650; margin-bottom: 12rpx; }.retry { margin-top: 36rpx; }

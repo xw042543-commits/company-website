@@ -56,6 +56,9 @@ public class ConsultationEnquiry {
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
+    @Column(name = "user_account_id")
+    private Long userAccountId;
+
     protected ConsultationEnquiry() {
     }
 
@@ -83,5 +86,9 @@ public class ConsultationEnquiry {
         this.privacyNoticeVersion = privacyNoticeVersion;
         this.status = "NEW";
         this.createdAt = createdAt;
+    }
+
+    void attachUser(Long userAccountId) {
+        this.userAccountId = userAccountId;
     }
 }
