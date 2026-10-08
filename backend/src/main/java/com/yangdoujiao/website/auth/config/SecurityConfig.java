@@ -61,6 +61,10 @@ public class SecurityConfig {
         http.cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/api/v1/miniapp/**")
+                        .ignoringRequestMatchers(request -> request.getRequestURI().substring(request.getContextPath().length())
+                                .startsWith("/api/v1/community/")
+                                && request.getHeader("Authorization") != null
+                                && request.getHeader("Authorization").startsWith("Bearer "))
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler()))
                 .exceptionHandling(exceptions -> exceptions
@@ -82,6 +86,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/miniapp/auth/login",
                                 "/api/v1/miniapp/auth/refresh").permitAll()
                         .requestMatchers("/api/v1/miniapp/**").hasRole("USER")
+                        .requestMatchers(HttpMethod.GET, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
+                        .requestMatchers(HttpMethod.HEAD, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
+                        .requestMatchers("/api/v1/community/**").hasRole("USER")
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
                         .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")
                         .requestMatchers(HttpMethod.GET, PUBLIC_READ_PATHS).permitAll()

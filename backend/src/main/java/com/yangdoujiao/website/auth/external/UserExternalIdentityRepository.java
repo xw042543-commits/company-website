@@ -1,12 +1,19 @@
 package com.yangdoujiao.website.auth.external;
 
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface UserExternalIdentityRepository extends JpaRepository<UserExternalIdentity, Long> {
+    @Query("""
+            select identity from UserExternalIdentity identity join fetch identity.userAccount
+            where identity.userAccount.id in :ids
+            order by identity.lastLoginAt desc, identity.id desc
+            """)
+    List<UserExternalIdentity> findProfilesByAccountIds(List<Long> ids);
 
     @Query("""
             select identity from UserExternalIdentity identity

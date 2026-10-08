@@ -29,14 +29,18 @@ public class MiniappBearerFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        return !request.getRequestURI().startsWith("/api/v1/miniapp/");
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+        return !path.startsWith("/api/v1/miniapp/") && !path.startsWith("/api/v1/community/");
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
             FilterChain chain) throws ServletException, IOException {
-        SecurityContextHolder.clearContext();
         String authorization = request.getHeader("Authorization");
+        String path = request.getRequestURI().substring(request.getContextPath().length());
+        if (path.startsWith("/api/v1/miniapp/") || (authorization != null && authorization.startsWith(PREFIX))) {
+            SecurityContextHolder.clearContext();
+        }
         if (authorization != null && authorization.startsWith(PREFIX)) {
             try {
                 UserPrincipal principal = UserPrincipal.from(tokens.authenticate(
