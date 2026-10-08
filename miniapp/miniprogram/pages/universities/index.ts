@@ -75,6 +75,7 @@ Page({
       size: 12,
     });
     if (!result.ok) {
+      if (result.error.code === 'REQUEST_SUPERSEDED') return;
       const state: ViewState = result.error.kind === 'unavailable' ? 'offline' : 'failed';
       this.setData({ state, loadingMore: false });
       return;

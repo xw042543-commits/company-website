@@ -1,4 +1,5 @@
 import { request } from './http';
+import type { RequestOptions } from './http';
 import type { Result } from '../utils/result';
 
 export interface UniversitySearchInput {
@@ -29,12 +30,35 @@ export interface UniversityPage {
   readonly totalPages: number;
 }
 
-export async function searchUniversities(
-  input: UniversitySearchInput = {},
-): Promise<Result<UniversityPage>> {
-  const result = await request<unknown>({ method: 'GET', path: buildUniversitySearchPath(input) });
-  if (!result.ok) return result;
-  return mapUniversityPage(result.value);
+type UnknownRequester = (options: RequestOptions) => Promise<Result<unknown>>;
+
+export interface UniversitySearchService {
+  search(input?: UniversitySearchInput): Promise<Result<UniversityPage>>;
+}
+
+export function createUniversitySearchService(
+  requester: UnknownRequester = (options) => request<unknown>(options),
+): UniversitySearchService {
+  let generation = 0;
+  return {
+    async search(input: UniversitySearchInput = {}) {
+      const current = ++generation;
+      const result = await requester({
+        method: 'GET',
+        path: buildUniversitySearchPath(input),
+        requestKey: 'university-search',
+      });
+      if (current !== generation) return superseded();
+      if (!result.ok) return result;
+      return mapUniversityPage(result.value);
+    },
+  };
+}
+
+const defaultUniversitySearch = createUniversitySearchService();
+
+export function searchUniversities(input: UniversitySearchInput = {}): Promise<Result<UniversityPage>> {
+  return defaultUniversitySearch.search(input);
 }
 
 export function buildUniversitySearchPath(input: UniversitySearchInput): `/api/${string}` {
@@ -120,4 +144,8 @@ function nonNegativeInteger(value: unknown): value is number {
 
 function invalid(): Result<never> {
   return { ok: false, error: { kind: 'unexpected', code: 'INVALID_UNIVERSITY_RESPONSE' } };
+}
+
+function superseded(): Result<never> {
+  return { ok: false, error: { kind: 'unexpected', code: 'REQUEST_SUPERSEDED' } };
 }
