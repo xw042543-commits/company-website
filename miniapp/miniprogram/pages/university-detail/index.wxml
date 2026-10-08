@@ -1,0 +1,67 @@
+<view class="detail-page">
+  <view wx:if="{{state === 'ready'}}">
+    <view class="detail-hero">
+      <image wx:if="{{university.imageUrl && !imageFailed}}" class="detail-cover" src="{{university.imageUrl}}" mode="aspectFill" binderror="imageError" />
+      <view wx:else class="detail-cover detail-cover--fallback"><view class="campus-lines"></view></view>
+      <view class="detail-shade"></view>
+      <button class="round-button back-button" bindtap="back" aria-label="返回">‹</button>
+      <button class="round-button favorite-button {{favorite ? 'favorite-button--active' : ''}}" bindtap="toggleFavorite" aria-label="{{favorite ? '取消收藏' : '收藏院校'}}">{{favorite ? '♥' : '♡'}}</button>
+    </view>
+
+    <view class="school-summary">
+      <view class="school-logo">
+        <image wx:if="{{university.logoUrl}}" class="school-logo-image" src="{{university.logoUrl}}" mode="aspectFit" />
+        <text wx:else>{{logoLetter}}</text>
+      </view>
+      <view class="school-names">
+        <view class="school-name">{{university.nameZh}}</view>
+        <view class="school-name-en">{{university.nameEn}}</view>
+        <view class="school-location">⌖ {{university.cityZh || university.countryNameZh || '地点资料待补充'}}</view>
+      </view>
+    </view>
+
+    <view class="facts-grid">
+      <view class="fact"><view class="fact-number">{{programmeCount}}</view><view class="fact-label">在库专业</view></view>
+      <view class="fact"><view class="fact-number">{{university.countryCode || '—'}}</view><view class="fact-label">国家／地区</view></view>
+      <view class="fact"><view class="fact-number">{{university.popular ? '热门' : '已收录'}}</view><view class="fact-label">院校状态</view></view>
+    </view>
+
+    <view class="detail-section">
+      <view class="section-index">01</view>
+      <view class="section-title">院校简介</view>
+      <view class="section-copy">{{university.descriptionZh || '该院校的详细简介正在审核整理中，可先查看下方已发布专业。'}}</view>
+    </view>
+
+    <view class="programme-head">
+      <view><view class="section-index">02</view><view class="section-title">专业列表</view></view>
+      <view class="programme-total">共 {{programmeCount}} 个</view>
+    </view>
+    <view wx:if="{{programmes.length > 0}}" class="programme-list">
+      <view wx:for="{{programmes}}" wx:key="id" class="programme-card" bindtap="openProgramme" data-id="{{item.id}}">
+        <view class="programme-topline">
+          <view class="programme-level">{{item.studyLevelCode || '课程'}}</view>
+          <view class="programme-arrow">→</view>
+        </view>
+        <view class="programme-name">{{item.nameZh}}</view>
+        <view class="programme-name-en">{{item.nameEn}}</view>
+        <view class="programme-meta">
+          <text wx:if="{{item.durationDisplay}}">{{item.durationDisplay}}</text>
+          <text wx:if="{{item.tuitionDisplay}}">{{item.tuitionDisplay}}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="programme-empty">暂无已发布专业资料</view>
+
+    <view class="bottom-action-space"></view>
+    <view class="bottom-action">
+      <button class="consult-button" bindtap="consult">咨询顾问</button>
+      <button class="save-button {{favorite ? 'save-button--active' : ''}}" bindtap="toggleFavorite">{{favorite ? '已收藏' : '收藏院校'}}</button>
+    </view>
+  </view>
+
+  <view wx:else class="state-wrap">
+    <app-state wx:if="{{state === 'loading'}}" kind="loading" title="正在读取院校详情" description="正在加载院校简介与专业资料。" />
+    <app-state wx:elif="{{state === 'offline'}}" kind="offline" title="网络暂时不可用" description="请检查网络连接后重新加载。" retryable="{{true}}" bind:retry="retry" />
+    <app-state wx:else kind="failed" title="院校详情加载失败" description="服务暂时无法返回有效资料，请稍后重试。" retryable="{{true}}" bind:retry="retry" />
+  </view>
+</view>

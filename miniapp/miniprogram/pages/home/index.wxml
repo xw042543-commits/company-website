@@ -1,68 +1,69 @@
-<view class="page-shell home-page">
-  <view class="brand-row">
-    <view class="brand-mark" aria-hidden="true">
-      <view class="brand-dot"></view>
-      <view class="brand-dot"></view>
-      <view class="brand-dot"></view>
+<view class="home-page">
+  <view class="home-top">
+    <view class="brand-row">
+      <view class="brand-mark" aria-hidden="true"><view></view><view></view><view></view></view>
+      <view><view class="brand-name">洋豆角</view><view class="brand-latin">UDAJO</view></view>
     </view>
-    <view>
-      <view class="brand-name">洋豆角</view>
-      <view class="brand-latin">UDAJO</view>
-    </view>
-  </view>
 
-  <view class="hero surface-card">
-    <view class="eyebrow">留学资讯</view>
-    <view class="hero-title">把留学目标变成清晰的行动计划</view>
-    <view class="page-copy">科学规划留学院校专业，科学定位留学人生发展。</view>
-  </view>
-
-  <view class="search-entry surface-card" bindtap="openFeature" data-key="universities">
-    <view class="search-symbol" aria-label="搜索"></view>
-    <view class="search-copy">搜索院校、专业或关键词</view>
-  </view>
-
-  <view class="feature-grid">
-    <view
-      wx:for="{{featureEntries}}"
-      wx:key="key"
-      class="feature-card surface-card"
-      bindtap="openFeature"
-      data-key="{{item.key}}"
+    <swiper
+      wx:if="{{previewState === 'ready'}}"
+      class="hero-swiper"
+      indicator-dots="{{true}}"
+      indicator-color="rgba(255,255,255,.55)"
+      indicator-active-color="#ffffff"
+      autoplay="{{true}}"
+      interval="5000"
+      circular="{{true}}"
     >
-      <view class="feature-label">{{item.label}}</view>
-      <view class="feature-caption">{{item.caption}}</view>
+      <swiper-item wx:for="{{featuredUniversities}}" wx:key="slug">
+        <view class="hero-slide" bindtap="openUniversity" data-slug="{{item.slug}}">
+          <image wx:if="{{item.coverImageUrl}}" class="hero-image" src="{{item.coverImageUrl}}" mode="aspectFill" />
+          <view wx:else class="hero-fallback"><view class="hero-orbit"></view></view>
+          <view class="hero-shade"></view>
+          <view class="hero-copy">
+            <view class="hero-pill">留学资讯</view>
+            <view class="hero-title">{{item.nameZh}}</view>
+            <view class="hero-subtitle">{{item.nameEn}}</view>
+            <view class="hero-meta">{{item.location || '院校资料'}} · {{item.programmeCount}} 个专业</view>
+            <view class="hero-link">了解院校 →</view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+    <view wx:else class="hero-static">
+      <view class="hero-orbit"></view>
+      <view class="hero-copy">
+        <view class="hero-pill">留学资讯</view>
+        <view class="hero-title">找到适合你的院校与专业</view>
+        <view class="hero-subtitle">真实院校资料，清晰规划每一步</view>
+      </view>
     </view>
   </view>
 
-  <view class="section-heading">
-    <view class="section-title">热门院校</view>
-    <view class="section-hint" bindtap="openFeature" data-key="universities">查看更多 ›</view>
+  <view class="home-content">
+    <view class="search-entry" bindtap="openFeature" data-key="universities">
+      <view class="search-symbol" aria-hidden="true"></view>
+      <view class="search-copy">搜索院校、专业或关键词</view>
+      <view class="search-arrow">→</view>
+    </view>
+
+    <view class="feature-grid">
+      <view wx:for="{{featureEntries}}" wx:key="key" class="feature-item" bindtap="openFeature" data-key="{{item.key}}">
+        <view class="feature-icon feature-icon--{{item.tone}}">{{item.icon}}</view>
+        <view class="feature-label">{{item.label}}</view>
+        <view class="feature-caption">{{item.caption}}</view>
+      </view>
+    </view>
+
+    <view class="section-heading">
+      <view><view class="section-kicker">精选院校</view><view class="section-title">热门院校</view></view>
+      <view class="section-hint" bindtap="openFeature" data-key="universities">查看全部 →</view>
+    </view>
+    <view wx:if="{{previewState === 'ready'}}" class="home-university-list">
+      <university-card wx:for="{{universities}}" wx:key="slug" university="{{item}}" favorite="{{item.favorite}}" bind:select="openUniversity" bind:favorite="toggleFavorite" />
+    </view>
+    <app-state wx:elif="{{previewState === 'loading'}}" kind="loading" title="正在读取热门院校" description="院校信息来自洋豆角真实数据库。" />
+    <app-state wx:elif="{{previewState === 'empty'}}" kind="empty" title="暂时没有院校资料" description="数据库当前没有可展示的院校。" />
+    <app-state wx:else kind="failed" title="热门院校加载失败" description="请检查网络后重试。" retryable="{{true}}" bind:retry="retry" />
   </view>
-  <view wx:if="{{previewState === 'ready'}}" class="home-university-list">
-    <university-card
-      wx:for="{{universities}}"
-      wx:key="slug"
-      university="{{item}}"
-      bind:select="openUniversity"
-    />
-  </view>
-  <app-state
-    wx:elif="{{previewState === 'loading'}}"
-    kind="loading"
-    title="正在读取热门院校"
-    description="院校信息来自洋豆角真实数据库。"
-  />
-  <app-state
-    wx:elif="{{previewState === 'empty'}}"
-    kind="empty"
-    title="暂时没有院校资料"
-    description="数据库当前没有可展示的院校。"
-  />
-  <app-state
-    wx:else
-    kind="failed"
-    title="热门院校加载失败"
-    description="可进入院校页重新加载。"
-  />
 </view>

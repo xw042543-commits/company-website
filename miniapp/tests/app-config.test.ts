@@ -40,3 +40,10 @@ test('registers planning as a non-tab page', () => {
   assert.equal(app.pages.includes('pages/planning/index'), true);
   assert.equal(app.tabBar.list.some((item) => item.pagePath === 'pages/planning/index'), false);
 });
+
+test('registers the university detail page outside the bottom navigation', () => {
+  const app = readAppConfig();
+
+  assert.equal(app.pages.includes('pages/university-detail/index'), true);
+  assert.equal(app.tabBar.list.some((item) => item.pagePath === 'pages/university-detail/index'), false);
+});

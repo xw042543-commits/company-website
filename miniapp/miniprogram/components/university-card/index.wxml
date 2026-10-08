@@ -1,5 +1,5 @@
 <view class="university-card" bindtap="select">
-  <image wx:if="{{university.imageUrl && !imageFailed}}" class="university-image" src="{{university.imageUrl}}" mode="aspectFill" binderror="imageError" />
+  <image wx:if="{{university.imageUrl && !imageFailed}}" class="university-image university-image--{{university.imageMode}}" src="{{university.imageUrl}}" mode="{{university.imageMode}}" binderror="imageError" />
   <view wx:else class="university-fallback">U</view>
   <view class="university-body">
     <view class="university-name">{{university.nameZh}}</view>
@@ -10,5 +10,9 @@
     </view>
     <view class="programme-count">{{university.programmeCount}} 个匹配专业</view>
   </view>
-  <view class="card-arrow">›</view>
+  <button
+    class="favorite-button {{favorite ? 'favorite-button--active' : ''}}"
+    catchtap="toggleFavorite"
+    aria-label="{{favorite ? '取消收藏' : '收藏院校'}}"
+  >{{favorite ? '♥' : '♡'}}</button>
 </view>

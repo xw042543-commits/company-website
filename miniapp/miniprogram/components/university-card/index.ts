@@ -12,6 +12,7 @@ Component({
         }
       },
     },
+    favorite: { type: Boolean, value: false },
   },
   data: { imageFailed: false, lastImageUrl: null as string | null },
   methods: {
@@ -19,6 +20,10 @@ Component({
     select() {
       const university = this.data.university as { slug?: unknown };
       this.triggerEvent('select', { slug: typeof university.slug === 'string' ? university.slug : undefined });
+    },
+    toggleFavorite() {
+      const university = this.data.university as { slug?: unknown };
+      this.triggerEvent('favorite', { slug: typeof university.slug === 'string' ? university.slug : undefined });
     },
   },
 });
