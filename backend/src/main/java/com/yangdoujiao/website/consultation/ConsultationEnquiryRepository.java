@@ -1,6 +1,7 @@
 package com.yangdoujiao.website.consultation;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -10,8 +11,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-interface ConsultationEnquiryRepository extends JpaRepository<ConsultationEnquiry, Long>,
+public interface ConsultationEnquiryRepository extends JpaRepository<ConsultationEnquiry, Long>,
         JpaSpecificationExecutor<ConsultationEnquiry> {
+
+    List<ConsultationEnquiry> findAllByUserAccountIdOrderByCreatedAtDescIdDesc(Long userAccountId);
+
+    long countByUserAccountId(Long userAccountId);
 
     Optional<ConsultationEnquiry> findByReferenceCode(UUID referenceCode);
 

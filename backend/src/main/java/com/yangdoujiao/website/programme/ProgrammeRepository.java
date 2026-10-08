@@ -46,6 +46,16 @@ public interface ProgrammeRepository extends JpaRepository<Programme, Long> {
             @Param("universityId") Long universityId
     );
 
+    @EntityGraph(attributePaths = {"university", "studyLevel"})
+    @Query("""
+            SELECT programme
+            FROM Programme programme
+            WHERE programme.id = :id
+              AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+              AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+            """)
+    Optional<Programme> findPublishedForFavorite(@Param("id") Long id);
+
     @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
     List<Programme> findAllByUniversity_IdAndStatusOrderByIdAsc(Long universityId, CategoryStatus status);
 

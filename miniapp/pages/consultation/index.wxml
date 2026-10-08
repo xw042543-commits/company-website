@@ -1,0 +1,17 @@
+<view class="page">
+  <view wx:if="{{referenceCode}}" class="card result"><view class="check">✓</view><view class="title">咨询已提交</view><view class="subtitle">顾问会尽快联系你，请保存咨询编号。</view><view class="reference">{{referenceCode}}</view><button class="primary" bindtap="viewRecords">查看咨询记录</button></view>
+  <block wx:else>
+    <view class="title">预约留学咨询</view><view class="subtitle intro">填写资料后，顾问后台会收到这条咨询。</view>
+    <view class="card">
+      <view class="field"><text class="label">姓名 *</text><input class="input" value="{{form.name}}" data-field="name" bindinput="input" placeholder="请输入姓名" /></view>
+      <view class="field"><text class="label">手机 / 微信 / 邮箱 *</text><input class="input" value="{{form.contact}}" data-field="contact" bindinput="input" placeholder="请输入常用联系方式" /></view>
+      <view class="field"><text class="label">意向院校</text><input class="input" value="{{form.school}}" data-field="school" bindinput="input" /></view>
+      <view class="field"><text class="label">意向专业</text><input class="input" value="{{form.course}}" data-field="course" bindinput="input" /></view>
+      <view class="field"><text class="label">申请阶段</text><view class="qualifications"><text class="{{form.qualification === 'foundation' ? 'selected' : ''}}" data-value="foundation" bindtap="chooseQualification">预科</text><text class="{{form.qualification === 'bachelor' ? 'selected' : ''}}" data-value="bachelor" bindtap="chooseQualification">本科</text><text class="{{form.qualification === 'master' ? 'selected' : ''}}" data-value="master" bindtap="chooseQualification">硕士</text><text class="{{form.qualification === 'doctorate' ? 'selected' : ''}}" data-value="doctorate" bindtap="chooseQualification">博士</text></view></view>
+      <view class="field"><text class="label">补充说明</text><textarea class="textarea" value="{{form.notes}}" data-field="notes" bindinput="input" placeholder="可填写成绩、预算或其他问题" /></view>
+      <checkbox-group bindchange="consent"><label class="consent"><checkbox value="yes" color="#079653" />我已阅读并同意隐私政策，同意为咨询服务处理上述信息。</label></checkbox-group>
+      <view wx:if="{{error}}" class="error">{{error}}</view>
+      <button class="primary submit" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">提交咨询</button>
+    </view>
+  </block>
+</view>

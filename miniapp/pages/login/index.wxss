@@ -1,0 +1,1 @@
+.login-page { padding-top: 90rpx; }.brand { color: #079653; font-weight: 700; margin-bottom: 55rpx; letter-spacing: -5rpx; }.brand text { color: #17261e; letter-spacing: 1rpx; margin-left: 18rpx; }.login-card { margin-top: 40rpx; }

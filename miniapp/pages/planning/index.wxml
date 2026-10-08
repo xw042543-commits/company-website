@@ -1,0 +1,21 @@
+<view class="page planning-page">
+  <view class="heading row between"><view><view class="title">留学规划</view><view class="subtitle">告诉我们你的情况，获取更适合你的院校和专业建议。</view></view><text class="me-link" bindtap="goMe">我的</text></view>
+  <view class="steps"><view class="step {{step >= 1 ? 'done' : ''}}"><text>1</text><label>基本信息</label></view><view class="line {{step >= 2 ? 'done' : ''}}"></view><view class="step {{step >= 2 ? 'done' : ''}}"><text>2</text><label>学术背景</label></view><view class="line {{step >= 3 ? 'done' : ''}}"></view><view class="step {{step >= 3 ? 'done' : ''}}"><text>3</text><label>偏好与预算</label></view></view>
+  <view class="progress"><view style="width: {{progress}}%"></view></view>
+  <view class="card form-card" wx:if="{{step === 1}}">
+    <view class="section-title">你的留学目标</view><view class="options"><view wx:for="{{goals}}" wx:key="*this" class="option {{form.goal === item ? 'selected' : ''}}" data-field="goal" data-value="{{item}}" bindtap="setChoice">{{item}}</view></view>
+    <view class="section-title block-space">感兴趣的专业方向（可多选）</view><view class="options"><view wx:for="{{subjectOptions}}" wx:key="label" class="option {{item.selected ? 'selected' : ''}}" data-value="{{item.label}}" bindtap="toggleSubject">{{item.label}}</view></view>
+    <view class="section-title block-space">计划留学的国家 / 地区</view><view class="options"><view wx:for="{{countries}}" wx:key="*this" class="option {{form.country === item ? 'selected' : ''}}" data-field="country" data-value="{{item}}" bindtap="setChoice">{{item}}</view></view>
+    <view class="field block-space"><text class="label">计划入学时间</text><input class="input" placeholder="例如：2027年9月" value="{{form.intake}}" data-field="intake" bindinput="input" /></view>
+  </view>
+  <view class="card form-card" wx:if="{{step === 2}}">
+    <view class="section-title">当前学历</view><view class="options"><view wx:for="{{educations}}" wx:key="*this" class="option {{form.education === item ? 'selected' : ''}}" data-field="education" data-value="{{item}}" bindtap="setChoice">{{item}}</view></view>
+    <view class="field block-space"><text class="label">平均成绩</text><input class="input" placeholder="例如：85分 / GPA 3.4" value="{{form.grade}}" data-field="grade" bindinput="input" /></view>
+    <view class="field"><text class="label">语言成绩</text><input class="input" placeholder="例如：IELTS 6.5（没有可不填）" value="{{form.language}}" data-field="language" bindinput="input" /></view>
+  </view>
+  <view class="card form-card" wx:if="{{step === 3}}">
+    <view class="section-title">留学预算</view><view class="field"><text class="label">每年预算（人民币）</text><input class="input" type="number" placeholder="例如：200000" value="{{form.budget}}" data-field="budget" bindinput="input" /></view>
+    <view class="summary"><view>目标：{{form.goal}}</view><view>方向：{{subjectText}}</view><view>国家/地区：{{form.country}}</view><view>学历：{{form.education}}</view><view>入学时间：{{form.intake || '待确认'}}</view></view>
+  </view>
+  <view class="footer"><button wx:if="{{step > 1}}" class="secondary" disabled="{{saving}}" bindtap="previous">上一步</button><button wx:if="{{step < 3}}" class="primary" bindtap="next">下一步</button><button wx:else class="primary" loading="{{saving}}" disabled="{{saving}}" bindtap="save">保存规划</button></view>
+</view>
