@@ -287,7 +287,7 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .hero-media img { position: relative; z-index: 1; width: min(42%, 195px); height: auto; mix-blend-mode: multiply; }
 
 .member-home-intro { background: linear-gradient(116deg, #faf7ef 0 58%, #edf4ef 58% 100%); }
-.member-home-hero { position: relative; overflow: hidden; background: transparent; padding-block: clamp(58px, 7vw, 96px) clamp(94px, 9vw, 128px); }
+.member-home-hero { position: relative; overflow: hidden; background: transparent; padding-block: clamp(58px, 7vw, 96px) clamp(72px, 7vw, 96px); }
 .member-home-hero::after { position: absolute; right: -140px; top: -230px; width: 560px; height: 560px; border: 78px solid rgb(205 174 88 / 10%); border-radius: 50%; content: ""; pointer-events: none; }
 .member-home-hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .92fr) minmax(460px, 1.08fr); align-items: center; gap: clamp(42px, 7vw, 104px); }
 .member-home-copy h1 { max-width: 18ch; margin-bottom: 22px; font-size: clamp(2.2rem, 3vw, 3.45rem); line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
@@ -1034,7 +1034,7 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 
 @media (max-width: 980px) {
   .member-home-intro { background: linear-gradient(180deg, #faf7ef 0 58%, #edf4ef 58% 100%); }
-  .member-home-hero { padding-bottom: 88px; }
+  .member-home-hero { padding-bottom: 68px; }
   .member-home-hero-grid, .member-search-panel { grid-template-columns: minmax(0, 1fr); }
   .member-home-hero-grid { gap: 42px; }
   .member-home-copy h1 { max-width: 18ch; }
@@ -1072,7 +1072,7 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .hero-grid { display: flex; flex-direction: column; }
   .hero-copy, .hero-media { width: 100%; }
   .hero-media { max-height: 340px; }
-  .member-home-hero { padding-block: 48px 76px; }
+  .member-home-hero { padding-block: 48px 60px; }
   .member-home-hero-grid { gap: 34px; }
   .member-home-copy h1 { max-width: 15ch; font-size: clamp(1.95rem, 7vw, 2.2rem); }
   .member-home-copy-en h1 { max-width: 17ch; }
