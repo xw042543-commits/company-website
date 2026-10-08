@@ -84,6 +84,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   ] as const;
 
   return <main id="main">
+    <div className="member-home-intro">
     <section className="member-home-hero"><div className="container member-home-hero-grid">
       <div className={`member-home-copy member-home-copy-${locale}`}>
         <p className="section-label">{words(locale, "科学规划｜科学定位", "Explore · Compare · Decide")}</p>
@@ -118,6 +119,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </div>
     </div></section>
+    </div>
     {signedIn ? <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
       <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "热门", "Popular")}</p><h2 id="reviewed-universities-heading">{words(locale, "留学热门院校", "Popular universities")}</h2><p>{words(locale, "热门专业、费用与录取信息一目了然。", "Compare popular subjects, fees, and admission information at a glance.")}</p></div><Link className="directory-view-all" href={`/${locale}/universities`}>{words(locale, "查看并比较全部院校", "View and compare all universities")} <span aria-hidden="true">→</span></Link></div>
       <FeaturedUniversityCarousel locale={locale} />
