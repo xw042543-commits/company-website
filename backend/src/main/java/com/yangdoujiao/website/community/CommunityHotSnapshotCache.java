@@ -9,8 +9,6 @@ import java.util.UUID;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.SessionCallback;
-import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -23,6 +21,16 @@ public class CommunityHotSnapshotCache {
     private static final String PREFIX = "community:hot:v1:";
     private static final Duration LIFETIME = Duration.ofSeconds(45);
     private static final int MAX_ROWS = 100000;
+    private static final DefaultRedisScript<Long> PUBLISH_IF_OWNER = new DefaultRedisScript<>("""
+            if redis.call('GET', KEYS[1]) ~= ARGV[1] then return 0 end
+            for first = 4, #ARGV, 1000 do
+              redis.call('RPUSH', KEYS[2], unpack(ARGV, first, math.min(first + 999, #ARGV)))
+            end
+            if #ARGV > 3 then redis.call('PEXPIRE', KEYS[2], ARGV[3]) end
+            redis.call('SET', KEYS[3], ARGV[2], 'PX', ARGV[3])
+            redis.call('SET', KEYS[4], ARGV[1], 'PX', ARGV[3])
+            return 1
+            """, Long.class);
     private static final DefaultRedisScript<Long> RELEASE = new DefaultRedisScript<>("""
             if redis.call('GET', KEYS[1]) == ARGV[1] then return redis.call('DEL', KEYS[1]) end
             return 0
@@ -73,32 +81,29 @@ public class CommunityHotSnapshotCache {
                     "COMMUNITY_HOT_SNAPSHOT_TOO_LARGE", "Hot feed exceeds its snapshot capacity");
             List<String> ids = ranked.stream().map(row -> row.getId().toString()).toList();
             Manifest manifest = new Manifest(owner, ids.size(), OffsetDateTime.now(clock).plus(LIFETIME));
-            publish(manifest, ids);
-            return manifest;
+            if (publish(manifest, ids)) return manifest;
+            // The lease expired while PostgreSQL was ranking. Never publish stale data or reacquire recursively.
+            // One bounded lookup may use the winner; if it is still building/missing, the client retries later.
+            Manifest winner = available(redis.opsForValue().get(PREFIX + "current"));
+            if (winner != null) return winner;
+            throw unavailable();
         } finally {
             redis.execute(RELEASE, List.of(PREFIX + "building"), owner);
         }
     }
 
-    private void publish(Manifest manifest, List<String> ids) {
-        String value = json.writeValueAsString(manifest);
-        // MULTI/EXEC atomically publishes the complete order, expiries, metadata and current version.
-        // A process crash cannot leave an RPUSH-created ranking list without a TTL.
-        redis.execute(new SessionCallback<List<Object>>() {
-            @Override
-            @SuppressWarnings("unchecked")
-            public <K, V> List<Object> execute(RedisOperations<K, V> operations) {
-                RedisOperations<String, String> strings = (RedisOperations<String, String>) operations;
-                strings.multi();
-                if (!ids.isEmpty()) {
-                    strings.opsForList().rightPushAll(PREFIX + manifest.version() + ":ids", ids);
-                    strings.expire(PREFIX + manifest.version() + ":ids", LIFETIME);
-                }
-                strings.opsForValue().set(PREFIX + manifest.version() + ":manifest", value, LIFETIME);
-                strings.opsForValue().set(PREFIX + "current", manifest.version(), LIFETIME);
-                return strings.exec();
-            }
-        });
+    private boolean publish(Manifest manifest, List<String> ids) {
+        java.util.ArrayList<String> arguments = new java.util.ArrayList<>(ids.size() + 3);
+        arguments.add(manifest.version());
+        arguments.add(json.writeValueAsString(manifest));
+        arguments.add(Long.toString(LIFETIME.toMillis()));
+        arguments.addAll(ids);
+        // Ownership check, complete order, TTLs, metadata and current version are one atomic Redis operation.
+        // Chunked RPUSH avoids Lua unpack's argument limit without exposing a partially published list.
+        Long published = redis.execute(PUBLISH_IF_OWNER, List.of(PREFIX + "building",
+                PREFIX + manifest.version() + ":ids", PREFIX + manifest.version() + ":manifest", PREFIX + "current"),
+                arguments.toArray());
+        return Long.valueOf(1).equals(published);
     }
 
     private Manifest available(String version) {

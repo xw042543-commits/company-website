@@ -166,6 +166,8 @@ U圈继续位于现有 Spring Boot 模块化单体中，新增 `community` 业�
 
 任务 2 审查补充：热门排序使用 PostgreSQL 生成实际排名、Redis 保存唯一共享的 45 秒派生快照，游标绑定快照版本及下一位置，期间点赞或评论计数变化不得改变同一快照的顺序。快照过期或丢失返回 `409 COMMUNITY_HOT_SNAPSHOT_EXPIRED`，客户端从首屏重启；Redis 不可用返回 `503 COMMUNITY_HOT_SNAPSHOT_UNAVAILABLE`，不得改用新的排名继续旧游标。生产必须配置至少 32 字节、所有实例一致的 `APP_COMMUNITY_CURSOR_SECRET`。
 
+快照发布在同一 Redis 原子操作内校验构建者仍拥有创建锁，失去锁的旧构建者不得覆盖新的 current 版本。旧构建者最多读取一次获胜快照；获胜快照尚未就绪或已消失时返回上述暂时不可用错误。热门快照最多保存 100,000 个排名 ID，超过边界返回 `503 COMMUNITY_HOT_SNAPSHOT_TOO_LARGE`，不得静默截断；上线容量验收需评估此边界。
+
 评论页默认 20 个、最多 50 个顶层评论，每个评论只内嵌首批最多 3 条回复，并返回 `repliesNextCursor`（没有更多回复时为 null）。后续回复使用上表的 replies 路由与该游标加载，默认 20 条、最多 50 条，按创建时间及 ID 升序；游标绑定帖子及顶层评论，所有 ID 为十进制字符串。回复返回空的 replies 与 null 的 repliesNextCursor，保持两层结构。
 
 ### 6.2 管理员接口
@@ -203,7 +205,8 @@ U圈继续位于现有 Spring Boot 模块化单体中，新增 `community` 业�
 
 限制值必须通过带边界校验的配置项提供。生产环境拒绝非正数或危险的大值。Redis 短暂不可用时：
 
-- 读取接口继续使用 PostgreSQL。
+- 最新列表、帖子详情、评论与回复读取继续使用 PostgreSQL。
+- 热门快照构建与续页返回 `503 COMMUNITY_HOT_SNAPSHOT_UNAVAILABLE`；不得在 Redis 故障时重新计算排名后继续旧游标。Redis 恢复后可从热门首屏重启，业务帖子、互动和审核数据仍以 PostgreSQL 为真源。
 - 发帖、评论和举报失败关闭，返回明确的暂时不可用错误，不能绕过限流无保护放行。
 - 点赞依赖唯一约束保持正确，可在 Redis 恢复前不使用缓存。
 
