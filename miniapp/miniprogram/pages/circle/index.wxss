@@ -43,3 +43,8 @@
   font-size: 26rpx;
   line-height: 1.7;
 }
+
+.login-button {
+  width: 100%;
+  margin-top: 48rpx;
+}

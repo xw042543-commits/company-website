@@ -14,7 +14,8 @@
   color: #ffffff;
 }
 
-.avatar-placeholder {
+.avatar-placeholder,
+.avatar-image {
   display: flex;
   width: 112rpx;
   height: 112rpx;
@@ -26,6 +27,10 @@
   background: rgba(255, 255, 255, 0.2);
   font-size: 44rpx;
   font-weight: 800;
+}
+
+.avatar-image {
+  background: #ffffff;
 }
 
 .identity-copy {

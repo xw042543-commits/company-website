@@ -104,3 +104,33 @@ test('adds bearer and idempotency headers only when requested', async () => {
     'Idempotency-Key': '2e5bcf59-0b12-4390-86e5-0d9c01b32823',
   });
 });
+
+test('shares refresh through the handler and retries an authenticated request only once', async () => {
+  let requests = 0;
+  let token = 'expired';
+  let refreshes = 0;
+  const client = createHttpClient(
+    resolveRuntimeConfig('production'),
+    (options) => {
+      requests += 1;
+      if (options.header.Authorization === 'Bearer expired') {
+        options.success({ statusCode: 401, data: {}, header: {}, cookies: [] });
+      } else {
+        options.success({ statusCode: 200, data: { ok: true }, header: {}, cookies: [] });
+      }
+      return { abort() {} };
+    },
+    () => token,
+    async () => { refreshes += 1; token = 'fresh'; return true; },
+  );
+
+  const result = await client.request<{ ok: boolean }>({
+    method: 'GET',
+    path: '/api/v1/miniapp/account',
+    authenticated: true,
+  });
+
+  assert.deepEqual(result, { ok: true, value: { ok: true } });
+  assert.equal(refreshes, 1);
+  assert.equal(requests, 2);
+});
