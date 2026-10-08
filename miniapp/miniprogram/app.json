@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/index",
     "pages/universities/index",
+    "pages/university-detail/index",
     "pages/planning/index",
     "pages/circle/index",
     "pages/account/index"

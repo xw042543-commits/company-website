@@ -1,7 +1,13 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { buildUniversitySearchPath, createUniversitySearchService, mapUniversityPage } from '../miniprogram/services/universities.ts';
+import {
+  buildUniversitySearchPath,
+  createUniversitySearchService,
+  mapUniversityDetail,
+  mapUniversityPage,
+  mapUniversityProgrammePage,
+} from '../miniprogram/services/universities.ts';
 import type { RequestOptions, TransportOptions } from '../miniprogram/services/http.ts';
 import type { Result } from '../miniprogram/utils/result.ts';
 
@@ -129,6 +135,7 @@ test('maps the real university search response without inventing missing images'
     programmeCount: 2,
     subjectTags: ['BUSINESS', 'COMPUTER_SCIENCE'],
     imageUrl: null,
+    popular: true,
   });
 });
 
@@ -147,4 +154,51 @@ test('omits empty and ALL filters while preserving API parameter names', () => {
   });
 
   assert.equal(path, '/api/v1/universities/search?category=BUSINESS&level=BACHELOR&page=2&size=12&sort=relevance');
+});
+
+test('maps university detail without inventing optional content', () => {
+  assert.deepEqual(mapUniversityDetail({
+    id: 12,
+    slug: 'segi-university',
+    nameZh: '世纪大学',
+    nameEn: 'SEGi University',
+    countryCode: 'MY',
+    countryNameZh: '马来西亚',
+    cityZh: '哥打白沙罗',
+    descriptionZh: '院校简介',
+    popular: true,
+  }), { ok: true, value: {
+    id: 12,
+    slug: 'segi-university',
+    nameZh: '世纪大学',
+    nameEn: 'SEGi University',
+    countryCode: 'MY',
+    countryNameZh: '马来西亚',
+    cityZh: '哥打白沙罗',
+    descriptionZh: '院校简介',
+    popular: true,
+    imageUrl: null,
+  } });
+});
+
+test('maps the published programme list used by university details', () => {
+  const result = mapUniversityProgrammePage({
+    items: [{
+      id: 584,
+      slug: 'business-management',
+      nameZh: '工商管理',
+      nameEn: 'Business Management',
+      categoryCode: 'BUSINESS',
+      studyLevelCode: 'BACHELOR',
+      durationDisplay: '3 年',
+      tuitionDisplay: 'RM 89,200',
+      intakeDisplayTexts: ['9 月'],
+    }],
+    page: 1,
+    pageSize: 50,
+    totalItems: 1,
+    totalPages: 1,
+  });
+  assert.equal(result.ok, true);
+  if (result.ok) assert.equal(result.value.items[0]?.nameZh, '工商管理');
 });

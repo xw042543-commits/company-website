@@ -10,5 +10,9 @@
     </view>
     <view class="programme-count">{{university.programmeCount}} 个匹配专业</view>
   </view>
-  <view class="card-arrow">›</view>
+  <button
+    class="favorite-button {{favorite ? 'favorite-button--active' : ''}}"
+    catchtap="toggleFavorite"
+    aria-label="{{favorite ? '取消收藏' : '收藏院校'}}"
+  >{{favorite ? '♥' : '♡'}}</button>
 </view>

@@ -20,6 +20,40 @@ export interface UniversitySummary {
   readonly programmeCount: number;
   readonly subjectTags: string[];
   readonly imageUrl: string | null;
+  readonly popular: boolean;
+}
+
+export interface UniversityDetail {
+  readonly id: number;
+  readonly slug: string;
+  readonly nameZh: string;
+  readonly nameEn: string;
+  readonly countryCode: string;
+  readonly countryNameZh: string;
+  readonly cityZh: string;
+  readonly descriptionZh: string;
+  readonly popular: boolean;
+  readonly imageUrl: string | null;
+}
+
+export interface UniversityProgramme {
+  readonly id: number;
+  readonly slug: string;
+  readonly nameZh: string;
+  readonly nameEn: string;
+  readonly categoryCode: string;
+  readonly studyLevelCode: string;
+  readonly durationDisplay: string;
+  readonly tuitionDisplay: string;
+  readonly intakeDisplayTexts: string[];
+}
+
+export interface UniversityProgrammePage {
+  readonly items: UniversityProgramme[];
+  readonly page: number;
+  readonly pageSize: number;
+  readonly totalItems: number;
+  readonly totalPages: number;
 }
 
 export interface UniversityPage {
@@ -59,6 +93,34 @@ const defaultUniversitySearch = createUniversitySearchService();
 
 export function searchUniversities(input: UniversitySearchInput = {}): Promise<Result<UniversityPage>> {
   return defaultUniversitySearch.search(input);
+}
+
+export async function getUniversityDetail(slug: string): Promise<Result<UniversityDetail>> {
+  const normalized = normalizeSlug(slug);
+  if (!normalized) return invalid('INVALID_UNIVERSITY_SLUG');
+  const response = await request<unknown>({
+    method: 'GET',
+    path: `/api/v1/universities/${normalized}`,
+    requestKey: 'university-detail',
+  });
+  if (!response.ok) return response;
+  return mapUniversityDetail(response.value);
+}
+
+export async function getUniversityProgrammes(
+  slug: string,
+  page = 1,
+  size = 50,
+): Promise<Result<UniversityProgrammePage>> {
+  const normalized = normalizeSlug(slug);
+  if (!normalized) return invalid('INVALID_UNIVERSITY_SLUG');
+  const response = await request<unknown>({
+    method: 'GET',
+    path: `/api/v1/universities/${normalized}/programmes?page=${page}&size=${size}&sort=relevance`,
+    requestKey: 'university-programmes',
+  });
+  if (!response.ok) return response;
+  return mapUniversityProgrammePage(response.value);
 }
 
 export function buildUniversitySearchPath(input: UniversitySearchInput): `/api/${string}` {
@@ -118,7 +180,71 @@ function mapUniversity(raw: unknown): UniversitySummary | null {
     programmeCount: raw.matchedProgrammeCount,
     subjectTags,
     imageUrl,
+    popular: raw.popular === true,
   };
+}
+
+export function mapUniversityDetail(raw: unknown): Result<UniversityDetail> {
+  if (!isObject(raw) || !positiveInteger(raw.id) || !text(raw.slug)
+    || !text(raw.nameZh) || !text(raw.nameEn)) return invalid('INVALID_UNIVERSITY_DETAIL_RESPONSE');
+  return {
+    ok: true,
+    value: {
+      id: raw.id,
+      slug: raw.slug,
+      nameZh: raw.nameZh,
+      nameEn: raw.nameEn,
+      countryCode: optionalText(raw.countryCode),
+      countryNameZh: optionalText(raw.countryNameZh),
+      cityZh: optionalText(raw.cityZh),
+      descriptionZh: optionalText(raw.descriptionZh),
+      popular: raw.popular === true,
+      imageUrl: secureImage(raw.imageUrl),
+    },
+  };
+}
+
+export function mapUniversityProgrammePage(raw: unknown): Result<UniversityProgrammePage> {
+  if (!isObject(raw) || !Array.isArray(raw.items) || !positiveInteger(raw.page)
+    || !positiveInteger(raw.pageSize) || !nonNegativeInteger(raw.totalItems)
+    || !nonNegativeInteger(raw.totalPages)) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
+  const items: UniversityProgramme[] = [];
+  for (const item of raw.items) {
+    if (!isObject(item) || !positiveInteger(item.id) || !text(item.slug)
+      || !text(item.nameZh) || !text(item.nameEn)) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
+    items.push({
+      id: item.id,
+      slug: item.slug,
+      nameZh: item.nameZh,
+      nameEn: item.nameEn,
+      categoryCode: optionalText(item.categoryCode),
+      studyLevelCode: optionalText(item.studyLevelCode),
+      durationDisplay: optionalText(item.durationDisplay),
+      tuitionDisplay: optionalText(item.tuitionDisplay),
+      intakeDisplayTexts: Array.isArray(item.intakeDisplayTexts)
+        ? item.intakeDisplayTexts.filter(text) : [],
+    });
+  }
+  return { ok: true, value: {
+    items,
+    page: raw.page,
+    pageSize: raw.pageSize,
+    totalItems: raw.totalItems,
+    totalPages: raw.totalPages,
+  } };
+}
+
+function normalizeSlug(value: string): string | null {
+  const normalized = value.trim();
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(normalized) ? normalized : null;
+}
+
+function optionalText(value: unknown): string {
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+function secureImage(value: unknown): string | null {
+  return typeof value === 'string' && value.startsWith('https://') ? value : null;
 }
 
 function addFilter(query: URLSearchParams, name: string, value: string | undefined): void {
@@ -142,8 +268,8 @@ function nonNegativeInteger(value: unknown): value is number {
   return typeof value === 'number' && Number.isInteger(value) && value >= 0;
 }
 
-function invalid(): Result<never> {
-  return { ok: false, error: { kind: 'unexpected', code: 'INVALID_UNIVERSITY_RESPONSE' } };
+function invalid(code = 'INVALID_UNIVERSITY_RESPONSE'): Result<never> {
+  return { ok: false, error: { kind: 'unexpected', code } };
 }
 
 function superseded(): Result<never> {
