@@ -20,7 +20,7 @@ class CommunityProductionConfigTest {
     @Test void limitBoundariesRejectNonPositiveUnsafeAndContradictoryLimits() {
         for (String property : new String[]{"post-per-minute=0", "post-per-minute=101", "post-per-day=1", "post-per-day=1001",
                 "comment-per-minute=0", "comment-per-minute=301", "comment-per-day=9", "comment-per-day=10001",
-                "report-per-day=0", "report-per-day=301"}) {
+                "report-per-day=0", "report-per-day=301", "auto-hide-report-threshold=1", "auto-hide-report-threshold=101"}) {
             runner.withPropertyValues("app.community." + property).run(context -> assertThat(context).hasFailed());
         }
     }

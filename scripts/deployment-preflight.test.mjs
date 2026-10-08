@@ -125,6 +125,7 @@ test("validates community write limits even while disabled and requires configur
     ["APP_COMMUNITY_POST_PER_DAY", "1001"], ["APP_COMMUNITY_COMMENT_PER_MINUTE", "301"],
     ["APP_COMMUNITY_COMMENT_PER_DAY", "9"], ["APP_COMMUNITY_COMMENT_PER_DAY", "10001"],
     ["APP_COMMUNITY_REPORT_PER_DAY", "301"],
+    ["APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD", "1"], ["APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD", "101"],
   ]) {
     assert.match(validateDeploymentEnv({ ...validEnvironment, [name]: value }).join("\n"), /APP_COMMUNITY/);
   }

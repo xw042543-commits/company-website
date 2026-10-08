@@ -48,6 +48,7 @@ app:
     comment-per-minute: ${APP_COMMUNITY_COMMENT_PER_MINUTE:10}
     comment-per-day: ${APP_COMMUNITY_COMMENT_PER_DAY:300}
     report-per-day: ${APP_COMMUNITY_REPORT_PER_DAY:30}
+    auto-hide-report-threshold: ${APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD:5}
     review-terms: ${APP_COMMUNITY_REVIEW_TERMS:}
     reject-terms: ${APP_COMMUNITY_REJECT_TERMS:}
   trusted-proxies: ${APP_TRUSTED_PROXIES:}

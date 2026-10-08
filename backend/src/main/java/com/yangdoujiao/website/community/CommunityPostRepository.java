@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CommunityPostRepository extends JpaRepository<CommunityPost, Long> {
+    @Query("select p.authorAccountId from CommunityPost p where p.id=:id")
+    Optional<Long> findAuthorIdById(Long id);
     @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)
     @Query("select p from CommunityPost p where p.id = :id")
     Optional<CommunityPost> findLockedById(Long id);

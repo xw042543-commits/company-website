@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CommunityCommentRepository extends JpaRepository<CommunityComment, Long> {
+    @Query("select c.authorAccountId from CommunityComment c where c.id=:id")
+    Optional<Long> findAuthorIdById(Long id);
     @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)
     @Query("select c from CommunityComment c where c.id = :id")
     Optional<CommunityComment> findLockedById(Long id);

@@ -180,6 +180,18 @@ U圈继续位于现有 Spring Boot 模块化单体中，新增 `community` 业�
 
 管理员操作请求包含目标 `version` 和必填原因代码。版本冲突返回 `409`，不得覆盖另一名管理员刚完成的决定。
 
+任务 5 实施契约：
+
+- 举报请求为 `{targetType, targetId, reasonCode, note?}`，`targetType` 为 `POST`／`COMMENT`，`targetId` 为正整数十进制字符串；`note` 为可选纯文本。举报原因固定为 `SPAM`、`HARASSMENT`、`SCAM`、`INAPPROPRIATE_CONTENT`、`OTHER`。响应仅含字符串 `id`、`targetId`、`targetType`、`status` 和 `createdAt`，不含举报人或说明。
+- 首次举报返回 201；同一账号／目标已有 OPEN 举报时返回 200，不增加举报行。每个新幂等键仍需消耗举报预算并持久化回执，Redis 不可用返回 503；原键相同规范化请求返回保存的原响应，原键不同请求返回 409。说明只规范化 CRLF／CR 为 LF，按 Unicode code point 校验 500 上限；无法存储的 NUL 或非法代理码返回 400。
+- `APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD` 默认 5，允许 2–100，后端和部署预检均校验。达到不同账号的 OPEN 举报阈值时，保护性隐藏仅执行一次，追加 `AUTO_HIDE`／`REPORT_THRESHOLD` 动作，举报保持 OPEN 等待人工审核。
+- 审核队列查询参数为 `status=PENDING|HIDDEN|PROCESSED`（默认 PENDING）、可选 `targetType`、举报 `reasonCode`、ISO 时间 `from`／`to`、`cursor`、`size`（默认 20，1–50）。PENDING 包含待审核内容或有 OPEN 举报的内容，PROCESSED 包含已有动作的目标。返回 `{items,nextCursor}`；游标绑定过滤条件，按 `(createdAt,targetId,targetType)` 降序稳定分页。条目字段为 `targetType,targetId,status,bodyPreview,version,openReportCount,createdAt`；正文预览上限 160 code points。
+- 详情字段为 `targetType,targetId,status,body,postId,parentCommentId,version,openReportCount,reports,actions,actionsNextCursor`。`reports` 仅汇总 `reasonCode,status,count`，不返回说明和举报人。动作仅含字符串 `id`、`command,reasonCode,previousStatus,nextStatus,createdAt`，不返回操作者身份；每页最多 20 项，用 `actionsCursor` 续页。
+- 决策请求为 `{command,reasonCode,version,restrictionEndsAt?}`。HIDE／MUTE／BAN 使用 `SPAM`、`HARASSMENT`、`SCAM`、`INAPPROPRIATE_CONTENT`、`POLICY_VIOLATION`；RESTORE 使用 `APPEAL_ACCEPTED` 或 `REVIEW_APPROVED`；REJECT_REPORT 使用 `REPORT_UNFOUNDED`。所有决策推进目标版本，在同一事务追加动作并处理目标的所有 OPEN 举报。REJECT_REPORT 结为 RESOLVED_REJECTED，其他人工决策结为 RESOLVED_ACTIONED。
+- HIDE 允许 PUBLISHED／PENDING_REVIEW 转 HIDDEN；RESTORE 允许 HIDDEN／PENDING_REVIEW 转 PUBLISHED，评论恢复还要求帖子及回复根可见。DELETED／REJECTED 不可恢复或再隐藏、禁言、封禁；REJECT_REPORT 可处理其保留的 OPEN 举报。MUTE／BAN 保持内容状态，限制施加于目标作者账号。MUTE 必须提供未来且不超过 30 天的到期时间；BAN 为永久社区限制，到期字段必须为空。限制到期后立即按现有限制查询恢复新写入权限；与任务 4 一致，仍为 ACTIVE 的受限账号可取消自己的点赞。
+- 正常回复 200 并返回最新详情；无效原因／时长／过滤器为 400，版本冲突为 `409 COMMUNITY_VERSION_CONFLICT`，无效状态转换为 `409 COMMUNITY_MODERATION_TRANSITION`。审核继续使用 Cookie Adviser 会话及 CSRF；小程序 Bearer 不能取得审核能力。
+- 隐藏／恢复在提交后只删除热门 current 指针，保留已发行快照；可见评论数按已发布帖子／根评论规则重建，保留各目标的点赞证据。审计仅在事务提交后输出结构化 trace、数字 ID、动作、原因代码及结果；回滚不输出成功。
+
 ## 7. 发布与审核流程
 
 1. 校验 Bearer 登录、账号状态、正文长度、字符规范和幂等键。

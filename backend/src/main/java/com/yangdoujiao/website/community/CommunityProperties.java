@@ -10,11 +10,13 @@ public record CommunityProperties(@DefaultValue("false") boolean enabled,
         @DefaultValue("2") int postPerMinute, @DefaultValue("30") int postPerDay,
         @DefaultValue("10") int commentPerMinute, @DefaultValue("300") int commentPerDay,
         @DefaultValue("30") int reportPerDay, @DefaultValue("") String cursorSecret,
-        List<String> reviewTerms, List<String> rejectTerms) {
+        List<String> reviewTerms, List<String> rejectTerms,
+        @DefaultValue("5") int autoHideReportThreshold) {
     public CommunityProperties {
         if (postPerMinute < 1 || postPerMinute > 100 || postPerDay < postPerMinute || postPerDay > 1000
                 || commentPerMinute < 1 || commentPerMinute > 300 || commentPerDay < commentPerMinute || commentPerDay > 10000
-                || reportPerDay < 1 || reportPerDay > 300) throw new IllegalArgumentException("Invalid community limits");
+                || reportPerDay < 1 || reportPerDay > 300 || autoHideReportThreshold < 2 || autoHideReportThreshold > 100)
+            throw new IllegalArgumentException("Invalid community limits");
         if (enabled && (cursorSecret == null || cursorSecret.getBytes(StandardCharsets.UTF_8).length < 32))
             throw new IllegalArgumentException("Enabled community requires a shared cursor secret of at least 32 bytes");
         reviewTerms = terms(reviewTerms);

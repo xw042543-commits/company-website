@@ -162,6 +162,10 @@ export function validateDeploymentEnv(environment) {
     if (limits[`APP_COMMUNITY_${operation}_PER_DAY`] < limits[`APP_COMMUNITY_${operation}_PER_MINUTE`])
       errors.push(`APP_COMMUNITY_${operation}_PER_DAY must be at least APP_COMMUNITY_${operation}_PER_MINUTE.`);
   }
+  const autoHideThreshold = valueFor("APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD") || "5";
+  if (!/^[1-9]\d*$/.test(autoHideThreshold) || Number(autoHideThreshold) < 2 || Number(autoHideThreshold) > 100) {
+    errors.push("APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD must be an integer between 2 and 100.");
+  }
   if (communityEnabled === "true" && !["APP_COMMUNITY_REVIEW_TERMS", "APP_COMMUNITY_REJECT_TERMS"].some(
     (name) => valueFor(name).split(",").some((term) => term.trim()))) {
     errors.push("Enabled production community requires configured community risk policy terms.");
