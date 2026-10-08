@@ -13,6 +13,22 @@ public interface CommunityCommentRepository extends JpaRepository<CommunityComme
     Optional<CommunityComment> findLockedById(Long id);
     @Query("select c.postId from CommunityComment c where c.id = :id")
     Optional<Long> findPostIdById(Long id);
+    // Read immutable coordinates only; loading an entity before its post lock can retain stale status/version.
+    @Query("select c.postId as postId, c.parentCommentId as parentId from CommunityComment c where c.id = :id")
+    Optional<Location> findLocationById(Long id);
+    interface Location {
+        Long getPostId();
+        Long getParentId();
+    }
+
+    @Query(value = """
+            SELECT count(*) FROM community_comments c
+            WHERE c.post_id = :postId AND c.status = 'PUBLISHED'
+              AND (c.parent_comment_id IS NULL OR EXISTS (
+                SELECT 1 FROM community_comments root WHERE root.id = c.parent_comment_id
+                  AND root.post_id = c.post_id AND root.parent_comment_id IS NULL AND root.status = 'PUBLISHED'))
+            """, nativeQuery = true)
+    long countPublicComments(Long postId);
     long countByPostIdAndParentCommentIdAndStatus(Long postId, Long parentId, CommunityContentStatus status);
     List<CommunityComment> findByPostIdAndStatusAndParentCommentIdIsNullOrderByCreatedAtAscIdAsc(
             Long postId, CommunityContentStatus status, Pageable page);

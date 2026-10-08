@@ -77,7 +77,12 @@ public class CommunityComment {
     }
 
     void adjustLikeCount(int delta, OffsetDateTime now) {
-        likeCount += delta;
+        likeCount = Math.max(0, Math.addExact(likeCount, delta));
+        updatedAt = now;
+    }
+
+    void reconcileLikeCount(int likes, OffsetDateTime now) {
+        likeCount = likes;
         updatedAt = now;
     }
 }

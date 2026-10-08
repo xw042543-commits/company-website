@@ -94,7 +94,7 @@ public class CommunityWriteService {
         var comment = comments.findLockedById(commentId).orElseThrow();
         requireOwner(actorId, comment.getAuthorAccountId());
         if (comment.getStatus() != CommunityContentStatus.DELETED) {
-            if (comment.getStatus() == CommunityContentStatus.PUBLISHED) {
+            if (post.getStatus() == CommunityContentStatus.PUBLISHED && comment.getStatus() == CommunityContentStatus.PUBLISHED) {
                 if (comment.getParentCommentId() == null) {
                     long visibleReplies = comments.countByPostIdAndParentCommentIdAndStatus(post.getId(), commentId,
                             CommunityContentStatus.PUBLISHED);
