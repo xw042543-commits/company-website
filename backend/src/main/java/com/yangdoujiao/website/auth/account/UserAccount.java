@@ -29,12 +29,16 @@ public class UserAccount {
     @Column(name = "normalized_phone", length = 16, unique = true)
     private String normalizedPhone;
 
-    @Column(name = "password_hash", nullable = false, length = 255)
+    @Column(name = "password_hash", length = 255)
     private String passwordHash;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
     private UserAccountStatus status;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private UserAccountRole role = UserAccountRole.USER;
 
     @Column(name = "email_verified_at")
     private OffsetDateTime emailVerifiedAt;
@@ -71,6 +75,17 @@ public class UserAccount {
         this.status = UserAccountStatus.PENDING_VERIFICATION;
         this.createdAt = OffsetDateTime.now();
         this.updatedAt = createdAt;
+    }
+
+    public static UserAccount external(String fullName, String agreementVersion, String privacyVersion) {
+        UserAccount account = new UserAccount();
+        account.fullName = fullName;
+        account.agreementVersion = agreementVersion;
+        account.privacyVersion = privacyVersion;
+        account.status = UserAccountStatus.ACTIVE;
+        account.createdAt = OffsetDateTime.now();
+        account.updatedAt = account.createdAt;
+        return account;
     }
 
     public void verifyEmail(OffsetDateTime now) {

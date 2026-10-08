@@ -5,10 +5,13 @@ import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.Getter;
 
 @Entity
@@ -50,8 +53,19 @@ public class ConsultationEnquiry {
     @Column(name = "privacy_notice_version", nullable = false, length = 50)
     private String privacyNoticeVersion;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
-    private String status;
+    private ConsultationStatus status;
+
+    @Column(name = "status_updated_at", nullable = false)
+    private OffsetDateTime statusUpdatedAt;
+
+    @Column(name = "status_updated_by_user_id")
+    private Long statusUpdatedByUserId;
+
+    @Version
+    @Column(nullable = false)
+    private long version;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
@@ -84,8 +98,9 @@ public class ConsultationEnquiry {
         this.locale = locale;
         this.privacyConsent = true;
         this.privacyNoticeVersion = privacyNoticeVersion;
-        this.status = "NEW";
+        this.status = ConsultationStatus.NEW;
         this.createdAt = createdAt;
+        this.statusUpdatedAt = createdAt;
     }
 
     void attachUser(Long userAccountId) {

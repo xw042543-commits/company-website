@@ -9,6 +9,10 @@ export type SavedItem = {
   context?: string;
   path: string;
   facts?: { label: string; value: string }[];
+  plan?: {
+    stage: "exploring" | "checking" | "ready" | "contacted";
+    targetIntake?: string;
+  };
 };
 
 export function readSavedItems(): SavedItem[] {
@@ -38,4 +42,8 @@ export function toggleSavedItem(item: SavedItem) {
   return writeSavedItems(current.some((saved) => saved.key === item.key)
     ? current.filter((saved) => saved.key !== item.key)
     : [item, ...current]);
+}
+
+export function updateSavedItemPlan(key: string, plan: NonNullable<SavedItem["plan"]>) {
+  return writeSavedItems(readSavedItems().map((item) => item.key === key ? { ...item, plan } : item));
 }

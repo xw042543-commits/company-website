@@ -11,6 +11,10 @@ export type AccountProfile = {
   phone: string | null;
   emailVerified: boolean;
   phoneVerified: boolean;
+  wechatLinked: boolean;
+  wechatDisplayName: string | null;
+  wechatAvatarUrl: string | null;
+  wechatLastLoginAt: string | null;
   createdAt: string;
 };
 
@@ -107,30 +111,50 @@ function parseCsrf(payload: unknown): { headerName: string; token: string } | nu
 
 function parseSession(payload: unknown): AuthSession | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["authenticated", "userId", "fullName"])
+    || !(hasExactKeys(payload, ["authenticated", "userId", "fullName"])
+      || (hasExactKeys(payload, ["authenticated", "userId", "fullName", "adviser"])
+        && typeof payload.adviser === "boolean"))
     || typeof payload.authenticated !== "boolean"
     || !isNullableString(payload.fullName)) return null;
 
   if (payload.authenticated) {
     if (!isPositiveInteger(payload.userId) || !payload.fullName?.trim()) return null;
-  } else if (payload.userId !== null || payload.fullName !== null) {
+  } else if (payload.userId !== null || payload.fullName !== null || payload.adviser === true) {
     return null;
   }
-  return payload as AuthSession;
+  return { authenticated: payload.authenticated, userId: payload.userId as number | null,
+    fullName: payload.fullName };
 }
 
 function parseAccount(payload: unknown): AccountProfile | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "createdAt"])
+    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatDisplayName", "wechatAvatarUrl", "wechatLastLoginAt", "createdAt"])
     || !isPositiveInteger(payload.id)
     || typeof payload.fullName !== "string" || !payload.fullName.trim()
     || !isNullableString(payload.email)
     || !isNullableString(payload.phone)
     || typeof payload.emailVerified !== "boolean"
     || typeof payload.phoneVerified !== "boolean"
+    || typeof payload.wechatLinked !== "boolean"
+    || !isNullableString(payload.wechatDisplayName)
+    || !isNullableString(payload.wechatAvatarUrl)
+    || (payload.wechatAvatarUrl !== null && !isSafeWechatAvatar(payload.wechatAvatarUrl))
+    || !isNullableString(payload.wechatLastLoginAt)
+    || (payload.wechatLastLoginAt !== null && Number.isNaN(Date.parse(payload.wechatLastLoginAt)))
     || typeof payload.createdAt !== "string"
     || Number.isNaN(Date.parse(payload.createdAt))) return null;
   return payload as AccountProfile;
+}
+
+function isSafeWechatAvatar(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:"
+      && (url.hostname === "qlogo.cn" || url.hostname.endsWith(".qlogo.cn"))
+      && !url.username && !url.password && !url.hash;
+  } catch {
+    return false;
+  }
 }
 
 function parseRegistration(payload: unknown): { verificationMethod: "EMAIL" | "PHONE" } | null {

@@ -80,7 +80,7 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps
       </div>
 
       <label className="auth-checkbox"><input type="checkbox" checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} /> <span>{words(locale, "保持登录", "Keep me signed in")}</span></label>
-      <button className="full-width" type="submit" disabled={pending}>{pending ? words(locale, "正在登录…", "Signing in…") : words(locale, "立即登录", "Sign in now")}</button>
+      <button className="full-width" type="submit" disabled={pending}>{pending ? words(locale, "正在登录…", "Signing in…") : words(locale, "立即登录", "Sign in")}</button>
       {process.env.NODE_ENV !== "production" && <button className="full-width demo-login-button" type="button" disabled={demoPending} onClick={startDemoSession}>{demoPending ? words(locale, "正在进入演示…", "Opening demo…") : words(locale, "进入本地演示账户", "Open local demo account")}</button>}
     </div>
 

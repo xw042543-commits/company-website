@@ -8,6 +8,7 @@ const localeLayout = readFileSync(new URL("../app/[locale]/layout.tsx", import.m
 const localizedHome = readFileSync(new URL("../app/[locale]/page.tsx", import.meta.url), "utf8");
 const rootHome = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
 const publicHome = readFileSync(new URL("../components/public-home.tsx", import.meta.url), "utf8");
+const brandMetadata = readFileSync(new URL("./brand-metadata.ts", import.meta.url), "utf8");
 
 test("produces a standalone Next.js server for container deployment", () => {
   assert.match(nextConfig, /output:\s*["']standalone["']/);
@@ -34,8 +35,12 @@ test("gates search indexing through an explicit server-side launch flag", () => 
 });
 
 test("publishes localized brand metadata for 洋豆角留学 and 洋豆角教育 searches", () => {
-  assert.match(rootLayout, /洋豆角留学｜留学规划与院校查询/);
-  assert.match(rootLayout, /洋豆角教育/);
+  assert.match(rootLayout, /chineseBrandMetadata\.title/);
+  assert.match(rootLayout, /chineseBrandMetadata\.keywords/);
+  assert.match(rootLayout, /chineseBrandMetadata\.description/);
+  assert.match(brandMetadata, /全球第一家留学生一站式服务平台/);
+  assert.match(brandMetadata, /留学综合服务平台/);
+  assert.match(brandMetadata, /留学全周期服务/);
   assert.doesNotMatch(localeLayout, /canonical:/);
   assert.match(localizedHome, /generateMetadata/);
   assert.match(localizedHome, /alternates:\s*\{/);

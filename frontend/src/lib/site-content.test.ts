@@ -3,6 +3,8 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
+import { formatEnglishDisplayText } from "./site.ts";
+
 const read = (path: string) => readFileSync(fileURLToPath(new URL(path, import.meta.url)), "utf8");
 
 test("primary navigation removes programmes and promotes account registration", () => {
@@ -12,6 +14,11 @@ test("primary navigation removes programmes and promotes account registration", 
   assert.match(header, /login\?mode=register/);
   assert.match(header, /注册账户/);
   assert.doesNotMatch(header, /href={`\/\$\{locale\}\/consultation`}/);
+});
+
+test("language switching preserves the current scroll position", () => {
+  const header = read("../components/site-header.tsx");
+  assert.match(header, /className="language-switch"[^>]*scroll=\{false\}/);
 });
 
 test("about page contains the enquiry journey instead of the service strip", () => {
@@ -67,7 +74,7 @@ test("public copy uses consistent professional bilingual terminology", () => {
   assert.match(sections, /关注第一手信息/);
   assert.match(sections, /First-hand updates/);
   assert.match(results, /院校资料正在完善/);
-  assert.match(results, /University information is being prepared/);
+  assert.match(results, /University profiles coming soon/);
   assert.match(registration, /创建账户/);
   assert.match(registration, /Create account/);
   assert.match(recovery, /发送重设说明/);
@@ -95,6 +102,8 @@ test("enquiry form submits to the consultation API with explicit consent", () =>
   assert.match(form, /privacyConsent:\s*true/);
   assert.match(form, /type="submit"/);
   assert.match(form, /referenceCode/);
+  assert.match(form, /recordConsultation/);
+  assert.match(form, /initialSchool/);
   assert.doesNotMatch(form, /preview mode only|仅供预览|consultation submission unavailable|咨询提交暂未开放/i);
   assert.doesNotMatch(form, /name="privacyConsent" disabled/);
 });
@@ -105,10 +114,10 @@ test("key planning and company pages use natural bilingual copy", () => {
   const login = read("../app/[locale]/login/page.tsx");
 
   assert.match(about, /让留学变得更简单/);
-  assert.match(about, /Making study abroad simpler/);
+  assert.match(about, /Clear guidance for studying abroad/);
   assert.match(planning, /选专业，定方向/);
-  assert.match(planning, /Choose a programme and define your direction/);
-  assert.match(login, /One account brings together/);
+  assert.match(planning, /Find a programme that suits you/);
+  assert.match(login, /Continue planning your studies/);
   assert.doesNotMatch(about, /exacting|supplied location/i);
 });
 
@@ -116,8 +125,48 @@ test("language programme copy preserves the approved price and format", () => {
   const sections = read("../app/[locale]/[section]/page.tsx");
 
   assert.match(sections, /每期 4,980 元的封闭式雅思培训/);
-  assert.match(sections, /Intensive IELTS training at CNY 4,980 per session/);
+  assert.match(sections, /Intensive IELTS training costs CNY 4,980 per session/);
   assert.doesNotMatch(sections, /4,980 元起|from CNY 4,980/);
+});
+
+test("content pages provide reviewed bilingual guides when publishing is empty", () => {
+  const sections = read("../app/[locale]/[section]/page.tsx");
+  const details = read("../app/[locale]/[section]/[slug]/page.tsx");
+  const curated = read("../data/curated-articles.ts");
+  assert.match(sections, /curatedArticles/);
+  assert.match(details, /curatedArticle/);
+  assert.match(curated, /Malaysia International Scholarship 2026/);
+  assert.match(curated, /How UDAJO presents programme coverage and sources/);
+});
+
+test("content pages expose the approved scholarship journal and editorial article layout", () => {
+  const sections = read("../app/[locale]/[section]/page.tsx");
+  const details = read("../app/[locale]/[section]/[slug]/page.tsx");
+  const styles = read("../app/globals.css");
+
+  assert.match(sections, /scholarship-article-grid/);
+  assert.match(sections, /article-card-meta/);
+  assert.match(sections, /留学政策/);
+  assert.match(sections, /院校动态/);
+  assert.match(sections, /洋豆角资讯/);
+  assert.match(details, /scholarship-article-detail/);
+  assert.match(details, /article-reading-layout/);
+  assert.match(details, /article-reference/);
+  assert.match(styles, /\.scholarship-article-grid\s*\{[^}]*grid-template-columns:\s*repeat\(2/);
+  assert.match(styles, /@media \(max-width:\s*620px\)[\s\S]*?\.scholarship-article-grid\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+});
+
+test("English display copy normalizes imported all-caps titles", () => {
+  assert.equal(
+    formatEnglishDisplayText("BACHELOR OF ENTREPRENEURSHIP AND INNOVATION"),
+    "Bachelor of Entrepreneurship and Innovation",
+  );
+  assert.equal(
+    formatEnglishDisplayText("DOCTOR OF PHILOSOPHY (PHD)"),
+    "Doctor of Philosophy (PhD)",
+  );
+  assert.equal(formatEnglishDisplayText("ON_CAMPUS"), "On Campus");
+  assert.equal(formatEnglishDisplayText("Taylor's University"), "Taylor's University");
 });
 
 test("directory and planning pages use clear bilingual headings", () => {
@@ -128,13 +177,20 @@ test("directory and planning pages use clear bilingual headings", () => {
   assert.match(universities, /留学目的地/);
 });
 
-test("footer offers a bilingual contact link to the enquiry section", () => {
+test("footer offers bilingual navigation, social links, and direct contact details", () => {
   const chrome = read("../components/site-chrome.tsx");
+  const profile = read("../data/company-profile.ts");
   const home = read("../app/[locale]/page.tsx");
-  assert.match(chrome, /联系我们/);
-  assert.match(chrome, /Contact us/);
+  assert.match(chrome, /联系顾问/);
+  assert.match(chrome, /Contact an adviser/);
   assert.match(chrome, /`\/\$\{locale\}\/about#enquiry`/);
   assert.match(chrome, /footer-contact-link/);
+  assert.match(chrome, /footer-navigation/);
+  assert.match(chrome, /DouyinIcon/);
+  assert.match(chrome, /WechatIcon/);
+  assert.match(chrome, /companyProfile\.publicEmail/);
+  assert.match(profile, /https:\/\/xhslink\.cn\/o\/1LJUVW7yRyw/);
+  assert.match(profile, /https:\/\/v\.douyin\.com\/dIMeK5xqBAY\//);
   assert.doesNotMatch(chrome, /footer-contact-copy/);
   assert.doesNotMatch(home, /className="home-cta"/);
 });
@@ -153,6 +209,6 @@ test("university details expose programme level filters and a data review note",
   assert.match(detail, /<Link scroll=\{false\} key=\{level\}/);
   assert.match(detail, /university-detail-header/);
   assert.match(detail, /university-detail-nav/);
-  assert.match(detail, /Helpful details to prepare/);
+  assert.match(detail, /What to prepare/);
   assert.doesNotMatch(detail, /Adviser QR code coming soon/);
 });

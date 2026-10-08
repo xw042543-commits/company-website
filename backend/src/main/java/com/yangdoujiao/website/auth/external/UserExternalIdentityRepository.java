@@ -21,4 +21,7 @@ public interface UserExternalIdentityRepository extends JpaRepository<UserExtern
             @Param("subject") String subject);
 
     boolean existsByProviderAndUserAccountId(ExternalIdentityProvider provider, Long userAccountId);
+
+    Optional<UserExternalIdentity> findByProviderAndUserAccountId(
+            ExternalIdentityProvider provider, Long userAccountId);
 }

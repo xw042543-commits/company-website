@@ -22,6 +22,6 @@ class ConsultationServiceUserLinkTest {
         ArgumentCaptor<ConsultationEnquiry> saved = ArgumentCaptor.forClass(ConsultationEnquiry.class);
         verify(repository).save(saved.capture());
         assertThat(saved.getValue().getUserAccountId()).isEqualTo(42L);
-        assertThat(saved.getValue().getStatus()).isEqualTo("NEW");
+        assertThat(saved.getValue().getStatus()).isEqualTo(ConsultationStatus.NEW);
     }
 }

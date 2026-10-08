@@ -100,6 +100,21 @@ test("loads reviewed local programmes when the API is not configured", async () 
   assert.equal(result.page.items[0]?.studyLevelCode, "bachelor");
 });
 
+test("loads the APU catalogue when its published API collection is still empty", async () => {
+  const request = (async () => Response.json({ items: [], page: 1, pageSize: 12, totalItems: 0, totalPages: 0 })) as typeof fetch;
+  const result = await universities.getUniversityProgrammesWithFallback(
+    "asia-pacific-university",
+    {},
+    "https://api.example.test",
+    request,
+  );
+
+  assert.equal(result.status, "ready");
+  if (result.status !== "ready") return;
+  assert.equal(result.page.totalItems, 57);
+  assert.equal(result.page.items.length, 12);
+});
+
 test("falls back to reviewed programmes when the configured API has no matching record", async () => {
   const request = (async () => new Response(null, { status: 404 })) as typeof fetch;
   const result = await universities.getUniversityProgrammesWithFallback(

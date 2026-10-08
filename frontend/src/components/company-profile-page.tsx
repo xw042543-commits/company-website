@@ -7,18 +7,18 @@ import { Locale, words } from "@/lib/site";
 export function CompanyProfilePage({ locale }: { locale: Locale }) {
   return <main id="main" className="container page-main company-page">
     <p className="section-label">{words(locale, "关于洋豆角", "About UDAJO")}</p>
-    <h1>{words(locale, "让留学变得更简单", "Making study abroad simpler")}</h1>
+    <h1>{words(locale, "让留学变得更简单", "Straightforward support for studying abroad")}</h1>
     <p className="page-intro">{words(
       locale,
       "洋豆角提供语言培训、留学规划与申请、海外落地、课程辅导与安全保障服务，覆盖留学全周期。",
-      "UDAJO supports the full study-abroad journey through language training, planning and applications, arrival support, tutoring, and personal safety guidance.",
+      "UDAJO helps with language preparation, university planning, applications, arrival, tutoring and personal safety abroad.",
     )}</p>
 
     <section className="company-overview" aria-labelledby="company-overview-title">
       <div>
         <p className="company-wordmark">{companyProfile.brandNameEn}</p>
         <h2 id="company-overview-title">{companyProfile.brandNameZh}</h2>
-        <p>{words(locale, "清晰规划每一个留学选择，稳步走向适合你的院校。", "Make each study decision with clarity and move confidently towards the right university.")}</p>
+        <p>{words(locale, "清晰规划每一个留学选择，稳步走向适合你的院校。", "Compare your options carefully and choose a university that suits your plans.")}</p>
       </div>
       <dl className="company-facts">
         <div><dt>{words(locale, "注册名称", "Registered name")}</dt><dd>{companyProfile.legalNameZh}</dd></div>

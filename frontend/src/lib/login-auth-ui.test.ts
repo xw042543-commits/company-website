@@ -18,11 +18,12 @@ test("login page uses a focused portal shell for the real account flow", () => {
 
 test("public chrome is hidden for focused account routes", () => {
   const source = read("../components/site-chrome.tsx");
+  const routes = read("./site.ts");
   const layout = read("../app/[locale]/layout.tsx");
   assert.match(source, /usePathname/);
-  assert.match(source, /isAuthPortal/);
-  assert.match(source, /\/login/);
-  assert.match(source, /forgot-password/);
+  assert.match(source, /isFocusedPortal/);
+  assert.match(routes, /\/login/);
+  assert.match(routes, /forgot-password/);
   assert.match(layout, /SiteChrome/);
   assert.doesNotMatch(layout, /<SiteHeader/);
 });
@@ -62,12 +63,10 @@ test("successful logout shows confirmation before returning home", () => {
   assert.match(header, /window\.location\.replace/);
 });
 
-test("WeChat QR access embeds the official scanner and supports verified-account binding", () => {
+test("WeChat QR access embeds the official scanner for direct sign-in or registration", () => {
   const panel = read("../components/auth-account-panel.tsx");
   const wechat = read("../components/wechat-qr-panel.tsx");
-  const binding = read("../components/wechat-bind-form.tsx");
   const page = read("../app/[locale]/login/page.tsx");
-  assert.match(panel, /mode=\{registering \? "register" : "login"\}/);
   assert.match(panel, /returnTo=\{returnTo\}/);
   assert.match(wechat, /getWechatQrConfig/);
   assert.match(wechat, /res\.wx\.qq\.com\/connect\/zh_CN\/htmledition\/js\/wxLogin\.js/);
@@ -82,22 +81,36 @@ test("WeChat QR access embeds the official scanner and supports verified-account
   assert.match(wechat, /aria-busy/);
   assert.match(wechat, /role="alert"/);
   assert.match(wechat, /wechat-qr-frame/);
+  assert.match(wechat, /wechat-qr-brand/);
+  assert.match(wechat, /微信官方登录/);
   assert.match(wechat, /微信扫码登录或注册/);
   assert.match(wechat, /\/api\/v1\/auth\/wechat\/start/);
   assert.match(wechat, /\/privacy/);
-  assert.match(binding, /bindWechatAccount/);
-  assert.match(binding, /verified email or phone account/);
-  assert.match(panel, /"wechat-bind"/);
+  assert.match(wechat, /\/terms/);
+  assert.match(wechat, /扫码即表示您同意/);
+  assert.match(wechat, /wechat-login-fallback/);
+  assert.match(wechat, /二维码无法识别？在微信中打开/);
+  assert.match(wechat, /onConfirmation/);
+  assert.match(wechat, /wechat-confirmation-backdrop/);
+  assert.match(wechat, /role=\{confirming \? "dialog"/);
+  assert.match(wechat, /event\.key === "Escape"/);
+  assert.doesNotMatch(panel, /WechatBindForm|"wechat-bind"/);
+  assert.doesNotMatch(page, /"wechat-bind"/);
   assert.match(page, /wechatError/);
   assert.doesNotMatch(wechat, /qrPattern|wechat-qr-grid/);
-  assert.doesNotMatch(`${wechat}\n${binding}`, /fake qr|demo session|startDemoSession/i);
+  assert.doesNotMatch(wechat, /fake qr|demo session|startDemoSession/i);
 });
 
-test("WeChat's official iframe keeps its native aspect and stays centered", () => {
+test("WeChat's official iframe is centered inside a compact square QR window", () => {
   const css = read("../app/globals.css");
-  assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*400px/);
-  assert.match(css, /\.wechat-login-container\s*\{[^}]*width:\s*300px[^}]*max-width:\s*100%[^}]*height:\s*400px/);
-  assert.match(css, /\.wechat-login-container iframe\s*\{[^}]*display:\s*block[^}]*width:\s*300px\s*!important[^}]*margin-inline:\s*auto/);
+  assert.match(css, /\.auth-qr-column\s*\{[^}]*display:\s*flex[^}]*align-items:\s*center[^}]*text-align:\s*center/);
+  assert.match(css, /\.wechat-qr-frame\s*\{[^}]*width:\s*180px[^}]*height:\s*180px[^}]*overflow:\s*hidden/);
+  assert.match(css, /\.wechat-login-container\s*\{[^}]*position:\s*absolute[^}]*top:\s*10px[^}]*left:\s*50%[^}]*width:\s*300px[^}]*height:\s*400px[^}]*translateX\(-50%\)/);
+  assert.match(css, /\.wechat-login-container iframe\s*\{[^}]*display:\s*block[^}]*width:\s*300px\s*!important[^}]*height:\s*400px\s*!important/);
+  assert.match(css, /\.wechat-qr-brand svg\s*\{[^}]*width:\s*18px[^}]*height:\s*18px[^}]*fill:\s*#07c160/);
+  assert.match(css, /\.wechat-qr-frame\.is-confirming\s*\{[^}]*position:\s*fixed[^}]*width:\s*min\(230px/);
+  assert.match(css, /\.wechat-confirmation-close\s*\{[^}]*width:\s*44px[^}]*height:\s*44px/);
+  assert.match(css, /@media \(max-width:\s*420px\)[\s\S]*\.wechat-qr-frame\s*\{[^}]*width:\s*180px[^}]*height:\s*180px/);
 });
 
 test("account forms submit to the real versioned authentication client and isolate local demo access", () => {
@@ -221,4 +234,18 @@ test("local demo accounts load a profile without exposing production account act
   assert.match(account, /!demoAccount/);
   assert.match(route, /export async function GET/);
   assert.match(route, /UDAJO Demo Student/);
+});
+
+test("account summary shows a safe WeChat connection status", () => {
+  const account = read("../components/account-panel.tsx");
+  assert.match(account, /account\.wechatLinked/);
+  assert.match(account, /account\.wechatLastLoginAt/);
+  assert.match(account, /account\.wechatAvatarUrl/);
+  assert.match(account, /account-profile-avatar/);
+  assert.match(account, /VerificationStatus/);
+  assert.match(account, /account-verification is-verified/);
+  assert.match(account, /已验证/);
+  assert.match(account, /已绑定/);
+  assert.match(account, /最近登录/);
+  assert.doesNotMatch(account, /providerSubject|providerClientId|openid/i);
 });

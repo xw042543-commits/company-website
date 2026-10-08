@@ -77,6 +77,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
                         .requestMatchers("/api/v1/miniapp/me", "/api/v1/miniapp/me/**").hasRole("USER")
+                        .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")
                         .requestMatchers(HttpMethod.GET, PUBLIC_READ_PATHS).permitAll()
                         .requestMatchers(HttpMethod.HEAD, PUBLIC_READ_PATHS).permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/consultations").permitAll()

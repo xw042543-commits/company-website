@@ -3,10 +3,6 @@ ALTER TABLE consultation_enquiries
     ADD CONSTRAINT fk_consultation_enquiries_user
         FOREIGN KEY (user_account_id) REFERENCES user_accounts(id) ON DELETE SET NULL;
 
-ALTER TABLE consultation_enquiries DROP CONSTRAINT ck_consultation_enquiries_status;
-ALTER TABLE consultation_enquiries ADD CONSTRAINT ck_consultation_enquiries_status
-    CHECK (status IN ('NEW', 'CONTACTED', 'CLOSED'));
-
 CREATE INDEX idx_consultation_enquiries_user_created
     ON consultation_enquiries (user_account_id, created_at DESC, id DESC)
     WHERE user_account_id IS NOT NULL;

@@ -125,7 +125,7 @@ public class MiniappUserDataService {
             String qualification, String status, OffsetDateTime submittedAt) {
         static ConsultationRecordResponse from(ConsultationEnquiry enquiry) {
             return new ConsultationRecordResponse(enquiry.getReferenceCode(), enquiry.getIntendedSchool(),
-                    enquiry.getIntendedCourse(), enquiry.getQualification(), enquiry.getStatus(),
+                    enquiry.getIntendedCourse(), enquiry.getQualification(), enquiry.getStatus().name(),
                     enquiry.getCreatedAt());
         }
     }

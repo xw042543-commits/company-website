@@ -24,6 +24,7 @@ public interface ProgrammeRepository extends JpaRepository<Programme, Long> {
             FROM Programme programme
             WHERE programme.id = :id
               AND programme.university.id = :universityId
+              AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
               AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
             """)
     Optional<Programme> findPublishedDetailedByIdAndUniversityId(
@@ -37,6 +38,7 @@ public interface ProgrammeRepository extends JpaRepository<Programme, Long> {
             FROM Programme programme
             WHERE programme.slug = :slug
               AND programme.university.id = :universityId
+              AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
               AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
             """)
     Optional<Programme> findPublishedDetailedBySlugAndUniversityId(

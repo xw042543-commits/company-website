@@ -3,17 +3,16 @@ import { redirect } from "next/navigation";
 import { PublicHome } from "@/components/public-home";
 import { SiteChrome } from "@/components/site-chrome";
 import { companyProfile } from "@/data/company-profile";
+import { chineseBrandMetadata } from "@/lib/brand-metadata";
 import { resolvePublicIndexing } from "@/lib/public-indexing";
 import { isRequestAuthenticated } from "@/lib/server-auth";
-
-const title = "洋豆角留学｜留学规划与院校查询";
-const description = "洋豆角留学（洋豆角教育）提供留学院校与专业查询、留学规划、申请咨询及留学全周期服务。";
 
 export function generateMetadata(): Metadata {
   const { origin } = resolvePublicIndexing(process.env);
   return {
-    title,
-    description,
+    title: chineseBrandMetadata.title,
+    keywords: chineseBrandMetadata.keywords,
+    description: chineseBrandMetadata.description,
     alternates: {
       canonical: origin,
       languages: {
@@ -26,8 +25,8 @@ export function generateMetadata(): Metadata {
       type: "website",
       url: origin,
       siteName: "洋豆角留学",
-      title,
-      description,
+      title: chineseBrandMetadata.title,
+      description: chineseBrandMetadata.description,
       locale: "zh_CN",
     },
   };

@@ -57,6 +57,12 @@ function isNonBlank(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+function isSafeCoverPath(value: unknown): value is string | null {
+  return value === null || (typeof value === "string"
+    && /^\/content\/\S+$/.test(value)
+    && !value.includes(".."));
+}
+
 function hasText(...values: unknown[]): boolean {
   return values.some(isNonBlank);
 }
@@ -75,7 +81,7 @@ function isArticleSummary(value: unknown): value is ArticleSummary {
     && hasText(value.titleZh, value.titleEn)
     && isNullableString(value.summaryZh)
     && isNullableString(value.summaryEn)
-    && isNullableString(value.coverPath)
+    && isSafeCoverPath(value.coverPath)
     && isNonBlank(value.publishedAt)
     && !Number.isNaN(Date.parse(value.publishedAt));
 }

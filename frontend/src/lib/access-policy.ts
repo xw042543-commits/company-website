@@ -8,8 +8,14 @@ const protectedSections = new Set([
   "scholarships",
   "news",
   "review",
+  "adviser",
 ]);
 const accountSections = new Set(["login", "register", "forgot-password"]);
+
+export function isAdviserPath(pathname: string) {
+  const [locale, section] = pathSegments(pathname);
+  return (locale === "en" || locale === "zh") && section === "adviser";
+}
 
 function pathSegments(pathname: string) {
   return pathname.split(/[?#]/, 1)[0].split("/").filter(Boolean);

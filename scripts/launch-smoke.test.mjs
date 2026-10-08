@@ -3,10 +3,15 @@ import test from "node:test";
 
 import { runLaunchSmoke } from "./launch-smoke.mjs";
 
+const faviconResponse = () => new Response(new Uint8Array([0, 0, 1, 0]), {
+  headers: { "content-type": "image/x-icon" },
+});
+
 test("checks public pages, discovery files, and backend APIs through the frontend origin", async () => {
   const requested = [];
   const fetcher = async (url) => {
     requested.push(url);
+    if (url.endsWith("/favicon.ico")) return faviconResponse();
     if (url.endsWith("/zh")) return new Response('<meta name="robots" content="noindex, nofollow"/>');
     if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nDisallow: /\n");
     if (url.endsWith("/sitemap.xml")) return new Response("<urlset></urlset>");
@@ -14,13 +19,14 @@ test("checks public pages, discovery files, and backend APIs through the fronten
     return new Response("ok", { status: 200, headers: { "content-type": "text/plain" } });
   };
   const result = await runLaunchSmoke("https://preview.yangdoujiao.com", fetcher);
-  assert.deepEqual(result, { checked: 10, failed: 0 });
+  assert.deepEqual(result, { checked: 11, failed: 0 });
   assert.deepEqual(requested, [
     "https://preview.yangdoujiao.com/zh",
     "https://preview.yangdoujiao.com/en",
     "https://preview.yangdoujiao.com/zh/universities",
     "https://preview.yangdoujiao.com/en/universities",
     "https://preview.yangdoujiao.com/zh/login",
+    "https://preview.yangdoujiao.com/favicon.ico",
     "https://preview.yangdoujiao.com/robots.txt",
     "https://preview.yangdoujiao.com/sitemap.xml",
     "https://preview.yangdoujiao.com/api/v1/catalog/filter-options",
@@ -31,6 +37,7 @@ test("checks public pages, discovery files, and backend APIs through the fronten
 
 test("fails private-preview smoke when indexing is unexpectedly enabled", async () => {
   const response = async (url) => {
+    if (url.endsWith("/favicon.ico")) return faviconResponse();
     if (url.endsWith("/zh")) return new Response('<meta name="robots" content="index, follow"/>');
     if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nAllow: /\n");
     if (url.endsWith("/sitemap.xml")) return new Response("<urlset><url><loc>https://preview.yangdoujiao.com/zh</loc></url></urlset>");
@@ -42,6 +49,7 @@ test("fails private-preview smoke when indexing is unexpectedly enabled", async 
 
 test("fails smoke when WeChat availability differs from the expected launch mode", async () => {
   const response = async (url) => {
+    if (url.endsWith("/favicon.ico")) return faviconResponse();
     if (url.endsWith("/zh")) return new Response('<meta name="robots" content="noindex, nofollow"/>');
     if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nDisallow: /\n");
     if (url.endsWith("/sitemap.xml")) return new Response("<urlset></urlset>");
@@ -53,6 +61,7 @@ test("fails smoke when WeChat availability differs from the expected launch mode
 
 test("public smoke requires indexable metadata, robots, and a populated sitemap", async () => {
   const response = async (url) => {
+    if (url.endsWith("/favicon.ico")) return faviconResponse();
     if (url.endsWith("/zh")) return new Response('<meta name="robots" content="index, follow"/>');
     if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nAllow: /\nSitemap: https://yangdoujiao.com/sitemap.xml\n");
     if (url.endsWith("/sitemap.xml")) return new Response("<urlset><url><loc>https://yangdoujiao.com/</loc></url></urlset>");
@@ -60,7 +69,41 @@ test("public smoke requires indexable metadata, robots, and a populated sitemap"
     return new Response("ok");
   };
   const result = await runLaunchSmoke("https://yangdoujiao.com", response, { indexing: true, wechat: false });
-  assert.deepEqual(result, { checked: 10, failed: 0 });
+  assert.deepEqual(result, { checked: 11, failed: 0 });
+});
+
+test("fails smoke when the conventional favicon endpoint is unavailable", async () => {
+  const response = async (url) => {
+    if (url.endsWith("/favicon.ico")) {
+      return new Response("not found", { status: 404 });
+    }
+    if (url.endsWith("/zh")) return new Response('<meta name="robots" content="noindex, nofollow"/>');
+    if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nDisallow: /\n");
+    if (url.endsWith("/sitemap.xml")) return new Response("<urlset></urlset>");
+    if (url.endsWith("/api/v1/auth/providers")) return Response.json({ wechat: false });
+    return new Response("ok");
+  };
+
+  await assert.rejects(
+    () => runLaunchSmoke("https://preview.yangdoujiao.com", response),
+    /\/favicon\.ico.*404/,
+  );
+});
+
+test("fails smoke when the favicon endpoint returns a non-image response", async () => {
+  const response = async (url) => {
+    if (url.endsWith("/favicon.ico")) return new Response("fallback page");
+    if (url.endsWith("/zh")) return new Response('<meta name="robots" content="noindex, nofollow"/>');
+    if (url.endsWith("/robots.txt")) return new Response("User-agent: *\nDisallow: /\n");
+    if (url.endsWith("/sitemap.xml")) return new Response("<urlset></urlset>");
+    if (url.endsWith("/api/v1/auth/providers")) return Response.json({ wechat: false });
+    return new Response("ok");
+  };
+
+  await assert.rejects(
+    () => runLaunchSmoke("https://preview.yangdoujiao.com", response),
+    /\/favicon\.ico.*content type text\/plain/,
+  );
 });
 
 test("fails closed for an invalid origin or unsuccessful endpoint", async () => {

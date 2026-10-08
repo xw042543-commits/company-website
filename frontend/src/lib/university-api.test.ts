@@ -43,8 +43,8 @@ type UniversityProgrammesRequest = (
 ) => Promise<unknown>;
 type UniversityProgrammeRequest = (
   baseUrl: string | undefined,
-  slug: string,
-  programmeId: string,
+  universitySlug: string,
+  programmeIdentifier: string,
   request?: typeof fetch,
 ) => Promise<unknown>;
 type UniversityDetailViewMapper = (
@@ -52,7 +52,7 @@ type UniversityDetailViewMapper = (
   programmes: unknown[],
   locale: "zh" | "en",
   options?: unknown,
-) => unknown;
+) => universityApi.UniversityDetailView;
 
 function parseSearchPage(payload: unknown): unknown {
   const candidate = Reflect.get(universityApi, "parseUniversitySearchPage");
@@ -125,13 +125,13 @@ async function requestUniversityProgrammes(
 
 async function requestUniversityProgramme(
   baseUrl: string | undefined,
-  slug: string,
-  programmeId: string,
+  universitySlug: string,
+  programmeIdentifier: string,
   request?: typeof fetch,
 ): Promise<unknown> {
   const candidate = Reflect.get(universityApi, "getUniversityProgramme");
   return typeof candidate === "function"
-    ? (candidate as UniversityProgrammeRequest)(baseUrl, slug, programmeId, request)
+    ? (candidate as UniversityProgrammeRequest)(baseUrl, universitySlug, programmeIdentifier, request)
     : undefined;
 }
 
@@ -140,11 +140,11 @@ function toUniversityDetailView(
   programmes: unknown[],
   locale: "zh" | "en",
   options?: unknown,
-): unknown {
+): universityApi.UniversityDetailView {
   const candidate = Reflect.get(universityApi, "toUniversityDetailView");
   return typeof candidate === "function"
     ? (candidate as UniversityDetailViewMapper)(university, programmes, locale, options)
-    : undefined;
+    : { name: "", country: "", city: "", description: "", programmes: [] };
 }
 
 const validSearchPage = {
@@ -510,6 +510,34 @@ test("maps university details and programmes to localized display data", () => {
       }],
     },
   );
+});
+
+test("English university views stay English and omit Chinese secondary labels", () => {
+  const view = toUniversityDetailView(
+    validUniversityDetail,
+    validUniversityProgrammePage.items,
+    "en",
+  );
+
+  assert.equal(view.name, "University of Malaya");
+  assert.equal(view.secondaryName, undefined);
+  assert.equal(view.description, "University description");
+  assert.equal(view.programmes[0]?.name, "Bachelor of Computer Science");
+  assert.equal(view.programmes[0]?.secondaryName, undefined);
+  assert.equal(view.programmes[0]?.description, "Programme description");
+});
+
+test("English views do not fall back to Chinese when English copy is missing", () => {
+  const view = toUniversityDetailView(
+    { ...validUniversityDetail, nameEn: null, descriptionEn: null },
+    [{ ...validUniversityProgrammePage.items[0], nameEn: null, descriptionEn: null }],
+    "en",
+  );
+
+  assert.equal(view.name, "university-of-malaya");
+  assert.equal(view.description, "");
+  assert.equal(view.programmes[0]?.name, "BSc CS");
+  assert.equal(view.programmes[0]?.description, "");
 });
 
 test("localizes programme dictionary codes with catalog options", () => {

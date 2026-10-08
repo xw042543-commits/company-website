@@ -189,6 +189,12 @@ Programme 同时满足所有课程维度，不会把不同专业的条件拼成�
 }
 ```
 
+### `GET /api/v1/universities/{universitySlug}/programmes/{programmeSlug}`
+
+Returns one published programme for its published university. The final path value accepts the
+stable slug returned by programme-list responses or the numeric programme ID returned by university
+search. A missing university or programme returns the standard 404 response.
+
 中文或英文字段在源数据未提供时可为 `null`，后端不自动翻译。没有匹配院校时仍
 返回 200：
 

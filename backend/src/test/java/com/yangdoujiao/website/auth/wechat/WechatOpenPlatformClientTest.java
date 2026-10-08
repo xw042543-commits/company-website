@@ -71,6 +71,23 @@ class WechatOpenPlatformClientTest {
                 .andRespond(withSuccess("""
                         {"access_token":"provider-token","expires_in":7200,"refresh_token":"refresh-token","openid":"wechat-subject","scope":"snsapi_login","unionid":"wechat-union"}
                         """, MediaType.TEXT_PLAIN));
+        server.expect(requestTo("https://api.weixin.qq.com/sns/userinfo?access_token=provider-token&openid=wechat-subject&lang=zh_CN"))
+                .andRespond(withSuccess("""
+                        {"openid":"wechat-subject","nickname":"小王","headimgurl":"http://thirdwx.qlogo.cn/mmopen/example/132"}
+                        """, MediaType.APPLICATION_JSON));
+
+        assertThat(client.exchange("good-code"))
+                .isEqualTo(new WechatProviderIdentity("wx-app", "wechat-subject", "小王",
+                        "https://thirdwx.qlogo.cn/mmopen/example/132"));
+        server.verify();
+    }
+
+    @Test
+    void keepsLoginAvailableWhenWechatProfileCannotBeLoaded() {
+        server.expect(requestTo("https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx-app&secret=secret&code=good-code&grant_type=authorization_code"))
+                .andRespond(withSuccess("{\"access_token\":\"provider-token\",\"openid\":\"wechat-subject\"}", MediaType.APPLICATION_JSON));
+        server.expect(requestTo("https://api.weixin.qq.com/sns/userinfo?access_token=provider-token&openid=wechat-subject&lang=zh_CN"))
+                .andRespond(withSuccess("{\"errcode\":40003}", MediaType.APPLICATION_JSON));
 
         assertThat(client.exchange("good-code"))
                 .isEqualTo(new WechatProviderIdentity("wx-app", "wechat-subject"));

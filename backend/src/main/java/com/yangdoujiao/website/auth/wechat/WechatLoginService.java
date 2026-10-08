@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.time.OffsetDateTime;
 
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -13,9 +14,12 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.yangdoujiao.website.auth.AuthHash;
 import com.yangdoujiao.website.auth.account.UserAccount;
+import com.yangdoujiao.website.auth.account.UserAccountRepository;
 import com.yangdoujiao.website.auth.account.UserAccountStatus;
+import com.yangdoujiao.website.auth.config.AuthProperties;
 import com.yangdoujiao.website.auth.config.AuthRateLimitProperties;
 import com.yangdoujiao.website.auth.external.ExternalIdentityProvider;
+import com.yangdoujiao.website.auth.external.UserExternalIdentity;
 import com.yangdoujiao.website.auth.external.UserExternalIdentityRepository;
 import com.yangdoujiao.website.auth.ratelimit.AuthRateLimiter;
 import com.yangdoujiao.website.auth.session.AuthenticationService;
@@ -31,7 +35,9 @@ public class WechatLoginService {
     private final ObjectProvider<WechatAuthorizationProvider> provider;
     private final WechatOAuthStateStore states;
     private final UserExternalIdentityRepository identities;
+    private final UserAccountRepository accounts;
     private final AuthenticationService authentication;
+    private final AuthProperties authProperties;
     private final AuthRateLimiter limiter;
     private final AuthRateLimitProperties limits;
     private final WechatAuthAuditLogger audit;
@@ -39,14 +45,17 @@ public class WechatLoginService {
 
     public WechatLoginService(WechatAuthProperties properties,
             ObjectProvider<WechatAuthorizationProvider> provider, WechatOAuthStateStore states,
-            UserExternalIdentityRepository identities, AuthenticationService authentication,
+            UserExternalIdentityRepository identities, UserAccountRepository accounts,
+            AuthenticationService authentication, AuthProperties authProperties,
             AuthRateLimiter limiter, AuthRateLimitProperties limits, WechatAuthAuditLogger audit,
             PlatformTransactionManager manager) {
         this.properties = properties;
         this.provider = provider;
         this.states = states;
         this.identities = identities;
+        this.accounts = accounts;
         this.authentication = authentication;
+        this.authProperties = authProperties;
         this.limiter = limiter;
         this.limits = limits;
         this.audit = audit;
@@ -97,40 +106,55 @@ public class WechatLoginService {
 
             WechatProviderIdentity providerIdentity = client.exchange(code);
             subject = providerIdentity.subject();
-            UserAccount linked = findLinkedAccount(providerIdentity);
-            if (linked != null) {
-                authentication.establishExternalSession(linked, request, response);
-                audit.record("callback", "signed_in", subject, clientAddress, request);
-                return URI.create(issued.returnTo());
-            }
-
-            session.setAttribute(WechatOAuthStateStore.PENDING_ATTRIBUTE,
-                    new PendingWechatIdentity(providerIdentity.clientId(), subject,
-                            Instant.now().plus(properties.bindingTtl()), issued.locale(), issued.returnTo()));
-            audit.record("callback", "binding_required", subject, clientAddress, request);
-            return UriComponentsBuilder.fromPath("/" + issued.locale() + "/login")
-                    .queryParam("mode", "wechat-bind")
-                    .queryParam("returnTo", issued.returnTo())
-                    .build().encode().toUri();
+            UserAccount account = findOrCreateAccount(providerIdentity, issued.locale());
+            authentication.establishExternalSession(account, request, response);
+            audit.record("callback", "signed_in", subject, clientAddress, request);
+            return URI.create(issued.returnTo());
         } catch (ApiException exception) {
             audit.record("callback", exception.getCode(), subject, clientAddress, request);
             return issued == null ? defaultFailureRedirect() : loginRedirect(issued, "failed");
         }
     }
 
-    private UserAccount findLinkedAccount(WechatProviderIdentity providerIdentity) {
-        return transaction.execute(status -> identities.findDetailed(
+    private UserAccount findOrCreateAccount(WechatProviderIdentity providerIdentity, String locale) {
+        try {
+            return transaction.execute(status -> identities.findDetailed(
                 ExternalIdentityProvider.WECHAT, providerIdentity.clientId(), providerIdentity.subject())
                 .map(identity -> {
-                    UserAccount account = identity.getUserAccount();
-                    if (account.getStatus() != UserAccountStatus.ACTIVE || account.getDeletedAt() != null) {
-                        throw new ApiException(HttpStatus.FORBIDDEN, "WECHAT_ACCOUNT_UNAVAILABLE",
-                                "Account cannot sign in");
-                    }
-                    identity.markLogin(OffsetDateTime.now());
+                    UserAccount account = active(identity.getUserAccount());
+                    identity.updateProfile(providerIdentity.displayName(), providerIdentity.avatarUrl(), OffsetDateTime.now());
                     identities.saveAndFlush(identity);
                     return account;
-                }).orElse(null));
+                }).orElseGet(() -> {
+                    if (!authProperties.registrationEnabled()) {
+                        throw new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "REGISTRATION_UNAVAILABLE",
+                                "Registration is unavailable");
+                    }
+                    UserAccount account = accounts.saveAndFlush(UserAccount.external(
+                            providerIdentity.displayName() != null ? providerIdentity.displayName()
+                                    : ("zh".equals(locale) ? "微信用户" : "WeChat user"),
+                            authProperties.agreementVersion(), authProperties.privacyVersion()));
+                    identities.saveAndFlush(UserExternalIdentity.bind(account, ExternalIdentityProvider.WECHAT,
+                            providerIdentity.clientId(), providerIdentity.subject(), providerIdentity.displayName(),
+                            providerIdentity.avatarUrl(), OffsetDateTime.now()));
+                    return account;
+                }));
+        } catch (DataIntegrityViolationException exception) {
+            UserAccount account = transaction.execute(status -> identities.findDetailed(
+                    ExternalIdentityProvider.WECHAT, providerIdentity.clientId(), providerIdentity.subject())
+                    .map(identity -> active(identity.getUserAccount())).orElse(null));
+            if (account != null) return account;
+            throw new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "AUTH_SERVICE_UNAVAILABLE",
+                    "Authentication service is temporarily unavailable");
+        }
+    }
+
+    private UserAccount active(UserAccount account) {
+        if (account.getStatus() != UserAccountStatus.ACTIVE || account.getDeletedAt() != null) {
+            throw new ApiException(HttpStatus.FORBIDDEN, "WECHAT_ACCOUNT_UNAVAILABLE",
+                    "Account cannot sign in");
+        }
+        return account;
     }
 
     private WechatAuthorizationProvider client() {

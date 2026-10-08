@@ -97,7 +97,7 @@ test("localizes a university identity for English pages", () => {
   assert.ok(university);
   assert.deepEqual(localizeUniversity(university, "en"), {
     name: "Sunway University",
-    secondaryName: "双威大学",
+    secondaryName: undefined,
     country: "Malaysia",
     city: "Bandar Sunway",
   });
@@ -124,8 +124,14 @@ test("every reviewed university has bilingual comparison and introduction data",
   for (const university of UNIVERSITY_CATALOG) {
     const profile = universityProfile(university.id);
     assert.ok(profile, `${university.id} profile is missing`);
-    assert.ok(profile.introductionZh.length > 20, `${university.id} Chinese introduction is incomplete`);
-    assert.ok(profile.introductionEn.length > 20, `${university.id} English introduction is incomplete`);
+    assert.ok(profile.introductionZh.length > 55, `${university.id} Chinese introduction is incomplete`);
+    assert.ok(profile.introductionEn.length > 130, `${university.id} English introduction is incomplete`);
+    if (!university.nameZh.includes(university.cityZh)) {
+      assert.equal(profile.introductionZh.includes(university.cityZh), false, `${university.id} Chinese introduction repeats the header location`);
+    }
+    if (!university.nameEn.toLowerCase().includes(university.cityEn.toLowerCase())) {
+      assert.equal(profile.introductionEn.toLowerCase().includes(university.cityEn.toLowerCase()), false, `${university.id} English introduction repeats the header location`);
+    }
     assert.ok(profile.subjectsZh.length >= 3, `${university.id} Chinese subjects are incomplete`);
     assert.equal(profile.subjectsZh.length, profile.subjectsEn.length, `${university.id} subject translations do not match`);
   }

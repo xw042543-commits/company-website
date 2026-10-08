@@ -5,6 +5,7 @@ import { FormProgress } from "@/components/form-progress";
 import { applicationLevelLabel } from "@/data/company-profile";
 import { submitConsultation, type ConsultationRequest } from "@/lib/consultation-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
+import { recordConsultation } from "@/lib/consultation-history";
 import { Locale, levels, words } from "@/lib/site";
 
 type FormStatus = { tone: "success" | "error"; text: string } | null;
@@ -13,7 +14,7 @@ function optional(data: FormData, key: string) {
   return String(data.get(key) ?? "").trim() || null;
 }
 
-export function ConsultationForm({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
+export function ConsultationForm({ locale, compact = false, initialSchool = "", initialCourse = "" }: { locale: Locale; compact?: boolean; initialSchool?: string; initialCourse?: string }) {
   const [completed, setCompleted] = useState(0);
   const [pending, setPending] = useState(false);
   const [status, setStatus] = useState<FormStatus>(null);
@@ -46,6 +47,12 @@ export function ConsultationForm({ locale, compact = false }: { locale: Locale; 
     const result = await submitConsultation(browserApiBaseUrl(), body);
     setPending(false);
     if (result.status === "submitted") {
+      recordConsultation({
+        referenceCode: result.referenceCode,
+        submittedAt: new Date().toISOString(),
+        ...(body.intendedSchool ? { intendedSchool: body.intendedSchool } : {}),
+        ...(body.intendedCourse ? { intendedCourse: body.intendedCourse } : {}),
+      });
       form.reset();
       setCompleted(0);
       setStatus({
@@ -70,8 +77,8 @@ export function ConsultationForm({ locale, compact = false }: { locale: Locale; 
     <div className="form-grid" aria-describedby="form-availability">
       <div className="field"><label htmlFor="name">{words(locale, "姓名", "Name")}</label><input id="name" name="name" autoComplete="name" maxLength={100} required /></div>
       <div className="field"><label htmlFor="contact">{words(locale, "手机或微信", "Phone number or WeChat")}</label><input id="contact" name="contact" autoComplete="tel" maxLength={100} required /></div>
-      {!compact && <><div className="field"><label htmlFor="school">{words(locale, "意向学校", "Intended university")}</label><input id="school" name="intendedSchool" maxLength={200} autoComplete="off" /></div>
-      <div className="field"><label htmlFor="course">{words(locale, "意向专业", "Intended course")}</label><input id="course" name="intendedCourse" maxLength={200} autoComplete="off" /></div>
+      {!compact && <><div className="field"><label htmlFor="school">{words(locale, "意向学校", "Intended university")}</label><input id="school" name="intendedSchool" maxLength={200} autoComplete="off" defaultValue={initialSchool} /></div>
+      <div className="field"><label htmlFor="course">{words(locale, "意向专业", "Intended course")}</label><input id="course" name="intendedCourse" maxLength={200} autoComplete="off" defaultValue={initialCourse} /></div>
       <div className="field"><label htmlFor="qualification">{words(locale, applicationLevelLabel.zh, applicationLevelLabel.en)}</label><select id="qualification" name="qualification" defaultValue=""><option value="">{words(locale, "请选择", "Please select")}</option>{levels.map(([id, zh, en]) => <option key={id} value={id}>{words(locale, zh, en)}</option>)}</select></div></>}
     </div>
     <div className="field"><label htmlFor="notes">{words(locale, compact ? "感兴趣的学历、专业或院校" : "备注", compact ? "Qualification, subject, or university of interest" : "Notes")}</label><textarea id="notes" name="notes" rows={compact ? 3 : 5} maxLength={2000} autoComplete="off" /></div>

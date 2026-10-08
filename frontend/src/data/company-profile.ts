@@ -25,6 +25,10 @@ export const companyProfile = {
   registrationNumber: "91371700MADNR7DM05",
   domain: "yangdoujiao.com",
   publicEmail: "bertram@staff.udajo.com",
+  socialProfiles: {
+    xiaohongshu: "https://xhslink.cn/o/1LJUVW7yRyw",
+    douyin: "https://v.douyin.com/dIMeK5xqBAY/",
+  },
   responseTime: {
     zh: "1 个工作日内",
     en: "within one working day",
@@ -39,7 +43,7 @@ export const companyProfile = {
 
 export const applicationLevelLabel = {
   zh: "计划申请的学历层次",
-  en: "Level you plan to apply for",
+  en: "Qualification you plan to apply for",
 } as const;
 
 export const publicAdvisers: PublicAdviser[] = [

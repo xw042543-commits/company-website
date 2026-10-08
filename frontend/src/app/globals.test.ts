@@ -12,6 +12,24 @@ const filterPanel = readFileSync(fileURLToPath(new URL("../components/filter-pan
 const comparisonTray = readFileSync(fileURLToPath(new URL("../components/comparison-tray.tsx", import.meta.url)), "utf8");
 const saveToggle = readFileSync(fileURLToPath(new URL("../components/save-toggle.tsx", import.meta.url)), "utf8");
 const searchAutocomplete = readFileSync(fileURLToPath(new URL("../components/search-autocomplete.tsx", import.meta.url)), "utf8");
+const programmePage = readFileSync(fileURLToPath(new URL("./[locale]/universities/[slug]/programmes/[programmeId]/page.tsx", import.meta.url)), "utf8");
+const universityDetailPage = readFileSync(fileURLToPath(new URL("./[locale]/universities/[slug]/page.tsx", import.meta.url)), "utf8");
+const companyContacts = readFileSync(fileURLToPath(new URL("../components/company-contacts.tsx", import.meta.url)), "utf8");
+
+test("adviser console keeps master-detail information readable and responsive", () => {
+  for (const selector of [".adviser-console-shell", ".adviser-collection-state", ".adviser-master-detail",
+    ".adviser-records", ".adviser-record", ".adviser-system-info"]) {
+    assert.match(css, new RegExp(selector.replace(".", "\\.")));
+  }
+  assert.match(css, /\.adviser-master-detail\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(320px,\s*0\.72fr\)/);
+  assert.match(css, /\.adviser-detail\s*\{[^}]*position:\s*sticky/);
+  assert.match(css, /\.adviser-record[^{]*\{[^}]*overflow-wrap:\s*anywhere/);
+  assert.match(css, /\.adviser-portal [^{]*:focus-visible/);
+  assert.match(css, /\.adviser-notes\s*\{[^}]*white-space:\s*pre-wrap/);
+  assert.match(css, /@media \(max-width:\s*800px\)[\s\S]*?\.adviser-master-detail\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+  assert.match(css, /@media \(max-width:\s*800px\)[\s\S]*?min-height:\s*44px/);
+  assert.match(css, /@media \(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.adviser-record/);
+});
 
 test("global styles cover the rendered header and homepage layout", () => {
   for (const selector of [
@@ -33,6 +51,22 @@ test("global styles cover the rendered header and homepage layout", () => {
   }
 
   assert.match(css, /\.hero-intro\s*\{[\s\S]*?font-size:\s*clamp\(1\.03rem,\s*1\.35vw,\s*1\.16rem\)/);
+});
+
+test("contact directory uses a lead contact and balanced adviser grid", () => {
+  assert.match(companyContacts, /contact-card-primary/);
+  assert.match(companyContacts, /contact-card-identity/);
+  assert.match(css, /\.contact-card-grid\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(css, /\.contact-card-primary\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/);
+  assert.match(css, /\.contact-qr\s*\{[^}]*border-left:\s*1px solid/);
+  assert.match(css, /@media \(max-width:\s*520px\)[\s\S]*?\.contact-qr\s*\{[^}]*border-left:\s*0/);
+});
+
+test("contact directory keeps adviser details readable", () => {
+  assert.match(css, /\.contact-card h3\s*\{[^}]*font-size:\s*1\.28rem;[^}]*line-height:\s*1\.35/);
+  assert.match(css, /\.contact-methods > div\s*\{[^}]*min-height:\s*64px;[^}]*font-size:\s*\.9rem/);
+  assert.match(css, /\.contact-methods dd\s*\{[^}]*font-size:\s*\.94rem;[^}]*line-height:\s*1\.5/);
+  assert.match(css, /\.contact-card-primary \.contact-methods > div\s*\{[^}]*display:\s*block;[^}]*padding:\s*18px 0 10px/);
 });
 
 test("public homepage uses a compact enquiry desk and responsive university cards", () => {
@@ -118,6 +152,9 @@ test("account workspace uses restrained warm accents", () => {
   assert.match(css, /\.account-summary\s*\{[^}]*border-color:\s*#decf9d[^}]*linear-gradient/);
   assert.match(css, /\.saved-items-section\s*\{[^}]*background:\s*linear-gradient/);
   assert.match(css, /\.saved-items-heading > span\s*\{[^}]*background:\s*#c9a653/);
+  assert.match(css, /\.shortlist-summary\s*\{[^}]*grid-template-columns:\s*repeat\(3/);
+  assert.match(css, /\.saved-plan-fields\s*\{[^}]*display:\s*grid/);
+  assert.match(css, /\.consultation-history li\s*\{[^}]*grid-template-columns:/);
 });
 
 test("autocomplete suggestions keep words intact while highlighting matches", () => {
@@ -133,9 +170,9 @@ test("signed-in homepage uses the approved positioning with a restrained action 
   assert.match(memberHome, /科学规划留学院校专业/);
   assert.match(memberHome, /科学定位留学人生发展/);
   assert.match(memberHome, /Explore · Compare · Decide/);
-  assert.match(memberHome, /Plan your study journey with confidence/);
-  assert.match(memberHome, /Find universities and programmes that fit your goals\./);
-  assert.match(memberHome, /Get clear guidance from planning through application\./);
+  assert.match(memberHome, /Find the right university and programme/);
+  assert.match(memberHome, /Compare universities, programmes and entry requirements\./);
+  assert.match(memberHome, /Plan your next steps with support from an adviser\./);
   assert.doesNotMatch(memberHome, /The world’s first all-in-one platform for international students/);
   assert.doesNotMatch(memberHome, /把留学目标变成清晰的行动计划/);
   assert.match(memberHome, /\/universities\/campuses\/apu-campus\.webp/);
@@ -160,7 +197,11 @@ test("featured university actions use solid buttons without arrows", () => {
 test("member search panel reserves its full height instead of being covered by the next section", () => {
   const panelRule = css.match(/\.member-search-panel\s*\{([^}]*)\}/)?.[1] ?? "";
   assert.doesNotMatch(panelRule, /transform:\s*translateY/);
-  assert.match(css, /\.member-search-band\s*\{[^}]*padding-block:\s*26px/);
+  assert.match(memberHome, /className="member-home-intro"/);
+  assert.match(css, /\.member-home-intro\s*\{[^}]*background:\s*linear-gradient/);
+  assert.match(css, /\.member-home-hero\s*\{[^}]*background:\s*transparent/);
+  assert.match(css, /\.member-search-band\s*\{[^}]*padding-block:\s*26px[^}]*background:\s*transparent/);
+  assert.doesNotMatch(css.match(/\.member-search-band\s*\{([^}]*)\}/)?.[1] ?? "", /border-block/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.member-search-band\s*\{[^}]*padding-block:\s*22px/);
 });
 
@@ -175,10 +216,44 @@ test("sticky header uses restrained dimensional styling", () => {
   assert.match(css, /\.site-header \.login-link\s*\{[\s\S]*?box-shadow:/);
 });
 
-test("benefit cards use an even two-column alignment", () => {
-  assert.match(css, /\.benefits\s*\{[^}]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
-  assert.match(css, /\.benefits\s*\{[^}]*grid-auto-rows:\s*minmax\(140px,\s*auto\)/);
-  assert.doesNotMatch(css, /\.benefits article:nth-child/);
+test("university directory search stays opaque and flush beneath the header", () => {
+  assert.match(css, /\.directory-search-sticky\s*\{[^}]*position:\s*sticky;[^}]*z-index:\s*5;[^}]*top:\s*82px/);
+  assert.match(css, /\.directory-search-sticky\s*\{[^}]*background:\s*var\(--paper\)/);
+  assert.doesNotMatch(css, /\.directory-search-sticky\s*\{[^}]*color-mix\([^}]*transparent/);
+  assert.match(css, /@media \(max-width:\s*1400px\)[\s\S]*?\.directory-search-sticky\s*\{[^}]*top:\s*80px/);
+});
+
+test("benefits use a colorful four-point layout that responds without cards", () => {
+  assert.match(css, /\.benefits\s*\{[^}]*grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(css, /\.benefits \.benefit-visible\s*\{[^}]*--benefit-accent:/);
+  assert.match(css, /\.benefits \.benefit-fair\s*\{[^}]*--benefit-accent:/);
+  assert.match(css, /\.benefits \.benefit-support\s*\{[^}]*--benefit-accent:/);
+  assert.match(css, /@media \(max-width:\s*520px\)[\s\S]*?\.benefits\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+});
+
+test("application process uses five colorful connected milestones", () => {
+  assert.match(css, /\.process\s*\{[^}]*grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(css, /\.process-step-advise\s*\{[^}]*--step-accent:/);
+  assert.match(css, /\.process-step-arrive\s*\{[^}]*--step-accent:/);
+  assert.match(css, /\.process-step:not\(:last-child\)::after/);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.process\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+});
+
+test("university profiles keep identity, facts, and introduction clear", () => {
+  assert.match(universityDetailPage, /className="university-identity-logo"/);
+  assert.match(universityDetailPage, /className="university-summary-panel"/);
+  assert.match(universityDetailPage, /className="university-fact-strip"/);
+  assert.match(universityDetailPage, /university-overview-grid/);
+  assert.match(universityDetailPage, /className="enquiry-card-label"/);
+  assert.doesNotMatch(universityDetailPage, /university-hero-orbit|Meet your next university|认识你的下一所大学/);
+  assert.doesNotMatch(universityDetailPage, /university-overview-subjects|浏览课程|Explore programmes/);
+  assert.match(css, /\.university-detail-header\s*\{[^}]*grid-template-columns:[^}]*border-top:\s*4px solid var\(--support-navy\)/);
+  assert.match(css, /\.university-detail-heading h1\s*\{[^}]*color:\s*var\(--support-navy\)/);
+  assert.match(css, /\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*repeat\(3/);
+  assert.match(css, /\.university-overview-grid\.has-photo\s*\{[^}]*grid-template-columns:/);
+  assert.match(css, /\.university-overview-grid\.no-photo\s*\{[^}]*width:\s*100%[^}]*border:\s*0[^}]*background:\s*transparent/);
+  assert.match(css, /\.university-overview-grid\.no-photo \.university-overview-copy\s*\{[^}]*padding:\s*0[^}]*background:\s*transparent/);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.university-fact-strip\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
 });
 
 test("catalog filters stay compact and removable across tablet layouts", () => {
@@ -193,4 +268,52 @@ test("comparison tray stays viewport-fixed and adapts on small screens", () => {
   assert.match(comparisonTray, /document\.body/);
   assert.match(css, /\.comparison-tray\s*\{[^}]*position:\s*fixed/);
   assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.comparison-tray\s*\{/);
+});
+
+test("programme detail hero keeps its copy, actions, and campus image aligned on small screens", () => {
+  assert.match(programmePage, /getUniversityProgramme/);
+  assert.match(programmePage, /findLocalProgrammeBySlug/);
+  assert.match(css, /\.programme-hero-copy > h1\s*\{[^}]*overflow-wrap:\s*anywhere;[^}]*text-wrap:\s*balance/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.programme-hero-actions\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\) auto/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.programme-hero-visual\.has-photo\s*\{[^}]*aspect-ratio:\s*16 \/ 9/);
+  assert.match(css, /@media \(max-width: 390px\)[\s\S]*?\.programme-hero-actions\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
+  assert.match(programmePage, /className="programme-section-nav"/);
+  assert.match(programmePage, /"介绍", "Introduction"/);
+  assert.match(programmePage, /"基本信息", "Course details"/);
+  assert.match(programmePage, /"录取要求", "Entry requirements"/);
+  assert.match(programmePage, /"课程安排", "Programme structure"/);
+  assert.match(programmePage, /"未来职业方向", "Career directions"/);
+  assert.doesNotMatch(programmePage, /className="programme-header-facts"/);
+  assert.match(programmePage, /"收藏课程", "Save programme"/);
+  assert.match(programmePage, /className="programme-data-table programme-essential-table"/);
+  assert.match(programmePage, /className="programme-trust-summary"/);
+  assert.match(programmePage, /"参考学费", "Indicative tuition"/);
+  assert.match(programmePage, /"学制", "Duration"/);
+  assert.match(programmePage, /"授课语言", "Teaching language"/);
+  assert.match(programmePage, /"授课方式", "Study mode"/);
+  assert.ok(programmePage.indexOf('id="overview"') < programmePage.indexOf('id="basic-information"'));
+  assert.ok(programmePage.indexOf('id="basic-information"') < programmePage.indexOf('id="requirements"'));
+  assert.ok(programmePage.indexOf('id="requirements"') < programmePage.indexOf('id="programme-structure"'));
+  assert.ok(programmePage.indexOf('id="programme-structure"') < programmePage.indexOf('id="careers"'));
+  assert.match(css, /\.programme-trust-summary\s*\{[^}]*grid-template-columns:\s*repeat\(2/);
+  assert.match(programmePage, /className="programme-applicant-note"/);
+  assert.doesNotMatch(programmePage, /"中国学生", "Applicants from China"/);
+  assert.doesNotMatch(programmePage, /label=\{words\(locale, "注册费"/);
+  assert.match(css, /\.programme-data-table\s*\{[^}]*border-collapse:\s*collapse/);
+  assert.match(programmePage, /className="programme-mobile-actions"/);
+  assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.programme-mobile-actions\s*\{[^}]*position:\s*fixed/);
+});
+
+test("footer uses a spacious editorial layout with responsive link columns", () => {
+  assert.match(css, /\.site-footer\s*\{[^}]*background:\s*#f7f3e9/);
+  assert.match(css, /\.footer-main\s*\{[^}]*grid-template-columns:/);
+  assert.match(css, /\.footer-navigation\s*\{[^}]*grid-template-columns:\s*repeat\(3/);
+  assert.match(css, /\.footer-socials > a[^}]*border-radius:\s*50%/);
+  assert.match(css, /@media \(max-width: 520px\)[\s\S]*?\.footer-navigation\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/);
+});
+
+test("university result cards keep logos compact at narrow desktop and mobile widths", () => {
+  assert.match(css, /@media \(max-width: 520px\)[\s\S]*?\.school-card\s*\{[^}]*grid-template-columns:\s*88px minmax\(0,\s*1fr\)/);
+  assert.match(css, /@media \(max-width: 520px\)[\s\S]*?\.school-image\s*\{[^}]*width:\s*88px;[^}]*height:\s*88px/);
+  assert.doesNotMatch(css, /@media \(max-width: 520px\)[\s\S]*?\.school-image\s*\{[^}]*height:\s*150px/);
 });

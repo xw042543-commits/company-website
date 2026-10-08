@@ -12,7 +12,8 @@ function unique(values: string[]) {
 }
 
 export function courseSuggestions(locale: SearchLocale): string[] {
-  return [...COURSE_SUGGESTIONS[locale]];
+  const secondaryLocale: SearchLocale = locale === "zh" ? "en" : "zh";
+  return unique([...COURSE_SUGGESTIONS[locale], ...COURSE_SUGGESTIONS[secondaryLocale]]);
 }
 
 export function matchingSuggestions(suggestions: string[], query: string, limit = 7): string[] {

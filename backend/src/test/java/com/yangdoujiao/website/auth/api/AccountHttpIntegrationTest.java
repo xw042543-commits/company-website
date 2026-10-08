@@ -47,9 +47,35 @@ class AccountHttpIntegrationTest {
                 .andExpect(jsonPath("$.email").value("a***@example.com"))
                 .andExpect(jsonPath("$.emailVerified").value(true))
                 .andExpect(jsonPath("$.phoneVerified").value(false))
+                .andExpect(jsonPath("$.wechatLinked").value(false))
+                .andExpect(jsonPath("$.wechatDisplayName").doesNotExist())
+                .andExpect(jsonPath("$.wechatAvatarUrl").doesNotExist())
+                .andExpect(jsonPath("$.wechatLastLoginAt").doesNotExist())
                 .andExpect(jsonPath("$.createdAt").exists())
                 .andExpect(jsonPath("$.passwordHash").doesNotExist())
                 .andExpect(jsonPath("$.agreementVersion").doesNotExist());
+    }
+
+    @Test
+    void profileShowsWechatConnectionWithoutExposingProviderIdentifiers() throws Exception {
+        String email = email();
+        long id = createAccount(email);
+        OffsetDateTime linkedAt = OffsetDateTime.parse("2026-10-06T08:30:00Z");
+        jdbc.update("""
+                INSERT INTO user_external_identities
+                    (user_account_id, provider, provider_client_id, provider_subject,
+                     display_name, avatar_url, created_at, last_login_at)
+                VALUES (?, 'WECHAT', 'wechat-app', 'private-wechat-subject', ?, ?, ?, ?)
+                """, id, "小王", "https://thirdwx.qlogo.cn/mmopen/example/132", linkedAt, linkedAt);
+        Cookie session = login(email);
+
+        mvc.perform(get("/api/v1/account").cookie(session)).andExpect(status().isOk())
+                .andExpect(jsonPath("$.wechatLinked").value(true))
+                .andExpect(jsonPath("$.wechatDisplayName").value("小王"))
+                .andExpect(jsonPath("$.wechatAvatarUrl").value("https://thirdwx.qlogo.cn/mmopen/example/132"))
+                .andExpect(jsonPath("$.wechatLastLoginAt").value("2026-10-06T08:30:00Z"))
+                .andExpect(jsonPath("$.providerSubject").doesNotExist())
+                .andExpect(jsonPath("$.providerClientId").doesNotExist());
     }
 
     @Test

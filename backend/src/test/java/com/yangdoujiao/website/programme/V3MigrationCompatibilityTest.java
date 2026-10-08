@@ -49,12 +49,42 @@ class V3MigrationCompatibilityTest {
                             "status", "DRAFT"
                     ));
 
+            flywayFor(postgres, "10").migrate();
+            Long accountId = jdbcTemplate.queryForObject("""
+                    INSERT INTO user_accounts (
+                        full_name, normalized_email, password_hash, status, agreement_version, privacy_version
+                    ) VALUES ('Legacy adviser', 'legacy-adviser@example.test', 'hash', 'ACTIVE', 'terms-v1', 'privacy-v1')
+                    RETURNING id
+                    """, Long.class);
+            Long enquiryId = jdbcTemplate.queryForObject("""
+                    INSERT INTO consultation_enquiries (
+                        reference_code, name, contact, locale, privacy_consent, privacy_notice_version, created_at
+                    ) VALUES (gen_random_uuid(), 'Legacy enquiry', 'legacy-contact', 'zh', TRUE, 'privacy-v1',
+                              '2026-01-01T10:00:00Z')
+                    RETURNING id
+                    """, Long.class);
+
             Flyway latest = Flyway.configure()
                     .dataSource(postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword())
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("12");
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("15");
+            assertThat(jdbcTemplate.queryForObject(
+                    "SELECT role FROM user_accounts WHERE id = ?", String.class, accountId)).isEqualTo("USER");
+            assertThat(jdbcTemplate.queryForMap("""
+                    SELECT status, version, status_updated_at = created_at AS timestamp_preserved,
+                           status_updated_by_user_id IS NULL AS no_updater
+                    FROM consultation_enquiries WHERE id = ?
+                    """, enquiryId)).containsExactlyInAnyOrderEntriesOf(Map.of(
+                    "status", "NEW", "version", 0L, "timestamp_preserved", true, "no_updater", true
+            ));
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT count(*) FROM information_schema.columns
+                    WHERE table_schema = 'public'
+                      AND table_name = 'user_external_identities'
+                      AND column_name IN ('display_name', 'avatar_url')
+                    """, Integer.class)).isEqualTo(2);
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT COUNT(*) FROM universities WHERE slug = 'university-of-malaya'
                     """, Integer.class)).isEqualTo(1);

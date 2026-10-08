@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 import java.net.URI;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,8 +17,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.SimpleTransactionStatus;
+import org.springframework.util.unit.DataSize;
 
+import com.yangdoujiao.website.auth.account.UserAccountRepository;
+import com.yangdoujiao.website.auth.config.AuthProperties;
 import com.yangdoujiao.website.auth.config.AuthRateLimitProperties;
+import com.yangdoujiao.website.auth.external.ExternalIdentityProvider;
 import com.yangdoujiao.website.auth.external.UserExternalIdentityRepository;
 import com.yangdoujiao.website.auth.ratelimit.AuthRateLimiter;
 import com.yangdoujiao.website.auth.session.AuthenticationService;
@@ -26,6 +34,9 @@ import com.yangdoujiao.website.common.exception.ApiException;
 class WechatLoginServiceTest {
     private final WechatAuthorizationProvider provider = mock(WechatAuthorizationProvider.class);
     private final WechatAuthAuditLogger audit = mock(WechatAuthAuditLogger.class);
+    private final UserExternalIdentityRepository identities = mock(UserExternalIdentityRepository.class);
+    private final UserAccountRepository accounts = mock(UserAccountRepository.class);
+    private final AuthenticationService authentication = mock(AuthenticationService.class);
     private WechatLoginService service;
     private WechatOAuthStateStore states;
 
@@ -38,12 +49,18 @@ class WechatLoginServiceTest {
         states = new WechatOAuthStateStore(properties);
         ObjectProvider<WechatAuthorizationProvider> providers = mock(ObjectProvider.class);
         when(providers.getIfAvailable()).thenReturn(provider);
+        when(accounts.saveAndFlush(org.mockito.ArgumentMatchers.any()))
+                .thenAnswer(invocation -> invocation.getArgument(0));
         service = new WechatLoginService(properties, providers, states,
-                mock(UserExternalIdentityRepository.class), mock(AuthenticationService.class),
+                identities, accounts, authentication, new AuthProperties(
+                        true, false, "test-terms-v1", "test-privacy-v1",
+                        Duration.ofHours(24), Duration.ofDays(30), Duration.ofMinutes(30),
+                        Duration.ofMinutes(10), Duration.ofMinutes(30), DataSize.ofKilobytes(8),
+                        new String[0]),
                 mock(AuthRateLimiter.class), new AuthRateLimitProperties(
                         5, 5, 5, 5, 5, 5, 5, 5, 5,
                         Duration.ofSeconds(60), Duration.ofMinutes(10)),
-                audit, mock(PlatformTransactionManager.class));
+                audit, new ImmediateTransactionManager());
     }
 
     @Test
@@ -89,5 +106,34 @@ class WechatLoginServiceTest {
         assertThat(issued.locale()).isEqualTo("en");
         assertThat(issued.returnTo()).isEqualTo("/en/account");
         verify(audit).record("qr_config", "issued", null, "127.0.0.1", request);
+    }
+
+    @Test
+    void firstWechatAuthorizationSignsInInsteadOfRedirectingToAccountBinding() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        String state = states.issue(request.getSession(true), "zh", "/zh/account", Instant.now());
+        when(provider.exchange("new-code")).thenReturn(new WechatProviderIdentity("wx-app", "new-subject"));
+        when(identities.findDetailed(ExternalIdentityProvider.WECHAT, "wx-app", "new-subject"))
+                .thenReturn(Optional.empty());
+
+        URI redirect = service.callback("new-code", state, null, "127.0.0.1",
+                request, new MockHttpServletResponse());
+
+        assertThat(redirect).isEqualTo(URI.create("/zh/account"));
+    }
+
+    private static final class ImmediateTransactionManager implements PlatformTransactionManager {
+        @Override
+        public TransactionStatus getTransaction(TransactionDefinition definition) {
+            return new SimpleTransactionStatus();
+        }
+
+        @Override
+        public void commit(TransactionStatus status) {
+        }
+
+        @Override
+        public void rollback(TransactionStatus status) {
+        }
     }
 }

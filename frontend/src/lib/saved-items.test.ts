@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { readSavedItems, SAVED_ITEMS_EVENT, toggleSavedItem, writeSavedItems, type SavedItem } from "./saved-items.ts";
+import { readSavedItems, SAVED_ITEMS_EVENT, toggleSavedItem, updateSavedItemPlan, writeSavedItems, type SavedItem } from "./saved-items.ts";
 
 function installBrowserStorage() {
   let value: string | null = null;
@@ -39,4 +39,13 @@ test("saved items deduplicate, toggle, and notify the interface", () => {
   assert.equal(storage.events.at(-1)?.type, SAVED_ITEMS_EVENT);
   assert.deepEqual(toggleSavedItem(university), []);
   assert.deepEqual(toggleSavedItem(university), [university]);
+});
+
+test("saved programme planning keeps the item and updates its next step", () => {
+  installBrowserStorage();
+  const programme: SavedItem = { key: "programme:um:1", kind: "programme", name: "Bachelor of Law", path: "/en/programme" };
+  writeSavedItems([programme]);
+  assert.deepEqual(updateSavedItemPlan(programme.key, { stage: "checking", targetIntake: "September 2027" }), [
+    { ...programme, plan: { stage: "checking", targetIntake: "September 2027" } },
+  ]);
 });

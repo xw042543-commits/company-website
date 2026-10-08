@@ -2,9 +2,12 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { courseSuggestions, matchingSuggestions, universitySuggestions } from "./search-suggestions.ts";
 
-test("course suggestions are localized and useful", () => {
-  assert.ok(courseSuggestions("en").includes("Computer Science"));
-  assert.ok(courseSuggestions("zh").includes("计算机科学"));
+test("course suggestions support Chinese and English in either locale", () => {
+  for (const locale of ["en", "zh"] as const) {
+    const suggestions = courseSuggestions(locale);
+    assert.ok(suggestions.includes("Computer Science"));
+    assert.ok(suggestions.includes("计算机科学"));
+  }
 });
 
 test("university suggestions include reviewed names, aliases, and location terms", () => {
