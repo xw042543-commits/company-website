@@ -82,6 +82,7 @@ export function createHttpClient(
           }
           resolve(result);
         };
+        const finishUnexpectedFailure = () => finish(failure('unexpected', 'REQUEST_FAILED'));
         const supersede = () => {
           const task = currentTask;
           finish(failure('unexpected', 'REQUEST_SUPERSEDED'));
@@ -128,11 +129,13 @@ export function createHttpClient(
             ...(options.data === undefined ? {} : { data: options.data }),
             header,
             timeout: runtime.requestTimeoutMs,
-            success: (response) => { void handleResult(mapResponse<T>(response), retried); },
+            success: (response) => {
+              void handleResult(mapResponse<T>(response), retried).catch(finishUnexpectedFailure);
+            },
             fail: () => finish(failure('unavailable', 'NETWORK_UNAVAILABLE')),
           });
         };
-        void attempt(false);
+        void attempt(false).catch(finishUnexpectedFailure);
       });
     },
   };

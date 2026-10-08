@@ -239,3 +239,71 @@ test('application requests share keyed ownership and use the latest authenticati
     else Reflect.deleteProperty(globalThis, 'wx');
   }
 });
+
+for (const token of [null, 'expired'] as const) {
+  test(`settles a rejecting unauthorized handler with ${token === null ? 'a missing token' : 'HTTP 401'} and releases its key`, async () => {
+    let currentToken: string | null = token;
+    let aborts = 0;
+    const client = createHttpClient(
+      resolveRuntimeConfig('production'),
+      (options) => {
+        options.success({
+          statusCode: currentToken === 'fresh' ? 200 : 401,
+          data: { id: 7 }, header: {}, cookies: [],
+        });
+        return { abort() { aborts += 1; } };
+      },
+      () => currentToken,
+      async () => { throw new Error('private refresh storage failure'); },
+    );
+    const options = {
+      method: 'GET', path: '/api/v1/miniapp/account', authenticated: true, requestKey: 'account',
+    } as const;
+
+    const result = await Promise.race([
+      client.request(options),
+      new Promise<'PENDING'>((resolve) => { setImmediate(() => resolve('PENDING')); }),
+    ]);
+
+    assert.deepEqual(result, {
+      ok: false, error: { kind: 'unexpected', code: 'REQUEST_FAILED' },
+    });
+    currentToken = 'fresh';
+    assert.deepEqual(await client.request(options), { ok: true, value: { id: 7 } });
+    assert.equal(aborts, 0);
+  });
+}
+
+for (const provider of ['transport', 'token reader'] as const) {
+  test(`settles a throwing ${provider} with a sanitized error and releases its key`, async () => {
+    let shouldThrow = true;
+    let aborts = 0;
+    const client = createHttpClient(
+      resolveRuntimeConfig('production'),
+      (options) => {
+        if (shouldThrow && provider === 'transport') throw new Error('private transport failure');
+        options.success({ statusCode: 200, data: { id: 7 }, header: {}, cookies: [] });
+        return { abort() { aborts += 1; } };
+      },
+      () => {
+        if (shouldThrow && provider === 'token reader') throw new Error('private token failure');
+        return 'fresh';
+      },
+    );
+    const options = {
+      method: 'GET', path: '/api/v1/miniapp/account', authenticated: true, requestKey: 'account',
+    } as const;
+
+    const result = await Promise.race([
+      client.request(options),
+      new Promise<'PENDING'>((resolve) => { setImmediate(() => resolve('PENDING')); }),
+    ]);
+
+    assert.deepEqual(result, {
+      ok: false, error: { kind: 'unexpected', code: 'REQUEST_FAILED' },
+    });
+    shouldThrow = false;
+    assert.deepEqual(await client.request(options), { ok: true, value: { id: 7 } });
+    assert.equal(aborts, 0);
+  });
+}
