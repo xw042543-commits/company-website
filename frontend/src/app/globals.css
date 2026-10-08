@@ -303,7 +303,7 @@ main [id], section[id] { scroll-margin-top: 94px; }
 .member-home-visual-overlay { position: absolute; z-index: 1; left: 22px; bottom: 22px; max-width: calc(100% - 44px); display: grid; gap: 4px; padding: 17px 20px; border: 1px solid rgb(255 255 255 / 22%); border-radius: 13px; background: rgb(18 67 55 / 91%); color: #fffdf7; box-shadow: 0 12px 26px rgb(7 34 28 / 24%); backdrop-filter: blur(10px); }
 .member-home-visual-overlay strong { font-size: 1rem; }
 .member-home-visual-overlay span { color: rgb(255 255 255 / 78%); font-size: .78rem; }
-.member-search-band { padding-block: 26px; border-block: 1px solid #cbdcd6; background: #edf4f1; }
+.member-search-band { padding-block: 26px; border-block: 1px solid #cbdcd6; background: var(--paper); }
 .member-search-panel { position: relative; z-index: 2; width: min(100%, 1320px); display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); align-items: center; gap: clamp(30px, 5vw, 72px); margin-inline: auto; padding: 0; }
 .member-search-panel .home-search { margin: 0; }
 .member-search-panel .home-search label { color: var(--brand-deep); font-size: 1rem; font-weight: 780; }

@@ -197,7 +197,7 @@ test("featured university actions use solid buttons without arrows", () => {
 test("member search panel reserves its full height instead of being covered by the next section", () => {
   const panelRule = css.match(/\.member-search-panel\s*\{([^}]*)\}/)?.[1] ?? "";
   assert.doesNotMatch(panelRule, /transform:\s*translateY/);
-  assert.match(css, /\.member-search-band\s*\{[^}]*padding-block:\s*26px/);
+  assert.match(css, /\.member-search-band\s*\{[^}]*padding-block:\s*26px[^}]*background:\s*var\(--paper\)/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.member-search-band\s*\{[^}]*padding-block:\s*22px/);
 });
 
