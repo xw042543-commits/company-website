@@ -5,6 +5,7 @@ import {
   type UniversityProgramme,
 } from '../../services/universities';
 import { favoriteUniversities } from '../../stores/favorites';
+import { programmeDetailRoute } from '../../utils/routes';
 
 type ViewState = 'loading' | 'ready' | 'failed' | 'offline';
 
@@ -38,8 +39,14 @@ Page({
     this.setData({ favorite });
     wx.showToast({ title: favorite ? '已收藏' : '已取消收藏', icon: 'none' });
   },
-  openProgramme() {
-    wx.showToast({ title: '专业详情将在模块整合后开放', icon: 'none' });
+  openProgramme(event: WechatMiniprogram.BaseEvent) {
+    const id = Number(event.currentTarget.dataset.id);
+    const route = programmeDetailRoute(this.data.slug, id);
+    if (!route.ok) {
+      wx.showToast({ title: '专业资料暂时无法打开', icon: 'none' });
+      return;
+    }
+    wx.navigateTo({ url: route.value });
   },
   consult() {
     wx.showToast({ title: '咨询功能正在接入', icon: 'none' });

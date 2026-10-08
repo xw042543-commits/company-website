@@ -81,6 +81,8 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/miniapp/auth/login",
                                 "/api/v1/miniapp/auth/refresh").permitAll()
+                        .requestMatchers(HttpMethod.GET,
+                                "/api/v1/miniapp/universities/*/programmes/*").permitAll()
                         .requestMatchers("/api/v1/miniapp/**").hasRole("USER")
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
                         .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")

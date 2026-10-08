@@ -16,6 +16,12 @@
     <view class="identity-arrow">›</view>
   </view>
 
+  <view wx:if="{{session.status === 'authenticated'}}" class="overview-grid">
+    <view class="overview-item"><view class="overview-number">{{overview.favorites}}</view><text>专业收藏</text></view>
+    <view class="overview-item"><view class="overview-number">{{overview.plans}}</view><text>留学规划</text></view>
+    <view class="overview-item"><view class="overview-number">{{overview.consultations}}</view><text>咨询记录</text></view>
+  </view>
+
   <view class="menu-card">
     <view
       wx:for="{{menuItems}}"

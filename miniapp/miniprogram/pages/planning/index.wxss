@@ -5,11 +5,11 @@
 .step-track {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .step {
-  width: 150rpx;
+  width: 31%;
   color: var(--color-muted);
   font-size: 22rpx;
   text-align: center;
@@ -126,3 +126,4 @@
   line-height: 1.6;
   text-align: center;
 }
+.button-row{display:flex;gap:16rpx;margin-top:44rpx}.button-row button{flex:1;min-height:88rpx;border-radius:18rpx;font-size:27rpx;font-weight:750}.secondary-action{border:1rpx solid var(--color-line);background:#fff;color:var(--color-action)}.summary-card{margin-top:36rpx;padding:28rpx;border:1rpx solid var(--color-line);border-radius:22rpx;background:#fff}.summary-title{margin-bottom:16rpx;font-size:30rpx;font-weight:800}.summary-row{display:flex;justify-content:space-between;gap:20rpx;padding:18rpx 0;border-top:1rpx solid #e4ede9;color:var(--color-muted);font-size:24rpx}.summary-value{color:var(--color-ink);font-weight:700;text-align:right}

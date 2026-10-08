@@ -3,7 +3,11 @@
     "pages/home/index",
     "pages/universities/index",
     "pages/university-detail/index",
+    "pages/programme-detail/index",
     "pages/planning/index",
+    "pages/plans/index",
+    "pages/favorites/index",
+    "pages/consultations/index",
     "pages/circle/index",
     "pages/account/index"
   ],

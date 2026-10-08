@@ -1,12 +1,16 @@
 package com.yangdoujiao.website.programme;
 
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.yangdoujiao.website.catalog.CategoryStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,10 +23,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "programme_intakes")
+@Table(name = "programme_detail_sections")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ProgrammeIntake {
+public class ProgrammeDetailSection {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,17 +36,24 @@ public class ProgrammeIntake {
     @JoinColumn(name = "programme_id", nullable = false)
     private Programme programme;
 
-    @Column(name = "intake_date")
-    private LocalDate intakeDate;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "section_type", nullable = false, length = 40)
+    private ProgrammeDetailSectionType sectionType;
 
-    @Column(name = "display_text", nullable = false, length = 100)
-    private String displayText;
+    @Column(name = "title_zh", length = 200)
+    private String titleZh;
 
-    @Column(name = "application_deadline")
-    private LocalDate applicationDeadline;
+    @Column(name = "title_en", length = 200)
+    private String titleEn;
 
-    @Column(name = "application_deadline_text", length = 200)
-    private String applicationDeadlineText;
+    @Column(name = "body_zh", columnDefinition = "TEXT")
+    private String bodyZh;
+
+    @Column(name = "body_en", columnDefinition = "TEXT")
+    private String bodyEn;
+
+    @Column(name = "sort_order", nullable = false)
+    private int sortOrder;
 
     @Column(name = "source_url", length = 1000)
     private String sourceUrl;
@@ -50,17 +61,15 @@ public class ProgrammeIntake {
     @Column(name = "source_checked_at")
     private OffsetDateTime sourceCheckedAt;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private CategoryStatus status;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
-    public ProgrammeIntake(
-            Programme programme,
-            LocalDate intakeDate,
-            String displayText
-    ) {
-        this.programme = programme;
-        this.intakeDate = intakeDate;
-        this.displayText = displayText;
-    }
+    @UpdateTimestamp
+    @Column(name = "updated_at", nullable = false)
+    private OffsetDateTime updatedAt;
 }

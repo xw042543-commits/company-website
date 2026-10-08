@@ -1,0 +1,3 @@
+import { getConsultations, type ConsultationRecord } from '../../services/miniapp-data'; import { sessionStore } from '../../stores/session';
+type State='loading'|'ready'|'empty'|'failed';
+Page({data:{state:'loading' as State,items:[] as ConsultationRecord[]},onShow(){void this.load();},retry(){void this.load();},async load(){this.setData({state:'loading' as State});if(!(await sessionStore.ensureAuthenticated()).ok){this.setData({state:'failed' as State});return;}const result=await getConsultations();if(!result.ok){this.setData({state:'failed' as State});return;}this.setData({items:result.value,state:result.value.length?'ready' as State:'empty' as State});}});

@@ -61,6 +61,7 @@
   box-shadow: var(--shadow-card);
   overflow: hidden;
 }
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);margin:-22rpx 28rpx 0;position:relative;z-index:2;border-radius:22rpx;background:#fff;box-shadow:var(--shadow-card);overflow:hidden}.overview-item{display:flex;min-height:118rpx;align-items:center;justify-content:center;flex-direction:column}.overview-item+.overview-item{border-left:1rpx solid var(--color-line)}.overview-number{color:var(--color-action);font-size:34rpx;font-weight:800}.overview-item text{margin-top:7rpx;color:var(--color-muted);font-size:21rpx}
 
 .menu-row {
   display: flex;

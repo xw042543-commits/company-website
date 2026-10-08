@@ -30,6 +30,11 @@ public class ConsultationService {
 
     @Transactional
     public ConsultationResponse submit(ConsultationRequest request) {
+        return submit(request, null);
+    }
+
+    @Transactional
+    public ConsultationResponse submit(ConsultationRequest request, Long userAccountId) {
         if (!submissionEnabled || privacyNoticeVersion.isBlank() || privacyNoticeVersion.length() > 50) {
             throw new ApiException(
                     HttpStatus.SERVICE_UNAVAILABLE,
@@ -51,6 +56,7 @@ public class ConsultationService {
                 privacyNoticeVersion,
                 submittedAt
         );
+        enquiry.attachUser(userAccountId);
         return ConsultationResponse.from(repository.save(enquiry));
     }
 }

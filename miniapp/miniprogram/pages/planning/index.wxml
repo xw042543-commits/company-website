@@ -1,53 +1,21 @@
 <view class="page-shell planning-page">
-  <view class="step-track">
-    <view class="step step--active"><text>1</text><view>基本信息</view></view>
-    <view class="step-line"></view>
-    <view class="step"><text>2</text><view>学术背景</view></view>
-    <view class="step-line"></view>
-    <view class="step"><text>3</text><view>偏好与预算</view></view>
+  <view class="step-track"><view wx:for="{{[1,2,3]}}" wx:key="*this" class="step {{step >= item ? 'step--active' : ''}}"><text>{{item}}</text><view>{{item === 1 ? '基本信息' : item === 2 ? '学术背景' : '偏好与预算'}}</view></view></view>
+  <view class="intro"><view class="page-title">告诉我们的情况</view><view class="page-copy">填写真实意向，后续将用于匹配适合的院校和专业。</view></view>
+  <view wx:if="{{step === 1}}">
+    <view class="form-section"><view class="field-title">你的留学目标</view><view class="choice-grid"><view wx:for="{{studyGoals}}" wx:key="*this" class="choice {{form.goal === item ? 'choice--selected' : ''}}" data-value="{{item}}" bindtap="selectGoal">{{item}}</view></view></view>
+    <view class="form-section"><view class="field-title">感兴趣的专业方向（可多选）</view><view class="tag-grid"><view wx:for="{{subjectOptions}}" wx:key="*this" class="tag-choice {{form.subjects.includes(item) ? 'tag-choice--selected' : ''}}" data-value="{{item}}" bindtap="toggleSubject">{{item}}</view></view></view>
+    <view class="form-section"><view class="field-title">计划留学的国家或地区</view><input class="text-field" value="{{form.country}}" placeholder="请输入国家或地区" data-field="country" bindinput="updateField" /></view>
+    <view class="form-section"><view class="field-title">计划入学时间</view><input class="text-field" value="{{form.intake}}" placeholder="例如：2027 年 9 月" data-field="intake" bindinput="updateField" /></view>
   </view>
-
-  <view class="intro">
-    <view class="page-title">告诉我们的情况</view>
-    <view class="page-copy">填写真实意向，后续将用于匹配适合的院校和专业。</view>
+  <view wx:elif="{{step === 2}}">
+    <view class="form-section"><view class="field-title">目前学历</view><input class="text-field" value="{{form.education}}" placeholder="例如：高中在读／本科毕业" data-field="education" bindinput="updateField" /></view>
+    <view class="form-section"><view class="field-title">成绩情况</view><input class="text-field" value="{{form.grade}}" placeholder="例如：平均分 82／CGPA 3.4" data-field="grade" bindinput="updateField" /></view>
+    <view class="form-section"><view class="field-title">语言成绩</view><input class="text-field" value="{{form.language}}" placeholder="例如：IELTS 6.0／暂未考试" data-field="language" bindinput="updateField" /></view>
   </view>
-
-  <view class="form-section">
-    <view class="field-title">你的留学目标</view>
-    <view class="choice-grid">
-      <view
-        wx:for="{{studyGoals}}"
-        wx:key="*this"
-        class="choice {{selectedGoal === item ? 'choice--selected' : ''}}"
-        data-value="{{item}}"
-        bindtap="selectGoal"
-      >{{item}}</view>
-    </view>
+  <view wx:else>
+    <view class="summary-card"><view class="summary-title">确认你的留学规划</view><view class="summary-row"><text>目标</text><text class="summary-value">{{form.goal}}</text></view><view class="summary-row"><text>方向</text><text class="summary-value">{{form.subjects.join('、') || '未限定'}}</text></view><view class="summary-row"><text>国家／地区</text><text class="summary-value">{{form.country}}</text></view><view class="summary-row"><text>学历背景</text><text class="summary-value">{{form.education}}</text></view></view>
+    <view class="form-section"><view class="field-title">预算范围</view><input class="text-field" value="{{form.budget}}" placeholder="例如：每年 RM 60,000" data-field="budget" bindinput="updateField" /></view>
   </view>
-
-  <view class="form-section">
-    <view class="field-title">你感兴趣的专业方向（可多选）</view>
-    <view class="tag-grid">
-      <view
-        wx:for="{{subjectOptions}}"
-        wx:key="*this"
-        class="tag-choice {{selectedSubjects.includes(item) ? 'tag-choice--selected' : ''}}"
-        data-value="{{item}}"
-        bindtap="toggleSubject"
-      >{{item}}</view>
-    </view>
-  </view>
-
-  <view class="form-section">
-    <view class="field-title">计划留学的国家或地区</view>
-    <input class="text-field" value="{{country}}" placeholder="请输入国家或地区" bindinput="updateCountry" />
-  </view>
-
-  <view class="form-section">
-    <view class="field-title">计划入学时间</view>
-    <input class="text-field" value="{{intake}}" placeholder="例如：2027 年 9 月" bindinput="updateIntake" />
-  </view>
-
-  <button class="primary-action continue-button" bindtap="continuePlanning">下一步 →</button>
-  <view class="privacy-note">此页面目前仅保留在本机，不会提交未完成的规划资料。</view>
+  <view class="button-row"><button wx:if="{{step > 1}}" class="secondary-action" bindtap="previous">上一步</button><button wx:if="{{step < 3}}" class="primary-action" bindtap="next">下一步 →</button><button wx:else class="primary-action" loading="{{saving}}" bindtap="submit">保存规划</button></view>
+  <view class="privacy-note">资料仅用于你的留学规划与顾问服务，可在“我的规划”中管理。</view>
 </view>
