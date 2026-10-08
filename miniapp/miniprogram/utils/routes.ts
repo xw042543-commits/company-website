@@ -25,8 +25,16 @@ export function programmeDetailRoute(
   programmeId: number | string,
 ): Result<string> {
   const slug = universitySlug.trim();
-  const id = String(programmeId).trim();
-  if (!SLUG.test(slug) || !POSITIVE_INTEGER.test(id)) return invalidRoute();
+  if (!SLUG.test(slug)) return invalidRoute();
+
+  let id: string;
+  if (typeof programmeId === 'number') {
+    if (!Number.isSafeInteger(programmeId) || programmeId <= 0) return invalidRoute();
+    id = String(programmeId);
+  } else {
+    id = programmeId.trim();
+    if (!POSITIVE_INTEGER.test(id)) return invalidRoute();
+  }
 
   return {
     ok: true,

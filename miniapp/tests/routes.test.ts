@@ -54,3 +54,14 @@ test('rejects malformed programme slugs and non-positive or non-integer IDs', ()
     });
   }
 });
+
+test('rejects unsafe numeric IDs but preserves exact large decimal string IDs', () => {
+  assert.deepEqual(programmeDetailRoute('segi-university', Number.MAX_SAFE_INTEGER + 1), {
+    ok: false,
+    error: { kind: 'validation', code: 'INVALID_DETAIL_ROUTE' },
+  });
+  assert.deepEqual(programmeDetailRoute('segi-university', '9007199254740993'), {
+    ok: true,
+    value: '/pages/programme-detail/index?universitySlug=segi-university&programmeId=9007199254740993',
+  });
+});
