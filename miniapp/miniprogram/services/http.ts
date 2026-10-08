@@ -7,6 +7,7 @@ export interface RequestOptions {
   readonly data?: unknown;
   readonly idempotencyKey?: string;
   readonly authenticated?: boolean;
+  readonly requestKey?: string;
 }
 
 export interface TransportSuccess {
@@ -40,6 +41,11 @@ export interface HttpClient {
   request<T>(options: RequestOptions): Promise<Result<T>>;
 }
 
+interface ActiveRequest {
+  readonly owner: symbol;
+  supersede(): void;
+}
+
 let accessTokenReader: () => string | null = () => null;
 let unauthorizedHandler: (() => Promise<boolean>) | null = null;
 
@@ -57,55 +63,91 @@ export function createHttpClient(
   tokenReader: () => string | null = () => null,
   onUnauthorized: (() => Promise<boolean>) | null = null,
 ): HttpClient {
+  const active = new Map<string, ActiveRequest>();
   return {
-    async request<T>(options: RequestOptions): Promise<Result<T>> {
+    request<T>(options: RequestOptions): Promise<Result<T>> {
       if (!isSafePath(options.path)) {
-        return failure('validation', 'INVALID_REQUEST_PATH');
+        return Promise.resolve(failure('validation', 'INVALID_REQUEST_PATH'));
       }
-      const attempt = async (retried: boolean): Promise<Result<T>> => {
-        const header: Record<string, string> = {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        };
-        if (options.authenticated) {
-          const token = tokenReader();
-          if (!token) {
-            if (!retried && onUnauthorized && await onUnauthorized()) return attempt(true);
-            return failure('unauthorized', 'AUTHENTICATION_REQUIRED');
-          }
-          header.Authorization = `Bearer ${token}`;
-        }
-        if (options.idempotencyKey) header['Idempotency-Key'] = options.idempotencyKey;
+      const owner = Symbol(options.requestKey ?? 'request');
+      let settled = false;
+      let currentTask: TransportTask | null = null;
 
-        const result = await new Promise<Result<T>>((resolve) => {
-          transport({
+      return new Promise<Result<T>>((resolve) => {
+        const finish = (result: Result<T>) => {
+          if (settled) return;
+          settled = true;
+          if (options.requestKey && active.get(options.requestKey)?.owner === owner) {
+            active.delete(options.requestKey);
+          }
+          resolve(result);
+        };
+        const supersede = () => {
+          const task = currentTask;
+          finish(failure('unexpected', 'REQUEST_SUPERSEDED'));
+          task?.abort();
+        };
+        if (options.requestKey) {
+          active.get(options.requestKey)?.supersede();
+          active.set(options.requestKey, { owner, supersede });
+        }
+
+        const handleResult = async (result: Result<T>, retried: boolean): Promise<void> => {
+          if (settled) return;
+          if (!retried && options.authenticated && !result.ok
+            && result.error.kind === 'unauthorized' && onUnauthorized) {
+            const refreshed = await onUnauthorized();
+            if (settled) return;
+            if (refreshed) { await attempt(true); return; }
+          }
+          finish(result);
+        };
+        const attempt = async (retried: boolean): Promise<void> => {
+          if (settled) return;
+          const header: Record<string, string> = {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          };
+          if (options.authenticated) {
+            const token = tokenReader();
+            if (!token) {
+              if (!retried && onUnauthorized) {
+                const refreshed = await onUnauthorized();
+                if (settled) return;
+                if (refreshed) { await attempt(true); return; }
+              }
+              finish(failure('unauthorized', 'AUTHENTICATION_REQUIRED'));
+              return;
+            }
+            header.Authorization = `Bearer ${token}`;
+          }
+          if (options.idempotencyKey) header['Idempotency-Key'] = options.idempotencyKey;
+          currentTask = transport({
             url: `${runtime.apiOrigin}${options.path}`,
             method: options.method,
             ...(options.data === undefined ? {} : { data: options.data }),
             header,
             timeout: runtime.requestTimeoutMs,
-            success: (response) => resolve(mapResponse<T>(response)),
-            fail: () => resolve(failure('unavailable', 'NETWORK_UNAVAILABLE')),
+            success: (response) => { void handleResult(mapResponse<T>(response), retried); },
+            fail: () => finish(failure('unavailable', 'NETWORK_UNAVAILABLE')),
           });
-        });
-        if (!retried && options.authenticated && !result.ok
-          && result.error.kind === 'unauthorized' && onUnauthorized && await onUnauthorized()) {
-          return attempt(true);
-        }
-        return result;
-      };
-      return attempt(false);
+        };
+        void attempt(false);
+      });
     },
   };
 }
 
+let applicationClient: HttpClient | null = null;
+
 export function request<T>(options: RequestOptions): Promise<Result<T>> {
-  return createHttpClient(
+  applicationClient ??= createHttpClient(
     currentRuntimeConfig(),
     wechatTransport,
-    accessTokenReader,
-    unauthorizedHandler,
-  ).request<T>(options);
+    () => accessTokenReader(),
+    async () => unauthorizedHandler ? unauthorizedHandler() : false,
+  );
+  return applicationClient.request<T>(options);
 }
 
 const wechatTransport: HttpTransport = (options) => wx.request({
