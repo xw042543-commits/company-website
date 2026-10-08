@@ -2,6 +2,7 @@ package com.yangdoujiao.website.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -55,7 +56,8 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http, AuthSecurityErrorWriter errors,
-            SecurityContextRepository contexts, MiniappBearerFilter miniappBearer) throws Exception {
+            SecurityContextRepository contexts,
+            ObjectProvider<MiniappBearerFilter> miniappBearerProvider) throws Exception {
         http.cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/api/v1/miniapp/**")
@@ -99,7 +101,10 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .requestCache(AbstractHttpConfigurer::disable);
-        http.addFilterBefore(miniappBearer, UsernamePasswordAuthenticationFilter.class);
+        MiniappBearerFilter miniappBearer = miniappBearerProvider.getIfAvailable();
+        if (miniappBearer != null) {
+            http.addFilterBefore(miniappBearer, UsernamePasswordAuthenticationFilter.class);
+        }
         return http.build();
     }
 }

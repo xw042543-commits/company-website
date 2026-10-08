@@ -8,6 +8,7 @@ Elasticsearch 用于搜索。
 
 - `frontend/`：官网页面与认证界面。
 - `backend/`：REST API、数据库迁移和自动化测试。
+- `miniapp/`：原生 TypeScript 微信小程序与小程序测试。
 - `crawler/`：仅生成待审核资料包的院校官网采集工具。
 - `docs/`：API、数据库和开发说明。
 - `compose.yaml`：本地 PostgreSQL、Redis 和 Elasticsearch。
@@ -41,10 +42,18 @@ APP_AUTH_PRIVACY_VERSION=local-privacy-v1
 
 详细请查看 [API 说明](docs/API.md) 和 [数据库说明](docs/DATABASE.md)。
 
+## 微信小程序
+
+小程序第一阶段包含首页、院校、U圈、我的四个底部入口，以及从首页进入的留学规划页。
+院校列表读取现有真实院校接口；U圈当前仅提供经过认证的安全入口，正式社区、审核和举报系统
+将作为独立项目继续开发。开发导入、登录配置、测试和体验版上传步骤见
+[小程序说明](miniapp/README.md)。
+
 ## 验收命令
 
 ```bash
 cd backend && ./mvnw clean test
+cd miniapp && npm ci && npm run check
 npm --prefix frontend ci
 npm --prefix frontend test
 npm --prefix frontend run lint

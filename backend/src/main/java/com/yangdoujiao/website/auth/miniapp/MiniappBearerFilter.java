@@ -2,6 +2,7 @@ package com.yangdoujiao.website.auth.miniapp;
 
 import java.io.IOException;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Component
+@ConditionalOnBean(MiniappTokenService.class)
 public class MiniappBearerFilter extends OncePerRequestFilter {
     private static final String PREFIX = "Bearer ";
 
