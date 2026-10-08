@@ -52,6 +52,9 @@ public class CommunityModerationService {
         long author=targets.author(type,id);
         accounts.findLockedById(author).orElseThrow(()->CommunityModerationTargets.missing(type));
         var target=targets.lock(type,id);
+        var now=targets.now();
+        // Row-lock waits may cross expiry or shift the maximum-duration boundary. Validate at the committed decision's start.
+        if(request.command()==CommunityModerationCommand.MUTE)validateMuteWindow(request,now);
         if(target.version()!=request.version())throw new ApiException(HttpStatus.CONFLICT,"COMMUNITY_VERSION_CONFLICT","Content changed; refresh before deciding");
         CommunityContentStatus before=target.status(),next=before;
         switch(request.command()) {
@@ -65,14 +68,14 @@ public class CommunityModerationService {
             case MUTE, BAN -> {
                 if(before==CommunityContentStatus.DELETED||before==CommunityContentStatus.REJECTED)throw transition();
                 restrictions.saveAndFlush(CommunityUserRestriction.create(author,request.command()==CommunityModerationCommand.MUTE?CommunityRestrictionType.MUTED:CommunityRestrictionType.BANNED,
-                        request.reasonCode().name(),targets.now(),request.restrictionEndsAt(),actor));
+                        request.reasonCode().name(),now,request.restrictionEndsAt(),actor));
             }
         }
-        target.decide(next,targets.now());
+        target.decide(next,now);
         reports.resolveOpen(type,id,request.command()==CommunityModerationCommand.REJECT_REPORT?CommunityReportStatus.RESOLVED_REJECTED:CommunityReportStatus.RESOLVED_ACTIONED,
-                actor,request.reasonCode().name(),targets.now());
+                actor,request.reasonCode().name(),now);
         if(next!=before){targets.reconcile(target);targets.invalidateAfterCommit();}
-        actions.saveAndFlush(CommunityModerationAction.create(actor,type.name(),id,request.command().name(),request.reasonCode().name(),before,next,targets.now()));
+        actions.saveAndFlush(CommunityModerationAction.create(actor,type.name(),id,request.command().name(),request.reasonCode().name(),before,next,now));
         audit.recordAfterCommit(actor,type,id,request.command(),request.reasonCode());
         return detail(type,id,null);
     }
@@ -90,12 +93,14 @@ public class CommunityModerationService {
         };
         if (!allowedReason) throw invalid();
         if (r.command() == CommunityModerationCommand.MUTE) {
-            var now = targets.now();
-            if (r.restrictionEndsAt() == null || !r.restrictionEndsAt().isAfter(now)
-                    || r.restrictionEndsAt().isAfter(now.plusDays(30))) throw invalid();
+            validateMuteWindow(r,targets.now());
         } else if (r.restrictionEndsAt() != null) {
             throw invalid();
         }
+    }
+    private void validateMuteWindow(CommunityModerationRequest request,OffsetDateTime now) {
+        if(request.restrictionEndsAt()==null||!request.restrictionEndsAt().isAfter(now)
+                ||request.restrictionEndsAt().isAfter(now.plusDays(30)))throw invalid();
     }
     private static ApiException invalid(){return new ApiException(HttpStatus.BAD_REQUEST,"INVALID_COMMUNITY_MODERATION","Invalid moderation decision or filter");}
     private static ApiException transition(){return new ApiException(HttpStatus.CONFLICT,"COMMUNITY_MODERATION_TRANSITION","Decision is not available for the current target state");}

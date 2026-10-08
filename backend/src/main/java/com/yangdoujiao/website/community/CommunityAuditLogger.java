@@ -4,6 +4,7 @@ import org.slf4j.*;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.*;
 import com.yangdoujiao.website.common.web.RequestTraceFilter;
+import com.yangdoujiao.website.auth.AuthHash;
 
 /** Accepts only structured metadata; no content, notes, identities or caller-supplied free text. */
 @Component
@@ -18,10 +19,19 @@ public class CommunityAuditLogger {
     }
     private void register(long actor,CommunityTargetType type,long target,String command,String reason) {
         String candidate=MDC.get(RequestTraceFilter.TRACE_ID_MDC_KEY);
-        String trace=candidate!=null&&candidate.matches("[A-Za-z0-9._-]{1,64}")?candidate:"unavailable";
+        String trace="sha256:"+AuthHash.sha256("community-audit-trace-v1:"+(candidate==null?"":candidate));
         TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization(){
-            @Override public void afterCommit(){log.info("community_decision trace={} actor={} type={} target={} command={} reason={} outcome=COMMITTED",
-                    trace,actor,type,target,command,reason);}
+            @Override public void afterCommit(){
+                // Layouts/appenders may also render MDC; permit only the irreversible audit correlation value.
+                var previous=MDC.getCopyOfContextMap();
+                MDC.clear();MDC.put(RequestTraceFilter.TRACE_ID_MDC_KEY,trace);
+                try {
+                    log.info("community_decision trace={} actor={} type={} target={} command={} reason={} outcome=COMMITTED",
+                            trace,actor,type,target,command,reason);
+                } finally {
+                    MDC.clear();if(previous!=null)MDC.setContextMap(previous);
+                }
+            }
         });
     }
 }

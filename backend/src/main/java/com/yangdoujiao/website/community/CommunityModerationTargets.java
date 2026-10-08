@@ -51,8 +51,13 @@ class CommunityModerationTargets {
         long id(){return comment==null?post.getId():comment.getId();}
         long version(){return comment==null?post.getVersion():comment.getVersion();}
         CommunityContentStatus status(){return comment==null?post.getStatus():comment.getStatus();}
-        boolean publicTarget(){return post.getStatus()==CommunityContentStatus.PUBLISHED&&status()==CommunityContentStatus.PUBLISHED
-                &&(root==null||root.getStatus()==CommunityContentStatus.PUBLISHED&&root.getParentCommentId()==null);}
+        boolean publishedAncestors(){
+            return comment==null||post.getStatus()==CommunityContentStatus.PUBLISHED
+                    &&(root==null||root.getStatus()==CommunityContentStatus.PUBLISHED&&root.getParentCommentId()==null
+                        &&root.getPostId().equals(post.getId()));
+        }
+        boolean publicTarget(){return status()==CommunityContentStatus.PUBLISHED&&publishedAncestors();}
+        boolean reportable(){return (status()==CommunityContentStatus.PUBLISHED||status()==CommunityContentStatus.HIDDEN)&&publishedAncestors();}
         void decide(CommunityContentStatus status,OffsetDateTime now){
             // Advance optimistic version even on decisions that keep content status (mute, ban, report rejection).
             OffsetDateTime previous=comment==null?post.getUpdatedAt():comment.getUpdatedAt();

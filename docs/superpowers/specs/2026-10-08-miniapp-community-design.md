@@ -190,7 +190,10 @@ U圈继续位于现有 Spring Boot 模块化单体中，新增 `community` 业�
 - 决策请求为 `{command,reasonCode,version,restrictionEndsAt?}`。HIDE／MUTE／BAN 使用 `SPAM`、`HARASSMENT`、`SCAM`、`INAPPROPRIATE_CONTENT`、`POLICY_VIOLATION`；RESTORE 使用 `APPEAL_ACCEPTED` 或 `REVIEW_APPROVED`；REJECT_REPORT 使用 `REPORT_UNFOUNDED`。所有决策推进目标版本，在同一事务追加动作并处理目标的所有 OPEN 举报。REJECT_REPORT 结为 RESOLVED_REJECTED，其他人工决策结为 RESOLVED_ACTIONED。
 - HIDE 允许 PUBLISHED／PENDING_REVIEW 转 HIDDEN；RESTORE 允许 HIDDEN／PENDING_REVIEW 转 PUBLISHED，评论恢复还要求帖子及回复根可见。DELETED／REJECTED 不可恢复或再隐藏、禁言、封禁；REJECT_REPORT 可处理其保留的 OPEN 举报。MUTE／BAN 保持内容状态，限制施加于目标作者账号。MUTE 必须提供未来且不超过 30 天的到期时间；BAN 为永久社区限制，到期字段必须为空。限制到期后立即按现有限制查询恢复新写入权限；与任务 4 一致，仍为 ACTIVE 的受限账号可取消自己的点赞。
 - 正常回复 200 并返回最新详情；无效原因／时长／过滤器为 400，版本冲突为 `409 COMMUNITY_VERSION_CONFLICT`，无效状态转换为 `409 COMMUNITY_MODERATION_TRANSITION`。审核继续使用 Cookie Adviser 会话及 CSRF；小程序 Bearer 不能取得审核能力。
+- 举报 targetType／reasonCode 与审核 command／reasonCode 仅接受大小写及空白完全一致的枚举字符串；拒绝数字、字符串序号及其他 JSON 类型。审核 version 必须为非负、64 位范围内的 JSON 整数字面量；小数、指数写法、字符串、布尔值和 null 均返回 400。这些规则仅在本模块的枚举及请求属性生效，不修改全局 Jackson 配置。
+- 新举报可以针对 HIDDEN 帖子；HIDDEN 顶层评论还要求帖子为 PUBLISHED，HIDDEN 回复还要求帖子和顶层根评论均为 PUBLISHED。原键回执重放及已有 OPEN 举报的重复提交保留既有行为。MUTE 取得作者／帖子／评论锁后再次以同一个时间基准校验到期时间，并将该时间保存为 startsAt，避免等待锁期间跨过到期或 30 天边界。
 - 隐藏／恢复在提交后只删除热门 current 指针，保留已发行快照；可见评论数按已发布帖子／根评论规则重建，保留各目标的点赞证据。审计仅在事务提交后输出结构化 trace、数字 ID、动作、原因代码及结果；回滚不输出成功。
+- 审计关联值为带独立用途前缀的 SHA-256 固定长度摘要，绝不写入调用方原始 X-Trace-Id／MDC 文本。日志事件的 MDC 只保留该摘要关联值；输出后恢复请求上下文，防止日志格式或 appender 泄露其他 MDC 中的正文、说明或联系方式。
 
 ## 7. 发布与审核流程
 

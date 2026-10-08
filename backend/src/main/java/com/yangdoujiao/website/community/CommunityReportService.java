@@ -62,8 +62,8 @@ public class CommunityReportService {
         CommunityReport report;
         if(existing) report=duplicate.get();
         else {
-            // Hidden content may still collect reports during the automatic threshold race; terminal evidence may not.
-            if(target.status()!=CommunityContentStatus.HIDDEN&&!target.publicTarget())throw new ApiException(HttpStatus.CONFLICT,"COMMUNITY_TARGET_UNAVAILABLE","Community target is not reportable");
+            // Hidden targets may collect in-flight reports only while their owning post/root remains public.
+            if(!target.reportable())throw new ApiException(HttpStatus.CONFLICT,"COMMUNITY_TARGET_UNAVAILABLE","Community target is not reportable");
             report=reports.saveAndFlush(CommunityReport.create(actor,request.targetType(),id,request.reasonCode().name(),note,targets.now()));
             if(target.publicTarget()&&reports.countByTargetTypeAndTargetIdAndStatus(request.targetType(),id,CommunityReportStatus.OPEN)>=threshold) {
                 target.decide(CommunityContentStatus.HIDDEN,targets.now());targets.reconcile(target);

@@ -1,3 +1,12 @@
 package com.yangdoujiao.website.community;
 
-public enum CommunityReportReason { SPAM, HARASSMENT, SCAM, INAPPROPRIATE_CONTENT, OTHER }
+import com.fasterxml.jackson.annotation.JsonCreator;
+
+public enum CommunityReportReason {
+    SPAM, HARASSMENT, SCAM, INAPPROPRIATE_CONTENT, OTHER;
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static CommunityReportReason fromJson(Object value) {
+        return CommunityRequestJson.enumToken(value, CommunityReportReason.class);
+    }
+}
