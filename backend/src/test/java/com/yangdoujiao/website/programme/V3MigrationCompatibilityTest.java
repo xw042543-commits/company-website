@@ -69,7 +69,7 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("12");
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("13");
             assertThat(jdbcTemplate.queryForObject(
                     "SELECT role FROM user_accounts WHERE id = ?", String.class, accountId)).isEqualTo("USER");
             assertThat(jdbcTemplate.queryForMap("""

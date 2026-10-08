@@ -1,0 +1,6 @@
+<view class="app-state app-state--{{kind}}">
+  <view class="state-symbol">{{kind === 'loading' ? '…' : kind === 'empty' ? '○' : '!'}}</view>
+  <view class="state-title">{{title}}</view>
+  <view class="state-description">{{description}}</view>
+  <button wx:if="{{retryable}}" class="retry-button" bindtap="retry">重新加载</button>
+</view>

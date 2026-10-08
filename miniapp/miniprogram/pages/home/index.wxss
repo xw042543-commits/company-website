@@ -1,0 +1,137 @@
+.home-page {
+  background:
+    radial-gradient(circle at 90% 5%, rgba(63, 136, 117, 0.18), transparent 34%),
+    var(--color-paper);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.brand-mark {
+  display: flex;
+  gap: 8rpx;
+}
+
+.brand-dot {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  background: var(--color-action);
+}
+
+.brand-name {
+  color: var(--color-deep);
+  font-size: 28rpx;
+  font-weight: 800;
+}
+
+.brand-latin {
+  margin-top: 2rpx;
+  color: var(--color-muted);
+  font-size: 20rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+}
+
+.hero {
+  margin-top: 32rpx;
+  padding: 38rpx 34rpx;
+  background: linear-gradient(135deg, rgba(238, 245, 241, 0.98), rgba(255, 255, 255, 0.95));
+}
+
+.hero-title {
+  max-width: 590rpx;
+  margin-top: 18rpx;
+  color: var(--color-deep);
+  font-size: 54rpx;
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.search-entry {
+  display: flex;
+  min-height: 96rpx;
+  margin-top: 28rpx;
+  align-items: center;
+  padding: 0 28rpx;
+}
+
+.search-symbol {
+  position: relative;
+  box-sizing: border-box;
+  width: 30rpx;
+  height: 30rpx;
+  border: 4rpx solid var(--color-action);
+  border-radius: 50%;
+}
+
+.search-symbol::after {
+  position: absolute;
+  right: -12rpx;
+  bottom: -8rpx;
+  width: 14rpx;
+  height: 4rpx;
+  border-radius: 2rpx;
+  background: var(--color-action);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.search-copy {
+  margin-left: 18rpx;
+  color: var(--color-muted);
+  font-size: 28rpx;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20rpx;
+  margin-top: 24rpx;
+}
+
+.feature-card {
+  box-sizing: border-box;
+  min-height: 132rpx;
+  padding: 24rpx;
+}
+
+.feature-label {
+  color: var(--color-deep);
+  font-size: 30rpx;
+  font-weight: 750;
+}
+
+.feature-caption {
+  margin-top: 10rpx;
+  color: var(--color-muted);
+  font-size: 24rpx;
+}
+
+.section-heading {
+  display: flex;
+  margin-top: 40rpx;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.section-title {
+  color: var(--color-deep);
+  font-size: 34rpx;
+  font-weight: 800;
+}
+
+.section-hint {
+  color: var(--color-action);
+  font-size: 24rpx;
+}
+
+.home-university-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  margin-top: 18rpx;
+}

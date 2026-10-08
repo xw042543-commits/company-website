@@ -2,6 +2,7 @@ package com.yangdoujiao.website.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,8 +18,10 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.yangdoujiao.website.auth.api.AuthSecurityErrorWriter;
+import com.yangdoujiao.website.auth.miniapp.MiniappBearerFilter;
 import com.yangdoujiao.website.auth.session.UserAccountDetailsService;
 
 import jakarta.servlet.DispatcherType;
@@ -53,9 +56,11 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http, AuthSecurityErrorWriter errors,
-            SecurityContextRepository contexts) throws Exception {
+            SecurityContextRepository contexts,
+            ObjectProvider<MiniappBearerFilter> miniappBearerProvider) throws Exception {
         http.cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf
+                        .ignoringRequestMatchers("/api/v1/miniapp/**")
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler()))
                 .exceptionHandling(exceptions -> exceptions
@@ -74,6 +79,9 @@ public class SecurityConfig {
                         .dispatcherTypeMatchers(DispatcherType.ASYNC, DispatcherType.INCLUDE).denyAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/auth/csrf", "/api/v1/auth/session").permitAll()
                         .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/miniapp/auth/login",
+                                "/api/v1/miniapp/auth/refresh").permitAll()
+                        .requestMatchers("/api/v1/miniapp/**").hasRole("USER")
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
                         .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")
                         .requestMatchers(HttpMethod.GET, PUBLIC_READ_PATHS).permitAll()
@@ -93,6 +101,10 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .requestCache(AbstractHttpConfigurer::disable);
+        MiniappBearerFilter miniappBearer = miniappBearerProvider.getIfAvailable();
+        if (miniappBearer != null) {
+            http.addFilterBefore(miniappBearer, UsernamePasswordAuthenticationFilter.class);
+        }
         return http.build();
     }
 }

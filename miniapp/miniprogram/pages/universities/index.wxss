@@ -1,0 +1,82 @@
+.universities-page {
+  background: var(--color-paper);
+}
+
+.search-box {
+  display: flex;
+  min-height: 84rpx;
+  align-items: center;
+  padding: 0 16rpx 0 26rpx;
+}
+
+.search-symbol {
+  box-sizing: border-box;
+  width: 26rpx;
+  height: 26rpx;
+  border: 3rpx solid var(--color-action);
+  border-radius: 50%;
+}
+
+.search-input {
+  min-width: 0;
+  flex: 1;
+  margin-left: 18rpx;
+  color: var(--color-ink);
+  font-size: 27rpx;
+}
+
+.search-button {
+  min-width: 116rpx;
+  margin: 0;
+  border-radius: 16rpx;
+  background: var(--color-action);
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.filter-row,
+.filter-group {
+  display: flex;
+  gap: 12rpx;
+}
+
+.filter-row {
+  margin-top: 20rpx;
+  justify-content: space-between;
+}
+
+.filter-chip {
+  padding: 14rpx 20rpx;
+  border: 1rpx solid var(--color-line);
+  border-radius: 999rpx;
+  background: #fff;
+  color: var(--color-muted);
+  font-size: 22rpx;
+}
+
+.filter-chip--active {
+  border-color: var(--color-action);
+  background: #eaf6f1;
+  color: var(--color-action);
+  font-weight: 700;
+}
+
+.result-heading {
+  margin: 30rpx 0 18rpx;
+  color: var(--color-deep);
+  font-size: 28rpx;
+  font-weight: 750;
+}
+
+.university-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.load-more {
+  padding: 24rpx;
+  color: var(--color-muted);
+  font-size: 23rpx;
+  text-align: center;
+}

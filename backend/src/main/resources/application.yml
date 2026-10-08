@@ -85,6 +85,16 @@ app:
     rate-limit:
       maximum-submissions: ${APP_CONSULTATION_RATE_LIMIT_MAXIMUM_SUBMISSIONS:5}
       window: ${APP_CONSULTATION_RATE_LIMIT_WINDOW:10m}
+  miniapp:
+    auth:
+      enabled: ${APP_MINIAPP_AUTH_ENABLED:false}
+      wechat-app-id: ${APP_MINIAPP_WECHAT_APP_ID:}
+      wechat-app-secret: ${APP_MINIAPP_WECHAT_APP_SECRET:}
+      access-token-ttl: ${APP_MINIAPP_ACCESS_TOKEN_TTL:15m}
+      refresh-token-ttl: ${APP_MINIAPP_REFRESH_TOKEN_TTL:30d}
+      local-provider-enabled: ${APP_MINIAPP_LOCAL_PROVIDER_ENABLED:false}
+      local-test-code: ${APP_MINIAPP_LOCAL_TEST_CODE:}
+      local-test-subject: ${APP_MINIAPP_LOCAL_TEST_SUBJECT:}
   search:
     index:
       batch-size: 200
