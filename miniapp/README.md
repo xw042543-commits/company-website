@@ -79,4 +79,12 @@ npm run check
 - 公共请求统一使用 `miniprogram/services/http.ts`，页面不得另建请求封装。
 - 登录和令牌生命周期统一使用 `miniprogram/stores/session.ts`，不得持久化访问令牌或账号资料。
 - B 组首页、院校模块和 C 组专业、规划、我的模块通过公共 service 与组件开发。
+
+### A2 公共能力
+
+- 可被新查询替代的读取请求必须传稳定的 `requestKey`；页面收到 `REQUEST_SUPERSEDED` 时保持当前状态，不显示失败提示。
+- 筛选项统一来自 `services/catalogue.ts`；“全部”只在页面展示，发请求时省略，禁止在页面硬编码数据库 code。
+- 院校与专业详情地址统一使用 `utils/routes.ts`；目标页面注册完成前不得导航。
+- 远程院校图统一使用 `university-card` 的失败回退，页面不得重复维护图片错误状态。
+
 - U圈面向 2,000 名以上学生，正式动态、评论、举报、审核和数据保留必须先完成独立规格与容量设计，不能用静态假数据代替。
