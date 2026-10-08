@@ -137,8 +137,7 @@ public class CommunityWriteService {
                 HttpStatus.FORBIDDEN, "COMMUNITY_USER_RESTRICTED", "Account cannot write community content");
     }
     private void requireAllowed(long actorId) {
-        if (restrictions.existsActive(actorId, now())) throw new ApiException(
-                HttpStatus.FORBIDDEN, "COMMUNITY_USER_RESTRICTED", "Community account is restricted");
+        CommunityRestrictionGuard.requireAllowed(restrictions,actorId,now());
     }
     private void requireEnabled() {
         if (!properties.enabled()) throw new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "COMMUNITY_DISABLED", "Community writes are disabled");

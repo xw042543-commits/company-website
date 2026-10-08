@@ -58,6 +58,16 @@ class CommunityCursorCodecTest {
         invalid(() -> codec.decode(signJson(json), "latest"));
     }
 
+    @Test
+    void personalScopesRejectSignedExtraMissingOrCoercedFields() throws Exception {
+        String valid = "{\"timestamp\":\"2026-10-07T00:00:00Z\",\"id\":\"1\",\"sort\":\"me:posts:1\",\"expiresAt\":\"2026-10-09T00:00:00Z\"}";
+        assertThat(codec.decode(signJson(valid), "me:posts:1").id()).isEqualTo(1);
+        for (String bad : new String[]{valid.replace("}", ",\"extra\":true}"),
+                valid.replace("\"timestamp\":\"2026-10-07T00:00:00Z\",", ""),
+                valid.replace("\"me:posts:1\"", "1"), valid.replace("\"2026-10-09T00:00:00Z\"", "null")})
+            invalid(() -> codec.decode(signJson(bad), "me:posts:1"));
+    }
+
     private String signed(String timestamp, String id, String expiresAt) throws Exception {
         String json = "{\"timestamp\":\"" + timestamp + "\",\"id\":\"" + id
                 + "\",\"sort\":\"latest\",\"expiresAt\":\"" + expiresAt + "\"}";

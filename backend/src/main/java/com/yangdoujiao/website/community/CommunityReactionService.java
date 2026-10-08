@@ -63,9 +63,10 @@ public class CommunityReactionService {
                 "COMMUNITY_DISABLED", "Community writes are disabled");
         var actor = accounts.findLockedById(actorId).orElseThrow(() -> new ApiException(HttpStatus.UNAUTHORIZED,
                 "AUTHENTICATION_REQUIRED", "Authentication is required"));
-        if (actor.getStatus() != UserAccountStatus.ACTIVE || adding && restrictions.existsActive(actorId, now())) {
+        if (actor.getStatus() != UserAccountStatus.ACTIVE) {
             throw new ApiException(HttpStatus.FORBIDDEN, "COMMUNITY_USER_RESTRICTED", "Community account is restricted");
         }
+        if (adding) CommunityRestrictionGuard.requireAllowed(restrictions,actorId,now());
     }
 
     private Target lockedTarget(CommunityTargetType type, long targetId) {

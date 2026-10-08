@@ -54,10 +54,18 @@ public class CommunityCursorCodec {
         return signed(payload);
     }
 
+    /** Bind a private feed to its owner without embedding an account identifier in the readable payload. */
+    public String personalScope(String kind, long actorId) {
+        return "me:" + kind + ":" + base64(sign("community-personal-scope-v1:" + kind + ":" + actorId));
+    }
+
     public Position decode(String cursor, String expectedSort) {
         try {
             byte[] bytes = verified(cursor);
-            if (!json.readTree(bytes).path("id").isString()) throw invalid();
+            var tree = json.readTree(bytes);
+            if (!tree.isObject() || tree.size() != 4 || !tree.path("id").isString()
+                    || !tree.path("timestamp").isString() || !tree.path("sort").isString()
+                    || !tree.path("expiresAt").isString()) throw invalid();
             Payload payload = json.readValue(bytes, Payload.class);
             if (!expectedSort.equals(payload.sort()) || payload.id() == null || !payload.id().matches("[1-9][0-9]{0,18}")) throw invalid();
             long id = Long.parseLong(payload.id());

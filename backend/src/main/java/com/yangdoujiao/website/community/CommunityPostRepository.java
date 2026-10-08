@@ -8,6 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CommunityPostRepository extends JpaRepository<CommunityPost, Long> {
+    List<CommunityPost> findByAuthorAccountIdOrderByCreatedAtDescIdDesc(Long actorId, Pageable page);
+    @Query("""
+            select p from CommunityPost p where p.authorAccountId=:actorId
+              and (p.createdAt < :timestamp or (p.createdAt = :timestamp and p.id < :id))
+            order by p.createdAt desc, p.id desc
+            """)
+    List<CommunityPost> findOwnAfter(Long actorId, OffsetDateTime timestamp, Long id, Pageable page);
     @Query("select p.authorAccountId from CommunityPost p where p.id=:id")
     Optional<Long> findAuthorIdById(Long id);
     @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)

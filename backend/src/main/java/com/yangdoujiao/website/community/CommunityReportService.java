@@ -53,7 +53,7 @@ public class CommunityReportService {
             if(receipt.getResultResponse()==null)throw CommunityRateLimiter.unavailable();
             return new Result(json.readValue(receipt.getResultResponse(),CommunityReportResponse.class),true);
         }
-        if(restrictions.existsActive(actor,targets.now()))throw restricted();
+        CommunityRestrictionGuard.requireAllowed(restrictions,actor,targets.now());
         var target=targets.lock(request.targetType(),id);
         var duplicate=reports.findByReporterAccountIdAndTargetTypeAndTargetIdAndStatus(actor,request.targetType(),id,CommunityReportStatus.OPEN);
         boolean existing=duplicate.isPresent();
