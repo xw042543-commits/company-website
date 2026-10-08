@@ -71,8 +71,6 @@ export async function getProgrammeDetail(universitySlug: string, programmeId: st
   return mapped;
 }
 
-export function clearMiniappDataCache(): void { programmeCache.clear(); }
-
 export async function getUserOverview(): Promise<Result<UserOverview>> {
   const result = await authenticated<unknown>('GET', '/api/v1/miniapp/me');
   return result.ok ? mapOverview(result.value) : result;

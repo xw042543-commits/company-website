@@ -14,6 +14,8 @@ Page({
     if (Number.isSafeInteger(planId) && planId > 0) { this.setData({ planId }); void this.loadPlan(planId); return; }
     const draft = loadPlanningDraft(); if (draft) this.setData({ form: draft });
   },
+  onHide() { this.persistDraft(); },
+  onUnload() { this.persistDraft(); },
   selectGoal(event: WechatMiniprogram.BaseEvent) { this.patch('goal', String(event.currentTarget.dataset.value ?? '')); },
   toggleSubject(event: WechatMiniprogram.BaseEvent) {
     const value = String(event.currentTarget.dataset.value ?? '');
@@ -24,7 +26,7 @@ Page({
   updateField(event: WechatMiniprogram.Input) { this.patch(String(event.currentTarget.dataset.field ?? ''), event.detail.value); },
   patch(field: string, value: string | string[]) {
     if (!field) return;
-    this.setData({ [`form.${field}`]: value }, () => { if (!this.data.planId) savePlanningDraft(this.data.form as StudyPlanForm); });
+    this.setData({ [`form.${field}`]: value });
   },
   previous() { if (this.data.step > 1) this.setData({ step: this.data.step - 1 }); },
   next() {
@@ -34,7 +36,7 @@ Page({
     if (this.data.step === 2 && !this.data.form.education) {
       wx.showToast({ title: '请填写目前学历', icon: 'none' }); return;
     }
-    this.setData({ step: Math.min(3, this.data.step + 1) });
+    this.setData({ step: Math.min(3, this.data.step + 1) }); this.persistDraft();
   },
   async submit() {
     if (this.data.saving) return;
@@ -45,7 +47,7 @@ Page({
       : await saveStudyPlan(this.data.form as StudyPlanForm);
     this.setData({ saving: false });
     if (!result.ok) { wx.showToast({ title: '保存失败，请检查后重试', icon: 'none' }); return; }
-    clearPlanningDraft(); wx.showToast({ title: '规划已保存', icon: 'success' });
+    this.setData({ planId: result.value.id }); clearPlanningDraft(); wx.showToast({ title: '规划已保存', icon: 'success' });
     setTimeout(() => wx.redirectTo({ url: '/pages/plans/index' }), 450);
   },
   async loadPlan(planId: number) {
@@ -55,4 +57,5 @@ Page({
     if (!plan) { wx.showToast({ title: '规划资料加载失败', icon: 'none' }); return; }
     this.setData({ form: plan.form });
   },
+  persistDraft() { if (!this.data.planId) savePlanningDraft(this.data.form as StudyPlanForm); },
 });

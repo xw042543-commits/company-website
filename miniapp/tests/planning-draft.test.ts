@@ -9,3 +9,9 @@ test('rejects incomplete or malformed local planning drafts', () => {
   const storage: PlanningDraftStorage = { get: () => ({ goal: '本科', subjects: '计算机' }), set: () => {}, remove: () => {} };
   assert.equal(loadPlanningDraft(storage), null);
 });
+
+test('keeps a genuinely partial draft before the country has been entered', () => {
+  const partial = { goal: '本科', subjects: [], country: '', intake: '', education: '', grade: '', language: '', budget: '' };
+  const storage: PlanningDraftStorage = { get: () => partial, set: () => {}, remove: () => {} };
+  assert.deepEqual(loadPlanningDraft(storage), partial);
+});

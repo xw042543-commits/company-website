@@ -6,8 +6,10 @@ export interface ExpiringCache<T> {
   clear(): void;
 }
 
-export function createExpiringCache<T>(ttlMs: number, now: () => number = Date.now): ExpiringCache<T> {
-  if (!Number.isFinite(ttlMs) || ttlMs <= 0) throw new Error('Invalid cache TTL');
+export function createExpiringCache<T>(ttlMs: number, now: () => number = Date.now, maxEntries = 30): ExpiringCache<T> {
+  if (!Number.isFinite(ttlMs) || ttlMs <= 0 || !Number.isSafeInteger(maxEntries) || maxEntries < 1) {
+    throw new Error('Invalid cache configuration');
+  }
   const entries = new Map<string, CacheEntry<T>>();
   return {
     get(key) {
@@ -16,7 +18,15 @@ export function createExpiringCache<T>(ttlMs: number, now: () => number = Date.n
       if (entry.expiresAt <= now()) { entries.delete(key); return null; }
       return entry.value;
     },
-    set(key, value) { entries.set(key, { value, expiresAt: now() + ttlMs }); },
+    set(key, value) {
+      entries.delete(key);
+      entries.set(key, { value, expiresAt: now() + ttlMs });
+      while (entries.size > maxEntries) {
+        const oldest = entries.keys().next().value as string | undefined;
+        if (oldest === undefined) break;
+        entries.delete(oldest);
+      }
+    },
     clear() { entries.clear(); },
   };
 }

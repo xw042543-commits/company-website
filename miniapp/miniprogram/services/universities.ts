@@ -2,6 +2,7 @@ import { request } from './http';
 import type { RequestOptions } from './http';
 import type { Result } from '../utils/result';
 import { universityCampusUrl, universityLogoUrl } from './university-media';
+import { createExpiringCache } from '../utils/expiring-cache';
 
 export interface UniversitySearchInput {
   readonly q?: string;
@@ -99,16 +100,23 @@ export function searchUniversities(input: UniversitySearchInput = {}): Promise<R
   return defaultUniversitySearch.search(input);
 }
 
+const universityDetailCache = createExpiringCache<UniversityDetail>(2 * 60 * 1000);
+const universityProgrammesCache = createExpiringCache<UniversityProgrammePage>(2 * 60 * 1000);
+
 export async function getUniversityDetail(slug: string): Promise<Result<UniversityDetail>> {
   const normalized = normalizeSlug(slug);
   if (!normalized) return invalid('INVALID_UNIVERSITY_SLUG');
+  const cached = universityDetailCache.get(normalized);
+  if (cached) return { ok: true, value: cached };
   const response = await request<unknown>({
     method: 'GET',
     path: `/api/v1/universities/${normalized}`,
     requestKey: 'university-detail',
   });
   if (!response.ok) return response;
-  return mapUniversityDetail(response.value);
+  const mapped = mapUniversityDetail(response.value);
+  if (mapped.ok) universityDetailCache.set(normalized, mapped.value);
+  return mapped;
 }
 
 export async function getUniversityProgrammes(
@@ -118,13 +126,18 @@ export async function getUniversityProgrammes(
 ): Promise<Result<UniversityProgrammePage>> {
   const normalized = normalizeSlug(slug);
   if (!normalized) return invalid('INVALID_UNIVERSITY_SLUG');
+  const cacheKey = `${normalized}/${page}/${size}`;
+  const cached = universityProgrammesCache.get(cacheKey);
+  if (cached) return { ok: true, value: cached };
   const response = await request<unknown>({
     method: 'GET',
     path: `/api/v1/universities/${normalized}/programmes?page=${page}&size=${size}&sort=relevance`,
     requestKey: 'university-programmes',
   });
   if (!response.ok) return response;
-  return mapUniversityProgrammePage(response.value);
+  const mapped = mapUniversityProgrammePage(response.value);
+  if (mapped.ok) universityProgrammesCache.set(cacheKey, mapped.value);
+  return mapped;
 }
 
 export function buildUniversitySearchPath(input: UniversitySearchInput): `/api/${string}` {

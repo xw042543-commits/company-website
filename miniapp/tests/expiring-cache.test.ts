@@ -11,3 +11,9 @@ test('clears all cached API reads without retaining account data', () => {
   const cache = createExpiringCache<number>(200); cache.set('one', 1); cache.clear();
   assert.equal(cache.get('one'), null);
 });
+
+test('bounds memory by evicting the oldest public read', () => {
+  const cache = createExpiringCache<number>(1000, () => 0, 2);
+  cache.set('one', 1); cache.set('two', 2); cache.set('three', 3);
+  assert.equal(cache.get('one'), null); assert.equal(cache.get('two'), 2); assert.equal(cache.get('three'), 3);
+});

@@ -17,8 +17,8 @@ const wechatStorage: PlanningDraftStorage = {
   remove: (key) => wx.removeStorageSync(key),
 };
 function normalize(value: unknown): StudyPlanForm | null {
-  if (!object(value) || !text(value.goal) || !Array.isArray(value.subjects) || !value.subjects.every(text)
-    || !text(value.country) || typeof value.intake !== 'string' || typeof value.education !== 'string'
+  if (!object(value) || typeof value.goal !== 'string' || !Array.isArray(value.subjects) || !value.subjects.every(text)
+    || typeof value.country !== 'string' || typeof value.intake !== 'string' || typeof value.education !== 'string'
     || typeof value.grade !== 'string' || typeof value.language !== 'string' || typeof value.budget !== 'string') return null;
   return { goal: value.goal, subjects: [...value.subjects], country: value.country, intake: value.intake,
     education: value.education, grade: value.grade, language: value.language, budget: value.budget };
