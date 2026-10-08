@@ -7,8 +7,9 @@ type TabItem = {
   text: string;
 };
 
-function readAppConfig(): { tabBar: { list: TabItem[] } } {
+function readAppConfig(): { pages: string[]; tabBar: { list: TabItem[] } } {
   return JSON.parse(readFileSync('miniprogram/app.json', 'utf8')) as {
+    pages: string[];
     tabBar: { list: TabItem[] };
   };
 }
@@ -31,4 +32,11 @@ test('does not register planning as a bottom tab', () => {
   const app = readAppConfig();
 
   assert.equal(app.tabBar.list.some((item) => item.text === '规划'), false);
+});
+
+test('registers planning as a non-tab page', () => {
+  const app = readAppConfig();
+
+  assert.equal(app.pages.includes('pages/planning/index'), true);
+  assert.equal(app.tabBar.list.some((item) => item.pagePath === 'pages/planning/index'), false);
 });

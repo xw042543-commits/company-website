@@ -24,7 +24,11 @@ Page({
       wx.switchTab({ url: '/pages/universities/index' });
       return;
     }
-    wx.showToast({ title: key === 'planning' ? '规划功能即将开放' : '功能建设中', icon: 'none' });
+    if (key === 'planning') {
+      wx.navigateTo({ url: '/pages/planning/index' });
+      return;
+    }
+    wx.showToast({ title: '功能建设中', icon: 'none' });
   },
 
   openUniversity() {
