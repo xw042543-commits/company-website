@@ -54,4 +54,29 @@ public class MiniappAuthToken {
 
     protected MiniappAuthToken() {
     }
+
+    private MiniappAuthToken(UserAccount userAccount, String tokenHash, MiniappAuthTokenKind tokenKind,
+            UUID familyId, OffsetDateTime expiresAt, OffsetDateTime createdAt) {
+        this.userAccount = userAccount;
+        this.tokenHash = tokenHash;
+        this.tokenKind = tokenKind;
+        this.familyId = familyId;
+        this.expiresAt = expiresAt;
+        this.createdAt = createdAt;
+    }
+
+    public static MiniappAuthToken issue(UserAccount userAccount, String tokenHash,
+            MiniappAuthTokenKind tokenKind, UUID familyId, OffsetDateTime expiresAt,
+            OffsetDateTime createdAt) {
+        return new MiniappAuthToken(userAccount, tokenHash, tokenKind, familyId, expiresAt, createdAt);
+    }
+
+    public void rotate(String replacementHash, OffsetDateTime now) {
+        revokedAt = now;
+        replacedByHash = replacementHash;
+    }
+
+    public boolean isActive(OffsetDateTime now) {
+        return revokedAt == null && expiresAt.isAfter(now);
+    }
 }
