@@ -1,7 +1,5 @@
 package com.yangdoujiao.website.community;
 
-import java.time.Clock;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,17 +26,18 @@ public class CommunityReadService {
     private final CommunityReactionRepository reactions;
     private final UserExternalIdentityRepository identities;
     private final CommunityCursorCodec cursors;
-    private final Clock clock;
+    private final CommunityHotSnapshotCache hotSnapshots;
+    private static final int REPLY_PREVIEW_SIZE = 3;
 
     public CommunityReadService(CommunityPostRepository posts, CommunityCommentRepository comments,
             CommunityReactionRepository reactions, UserExternalIdentityRepository identities,
-            CommunityCursorCodec cursors, Clock clock) {
+            CommunityCursorCodec cursors, CommunityHotSnapshotCache hotSnapshots) {
         this.posts = posts;
         this.comments = comments;
         this.reactions = reactions;
         this.identities = identities;
         this.cursors = cursors;
-        this.clock = clock;
+        this.hotSnapshots = hotSnapshots;
     }
 
     public CommunityCursorPage<CommunityPostSummary> list(String sort, String cursor, int requestedSize, UserPrincipal viewer) {
@@ -46,24 +45,17 @@ public class CommunityReadService {
             throw new ApiException(HttpStatus.BAD_REQUEST, "INVALID_COMMUNITY_SORT", "Community sort is invalid");
         }
         int size = pageSize(requestedSize);
-        CommunityCursorCodec.Position position = cursor == null ? null : cursors.decode(cursor, sort);
         PageRequest page = PageRequest.of(0, size + 1);
         List<CommunityPost> rows;
         String nextCursor = null;
         if ("hot".equals(sort)) {
-            OffsetDateTime snapshot = position == null ? OffsetDateTime.now(clock) : position.snapshotAt();
-            var ranked = posts.findHotAfter(snapshot, position == null ? null : position.score(),
-                    position == null ? snapshot : position.timestamp(), position == null ? Long.MAX_VALUE : position.id(), page);
-            var selected = ranked.subList(0, Math.min(size, ranked.size()));
-            Map<Long, CommunityPost> byId = posts.findAllById(selected.stream().map(CommunityPostRepository.HotPosition::getId).toList())
+            var frozen = hotSnapshots.page(cursor, size);
+            Map<Long, CommunityPost> byId = posts.findAllById(frozen.ids())
                     .stream().filter(post -> post.getStatus() == PUBLIC).collect(Collectors.toMap(CommunityPost::getId, Function.identity()));
-            rows = selected.stream().map(row -> byId.get(row.getId())).filter(java.util.Objects::nonNull).toList();
-            if (ranked.size() > size) {
-                var boundary = selected.getLast();
-                // Keep the ranking boundary even if its content was hidden between queries.
-                nextCursor = cursors.encode(boundary.getPublishedAt().atOffset(java.time.ZoneOffset.UTC), boundary.getId(), sort, snapshot, boundary.getScore());
-            }
+            rows = frozen.ids().stream().map(byId::get).filter(java.util.Objects::nonNull).toList();
+            nextCursor = frozen.nextCursor();
         } else {
+            CommunityCursorCodec.Position position = cursor == null ? null : cursors.decode(cursor, sort);
             var found = position == null ? posts.findByStatusOrderByPublishedAtDescIdDesc(PUBLIC, page)
                     : posts.findLatestAfter(PUBLIC, position.timestamp(), position.id(), page);
             rows = found.subList(0, Math.min(size, found.size()));
@@ -99,8 +91,7 @@ public class CommunityReadService {
                 : comments.findTopLevelAfter(postId, PUBLIC, position.timestamp(), position.id(), page);
         var roots = found.subList(0, Math.min(size, found.size()));
         var replies = roots.isEmpty() ? List.<CommunityComment>of()
-                : comments.findByPostIdAndStatusAndParentCommentIdInOrderByCreatedAtAscIdAsc(
-                        postId, PUBLIC, roots.stream().map(CommunityComment::getId).toList());
+                : comments.findFirstReplies(postId, roots.stream().map(CommunityComment::getId).toList(), REPLY_PREVIEW_SIZE + 1);
         List<CommunityComment> all = new ArrayList<>(roots);
         all.addAll(replies);
         Map<Long, Profile> profiles = profiles(all.stream().map(CommunityComment::getAuthorAccountId).toList());
@@ -108,16 +99,41 @@ public class CommunityReadService {
         Map<Long, List<CommunityComment>> children = replies.stream().collect(Collectors.groupingBy(CommunityComment::getParentCommentId));
         String nextCursor = found.size() <= size ? null
                 : cursors.encode(roots.getLast().getCreatedAt(), roots.getLast().getId(), scope);
-        return new CommunityCursorPage<>(roots.stream().map(root -> commentView(root, profiles, likes,
-                children.getOrDefault(root.getId(), List.of()).stream().map(reply -> commentView(reply, profiles, likes, List.of())).toList()))
-                .toList(), nextCursor);
+        return new CommunityCursorPage<>(roots.stream().map(root -> {
+            var foundReplies = children.getOrDefault(root.getId(), List.of());
+            var visibleReplies = foundReplies.subList(0, Math.min(REPLY_PREVIEW_SIZE, foundReplies.size()));
+            String repliesNext = foundReplies.size() <= REPLY_PREVIEW_SIZE ? null
+                    : cursors.encode(visibleReplies.getLast().getCreatedAt(), visibleReplies.getLast().getId(), replyScope(postId, root.getId()));
+            return commentView(root, profiles, likes,
+                    visibleReplies.stream().map(reply -> commentView(reply, profiles, likes, List.of(), null)).toList(), repliesNext);
+        }).toList(), nextCursor);
     }
 
+    public CommunityCursorPage<CommunityCommentView> replies(Long postId, Long parentId, String cursor,
+            int requestedSize, UserPrincipal viewer) {
+        publishedPost(postId);
+        comments.findByIdAndPostIdAndStatusAndParentCommentIdIsNull(parentId, postId, PUBLIC)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "COMMUNITY_COMMENT_NOT_FOUND", "Community comment is unavailable"));
+        int size = pageSize(requestedSize);
+        String scope = replyScope(postId, parentId);
+        var position = cursor == null ? null : cursors.decode(cursor, scope);
+        var page = PageRequest.of(0, size + 1);
+        var found = position == null ? comments.findByPostIdAndParentCommentIdAndStatusOrderByCreatedAtAscIdAsc(postId, parentId, PUBLIC, page)
+                : comments.findRepliesAfter(postId, parentId, PUBLIC, position.timestamp(), position.id(), page);
+        var rows = found.subList(0, Math.min(size, found.size()));
+        var profiles = profiles(rows.stream().map(CommunityComment::getAuthorAccountId).toList());
+        var likes = likes(viewer, CommunityTargetType.COMMENT, rows.stream().map(CommunityComment::getId).toList());
+        String next = found.size() <= size ? null : cursors.encode(rows.getLast().getCreatedAt(), rows.getLast().getId(), scope);
+        return new CommunityCursorPage<>(rows.stream().map(row -> commentView(row, profiles, likes, List.of(), null)).toList(), next);
+    }
+
+    private static String replyScope(Long postId, Long parentId) { return "replies:" + postId + ":" + parentId; }
+
     private CommunityCommentView commentView(CommunityComment comment, Map<Long, Profile> profiles,
-            Set<Long> likes, List<CommunityCommentView> replies) {
+            Set<Long> likes, List<CommunityCommentView> replies, String repliesNextCursor) {
         Profile profile = profiles.getOrDefault(comment.getAuthorAccountId(), Profile.DEFAULT);
         return new CommunityCommentView(comment.getId().toString(), profile.name(), profile.avatarUrl(), comment.getBody(),
-                comment.getCreatedAt(), comment.getLikeCount(), likes.contains(comment.getId()), replies);
+                comment.getCreatedAt(), comment.getLikeCount(), likes.contains(comment.getId()), replies, repliesNextCursor);
     }
 
     private CommunityPost publishedPost(Long id) {

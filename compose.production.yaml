@@ -130,7 +130,7 @@ services:
       APP_MINIAPP_LOCAL_PROVIDER_ENABLED: "false"
       APP_MINIAPP_LOCAL_TEST_CODE: ""
       APP_MINIAPP_LOCAL_TEST_SUBJECT: ""
-      APP_COMMUNITY_CURSOR_SECRET: ${APP_COMMUNITY_CURSOR_SECRET:-}
+      APP_COMMUNITY_CURSOR_SECRET: ${APP_COMMUNITY_CURSOR_SECRET:?Set a shared community cursor secret of at least 32 bytes}
     depends_on:
       postgres:
         condition: service_healthy

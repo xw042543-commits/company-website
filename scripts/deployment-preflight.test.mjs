@@ -21,6 +21,7 @@ const validEnvironment = {
   REDIS_PASSWORD: "redis-secret-value",
   ELASTICSEARCH_URL: "http://elasticsearch:9200",
   APP_CONSULTATION_SUBMISSION_ENABLED: "true",
+  APP_COMMUNITY_CURSOR_SECRET: "test-only-community-key-with-32-bytes",
   APP_CONSULTATION_PRIVACY_NOTICE_VERSION: "web-enquiry-v1",
   PUBLIC_INDEXING_ENABLED: "false",
   CADDY_SITE_ADDRESSES: ":80",
@@ -108,6 +109,13 @@ test("requires the production profile and complete consultation settings", () =>
 
 test("accepts a complete private-preview environment", () => {
   assert.deepEqual(validateDeploymentEnv(validEnvironment), []);
+});
+
+test("requires a shared community cursor key of at least 32 UTF-8 bytes", () => {
+  for (const secret of [undefined, "", "too-short"]) {
+    assert.match(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_CURSOR_SECRET: secret }).join("\n"), /APP_COMMUNITY_CURSOR_SECRET/);
+  }
+  assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_CURSOR_SECRET: "🔐".repeat(8) }), []);
 });
 
 test("requires distinct frontend and backend addresses inside the deployment subnet", () => {

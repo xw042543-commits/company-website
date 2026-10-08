@@ -149,6 +149,7 @@ U圈继续位于现有 Spring Boot 模块化单体中，新增 `community` 业�
 | `GET` | `/api/v1/community/posts/{id}` | 可选 | 帖子详情与当前用户互动状态 |
 | `DELETE` | `/api/v1/community/posts/{id}` | Bearer | 作者删除自己的帖子 |
 | `GET` | `/api/v1/community/posts/{id}/comments` | 可选 | 评论游标列表 |
+| `GET` | `/api/v1/community/posts/{id}/comments/{parentId}/replies` | 可选 | 指定顶层评论的回复游标列表 |
 | `POST` | `/api/v1/community/posts/{id}/comments` | Bearer | 发布评论或回复 |
 | `DELETE` | `/api/v1/community/comments/{id}` | Bearer | 作者删除自己的评论 |
 | `PUT` | `/api/v1/community/posts/{id}/like` | Bearer | 点赞帖子 |
@@ -162,6 +163,10 @@ U圈继续位于现有 Spring Boot 模块化单体中，新增 `community` 业�
 写请求必须携带 `Idempotency-Key`。服务端按账号、操作类型和幂等键去重，不允许客户端通过重试创建重复帖子、评论或举报。
 
 游标由服务端生成并签名或编码为不透明字符串。客户端不得拼装时间和 ID。默认每页 20 条，最大 50 条；无效或过期游标返回稳定的校验错误。
+
+任务 2 审查补充：热门排序使用 PostgreSQL 生成实际排名、Redis 保存唯一共享的 45 秒派生快照，游标绑定快照版本及下一位置，期间点赞或评论计数变化不得改变同一快照的顺序。快照过期或丢失返回 `409 COMMUNITY_HOT_SNAPSHOT_EXPIRED`，客户端从首屏重启；Redis 不可用返回 `503 COMMUNITY_HOT_SNAPSHOT_UNAVAILABLE`，不得改用新的排名继续旧游标。生产必须配置至少 32 字节、所有实例一致的 `APP_COMMUNITY_CURSOR_SECRET`。
+
+评论页默认 20 个、最多 50 个顶层评论，每个评论只内嵌首批最多 3 条回复，并返回 `repliesNextCursor`（没有更多回复时为 null）。后续回复使用上表的 replies 路由与该游标加载，默认 20 条、最多 50 条，按创建时间及 ID 升序；游标绑定帖子及顶层评论，所有 ID 为十进制字符串。回复返回空的 replies 与 null 的 repliesNextCursor，保持两层结构。
 
 ### 6.2 管理员接口
 

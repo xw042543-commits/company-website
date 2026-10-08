@@ -29,4 +29,11 @@ public class CommunityPostController {
             @AuthenticationPrincipal UserPrincipal viewer) {
         return service.comments(id, cursor, size, viewer);
     }
+
+    @GetMapping("/{id}/comments/{parentId}/replies")
+    public CommunityCursorPage<CommunityCommentView> replies(@PathVariable Long id, @PathVariable Long parentId,
+            @RequestParam(required = false) String cursor, @RequestParam(defaultValue = "20") int size,
+            @AuthenticationPrincipal UserPrincipal viewer) {
+        return service.replies(id, parentId, cursor, size, viewer);
+    }
 }

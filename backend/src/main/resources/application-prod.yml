@@ -41,6 +41,8 @@ management:
       enabled: true
 
 app:
+  community:
+    cursor-secret: ${APP_COMMUNITY_CURSOR_SECRET}
   cors:
     allowed-origins: ${CORS_ALLOWED_ORIGINS}
   consultation:
