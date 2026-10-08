@@ -1,0 +1,9 @@
+<view class="page-shell universities-page">
+  <view class="eyebrow">院校资料库</view>
+  <view class="page-title">找到适合你的院校</view>
+  <view class="page-copy">搜索与筛选将直接使用洋豆角现有院校数据。</view>
+  <view class="surface-card state-card">
+    <view class="state-title">真实院校接口连接中</view>
+    <view class="state-copy">当前没有用样板数据填充列表。连接完成后会区分加载、空结果和请求失败。</view>
+  </view>
+</view>

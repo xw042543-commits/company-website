@@ -1,0 +1,9 @@
+<view class="page-shell circle-page">
+  <view class="circle-mark">U</view>
+  <view class="page-title centered">U圈正在建设</view>
+  <view class="page-copy centered">社区内容上线前将完成内容审核、举报和隐私保护能力。</view>
+  <view class="surface-card promise-card">
+    <view class="promise-title">面向 2000+ 学生稳定使用</view>
+    <view class="promise-copy">帖子、评论和互动不会使用演示数据冒充真实内容。</view>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+<view class="page-shell home-page">
+  <view class="brand-row">
+    <view class="brand-mark" aria-hidden="true">
+      <view class="brand-dot"></view>
+      <view class="brand-dot"></view>
+      <view class="brand-dot"></view>
+    </view>
+    <view>
+      <view class="brand-name">洋豆角</view>
+      <view class="brand-latin">UDAJO</view>
+    </view>
+  </view>
+
+  <view class="hero surface-card">
+    <view class="eyebrow">留学资讯</view>
+    <view class="hero-title">把留学目标变成清晰的行动计划</view>
+    <view class="page-copy">科学规划留学院校专业，科学定位留学人生发展。</view>
+  </view>
+
+  <view class="search-entry surface-card" bindtap="openFeature" data-key="universities">
+    <view class="search-symbol" aria-label="搜索"></view>
+    <view class="search-copy">搜索院校、专业或关键词</view>
+  </view>
+
+  <view class="feature-grid">
+    <view
+      wx:for="{{featureEntries}}"
+      wx:key="key"
+      class="feature-card surface-card"
+      bindtap="openFeature"
+      data-key="{{item.key}}"
+    >
+      <view class="feature-label">{{item.label}}</view>
+      <view class="feature-caption">{{item.caption}}</view>
+    </view>
+  </view>
+
+  <view class="section-heading">
+    <view class="section-title">热门院校</view>
+    <view class="section-hint">连接真实数据后展示</view>
+  </view>
+  <view class="surface-card honest-state">
+    <view class="honest-title">院校资料准备中</view>
+    <view class="honest-copy">这里不会展示样板中的虚构内容，下一步将直接连接现有院校接口。</view>
+  </view>
+</view>

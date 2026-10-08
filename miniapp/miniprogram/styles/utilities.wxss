@@ -1,0 +1,47 @@
+.page-shell {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 32rpx 28rpx calc(40rpx + env(safe-area-inset-bottom));
+}
+
+.surface-card {
+  box-sizing: border-box;
+  border: 1rpx solid rgba(200, 217, 210, 0.82);
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-card);
+}
+
+.eyebrow {
+  color: var(--color-action);
+  font-size: 24rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+}
+
+.page-title {
+  margin: 12rpx 0 0;
+  color: var(--color-deep);
+  font-size: 48rpx;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.page-copy {
+  margin-top: 18rpx;
+  color: var(--color-muted);
+  font-size: 28rpx;
+  line-height: 1.7;
+}
+
+.primary-action {
+  display: flex;
+  min-height: 88rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18rpx;
+  background: var(--color-action);
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 700;
+}

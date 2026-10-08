@@ -1,0 +1,26 @@
+<view class="account-page">
+  <view class="account-hero">
+    <view class="avatar-placeholder">U</view>
+    <view class="identity-copy">
+      <view class="identity-name">微信用户</view>
+      <view class="identity-hint">登录后开启留学之旅</view>
+    </view>
+    <view class="identity-arrow">›</view>
+  </view>
+
+  <view class="menu-card">
+    <view
+      wx:for="{{menuItems}}"
+      wx:key="key"
+      class="menu-row"
+      bindtap="openMenu"
+      data-key="{{item.key}}"
+    >
+      <view class="menu-copy">
+        <view class="menu-label">{{item.label}}</view>
+        <view class="menu-caption">{{item.caption}}</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/universities/index",
+    "pages/circle/index",
+    "pages/account/index"
+  ],
+  "window": {
+    "backgroundColor": "#eef5f1",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fdfcf8",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "color": "#536a63",
+    "selectedColor": "#286858",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/universities/index",
+        "text": "院校"
+      },
+      {
+        "pagePath": "pages/circle/index",
+        "text": "U圈"
+      },
+      {
+        "pagePath": "pages/account/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

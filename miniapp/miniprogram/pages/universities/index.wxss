@@ -1,0 +1,21 @@
+.universities-page {
+  background: var(--color-paper);
+}
+
+.state-card {
+  margin-top: 36rpx;
+  padding: 36rpx 32rpx;
+}
+
+.state-title {
+  color: var(--color-deep);
+  font-size: 32rpx;
+  font-weight: 750;
+}
+
+.state-copy {
+  margin-top: 14rpx;
+  color: var(--color-muted);
+  font-size: 26rpx;
+  line-height: 1.7;
+}

@@ -1,0 +1,45 @@
+.circle-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(63, 136, 117, 0.2), transparent 34%),
+    var(--color-paper);
+}
+
+.circle-mark {
+  display: flex;
+  width: 128rpx;
+  height: 128rpx;
+  margin-top: 92rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40rpx;
+  background: var(--color-action);
+  color: #ffffff;
+  font-size: 60rpx;
+  font-weight: 800;
+}
+
+.centered {
+  text-align: center;
+}
+
+.promise-card {
+  width: 100%;
+  margin-top: 48rpx;
+  padding: 32rpx;
+}
+
+.promise-title {
+  color: var(--color-deep);
+  font-size: 30rpx;
+  font-weight: 750;
+}
+
+.promise-copy {
+  margin-top: 12rpx;
+  color: var(--color-muted);
+  font-size: 26rpx;
+  line-height: 1.7;
+}
