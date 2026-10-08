@@ -182,6 +182,27 @@ test('different request keys remain independent', () => {
   assert.deepEqual(aborted, [false, false]);
 });
 
+test('a throwing abort still supersedes the old request and dispatches its replacement', async () => {
+  const pending: Array<Parameters<HttpTransport>[0]> = [];
+  const client = createHttpClient(resolveRuntimeConfig('production'), (options) => {
+    pending.push(options);
+    return { abort() { throw new Error('private abort provider failure'); } };
+  });
+
+  const first = client.request({ method: 'GET', path: '/api/v1/first', requestKey: 'search' });
+  const second = client.request<{ id: number }>({
+    method: 'GET', path: '/api/v1/second', requestKey: 'search',
+  }).then((result) => ({ result }), (error: unknown) => ({ error }));
+
+  assert.deepEqual(await first, {
+    ok: false,
+    error: { kind: 'unexpected', code: 'REQUEST_SUPERSEDED' },
+  });
+  assert.equal(pending.length, 2, 'the replacement transport must still dispatch');
+  pending[1]?.success({ statusCode: 200, data: { id: 2 }, header: {}, cookies: [] });
+  assert.deepEqual(await second, { result: { ok: true, value: { id: 2 } } });
+});
+
 test('application requests share keyed ownership and use the latest authentication delegates', async () => {
   const originalWx = Object.getOwnPropertyDescriptor(globalThis, 'wx');
   const pending: Array<{ options: Parameters<HttpTransport>[0]; aborted: boolean }> = [];

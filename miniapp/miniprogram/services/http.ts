@@ -86,7 +86,7 @@ export function createHttpClient(
         const supersede = () => {
           const task = currentTask;
           finish(failure('unexpected', 'REQUEST_SUPERSEDED'));
-          task?.abort();
+          try { task?.abort(); } catch { /* Aborting is best effort after settlement. */ }
         };
         if (options.requestKey) {
           active.get(options.requestKey)?.supersede();

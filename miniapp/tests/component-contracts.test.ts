@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 interface CardContext {
-  data: { university: Record<string, unknown>; imageFailed: boolean };
-  setData(update: { imageFailed: boolean }): void;
+  data: { university: Record<string, unknown>; imageFailed: boolean; [key: string]: unknown };
+  setData(update: Partial<CardContext['data']>): void;
   triggerEvent(name: string, detail: { slug: unknown }): void;
 }
 
@@ -38,7 +38,7 @@ const definition = await loadUniversityCard();
 function card(university: Record<string, unknown>, imageFailed = false) {
   const events: Array<{ name: string; detail: { slug: unknown } }> = [];
   const context: CardContext = {
-    data: { university, imageFailed },
+    data: { ...definition.data, university, imageFailed },
     setData(update) { Object.assign(this.data, update); },
     triggerEvent(name, detail) { events.push({ name, detail }); },
   };
@@ -62,18 +62,47 @@ test('an image error switches the university card into fallback state', () => {
   assert.deepEqual(events, []);
 });
 
-test('changing university data resets a failed image so the new image can load', () => {
-  const university = { slug: 'upm', imageUrl: 'https://example.com/upm.png' };
-  const { context, events } = card(university, true);
+test('same-image metadata updates preserve the university card fallback', () => {
+  const { context, events } = card({ slug: 'um', imageUrl: 'https://example.com/um.png' });
   const observer = definition.properties.university.observer;
-  assert.ok(observer, 'university updates must reset image failure');
+  assert.ok(observer);
+  assert.ok(definition.methods.imageError);
+  observer.call(context);
+  definition.methods.imageError.call(context);
 
+  const university = {
+    slug: 'um', imageUrl: 'https://example.com/um.png', nameZh: 'Updated name', programmeCount: 8,
+  };
+  context.data.university = university;
   observer.call(context);
 
-  assert.equal(context.data.imageFailed, false);
+  assert.equal(context.data.imageFailed, true);
   assert.equal(context.data.university, university);
   assert.deepEqual(events, []);
 });
+
+for (const [previousUrl, imageUrl] of [
+  ['https://example.com/um.png', 'https://example.com/upm.png'],
+  ['https://example.com/um.png', null],
+  [null, 'https://example.com/upm.png'],
+] as const) {
+  test(`changing an image from ${previousUrl} to ${imageUrl} resets its failure`, () => {
+    const { context, events } = card({ slug: 'um', imageUrl: previousUrl });
+    const observer = definition.properties.university.observer;
+    assert.ok(observer);
+    assert.ok(definition.methods.imageError);
+    observer.call(context);
+    definition.methods.imageError.call(context);
+
+    const university = { slug: 'upm', imageUrl };
+    context.data.university = university;
+    observer.call(context);
+
+    assert.equal(context.data.imageFailed, false);
+    assert.equal(context.data.university, university);
+    assert.deepEqual(events, []);
+  });
+}
 
 test('selection emits only the validated slug in either image state', () => {
   for (const imageFailed of [false, true]) {
