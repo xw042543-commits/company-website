@@ -1,0 +1,18 @@
+page {
+  --color-brand: #3f8875;
+  --color-action: #286858;
+  --color-deep: #153f36;
+  --color-navy: #173d5b;
+  --color-mint: #dff4ea;
+  --color-sky: #e5f1f8;
+  --color-warm: #f7eadc;
+  --color-paper: #fdfcf8;
+  --color-wash: #eef5f1;
+  --color-ink: #18302b;
+  --color-muted: #536a63;
+  --color-line: #c8d9d2;
+  --color-warning: #d97706;
+  --color-danger: #9f2f2f;
+  --radius-card: 24rpx;
+  --shadow-card: 0 14rpx 36rpx rgba(23, 61, 91, 0.08);
+}

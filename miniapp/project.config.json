@@ -1,15 +1,14 @@
 {
-  "description": "洋豆角留学微信小程序",
-  "compileType": "miniprogram",
-  "libVersion": "trial",
-  "miniprogramRoot": "./",
-  "setting": {
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
-    "minified": true,
-    "urlCheck": true
-  },
   "appid": "touristappid",
-  "projectname": "udajo-miniapp"
+  "compileType": "miniprogram",
+  "libVersion": "3.9.2",
+  "miniprogramRoot": "miniprogram/",
+  "projectname": "udajo-miniapp",
+  "setting": {
+    "checkSiteMap": true,
+    "es6": true,
+    "minified": true,
+    "postcss": true,
+    "useCompilerPlugins": ["typescript"]
+  }
 }

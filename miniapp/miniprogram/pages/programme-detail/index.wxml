@@ -1,0 +1,49 @@
+<view class="programme-page">
+  <view wx:if="{{state === 'ready'}}">
+    <view class="hero">
+      <image wx:if="{{programme.imageUrl && !imageFailed}}" class="hero-image" src="{{programme.imageUrl}}" mode="aspectFill" binderror="imageError" />
+      <view class="hero-wash"></view>
+      <button class="circle-button back" bindtap="back" aria-label="返回">‹</button>
+      <view class="hero-copy">
+        <view class="eyebrow">{{programme.universityNameZh}}</view>
+        <view class="title">{{programme.nameZh}}</view>
+        <view class="title-en">{{programme.nameEn}}</view>
+        <view class="location">⌖ {{programme.cityZh || '地点资料待补充'}}</view>
+      </view>
+    </view>
+
+    <view class="facts">
+      <view class="fact"><text>学历</text><view class="fact-value">{{programme.studyLevelCode || '待确认'}}</view></view>
+      <view class="fact"><text>学制</text><view class="fact-value">{{programme.durationDisplay || '待确认'}}</view></view>
+      <view class="fact"><text>授课</text><view class="fact-value">{{programme.languageCodes.join(' · ') || '待确认'}}</view></view>
+      <view class="fact"><text>方式</text><view class="fact-value">{{programme.courseModeCode || programme.studyPaceDisplay || '待确认'}}</view></view>
+      <view class="fact fact--wide"><text>参考学费</text><view class="fact-value">{{programme.tuitionDisplay || '请咨询最新费用'}}</view></view>
+      <view class="fact fact--wide"><text>入学时间</text><view class="fact-value">{{programme.intakeDisplayTexts.join(' · ') || '请咨询院校'}}</view></view>
+    </view>
+
+    <scroll-view wx:if="{{tabs.length}}" class="tabs" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="tab-row">
+        <view wx:for="{{tabs}}" wx:key="key" class="tab {{activeTab === item.key ? 'tab--active' : ''}}" data-key="{{item.key}}" bindtap="selectTab">{{item.label}}</view>
+      </view>
+    </scroll-view>
+    <view wx:for="{{tabs}}" wx:key="key">
+      <view wx:if="{{activeTab === item.key}}" class="content">
+        <view wx:for="{{item.sections}}" wx:key="sortOrder" wx:for-item="section" class="content-section">
+          <view class="content-kicker">{{section.titleZh || item.label}}</view>
+          <view class="content-body">{{section.bodyZh || '该部分资料正在整理中。'}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-space"></view>
+    <view class="actions">
+      <button class="primary" bindtap="consult">咨询顾问</button>
+      <button class="secondary {{favorite ? 'secondary--active' : ''}}" loading="{{saving}}" bindtap="toggleFavorite">{{favorite ? '已收藏' : '收藏'}}</button>
+    </view>
+  </view>
+  <view wx:else class="state-wrap">
+    <app-state wx:if="{{state === 'loading'}}" kind="loading" title="正在读取专业资料" description="学费、学制与录取要求正在加载。" />
+    <app-state wx:elif="{{state === 'offline'}}" kind="offline" title="网络暂时不可用" description="请检查网络后重新加载。" retryable="{{true}}" bind:retry="retry" />
+    <app-state wx:else kind="failed" title="专业资料加载失败" description="服务暂时无法返回有效资料。" retryable="{{true}}" bind:retry="retry" />
+  </view>
+</view>

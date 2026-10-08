@@ -1,2 +1,0 @@
-.saved { display: flex; align-items: center; }.saved-main { flex: 1; }.saved .section-title { margin-bottom: 8rpx; }.remove { color: #b04b3a; padding: 20rpx; }
-.retry { margin-top: 30rpx; }

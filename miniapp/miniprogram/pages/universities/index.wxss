@@ -1,0 +1,16 @@
+.universities-page { background:linear-gradient(180deg,#effaf6 0,#fdfcf8 360rpx); }
+.directory-head { padding:8rpx 4rpx 26rpx; }
+.search-box { display:flex; min-height:92rpx; align-items:center; padding:0 12rpx 0 26rpx; border:1rpx solid #d3e4dd; border-radius:24rpx; background:#fff; box-shadow:0 12rpx 34rpx rgba(21,63,54,.08); }
+.search-symbol { box-sizing:border-box; width:27rpx; height:27rpx; border:3rpx solid var(--color-action); border-radius:50%; }
+.search-input { min-width:0; flex:1; margin-left:18rpx; color:var(--color-ink); font-size:27rpx; }
+.search-button { min-width:112rpx; min-height:66rpx; margin:0; padding:0 18rpx; border-radius:18rpx; background:#0b8f57; color:#fff; font-size:24rpx; font-weight:700; line-height:66rpx; }
+.filter-scroll { width:100%; margin-top:22rpx; white-space:nowrap; }
+.filter-row { display:inline-flex; gap:12rpx; padding:2rpx 4rpx 10rpx; }
+.filter-chip,.filter-clear { min-height:62rpx; padding:0 22rpx; border:1rpx solid #d5e2dd; border-radius:999rpx; background:#fff; color:#506b62; font-size:22rpx; line-height:62rpx; }
+.filter-chip--active { border-color:#0b9b5b; background:#e7f8f0; color:#087348; font-weight:700; }
+.filter-clear { border-color:transparent; background:transparent; color:#0b8653; }
+.result-heading { display:flex; margin:25rpx 4rpx 18rpx; align-items:center; justify-content:space-between; color:#153f36; font-size:26rpx; font-weight:700; }
+.result-number { margin-right:6rpx; color:#079b55; font-size:38rpx; font-weight:850; }
+.result-note { color:#789087; font-size:21rpx; font-weight:500; }
+.university-list { display:flex; flex-direction:column; gap:18rpx; }
+.load-more { padding:28rpx; color:var(--color-muted); font-size:23rpx; text-align:center; }

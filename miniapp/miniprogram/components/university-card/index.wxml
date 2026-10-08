@@ -1,0 +1,18 @@
+<view class="university-card" bindtap="select">
+  <image wx:if="{{university.imageUrl && !imageFailed}}" class="university-image university-image--{{university.imageMode}}" src="{{university.imageUrl}}" mode="{{university.imageMode}}" lazy-load fade-show binderror="imageError" />
+  <view wx:else class="university-fallback">U</view>
+  <view class="university-body">
+    <view class="university-name">{{university.nameZh}}</view>
+    <view class="university-name-en">{{university.nameEn}}</view>
+    <view class="university-location">{{university.location || '地点资料待补充'}}</view>
+    <view class="tag-row">
+      <view wx:for="{{university.subjectTags}}" wx:key="*this" class="subject-tag">{{item}}</view>
+    </view>
+    <view class="programme-count">{{university.programmeCount}} 个匹配专业</view>
+  </view>
+  <button
+    class="favorite-button {{favorite ? 'favorite-button--active' : ''}}"
+    catchtap="toggleFavorite"
+    aria-label="{{favorite ? '取消收藏' : '收藏院校'}}"
+  >{{favorite ? '♥' : '♡'}}</button>
+</view>
