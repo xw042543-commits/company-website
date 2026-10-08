@@ -1,5 +1,5 @@
 <view class="university-card" bindtap="select">
-  <image wx:if="{{university.imageUrl && !imageFailed}}" class="university-image" src="{{university.imageUrl}}" mode="aspectFill" binderror="imageError" />
+  <image wx:if="{{university.imageUrl && !imageFailed}}" class="university-image university-image--{{university.imageMode}}" src="{{university.imageUrl}}" mode="{{university.imageMode}}" binderror="imageError" />
   <view wx:else class="university-fallback">U</view>
   <view class="university-body">
     <view class="university-name">{{university.nameZh}}</view>

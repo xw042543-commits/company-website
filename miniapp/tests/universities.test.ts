@@ -134,7 +134,9 @@ test('maps the real university search response without inventing missing images'
     location: '吉隆坡，马来西亚',
     programmeCount: 2,
     subjectTags: ['BUSINESS', 'COMPUTER_SCIENCE'],
-    imageUrl: null,
+    imageUrl: 'https://yangdoujiao.com/universities/segi-university.jpg',
+    coverImageUrl: null,
+    imageMode: 'aspectFit',
     popular: true,
   });
 });
@@ -178,6 +180,7 @@ test('maps university detail without inventing optional content', () => {
     descriptionZh: '院校简介',
     popular: true,
     imageUrl: null,
+    logoUrl: 'https://yangdoujiao.com/universities/segi-university.jpg',
   } });
 });
 

@@ -9,7 +9,10 @@
     </view>
 
     <view class="school-summary">
-      <view class="school-logo">{{logoLetter}}</view>
+      <view class="school-logo">
+        <image wx:if="{{university.logoUrl}}" class="school-logo-image" src="{{university.logoUrl}}" mode="aspectFit" />
+        <text wx:else>{{logoLetter}}</text>
+      </view>
       <view class="school-names">
         <view class="school-name">{{university.nameZh}}</view>
         <view class="school-name-en">{{university.nameEn}}</view>

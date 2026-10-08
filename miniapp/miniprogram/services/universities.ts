@@ -1,6 +1,7 @@
 import { request } from './http';
 import type { RequestOptions } from './http';
 import type { Result } from '../utils/result';
+import { universityCampusUrl, universityLogoUrl } from './university-media';
 
 export interface UniversitySearchInput {
   readonly q?: string;
@@ -20,6 +21,8 @@ export interface UniversitySummary {
   readonly programmeCount: number;
   readonly subjectTags: string[];
   readonly imageUrl: string | null;
+  readonly coverImageUrl: string | null;
+  readonly imageMode: 'aspectFill' | 'aspectFit';
   readonly popular: boolean;
 }
 
@@ -34,6 +37,7 @@ export interface UniversityDetail {
   readonly descriptionZh: string;
   readonly popular: boolean;
   readonly imageUrl: string | null;
+  readonly logoUrl: string | null;
 }
 
 export interface UniversityProgramme {
@@ -170,7 +174,8 @@ function mapUniversity(raw: unknown): UniversitySummary | null {
     if (!isObject(programme) || !text(programme.categoryCode)) return [];
     return [programme.categoryCode];
   }))].slice(0, 3);
-  const imageUrl = text(raw.imageUrl) && raw.imageUrl.startsWith('https://') ? raw.imageUrl : null;
+  const remoteImage = secureImage(raw.imageUrl);
+  const logoUrl = universityLogoUrl(raw.slug);
   return {
     id: raw.id,
     slug: raw.slug,
@@ -179,7 +184,9 @@ function mapUniversity(raw: unknown): UniversitySummary | null {
     location,
     programmeCount: raw.matchedProgrammeCount,
     subjectTags,
-    imageUrl,
+    imageUrl: remoteImage ?? logoUrl,
+    coverImageUrl: universityCampusUrl(raw.slug),
+    imageMode: remoteImage ? 'aspectFill' : 'aspectFit',
     popular: raw.popular === true,
   };
 }
@@ -199,7 +206,8 @@ export function mapUniversityDetail(raw: unknown): Result<UniversityDetail> {
       cityZh: optionalText(raw.cityZh),
       descriptionZh: optionalText(raw.descriptionZh),
       popular: raw.popular === true,
-      imageUrl: secureImage(raw.imageUrl),
+      imageUrl: secureImage(raw.imageUrl) ?? universityCampusUrl(raw.slug),
+      logoUrl: universityLogoUrl(raw.slug),
     },
   };
 }

@@ -34,7 +34,7 @@ export function currentRuntimeConfig(): RuntimeConfig {
   const envVersion = wx.getAccountInfoSync().miniProgram.envVersion;
   if (envVersion === 'release') return resolveRuntimeConfig('production');
   if (envVersion === 'trial') return resolveRuntimeConfig('preview');
-  return resolveRuntimeConfig('local');
+  return resolveRuntimeConfig('local', PRODUCTION_ORIGIN);
 }
 
 function parseOrigin(raw: string): URL {

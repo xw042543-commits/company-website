@@ -8,6 +8,7 @@
 .round-button::after { border:0; }.back-button { left:24rpx; }.favorite-button { right:24rpx; }.favorite-button--active { color:#0a9b59; }
 .school-summary { display:flex; margin:-42rpx 24rpx 0; position:relative; z-index:2; padding:24rpx; align-items:center; border-radius:28rpx; background:#fff; box-shadow:0 16rpx 48rpx rgba(17,65,52,.13); }
 .school-logo { display:flex; width:112rpx; height:112rpx; flex:0 0 auto; align-items:center; justify-content:center; border:1rpx solid #d9e7e1; border-radius:24rpx; background:linear-gradient(145deg,#f0fff8,#eef4ff); color:#0a8653; font-size:46rpx; font-weight:850; }
+.school-logo-image { width:84rpx; height:84rpx; }
 .school-names { min-width:0; margin-left:22rpx; }.school-name { font-size:35rpx; font-weight:850; }.school-name-en { margin-top:5rpx; color:#55716a; font-size:21rpx; line-height:1.35; }.school-location { margin-top:12rpx; color:#648078; font-size:22rpx; }
 .facts-grid { display:grid; grid-template-columns:repeat(3,1fr); margin:22rpx 24rpx 0; overflow:hidden; border:1rpx solid #dce9e4; border-radius:24rpx; background:#fff; }
 .fact { padding:22rpx 8rpx; text-align:center; }.fact + .fact { border-left:1rpx solid #e1ebe7; }.fact-number { color:#08774c; font-size:27rpx; font-weight:800; }.fact-label { margin-top:6rpx; color:#70867f; font-size:19rpx; }
