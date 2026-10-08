@@ -1,5 +1,8 @@
 import { request } from './http';
 import type { Result } from '../utils/result';
+import { createExpiringCache } from '../utils/expiring-cache';
+
+const programmeCache = createExpiringCache<ProgrammeDetail>(2 * 60 * 1000);
 
 export interface ProgrammeDetailSection {
   readonly type: string;
@@ -54,13 +57,21 @@ export interface ConsultationRecord {
 
 export async function getProgrammeDetail(universitySlug: string, programmeId: string): Promise<Result<ProgrammeDetail>> {
   if (!slug(universitySlug) || !positiveId(programmeId)) return invalid('INVALID_PROGRAMME_ROUTE');
+  const cacheKey = `${universitySlug}/${programmeId}`;
+  const cached = programmeCache.get(cacheKey);
+  if (cached) return { ok: true, value: cached };
   const result = await request<unknown>({
     method: 'GET',
     path: `/api/v1/miniapp/universities/${universitySlug}/programmes/${programmeId}`,
     requestKey: 'programme-detail',
   });
-  return result.ok ? mapProgrammeDetail(result.value) : result;
+  if (!result.ok) return result;
+  const mapped = mapProgrammeDetail(result.value);
+  if (mapped.ok) programmeCache.set(cacheKey, mapped.value);
+  return mapped;
 }
+
+export function clearMiniappDataCache(): void { programmeCache.clear(); }
 
 export async function getUserOverview(): Promise<Result<UserOverview>> {
   const result = await authenticated<unknown>('GET', '/api/v1/miniapp/me');

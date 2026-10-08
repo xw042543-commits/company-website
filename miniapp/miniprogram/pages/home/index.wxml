@@ -17,7 +17,7 @@
     >
       <swiper-item wx:for="{{featuredUniversities}}" wx:key="slug">
         <view class="hero-slide" bindtap="openUniversity" data-slug="{{item.slug}}">
-          <image wx:if="{{item.coverImageUrl}}" class="hero-image" src="{{item.coverImageUrl}}" mode="aspectFill" />
+          <image wx:if="{{item.coverImageUrl}}" class="hero-image" src="{{item.coverImageUrl}}" mode="aspectFill" fade-show />
           <view wx:else class="hero-fallback"><view class="hero-orbit"></view></view>
           <view class="hero-shade"></view>
           <view class="hero-copy">

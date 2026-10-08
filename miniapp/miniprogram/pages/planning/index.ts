@@ -1,12 +1,18 @@
-import { saveStudyPlan, type StudyPlanForm } from '../../services/miniapp-data';
+import { getStudyPlans, saveStudyPlan, type StudyPlanForm } from '../../services/miniapp-data';
 import { sessionStore } from '../../stores/session';
+import { clearPlanningDraft, loadPlanningDraft, savePlanningDraft } from '../../stores/planning-draft';
 
 Page({
   data: {
-    step: 1, saving: false,
+    step: 1, saving: false, planId: 0,
     studyGoals: ['本科', '硕士', '博士', '语言课程'],
     subjectOptions: ['计算机', '商科', '工程', '设计', '医学', '教育', '传媒'],
     form: { goal: '', subjects: [] as string[], country: '', intake: '', education: '', grade: '', language: '', budget: '' },
+  },
+  onLoad(options: Record<string, string | undefined>) {
+    const planId = Number(options.planId ?? 0);
+    if (Number.isSafeInteger(planId) && planId > 0) { this.setData({ planId }); void this.loadPlan(planId); return; }
+    const draft = loadPlanningDraft(); if (draft) this.setData({ form: draft });
   },
   selectGoal(event: WechatMiniprogram.BaseEvent) { this.patch('goal', String(event.currentTarget.dataset.value ?? '')); },
   toggleSubject(event: WechatMiniprogram.BaseEvent) {
@@ -16,7 +22,10 @@ Page({
     this.patch('subjects', subjects);
   },
   updateField(event: WechatMiniprogram.Input) { this.patch(String(event.currentTarget.dataset.field ?? ''), event.detail.value); },
-  patch(field: string, value: string | string[]) { if (field) this.setData({ [`form.${field}`]: value }); },
+  patch(field: string, value: string | string[]) {
+    if (!field) return;
+    this.setData({ [`form.${field}`]: value }, () => { if (!this.data.planId) savePlanningDraft(this.data.form as StudyPlanForm); });
+  },
   previous() { if (this.data.step > 1) this.setData({ step: this.data.step - 1 }); },
   next() {
     if (this.data.step === 1 && (!this.data.form.goal || !this.data.form.country)) {
@@ -32,10 +41,18 @@ Page({
     const auth = await sessionStore.ensureAuthenticated();
     if (!auth.ok) { wx.showToast({ title: '请先完成微信登录', icon: 'none' }); return; }
     this.setData({ saving: true });
-    const result = await saveStudyPlan(this.data.form as StudyPlanForm);
+    const result = this.data.planId ? await saveStudyPlan(this.data.form as StudyPlanForm, this.data.planId)
+      : await saveStudyPlan(this.data.form as StudyPlanForm);
     this.setData({ saving: false });
     if (!result.ok) { wx.showToast({ title: '保存失败，请检查后重试', icon: 'none' }); return; }
-    wx.showToast({ title: '规划已保存', icon: 'success' });
+    clearPlanningDraft(); wx.showToast({ title: '规划已保存', icon: 'success' });
     setTimeout(() => wx.redirectTo({ url: '/pages/plans/index' }), 450);
+  },
+  async loadPlan(planId: number) {
+    const auth = await sessionStore.ensureAuthenticated();
+    if (!auth.ok) { wx.showToast({ title: '请先完成微信登录', icon: 'none' }); return; }
+    const result = await getStudyPlans(); const plan = result.ok ? result.value.find((item) => item.id === planId) : null;
+    if (!plan) { wx.showToast({ title: '规划资料加载失败', icon: 'none' }); return; }
+    this.setData({ form: plan.form });
   },
 });

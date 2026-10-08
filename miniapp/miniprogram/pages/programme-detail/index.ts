@@ -43,15 +43,14 @@ Page({
     if (!programme || this.data.saving) return;
     const auth = await sessionStore.ensureAuthenticated();
     if (!auth.ok) { wx.showToast({ title: '请先完成微信登录', icon: 'none' }); return; }
-    this.setData({ saving: true });
-    const result = this.data.favorite
+    const previous = this.data.favorite;
+    this.setData({ saving: true, favorite: !previous });
+    const result = previous
       ? await removeProgrammeFavorite(programme.id)
       : await addProgrammeFavorite(programme.id);
     this.setData({ saving: false });
-    if (!result.ok) { wx.showToast({ title: '操作失败，请重试', icon: 'none' }); return; }
-    const favorite = !this.data.favorite;
-    this.setData({ favorite });
-    wx.showToast({ title: favorite ? '已收藏专业' : '已取消收藏', icon: 'none' });
+    if (!result.ok) { this.setData({ favorite: previous }); wx.showToast({ title: '操作失败，请重试', icon: 'none' }); return; }
+    wx.showToast({ title: previous ? '已取消收藏' : '已收藏专业', icon: 'none' });
   },
   async loadPage() {
     this.setData({ state: 'loading' as ViewState, imageFailed: false });

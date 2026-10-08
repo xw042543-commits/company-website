@@ -5,6 +5,7 @@ Page({
   data: { state: 'loading' as State, plans: [] as StudyPlan[] },
   onShow() { void this.load(); }, retry() { void this.load(); },
   create() { wx.navigateTo({ url: '/pages/planning/index' }); },
+  edit(event: WechatMiniprogram.BaseEvent) { wx.navigateTo({ url: `/pages/planning/index?planId=${Number(event.currentTarget.dataset.id)}` }); },
   async remove(event: WechatMiniprogram.BaseEvent) {
     const id = Number(event.currentTarget.dataset.id); const result = await deleteStudyPlan(id);
     if (!result.ok) { wx.showToast({ title: '删除失败，请重试', icon: 'none' }); return; }

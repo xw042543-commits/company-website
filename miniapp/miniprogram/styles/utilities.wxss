@@ -21,7 +21,7 @@
 
 .page-title {
   margin: 12rpx 0 0;
-  color: var(--color-deep);
+  color: var(--color-navy);
   font-size: 48rpx;
   font-weight: 750;
   line-height: 1.2;
