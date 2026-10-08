@@ -33,6 +33,27 @@ test('maps all five authoritative filter groups without inventing ALL', async ()
   }
 });
 
+for (const [name, code] of [['ALL', 'ALL'], ['whitespace-padded ALL', ' ALL ']] as const) {
+  test(`rejects reserved ${name} in every group without caching it`, async () => {
+    for (const group of ['countries', 'subjectCategories', 'studyLevels', 'courseModes', 'languages']) {
+      let calls = 0;
+      const service = createCatalogueService(async () => {
+        calls += 1;
+        return {
+          ok: true,
+          value: calls === 1
+            ? { ...valid, [group]: [{ code, nameZh: '全部', nameEn: 'All' }] }
+            : valid,
+        };
+      });
+
+      assert.deepEqual(await service.load(), invalid);
+      assert.deepEqual(await service.load(), { ok: true, value: valid });
+      assert.equal(calls, 2);
+    }
+  });
+}
+
 for (const [name, raw] of [
   ['missing group', { ...valid, languages: undefined }],
   ['non-array group', { ...valid, countries: {} }],

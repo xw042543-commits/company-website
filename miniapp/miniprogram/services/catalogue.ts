@@ -47,7 +47,7 @@ function parseGroup(raw: unknown): FilterOption[] | null {
     const code = item.code.trim();
     const nameZh = item.nameZh.trim();
     const nameEn = item.nameEn.trim();
-    if (!code || (!nameZh && !nameEn) || seen.has(code)) return null;
+    if (!code || code === 'ALL' || (!nameZh && !nameEn) || seen.has(code)) return null;
     seen.add(code);
     options.push({ code, nameZh, nameEn });
   }
