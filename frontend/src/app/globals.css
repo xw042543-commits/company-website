@@ -1629,6 +1629,14 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .programme-section { padding-bottom: 20px; }
 .programme-section > p:not(.section-label), .programme-info-body > p { max-width: 72ch; color: var(--muted); line-height: 1.8; }
 .programme-introduction { max-width: 64ch !important; margin-top: 16px; color: #35443f !important; font-size: clamp(.98rem, 1.2vw, 1.06rem); line-height: 1.9 !important; }
+.programme-essential-details { margin-top: clamp(30px, 4vw, 46px); }
+.programme-essential-details > h3 { margin-bottom: 14px; color: var(--support-navy); font-size: 1.08rem; }
+.programme-essential-details .programme-table-wrap { margin: 0; overflow: hidden; border: 1px solid #cbd8d3; border-radius: 12px; box-shadow: 0 12px 30px rgb(18 63 54 / 5%); }
+.programme-essential-table th { width: 31%; background: #f1f3ed; }
+.programme-essential-table td { background: #fffefa; }
+.programme-essential-details .programme-fees-context { margin-top: 18px; }
+.programme-essential-details .programme-source-note { max-width: none; margin: 16px 0 0; padding: 15px 0 0; border: 0; border-top: 1px solid #e6dac0; border-radius: 0; background: transparent; color: #56635e; line-height: 1.7; }
+.programme-essential-details + .programme-trust-summary { margin-top: 24px; }
 .programme-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 30px 0 0; padding-inline: 20px; border-left: 3px solid #8aafa4; background: #f7f3e9; }
 .programme-highlights > div { min-width: 0; padding: 17px 22px; border-right: 1px solid #ddd7ca; }
 .programme-highlights > div:first-child { padding-left: 0; }
@@ -1661,6 +1669,9 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .programme-structure-grid > div { min-width: 0; padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--wash); }
 .programme-structure-grid h3 { margin-top: 0; font-size: 1rem; }
 .programme-structure-grid ul { margin: 0; padding-left: 19px; color: var(--muted); }
+.programme-structure-pending { padding: 22px 24px; border: 1px dashed #9fb9b0; border-radius: 10px; background: #f4f7f2; }
+.programme-structure-pending strong { display: block; margin-bottom: 7px; color: var(--brand-deep); }
+.programme-structure-pending p { max-width: 70ch; margin: 0 0 10px; color: var(--muted); line-height: 1.75; }
 .programme-source-note { margin-top: 20px; padding: 13px 15px; border: 1px solid #e4d5a3; border-radius: var(--radius-sm); background: #fbf6e9; font-size: .9rem; }
 .programme-source-note a { color: var(--brand-action); font-weight: 750; }
 .programme-table-wrap { margin: 22px 0 26px; overflow-x: auto; border-block: 1px solid #cfd6d2; }
@@ -1739,6 +1750,9 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .programme-contact-card { position: static; }
   .programme-structure-grid, .programme-specialisations ul, .programme-career-list, .programme-checklist { grid-template-columns: minmax(0, 1fr); }
   .programme-introduction { max-width: 100% !important; font-size: .97rem; line-height: 1.82 !important; }
+  .programme-essential-table th { width: 40%; }
+  .programme-essential-details .programme-data-table th,
+  .programme-essential-details .programme-data-table td { padding: 14px 15px; }
   .programme-highlights { grid-template-columns: minmax(0, 1fr); padding: 4px 16px; }
   .programme-highlights > div { display: grid; grid-template-columns: minmax(88px, .35fr) minmax(0, 1fr); gap: 16px; padding: 13px 0; border-right: 0; border-bottom: 1px solid #e0e5e2; }
   .programme-highlights > div:last-child { border-bottom: 0; }
@@ -1754,6 +1768,10 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .programme-data-table th, .programme-data-table td { display: block; width: 100%; padding: 11px 13px; }
   .programme-data-table th { padding-bottom: 3px; background: #f6f7f4; }
   .programme-data-table td { padding-top: 3px; padding-bottom: 14px; background: #f6f7f4; }
+  .programme-essential-table th,
+  .programme-essential-table td { display: table-cell; padding: 13px 14px; vertical-align: middle; }
+  .programme-essential-table th { width: 40%; background: #f1f3ed; }
+  .programme-essential-table td { width: 60%; background: #fffefa; }
   .programme-applicant-note { padding-left: 15px; }
 }
 

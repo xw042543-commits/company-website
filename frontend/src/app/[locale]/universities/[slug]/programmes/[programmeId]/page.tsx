@@ -93,17 +93,6 @@ function levelName(locale: "zh" | "en", level: string) {
   return value ? words(locale, value[0], value[1]) : level;
 }
 
-function Fact({ label, value }: { label: string; value?: string }) {
-  if (!value) return null;
-  return <div><dt>{label}</dt><dd>{value}</dd></div>;
-}
-
-function IntakeFact({ locale, value }: { locale: "zh" | "en"; value?: string }) {
-  if (!value) return null;
-  const values = value.split(locale === "zh" ? "、" : ",").map((item) => item.trim()).filter(Boolean);
-  return <div className="programme-intake-fact"><dt>{words(locale, "入学时间", "Intakes")}</dt><dd>{values.map((item) => <span key={item}>{item}</span>)}</dd></div>;
-}
-
 function programmeIntroduction({
   locale,
   name,
@@ -236,6 +225,15 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   const coverageFields = [faculty, duration, tuition, intakes, programme.mode, requirements];
   const coverageCount = coverageFields.filter((value) => value.trim()).length;
   const coverageComplete = coverageCount === coverageFields.length;
+  const confirmationValue = words(locale, "请咨询顾问", "Confirm with an adviser");
+  const essentialFacts = [
+    [words(locale, "参考学费", "Indicative tuition"), tuition || confirmationValue],
+    [words(locale, "学制", "Duration"), duration || confirmationValue],
+    [words(locale, "授课语言", "Teaching language"), words(locale, "英语", "English")],
+    [words(locale, "授课方式", "Study mode"), programme.mode || confirmationValue],
+    [words(locale, "入学时间", "Intakes"), intakes || confirmationValue],
+    [words(locale, "学历层次", "Study level"), levelName(locale, programme.level)],
+  ];
 
   return <main id="main" className="programme-page">
     <section className="programme-hero">
@@ -292,69 +290,17 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
       </div>
     </nav>
 
-    <section className="container programme-trust-summary" aria-label={words(locale, "课程资料状态", "Programme information status")}>
-      <div>
-        <strong>{coverageComplete ? words(locale, "主要资料已覆盖", "Key information covered") : words(locale, "部分资料需要确认", "Some information needs confirmation")}</strong>
-        <span>{words(locale, `已提供 ${coverageCount}/${coverageFields.length} 项重点资料`, `${coverageCount} of ${coverageFields.length} key fields are available`)}</span>
-      </div>
-      <div>
-        <strong>{isVerifiedTaylorsBusiness ? words(locale, "已核对官方课程页", "Checked against the official programme page") : words(locale, "洋豆角课程资料", "UDAJO programme record")}</strong>
-        {isVerifiedTaylorsBusiness
-          ? <a href="https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-business.html" target="_blank" rel="noreferrer">{words(locale, "查看资料来源", "View source")}</a>
-          : <Link href={adviserPath}>{words(locale, "申请前确认最新资料", "Confirm current details")}</Link>}
-      </div>
-    </section>
-
-    <dl className="container programme-fact-strip" id="basic-information">
-      <Fact label={words(locale, "地点", "Location")} value={[school.city, school.country].filter(Boolean).join(", ")} />
-      <Fact label={words(locale, "学历", "Qualification")} value={levelName(locale, programme.level)} />
-      <Fact label={words(locale, "参考学费", "Indicative tuition")} value={tuition} />
-      <Fact label={words(locale, "学制", "Duration")} value={duration} />
-      <IntakeFact locale={locale} value={intakes} />
-      <Fact label={words(locale, "授课方式", "Study mode")} value={programme.mode} />
-    </dl>
-
     <div className="container programme-page-layout">
       <div className="programme-content">
         <section className="programme-section" id="overview">
           <p className="section-label">{words(locale, "课程资料", "Programme overview")}</p>
           <h2>{words(locale, "课程介绍", "About this programme")}</h2>
           <p className="programme-introduction">{introduction}</p>
-          <dl className="programme-highlights">
-            <div>
-              <dt>{words(locale, "所属学院", "Faculty")}</dt>
-              <dd>{faculty || words(locale, "专业分类待确认", "Faculty to be confirmed")}</dd>
-            </div>
-            <div>
-              <dt>{words(locale, "学历层次", "Study level")}</dt>
-              <dd>{levelName(locale, programme.level)}</dd>
-            </div>
-            <div>
-              <dt>{words(locale, "授课语言", "Teaching language")}</dt>
-              <dd>{words(locale, "英语", "English")}</dd>
-            </div>
-          </dl>
-          {specialisations.length > 0 && <div className="programme-specialisations">
-            <h3>{words(locale, "可选专业方向", "Available specialisations")}</h3>
-            <p>{words(locale, "该课程名称中的专业方向是可选择的学习路径，并非一个需要同时修读的超长课程。", "Choose one of these specialisations as part of the degree. They are separate study pathways, not subjects that must all be taken together.")}</p>
-            <ul>{specialisations.map((item) => <li key={item}>{item}</li>)}</ul>
-          </div>}
-        </section>
-
-        {isVerifiedTaylorsBusiness && <details className="programme-info-panel" open>
-          <summary>{words(locale, "课程结构", "Programme structure")}</summary>
-          <div className="programme-info-body">
-            <p>{words(locale, "课程先建立商业运营、管理、营销、金融与数据分析基础，再让学生选择一个专业方向，并包括实习或行业沉浸学习。", "The programme builds a foundation in business operations, management, marketing, finance, and analytics before students select one specialisation. It also includes an internship or industry immersion experience.")}</p>
-            <div className="programme-structure-grid">
-              <div><h3>{words(locale, "共同核心课程", "Common core")}</h3><ul><li>{words(locale, "非专业会计", "Accounting for Non-Specialists")}</li><li>{words(locale, "管理学导论", "Introduction to Management")}</li><li>{words(locale, "市场营销原理", "Principles of Marketing")}</li><li>{words(locale, "商业经济学", "Business Economics")}</li><li>{words(locale, "金融学导论", "Introduction to Finance")}</li><li>{words(locale, "商业定量方法", "Quantitative Methods for Business")}</li></ul></div>
-              <div><h3>{words(locale, "后期学习", "Later study")}</h3><ul><li>{words(locale, "国际商务导论", "Introduction to International Business")}</li><li>{words(locale, "创业基础", "Understanding Entrepreneurialism")}</li><li>{words(locale, "战略管理", "Strategic Management")}</li><li>{words(locale, "实习或行业沉浸", "Internship or Industry Immersion")}</li><li>{words(locale, "所选专业方向课程", "Selected specialisation modules")}</li></ul></div>
-            </div>
-          </div>
-        </details>}
-
-        <details className="programme-info-panel" id="programme-structure" open>
-          <summary>{words(locale, "费用与入学时间", "Fees and intakes")}</summary>
-          <div className="programme-info-body programme-fees-layout">
+          <div className="programme-essential-details" id="basic-information">
+            <h3>{words(locale, "基本信息", "Course details")}</h3>
+            <div className="programme-table-wrap"><table className="programme-data-table programme-essential-table"><tbody>
+              {essentialFacts.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}
+            </tbody></table></div>
             <div className="programme-fees-context">
               <h3>{words(locale, "申请前须知", "Before you apply")}</h3>
               <p>{words(locale, "费用为参考资料，大学可能按入学时间、学生身份或课程安排调整。申请前请确认最新费用。", "The fees shown are a guide. The university may charge a different amount depending on the intake, student status or course structure. Confirm the latest fee before applying.")}</p>
@@ -362,12 +308,25 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
                 ? words(locale, "2026年课程资料已与大学官网核对。官网目前公布2月、4月和9月三个入学月份；具体开课日、报到日期和时间会随每个入学批次公布。", "The 2026 programme information has been checked against the university website. It currently publishes February, April, and September intakes; exact commencement dates, registration dates, and times are issued for each intake.")
                 : words(locale, "这里会显示资料中提供的所有入学月份。若大学尚未公开具体开课日、报到日期或时间，请在安排行程或签证前向顾问确认。", "This page shows every intake month in the available course record. If exact start or registration dates have not been published, confirm them before booking travel or applying for a visa.")} {isVerifiedTaylorsBusiness && <a href="https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-business.html" target="_blank" rel="noreferrer">{words(locale, "查看官方课程页", "View the official course page")}</a>}</p>
             </div>
-            <div className="programme-table-wrap"><table className="programme-data-table"><tbody>
-              <tr><th scope="row">{words(locale, "参考学费", "Indicative tuition")}</th><td>{tuition || words(locale, "请咨询顾问", "Confirm with an adviser")}</td></tr>
-              <tr><th scope="row">{words(locale, "入学时间", "Intakes")}</th><td>{intakes || words(locale, "请咨询顾问", "Confirm with an adviser")}</td></tr>
-            </tbody></table></div>
           </div>
-        </details>
+          <section className="programme-trust-summary" aria-label={words(locale, "课程资料状态", "Programme information status")}>
+            <div>
+              <strong>{coverageComplete ? words(locale, "主要资料已覆盖", "Key information covered") : words(locale, "部分资料需要确认", "Some information needs confirmation")}</strong>
+              <span>{words(locale, `已提供 ${coverageCount}/${coverageFields.length} 项重点资料`, `${coverageCount} of ${coverageFields.length} key fields are available`)}</span>
+            </div>
+            <div>
+              <strong>{isVerifiedTaylorsBusiness ? words(locale, "已核对官方课程页", "Checked against the official programme page") : words(locale, "洋豆角课程资料", "UDAJO programme record")}</strong>
+              {isVerifiedTaylorsBusiness
+                ? <a href="https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-business.html" target="_blank" rel="noreferrer">{words(locale, "查看资料来源", "View source")}</a>
+                : <Link href={adviserPath}>{words(locale, "申请前确认最新资料", "Confirm current details")}</Link>}
+            </div>
+          </section>
+          {specialisations.length > 0 && <div className="programme-specialisations">
+            <h3>{words(locale, "可选专业方向", "Available specialisations")}</h3>
+            <p>{words(locale, "该课程名称中的专业方向是可选择的学习路径，并非一个需要同时修读的超长课程。", "Choose one of these specialisations as part of the degree. They are separate study pathways, not subjects that must all be taken together.")}</p>
+            <ul>{specialisations.map((item) => <li key={item}>{item}</li>)}</ul>
+          </div>}
+        </section>
 
         <details className="programme-info-panel" id="requirements" open>
           <summary>{words(locale, "入学要求与申请", "Entry requirements and application")}</summary>
@@ -385,6 +344,23 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
                 <li>{words(locale, "计划入学时间与预算", "Preferred intake and study budget")}</li>
               </ul>
             </div>
+          </div>
+        </details>
+
+        <details className="programme-info-panel" id="programme-structure" open>
+          <summary>{words(locale, "课程安排", "Programme structure")}</summary>
+          <div className="programme-info-body">
+            {isVerifiedTaylorsBusiness ? <>
+              <p>{words(locale, "课程先建立商业运营、管理、营销、金融与数据分析基础，再让学生选择一个专业方向，并包括实习或行业沉浸学习。", "The programme builds a foundation in business operations, management, marketing, finance, and analytics before students select one specialisation. It also includes an internship or industry immersion experience.")}</p>
+              <div className="programme-structure-grid">
+                <div><h3>{words(locale, "共同核心课程", "Common core")}</h3><ul><li>{words(locale, "非专业会计", "Accounting for Non-Specialists")}</li><li>{words(locale, "管理学导论", "Introduction to Management")}</li><li>{words(locale, "市场营销原理", "Principles of Marketing")}</li><li>{words(locale, "商业经济学", "Business Economics")}</li><li>{words(locale, "金融学导论", "Introduction to Finance")}</li><li>{words(locale, "商业定量方法", "Quantitative Methods for Business")}</li></ul></div>
+                <div><h3>{words(locale, "后期学习", "Later study")}</h3><ul><li>{words(locale, "国际商务导论", "Introduction to International Business")}</li><li>{words(locale, "创业基础", "Understanding Entrepreneurialism")}</li><li>{words(locale, "战略管理", "Strategic Management")}</li><li>{words(locale, "实习或行业沉浸", "Internship or Industry Immersion")}</li><li>{words(locale, "所选专业方向课程", "Selected specialisation modules")}</li></ul></div>
+              </div>
+            </> : <div className="programme-structure-pending">
+              <strong>{words(locale, "需要顾问确认", "Confirmation required")}</strong>
+              <p>{words(locale, "具体课程模块、选修方向与考核方式请在申请前向顾问索取大学最新课程说明。", "For confirmed modules, electives and assessment details, request the university's latest course guide before applying.")}</p>
+              <Link className="text-link" href={adviserPath}>{words(locale, "申请前确认最新资料", "Confirm current details")}</Link>
+            </div>}
           </div>
         </details>
 
