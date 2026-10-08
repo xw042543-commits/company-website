@@ -160,7 +160,7 @@ U圈继续位于现有 Spring Boot 模块化单体中，新增 `community` 业�
 | `GET` | `/api/v1/community/me/posts` | Bearer | 当前用户的帖子 |
 | `GET` | `/api/v1/community/me/comments` | Bearer | 当前用户的评论 |
 
-写请求必须携带 `Idempotency-Key`。服务端按账号、操作类型和幂等键去重，不允许客户端通过重试创建重复帖子、评论或举报。
+创建帖子、评论和提交举报的请求必须携带 `Idempotency-Key`。服务端按账号、操作类型和幂等键去重，不允许客户端通过重试创建重复帖子、评论或举报。点赞与取消点赞的 `PUT`／`DELETE` 请求本身幂等，不要求 `Idempotency-Key`。
 
 游标由服务端生成并签名或编码为不透明字符串。客户端不得拼装时间和 ID。默认每页 20 条，最大 50 条；无效或过期游标返回稳定的校验错误。
 

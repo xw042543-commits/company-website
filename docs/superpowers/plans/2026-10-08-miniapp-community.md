@@ -19,7 +19,7 @@
 - Posts are 1–2,000 Unicode code points, comments 1–1,000, and report notes 0–500.
 - V1 is text-only: no private messaging, group chat, media upload, microservice, message queue, or Elasticsearch community index.
 - Public DTOs never expose account IDs, openids, email, phone, restriction reasons, or moderation internals.
-- All miniapp writes carry `Idempotency-Key`; moderation writes carry the current entity version.
+- Miniapp post/comment creation and report submission carry `Idempotency-Key`; inherently idempotent reaction `PUT`/`DELETE` requests do not require it. Moderation writes carry the current entity version.
 - Redis failure must fail closed for post, comment, and report creation; reads continue from PostgreSQL.
 - Existing layout, authentication, adviser consultation workflows, and university features must remain unchanged.
 
