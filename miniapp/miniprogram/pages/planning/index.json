@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "留学规划"
+  "navigationBarTitleText": "留学规划",
+  "usingComponents": { "app-state": "/components/app-state/index" }
 }
