@@ -1,16 +1,18 @@
 <view class="page-shell circle-page">
-  <view class="circle-mark">U</view>
-  <block wx:if="{{session.status === 'authenticated'}}">
-    <view class="page-title centered">U圈正在建设</view>
-    <view class="page-copy centered">社区内容上线前将完成内容审核、举报和隐私保护能力。</view>
-    <view class="surface-card promise-card">
-      <view class="promise-title">面向 2000+ 学生稳定使用</view>
-      <view class="promise-copy">帖子、评论和互动不会使用演示数据冒充真实内容。</view>
-    </view>
-  </block>
-  <block wx:else>
-    <view class="page-title centered">登录后进入 U圈</view>
-    <view class="page-copy centered">使用微信身份保护你的社区账号与互动记录。</view>
-    <button class="primary-button login-button" bindtap="enterCircle">微信快捷登录</button>
-  </block>
+  <view class="circle-header"><view><view class="circle-title">U圈</view><view class="circle-subtitle">真实同学的留学经验与交流</view></view><button class="header-action" bindtap="openMine">我的内容</button></view>
+  <view class="feed-tabs" role="tablist" aria-label="帖子排序">
+    <button class="feed-tab {{sort === 'latest' ? 'feed-tab--active' : ''}}" data-sort="latest" bindtap="switchSort">最新</button>
+    <button class="feed-tab {{sort === 'hot' ? 'feed-tab--active' : ''}}" data-sort="hot" bindtap="switchSort">热门</button>
+  </view>
+  <view wx:if="{{state === 'loading'}}" class="feed-list" aria-label="正在加载帖子">
+    <view wx:for="{{skeletonRows}}" wx:key="*this" class="post-skeleton"><view class="skeleton-head"><view class="skeleton-avatar"></view><view class="skeleton-line skeleton-line--name"></view></view><view class="skeleton-line"></view><view class="skeleton-line skeleton-line--short"></view></view>
+  </view>
+  <view wx:elif="{{state === 'ready'}}" class="feed-list">
+    <community-post-card wx:for="{{posts}}" wx:key="id" post="{{item}}" reacting="{{reactingId === item.id}}" bind:open="openPost" bind:react="toggleLike" bind:report="reportPost" />
+    <view wx:if="{{loadingMore}}" class="feed-foot">正在加载更多内容…</view><view wx:elif="{{!nextCursor}}" class="feed-foot">已显示全部内容</view>
+  </view>
+  <app-state wx:elif="{{state === 'empty'}}" kind="empty" title="U圈还没有帖子" description="成为第一个分享真实留学经验的人。" />
+  <app-state wx:elif="{{state === 'offline'}}" kind="offline" title="网络暂时不可用" description="请检查网络连接后重新加载。" retryable="{{true}}" bind:retry="retry" />
+  <app-state wx:elif="{{state === 'failed'}}" kind="failed" title="U圈加载失败" description="暂时无法读取社区内容，请稍后重试。" retryable="{{true}}" bind:retry="retry" />
+  <button class="compose-button" bindtap="openCompose" aria-label="发布U圈帖子"><view class="compose-symbol" aria-hidden="true"></view><text>发布</text></button>
 </view>

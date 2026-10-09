@@ -1,6 +1,55 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { createRequire } from "node:module";
+import ts from "typescript";
+import * as site from "./site.ts";
+import * as adviserUi from "./adviser-consultations-ui.ts";
+
+test("established consultation page renders localized moderation navigation with the consultation tab current", async () => {
+  const require = createRequire(import.meta.url);
+  const compiled = ts.transpileModule(readFileSync(new URL("../app/[locale]/adviser/consultations/page.tsx", import.meta.url), "utf8"), {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
+  }).outputText;
+  const exports: { default?: (input: { params: Promise<{ locale: string }> }) => Promise<unknown> } = {};
+  new Function("require", "exports", compiled)((id: string) => {
+    if (id === "@/lib/site") return site;
+    if (id === "@/lib/adviser-consultations-ui") return adviserUi;
+    // Do not execute the data-fetching client panel; navigation belongs to the real server entry.
+    if (id === "@/components/adviser-consultations-panel") return { AdviserConsultationsPanel: () => null };
+    return require(id);
+  }, exports);
+  type Element = { type?: unknown; props?: Record<string, unknown> & { children?: unknown } };
+  function elements(value: unknown): Element[] {
+    if (Array.isArray(value)) return value.flatMap(elements);
+    if (!value || typeof value !== "object") return [];
+    const item = value as Element;
+    return [item, ...elements(item.props?.children)];
+  }
+  for (const locale of ["zh", "en"] as const) {
+    const tree = elements(await exports.default!({ params: Promise.resolve({ locale }) }));
+    const nav = tree.find((item) => item.type === "nav");
+    assert.ok(nav, 'the established workspace must expose its navigation');
+    assert.equal(nav.props?.['aria-label'], locale === 'zh' ? '顾问导航' : 'Adviser navigation');
+    const links = elements(nav.props?.children).filter((item) => item.props?.href);
+    assert.deepEqual(links.map((link) => [link.props?.href, link.props?.children, link.props?.['aria-current']]), [
+      [`/${locale}/adviser/consultations`, locale === 'zh' ? '咨询管理' : 'Consultations', 'page'],
+      [`/${locale}/adviser/community`, locale === 'zh' ? 'U圈审核' : 'Community moderation', undefined],
+    ]);
+    assert.equal(tree.filter((item) => item.props?.className === 'adviser-console-header').length, 1);
+  }
+});
+
+test("adviser navigation preserves consultations and exposes exactly one localized moderation item", async () => {
+  const { adviserNavigation } = await import("./adviser-consultations-ui.ts");
+  for (const locale of ["zh", "en"] as const) {
+    const entries = adviserNavigation(locale);
+    assert.deepEqual(entries, [
+      { href: `/${locale}/adviser/consultations`, label: locale === "zh" ? "咨询管理" : "Consultations" },
+      { href: `/${locale}/adviser/community`, label: locale === "zh" ? "U圈审核" : "Community moderation" },
+    ]);
+  }
+});
 
 const source = (path: string) => {
   const url = new URL(path, import.meta.url);

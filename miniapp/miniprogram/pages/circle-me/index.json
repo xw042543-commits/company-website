@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "我的U圈",
+  "enablePullDownRefresh": true,
+  "usingComponents": { "app-state": "/components/app-state/index" }
+}

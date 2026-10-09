@@ -1,0 +1,12 @@
+.compose-page { background: var(--color-paper); }
+.compose-title { color: var(--color-deep); font-size: 44rpx; font-weight: 800; line-height: 1.25; }
+.compose-copy, .review-note { margin-top: 16rpx; color: var(--color-muted); font-size: 25rpx; line-height: 1.7; }
+.editor-card { margin-top: 30rpx; padding: 28rpx; }
+.field-label { display: block; color: var(--color-deep); font-size: 27rpx; font-weight: 750; }
+.editor-card textarea { box-sizing: border-box; width: 100%; min-height: 420rpx; margin-top: 16rpx; color: var(--color-ink); font-size: 29rpx; line-height: 1.7; overflow-wrap: anywhere; }
+.editor-meta { display: flex; min-height: 72rpx; align-items: center; justify-content: space-between; border-top: 1rpx solid var(--color-line); color: var(--color-muted); font-size: 22rpx; }
+.counter--danger { color: var(--color-danger); font-weight: 700; }
+.notice { margin-top: 20rpx; padding: 22rpx 24rpx; border-radius: 16rpx; background: #fceeee; color: var(--color-danger); font-size: 25rpx; line-height: 1.6; }
+.publish-button { width: 100%; min-height: 96rpx; margin-top: 28rpx; border-radius: 18rpx; background: var(--color-action); color: #fff; font-size: 29rpx; font-weight: 750; line-height: 96rpx; }
+.publish-button:active { background: var(--color-deep); }.publish-button[disabled] { opacity: .46; }
+@media (min-width: 600px) { .compose-page { max-width: 720px; margin: 0 auto; padding-right: 32px; padding-left: 32px; } }

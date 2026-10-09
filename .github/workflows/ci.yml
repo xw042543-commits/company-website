@@ -161,6 +161,7 @@ jobs:
           FRONTEND_IMAGE=udajo/frontend:ci
           BACKEND_IMAGE=udajo/backend:ci
           EOF
+          printf 'APP_COMMUNITY_CURSOR_SECRET=%s\n' "$(openssl rand -hex 32)" >> "$RUNNER_TEMP/deployment.env"
 
       - name: Validate deployment contracts
         run: |

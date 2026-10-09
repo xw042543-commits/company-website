@@ -144,6 +144,27 @@ test('shares refresh through the handler and retries an authenticated request on
   assert.equal(aborts, 0);
 });
 
+for (const finalStatus of [200, 401]) {
+  test(`shared HTTP community public request refreshes once and stops after retry returns ${finalStatus}`, async () => {
+    let token = 'expired';
+    let refreshes = 0;
+    const headers: string[] = [];
+    const client = createHttpClient(resolveRuntimeConfig('production'), (options) => {
+      headers.push(options.header.Authorization ?? '');
+      options.success({ statusCode: headers.length === 1 ? 401 : finalStatus,
+        data: finalStatus === 200 && headers.length > 1 ? { items: [], nextCursor: null }
+          : { code: 'UNAUTHORIZED', message: 'private token reason', fieldErrors: null, traceId: 'private' },
+        header: {}, cookies: [] });
+      return { abort() {} };
+    }, () => token, async () => { refreshes++; token = 'fresh'; return true; });
+    assert.deepEqual(await client.request({ method: 'GET', path: '/api/v1/community/posts?sort=latest&size=20', authenticated: true }),
+      finalStatus === 200 ? { ok: true, value: { items: [], nextCursor: null } }
+        : { ok: false, error: { kind: 'unauthorized', code: 'AUTHENTICATION_REQUIRED' } });
+    assert.equal(refreshes, 1);
+    assert.deepEqual(headers, ['Bearer expired', 'Bearer fresh']);
+  });
+}
+
 test('a newer request with the same key aborts and supersedes the previous owner', async () => {
   const pending: Array<{
     options: Parameters<HttpTransport>[0];

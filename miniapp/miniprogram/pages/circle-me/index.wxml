@@ -1,0 +1,13 @@
+<view class="page-shell personal-page">
+  <view class="personal-title">我的U圈</view><view class="personal-copy">这里保留你发布过的内容及当前状态，包括审核中、隐藏、未通过和已删除内容。</view>
+  <view class="personal-tabs" role="tablist"><button class="personal-tab {{tab === 'posts' ? 'active' : ''}}" data-tab="posts" bindtap="switchTab">我的帖子</button><button class="personal-tab {{tab === 'comments' ? 'active' : ''}}" data-tab="comments" bindtap="switchTab">我的评论</button></view>
+  <view wx:if="{{state === 'ready'}}" class="personal-list">
+    <block wx:if="{{tab === 'posts'}}"><view wx:for="{{posts}}" wx:key="id" class="personal-card surface-card"><view class="card-head"><view class="status status--{{item.status}}">{{item.statusLabel}}</view><view class="item-time">{{item.displayTime}}</view></view><view class="item-body {{item.status === 'PUBLISHED' ? 'item-body--link' : ''}}" data-id="{{item.id}}" data-status="{{item.status}}" bindtap="openItem">{{item.body}}<text wx:if="{{item.status === 'PUBLISHED'}}" class="open-hint">查看公开详情</text></view><view class="item-foot"><text>{{item.commentCount}} 条评论 · {{item.likeCount}} 个赞</text><button class="delete-button" disabled="{{deletingId === item.id}}" data-id="{{item.id}}" bindtap="deleteItem">{{deletingId === item.id ? '删除中…' : '删除'}}</button></view></view></block>
+    <block wx:else><view wx:for="{{comments}}" wx:key="id" class="personal-card surface-card"><view class="card-head"><view class="status status--{{item.status}}">{{item.statusLabel}}</view><view class="item-time">{{item.displayTime}}</view></view><view class="item-body {{item.status === 'PUBLISHED' ? 'item-body--link' : ''}}" data-post="{{item.postId}}" data-status="{{item.status}}" bindtap="openItem">{{item.body}}<text wx:if="{{item.status === 'PUBLISHED'}}" class="open-hint">查看公开详情</text></view><view class="item-foot"><text>{{item.parentCommentId ? '回复' : '评论'}} · {{item.likeCount}} 个赞</text><button class="delete-button" disabled="{{deletingId === item.id}}" data-id="{{item.id}}" bindtap="deleteItem">{{deletingId === item.id ? '删除中…' : '删除'}}</button></view></view></block>
+    <view wx:if="{{loadingMore}}" class="list-foot">正在加载更多内容…</view><view wx:elif="{{!nextCursor}}" class="list-foot">已显示全部内容</view>
+  </view>
+  <app-state wx:elif="{{state === 'loading'}}" kind="loading" title="正在读取我的内容" description="请稍候。" />
+  <app-state wx:elif="{{state === 'empty'}}" kind="empty" title="这里还没有内容" description="发布或评论后，会在这里显示处理状态。" />
+  <app-state wx:elif="{{state === 'offline'}}" kind="offline" title="网络暂时不可用" description="请检查网络后重试。" retryable="{{true}}" bind:retry="retry" />
+  <app-state wx:elif="{{state === 'failed'}}" kind="failed" title="无法读取我的内容" description="请确认已登录后重新加载。" retryable="{{true}}" bind:retry="retry" />
+</view>

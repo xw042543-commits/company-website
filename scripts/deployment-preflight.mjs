@@ -20,6 +20,7 @@ export const REQUIRED_DEPLOYMENT_VARIABLES = [
   "REDIS_PASSWORD",
   "ELASTICSEARCH_URL",
   "APP_CONSULTATION_SUBMISSION_ENABLED",
+  "APP_COMMUNITY_CURSOR_SECRET",
   "DEPLOYMENT_NETWORK_SUBNET",
   "FRONTEND_INTERNAL_IP",
   "BACKEND_INTERNAL_IP",
@@ -140,6 +141,35 @@ export function validateDeploymentEnv(environment) {
     errors.push("SPRING_PROFILES_ACTIVE must be prod for deployment.");
   }
   const consultationEnabled = valueFor("APP_CONSULTATION_SUBMISSION_ENABLED");
+  const communityCursorSecret = valueFor("APP_COMMUNITY_CURSOR_SECRET");
+  if (communityCursorSecret && Buffer.byteLength(communityCursorSecret, "utf8") < 32) {
+    errors.push("APP_COMMUNITY_CURSOR_SECRET must contain at least 32 UTF-8 bytes and match across backend replicas.");
+  }
+  const communityEnabled = valueFor("APP_COMMUNITY_ENABLED") || "false";
+  if (!["true", "false"].includes(communityEnabled)) errors.push("APP_COMMUNITY_ENABLED must be true or false.");
+  const communityLimits = [
+    ["APP_COMMUNITY_POST_PER_MINUTE", 2, 100], ["APP_COMMUNITY_POST_PER_DAY", 30, 1000],
+    ["APP_COMMUNITY_COMMENT_PER_MINUTE", 10, 300], ["APP_COMMUNITY_COMMENT_PER_DAY", 300, 10000],
+    ["APP_COMMUNITY_REPORT_PER_DAY", 30, 300],
+  ];
+  const limits = {};
+  for (const [name, fallback, maximum] of communityLimits) {
+    const raw = valueFor(name) || String(fallback);
+    limits[name] = Number(raw);
+    if (!/^[1-9]\d*$/.test(raw) || limits[name] > maximum) errors.push(`${name} must be an integer between 1 and ${maximum}.`);
+  }
+  for (const operation of ["POST", "COMMENT"]) {
+    if (limits[`APP_COMMUNITY_${operation}_PER_DAY`] < limits[`APP_COMMUNITY_${operation}_PER_MINUTE`])
+      errors.push(`APP_COMMUNITY_${operation}_PER_DAY must be at least APP_COMMUNITY_${operation}_PER_MINUTE.`);
+  }
+  const autoHideThreshold = valueFor("APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD") || "5";
+  if (!/^[1-9]\d*$/.test(autoHideThreshold) || Number(autoHideThreshold) < 2 || Number(autoHideThreshold) > 100) {
+    errors.push("APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD must be an integer between 2 and 100.");
+  }
+  if (communityEnabled === "true" && !["APP_COMMUNITY_REVIEW_TERMS", "APP_COMMUNITY_REJECT_TERMS"].some(
+    (name) => valueFor(name).split(",").some((term) => term.trim()))) {
+    errors.push("Enabled production community requires configured community risk policy terms.");
+  }
   const privacyNoticeVersion = valueFor("APP_CONSULTATION_PRIVACY_NOTICE_VERSION");
   if (consultationEnabled && consultationEnabled !== "true" && consultationEnabled !== "false") {
     errors.push("APP_CONSULTATION_SUBMISSION_ENABLED must be true or false.");

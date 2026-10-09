@@ -1,7 +1,16 @@
 import type { Result } from './result.ts';
+import { isCommunityId } from './community-validation';
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const POSITIVE_INTEGER = /^[1-9]\d*$/;
+
+export function communityPostRoute(id: string): Result<string> {
+  if (!isCommunityId(id)) return invalidRoute();
+  return { ok: true, value: `/pages/circle-detail/index?id=${encodeURIComponent(id)}` };
+}
+export function communityComposeRoute(): Result<string> { return { ok: true, value: '/pages/circle-compose/index' }; }
+export function communityMeRoute(): Result<string> { return { ok: true, value: '/pages/circle-me/index' }; }
+export function communityFeedRoute(): Result<string> { return { ok: true, value: '/pages/circle/index' }; }
 
 function invalidRoute(): Result<never> {
   return {
