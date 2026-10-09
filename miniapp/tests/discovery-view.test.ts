@@ -71,6 +71,16 @@ test('programme filtering matches the exact category and preserves programme ord
   assert.deepEqual(filterProgrammes([], 'BUSINESS'), []);
 });
 
+test('unknown categories remain selectable and returning to ALL restores every programme', () => {
+  const programmes = Object.freeze([
+    programme(1, 'COMPUTING'), programme(2, 'UNLISTED'), programme(3, 'UNLISTED'),
+  ]);
+  const categories = deriveProgrammeCategories(programmes, new Map([['COMPUTING', '计算机科学']]));
+  assert.deepEqual(categories.find((item) => item.code === 'UNLISTED'), { code: 'UNLISTED', label: 'UNLISTED' });
+  assert.deepEqual(filterProgrammes(programmes, 'UNLISTED').map((item) => item.id), [2, 3]);
+  assert.deepEqual(filterProgrammes(programmes, 'ALL').map((item) => item.id), [1, 2, 3]);
+});
+
 function detail(overrides: Partial<ProgrammeDetail> = {}): ProgrammeDetail {
   return {
     ...programme(1, 'COMPUTING'), programmeCode: 'CS', universitySlug: 'apu',

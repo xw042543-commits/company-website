@@ -1,61 +1,80 @@
 <view class="detail-page">
+  <view class="custom-header" style="padding-top:{{statusBarHeight}}px;">
+    <view class="navigation-row" style="min-height:{{navigationHeight}}px; padding-right:{{navigationRight}}px;">
+      <button class="back-button" bindtap="back" aria-label="返回" hover-class="control--pressed">‹</button>
+      <text class="navigation-title">院校详情</text>
+    </view>
+  </view>
+
   <view wx:if="{{state === 'ready'}}">
     <view class="detail-hero">
-      <image wx:if="{{university.imageUrl && !imageFailed}}" class="detail-cover" src="{{university.imageUrl}}" mode="aspectFill" binderror="imageError" />
-      <view wx:else class="detail-cover detail-cover--fallback"><view class="campus-lines"></view></view>
-      <view class="detail-shade"></view>
-      <button class="round-button back-button" bindtap="back" aria-label="返回">‹</button>
-      <button class="round-button favorite-button {{favorite ? 'favorite-button--active' : ''}}" bindtap="toggleFavorite" aria-label="{{favorite ? '取消收藏' : '收藏院校'}}">{{favorite ? '♥' : '♡'}}</button>
+      <image wx:if="{{university.imageUrl && !imageFailed}}" class="detail-cover" src="{{university.imageUrl}}" mode="aspectFill" fade-show binderror="imageError" aria-label="{{university.nameZh}}校园" />
+      <view wx:else class="detail-cover detail-cover--fallback">
+        <text class="campus-fallback-brand">洋豆角</text>
+        <text class="campus-fallback-copy">校园图片暂未提供</text>
+      </view>
     </view>
 
     <view class="school-summary">
-      <view class="school-logo">
-        <image wx:if="{{university.logoUrl}}" class="school-logo-image" src="{{university.logoUrl}}" mode="aspectFit" />
-        <text wx:else>{{logoLetter}}</text>
+      <view class="identity-row">
+        <view class="school-logo">
+          <image wx:if="{{university.logoUrl && !logoFailed}}" class="school-logo-image" src="{{university.logoUrl}}" mode="aspectFit" binderror="logoError" aria-label="{{university.nameZh}}校徽" />
+          <text wx:else>{{logoLetter}}</text>
+        </view>
+        <view class="school-names">
+          <view class="school-name">{{university.nameZh}}</view>
+          <view class="school-name-en">{{university.nameEn}}</view>
+        </view>
       </view>
-      <view class="school-names">
-        <view class="school-name">{{university.nameZh}}</view>
-        <view class="school-name-en">{{university.nameEn}}</view>
-        <view class="school-location">⌖ {{university.cityZh || university.countryNameZh || '地点资料待补充'}}</view>
+      <view class="school-meta">
+        <view class="school-facts">
+          <view class="school-location">{{location || '地点资料待补充'}}</view>
+          <view wx:if="{{programmeCount > 0}}" class="school-programme-count">已收录 {{programmeCount}} 个专业</view>
+        </view>
+        <button class="identity-favorite {{favorite ? 'identity-favorite--active' : ''}}" bindtap="toggleFavorite" aria-label="{{favorite ? '取消收藏' : '收藏院校'}}" hover-class="control--pressed">{{favorite ? '♥ 已收藏' : '♡ 收藏'}}</button>
       </view>
     </view>
 
-    <view class="facts-grid">
-      <view class="fact"><view class="fact-number">{{programmeCount}}</view><view class="fact-label">在库专业</view></view>
-      <view class="fact"><view class="fact-number">{{university.countryCode || '—'}}</view><view class="fact-label">国家／地区</view></view>
-      <view class="fact"><view class="fact-number">{{university.popular ? '热门' : '已收录'}}</view><view class="fact-label">院校状态</view></view>
+    <view class="section-tabs" role="tablist" aria-label="院校资料">
+      <button class="section-tab {{activeSection === 'introduction' ? 'section-tab--active' : ''}}" data-section="introduction" bindtap="selectSection" role="tab" aria-selected="{{activeSection === 'introduction'}}" hover-class="control--pressed">院校简介</button>
+      <button class="section-tab {{activeSection === 'programmes' ? 'section-tab--active' : ''}}" data-section="programmes" bindtap="selectSection" role="tab" aria-selected="{{activeSection === 'programmes'}}" hover-class="control--pressed">专业查询</button>
     </view>
 
-    <view class="detail-section">
-      <view class="section-index">01</view>
+    <view wx:if="{{activeSection === 'introduction'}}" class="introduction-panel" role="tabpanel">
       <view class="section-title">院校简介</view>
-      <view class="section-copy">{{university.descriptionZh || '该院校的详细简介正在审核整理中，可先查看下方已发布专业。'}}</view>
-    </view>
-
-    <view class="programme-head">
-      <view><view class="section-index">02</view><view class="section-title">专业列表</view></view>
-      <view class="programme-total">共 {{programmeCount}} 个</view>
-    </view>
-    <view wx:if="{{programmes.length > 0}}" class="programme-list">
-      <view wx:for="{{programmes}}" wx:key="id" class="programme-card" bindtap="openProgramme" data-id="{{item.id}}">
-        <view class="programme-topline">
-          <view class="programme-level">{{item.studyLevelCode || '课程'}}</view>
-          <view class="programme-arrow">→</view>
-        </view>
-        <view class="programme-name">{{item.nameZh}}</view>
-        <view class="programme-name-en">{{item.nameEn}}</view>
-        <view class="programme-meta">
-          <text wx:if="{{item.durationDisplay}}">{{item.durationDisplay}}</text>
-          <text wx:if="{{item.tuitionDisplay}}">{{item.tuitionDisplay}}</text>
-        </view>
+      <view wx:if="{{descriptionParagraphs.length > 0}}" class="introduction-copy">
+        <view wx:for="{{descriptionParagraphs}}" wx:key="index" class="description-paragraph">{{item}}</view>
       </view>
+      <view wx:else class="description-paragraph">该院校的详细简介正在整理中，可在专业查询中查看已发布专业。</view>
     </view>
-    <view wx:else class="programme-empty">暂无已发布专业资料</view>
 
-    <view class="bottom-action-space"></view>
+    <view wx:else class="programmes-panel" role="tabpanel">
+      <scroll-view class="category-scroll" scroll-x enhanced show-scrollbar="{{false}}" aria-label="按学院筛选专业">
+        <view class="category-options">
+          <button wx:for="{{programmeCategories}}" wx:key="code" class="category-chip {{activeCategory === item.code ? 'category-chip--active' : ''}}" data-code="{{item.code}}" bindtap="selectCategory" aria-pressed="{{activeCategory === item.code}}" hover-class="control--pressed">{{item.label || '未分类'}}</button>
+        </view>
+      </scroll-view>
+      <view class="programme-heading">{{activeCategory === 'ALL' ? '全部专业' : '筛选结果'}}<text class="programme-total">{{visibleProgrammes.length}} 个专业</text></view>
+      <view wx:if="{{visibleProgrammes.length > 0}}" class="programme-list">
+        <button wx:for="{{visibleProgrammes}}" wx:key="id" class="programme-row" bindtap="openProgramme" data-id="{{item.id}}" aria-label="查看{{item.nameZh}}专业详情" hover-class="control--pressed">
+          <view class="programme-content">
+            <view class="programme-name">{{item.nameZh}}</view>
+            <view class="programme-name-en">{{item.nameEn}}</view>
+            <view wx:if="{{item.studyLevelCode || item.durationDisplay || item.tuitionDisplay}}" class="programme-meta">
+              <text wx:if="{{item.studyLevelCode}}" class="programme-level">{{item.studyLevelCode}}</text>
+              <text wx:if="{{item.durationDisplay}}">{{item.durationDisplay}}</text>
+              <text wx:if="{{item.tuitionDisplay}}">{{item.tuitionDisplay}}</text>
+            </view>
+          </view>
+          <text class="programme-arrow" aria-hidden="true">›</text>
+        </button>
+      </view>
+      <view wx:else class="programme-empty">暂无已发布专业资料</view>
+    </view>
+
     <view class="bottom-action">
-      <button class="consult-button" bindtap="consult">咨询顾问</button>
-      <button class="save-button {{favorite ? 'save-button--active' : ''}}" bindtap="toggleFavorite">{{favorite ? '已收藏' : '收藏院校'}}</button>
+      <button class="save-button {{favorite ? 'save-button--active' : ''}}" bindtap="toggleFavorite" aria-label="{{favorite ? '取消收藏' : '收藏院校'}}" hover-class="control--pressed">{{favorite ? '♥ 已收藏' : '♡ 收藏院校'}}</button>
+      <button class="consult-button" bindtap="consult" hover-class="control--pressed">咨询顾问</button>
     </view>
   </view>
 

@@ -262,3 +262,206 @@ test('directory uses inline option menus, an outside dismiss layer and matching 
   assert.equal(config.usingComponents['university-result-card'], '/components/university-result-card/index');
   assert.equal(config.usingComponents['university-card'], undefined);
 });
+
+test('university profile has safe custom navigation, independent media fallbacks and discovery actions', async () => {
+  const base = '../miniprogram/pages/university-detail/';
+  const markup = await readFile(new URL(base + 'index.wxml', import.meta.url), 'utf8');
+  const styles = await readFile(new URL(base + 'index.wxss', import.meta.url), 'utf8');
+  const config = JSON.parse(await readFile(new URL(base + 'index.json', import.meta.url), 'utf8'));
+  assert.equal(config.navigationStyle, 'custom');
+  assert.match(markup, /class="custom-header"/);
+  assert.match(markup, /statusBarHeight/);
+  assert.match(markup, /navigationRight/);
+  assert.match(markup, /bindtap="back"[^>]+aria-label="返回"/);
+  assert.match(styles, /\.custom-header[^}]+background:#f5d66f/);
+  assert.match(markup, /binderror="imageError"/);
+  assert.match(markup, /detail-cover--fallback/);
+  assert.match(markup, /logoFailed/);
+  assert.match(markup, /binderror="logoError"/);
+  assert.match(markup, /data-section="introduction"[^>]+bindtap="selectSection"/);
+  assert.match(markup, /data-section="programmes"[^>]+bindtap="selectSection"/);
+  assert.match(markup, /院校简介/);
+  assert.match(markup, /专业查询/);
+  assert.match(markup, /wx:for="\{\{programmeCategories\}\}"/);
+  assert.match(markup, /bindtap="selectCategory"/);
+  assert.match(markup, /wx:for="\{\{visibleProgrammes\}\}"/);
+  assert.match(markup, /bindtap="openProgramme"/);
+  assert.match(markup, /bindtap="toggleFavorite"/);
+  assert.match(markup, /bindtap="consult"/);
+  assert.match(styles, /env\(safe-area-inset-bottom\)/);
+  assert.match(styles, /\.consult-button,\.save-button[^}]+box-sizing:border-box/, 'fixed action height must include padding within the reserved bottom space');
+  assert.match(styles, /word-break:break-word/);
+  assert.doesNotMatch(markup, /ranking|排名|QS|院校状态|countryCode/);
+});
+
+interface UniversityDetailPageContext {
+  data: {
+    activeSection: string; activeCategory: string;
+    programmeCategories: Array<{ code: string; label: string }>;
+    programmes: Array<Record<string, unknown>>; visibleProgrammes: Array<Record<string, unknown>>;
+    imageFailed: boolean; logoFailed: boolean;
+    [key: string]: unknown;
+  };
+  setData(update: Record<string, unknown>): void;
+}
+
+interface UniversityDetailPageDefinition {
+  data: UniversityDetailPageContext['data'];
+  loadPage(this: UniversityDetailPageContext): Promise<void>;
+  setupNavigation(this: UniversityDetailPageContext): void;
+  toggleFavorite(this: UniversityDetailPageContext): void;
+  onShow(this: UniversityDetailPageContext): void;
+  openProgramme(this: UniversityDetailPageContext, event: unknown): void;
+  back(this: UniversityDetailPageContext): void;
+  consult(this: UniversityDetailPageContext): void;
+  selectSection(this: UniversityDetailPageContext, event: unknown): void;
+  selectCategory(this: UniversityDetailPageContext, event: unknown): void;
+  imageError(this: UniversityDetailPageContext): void;
+  logoError(this: UniversityDetailPageContext): void;
+}
+
+let universityDetailPage: UniversityDetailPageDefinition | undefined;
+async function loadUniversityDetailPage(): Promise<UniversityDetailPageDefinition> {
+  if (universityDetailPage) return universityDetailPage;
+  let registered: UniversityDetailPageDefinition | undefined;
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'Page');
+  Object.defineProperty(globalThis, 'Page', { configurable: true, value(page: UniversityDetailPageDefinition) { registered = page; } });
+  try { await import(new URL('../miniprogram/pages/university-detail/index.ts', import.meta.url).href); }
+  finally {
+    if (original) Object.defineProperty(globalThis, 'Page', original);
+    else Reflect.deleteProperty(globalThis, 'Page');
+  }
+  assert.ok(registered);
+  universityDetailPage = registered;
+  return registered;
+}
+
+test('university profile defaults to introduction and filters locally without losing tab or category state', async () => {
+  const page = await loadUniversityDetailPage();
+  assert.equal(page.data.activeSection, 'introduction');
+  assert.equal(page.data.activeCategory, 'ALL');
+  const programmes = [{ id: 1, categoryCode: 'BUSINESS' }, { id: 2, categoryCode: 'UNLISTED' }];
+  const context: UniversityDetailPageContext = {
+    data: { ...page.data, programmes, visibleProgrammes: [...programmes], programmeCategories: [
+      { code: 'ALL', label: '全部学院' }, { code: 'BUSINESS', label: '商科' }, { code: 'UNLISTED', label: 'UNLISTED' },
+    ] },
+    setData(update) { Object.assign(this.data, update); },
+  };
+  const event = (dataset: Record<string, unknown>) => ({ currentTarget: { dataset } });
+  page.selectSection.call(context, event({ section: 'programmes' }));
+  page.selectCategory.call(context, event({ code: 'UNLISTED' }));
+  assert.equal(context.data.activeSection, 'programmes');
+  assert.equal(context.data.activeCategory, 'UNLISTED');
+  assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [2]);
+  page.selectSection.call(context, event({ section: 'introduction' }));
+  page.selectSection.call(context, event({ section: 'programmes' }));
+  assert.equal(context.data.activeCategory, 'UNLISTED');
+  page.selectCategory.call(context, event({ code: 'INVALID' }));
+  page.selectSection.call(context, event({ section: 'INVALID' }));
+  assert.equal(context.data.activeCategory, 'UNLISTED');
+  assert.equal(context.data.activeSection, 'programmes');
+  page.selectCategory.call(context, event({ code: 'ALL' }));
+  assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [1, 2]);
+  assert.deepEqual(context.data.programmes, programmes);
+  page.imageError.call(context);
+  assert.equal(context.data.imageFailed, true);
+  assert.equal(context.data.logoFailed, false);
+  page.logoError.call(context);
+  assert.equal(context.data.logoFailed, true);
+});
+
+test('university profile loads real catalogue labels and remains ready when catalogue fails', async () => {
+  const page = await loadUniversityDetailPage();
+  const { resetFilterOptionsCache } = await import('../miniprogram/services/catalogue.ts');
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  try {
+    for (const catalogueAvailable of [true, false]) {
+      resetFilterOptionsCache();
+      const slug = catalogueAvailable ? 'contract-labels' : 'contract-fallback';
+      const paths: string[] = [];
+      Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+        getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }),
+        setNavigationBarTitle() {},
+        request(options: { url: string; success(response: unknown): void; fail(response: unknown): void }) {
+          const path = new URL(options.url).pathname;
+          paths.push(path);
+          if (path.endsWith('/filter-options') && !catalogueAvailable) {
+            options.fail({ errMsg: 'offline' });
+          } else {
+            const data = path.endsWith('/filter-options') ? {
+              countries: [], subjectCategories: [{ code: 'COMPUTING', nameZh: '计算机科学', nameEn: 'Computing' }],
+              studyLevels: [], courseModes: [], languages: [],
+            } : path.endsWith('/programmes') ? {
+              items: [{ id: 1, slug: 'computer-science', nameZh: '计算机科学学士', nameEn: 'Bachelor of Computer Science', categoryCode: 'COMPUTING' }],
+              page: 1, pageSize: 50, totalItems: 1, totalPages: 1,
+            } : { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', cityZh: '吉隆坡', countryNameZh: '马来西亚', descriptionZh: '第一段\n\n第二段' };
+            options.success({ statusCode: 200, data, header: {}, cookies: [] });
+          }
+          return { abort() {} };
+        },
+      } });
+      const context: UniversityDetailPageContext = {
+        data: { ...page.data, slug },
+        setData(update) { Object.assign(this.data, update); },
+      };
+      await page.loadPage.call(context);
+      assert.equal(context.data.state, 'ready');
+      assert.deepEqual(context.data.programmeCategories, [
+        { code: 'ALL', label: '全部学院' },
+        { code: 'COMPUTING', label: catalogueAvailable ? '计算机科学' : 'COMPUTING' },
+      ]);
+      assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [1]);
+      assert.equal(context.data.location, '吉隆坡，马来西亚');
+      assert.deepEqual(context.data.descriptionParagraphs, ['第一段', '第二段']);
+      assert.ok(paths.includes('/api/v1/catalog/filter-options'));
+    }
+  } finally {
+    resetFilterOptionsCache();
+    if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
+
+test('university profile clears the capsule and preserves favourites and validated programme routes', async () => {
+  const page = await loadUniversityDetailPage();
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  let saved: unknown = [];
+  const navigations: string[] = [];
+  const toasts: string[] = [];
+  let backCalls = 0;
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+    getWindowInfo: () => ({ statusBarHeight: 44, windowWidth: 320 }),
+    getMenuButtonBoundingClientRect: () => ({ top: 52, left: 220, width: 88, height: 32 }),
+    getStorageSync: () => saved,
+    setStorageSync: (_key: string, value: unknown) => { saved = value; },
+    showToast: ({ title }: { title: string }) => { toasts.push(title); },
+    navigateTo: ({ url }: { url: string }) => { navigations.push(url); },
+    navigateBack: () => { backCalls++; },
+  } });
+  try {
+    const context: UniversityDetailPageContext = {
+      data: { ...page.data, slug: 'apu' },
+      setData(update) { Object.assign(this.data, update); },
+    };
+    page.setupNavigation.call(context);
+    assert.equal(context.data.statusBarHeight, 44);
+    assert.equal(context.data.navigationHeight, 48);
+    assert.equal(context.data.navigationRight, 112);
+    page.toggleFavorite.call(context);
+    assert.deepEqual(saved, ['apu']);
+    assert.equal(context.data.favorite, true);
+    saved = [];
+    page.onShow.call(context);
+    assert.equal(context.data.favorite, false);
+    page.openProgramme.call(context, { currentTarget: { dataset: { id: 7 } } });
+    page.openProgramme.call(context, { currentTarget: { dataset: { id: 'invalid' } } });
+    assert.deepEqual(navigations, ['/pages/programme-detail/index?universitySlug=apu&programmeId=7']);
+    page.back.call(context);
+    assert.equal(backCalls, 1);
+    page.consult.call(context);
+    assert.deepEqual(toasts, ['已收藏', '专业资料暂时无法打开', '咨询功能正在接入']);
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
