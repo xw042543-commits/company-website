@@ -307,6 +307,41 @@ test('search marks itself loading before the native render callback so rapid tap
   });
 });
 
+for (const initialState of ['ready', 'loading']) {
+  for (const deferredRender of [false, true]) {
+    test(`repeated reset from ${initialState} issues one page-one request with ${deferredRender ? 'delayed' : 'immediate'} render callbacks`, async () => {
+      await withDirectory(async (page, requests) => {
+        const callbacks: Array<() => void> = [];
+        if (deferredRender) {
+          page.setData = (patch, callback) => { Object.assign(page.data, patch); if (callback) callbacks.push(callback); };
+        }
+        Object.assign(page.data, { state: initialState, query: 'SEGi', country: 'MY', level: 'BACHELOR', category: 'BUSINESS',
+          countryIndex: 1, levelIndex: 1, categoryIndex: 1, page: 3, totalPages: 5, openFilterKey: 'country' });
+        page.clearFilters();
+        page.clearFilters();
+        assert.deepEqual([page.data.query, page.data.country, page.data.level, page.data.category, page.data.openFilterKey], ['', 'ALL', 'ALL', 'ALL', '']);
+        assert.deepEqual([page.data.countryIndex, page.data.levelIndex, page.data.categoryIndex], [0, 0, 0]);
+        if (deferredRender) {
+          assert.equal(callbacks.length, 1, 'reset must schedule only one load before rendering finishes');
+          callbacks.shift()!();
+        }
+        assert.equal(requests.length, 1, 'the first reset must work while loading and repeated resets must be ignored');
+        assert.equal(page.data.state, 'loading');
+        assert.equal(page.data.page, 1);
+        assert.deepEqual(Object.fromEntries(new URL(requests[0]!.url).searchParams), { page: '1', size: '12', sort: 'relevance' });
+        requests[0]!.success({ statusCode: 200, data: fixture, header: {}, cookies: [] });
+        await new Promise((resolve) => setImmediate(resolve));
+        assert.equal(page.data.state, 'ready');
+        page.clearFilters();
+        if (deferredRender) callbacks.shift()!();
+        assert.equal(requests.length, 2, 'reset is available again after the load completes');
+        requests[1]!.success({ statusCode: 200, data: fixture, header: {}, cookies: [] });
+        await new Promise((resolve) => setImmediate(resolve));
+      });
+    });
+  }
+}
+
 test('maps university detail without inventing optional content', () => {
   assert.deepEqual(mapUniversityDetail({
     id: 12,

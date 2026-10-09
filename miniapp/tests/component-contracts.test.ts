@@ -258,6 +258,7 @@ test('directory uses inline option menus, an outside dismiss layer and matching 
   assert.match(markup, /✓/);
   assert.match(markup, /university-result-card/);
   assert.match(markup, /photo-skeleton/);
+  assert.match(markup, /class="filter-clear"[^>]+disabled="\{\{state === 'loading' && !query && country === 'ALL' && level === 'ALL' && category === 'ALL'\}\}"/, 'reset is disabled during a neutral reload but remains usable for an active search');
   assert.equal(config.usingComponents['university-result-card'], '/components/university-result-card/index');
   assert.equal(config.usingComponents['university-card'], undefined);
 });

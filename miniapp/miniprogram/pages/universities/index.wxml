@@ -27,7 +27,7 @@
       <view class="result-heading">
         <view wx:if="{{state === 'ready' || state === 'empty'}}"><text class="result-number">{{totalItems}}</text> 所院校</view>
         <view wx:else class="result-note">{{state === 'loading' ? '正在读取院校资料' : '院校资料库'}}</view>
-        <button class="filter-clear" bindtap="clearFilters" aria-label="清空关键词和全部筛选条件" hover-class="control--pressed">重置</button>
+        <button class="filter-clear" bindtap="clearFilters" disabled="{{state === 'loading' && !query && country === 'ALL' && level === 'ALL' && category === 'ALL'}}" aria-label="清空关键词和全部筛选条件" hover-class="control--pressed">重置</button>
       </view>
       <view wx:if="{{state === 'ready'}}" class="university-list">
         <university-result-card wx:for="{{universities}}" wx:key="slug" university="{{item}}" favorite="{{item.favorite}}" bind:select="openUniversity" bind:favorite="toggleFavorite" />

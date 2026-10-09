@@ -80,10 +80,16 @@ Page({
   closeFilters() { this.setData({ openFilterKey: '' }); },
 
   clearFilters() {
+    if (this.data.state === 'loading' && !this.data.query
+      && this.data.country === 'ALL' && this.data.level === 'ALL' && this.data.category === 'ALL') {
+      this.closeFilters();
+      return;
+    }
     this.setData({
       query: '', country: 'ALL', category: 'ALL', level: 'ALL',
       countryIndex: 0, categoryIndex: 0, levelIndex: 0,
       openFilterKey: '',
+      state: 'loading' as ViewState,
     }, () => void this.loadUniversities(true));
   },
 
