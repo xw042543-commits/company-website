@@ -55,3 +55,11 @@ test('registers integrated programme and account data pages outside the bottom n
     assert.equal(app.tabBar.list.some((item) => item.pagePath === page), false);
   }
 });
+
+test('registers application order list and detail pages outside bottom navigation', () => {
+  const app = readAppConfig();
+  for (const page of ['pages/orders/index', 'pages/order-detail/index']) {
+    assert.equal(app.pages.includes(page), true);
+    assert.equal(app.tabBar.list.some((item) => item.pagePath === page), false);
+  }
+});

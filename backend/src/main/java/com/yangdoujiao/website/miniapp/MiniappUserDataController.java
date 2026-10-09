@@ -85,6 +85,18 @@ public class MiniappUserDataController {
         return service.consultations(userId(principal));
     }
 
+    @GetMapping("/orders")
+    public List<MiniappUserDataService.ApplicationOrderSummary> orders(
+            @AuthenticationPrincipal UserPrincipal principal) {
+        return service.orders(userId(principal));
+    }
+
+    @GetMapping("/orders/{referenceCode}")
+    public MiniappUserDataService.ApplicationOrderDetail order(
+            @PathVariable UUID referenceCode, @AuthenticationPrincipal UserPrincipal principal) {
+        return service.order(userId(principal), referenceCode);
+    }
+
     private long userId(UserPrincipal principal) {
         if (principal == null) {
             throw new ApiException(HttpStatus.UNAUTHORIZED, "AUTH_REQUIRED", "Authentication required");

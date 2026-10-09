@@ -96,3 +96,17 @@
   color: var(--color-muted);
   font-size: 42rpx;
 }
+
+.menu-count {
+  min-width: 38rpx;
+  margin-left: auto;
+  padding: 4rpx 10rpx;
+  border-radius: 999rpx;
+  background: var(--color-mint);
+  color: var(--color-action);
+  font-size: 21rpx;
+  font-weight: 800;
+  text-align: center;
+}
+
+.menu-count + .menu-arrow { margin-left: 12rpx; }
