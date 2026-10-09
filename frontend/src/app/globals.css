@@ -669,6 +669,7 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .school-logo-block { min-width: 0; align-self: start; display: grid; gap: 7px; }
 .school-image { position: relative; height: 118px; min-height: 118px; display: grid; place-items: center; overflow: hidden; padding: 10px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: #fff; color: #53746a; }
 .school-image img { width: 82%; height: 82%; display: block; object-fit: contain; object-position: center; }
+.remote-image-fallback { width: 100%; height: 100%; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand-deep), #477d70); color: #fff; font-size: clamp(1.4rem, 4vw, 3rem); font-weight: 800; letter-spacing: -.04em; }
 .school-initials { font-size: 1rem; font-weight: 800; letter-spacing: .06em; }
 .school-logo-caption { position: static; min-height: 1.35em; overflow: hidden; color: var(--brand-action); font-size: .7rem; font-weight: 700; line-height: 1.35; text-align: center; text-overflow: ellipsis; white-space: nowrap; opacity: 0; transform: translateY(-3px); transition: opacity 170ms var(--ease-out), transform 170ms var(--ease-out); }
 .school-card:hover .school-logo-caption, .school-card:focus-within .school-logo-caption { opacity: 1; transform: translateY(0); }
@@ -830,6 +831,8 @@ summary { min-height: 44px; display: flex; align-items: center; cursor: pointer;
 .location-label { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 6px; }
 .location-icon { width: 15px; height: 15px; flex: 0 0 15px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 .country-flag { width: 22px; height: 14px; flex: 0 0 22px; overflow: hidden; border: 1px solid rgb(21 63 54 / 14%); border-radius: 2px; box-shadow: 0 1px 2px rgb(21 63 54 / 8%); }
+.country-flag-image { display: block; object-fit: cover; }
+.country-flag-emoji { height: 16px; display: inline-grid; place-items: center; border: 0; box-shadow: none; font-size: 1rem; line-height: 1; }
 .country-code { padding: 1px 5px; border: 1px solid var(--line); border-radius: 3px; font-size: .62rem; font-weight: 800; letter-spacing: .04em; }
 .university-logo-label { position: absolute; z-index: 2; left: 50%; bottom: 8px; max-width: calc(100% - 16px); padding: 5px 8px; border-radius: 4px; background: rgb(21 63 54 / 92%); color: #fff; font-size: .68rem !important; font-weight: 700 !important; line-height: 1.25; text-align: center; opacity: 0; pointer-events: none; transform: translate(-50%, 5px); transition: opacity 170ms var(--ease-out), transform 170ms var(--ease-out); }
 .university-logo-track a:hover .university-logo-label, .university-logo-track a:focus-visible .university-logo-label { opacity: 1; transform: translate(-50%, 0); }
@@ -1284,6 +1287,7 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .programme-search-clear { flex: 0 0 auto; color: var(--brand-action); font-size: .76rem; font-weight: 750; }
 .programme-detail-card { padding: clamp(22px, 3vw, 30px); border: 1px solid var(--line); border-radius: var(--radius-md); background: #fff; }
 .programme-detail-card { scroll-margin-top: 110px; }
+.programme-card-image { width: calc(100% + clamp(44px, 6vw, 60px)); height: clamp(170px, 24vw, 260px); display: block; margin: calc(clamp(22px, 3vw, 30px) * -1) calc(clamp(22px, 3vw, 30px) * -1) 22px; border-radius: var(--radius-md) var(--radius-md) 0 0; object-fit: cover; }
 .programme-card-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
 .programme-card-heading h3 { min-width: 0; margin-bottom: 7px; }
 .programme-detail-card h3 { margin-bottom: 7px; font-size: 1.3rem; }

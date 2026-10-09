@@ -1,0 +1,864 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "sim-global-education",
+    "displayName": "SIM Global Education",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.sim.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.sim.edu.sg",
+      "sim.edu.sg"
+    ],
+    "discoveredUrls": 120,
+    "parsedProgrammes": 11,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 404：https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/.showmore--0",
+      "HTTP 404：https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/.showmore--0"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/masters-postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:02.403Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:07.470Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/certificate-courses-foundation-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/aviation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/arts-social-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/nursing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/brochures-prospectus",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-guidance",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/teach-out-inactive-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/ai-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/skillsfuture-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/sustainability-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/leadership-management-complexity",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/digital",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/people-skills",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/online-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/systems-thinking",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/creativity-innovation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing/ai-dea-phase-1",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:07.698Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing/tiktok-masterclass-695cc6a0cac5ac4a68ce6a67d4f7f8f9",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:09.790Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Fundings=SkillsFuture%20Credit%7CSkillsFuture%20Funding%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?LearningModes=0%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B84000000B7TREA0%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B2w000001u7gVEAQ%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B84000000B7TREA0%7Ca0B84000000B7TSEA0%7Ca0B84000000B7TTEA0%7Ca0B84000000B7TUEA0%7Ca0B2w000001u7gVEAQ%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:59.116Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:46:01.650Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:46:03.355Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:46:05.508Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/certificate-in-pre-sessional-business-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:46:07.181Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:46:09.657Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:46:11.230Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-comparison-page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/.showmore--0",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C&discipline=3%7C4%7C7%7C8%7C9%7C59%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/education-pathway-tool",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=3%7C4%7C7%7C8%7C9%7C29%7C59%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=53%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=54%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=56%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=57%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=3%7C4%7C7%7C8%7C9%7C29%7C59%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=58%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/.showmore--0",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=53%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=3%7C4%7C7%7C8%7C9%7C59%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=3%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=4%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=8%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=7%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=59%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=9%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/arts-social-science/psychology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=10%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/accountancy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=13%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=15%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=16%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/business-analytics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=60%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=20%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=21%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=22%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=24%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=25%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=26%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/financial-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=27%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/hrm",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=28%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=29%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=63%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=30%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=32%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=34%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=35%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=39%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=40%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=42%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=43%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=64%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/computer-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=45%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=62%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/data-analytics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=46%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/data-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=47%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=49%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=50%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/information-technology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=51%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/machine-learning",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=52%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=57%7C",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sim-global-education",
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/teach-out-inactive-programmes/bachelor-of-applied-science-construction-management-honours",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

@@ -56,9 +56,9 @@ class UniversitySearchV1ControllerTest {
     @Test
     void returnsMappedPageAndNeverExposesMoreThanThreeProgrammes() throws Exception {
         MatchedProgrammeResponse programme = new MatchedProgrammeResponse(1L, "P1", null, "Data Science", "COMPUTING",
-                "MASTER", "ONLINE", List.of("EN"), 12, List.of("2027-09"), null, null, "12 months", List.of(), "Ask");
+                "MASTER", "ONLINE", List.of("EN"), 12, List.of("2027-09"), null, null, "12 months", List.of(), "Ask", null);
         UniversitySearchItemResponse item = new UniversitySearchItemResponse(1L, "northstar", null, "Northstar", "GB", null,
-                "United Kingdom", null, "London", true, 5, List.of(programme, programme, programme));
+                "United Kingdom", null, "London", true, 5, List.of(programme, programme, programme), null);
         when(service.search(any())).thenReturn(PageResponse.of(List.of(item), 2, 24, 1));
 
         mockMvc.perform(get("/api/v1/universities/search").queryParam("page", "2").queryParam("size", "24"))

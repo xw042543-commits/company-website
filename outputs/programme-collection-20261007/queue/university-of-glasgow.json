@@ -1,0 +1,868 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-glasgow",
+    "displayName": "University of Glasgow",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.gla.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.gla.ac.uk",
+      "gla.ac.uk"
+    ],
+    "discoveredUrls": 121,
+    "parsedProgrammes": 1,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/study/short/courses/?subject=Courses+online&delivery=Courses+online",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/choosingyourdegree/flexible-degrees/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/choosingyourdegree/professional-degrees/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/accountancy/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/accountingmathematics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/accountingstatistics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/aeronauticalengineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/aeronautical-engineering-in-partnership-tianjin/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/aerospacesystems/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/anatomy/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/ancienthistory/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/archaeology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/artificial-intelligence/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/artificial-intelligence-faster-route/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/astronomy/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biochemistry/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biological-sciences/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biomedicalengineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biomedical-engineering-in-partnership-with-kmitl/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biomedical-engineering-in-partnership-with-tianjin/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/businessmanagement/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/businesseconomics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/celticcivilisation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/celticstudies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/centraleasteuropeanstudies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemicalphysics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemistry/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemistrymedicinal/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemistry-with-medicinal-chemistry-work-placement/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemistry-work-placement/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/childhoodpractice/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chinese/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/civilengineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/civil-engineering-indonesia/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/civilengineeringwitharchitecture/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/classics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/commonlaw/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/commonlawgraduateentry/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/communication-culture-technology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/communitydevelopment/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/comparativeliterature/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computingscience/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computing-science-faster-route/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computing-science-in-partnership-with-upes/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computing-science-sit/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/creativeartsindustries/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/creative-writing/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/dentistry/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/digitalmedia/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/environmentalgeoscience/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/economicsocialhistory/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/economics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/education/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronicsoftwareengineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronics-electrical-engineering-indonesia/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronics-electrical-engineering-in-partnership/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/eee-uestc/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronics-electrical-engineering-ie-uestc/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/eee-microelectronics-uestc/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronicswithmusic/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/energy-engineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/englishlanguage/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/englishliterature/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/environmental-geoscience-faster-route/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/environmentalsciencesustainability/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/filmtelevisionstudies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/finance/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/financemathematics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/financestatistics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/french/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/gaelic/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/genetics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/geography/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/geography-faster-route/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/geology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/geology-faster-route/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/german/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/global-sustainable-development/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/greek/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/history/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/historyofart/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/humanbiology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/immunology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/internationalrelations/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/italian/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/latin/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/?subject=law&location=all&date=all",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/liberal-arts/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/machine-learning-mathematics-statistics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/marinefreshwaterbiology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/materials-chemistry-work-placement/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/materialschemistry/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/mathematics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/mathematics-and-statistics-zuel/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/mathematics-faster-route/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/mathematicsstatistics-faster-route/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/mechanicaldesignengineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/mechanicalengineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/mechanical-engineering-sit/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/mechanicalengineeringwithaeronautics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/mechatronics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/gateway-to-medical-studies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/medicine/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/microbiology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/molecularcellularbiology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/musicma/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/musicbmus/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/neuroscience/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/nursing/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/nursingsit/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/pharmacology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/philosophy/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/physics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/physics-faster-route/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/physicswithastrophysics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/physics-with-astrophysics-faster-route/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/politics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/portuguese/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-glasgow",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/softwareengineeringgraduateapprenticeship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:12:36.696Z",
+      "error": null
+    }
+  ]
+}

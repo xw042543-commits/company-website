@@ -1,0 +1,1479 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.464Z",
+  "sourceKey": "harvard-university",
+  "sourceName": "Harvard University",
+  "warnings": [
+    "https://www.seas.harvard.edu/academics/courses/applied-computation：跳转超出允许域名: seas.harvard.edu",
+    "https://www.hsph.harvard.edu/ecpe/programs/：跳转超出允许域名: hsph.harvard.edu",
+    "HTTP 403：https://www.hks.harvard.edu/centers/mrcbg/programs/education-policy-program/forum",
+    "HTTP 403：https://www.hks.harvard.edu/centers/mrcbg/programs/education-policy-program/higheredforum",
+    "HTTP 403：https://www.hks.harvard.edu/courses/courses-related-climate",
+    "robots.txt 禁止抓取：https://www.hks.harvard.edu/centers/mrcbg/programs/growthpolicy/search?keyword=trade+policy&f%5B0%5D=&op=Search"
+  ],
+  "university": {
+    "candidateId": "university_2b41f4c7d0a22e0e",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Harvard University",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Cambridge, Massachusetts",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.harvard.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:12:46.542Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.harvard.edu/",
+        "sourcePageTitle": "Harvard University",
+        "sourceHash": "819900965ef803431079cebd9a9b54da00a4313873a6f6cd8ee695a835860e7c",
+        "fetchedAt": "2026-10-07T04:12:46.542Z",
+        "field": "name",
+        "rawText": "Harvard University"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 3,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": [
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://www.harvard.edu/wp-content/uploads/2021/03/100408_Yard_045-1200x630.jpg",
+        "sourceUrl": "https://www.harvard.edu/",
+        "sourceCheckedAt": "2026-10-07T04:12:46.542Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_92ea55dbfcde227a",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "社会政策博士方案",
+      "nameEn": "PhD Program in Social Policy",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Doctoral",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.hks.harvard.edu/educational-programs/doctoral-programs/phd-social-policy",
+      "sourceCheckedAt": "2026-10-07T06:18:31.207Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://gsas.harvard.edu/program/social-policy",
+          "sourcePageTitle": "Social Policy | The Harvard Kenneth C. Griffin Graduate School of Arts and Sciences",
+          "sourceHash": "417ab670f945121d2267d22a1fe82a7e768528866df57d252c81b8c5e833c561",
+          "fetchedAt": "2026-10-07T06:18:31.207Z",
+          "field": "name",
+          "rawText": "PhD Program in Social Policy"
+        },
+        {
+          "sourceUrl": "https://gsas.harvard.edu/program/social-policy",
+          "sourcePageTitle": "Social Policy | The Harvard Kenneth C. Griffin Graduate School of Arts and Sciences",
+          "sourceHash": "417ab670f945121d2267d22a1fe82a7e768528866df57d252c81b8c5e833c561",
+          "fetchedAt": "2026-10-07T06:18:31.207Z",
+          "field": "detailUrl",
+          "rawText": "https://www.hks.harvard.edu/educational-programs/doctoral-programs/phd-social-policy"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_9126443529ae49b6",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "MA萨福克县的预发性衰减和转移文学硕士",
+      "nameEn": "Presumptive Declination and Diversion in Suffolk County, MA",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.hks.harvard.edu/presumptive-declination-and-diversion-suffolk-county-ma",
+      "sourceCheckedAt": "2026-10-07T06:19:17.996Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/projects/nonprosecution-racial-disparities",
+          "sourcePageTitle": "Effect of Non-Prosecution on Racial Disparities | Harvard Kennedy School",
+          "sourceHash": "27de58653fb01787bc713ae211cf9720830d6e31262d922751ee57ca92990cc7",
+          "fetchedAt": "2026-10-07T06:19:17.996Z",
+          "field": "name",
+          "rawText": "Presumptive Declination and Diversion in Suffolk County, MA"
+        },
+        {
+          "sourceUrl": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/projects/nonprosecution-racial-disparities",
+          "sourcePageTitle": "Effect of Non-Prosecution on Racial Disparities | Harvard Kennedy School",
+          "sourceHash": "27de58653fb01787bc713ae211cf9720830d6e31262d922751ee57ca92990cc7",
+          "fetchedAt": "2026-10-07T06:19:17.996Z",
+          "field": "detailUrl",
+          "rawText": "https://www.hks.harvard.edu/presumptive-declination-and-diversion-suffolk-county-ma"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_e6806a0d60f35d3b",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "公共政策硕士",
+      "nameEn": "Master in Public Policy",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.hks.harvard.edu/educational-programs/masters-programs/master-public-policy",
+      "sourceCheckedAt": "2026-10-07T06:20:37.489Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.hks.harvard.edu/educational-programs/masters-programs",
+          "sourcePageTitle": "Master’s Programs | Harvard Kennedy School",
+          "sourceHash": "061feca8d14f1d072c004dbb6a690a232b48f2837c73e280a12316ef054cfc7d",
+          "fetchedAt": "2026-10-07T06:20:37.489Z",
+          "field": "name",
+          "rawText": "Master in Public Policy"
+        },
+        {
+          "sourceUrl": "https://www.hks.harvard.edu/educational-programs/masters-programs",
+          "sourcePageTitle": "Master’s Programs | Harvard Kennedy School",
+          "sourceHash": "061feca8d14f1d072c004dbb6a690a232b48f2837c73e280a12316ef054cfc7d",
+          "fetchedAt": "2026-10-07T06:20:37.489Z",
+          "field": "detailUrl",
+          "rawText": "https://www.hks.harvard.edu/educational-programs/masters-programs/master-public-policy"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_aef20e2ee8bc85b9",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "国际发展公共行政硕士",
+      "nameEn": "Master in Public Administration in International Development",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.hks.harvard.edu/educational-programs/masters-programs/master-public-administration-international-development",
+      "sourceCheckedAt": "2026-10-07T06:20:37.489Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.hks.harvard.edu/educational-programs/masters-programs",
+          "sourcePageTitle": "Master’s Programs | Harvard Kennedy School",
+          "sourceHash": "061feca8d14f1d072c004dbb6a690a232b48f2837c73e280a12316ef054cfc7d",
+          "fetchedAt": "2026-10-07T06:20:37.489Z",
+          "field": "name",
+          "rawText": "Master in Public Administration in International Development"
+        },
+        {
+          "sourceUrl": "https://www.hks.harvard.edu/educational-programs/masters-programs",
+          "sourcePageTitle": "Master’s Programs | Harvard Kennedy School",
+          "sourceHash": "061feca8d14f1d072c004dbb6a690a232b48f2837c73e280a12316ef054cfc7d",
+          "fetchedAt": "2026-10-07T06:20:37.489Z",
+          "field": "detailUrl",
+          "rawText": "https://www.hks.harvard.edu/educational-programs/masters-programs/master-public-administration-international-development"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_70e55d18bb948680",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "公共行政硕士",
+      "nameEn": "Master in Public Administration",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.hks.harvard.edu/educational-programs/masters-programs/master-public-administration",
+      "sourceCheckedAt": "2026-10-07T06:20:37.489Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.hks.harvard.edu/educational-programs/masters-programs",
+          "sourcePageTitle": "Master’s Programs | Harvard Kennedy School",
+          "sourceHash": "061feca8d14f1d072c004dbb6a690a232b48f2837c73e280a12316ef054cfc7d",
+          "fetchedAt": "2026-10-07T06:20:37.489Z",
+          "field": "name",
+          "rawText": "Master in Public Administration"
+        },
+        {
+          "sourceUrl": "https://www.hks.harvard.edu/educational-programs/masters-programs",
+          "sourcePageTitle": "Master’s Programs | Harvard Kennedy School",
+          "sourceHash": "061feca8d14f1d072c004dbb6a690a232b48f2837c73e280a12316ef054cfc7d",
+          "fetchedAt": "2026-10-07T06:20:37.489Z",
+          "field": "detailUrl",
+          "rawText": "https://www.hks.harvard.edu/educational-programs/masters-programs/master-public-administration"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.harvard.edu/",
+      "fetchedAt": "2026-10-07T04:12:46.542Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "819900965ef803431079cebd9a9b54da00a4313873a6f6cd8ee695a835860e7c",
+      "title": "Harvard University",
+      "snapshotFile": "raw/0001-819900965ef8.html"
+    },
+    {
+      "url": "https://www.harvard.edu/programs/",
+      "fetchedAt": "2026-10-07T04:12:48.989Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "01fca19c06c537e7b0249055d258429e8e961027909f5da320cec571cf21744e",
+      "title": "Programs - Harvard University",
+      "snapshotFile": "raw/0002-01fca19c06c5.html"
+    },
+    {
+      "url": "https://www.harvard.edu/programs/?degree_levels=undergraduate",
+      "fetchedAt": "2026-10-07T04:12:50.956Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d806f4ac0dcd32fa40bef00d125458f160d445b1240580826bb29c50a05dba25",
+      "title": "Programs - Harvard University",
+      "snapshotFile": "raw/0003-d806f4ac0dcd.html"
+    },
+    {
+      "url": "https://www.harvard.edu/programs/?degree_levels=graduate",
+      "fetchedAt": "2026-10-07T04:12:52.590Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c9c0434e716815cf376a7f1cdeda48eb9cb9e3458dc5c10d785abf60d8c31b2f",
+      "title": "Programs - Harvard University",
+      "snapshotFile": "raw/0004-c9c0434e7168.html"
+    },
+    {
+      "url": "https://www.harvard.edu/federal-lawsuits/",
+      "fetchedAt": "2026-10-07T04:12:54.576Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "626f01556c700fb5cdaa1ce26e3cabb2db1a5cb3fecf454446aac368c5c47fcd",
+      "title": "Federal Lawsuits - Federal Lawsuits",
+      "snapshotFile": "raw/0005-626f01556c70.html"
+    },
+    {
+      "url": "https://www.harvard.edu/a-to-z/",
+      "fetchedAt": "2026-10-07T04:12:56.578Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9a998b67d0ca1e075a8080011b176966ed7c32f894eedf9cd2ce96a8cffe4b6a",
+      "title": "Index of departments, schools, and affiliates - Harvard University",
+      "snapshotFile": "raw/0006-9a998b67d0ca.html"
+    },
+    {
+      "url": "https://www.harvard.edu/academics/",
+      "fetchedAt": "2026-10-07T04:12:58.587Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "79fb139c6228979ea4606e6c3ba8cb762a047d0c77ca1d8114c4e0c1cb9175f6",
+      "title": "Academics - Harvard University",
+      "snapshotFile": "raw/0007-79fb139c6228.html"
+    },
+    {
+      "url": "https://www.harvard.edu/academics/professional-and-lifelong-learning/",
+      "fetchedAt": "2026-10-07T04:13:00.594Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2be183077330a6cfbc92eba1b63f5e6fc4276c3b4f523b6fa828acda4b13a103",
+      "title": "Professional and Lifelong Learning - Harvard University",
+      "snapshotFile": "raw/0008-2be183077330.html"
+    },
+    {
+      "url": "https://www.harvard.edu/academics/schools/",
+      "fetchedAt": "2026-10-07T04:13:02.619Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ebf050140d1031e7f442a737face45c374bd4a2f9edfc2f4b6f9af1aec08e9c5",
+      "title": "Schools - Harvard University",
+      "snapshotFile": "raw/0009-ebf050140d10.html"
+    },
+    {
+      "url": "https://www.harvard.edu/campus/",
+      "fetchedAt": "2026-10-07T04:13:04.615Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "01efa1c1d7ad3bfb64f68ef3791ec8ba85bb028978a1f8b6c9d183d96347401b",
+      "title": "Campus - Harvard University",
+      "snapshotFile": "raw/0010-01efa1c1d7ad.html"
+    },
+    {
+      "url": "https://www.harvard.edu/campus/libraries/",
+      "fetchedAt": "2026-10-07T04:13:06.622Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3339f751f6e5d93f0a839c22a522239f82517a6285c7b4b5e1316ac1638f0218",
+      "title": "Libraries - Harvard University",
+      "snapshotFile": "raw/0011-3339f751f6e5.html"
+    },
+    {
+      "url": "https://www.harvard.edu/campus/museums/",
+      "fetchedAt": "2026-10-07T04:13:08.628Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6fadad6eec8ec40b5efb46086a0b070e8a91ed5c263218444a674bba3130eb1a",
+      "title": "Museums - Harvard University",
+      "snapshotFile": "raw/0012-6fadad6eec8e.html"
+    },
+    {
+      "url": "https://www.harvard.edu/campus/athletics/",
+      "fetchedAt": "2026-10-07T04:13:10.644Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3ccf3e485812da1479cfd82a06b27277a95115e8322691a0560320fb8f243b5",
+      "title": "Athletics - Harvard University",
+      "snapshotFile": "raw/0013-b3ccf3e48581.html"
+    },
+    {
+      "url": "https://www.harvard.edu/campus/work-at-harvard/",
+      "fetchedAt": "2026-10-07T04:13:12.646Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3ba7e791557647f0bad23cc8d07564f817817e3ad149efb702845685113fa133",
+      "title": "Work at Harvard University",
+      "snapshotFile": "raw/0014-3ba7e7915576.html"
+    },
+    {
+      "url": "https://www.harvard.edu/in-focus/",
+      "fetchedAt": "2026-10-07T04:13:15.388Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "83da62fe989f6f31a47d30061c9dca684f64da5b208a361c59001ecfcd9225ba",
+      "title": "In Focus - Harvard University",
+      "snapshotFile": "raw/0015-83da62fe989f.html"
+    },
+    {
+      "url": "https://www.harvard.edu/in-focus/discourse-across-differences/",
+      "fetchedAt": "2026-10-07T04:13:17.253Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9b2d77d82b7f14f29267162751563fe681463e5696be2b32ba7db4f613d2e270",
+      "title": "Dialogue Across Differences - Harvard University",
+      "snapshotFile": "raw/0016-9b2d77d82b7f.html"
+    },
+    {
+      "url": "https://www.harvard.edu/in-focus/transformative-treatments/",
+      "fetchedAt": "2026-10-07T04:13:18.679Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "761adf3325c8c33f5aada846c2c0baae674e7141fcd1ab93b12cff5813d09b29",
+      "title": "Transformative Treatments - Harvard University",
+      "snapshotFile": "raw/0017-761adf3325c8.html"
+    },
+    {
+      "url": "https://www.harvard.edu/in-focus/1776-at-harvard/",
+      "fetchedAt": "2026-10-07T04:13:20.691Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2270e60b692aa53276cb388c02af7219c24c721937ba1491bac8fa69a21f2157",
+      "title": "1776 at Harvard - Harvard University",
+      "snapshotFile": "raw/0018-2270e60b692a.html"
+    },
+    {
+      "url": "https://www.harvard.edu/in-focus/remembering-september-11/",
+      "fetchedAt": "2026-10-07T04:13:23.284Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "136953ccd6288faf29479ab7ca51ef1533b5246148644586cf46e313d0a0c52b",
+      "title": "Remembering September 11 - Harvard University",
+      "snapshotFile": "raw/0019-136953ccd628.html"
+    },
+    {
+      "url": "https://www.harvard.edu/visit/",
+      "fetchedAt": "2026-10-07T04:13:24.714Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "abe476493cd7e45b1626e238034febbb71b6ed3c6b5cf7168d9324e8e7ec5159",
+      "title": "Visit - Harvard University",
+      "snapshotFile": "raw/0020-abe476493cd7.html"
+    },
+    {
+      "url": "https://www.harvard.edu/visit/tours/",
+      "fetchedAt": "2026-10-07T04:13:26.728Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a2474a30f13ca0b74a9e9b2ce61bd5b0f51398217ecdb39d56c63599df3c8be1",
+      "title": "Campus Tours - Harvard University",
+      "snapshotFile": "raw/0021-a2474a30f13c.html"
+    },
+    {
+      "url": "https://www.harvard.edu/visit/maps-directions/",
+      "fetchedAt": "2026-10-07T04:13:28.741Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "413be87ce415cefd5b175e836989659c5b4a4b44f7577cac650965374c3b8c19",
+      "title": "Maps and directions - Harvard University",
+      "snapshotFile": "raw/0022-413be87ce415.html"
+    },
+    {
+      "url": "https://www.harvard.edu/visit/tour-providers/",
+      "fetchedAt": "2026-10-07T04:13:31.307Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c08659da83ccc198b6ee0a9c1d09507dc8f4d939e48b817454115a9ab692a985",
+      "title": "Private tour group providers - Harvard University",
+      "snapshotFile": "raw/0023-c08659da83cc.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/",
+      "fetchedAt": "2026-10-07T04:13:32.765Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7e254b43790d3727826ce3a0679830dc3d4080c037dc4914fa4744e764d4e2d5",
+      "title": "About - Harvard University",
+      "snapshotFile": "raw/0024-7e254b43790d.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/history/",
+      "fetchedAt": "2026-10-07T04:13:34.773Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a5e5804ae760be5bcf6c654996bd07e40036f4f47d3e2de78bfa7b8992a1b663",
+      "title": "The history of Harvard University",
+      "snapshotFile": "raw/0025-a5e5804ae760.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/history/timeline/",
+      "fetchedAt": "2026-10-07T04:13:36.784Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c9b8b9bcb9692c422987e9a62bc82e1589f572d829744501b5b444fbfdc803de",
+      "title": "History timeline - Harvard University",
+      "snapshotFile": "raw/0026-c9b8b9bcb969.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/history/nobel-laureates/",
+      "fetchedAt": "2026-10-07T04:13:38.779Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "92cf1da8b9fa71e9a0a3bb68ec6914d1d7943bc429f4416fec65ab8a3818f1ff",
+      "title": "Nobel Laureates - Harvard University",
+      "snapshotFile": "raw/0027-92cf1da8b9fa.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/history/honorary-degrees/",
+      "fetchedAt": "2026-10-07T04:13:40.794Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "649a481d23c252cd68943757b8afce0fdc5a9667df0dc8b3ea55c0a0cd65a543",
+      "title": "History of honorary degrees - Harvard University",
+      "snapshotFile": "raw/0028-649a481d23c2.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/history/shields/",
+      "fetchedAt": "2026-10-07T04:13:42.807Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "83ccba3c00335a29e703f3f52561ffac4e9b051e26fd3a888ea9a5104807ca35",
+      "title": "Harvard University Shields",
+      "snapshotFile": "raw/0029-83ccba3c0033.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/leadership-and-governance/",
+      "fetchedAt": "2026-10-07T04:13:45.340Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "906b10a0808aec366001bf6123e582c4a8bf4f4512dec6e78474c93c5d1aafe2",
+      "title": "Leadership and governance - Harvard University",
+      "snapshotFile": "raw/0030-906b10a0808a.html"
+    },
+    {
+      "url": "https://www.harvard.edu/president/",
+      "fetchedAt": "2026-10-07T04:13:46.856Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1047046a5e1648cbb51334e1963f3da1089e6b9547bc7acd92094b667821e991",
+      "title": "Harvard University President",
+      "snapshotFile": "raw/0031-1047046a5e16.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/leadership-and-governance/officers-and-deans/",
+      "fetchedAt": "2026-10-07T04:13:48.844Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d043080d2287dcad5149ecea7c1114c0351d4b304c4f48facc23f8e643da3470",
+      "title": "Officers and Deans - Harvard University",
+      "snapshotFile": "raw/0032-d043080d2287.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/leadership-and-governance/harvard-corporation/",
+      "fetchedAt": "2026-10-07T04:13:50.845Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b5a501e036facc90840436380999db2b29070a48a52f57cba5265109d42ac5ec",
+      "title": "Harvard Corporation",
+      "snapshotFile": "raw/0033-b5a501e036fa.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/leadership-and-governance/board-of-overseers/",
+      "fetchedAt": "2026-10-07T04:13:52.843Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4b4cae055095eaeb206075682e496a2a20b8f445553350791e32c286a60b1c36",
+      "title": "Board of Overseers - Harvard University",
+      "snapshotFile": "raw/0034-4b4cae055095.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/university-professorships/",
+      "fetchedAt": "2026-10-07T04:13:54.846Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "570a2d3bbec886776be6c3156cc8ce87cebe9428876488b638007217f0df32f6",
+      "title": "University Professorships - Harvard University",
+      "snapshotFile": "raw/0035-570a2d3bbec8.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/endowment/",
+      "fetchedAt": "2026-10-07T04:13:56.860Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ebb763e0a7c560517284c366f9bfa0bdad4d51f4f5d95cfad3cc07440c78a75d",
+      "title": "Endowment - Harvard University",
+      "snapshotFile": "raw/0036-ebb763e0a7c5.html"
+    },
+    {
+      "url": "https://www.harvard.edu/community/",
+      "fetchedAt": "2026-10-07T04:13:59.324Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "70762a2b3e3d8956199f2792340a9ef3c3308adf0ee623df96336f4e9678244d",
+      "title": "Harvard in the Community - Harvard in the Community",
+      "snapshotFile": "raw/0037-70762a2b3e3d.html"
+    },
+    {
+      "url": "https://www.harvard.edu/about/harvard-in-the-world/",
+      "fetchedAt": "2026-10-07T04:14:01.492Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8b06efe36f6b0ee189a0a017b026129228a0f52430b139f7a13905600d4d9b2e",
+      "title": "Harvard in the World",
+      "snapshotFile": "raw/0038-8b06efe36f6b.html"
+    },
+    {
+      "url": "https://www.harvard.edu/media-relations/",
+      "fetchedAt": "2026-10-07T04:14:02.903Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "73141dccca5b5381b27396710df3e675b45e1107a1ddff0c79f064d066a09ef2",
+      "title": "Media Relations - Harvard University",
+      "snapshotFile": "raw/0039-73141dccca5b.html"
+    },
+    {
+      "url": "https://www.harvard.edu/emergency/",
+      "fetchedAt": "2026-10-07T04:14:05.562Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f0833a8a3b54d807e157ae1d0e0b67d69889ebc611e22c1895ca84561afec1fe",
+      "title": "Emergency - Harvard University",
+      "snapshotFile": "raw/0040-f0833a8a3b54.html"
+    },
+    {
+      "url": "https://www.harvard.edu/programs/",
+      "fetchedAt": "2026-10-07T06:17:49.389Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "01fca19c06c537e7b0249055d258429e8e961027909f5da320cec571cf21744e",
+      "title": "Programs - Harvard University",
+      "snapshotFile": "raw/0001-01fca19c06c5.html"
+    },
+    {
+      "url": "https://www.harvard.edu/programs/?degree_levels=undergraduate",
+      "fetchedAt": "2026-10-07T06:17:50.861Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d806f4ac0dcd32fa40bef00d125458f160d445b1240580826bb29c50a05dba25",
+      "title": "Programs - Harvard University",
+      "snapshotFile": "raw/0002-d806f4ac0dcd.html"
+    },
+    {
+      "url": "https://www.harvard.edu/programs/?degree_levels=graduate",
+      "fetchedAt": "2026-10-07T06:17:52.869Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c9c0434e716815cf376a7f1cdeda48eb9cb9e3458dc5c10d785abf60d8c31b2f",
+      "title": "Programs - Harvard University",
+      "snapshotFile": "raw/0003-c9c0434e7168.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/corporate-responsibility-initiative",
+      "fetchedAt": "2026-10-07T06:17:59.883Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d0595f88e35884cac2d3e82d58502bd1d2a3bd546a7e9e70b22454675c30f6df",
+      "title": "Corporate Responsibility Initiative | Harvard Kennedy School",
+      "snapshotFile": "raw/0004-d0595f88e358.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice",
+      "fetchedAt": "2026-10-07T06:18:01.602Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c3e9a97069cb2496a0df61a4b4a6e5cf16b64b5084676a02753380ff80a5e2aa",
+      "title": "The Program in Criminal Justice Policy and Management | Harvard Kennedy School",
+      "snapshotFile": "raw/0005-c3e9a97069cb.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/education-policy-program",
+      "fetchedAt": "2026-10-07T06:18:03.545Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "90e0b7dec59d9eabc986c5d7e2568457a8c96211fd3b0c68ba708dfa33a973bb",
+      "title": "Education Policy Program | Harvard Kennedy School",
+      "snapshotFile": "raw/0006-90e0b7dec59d.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/health",
+      "fetchedAt": "2026-10-07T06:18:06.487Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d2a62e6ebc7342e488a465c57ac127afbe604a02b9b207b3539536d2d1dc53cd",
+      "title": "HKS Healthcare Policy Program | Harvard Kennedy School",
+      "snapshotFile": "raw/0007-d2a62e6ebc73.html"
+    },
+    {
+      "url": "https://college.harvard.edu/academics/liberal-arts-sciences",
+      "fetchedAt": "2026-10-07T06:18:07.775Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8e21032a2c2bba3b45ce0b5e3bb69230d1615bd10ad76b2ae0b1c1fdeb8a9653",
+      "title": "Liberal Arts & Sciences | Harvard",
+      "snapshotFile": "raw/0008-8e21032a2c2b.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/sustainability-science-program",
+      "fetchedAt": "2026-10-07T06:18:09.743Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6039fb7b7eecf027f23606e36504e66455f0e19ac12c3a36d630e1738cbc6abc",
+      "title": "Sustainability Science Program | Harvard Kennedy School",
+      "snapshotFile": "raw/0009-6039fb7b7eec.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/trade-and-negotiations-program",
+      "fetchedAt": "2026-10-07T06:18:11.439Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2bceffc8123b28369cba5108dd6efb16db20fd710f02aa4588edb2604f6a5efb",
+      "title": "Trade and Negotiations Program | Harvard Kennedy School",
+      "snapshotFile": "raw/0010-2bceffc8123b.html"
+    },
+    {
+      "url": "https://hls.harvard.edu/executive-education/programs/online-programs/",
+      "fetchedAt": "2026-10-07T06:18:13.461Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2f84b8261d84577944b07c00f96b22bdd1159223e40fe54afc2b5884a1d2a3c6",
+      "title": "Online Programs - Harvard Law School | Harvard Law School",
+      "snapshotFile": "raw/0011-2f84b8261d84.html"
+    },
+    {
+      "url": "https://execed.gsd.harvard.edu/programs/",
+      "fetchedAt": "2026-10-07T06:18:20.919Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4ac482612ccdb68581bc2734dc6750dee21e8cc577155f4586ca31fc000cd123",
+      "title": "Programs - Harvard Graduate School of Design Executive Education",
+      "snapshotFile": "raw/0012-4ac482612ccd.html"
+    },
+    {
+      "url": "https://gsas.harvard.edu/program/biological-and-biomedical-sciences",
+      "fetchedAt": "2026-10-07T06:18:23.009Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2cb235d8d7e68b8ddabaed93ef4223cb8a7b692a520fd0b33af65b58ead5b4a2",
+      "title": "Biological and Biomedical Sciences | The Harvard Kenneth C. Griffin Graduate School of Arts and Sciences",
+      "snapshotFile": "raw/0013-2cb235d8d7e6.html"
+    },
+    {
+      "url": "https://gsas.harvard.edu/program/biophysics",
+      "fetchedAt": "2026-10-07T06:18:25.056Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "72ad49e9b0b7352f2bf361c48bc1608e4efa2d71959c8417b26cca446bad2209",
+      "title": "Biophysics | The Harvard Kenneth C. Griffin Graduate School of Arts and Sciences",
+      "snapshotFile": "raw/0014-72ad49e9b0b7.html"
+    },
+    {
+      "url": "https://gsas.harvard.edu/program/health-policy",
+      "fetchedAt": "2026-10-07T06:18:27.056Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0ec52dc455ed218cfb4ac8ee38479a0bd77409348473f6191fc08fa62ee39059",
+      "title": "Health Policy | The Harvard Kenneth C. Griffin Graduate School of Arts and Sciences",
+      "snapshotFile": "raw/0015-0ec52dc455ed.html"
+    },
+    {
+      "url": "https://gsas.harvard.edu/program/regional-studies-russia-eastern-europe-and-central-asia",
+      "fetchedAt": "2026-10-07T06:18:29.366Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "db4f1d597e68a83dd69f194f3a1c2e0770bdc54defa71314d5474dd64d454adf",
+      "title": "Regional Studies–Russia, Eastern Europe, and Central Asia | The Harvard Kenneth C. Griffin Graduate School of Arts and Sciences",
+      "snapshotFile": "raw/0016-db4f1d597e68.html"
+    },
+    {
+      "url": "https://gsas.harvard.edu/program/social-policy",
+      "fetchedAt": "2026-10-07T06:18:31.207Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "417ab670f945121d2267d22a1fe82a7e768528866df57d252c81b8c5e833c561",
+      "title": "Social Policy | The Harvard Kenneth C. Griffin Graduate School of Arts and Sciences",
+      "snapshotFile": "raw/0017-417ab670f945.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs",
+      "fetchedAt": "2026-10-07T06:18:35.008Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "74b02928ae7dca6986d78be3521680f069c1f563209a1423587664d9fcafc323",
+      "title": "Programs | Harvard Kennedy School",
+      "snapshotFile": "raw/0018-74b02928ae7d.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/digital-assets-policy",
+      "fetchedAt": "2026-10-07T06:18:35.274Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e7f441faf1e71b6df1aa66f5cfa0549b1acd6532381551fb4bdb169e9aed707d",
+      "title": "Digital Assets Policy Project | Harvard Kennedy School",
+      "snapshotFile": "raw/0019-e7f441faf1e7.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/financial-sector-program",
+      "fetchedAt": "2026-10-07T06:18:37.293Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bc4fc252b98fb3fd23c4e0d2bc9cb3479c245a2817f102dbd28b17f4bea8d83e",
+      "title": "Financial Sector Program | Harvard Kennedy School",
+      "snapshotFile": "raw/0020-bc4fc252b98f.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/global-food-systems-program",
+      "fetchedAt": "2026-10-07T06:18:39.288Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8c04fe067daec8c13abf977d5eb716ed02d8dfa8843079bec288df51865670ce",
+      "title": "Global Food Systems Program | Harvard Kennedy School",
+      "snapshotFile": "raw/0021-8c04fe067dae.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/growthpolicy",
+      "fetchedAt": "2026-10-07T06:18:41.311Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5374f4ead48c5a2f29cf576e0b1fa406586ba93e7bc0113c370dec0edc568874",
+      "title": "GrowthPolicy | Harvard Kennedy School",
+      "snapshotFile": "raw/0022-5374f4ead48c.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/doyukai",
+      "fetchedAt": "2026-10-07T06:18:43.330Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "579fd95e854fb7c085019aa839d5c37a5eefe1f5abb4159e5129cbbbe19c131c",
+      "title": "Kansai Keizai Doyukai Program | Harvard Kennedy School",
+      "snapshotFile": "raw/0023-579fd95e854f.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/rising-chinese-economic-power",
+      "fetchedAt": "2026-10-07T06:18:45.316Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c8b36ddf02eba3b3c4ce0960f000abf1baeac69fe7d0c8088fbc470dc7165f0d",
+      "title": "Rising Chinese Economic Power | Harvard Kennedy School",
+      "snapshotFile": "raw/0024-c8b36ddf02eb.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/corporate-responsibility-and-citizenship-hub",
+      "fetchedAt": "2026-10-07T06:18:48.585Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "81a141ffafe11b2348d3a5d050a93ba759946c6fd8e2f985237429e6cd1ec3c7",
+      "title": "Corporate Responsibility and Citizenship Hub | Harvard Kennedy School",
+      "snapshotFile": "raw/0025-81a141ffafe1.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/corporate-responsibility-and-citizenship-hub/decoding-corporate",
+      "fetchedAt": "2026-10-07T06:18:50.994Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "81be3a07867ba3d98b293234abb646be06a07a72127f73b5fa3b45e2ed91b732",
+      "title": "Decoding Corporate Responsibility Podcast | Harvard Kennedy School",
+      "snapshotFile": "raw/0026-81be3a07867b.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/growthpolicy/tackling-energy-food-and-water-nexus-here-are-key-priorities",
+      "fetchedAt": "2026-10-07T06:18:51.354Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "26a60fc867053c3faf6a46d220ad1b88e067e0868f71c48852a2a137ba2a793a",
+      "title": "Tackling the energy, food and water nexus – here are the key priorities | Harvard Kennedy School",
+      "snapshotFile": "raw/0027-26a60fc86705.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/faculty-research/policy-topics/business-regulation/monumental-figure-harvard-kennedy-school",
+      "fetchedAt": "2026-10-07T06:18:53.494Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bda25f57f355744156b4752b4f9ff79591592a093239b1c9e1ae9859289487fb",
+      "title": "A monumental figure: Harvard Kennedy School remembers John Ruggie | Harvard Kennedy School",
+      "snapshotFile": "raw/0028-bda25f57f355.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/educational-programs/undergraduate-opportunities",
+      "fetchedAt": "2026-10-07T06:18:55.360Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ee7214ed4311431b8b2cab3b0c5f85290e296310ae93fffe31f8d864208dd797",
+      "title": "Undergraduate Opportunities | Harvard Kennedy School",
+      "snapshotFile": "raw/0029-ee7214ed4311.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/educational-programs/undergraduate-opportunities/public-policy-and-international-affairs-program",
+      "fetchedAt": "2026-10-07T06:18:59.462Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0e9caee1fd1e91c1a8b7c38021c37cfec40024f0a83245bdba63f54cec8a7a93",
+      "title": "Public Policy and International Affairs Program (PPIA) Junior Summer Institute | Harvard Kennedy School",
+      "snapshotFile": "raw/0030-0e9caee1fd1e.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/educational-programs/undergraduate-opportunities/public-policy-leadership-conference",
+      "fetchedAt": "2026-10-07T06:18:59.738Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c3a48445cd8f2e116fb63c3f121581a74508e875a6b93ceabf0c143ea3d0e8f0",
+      "title": "Public Policy Leadership Conference | Harvard Kennedy School",
+      "snapshotFile": "raw/0031-c3a48445cd8f.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/about/faculty",
+      "fetchedAt": "2026-10-07T06:19:01.826Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f1a3fa6b8d30526efa1b105964a5e81ee27019c3bb40edf5f0d9c7a202273709",
+      "title": "Our Faculty | Harvard Kennedy School",
+      "snapshotFile": "raw/0032-f1a3fa6b8d30.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/about-us",
+      "fetchedAt": "2026-10-07T06:19:03.756Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a834ed129088ccf11d0389aa626bea288f6ae0273f94b1959c4997915a43dd68",
+      "title": "About Us | Harvard Kennedy School",
+      "snapshotFile": "raw/0033-a834ed129088.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/about-us/who-we-are",
+      "fetchedAt": "2026-10-07T06:19:05.755Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4bfc2f89eff1356cb248d644e079bf57737decd36cf51719291b5674e5f77cf7",
+      "title": "Who We Are | Harvard Kennedy School",
+      "snapshotFile": "raw/0034-4bfc2f89eff1.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/about/student-opportunities",
+      "fetchedAt": "2026-10-07T06:19:08.073Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ca67bd404a11387e41b6c71f50d09eda0b0e95a5ab8c9eaa485b8bc369876d92",
+      "title": "Student Opportunities | Harvard Kennedy School",
+      "snapshotFile": "raw/0035-ca67bd404a11.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/projects",
+      "fetchedAt": "2026-10-07T06:19:10.426Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5ac48a87b7fb1de1346efd85a6d6c19f56cfcc9c250fb6ac4fdbd3692bc6ae57",
+      "title": "Projects | Harvard Kennedy School",
+      "snapshotFile": "raw/0036-5ac48a87b7fb.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/projects/automatic-record-clearance",
+      "fetchedAt": "2026-10-07T06:19:12.482Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4bdaacf71e26885ca04ea70a7e8693f9d8d1c69a542d36f801b9f9f3b2c67b87",
+      "title": "California’s Automatic Record Clearance | Harvard Kennedy School",
+      "snapshotFile": "raw/0037-4bdaacf71e26.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/projects/ban-the-box",
+      "fetchedAt": "2026-10-07T06:19:14.932Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "fc70aa80b9badafdb3461ea497b686bd54adfa2eb3a0e3c38b4113c8306a3158",
+      "title": "Formerly Incarcerated Individuals’ Perceptions of and Experiences with Ban-the-Box | Harvard Kennedy School",
+      "snapshotFile": "raw/0038-fc70aa80b9ba.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/projects/electronic-monitoring",
+      "fetchedAt": "2026-10-07T06:19:17.636Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a1d33da7c9c4147c7ae579bdb3562504279f848f08c9b47a8b9b0c7889c4266d",
+      "title": "The Social Costs of Pretrial, Court-Ordered Electronic Monitoring | Harvard Kennedy School",
+      "snapshotFile": "raw/0039-a1d33da7c9c4.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/projects/nonprosecution-racial-disparities",
+      "fetchedAt": "2026-10-07T06:19:17.996Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "27de58653fb01787bc713ae211cf9720830d6e31262d922751ee57ca92990cc7",
+      "title": "Effect of Non-Prosecution on Racial Disparities | Harvard Kennedy School",
+      "snapshotFile": "raw/0040-27de58653fb0.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/projects/pretrial-detention",
+      "fetchedAt": "2026-10-07T06:19:19.914Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d59a06300b7d383176285eaa0d9559e5388073e3a590671fb769719f3985ebdc",
+      "title": "The Difference a Day Makes: How Spending Even One Day in Jail Can Have Devastating Consequences | Harvard Kennedy School",
+      "snapshotFile": "raw/0041-d59a06300b7d.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/projects/prosecuting-nonviolent-misdemeanors",
+      "fetchedAt": "2026-10-07T06:19:22.692Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1c7626f17a46f39e9e93bb7cd5e78e0e2be6e206877ee66058da330b400e713d",
+      "title": "Why Prosecuting Nonviolent Misdemeanor Offenses Yields Poorer Outcomes | Harvard Kennedy School",
+      "snapshotFile": "raw/0042-1c7626f17a46.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/research-publications",
+      "fetchedAt": "2026-10-07T06:19:25.175Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c4f6c693a12a846c94c021fcd510acecbafea8616372e3316017ede307c82d8c",
+      "title": "Research & Publications | Harvard Kennedy School",
+      "snapshotFile": "raw/0043-c4f6c693a12a.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/research-publications/dispatches",
+      "fetchedAt": "2026-10-07T06:19:25.939Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "49a28da1362e49b1cb9acbac10906cb363f0198b7ebfc67f1e6cfa6052c01912",
+      "title": "Dispatches from the Field | Harvard Kennedy School",
+      "snapshotFile": "raw/0044-49a28da1362e.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/research-publications/roundtable-racial-disparities-ma-criminal-courts",
+      "fetchedAt": "2026-10-07T06:19:29.922Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "aae816eee55429e3c2aa15739ed4293b0fb1b0d074174b7e4bde1b4b08212571",
+      "title": "Roundtable on Racial Disparities in Massachusetts Criminal Courts | Harvard Kennedy School",
+      "snapshotFile": "raw/0045-aae816eee554.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/research-publications/policy-topics",
+      "fetchedAt": "2026-10-07T06:19:30.233Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "36627eebd0a8fe645425b5127049c5c65b52f284be4e85c2e55858c6f22f5196",
+      "title": "Research Areas | Harvard Kennedy School",
+      "snapshotFile": "raw/0046-36627eebd0a8.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/research-publications/publications",
+      "fetchedAt": "2026-10-07T06:19:33.145Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "51e72e608876b854967c54ebd9f80cc902cb72f0ca80ad5256a47c8d3286912b",
+      "title": "Publications | Harvard Kennedy School",
+      "snapshotFile": "raw/0047-51e72e608876.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice/about/student-opportunities/program-criminal-justice",
+      "fetchedAt": "2026-10-07T06:19:34.198Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b200aa128620971de7dd3bf5d37d71b43700db9a87c27043bcfd4aaf9b50c5d2",
+      "title": "2026 Program in Criminal Justice Graduate Student Research Grant Awards | Harvard Kennedy School",
+      "snapshotFile": "raw/0048-b200aa128620.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/faculty-research/policy-topics/fairness-justice/state-legislation-designed-remove-wealth-barrier",
+      "fetchedAt": "2026-10-07T06:19:36.226Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "18280670f6715169cbcd4f1cc5dc68f527590e83cfb7d65a91c52d93121a5c10",
+      "title": "State legislation designed to remove the “wealth barrier” for cash bail is working, but not for people of color | Harvard Kennedy School",
+      "snapshotFile": "raw/0049-18280670f671.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/index%2ephp/faculty-research/policy-topics/fairness-justice/victims-mothers-can-shift-views-police-violence",
+      "fetchedAt": "2026-10-07T06:19:39.676Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0c46b3dba51bb5220f7771a224d83a63ef14734629662fcf714859e0e7c084d7",
+      "title": "Victims’ mothers can shift views on police violence—even across political divides | Harvard Kennedy School",
+      "snapshotFile": "raw/0050-0c46b3dba51b.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/index%2ephp/educational-programs/undergraduate-opportunities",
+      "fetchedAt": "2026-10-07T06:19:40.965Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "42f052bbe7d2ffc3968be39ebfccb621c356534c16ec9fb1edb87be81c285928",
+      "title": "Undergraduate Opportunities | Harvard Kennedy School",
+      "snapshotFile": "raw/0051-42f052bbe7d2.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/faculty/richard-light",
+      "fetchedAt": "2026-10-07T06:19:42.839Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "106b713a4ddceac38de588e1d127d5b9d26577203694921c916f129bd928d797",
+      "title": "Richard Light | Harvard Kennedy School",
+      "snapshotFile": "raw/0052-106b713a4ddc.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/health/fellows",
+      "fetchedAt": "2026-10-07T06:19:59.368Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ae0b7f84c7c06c9374599e777796095a5b22b05f20a6d99a5840736ede2984f9",
+      "title": "HKS Healthcare Policy Program Fellows | Harvard Kennedy School",
+      "snapshotFile": "raw/0053-ae0b7f84c7c0.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/health/discovering-solutions",
+      "fetchedAt": "2026-10-07T06:20:01.316Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e67b86afb40aba43cca518f71e8121728ead69e4dee1f134019ab574aa9e8ea5",
+      "title": "Discovering Solutions | Harvard Kennedy School",
+      "snapshotFile": "raw/0054-e67b86afb40a.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/health/faculty",
+      "fetchedAt": "2026-10-07T06:20:03.311Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2dcbefae0ae7a33894ac04411dd217a27483c0178c6e37d78cd648e401f29704",
+      "title": "Healthcare Policy Program Faculty | Harvard Kennedy School",
+      "snapshotFile": "raw/0055-2dcbefae0ae7.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/health/leadership-council",
+      "fetchedAt": "2026-10-07T06:20:05.322Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "901f0d20b7388985fff2684995dfc01906f46130c6a9adcf4b23ddf930de8cf6",
+      "title": "Healthcare Policy Leadership Council | Harvard Kennedy School",
+      "snapshotFile": "raw/0056-901f0d20b738.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/health/coursework",
+      "fetchedAt": "2026-10-07T06:20:08.950Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "79cfbcaa96f87099fd099ac3532291575a8b318b14862ac5dc94d459258e4cc6",
+      "title": "Health Policy Coursework | Harvard Kennedy School",
+      "snapshotFile": "raw/0057-79cfbcaa96f8.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/health/phd-program",
+      "fetchedAt": "2026-10-07T06:20:10.225Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "910300ec7f87370a7044eb26fb2ae3a180598b4cc5a8e819691f225f2e3f8756",
+      "title": "Harvard PhD Program in Health Policy | Harvard Kennedy School",
+      "snapshotFile": "raw/0058-910300ec7f87.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/health/fellowships",
+      "fetchedAt": "2026-10-07T06:20:12.219Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0445e99f60f8614300c1ee5d803bde445c2c0e11cd8efa1754f1350d9af1723c",
+      "title": "Jerome H. Grossman M.D. Graduate Fellowships | Harvard Kennedy School",
+      "snapshotFile": "raw/0059-0445e99f60f8.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/faculty/amitabh-chandra",
+      "fetchedAt": "2026-10-07T06:20:13.341Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "466a07bb97032d58e4c6caf4e78b6556eb5016d5c6fa80fabf4f2875c297ef22",
+      "title": "Amitabh Chandra | Harvard Kennedy School",
+      "snapshotFile": "raw/0060-466a07bb9703.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/growthpolicy/can-prevention-save-money",
+      "fetchedAt": "2026-10-07T06:20:17.127Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a4c4ffadee44c7c87e41c6c59e07a0b674efca5775c75cf4904da1e5c35fc017",
+      "title": "Can Prevention Save Money? | Harvard Kennedy School",
+      "snapshotFile": "raw/0061-a4c4ffadee44.html"
+    },
+    {
+      "url": "https://college.harvard.edu/harvard-financial-literacy-program",
+      "fetchedAt": "2026-10-07T06:20:18.146Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b7a66918b92765252c4dd06c41c2ec1bfba79eb0a6a520bdef3b9dcd1675acc9",
+      "title": "Harvard Financial Literacy Program | Harvard",
+      "snapshotFile": "raw/0062-b7a66918b927.html"
+    },
+    {
+      "url": "https://college.harvard.edu/academics/liberal-arts-sciences/dual-programs-study-music",
+      "fetchedAt": "2026-10-07T06:20:19.397Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bd63fd4fec54c2ac4b1167721daf27f04f488b16b22137f7bb8fd2417b3862e8",
+      "title": "Dual Programs of Study for Music | Harvard",
+      "snapshotFile": "raw/0063-bd63fd4fec54.html"
+    },
+    {
+      "url": "https://college.harvard.edu/academics/faculty",
+      "fetchedAt": "2026-10-07T06:20:21.390Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ba386fd5ab95cf4a0305c84c6425e440965ad593bad370c59b87ccb8fd93e072",
+      "title": "Faculty | Harvard",
+      "snapshotFile": "raw/0064-ba386fd5ab95.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/faculty-research/policy-topics/environment-energy/sustainability-science-program-10",
+      "fetchedAt": "2026-10-07T06:20:23.611Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "eafa2dc98e931d467e9649c08fefdef496223d0769c287223eee061888ebc1c2",
+      "title": "The Sustainability Science Program at 10 | Harvard Kennedy School",
+      "snapshotFile": "raw/0065-eafa2dc98e93.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/sustainability-science-program/strengthening-field-sustainability-science",
+      "fetchedAt": "2026-10-07T06:20:25.541Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4c50476d28245e5b12a189a6bc90a18df825f819ae40c657a46a0acffee925cc",
+      "title": "Strengthening the Field of Sustainability Science | Harvard Kennedy School",
+      "snapshotFile": "raw/0066-4c50476d2824.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/sustainability-science-program/knowledge-systems-sustainable-development",
+      "fetchedAt": "2026-10-07T06:20:28.487Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "19e9bdd3d6a09cadac04512de90b88d397d342779942527beab9470fc2aba7c5",
+      "title": "Knowledge Systems for Sustainable Development | Harvard Kennedy School",
+      "snapshotFile": "raw/0067-19e9bdd3d6a0.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/sustainability-science-program/capacity-building-sustainable-development",
+      "fetchedAt": "2026-10-07T06:20:29.472Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "56ca16c816f1b9a3477692aed4b5a74d881790360b86221a9784eca7f0554988",
+      "title": "Capacity Building for Sustainable Development | Harvard Kennedy School",
+      "snapshotFile": "raw/0068-56ca16c816f1.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/sustainability-science-program/global-food",
+      "fetchedAt": "2026-10-07T06:20:31.478Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "19b9b9aeb81b1907d8ea801d785f5de07226712a78dcd96a6e1ad7a421998c31",
+      "title": "Global Food+ | Harvard Kennedy School",
+      "snapshotFile": "raw/0069-19b9b9aeb81b.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/hcip",
+      "fetchedAt": "2026-10-07T06:20:33.429Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f4aab2c3cb2ed456e865a8e30e19f909aa75dbddfad7a177aff9373308e43a9e",
+      "title": "Harvard Climate Internship Program | Harvard Kennedy School",
+      "snapshotFile": "raw/0070-f4aab2c3cb2e.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/global-food-systems-program/ray-goldberg-fellowship-global-food-systems",
+      "fetchedAt": "2026-10-07T06:20:35.430Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c0bbeb5d3f5a16332a61bae03778e6c56dfd0583bf09a1131c2f9932e72b5b73",
+      "title": "Ray Goldberg Fellowship in Global Food Systems | Harvard Kennedy School",
+      "snapshotFile": "raw/0071-c0bbeb5d3f5a.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/educational-programs/masters-programs",
+      "fetchedAt": "2026-10-07T06:20:37.489Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "061feca8d14f1d072c004dbb6a690a232b48f2837c73e280a12316ef054cfc7d",
+      "title": "Master’s Programs | Harvard Kennedy School",
+      "snapshotFile": "raw/0072-061feca8d14f.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/faculty/william-clark",
+      "fetchedAt": "2026-10-07T06:20:46.605Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "abbad1f18d57e28bf2a10566280b02def300b9ff919aa2ede4f1ed425504bedd",
+      "title": "William Clark | Harvard Kennedy School",
+      "snapshotFile": "raw/0073-abbad1f18d57.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/faculty/robert-lawrence",
+      "fetchedAt": "2026-10-07T06:20:48.653Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d3b05b5fa2936fcf45408ce14cbb26d801b6d97c2207223e63301b9dc89afaab",
+      "title": "Robert Lawrence | Harvard Kennedy School",
+      "snapshotFile": "raw/0074-d3b05b5fa293.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/executive-education-program-finder/find-the-executive-program-right-for-you",
+      "fetchedAt": "2026-10-07T06:20:50.987Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1daddc542e44e0e633a16abc8399dab6edeb428855ad8fb75b50c46c89530fb9",
+      "title": "Discontinued Executive Programs | Harvard Kennedy School",
+      "snapshotFile": "raw/0075-1daddc542e44.html"
+    },
+    {
+      "url": "https://www.hks.harvard.edu/courses/political-economy-trade",
+      "fetchedAt": "2026-10-07T06:20:52.668Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1cd5bdfb558cb9f83855278c12c19b909f9f085637bc195a0fc74c8bbd1d321a",
+      "title": "The Political Economy of Trade | Harvard Kennedy School",
+      "snapshotFile": "raw/0076-1cd5bdfb558c.html"
+    },
+    {
+      "url": "https://hls.harvard.edu/executive-education/programs/",
+      "fetchedAt": "2026-10-07T06:20:54.751Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a4c631cc3c33e7de14d300049087d531f7cacfd48e9d19858bda9f66a3c98590",
+      "title": "Programs - Harvard Law School | Harvard Law School",
+      "snapshotFile": "raw/0077-a4c631cc3c33.html"
+    },
+    {
+      "url": "https://hls.harvard.edu/executive-education/programs/online-programs/computer-science-for-lawyers/",
+      "fetchedAt": "2026-10-07T06:20:56.980Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "394f28ab61a6f60c0464bfa5f561ebedde12072778f44aa4ed32372ae6f91d17",
+      "title": "Computer Science for Lawyers - Harvard Law School | Harvard Law School",
+      "snapshotFile": "raw/0078-394f28ab61a6.html"
+    },
+    {
+      "url": "https://hls.harvard.edu/executive-education/programs/online-programs/international-finance/",
+      "fetchedAt": "2026-10-07T06:20:58.666Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "07d51f627901b9c9a12a9db590930a96b004a2e44d16e4edcf1e9b1cd70f0fc5",
+      "title": "International Finance: Policy, Regulation, and Transactions - Harvard Law School | Harvard Law School",
+      "snapshotFile": "raw/0079-07d51f627901.html"
+    },
+    {
+      "url": "https://hls.harvard.edu/graduate-program/",
+      "fetchedAt": "2026-10-07T06:21:00.442Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c2a50b022af3e9590a3e44dbc23f156538ffa6fa6c88a2d51fbc67ed3888d56d",
+      "title": "Graduate Program - Harvard Law School | Harvard Law School",
+      "snapshotFile": "raw/0080-c2a50b022af3.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:21:00.508Z",
+    "seedUrls": [
+      "https://www.harvard.edu//programs/",
+      "https://www.harvard.edu//programs/?degree_levels=undergraduate",
+      "https://www.harvard.edu//programs/?degree_levels=graduate",
+      "https://www.seas.harvard.edu/academics/courses/applied-computation",
+      "https://www.hks.harvard.edu/centers/mrcbg/programs/cri",
+      "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice",
+      "https://www.hks.harvard.edu/centers/mrcbg/programs/education-policy-program",
+      "https://www.hks.harvard.edu/centers/mrcbg/programs/health",
+      "https://college.harvard.edu/academics/enrichment-programs/independent-study",
+      "https://www.hks.harvard.edu/centers/mrcbg/programs/sustsci",
+      "https://www.hks.harvard.edu/centers/mrcbg/programs/trade-and-negotiations-program",
+      "https://hls.harvard.edu/executive-education/programs/online-programs/",
+      "https://www.hsph.harvard.edu/ecpe/programs/",
+      "https://www.harvard.edu/programs/",
+      "https://www.harvard.edu/programs/?degree_levels=undergraduate",
+      "https://www.harvard.edu/programs/?degree_levels=graduate",
+      "https://execed.gsd.harvard.edu/programs",
+      "https://www.harvard.edu/academics/professional-and-lifelong-learning/",
+      "https://college.harvard.edu/academics/fields-study/special-concentrations",
+      "https://www.harvard.edu/academics/schools/",
+      "https://www.harvard.edu/academics/",
+      "https://gsas.harvard.edu/program/biological-and-biomedical-sciences",
+      "https://gsas.harvard.edu/program/biophysics",
+      "https://gsas.harvard.edu/program/health-policy",
+      "https://gsas.harvard.edu/program/regional-studies-russia-eastern-europe-and-central-asia",
+      "https://gsas.harvard.edu/program/social-policy",
+      "https://hds.harvard.edu/academics/professional-lifelong-learning"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:25.847Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.464Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

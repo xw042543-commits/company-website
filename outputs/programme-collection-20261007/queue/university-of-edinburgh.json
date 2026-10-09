@@ -1,0 +1,1987 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-edinburgh",
+    "displayName": "The University of Edinburgh",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.ed.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.ed.ac.uk",
+      "ed.ac.uk"
+    ],
+    "discoveredUrls": 279,
+    "parsedProgrammes": 270,
+    "pagesRead": 120,
+    "warnings": [
+      "https://www.ed.ac.uk/studying：跳转超出允许域名: study.ed.ac.uk",
+      "https://www.ed.ac.uk/studying/undergraduate/open-days-events-visits/open-day：跳转超出允许域名: study.ed.ac.uk",
+      "https://www.ed.ac.uk/studying/undergraduate/student-life/academic/degree-structure/degree-structure：跳转超出允许域名: study.ed.ac.uk",
+      "https://www.ed.ac.uk/studying/undergraduate/student-life/student-chat：跳转超出允许域名: study.ed.ac.uk",
+      "https://www.ed.ac.uk/studying/undergraduate/contact：跳转超出允许域名: study.ed.ac.uk",
+      "https://www.ed.ac.uk/university-secretary-group/complaint-handling-procedure：跳转超出允许域名: usg.ed.ac.uk",
+      "https://www.ed.ac.uk/sustainability/what-we-do/supply-chains/initiatives/modern-slavery/statement：跳转超出允许域名: sustainability.ed.ac.uk",
+      "https://www.ed.ac.uk/data-protection：跳转超出允许域名: data-protection.ed.ac.uk",
+      "https://www.ed.ac.uk/studying/postgraduate/open-days-events-visits/open-days：跳转超出允许域名: study.ed.ac.uk",
+      "https://www.ed.ac.uk/studying/undergraduate/open-days-events-visits/online-information-sessions：跳转超出允许域名: study.ed.ac.uk",
+      "https://study.ed.ac.uk/undergraduate/open-days-events-visits/open-day/programme/medicine：跳转超出允许域名: idp.ed.ac.uk",
+      "https://study.ed.ac.uk/undergraduate/open-days-events-visits/open-day/programme/veterinary-medicine：跳转超出允许域名: idp.ed.ac.uk"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://www.ed.ac.uk/studying/postgraduate/applying/research",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://www.ed.ac.uk/studying/international/applying/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://www.ed.ac.uk/studying/international/applying/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://www.ed.ac.uk/studying/undergraduate/student-life/academic/degree-structure/degree-structure",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://www.ed.ac.uk/studying/undergraduate/contact",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://www.ed.ac.uk/studying/undergraduate/student-life/student-chat",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/undergraduate/access-edinburgh",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://www.ed.ac.uk/student-funding/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://www.learn.ed.ac.uk/ultra/course",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/189-accounting-and-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/464-accounting-and-finance",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/655-acoustics-and-music-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/656-anatomy-and-development",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/373-ancient-and-medieval-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/302-ancient-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/429-applied-mathematics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/662-applied-mathematics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/114-applied-sport-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/580-arabic-and-ancient-greek",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/294-arabic-and-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/297-arabic-and-french",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/465-arabic-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/287-arabic-and-persian",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/291-arabic-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/159-arabic-and-social-anthropology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/298-arabic-and-spanish",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/286-arabic-with-islamic-and-middle-eastern-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/648-archaeology-and-ancient-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/322-archaeology-and-social-anthropology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/344-architectural-history-and-archaeology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/338-architectural-history-and-heritage",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/66-artificial-intelligence-and-computer-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/388-artificial-intelligence",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/13-biological-sciences-biochemistry",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/112-biological-sciences-biotechnology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/481-biological-sciences-cell-biology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/5-biological-sciences-development-regeneration-and-stem-cells",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/6-biological-sciences-ecology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/382-biological-sciences-evolutionary-biology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/10-biological-sciences-genetics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/11-biological-sciences-immunology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/14-biological-sciences-molecular-biology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/480-biological-sciences-molecular-genetics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/8-biological-sciences-plant-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/9-biological-sciences-zoology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/4-biological-sciences",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/7-biological-sciences-with-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/664-biomedical-informatics-based-in-china",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/383-biomedical-sciences",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/186-business-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/182-business-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/604-business-with-decision-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/605-business-with-enterprise-and-innovation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/606-business-with-human-resource-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/607-business-with-marketing",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/608-business-with-strategic-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/666-celtic-and-archaeology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/371-celtic-and-english-language",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/372-celtic-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/600-celtic-and-french",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/207-celtic-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/221-celtic-and-scandinavian-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/229-celtic-and-scottish-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/99-chemical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/100-chemical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/40-chemical-physics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/412-childhood-practice",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/576-chinese-and-french",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/577-chinese-and-german",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/419-chinese-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/418-chinese-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/575-chinese-and-russian-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/578-chinese-and-spanish",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/76-civil-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/77-civil-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/337-classical-archaeology-and-ancient-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/204-classical-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/479-cognitive-science-humanities",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/42-computational-physics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/43-computational-physics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/64-computer-science-and-mathematics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/54-earth-science-and-physical-geography",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/47-earth-sciences",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/16-ecological-and-environmental-sciences",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/428-ecological-and-environmental-sciences-with-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/153-economics-and-accounting",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/133-economics-and-mathematics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/135-economics-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/134-economics-and-statistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/469-economics-with-finance",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/392-economics-with-management-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/107-electrical-and-mechanical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/109-electrical-and-mechanical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/654-electronics-and-computer-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/70-electronics-and-computer-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/88-electronics-and-electrical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/89-electronics-and-electrical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/209-english-and-scottish-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/195-english-language-and-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/196-english-language",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/211-english-literature-and-classics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/236-english-literature-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/197-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/446-environmental-geoscience",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/497-film-and-television",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/603-finance-and-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/1150-fine-art-and-history-of-art",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/249-french-and-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/222-french-and-classics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/486-french-and-english-language",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/379-french-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/513-french-and-german",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/434-french-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/267-french-and-history-of-art",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/514-french-and-italian",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/254-french-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/268-french-and-philosophy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/243-french-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/515-french-and-portuguese",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/516-french-and-russian-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/517-french-and-scandinavian-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/393-french-and-social-policy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/518-french-and-spanish",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/250-german-and-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/223-german-and-classics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/448-german-and-english-language",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/256-german-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/435-german-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/270-german-and-history-of-art",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/255-german-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/271-german-and-philosophy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/244-german-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/520-german-and-portuguese",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/521-german-and-russian-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/522-german-and-scandinavian-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/523-german-and-spanish",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/650-government-policy-and-society",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/651-government-policy-and-society-with-quantitative-methods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/500-graphic-design",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/627-health-in-social-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/467-history-and-archaeology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/376-history-and-classics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/658-history-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/161-history-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/304-history-and-scottish-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/308-history-of-art-and-architectural-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/299-history-of-art-and-chinese-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/327-history-of-art-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/345-history-of-art-and-history-of-music",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/590-history-of-art-and-scottish-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/437-infectious-diseases",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/659-integrative-biomedical-sciences-based-in-china",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/670-interdisciplinary-futures",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/502-interior-design",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/183-international-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/615-international-business-with-chinese",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/609-international-business-with-french",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/610-international-business-with-german",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/611-international-business-with-italian",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/616-international-business-with-japanese",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/613-international-business-with-spanish",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/377-international-relations",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/632-international-relations-with-quantitative-methods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/466-islamic-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/224-italian-and-classics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/262-italian-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/436-italian-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/273-italian-and-history-of-art",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/257-italian-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/274-italian-and-philosophy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/155-italian-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/527-italian-and-spanish",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/295-japanese-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/503-jewellery-and-silversmithing",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/674-landscape-architecture",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/482-law-and-international-relations",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/169-law-and-social-anthropology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/173-law-and-social-policy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/667-learning-in-communities",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/208-linguistics-and-english-language",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/206-linguistics-and-social-anthropology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/38-mathematical-physics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/37-mathematical-physics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/72-mathematics-and-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/61-mathematics-and-physics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/63-mathematics-and-statistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/82-mechanical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/83-mechanical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/51-medicinal-and-biological-chemistry",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/52-medicinal-and-biological-chemistry",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/447-middle-eastern-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/504-performance-costume",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/597-persian-and-middle-eastern-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/323-philosophy-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/404-philosophy-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/328-philosophy-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/320-philosophy-and-mathematics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/324-philosophy-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/319-philosophy-and-psychology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/591-philosophy-and-scottish-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/342-philosophy-and-theology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/352-physical-education",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/643-physics-with-a-year-abroad",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/633-politics-with-quantitative-methods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/665-politics-philosophy-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/570-portuguese-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/565-portuguese-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/568-portuguese-and-scottish-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/628-primary-education-with-gaelic-fluent-speakers",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/629-primary-education-with-gaelic-learners",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/505-product-design",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/116-psychology-and-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/649-psychology-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/117-psychology-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/676-psychology-and-sociology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/675-religion-culture-and-society",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/421-religious-studies-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/595-religious-studies-and-scottish-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/384-reproductive-biology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/396-russian-studies-and-classics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/219-russian-studies-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/472-russian-studies-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/282-russian-studies-and-history-of-art",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/261-russian-studies-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/283-russian-studies-and-philosophy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/156-russian-studies-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/530-russian-studies-and-scandinavian-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/397-russian-studies-and-social-policy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/531-russian-studies-and-spanish",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/359-russian-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/242-scandinavian-studies-danish-norwegian-swedish",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/225-scandinavian-studies-and-classics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/368-scandinavian-studies-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/442-scandinavian-studies-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/260-scandinavian-studies-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/280-scandinavian-studies-and-philosophy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/246-scandinavian-studies-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/532-scandinavian-studies-and-spanish",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/473-scottish-ethnology-and-archaeology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/332-scottish-ethnology-and-celtic",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/334-scottish-ethnology-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/343-scottish-ethnology-and-scottish-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/318-scottish-ethnology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/593-scottish-literature-and-classics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/594-scottish-literature-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/227-scottish-literature-and-scottish-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/200-scottish-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/443-scottish-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/142-social-anthropology-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/144-social-anthropology-and-social-policy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/128-social-anthropology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/145-social-anthropology-with-development",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/139-social-policy-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/152-social-policy-and-law",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/140-social-policy-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/141-social-policy-and-sociology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/630-social-policy-with-quantitative-methods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/127-social-work",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/137-sociology-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/138-sociology-and-social-anthropology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/631-sociology-with-quantitative-methods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/59-software-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/252-spanish-and-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/259-spanish-and-classics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/357-spanish-and-english-literature",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/444-spanish-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/276-spanish-and-history-of-art",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/258-spanish-and-linguistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/277-spanish-and-philosophy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/245-spanish-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/533-spanish-and-portuguese",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/668-sport-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/106-structural-and-fire-safety-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/108-structural-and-fire-safety-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/80-structural-engineering-with-architecture",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/81-structural-engineering-with-architecture",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/484-sustainable-development",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/582-theoretical-physics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-edinburgh",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/583-theoretical-physics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:59.821Z",
+      "error": null
+    }
+  ]
+}

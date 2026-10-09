@@ -1,0 +1,1710 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.482Z",
+  "sourceKey": "northwestern-university",
+  "sourceName": "Northwestern University",
+  "warnings": [
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/referral-protocol-students-with-academic-behavioral-concerns.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/academic-support.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/inter-school-transfer-advice.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/remote-advising/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/schools-advising-leadership.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/connectnu/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/helping-students-financial-challenges/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/promoting-social-emotional-wellness/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/lunch-and-learn-sessions.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+    "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/connectnu/adviser-faqs.html：跳转超出允许域名: prd-nusso.it.northwestern.edu"
+  ],
+  "university": {
+    "candidateId": "university_258cf0fdd3a7f6f7",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Northwestern University",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Evanston, Illinois",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.northwestern.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:22:19.229Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.northwestern.edu/",
+        "sourcePageTitle": "Northwestern University",
+        "sourceHash": "3ff670d303c15201e5fb50ab8e1aee0b66ea1ff601aea2e8bc81df0abec508b1",
+        "fetchedAt": "2026-10-07T04:22:19.229Z",
+        "field": "name",
+        "rawText": "Northwestern University"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 13,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": [
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://common.northwestern.edu/v8/images/northwestern-thumbnail.jpg",
+        "sourceUrl": "https://www.northwestern.edu/",
+        "sourceCheckedAt": "2026-10-07T04:22:19.229Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_9dbcc79b5132b9dc",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "组织动态研究生证书",
+      "nameEn": "Graduate Certificate in Organizational Dynamics",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://sesp.northwestern.edu/graduate-professional/learning-and-organizational-change/graduate-certificates/certificate-organizational-dynamics/index.html",
+      "sourceCheckedAt": "2026-10-07T06:34:15.748Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://sesp.northwestern.edu/undergraduate/advising/academic-advisers/",
+          "sourcePageTitle": "Academic Advisers: School of Education and Social Policy - Northwestern University",
+          "sourceHash": "03d5b91b898b1edadc7783756e45ef97748daead98ac723f7bf5d1a7b40ddfb8",
+          "fetchedAt": "2026-10-07T06:34:15.748Z",
+          "field": "name",
+          "rawText": "Graduate Certificate in Organizational Dynamics"
+        },
+        {
+          "sourceUrl": "https://sesp.northwestern.edu/undergraduate/advising/academic-advisers/",
+          "sourcePageTitle": "Academic Advisers: School of Education and Social Policy - Northwestern University",
+          "sourceHash": "03d5b91b898b1edadc7783756e45ef97748daead98ac723f7bf5d1a7b40ddfb8",
+          "fetchedAt": "2026-10-07T06:34:15.748Z",
+          "field": "detailUrl",
+          "rawText": "https://sesp.northwestern.edu/graduate-professional/learning-and-organizational-change/graduate-certificates/certificate-organizational-dynamics/index.html"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_c503687b48768d59",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "组织动态科学硕士",
+      "nameEn": "Master of Science in Organizational Dynamics (MOD)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://sesp.northwestern.edu/graduate-professional/learning-and-organizational-change/ms-organizational-dynamics/index.html",
+      "sourceCheckedAt": "2026-10-07T06:34:20.840Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://sesp.northwestern.edu/undergraduate/options-concentrations/combined-bachelors-mod-degree.html",
+          "sourcePageTitle": "Combined Bachelor’s-MOD Degree: School of Education and Social Policy - Northwestern University",
+          "sourceHash": "612b1cc31917485f1b69453e172c99cc770e85a28b00e21eda9011d079a684ed",
+          "fetchedAt": "2026-10-07T06:34:20.840Z",
+          "field": "name",
+          "rawText": "Master of Science in Organizational Dynamics (MOD)"
+        },
+        {
+          "sourceUrl": "https://sesp.northwestern.edu/undergraduate/options-concentrations/combined-bachelors-mod-degree.html",
+          "sourcePageTitle": "Combined Bachelor’s-MOD Degree: School of Education and Social Policy - Northwestern University",
+          "sourceHash": "612b1cc31917485f1b69453e172c99cc770e85a28b00e21eda9011d079a684ed",
+          "fetchedAt": "2026-10-07T06:34:20.840Z",
+          "field": "detailUrl",
+          "rawText": "https://sesp.northwestern.edu/graduate-professional/learning-and-organizational-change/ms-organizational-dynamics/index.html"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_f24bd004ff1a7b65",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "公共政策和行政,MA文学硕士",
+      "nameEn": "Public Policy and Administration, MA",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalogs.northwestern.edu/sps/graduate/public-policy-administration/public-policy-administration-ma/",
+      "sourceCheckedAt": "2026-10-07T06:34:27.043Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "name",
+          "rawText": "Public Policy and Administration, MA"
+        },
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "detailUrl",
+          "rawText": "https://catalogs.northwestern.edu/sps/graduate/public-policy-administration/public-policy-administration-ma/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_6e5a30c2be5eb4c5",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "体育管理,MA文学硕士",
+      "nameEn": "Sports Administration, MA",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalogs.northwestern.edu/sps/graduate/sports-administration/sports-administration-ma/",
+      "sourceCheckedAt": "2026-10-07T06:34:27.043Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "name",
+          "rawText": "Sports Administration, MA"
+        },
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "detailUrl",
+          "rawText": "https://catalogs.northwestern.edu/sps/graduate/sports-administration/sports-administration-ma/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_26fbbf86f8eefd0f",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "文科和工程学士/文学学士",
+      "nameEn": "BA/​BS in Liberal Arts and Engineering",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/liberal-arts-engineering/",
+      "sourceCheckedAt": "2026-10-07T06:34:27.043Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "name",
+          "rawText": "BA/​BS in Liberal Arts and Engineering"
+        },
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "detailUrl",
+          "rawText": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/liberal-arts-engineering/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_4ea5186e01ca3318",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "文艺术和音乐业学士/文学硕士",
+      "nameEn": "BA/​BMus in Liberal Arts and Music",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/liberal-arts-music/",
+      "sourceCheckedAt": "2026-10-07T06:34:27.043Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "name",
+          "rawText": "BA/​BMus in Liberal Arts and Music"
+        },
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "detailUrl",
+          "rawText": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/liberal-arts-music/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_ff59be3cb49392bc",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "BA/BS或BS/BB 通信和工程",
+      "nameEn": "BA/​BS or BS/​BS in Communication and Engineering",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/communication-engineering/",
+      "sourceCheckedAt": "2026-10-07T06:34:27.043Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "name",
+          "rawText": "BA/​BS or BS/​BS in Communication and Engineering"
+        },
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "detailUrl",
+          "rawText": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/communication-engineering/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_7672bdc7fcbf132b",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "BA/BMus、BB/BMus、BAB/Bmus、bB/ BAMos或BB / BABUS的通信和音乐界BBM/BABUs",
+      "nameEn": "BA/​BMus, BS/​BMus, BA/​BAMus, or BS/​BAMus in Communication and Music",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/communication-music/",
+      "sourceCheckedAt": "2026-10-07T06:34:27.043Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "name",
+          "rawText": "BA/​BMus, BS/​BMus, BA/​BAMus, or BS/​BAMus in Communication and Music"
+        },
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "detailUrl",
+          "rawText": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/communication-music/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_57afe84fcc1baee2",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "比较文学研究学士/文学硕士",
+      "nameEn": "Comparative Literary Studies BA/​MA",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalogs.northwestern.edu/undergraduate/arts-sciences/comparative-literary-studies/comparative-literary-studies-ba-ma/",
+      "sourceCheckedAt": "2026-10-07T06:34:27.043Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "name",
+          "rawText": "Comparative Literary Studies BA/​MA"
+        },
+        {
+          "sourceUrl": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+          "sourcePageTitle": "Requirements and Policies | Northwestern University Academic Catalog",
+          "sourceHash": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+          "fetchedAt": "2026-10-07T06:34:27.043Z",
+          "field": "detailUrl",
+          "rawText": "https://catalogs.northwestern.edu/undergraduate/arts-sciences/comparative-literary-studies/comparative-literary-studies-ba-ma/"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.northwestern.edu/",
+      "fetchedAt": "2026-10-07T04:22:19.229Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "3ff670d303c15201e5fb50ab8e1aee0b66ea1ff601aea2e8bc81df0abec508b1",
+      "title": "Northwestern University",
+      "snapshotFile": "raw/0001-3ff670d303c1.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-and-staff/",
+      "fetchedAt": "2026-10-07T04:22:25.388Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "edae0e10968f92f9603d8e3812e04a651f2daf5bb06545b039bcbef473365ff6",
+      "title": "For Faculty and Staff: Northwestern University",
+      "snapshotFile": "raw/0002-edae0e10968f.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/",
+      "fetchedAt": "2026-10-07T04:22:25.631Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "26e592ff778eb5e353a7e9246f22470da4634f3d4f1796bf1f4725b47da50d0a",
+      "title": "Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0003-26e592ff778e.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/academics/pre-collegiate-programs.html",
+      "fetchedAt": "2026-10-07T04:22:27.852Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "4c0da0ebbc2c69e8e42daa901d86eae2ed75352aca9b2fe9f46752dff281538e",
+      "title": "Pre-Collegiate Programs: Northwestern University",
+      "snapshotFile": "raw/0004-4c0da0ebbc2c.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/academics/program-type-definitions.html",
+      "fetchedAt": "2026-10-07T04:22:29.862Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "9d0af565f17b0ae7cd3985db566d1f278d77aa03a8c12f0495d8fa275cdb4982",
+      "title": "Program Type Definitions: Northwestern University",
+      "snapshotFile": "raw/0005-9d0af565f17b.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/provost/faculty-resources/well-being-resources/faculty-wellness.html",
+      "fetchedAt": "2026-10-07T04:22:31.872Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "19a828c11540027cbd11b401417e71b01a61570f849598ade8c7eed945e199a5",
+      "title": "Faculty Wellness Program: Office of the Provost - Northwestern University",
+      "snapshotFile": "raw/0006-19a828c11540.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/provost/about/committees/undergraduate-council.html",
+      "fetchedAt": "2026-10-07T04:22:43.348Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "d13bb98831dd1eae72d7688ed3dc043f770f69827c6032025a46dabbd1c72027",
+      "title": "Undergraduate Council: Office of the Provost - Northwestern University",
+      "snapshotFile": "raw/0007-d13bb98831dd.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/provost/initiatives/undergraduate-education.html",
+      "fetchedAt": "2026-10-07T04:22:45.356Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "fc2e334c3724deeaee238ca752b4a541fa86e5177af6b9f2d8b6de65d9368895",
+      "title": "Undergraduate Education: Office of the Provost - Northwestern University",
+      "snapshotFile": "raw/0008-fc2e334c3724.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/",
+      "fetchedAt": "2026-10-07T04:22:47.380Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "f0482ab47830861990e6086687b00e83faa5864d3f852c5f516574fda07fb615",
+      "title": "Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0009-f0482ab47830.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/",
+      "fetchedAt": "2026-10-07T04:24:18.575Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "f0482ab47830861990e6086687b00e83faa5864d3f852c5f516574fda07fb615",
+      "title": "Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0010-f0482ab47830.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/",
+      "fetchedAt": "2026-10-07T04:24:20.393Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "fb768d11414fc276796bc37b7c07d070cd0b7addfa56612a29fa412c260ff46e",
+      "title": "Navigate Your Northwestern Direction: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0011-fb768d11414f.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/connectnu/",
+      "fetchedAt": "2026-10-07T04:24:22.569Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "e51e45fdca228b2bd71320147cd9788508c53ca9931cb73bbda8ac0f983c51ac",
+      "title": "ConnectNU: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0012-e51e45fdca22.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-academic-decisions/",
+      "fetchedAt": "2026-10-07T04:24:24.437Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "305617145f46bd1dd486c7a5fd698f145cff6240eb14e8ab8bd1a40f7b6ed4d5",
+      "title": "Navigating Academic Decisions: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0013-305617145f46.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-academic-decisions/inter-school-transfer/",
+      "fetchedAt": "2026-10-07T04:24:27.019Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "7b04d94e0803511d9136635fafb3aed165dc0cdbfe2d6fe04cf1b57d66a76b1f",
+      "title": "Inter-School Transfer: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0014-7b04d94e0803.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-academic-decisions/part-time-enrollment-policy-and-frequently-asked-questions.html",
+      "fetchedAt": "2026-10-07T04:24:27.458Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a3082a4234c2e0ea9280a79f39a6b237e58b96371b76cbe534eaa62c966247ef",
+      "title": "FAQ’s on Part-Time Enrollment: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0015-a3082a4234c2.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-university-rules-requirements/",
+      "fetchedAt": "2026-10-07T04:24:30.366Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "127a68b6bbcc227ce016ae6d839c31a853c9dd648704c0bfb1a751f2588c5cd5",
+      "title": "Navigating University Rules & Requirements: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0016-127a68b6bbcc.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-university-rules-requirements/petitions-for-enrollment-exception/",
+      "fetchedAt": "2026-10-07T04:24:32.402Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "0aa17912e358b231521376caf13697dc1000ba2deacc7c52739fc6c6e2a68eb9",
+      "title": "Petitions for Enrollment Exceptions: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0017-0aa17912e358.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/student-resources-gateway/",
+      "fetchedAt": "2026-10-07T04:24:34.435Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a12f84bbe6f90555c5e1a53762bcef70972e65039686df2f310721ae624612e0",
+      "title": "Student Resources Gateway: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0018-a12f84bbe6f9.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/advising-offices/",
+      "fetchedAt": "2026-10-07T04:24:36.380Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "8c64c6893b675f609bbe226122f56f98a45a776fa4db7058eaa31b936d9425ea",
+      "title": "Undergraduate Advising Offices: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0019-8c64c6893b67.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/about-advising/",
+      "fetchedAt": "2026-10-07T04:24:39.039Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "072271b9296343ef29ae2d9ca3ea4f0bdc541cc2bca0749e795089ac72d19e31",
+      "title": "Students’ Advice on Engaging Advising: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0020-072271b92963.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/connectnu/",
+      "fetchedAt": "2026-10-07T04:24:40.423Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "e51e45fdca228b2bd71320147cd9788508c53ca9931cb73bbda8ac0f983c51ac",
+      "title": "ConnectNU: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0021-e51e45fdca22.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-university-rules-requirements/petitions-for-enrollment-exception/late-tuition-adjustment-instructions.html",
+      "fetchedAt": "2026-10-07T04:24:41.716Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "78816ef91141d57d4d4b2bed08ea36e1d8c029aaf093529ab8022cece85674cb",
+      "title": "Late Tuition Adjustment Instructions: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0022-78816ef91141.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-university-rules-requirements/petitions-for-enrollment-exception/late-withdrawal-instructions.html",
+      "fetchedAt": "2026-10-07T04:24:43.733Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "4f93a229f95e910d79e8b3b589c62c8b43e81031f1f581a372d9f6db06dd51c4",
+      "title": "Late Term Withdrawal Instructions: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0023-4f93a229f95e.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-university-rules-requirements/petitions-for-enrollment-exception/undergraduate-registration-requirement-waiver-instructions.html",
+      "fetchedAt": "2026-10-07T04:24:45.823Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "c0466941c227a6da42f375b7fbf8f207977281e301e66b98edf867c9b113a5db",
+      "title": "Undergraduate Registration Requirement Waiver Instructions: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0024-c0466941c227.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-university-rules-requirements/petitions-for-enrollment-exception/undergraduate-tuition-waiver-instructions.html",
+      "fetchedAt": "2026-10-07T04:24:47.739Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "8782a8a43658b1897074fc3495060eb54b9eb752e20be409fb76c9e433b5d533",
+      "title": "Undergraduate Tuition Waiver Instructions: Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0025-8782a8a43658.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/undergraduate-advising/for-students/navigating-academic-decisions/faqs-accelerated-programs.html",
+      "fetchedAt": "2026-10-07T04:24:49.739Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "ece30c61686ff05fad7a7ace7de0047bd069286f6ff0e2417c0ab95a6c20cf71",
+      "title": "FAQ’s on BX/MX Accelerated Programs : Undergraduate Advising - Northwestern University",
+      "snapshotFile": "raw/0026-ece30c61686f.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-senate/",
+      "fetchedAt": "2026-10-07T04:24:59.358Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "97a5e6f9101f3debb0820ebc807cbcf49b34bcbfe46a8a2278e7f362b7a1f28d",
+      "title": "Faculty Senate - Northwestern University",
+      "snapshotFile": "raw/0027-97a5e6f9101f.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/",
+      "fetchedAt": "2026-10-07T04:25:02.510Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "26e592ff778eb5e353a7e9246f22470da4634f3d4f1796bf1f4725b47da50d0a",
+      "title": "Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0028-26e592ff778e.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/academies/",
+      "fetchedAt": "2026-10-07T04:25:04.256Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "234f0df8c7267c8622624b04b56fd0bcfec93259d1db5fc4cf731e61d87df12b",
+      "title": "Academy Memberships: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0029-234f0df8c726.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/academies/national-academy-of-sciences.html",
+      "fetchedAt": "2026-10-07T04:25:05.582Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "8f8135a02f1af7127b624b471417de29ef260b5f9c58a2dc8327609df943a1f2",
+      "title": "National Academy of Sciences: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0030-8f8135a02f1a.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/academies/national-academy-of-medicine.html",
+      "fetchedAt": "2026-10-07T04:25:07.591Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "83cd253904ae4c7afe131f837ed7dd11a13e032132e2738e4c1da82fd6c58040",
+      "title": "National Academy of Medicine: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0031-83cd253904ae.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/academies/national-academy-of-engineering.html",
+      "fetchedAt": "2026-10-07T04:25:10.439Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "722f7ca02b25e1520d8c263b40bc6a98908ac45a21e14e9477cc685b2ad6e22b",
+      "title": "National Academy of Engineering: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0032-722f7ca02b25.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/academies/american-academy-of-arts-and-sciences.html",
+      "fetchedAt": "2026-10-07T04:25:11.443Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "42b8ee9ab4f7d224271c830ba26f10c295c895980bc06a709cf5995f7aab375e",
+      "title": "American Academy of Arts and Sciences: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0033-42b8ee9ab4f7.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/academies/national-academy-of-education.html",
+      "fetchedAt": "2026-10-07T04:25:13.441Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "953102336b7b83a9a13325e6a027d880ccf25850c014db91fe72f42042e3b708",
+      "title": "National Academy of Education: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0034-953102336b7b.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/awards-and-medals/",
+      "fetchedAt": "2026-10-07T04:25:16.417Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "096b485df00aec1b219a523beb8f359a9d3933710e3e3a21e867e952efffa8bf",
+      "title": "Awards and Medals: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0035-096b485df00a.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/awards-and-medals/american-philosophical-society.html",
+      "fetchedAt": "2026-10-07T04:25:17.690Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "8aaaa8cac2ad6ceca66172928f749705b2c920b9eab9a3b906c159f5ee4baa9b",
+      "title": "American Philosophical Society: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0036-8aaaa8cac2ad.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/awards-and-medals/benjamin-franklin-medal.html",
+      "fetchedAt": "2026-10-07T04:25:19.477Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "0805bc652d2e696fa8889e652a0977cf4c3d31354bb2ffe361324b66d213dd5a",
+      "title": "Benjamin Franklin Medal: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0037-0805bc652d2e.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/awards-and-medals/breakthrough-prizes.html",
+      "fetchedAt": "2026-10-07T04:25:21.701Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "9366d609d32a4743d75d71acf2c17c614903aaaa5744307e1dada68ef5a6d077",
+      "title": "Breakthrough Prizes: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0038-9366d609d32a.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/awards-and-medals/carnegie-fellowship.html",
+      "fetchedAt": "2026-10-07T04:25:23.488Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "e128eb257121a69f6d644da5e0912330e93a36c88d49a3449c65f53fea516b76",
+      "title": "Carnegie Fellowship: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0039-e128eb257121.html"
+    },
+    {
+      "url": "https://www.northwestern.edu/faculty-accolades/awards-and-medals/guggenheim-fellowship.html",
+      "fetchedAt": "2026-10-07T04:25:25.705Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "6a2991e51ed9ad8f8acf3d9aeca09c45b8997bf4d5a6dbd30c5fc41652696277",
+      "title": "Guggenheim Fellowship: Faculty Accolades - Northwestern University",
+      "snapshotFile": "raw/0040-6a2991e51ed9.html"
+    },
+    {
+      "url": "https://hr.northwestern.edu/benefits/well-being/",
+      "fetchedAt": "2026-10-07T06:33:07.996Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "ffd22d4478423d6a222384b845d093d8bed79ede8f4942eb1466231d2675bb05",
+      "title": "Well-being: Human Resources - Northwestern University",
+      "snapshotFile": "raw/0001-ffd22d447842.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/advising/weinberg-college-advisers/meet-college-advisers/",
+      "fetchedAt": "2026-10-07T06:33:09.590Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "3a805c4f392a9675a94fb947f1558ba76d71b3f5ec6ab51b55285072880e8d7e",
+      "title": "Meet the Weinberg College Advisers: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0002-3a805c4f392a.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/first-year/first-year-courses/",
+      "fetchedAt": "2026-10-07T06:33:11.809Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a2b5eb56b1e3b7bc7d0fd0e0ee6dff20f398b33ddf9f75de02d57f09be273ab9",
+      "title": "First-Year Courses: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0003-a2b5eb56b1e3.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/",
+      "fetchedAt": "2026-10-07T06:33:13.886Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "0423d68920c3c3ca85a290a27912b4e911336c12a61f3540c50c18a372b9745d",
+      "title": "Courses, Registration, & Grades: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0004-0423d68920c3.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/missing-class.html",
+      "fetchedAt": "2026-10-07T06:33:15.593Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "0214575da85b58696648333267242a8450b400fdef5ef4cdc1ea66fcaaf78dd9",
+      "title": "Missing Class: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0005-0214575da85b.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/time-off.html",
+      "fetchedAt": "2026-10-07T06:33:17.629Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "400991aa8b2a9505119f7fb075363f6200cbbc1d1f324e83f2bbcf0a4b4bb65b",
+      "title": "Leaves of Absence: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0006-400991aa8b2a.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/registration/",
+      "fetchedAt": "2026-10-07T06:33:19.905Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "f7eef7d0952f50790f7356211981c49f45e587d11adc43830324f22b8cbc0f29",
+      "title": "Registration Policies: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0007-f7eef7d0952f.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/academic-calendar/",
+      "fetchedAt": "2026-10-07T06:33:21.887Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "be36b7bdb4c53658b5c526f7163de12b6e8983515f578eec70f1b403ccc1ce84",
+      "title": "Academic Calendar: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0008-be36b7bdb4c5.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/grades/",
+      "fetchedAt": "2026-10-07T06:33:23.835Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "fdb8c2f1a2b4898ad5ef6e079d1681b2e7b0fa966900e13ba17a3ade8014bc16",
+      "title": "Grades and Grading Policies: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0009-fdb8c2f1a2b4.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/integrity/",
+      "fetchedAt": "2026-10-07T06:33:26.203Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "d707f31ee6dca04906e0cc2b0b57f1a02e5a48c209c8fa0bef0a336fcdd30f26",
+      "title": "Academic Integrity: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0010-d707f31ee6dc.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/outside-weinberg-credit/",
+      "fetchedAt": "2026-10-07T06:33:27.950Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "dc115865a2c84456b78ce85284e43315c9bdfd2c8e05740662a8116a1f987876",
+      "title": "Credit for Classes Taken Outside Weinberg College: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0011-dc115865a2c8.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/transferring-northwestern-school.html",
+      "fetchedAt": "2026-10-07T06:33:29.661Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "2c288ea88ff11c4261dce6429224614c53fdea2c1c3ed98a00cdd95a791814ef",
+      "title": "Transferring to Another Northwestern School: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0012-2c288ea88ff1.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/confidentiality-and-student-records.html",
+      "fetchedAt": "2026-10-07T06:33:31.669Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "8723df01beb356ef4c76e5776c74e3043a8681b690b2213494e984dc046e0c0c",
+      "title": "Confidentiality and Student Records: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0013-8723df01beb3.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/first-year/first-year-courses/first-year-focus-webpages.html",
+      "fetchedAt": "2026-10-07T06:33:33.660Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "1af537b14c652fee7c699089a6491a507e7b2cc287466db063c4ca5da29b92b8",
+      "title": "First-Year Focus Webpages: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0014-1af537b14c65.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/first-year/first-year-courses/seminars.html",
+      "fetchedAt": "2026-10-07T06:33:35.741Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "2716b023716093fe43fae7ed9d37702fc8c67cac8ace9d45067870e78f151301",
+      "title": "First-Year Seminars: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0015-2716b0237160.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/first-year/first-year-courses/guide-pre-med.html",
+      "fetchedAt": "2026-10-07T06:33:37.704Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a2c4c10db59b73fac5170b7c6f8803356db43cafaa83821f04c82057d889e0f9",
+      "title": "A First-Year's Guide to Pre-Health: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0016-a2c4c10db59b.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/registration/adding-dropping.html",
+      "fetchedAt": "2026-10-07T06:33:39.706Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a3eb592fb8f7c2d9462e0c32a49781f1eb4bb915d525aafd0d5bbc2e29f9c5a3",
+      "title": "Adding and Dropping Classes: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0017-a3eb592fb8f7.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/registration/overloads-underloads.html",
+      "fetchedAt": "2026-10-07T06:33:41.704Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "befdfc73dacad0e2d99ab51ea4897cd840733330fc02f2f25ecb45a05ec76115",
+      "title": "Overloads and Underloads: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0018-befdfc73daca.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/grades/the-pn-option.html",
+      "fetchedAt": "2026-10-07T06:33:43.768Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "0e5ff014a7c6f72893ade5910ca57a6749793547466855b1204f69b546cd7b02",
+      "title": "The P/N Option: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0019-0e5ff014a7c6.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/registration/independent-study.html",
+      "fetchedAt": "2026-10-07T06:33:45.696Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "550790168cfeac386ada55d0639a90302d1c78ca43aaa0ce271823f3a0990216",
+      "title": "Rules for Independent Study Courses: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0020-550790168cfe.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/registration/student-organized-seminars.html",
+      "fetchedAt": "2026-10-07T06:33:47.958Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "7ea927007f11e0909955f46009d4d88d93e7fb3502e424ab3d887f4fdc10dabb",
+      "title": "Rules for Student-Organized Seminars: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0021-7ea927007f11.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/grades/academic-honors.html",
+      "fetchedAt": "2026-10-07T06:33:49.732Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "5d03ae8e639a161e1a9545fc2141cbd630bc99c160a7b1e715bf4d3df1feacfa",
+      "title": "Academic Honors: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0022-5d03ae8e639a.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/grades/c-and-d-grades.html",
+      "fetchedAt": "2026-10-07T06:33:51.726Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "5a3035a8e01834acc94d92acc63b24f2ad042f2cb521347746ebe3a33e70188a",
+      "title": "C- and D Grades: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0023-5a3035a8e018.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/grades/incompletes.html",
+      "fetchedAt": "2026-10-07T06:33:53.771Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "09590248883bfacfb6a2708f7090a49a872eb3fca52802c27117c607861f159c",
+      "title": "Incompletes: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0024-09590248883b.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/grades/academic-probation.html",
+      "fetchedAt": "2026-10-07T06:33:55.777Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "50f709e9b40b307eb2de4ab0cae877d1fa41a083dd093070ad20b85c9aaa4bb9",
+      "title": "Academic Probation: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0025-50f709e9b40b.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/grades/changing-grades.html",
+      "fetchedAt": "2026-10-07T06:33:57.770Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "53175af2e0fa294c0f0445415e69f8adc48d18e3cdcda485cbf6f4447249cafd",
+      "title": "Changing Grades: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0026-53175af2e0fa.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/academic-calendar/reading-period.html",
+      "fetchedAt": "2026-10-07T06:33:59.778Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "72641a0701acc2a01f1f083cd5fd8a6ef231a88f76aecdad061e3b616abf5221",
+      "title": "Reading Period: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0027-72641a0701ac.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/outside-weinberg-credit/other-institutions.html",
+      "fetchedAt": "2026-10-07T06:34:01.765Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "ebfabb8a3b5564b93ab07141a431b13ebd5a8d5195af4370fa3842adda2304eb",
+      "title": "Taking Classes at Other U.S. Institutions: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0028-ebfabb8a3b55.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/outside-weinberg-credit/other-schools.html",
+      "fetchedAt": "2026-10-07T06:34:03.776Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "0dd54f3773f06da12a9cbaf705332bd26cdb250bb81ff61b3d8ecf9a41d3d1ad",
+      "title": "Taking Classes in Other Northwestern Schools: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0029-0dd54f3773f0.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/academic-calendar/final-exams.html",
+      "fetchedAt": "2026-10-07T06:34:06.087Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a33d2cff07f7fd323faa32d8eeca027e68f1927b9d833d3082b50fb722615b23",
+      "title": "Final Exams: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0030-a33d2cff07f7.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/integrity/procedures-for-cases-of-alleged-violations-of-academic-integrity.html",
+      "fetchedAt": "2026-10-07T06:34:07.789Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "69debf4070337e0541d65f03a316ef74d3b09b95db4d1e4c932643ffce749cc7",
+      "title": "Procedures for Cases of Alleged Violations of Academic Integrity: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0031-69debf407033.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/courses-registration-grades/integrity/academic-integrity-and-artificial-intelligence-principles-and-guidelines.html",
+      "fetchedAt": "2026-10-07T06:34:10.033Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "fa5ea412b2f9103f5924a610dba47569df7813fb2704b8b9c7968ba4ee091d3a",
+      "title": "Academic Integrity and Artificial Intelligence: Principles and Guidelines: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0032-fa5ea412b2f9.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/degree/after-2023/number-courses-quarters.html",
+      "fetchedAt": "2026-10-07T06:34:11.824Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "e45700718c1f6c153a830d6261da1cded380859323ca61301366af3ee3b3f677",
+      "title": "Number of Courses and Quarters: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0033-e45700718c1f.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/degree/before-2023/number-courses-quarters.html",
+      "fetchedAt": "2026-10-07T06:34:13.849Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "2a2f2ce553e5468e0a5e03f1c015b31f284aaa52d9e404da356f67bc3c590d8d",
+      "title": "Number of Courses and Quarters: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0034-2a2f2ce553e5.html"
+    },
+    {
+      "url": "https://sesp.northwestern.edu/undergraduate/advising/academic-advisers/",
+      "fetchedAt": "2026-10-07T06:34:15.748Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "03d5b91b898b1edadc7783756e45ef97748daead98ac723f7bf5d1a7b40ddfb8",
+      "title": "Academic Advisers: School of Education and Social Policy - Northwestern University",
+      "snapshotFile": "raw/0035-03d5b91b898b.html"
+    },
+    {
+      "url": "https://sesp.northwestern.edu/undergraduate/options-concentrations/teacher-preparation-program.html",
+      "fetchedAt": "2026-10-07T06:34:17.957Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "eee92d6f625617a047054092beaf9758cbb13c1649e4dd3e9b3d61516be28b9c",
+      "title": "Teacher Licensure Pathways: School of Education and Social Policy - Northwestern University",
+      "snapshotFile": "raw/0036-eee92d6f6256.html"
+    },
+    {
+      "url": "https://sesp.northwestern.edu/undergraduate/options-concentrations/combined-bachelors-mod-degree.html",
+      "fetchedAt": "2026-10-07T06:34:20.840Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "612b1cc31917485f1b69453e172c99cc770e85a28b00e21eda9011d079a684ed",
+      "title": "Combined Bachelor’s-MOD Degree: School of Education and Social Policy - Northwestern University",
+      "snapshotFile": "raw/0037-612b1cc31917.html"
+    },
+    {
+      "url": "https://sesp.northwestern.edu/undergraduate/courses/",
+      "fetchedAt": "2026-10-07T06:34:22.197Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "87948cd5ddd3dc581cb07f25de646bfc82f32628440cf5bd002ef6991efa0edb",
+      "title": "Courses: School of Education and Social Policy - Northwestern University",
+      "snapshotFile": "raw/0038-87948cd5ddd3.html"
+    },
+    {
+      "url": "https://weinberg.northwestern.edu/undergraduate/advising/weinberg-college-advisers/ousa.html",
+      "fetchedAt": "2026-10-07T06:34:24.825Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "c7d53c38c6597c4eba1441e11367dc5371ec852779242a03210561a6f922bf40",
+      "title": "Office of Undergraduate Studies and Advising: Weinberg College of Arts and Sciences - Northwestern University",
+      "snapshotFile": "raw/0039-c7d53c38c659.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+      "fetchedAt": "2026-10-07T06:34:27.043Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "539a7681d8250722034f1dcab713c8fad512a1c2f6616cbf66702f0fd429e574",
+      "title": "Requirements and Policies | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0040-539a7681d825.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/undergraduate/courses-az/",
+      "fetchedAt": "2026-10-07T06:34:29.512Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4ebbe320f0e97b62aa42d0f84786e1aa129c99b4fc3dd8f7ab3d62995b077481",
+      "title": "Courses A-Z | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0041-4ebbe320f0e9.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/undergraduate/programs-az/",
+      "fetchedAt": "2026-10-07T06:34:31.473Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a1ea96e4c3fb31682a71936962979bcadb625f469631da8398168dbbc9ec733d",
+      "title": "Programs A-Z | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0042-a1ea96e4c3fb.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/courses-credit/",
+      "fetchedAt": "2026-10-07T06:34:33.516Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "30067ec28417c7628220c6d208b39f8dc82ff2308c4dcf7edf219f0b12cb166e",
+      "title": "Courses and Credit | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0043-30067ec28417.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/",
+      "fetchedAt": "2026-10-07T06:34:35.487Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "acc55c032984d98132afa33d590a84a720ae41112a5a0acc1bf4b324fa04d1b7",
+      "title": "Dual Bachelor's Degrees | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0044-acc55c032984.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/undergraduate/special-programs-courses/",
+      "fetchedAt": "2026-10-07T06:34:37.466Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "87aceb733fdbbd86dbc331b5d11da5602eb107d2632b421c9f8c20ec74c55ffa",
+      "title": "Special Programs & Courses | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0045-87aceb733fdb.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/",
+      "fetchedAt": "2026-10-07T06:34:39.512Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "246224b6ff7b6cec37d59f2c3ae632cf05df999a9245a3e7628999b5f607e979",
+      "title": "Undergraduate Courses | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0046-246224b6ff7b.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/account/",
+      "fetchedAt": "2026-10-07T06:34:41.544Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cb878d584620b8765103fced4fa8109773c30eb43eb054d1bedeadda5f6f2be2",
+      "title": "Accounting (ACCOUNT) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0047-cb878d584620.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/advt/",
+      "fetchedAt": "2026-10-07T06:34:43.512Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "014888d904d4a209872868e208e338330f3844b2aed6731f16f2806e71645b68",
+      "title": "Advertising (ADVT) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0048-014888d904d4.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/afst/",
+      "fetchedAt": "2026-10-07T06:34:44.607Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "30750c3253dbccd67a4d30ec75e5e482da0935b254c8e1952c57de86f722719c",
+      "title": "African Studies (AFST) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0049-30750c3253db.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/anthro/",
+      "fetchedAt": "2026-10-07T06:34:47.559Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2c2a94578fa619a51c49676292690d8bea1725907240828b717ca96c97c7847a",
+      "title": "Anthropology (ANTHRO) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0050-2c2a94578fa6.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/art_hist/",
+      "fetchedAt": "2026-10-07T06:34:49.582Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "68671fd9075fc67a4cc9dbbf6f6da0674450dc12a0836675475fc1226bc93dc0",
+      "title": "Art History (ART_HIST) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0051-68671fd9075f.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/art/",
+      "fetchedAt": "2026-10-07T06:34:50.651Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fc612e8ad9c43703028ba27b9b7346d157082267efb5d71a92494c15b40adbd2",
+      "title": "Art Theory & Practice (ART) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0052-fc612e8ad9c4.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/asian_lc/",
+      "fetchedAt": "2026-10-07T06:34:53.605Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d6141329e3c500410595826ee014b08dab665a4d0d8a426f03fb548928c279be",
+      "title": "Asian Languages and Cultures (ASIAN_LC) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0053-d6141329e3c5.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/astron/",
+      "fetchedAt": "2026-10-07T06:34:57.756Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "64a1c774e3d1c463cdc4071d7ad49c0bb35504dc2ec7dc6631ad2d5f4a03d5f1",
+      "title": "Astronomy (ASTRON) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0054-64a1c774e3d1.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/biol_sci/",
+      "fetchedAt": "2026-10-07T06:34:58.250Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9d37838fcee251434c005f149cfca6184150e3e1c671928774adde50e0b26b41",
+      "title": "Biological Sciences (BIOL_SCI) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0055-9d37838fcee2.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/blk_st/",
+      "fetchedAt": "2026-10-07T06:35:01.196Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9bce6e94287c35070ffc2456f61d99257118f8d605a25eae61776305dfe5fd82",
+      "title": "Black Studies (BLK_ST) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0056-9bce6e94287c.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/bus_law/",
+      "fetchedAt": "2026-10-07T06:35:03.272Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e6624e6d82ef72229b61c9a2beaa030d5989d1ea4c11d2b55d772022dc38072e",
+      "title": "Business Law (BUS_LAW) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0057-e6624e6d82ef.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/chem/",
+      "fetchedAt": "2026-10-07T06:35:05.136Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d0d47324734a593b1b85b9d562dc226e6c4c9f1b600721a67458b882befd8fcb",
+      "title": "Chemistry (CHEM) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0058-d0d47324734a.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/chinese/",
+      "fetchedAt": "2026-10-07T06:35:06.256Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "630da394a7e7a0e23b08a31dd1c88725883d24deaef1b3d465e1f36aabe7db89",
+      "title": "Chinese (CHINESE) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0059-630da394a7e7.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/classics/",
+      "fetchedAt": "2026-10-07T06:35:08.725Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "971e439a3c0337fdc14c0a2d33b14b43683b262f37b393606b9c65cf404c8028",
+      "title": "Classics - Readings in English (CLASSICS) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0060-971e439a3c03.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/csd/",
+      "fetchedAt": "2026-10-07T06:35:10.483Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5c9fb37eafab50bb19b724e49a52fe6c7bcc1a47b41075c5035e4db854964608",
+      "title": "Communication Sciences and Disorders (CSD) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0061-5c9fb37eafab.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/comm_st/",
+      "fetchedAt": "2026-10-07T06:35:13.250Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c0d0b59950c814b9cf648cff3298ec03fc85d252c0f05d1fa9b32655789179a5",
+      "title": "Communication Studies (COMM_ST) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0062-c0d0b59950c8.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/comp_lit/",
+      "fetchedAt": "2026-10-07T06:35:15.218Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6fec7e4e3739cc23d4ea1bd6b6b9fc927ad05da3fd012780950784bc6333daec",
+      "title": "Comparative Literary Studies (COMP_LIT) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0063-6fec7e4e3739.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/cis/",
+      "fetchedAt": "2026-10-07T06:35:17.241Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec783c3460604e80c8cc8813055e9f8947522e8077142d2e6d175556d1e779d8",
+      "title": "Computer Information Systems (CIS) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0064-ec783c346060.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/earth/",
+      "fetchedAt": "2026-10-07T06:35:18.316Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7b75e61f5b83b43286aaad0f34dfea6048d06ef1ffce15cc8baf8220f0bc890e",
+      "title": "Earth and Planetary Sciences (EARTH) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0065-7b75e61f5b83.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/econ/",
+      "fetchedAt": "2026-10-07T06:35:21.427Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4f7187223af285a29051d6a324f106537ebf232433e0f7f59d2e48e8e9efd7a6",
+      "title": "Economics (ECON) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0066-4f7187223af2.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/english/",
+      "fetchedAt": "2026-10-07T06:35:23.299Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9dfda0a84b9721ea1be23c53704a143a598f1476801579340cc9b35bf54cd8f8",
+      "title": "English (ENGLISH) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0067-9dfda0a84b97.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/finance/",
+      "fetchedAt": "2026-10-07T06:35:24.325Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "817fe384d7d472d95e7c35de0dd0a016ae90943647a4709d6325c485a054acb9",
+      "title": "Finance (FINANCE) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0068-817fe384d7d4.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/french/",
+      "fetchedAt": "2026-10-07T06:35:27.279Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "af5ae5b83e5049d8ab22e1e2423e6b90d73344a2a494d0d4ec3de64c6f006d5d",
+      "title": "French (FRENCH) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0069-af5ae5b83e50.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/gndr_st/",
+      "fetchedAt": "2026-10-07T06:35:29.269Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c6d4a2077af2d79fa1e2d10e5df9d4312fc8d39cedc7aeb52e5886c8e43f9a7f",
+      "title": "Gender Studies (GNDR_ST) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0070-c6d4a2077af2.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/gss/",
+      "fetchedAt": "2026-10-07T06:35:30.338Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3ff493e526fb48531c193f74bce1d7776a545017beccf527b8ed1878300c130",
+      "title": "Gender and Sexuality Studies (GSS) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0071-b3ff493e526f.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/gbl_hlth/",
+      "fetchedAt": "2026-10-07T06:35:32.571Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "24ec55ee480e6f3a88187be87d5a3e2bb0708c39c3066dc2c712242cb12b7fcb",
+      "title": "Global Health (GBL_HLTH) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0072-24ec55ee480e.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/hlth_sci/",
+      "fetchedAt": "2026-10-07T06:35:34.857Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4f04128e9542feaa8ee5d7fadc4f4bbe64d7a6e8d4a18979d144a883e9e1b61f",
+      "title": "Health Sciences (HLTH_SCI) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0073-4f04128e9542.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/humanities/",
+      "fetchedAt": "2026-10-07T06:35:36.612Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dbf1ec5e27feb78d75150b6733479be8fe1dd3b172b77c28af1496a6686f68f0",
+      "title": "Humanities (HUM) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0074-dbf1ec5e27fe.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/history/",
+      "fetchedAt": "2026-10-07T06:35:41.349Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "59ea76ae7fecac325e58cce28301ba0a03a72fa3f28cd593517d804cfaaef7e4",
+      "title": "History (HISTORY) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0075-59ea76ae7fec.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/intl_st/",
+      "fetchedAt": "2026-10-07T06:35:41.652Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "03c093584c895fae1ed9ccdcfe385d16d7315c27e12c26ef1114a87f274abf76",
+      "title": "International Studies (INTL_ST) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0076-03c093584c89.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/jrn_writ/",
+      "fetchedAt": "2026-10-07T06:35:44.189Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9c30ffd6017803b0caead3af0cac8797b9544a899bd24bda5b689cb843510959",
+      "title": "Journalistic Writing (JRN_WRIT) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0077-9c30ffd60178.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/kinesiology/",
+      "fetchedAt": "2026-10-07T06:35:46.314Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1c619ed9aa2b9ede37ab4ad7808247c5c46bfe627231c0a044996573f775fe5e",
+      "title": "Kinesiology (KINS) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0078-1c619ed9aa2b.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/legal_st/",
+      "fetchedAt": "2026-10-07T06:35:48.114Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "976e0b645b12f571d892682f0f2403f917ccc71c068b48c75efc00b066cc23d8",
+      "title": "Legal Studies (LEGAL_ST) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0079-976e0b645b12.html"
+    },
+    {
+      "url": "https://catalogs.northwestern.edu/sps/courses-az/undergraduate/mktg/",
+      "fetchedAt": "2026-10-07T06:35:50.128Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a06db9c6f6031ef2ed8980d77f712881131ebd8239fe861a14ab306f61ac8242",
+      "title": "Marketing (MKTG) | Northwestern University Academic Catalog",
+      "snapshotFile": "raw/0080-a06db9c6f603.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:35:50.211Z",
+    "seedUrls": [
+      "https://hr.northwestern.edu/well-being/programs/employee-assistance-program/",
+      "https://hr.northwestern.edu/well-being/programs/employee-assistance-program/index.html",
+      "https://www.northwestern.edu/academics/pre-collegiate-programs.html",
+      "https://admissions.northwestern.edu/academics/majors-minors/",
+      "https://www.music.northwestern.edu/academics/summer-session/workshops",
+      "https://www.law.northwestern.edu/academics/continuing-legal-education/cle-credit/",
+      "https://weinberg.northwestern.edu/undergraduate/advising/weinberg-college-advisers/meet-college-advisers/",
+      "https://sesp.northwestern.edu/undergraduate/advising/academic-advisers/",
+      "https://weinberg.northwestern.edu/undergraduate/advising/weinberg-college-advisers/ousa.html",
+      "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+      "https://catalogs.northwestern.edu/undergraduate/requirements-policies/undergraduate-registration-requirement/",
+      "https://www.music.northwestern.edu/resources/students/undergraduate/advising",
+      "https://www.mccormick.northwestern.edu/students/undergraduate/advising-registration/",
+      "https://sesp.northwestern.edu/undergraduate/advising/",
+      "https://www.weinberg.northwestern.edu/undergraduate/advising/",
+      "https://www.northwestern.edu/academics/index.html",
+      "https://www.northwestern.edu/academics/graduate-a-to-z.html",
+      "https://www.northwestern.edu/academics/professional-studies-a-to-z.html",
+      "https://www.northwestern.edu/academics/colleges-and-schools.html",
+      "https://www.northwestern.edu/academics/program-type-definitions.html"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:30.003Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.482Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

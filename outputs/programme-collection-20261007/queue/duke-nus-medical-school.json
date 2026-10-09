@@ -1,0 +1,20 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "duke-nus-medical-school",
+    "displayName": "Duke-NUS Medical School",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://www.duke-nus.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.duke-nus.edu.sg",
+      "duke-nus.edu.sg"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 1,
+    "warnings": []
+  },
+  "queue": []
+}

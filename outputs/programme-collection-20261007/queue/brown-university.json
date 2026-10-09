@@ -1,0 +1,805 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "brown-university",
+    "displayName": "Brown University",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.brown.edu/"
+    ],
+    "allowedHosts": [
+      "www.brown.edu",
+      "brown.edu"
+    ],
+    "discoveredUrls": 112,
+    "parsedProgrammes": 60,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/undergraduate/special-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "http://cs.brown.edu/degrees/undergrad/concentrations/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "http://cs.brown.edu/degrees/undergrad/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://cs.brown.edu/degrees/undergrad/concentrating-in-cs/concentration-handbook/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://biology.brown.edu/about/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/undergraduate/open-curriculum",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/undergraduate/advising",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://engineering.brown.edu/undergraduate/concentrations/biomedical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/computational-molecular-biology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/early-modern-world/concentration",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://engineering.brown.edu/undergraduate/concentrations/engineering-physics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/medical/plme/information-prospective-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "http://www.brown.edu/academics/chemistry/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://economics.brown.edu/academics/undergraduate/concentrations/combined",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/business-entrepreneurship-organizations/beo-new-curricular-pathways",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/business-entrepreneurship-organizations/new-curricular-pathways-faqs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/business-entrepreneurship-organizations/beo-engaged-scholar-program-esp",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/business-entrepreneurship-organizations/beo-concentration/declaring-beo-concentration",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/business-entrepreneurship-organizations/beo-concentration-0/honors-beo",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://engineering.brown.edu/undergraduate/concentrations/chemical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/german-studies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/computational-molecular-biology/undergraduate-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://neuroscience.brown.edu/academics/undergraduate-study/computational-neuroscience",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://engineering.brown.edu/undergraduate/concentrations/computer-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/economics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/hispanic-studies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/initiatives/data-science/academics/certificate-data-fluency",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://engineering.brown.edu/undergraduate/concentrations/design-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "http://brown.edu/academics/development-studies/about/what-ds-capstone",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/graduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/schools-colleges",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/departments",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/centers-institutes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/libraries",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/global",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/academics/non-degree",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://chemistry.brown.edu/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://eas.brown.edu/undergraduate/concentration",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://education.brown.edu/academics/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://e-a.brown.edu/academics/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://engineering.brown.edu/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://history.brown.edu/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://biostatistics.sph.brown.edu/academics/concentration-statistics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://africana.brown.edu/academics/undergraduate-concentration",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://americanstudies.brown.edu/american-studies/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://appliedmath.brown.edu/academics/undergraduate-program",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://archaeology.brown.edu/academics/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://physics.brown.edu/academics/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://classics.brown.edu/academics/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://deeps.brown.edu/undergraduate/concentrations",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/africana-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:34.109Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/american-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:36.119Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/anthropology-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:38.115Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/applied-mathematics-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:40.139Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/applied-mathematics-biology-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:42.136Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/applied-mathematics-computer-science-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:44.145Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/applied-mathematics-economics-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:46.151Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/archaeology-and-ancient-world-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:48.193Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/architecture-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:50.187Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/astronomy-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:52.203Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/behavioral-decision-sciences-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:54.211Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/biochemistry-and-molecular-biology-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:56.188Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/biology-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:58.202Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/biomedical-engineering-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:00.187Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/biophysics-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:02.211Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/business-entrepreneurship-and-organizations-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:04.210Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/chemical-engineering-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:06.207Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/chemical-physics-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:08.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/chemistry-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:10.243Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/classics-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:12.238Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/cognitive-neuroscience-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:14.296Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/cognitive-science-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:16.251Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/comparative-literature-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:18.300Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/computational-biology-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:20.269Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/computer-engineering-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:24.295Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/computer-science-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:26.358Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/computer-science-economics-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:28.312Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/contemplative-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:30.328Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/development-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:38.361Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/early-modern-world-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:40.350Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/earth-and-planetary-science-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:42.370Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/earth-climate-and-biology-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:44.345Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/east-asian-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:28.963Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/economics-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:30.939Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/education-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:32.957Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/egyptology-and-assyriology-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:34.955Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/electrical-engineering-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:36.962Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/engineering-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:38.965Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/engineering-and-physics-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:40.975Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/english-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:42.988Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/environmental-engineering-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:47.022Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/environmental-sciences-and-studies-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:49.029Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/ethnic-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:51.052Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/french-and-francophone-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:55.067Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/gender-and-sexuality-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:57.121Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/geochemistry-and-environmental-chemistry-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:59.069Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/geophysics-and-climate-physics-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:01.065Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/german-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:03.087Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/health-and-human-biology-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:05.103Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/hispanic-literatures-and-cultures-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:07.095Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/history-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:09.119Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/history-art-and-architecture-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:11.122Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/international-relations-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:17.154Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/italian-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:19.167Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/judaic-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:21.167Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/latin-american-and-caribbean-studies-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:23.237Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/linguistics-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:25.217Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/literary-arts-ab",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:27.191Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/materials-engineering-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:29.230Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "brown-university",
+      "url": "https://www.brown.edu/undergraduate-programs/mathematics-ab-scb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:31.237Z",
+      "error": null
+    }
+  ]
+}

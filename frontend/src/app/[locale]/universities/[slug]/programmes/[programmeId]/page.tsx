@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { SaveToggle } from "@/components/save-toggle";
+import { RemoteImage } from "@/components/remote-image";
 import { findLocalProgrammeBySlug, formatFeeDisplay, formatIntakeDisplay, formatProgrammeDuration, splitProgrammeName, type LocalProgrammeDetail } from "@/data/local-programmes";
 import { backendUniversitySlug, findUniversityBySlug, localizeUniversity } from "@/data/university-catalog";
 import { universityProfile } from "@/data/university-profiles";
@@ -30,6 +31,7 @@ type ProgrammeDetail = Pick<
   | "descriptionZh"
   | "descriptionEn"
 > & {
+  heroImageSrc?: string;
   level: string;
   routeIdentifier: string;
   sourceSlug: string;
@@ -65,6 +67,7 @@ function remoteProgrammeDetail(
     ? programme.intakeDisplayTexts
     : programme.intakeMonths;
   return {
+    heroImageSrc: programme.imageUrl ?? undefined,
     level: normalizedLevel(programme.studyLevelCode),
     nameZh: programme.nameZh?.trim() || programme.nameEn?.trim() || programme.programmeCode,
     nameEn: formatEnglishDisplayText(programme.nameEn?.trim() || "Programme title to be confirmed"),
@@ -271,8 +274,10 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
               }} />
             </div>
           </div>
-          <div className={`programme-hero-visual${profile?.campusImageSrc ? " has-photo" : ""}`}>
-            {profile?.campusImageSrc
+          <div className={`programme-hero-visual${programme.heroImageSrc || profile?.campusImageSrc ? " has-photo" : ""}`}>
+            {programme.heroImageSrc
+              ? <RemoteImage src={programme.heroImageSrc} label={name} alt={name} />
+              : profile?.campusImageSrc
               ? <Image src={profile.campusImageSrc} fill sizes="(max-width: 760px) 100vw, 520px" alt={words(locale, `${school.name} 校园`, `${school.name} campus`)} priority />
               : <div><span>{university.id.toUpperCase()}</span><p>{school.city}</p></div>}
           </div>

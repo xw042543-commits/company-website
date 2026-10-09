@@ -1,0 +1,863 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "university-of-wollongong",
+    "displayName": "University of Wollongong",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.uow.edu.au/study/"
+    ],
+    "allowedHosts": [
+      "www.uow.edu.au",
+      "uow.edu.au"
+    ],
+    "discoveredUrls": 120,
+    "parsedProgrammes": 47,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 500：https://www.uow.edu.au/study/courses/courses/"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:23.718Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410100",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:27.730Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410180",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:31.731Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410134",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-international-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:35.758Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410197",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-laws/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:39.777Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410286",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44093",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:43.771Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361537",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44036",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:47.788Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361215",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45340",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:51.826Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361890",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45527",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:55.827Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410671",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44138",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:59.885Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361332",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?page=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?page=62",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/favourites/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/uow-courses.php",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=410100",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:22.638Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=deciding&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:26.388Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45835&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:28.391Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44036&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:30.394Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45340&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:32.428Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45527&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:34.419Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44138&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:36.439Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44098&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:38.450Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44142&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:40.472Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44161&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:42.457Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45830&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:44.480Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44046&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:13.091Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44048&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:15.087Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44041&students=international&campus=Wollongong&year=2026",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:17.108Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-engineering-honours---bachelor-of-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:19.137Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-creative-arts---bachelor-of-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:21.140Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-science-smah---bachelor-of-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:23.129Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://courses.uow.edu.au/courses/2027/3303",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts-in-western-civilisation-double-majors/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:27.141Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=410566",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:29.130Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=410134",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:31.146Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=410286",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:33.152Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/index.php",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?removeCourse=410100",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410100&page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410100&page=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410100&page=62",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/?addCourse=410180",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:45.202Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-business/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:47.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://courses.uow.edu.au/courses/current/3108?year=current",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-business---bachelor-of-laws/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:53.172Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/?addCourse=410161",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:54.410Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/?addCourse=410134",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:56.409Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/?addCourse=410197",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:58.477Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?removeCourse=410180",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410180&page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410180&page=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410180&page=62",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/?addCourse=410134",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:08.465Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-communication-and-media/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:10.487Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://courses.uow.edu.au/courses/current/1788?year=current",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/?addCourse=410197",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:14.488Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/?addCourse=411228",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:16.511Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-communication-and-media---bachelor-of-laws/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:18.525Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/?addCourse=410133",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:20.523Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?removeCourse=410134",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410134&page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410134&page=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410134&page=62",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-international-studies/?addCourse=410197",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:30.554Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-international-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:32.599Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://courses.uow.edu.au/courses/current/1818?year=current",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-international-studies---bachelor-of-business/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:38.508Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-international-studies/?addCourse=410257",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:39.765Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-international-studies---bachelor-of-laws/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-international-studies/?addCourse=410129",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-communication-and-media----bachelor-of-international-studies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-international-studies/?addCourse=415105",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?removeCourse=410197",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410197&page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410197&page=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410197&page=62",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-laws/?addCourse=410286",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-laws-direct-entry/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://courses.uow.edu.au/courses/current/1888?year=current",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-laws/?addCourse=410134",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-laws/?addCourse=410197",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts-in-western-civilisation---bachelor-of-laws/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-laws/?addCourse=411027",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?removeCourse=410286",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410286&page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410286&page=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=410286&page=62",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=361537",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?reset",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=deciding&students=international&campus=Bega+Valley&year=2026",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44093&students=international&campus=Bega+Valley&year=2026",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44036&students=international&campus=Bega+Valley&year=2026",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44138&students=international&campus=Bega+Valley&year=2026",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44098&students=international&campus=Bega+Valley&year=2026",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44041&students=international&campus=Bega+Valley&year=2026",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?removeCourse=361537",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361537&page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361537&page=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361537&page=62",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=361215",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?removeCourse=361215",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361215&page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361215&page=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361215&page=62",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=361890",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?removeCourse=361890",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-wollongong",
+      "url": "https://www.uow.edu.au/study/courses/?addCourse=361890&page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

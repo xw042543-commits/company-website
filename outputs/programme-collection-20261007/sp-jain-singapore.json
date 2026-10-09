@@ -1,0 +1,2745 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.494Z",
+  "sourceKey": "sp-jain-singapore",
+  "sourceName": "SP Jain School of Global Management Singapore",
+  "warnings": [
+    "HTTP 404：https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-1-aspirant",
+    "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/message-from-the-dean",
+    "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/careers",
+    "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/learning-outcomes",
+    "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/specialisations",
+    "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/projects",
+    "HTTP 404：https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options",
+    "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics",
+    "HTTP 404：https://www.spjain.sg/programs/undergraduate/bec/academics",
+    "HTTP 404：https://www.spjain.sg/programs/postgraduate/executive-mba",
+    "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business.",
+    "HTTP 404：https://www.spjain.sg/programs/postgraduate/emba/fees",
+    "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-management/message-from-program-director",
+    "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-management/brochure",
+    "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-managementhttps://appforms.spjain.org/index.aspx"
+  ],
+  "university": {
+    "candidateId": "university_d0eca4fde4c472ab",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "SP Jain School of Global Management Singapore",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.spjain.sg",
+    "logoSourceUrl": "https://www.spjain.sg/hubfs/home2017/sp-jain-mobile-logo.jpg",
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:28:19.636Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.spjain.sg/",
+        "sourcePageTitle": "World's leading B-School | SP Jain School of Global Management",
+        "sourceHash": "69ef9689ececd51a1c9d58e7fd67ba6dfa6e3f5e221e0fc77b22738e090f6946",
+        "fetchedAt": "2026-10-07T04:28:19.636Z",
+        "field": "name",
+        "rawText": "SP Jain School of Global Management Singapore"
+      }
+    ],
+    "institutionTypeRaw": "Offshore institution with local campus",
+    "selectionRank": 11,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": [
+      {
+        "kind": "LOGO",
+        "assetUrl": "https://www.spjain.sg/hubfs/home2017/sp-jain-mobile-logo.jpg",
+        "sourceUrl": "https://www.spjain.sg/",
+        "sourceCheckedAt": "2026-10-07T04:28:19.636Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      },
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://www.spjain.sg/hubfs/LOGO/SP%20Jain%20Logo%20suare.png",
+        "sourceUrl": "https://www.spjain.sg/",
+        "sourceCheckedAt": "2026-10-07T04:28:19.636Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_655e2d88f61b3b5f",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "商业管理学士",
+      "nameEn": "Bachelor of Business Administration",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "SP Jain's Bachelor of Business Administration is a 4-year undergraduate business course. Study in Singapore/Mumbai, Dubai and Sydney. Get Australian degree.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bba",
+      "sourceCheckedAt": "2026-10-07T04:28:24.362Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "SP Jain's Bachelor of Business Administration is a 4-year undergraduate business course. Study in Singapore/Mumbai, Dubai and Sydney. Get Australian degree.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba",
+          "sourceCheckedAt": "2026-10-07T04:28:24.362Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba",
+          "sourcePageTitle": "SP Jain BBA | Bachelor of Business Administration | Study BBA Abroad",
+          "sourceHash": "a99c1eb1ed0d829969f6f694e1b2e6621f0efd2c15be8b4ac1d939920684ace8",
+          "fetchedAt": "2026-10-07T04:28:24.362Z",
+          "field": "name",
+          "rawText": "Bachelor of Business Administration"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba",
+          "sourcePageTitle": "SP Jain BBA | Bachelor of Business Administration | Study BBA Abroad",
+          "sourceHash": "a99c1eb1ed0d829969f6f694e1b2e6621f0efd2c15be8b4ac1d939920684ace8",
+          "fetchedAt": "2026-10-07T04:28:24.362Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bba"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba",
+          "sourcePageTitle": "SP Jain BBA | Bachelor of Business Administration | Study BBA Abroad",
+          "sourceHash": "a99c1eb1ed0d829969f6f694e1b2e6621f0efd2c15be8b4ac1d939920684ace8",
+          "fetchedAt": "2026-10-07T04:28:24.362Z",
+          "field": "description",
+          "rawText": "SP Jain's Bachelor of Business Administration is a 4-year undergraduate business course. Study in Singapore/Mumbai, Dubai and Sydney. Get Australian degree."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_0804c0b618eaae15",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "数据科学学士",
+      "nameEn": "Bachelor of Data Science",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "SP Jain's Bachelor of Data Science (BDS) is a 3-year program on campus in Mumbai & Sydney. Learn Machine Learning, Data Mining, Big Data Processing & more.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science",
+      "sourceCheckedAt": "2026-10-07T04:28:26.397Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "SP Jain's Bachelor of Data Science (BDS) is a 3-year program on campus in Mumbai & Sydney. Learn Machine Learning, Data Mining, Big Data Processing & more.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science",
+          "sourceCheckedAt": "2026-10-07T04:28:26.397Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science",
+          "sourcePageTitle": "SP Jain - Bachelor of Data Science (BDS) | Study in Mumbai & Sydney",
+          "sourceHash": "033dc808b4c4e6eff0486308af1b5d1a871d76e07ff50f60d83e3ea8e33cbf7f",
+          "fetchedAt": "2026-10-07T04:28:26.397Z",
+          "field": "name",
+          "rawText": "Bachelor of Data Science"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science",
+          "sourcePageTitle": "SP Jain - Bachelor of Data Science (BDS) | Study in Mumbai & Sydney",
+          "sourceHash": "033dc808b4c4e6eff0486308af1b5d1a871d76e07ff50f60d83e3ea8e33cbf7f",
+          "fetchedAt": "2026-10-07T04:28:26.397Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science",
+          "sourcePageTitle": "SP Jain - Bachelor of Data Science (BDS) | Study in Mumbai & Sydney",
+          "sourceHash": "033dc808b4c4e6eff0486308af1b5d1a871d76e07ff50f60d83e3ea8e33cbf7f",
+          "fetchedAt": "2026-10-07T04:28:26.397Z",
+          "field": "description",
+          "rawText": "SP Jain's Bachelor of Data Science (BDS) is a 3-year program on campus in Mumbai & Sydney. Learn Machine Learning, Data Mining, Big Data Processing & more."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_dfea3330db4bcb37",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "经济学学士",
+      "nameEn": "Bachelor of Economics",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Earn your Bachelor of Economics in just 2.5 years with SP Jain Global. Study in Sydney and graduate career-ready with global insights.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics",
+      "sourceCheckedAt": "2026-10-07T04:28:27.655Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Earn your Bachelor of Economics in just 2.5 years with SP Jain Global. Study in Sydney and graduate career-ready with global insights.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics",
+          "sourceCheckedAt": "2026-10-07T04:28:27.655Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics",
+          "sourcePageTitle": "Bachelor of Economics (BEC) Program | SP Jain School of Global Management",
+          "sourceHash": "fb5df785aee47be046a81aa76d7d91e0763413a9d0819c35247cb552471f5886",
+          "fetchedAt": "2026-10-07T04:28:27.655Z",
+          "field": "name",
+          "rawText": "Bachelor of Economics"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics",
+          "sourcePageTitle": "Bachelor of Economics (BEC) Program | SP Jain School of Global Management",
+          "sourceHash": "fb5df785aee47be046a81aa76d7d91e0763413a9d0819c35247cb552471f5886",
+          "fetchedAt": "2026-10-07T04:28:27.655Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics",
+          "sourcePageTitle": "Bachelor of Economics (BEC) Program | SP Jain School of Global Management",
+          "sourceHash": "fb5df785aee47be046a81aa76d7d91e0763413a9d0819c35247cb552471f5886",
+          "fetchedAt": "2026-10-07T04:28:27.655Z",
+          "field": "description",
+          "rawText": "Earn your Bachelor of Economics in just 2.5 years with SP Jain Global. Study in Sydney and graduate career-ready with global insights."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_eb5cc3c7242a8c04",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "业务行政基础",
+      "nameEn": "BACHELOR OF BUSINESS ADMINISTRATION",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Check SP Jain's Bachelor of Business Administration (BBA) program fees, scholarships, accommodation fee, visa charges, payment timeline and more details. ",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bba/fees",
+      "sourceCheckedAt": "2026-10-07T04:28:39.737Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Check SP Jain's Bachelor of Business Administration (BBA) program fees, scholarships, accommodation fee, visa charges, payment timeline and more details. ",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba/fees",
+          "sourceCheckedAt": "2026-10-07T04:28:39.737Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba/fees",
+          "sourcePageTitle": "BBA Program Fees for September 2026 | SP Jain Global",
+          "sourceHash": "cc6b7465a6fdfd9810bff5d7ed4717b854daea34251cf9bb261386763c79532a",
+          "fetchedAt": "2026-10-07T04:28:39.737Z",
+          "field": "name",
+          "rawText": "BACHELOR OF BUSINESS ADMINISTRATION"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba/fees",
+          "sourcePageTitle": "BBA Program Fees for September 2026 | SP Jain Global",
+          "sourceHash": "cc6b7465a6fdfd9810bff5d7ed4717b854daea34251cf9bb261386763c79532a",
+          "fetchedAt": "2026-10-07T04:28:39.737Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bba/fees"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba/fees",
+          "sourcePageTitle": "BBA Program Fees for September 2026 | SP Jain Global",
+          "sourceHash": "cc6b7465a6fdfd9810bff5d7ed4717b854daea34251cf9bb261386763c79532a",
+          "fetchedAt": "2026-10-07T04:28:39.737Z",
+          "field": "description",
+          "rawText": "Check SP Jain's Bachelor of Business Administration (BBA) program fees, scholarships, accommodation fee, visa charges, payment timeline and more details."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_1f4021bbdaf52878",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "业务行政基础",
+      "nameEn": "BACHELOR OF BUSINESS ADMINISTRATION",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Are you a Year 2/3 transfer student keen to enrol into SP Jain's Bachelor of Business Administration? See the flexible on-campus & online options available",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student",
+      "sourceCheckedAt": "2026-10-07T04:28:51.149Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Are you a Year 2/3 transfer student keen to enrol into SP Jain's Bachelor of Business Administration? See the flexible on-campus & online options available",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student",
+          "sourceCheckedAt": "2026-10-07T04:28:51.149Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student",
+          "sourcePageTitle": "Year 2/3 Transfer Students | BBA Flexible Learning Options | SP Jain",
+          "sourceHash": "71ca69edbd04762fd71b1ff9a3d75f352ca73a9e471e028951d579990520b916",
+          "fetchedAt": "2026-10-07T04:28:51.149Z",
+          "field": "name",
+          "rawText": "BACHELOR OF BUSINESS ADMINISTRATION"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student",
+          "sourcePageTitle": "Year 2/3 Transfer Students | BBA Flexible Learning Options | SP Jain",
+          "sourceHash": "71ca69edbd04762fd71b1ff9a3d75f352ca73a9e471e028951d579990520b916",
+          "fetchedAt": "2026-10-07T04:28:51.149Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student",
+          "sourcePageTitle": "Year 2/3 Transfer Students | BBA Flexible Learning Options | SP Jain",
+          "sourceHash": "71ca69edbd04762fd71b1ff9a3d75f352ca73a9e471e028951d579990520b916",
+          "fetchedAt": "2026-10-07T04:28:51.149Z",
+          "field": "description",
+          "rawText": "Are you a Year 2/3 transfer student keen to enrol into SP Jain's Bachelor of Business Administration? See the flexible on-campus & online options available"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_04028b50082ca7b8",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "商业管理学士",
+      "nameEn": "Bachelor of Business Administration",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Learn more about the Bachelor of Business Administration and Bachelor of Data Science program. Appear for an admission evaluation and interview on May 21. Register today!",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/open-day",
+      "sourceCheckedAt": "2026-10-07T04:28:56.422Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Learn more about the Bachelor of Business Administration and Bachelor of Data Science program. Appear for an admission evaluation and interview on May 21. Register today!",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/open-day",
+          "sourceCheckedAt": "2026-10-07T04:28:56.422Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/open-day",
+          "sourcePageTitle": "SP Jain's Undergraduate Programs | Attend a virtual Open Day",
+          "sourceHash": "82b51a81242d8ced03a6064a3ab8df0b7c97005ed2779a5db6385b53e2c1d582",
+          "fetchedAt": "2026-10-07T04:28:56.422Z",
+          "field": "name",
+          "rawText": "Bachelor of Business Administration"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/open-day",
+          "sourcePageTitle": "SP Jain's Undergraduate Programs | Attend a virtual Open Day",
+          "sourceHash": "82b51a81242d8ced03a6064a3ab8df0b7c97005ed2779a5db6385b53e2c1d582",
+          "fetchedAt": "2026-10-07T04:28:56.422Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/open-day"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/open-day",
+          "sourcePageTitle": "SP Jain's Undergraduate Programs | Attend a virtual Open Day",
+          "sourceHash": "82b51a81242d8ced03a6064a3ab8df0b7c97005ed2779a5db6385b53e2c1d582",
+          "fetchedAt": "2026-10-07T04:28:56.422Z",
+          "field": "description",
+          "rawText": "Learn more about the Bachelor of Business Administration and Bachelor of Data Science program. Appear for an admission evaluation and interview on May 21. Register today!"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_7199334475a37265",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "数据科学学的学士:为什么是\"Jain\"",
+      "nameEn": "BACHELOR OF DATA SCIENCE: Why SP Jain",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Gain in-demand skills in Data Science. Study on campus in Mumbai & Sydney. Get a chance to earn a DASCA certification. Graduate with an Australian degree.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain",
+      "sourceCheckedAt": "2026-10-07T04:29:00.032Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Gain in-demand skills in Data Science. Study on campus in Mumbai & Sydney. Get a chance to earn a DASCA certification. Graduate with an Australian degree.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain",
+          "sourceCheckedAt": "2026-10-07T04:29:00.032Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain",
+          "sourcePageTitle": "Why SP Jain's Bachelor of Data Science | Study in Mumbai & Sydney",
+          "sourceHash": "26abdc6722209ae64aa66f9309f580d56592e2abaf96c867ae3ccc44fbb07406",
+          "fetchedAt": "2026-10-07T04:29:00.032Z",
+          "field": "name",
+          "rawText": "BACHELOR OF DATA SCIENCE: Why SP Jain"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain",
+          "sourcePageTitle": "Why SP Jain's Bachelor of Data Science | Study in Mumbai & Sydney",
+          "sourceHash": "26abdc6722209ae64aa66f9309f580d56592e2abaf96c867ae3ccc44fbb07406",
+          "fetchedAt": "2026-10-07T04:29:00.032Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain",
+          "sourcePageTitle": "Why SP Jain's Bachelor of Data Science | Study in Mumbai & Sydney",
+          "sourceHash": "26abdc6722209ae64aa66f9309f580d56592e2abaf96c867ae3ccc44fbb07406",
+          "fetchedAt": "2026-10-07T04:29:00.032Z",
+          "field": "description",
+          "rawText": "Gain in-demand skills in Data Science. Study on campus in Mumbai & Sydney. Get a chance to earn a DASCA certification. Graduate with an Australian degree."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_1b5cd92617b80e97",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "数据科学学士:方案结构(1967年)课程",
+      "nameEn": "Bachelor of Data Science: Program Structure & Curriculum",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Learn about the Bachelor of Data Science's core subjects & projects. Check the curriculum, unit learning outcomes, academic calendars and student handbook.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+      "sourceCheckedAt": "2026-10-07T04:29:04.368Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Learn about the Bachelor of Data Science's core subjects & projects. Check the curriculum, unit learning outcomes, academic calendars and student handbook.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+          "sourceCheckedAt": "2026-10-07T04:29:04.368Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+          "sourcePageTitle": "Bachelor of Data Science | Program Structure & Assessment | SP Jain",
+          "sourceHash": "f3ad834b3979e0c007c81c2ba8fec2d530d336bdddef8439c0fac0ef59f08563",
+          "fetchedAt": "2026-10-07T04:29:04.368Z",
+          "field": "name",
+          "rawText": "Bachelor of Data Science: Program Structure & Curriculum"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+          "sourcePageTitle": "Bachelor of Data Science | Program Structure & Assessment | SP Jain",
+          "sourceHash": "f3ad834b3979e0c007c81c2ba8fec2d530d336bdddef8439c0fac0ef59f08563",
+          "fetchedAt": "2026-10-07T04:29:04.368Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+          "sourcePageTitle": "Bachelor of Data Science | Program Structure & Assessment | SP Jain",
+          "sourceHash": "f3ad834b3979e0c007c81c2ba8fec2d530d336bdddef8439c0fac0ef59f08563",
+          "fetchedAt": "2026-10-07T04:29:04.368Z",
+          "field": "description",
+          "rawText": "Learn about the Bachelor of Data Science's core subjects & projects. Check the curriculum, unit learning outcomes, academic calendars and student handbook."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_d149909686c2a741",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "数据科学学士:与我们的学院相会",
+      "nameEn": "Bachelor of Data Science: Meet Our Faculty",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Meet SP Jain's faculty for the Bachelor of Data Science program. Learn from experts who bring a wealth of research, teaching & industry experience to class.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty",
+      "sourceCheckedAt": "2026-10-07T04:29:06.603Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Meet SP Jain's faculty for the Bachelor of Data Science program. Learn from experts who bring a wealth of research, teaching & industry experience to class.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty",
+          "sourceCheckedAt": "2026-10-07T04:29:06.603Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty",
+          "sourcePageTitle": "Faculty | Bachelor of Data Science | SP Jain School of Global Management",
+          "sourceHash": "941b34db337d3c0bc5dce2dc077817b4394ebdd3770f73cc244485f500d58815",
+          "fetchedAt": "2026-10-07T04:29:06.603Z",
+          "field": "name",
+          "rawText": "Bachelor of Data Science: Meet Our Faculty"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty",
+          "sourcePageTitle": "Faculty | Bachelor of Data Science | SP Jain School of Global Management",
+          "sourceHash": "941b34db337d3c0bc5dce2dc077817b4394ebdd3770f73cc244485f500d58815",
+          "fetchedAt": "2026-10-07T04:29:06.603Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty",
+          "sourcePageTitle": "Faculty | Bachelor of Data Science | SP Jain School of Global Management",
+          "sourceHash": "941b34db337d3c0bc5dce2dc077817b4394ebdd3770f73cc244485f500d58815",
+          "fetchedAt": "2026-10-07T04:29:06.603Z",
+          "field": "description",
+          "rawText": "Meet SP Jain's faculty for the Bachelor of Data Science program. Learn from experts who bring a wealth of research, teaching & industry experience to class."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_cc63a1e7b35bbd53",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "数据科学学士:费用结构",
+      "nameEn": "Bachelor of Data Science: Fee Structure",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Check SP Jain's Bachelor of Data Science (BDS) program fees, scholarships, accommodation fee, visa charges, payment timeline and more details.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+      "sourceCheckedAt": "2026-10-07T04:29:08.570Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Check SP Jain's Bachelor of Data Science (BDS) program fees, scholarships, accommodation fee, visa charges, payment timeline and more details.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+          "sourceCheckedAt": "2026-10-07T04:29:08.570Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+          "sourcePageTitle": "SP Jain's Bachelor of Data Science (BDS) | Program Fees & Scholarships",
+          "sourceHash": "a7264329342ab26418fa18b3457b08c9ef84ad6a39ebf7f28c36b9bfeb87650d",
+          "fetchedAt": "2026-10-07T04:29:08.570Z",
+          "field": "name",
+          "rawText": "Bachelor of Data Science: Fee Structure"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+          "sourcePageTitle": "SP Jain's Bachelor of Data Science (BDS) | Program Fees & Scholarships",
+          "sourceHash": "a7264329342ab26418fa18b3457b08c9ef84ad6a39ebf7f28c36b9bfeb87650d",
+          "fetchedAt": "2026-10-07T04:29:08.570Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+          "sourcePageTitle": "SP Jain's Bachelor of Data Science (BDS) | Program Fees & Scholarships",
+          "sourceHash": "a7264329342ab26418fa18b3457b08c9ef84ad6a39ebf7f28c36b9bfeb87650d",
+          "fetchedAt": "2026-10-07T04:29:08.570Z",
+          "field": "description",
+          "rawText": "Check SP Jain's Bachelor of Data Science (BDS) program fees, scholarships, accommodation fee, visa charges, payment timeline and more details."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_91357324e8467b94",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "数据科学基础",
+      "nameEn": "BACHELOR OF DATA SCIENCE",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "As a Bachelor of Data Science (BDS) student at SP Jain School of Global Management, you will become part of a dynamic, diverse and high-calibre student community leading to unique peer-to-peer learning experiences. We are proud of what our students have achieved. See their success stories.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements",
+      "sourceCheckedAt": "2026-10-07T04:29:09.870Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "As a Bachelor of Data Science (BDS) student at SP Jain School of Global Management, you will become part of a dynamic, diverse and high-calibre student community leading to unique peer-to-peer learning experiences. We are proud of what our students have achieved. See their success stories.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements",
+          "sourceCheckedAt": "2026-10-07T04:29:09.870Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements",
+          "sourcePageTitle": "Student Achievements | Bachelor of Data Science (BDS) | SP Jain Global",
+          "sourceHash": "44b29992e4af2e479ba9e5ac46d1bd991759d1cfe9d0ef793aa6ba30c50af46e",
+          "fetchedAt": "2026-10-07T04:29:09.870Z",
+          "field": "name",
+          "rawText": "BACHELOR OF DATA SCIENCE"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements",
+          "sourcePageTitle": "Student Achievements | Bachelor of Data Science (BDS) | SP Jain Global",
+          "sourceHash": "44b29992e4af2e479ba9e5ac46d1bd991759d1cfe9d0ef793aa6ba30c50af46e",
+          "fetchedAt": "2026-10-07T04:29:09.870Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements",
+          "sourcePageTitle": "Student Achievements | Bachelor of Data Science (BDS) | SP Jain Global",
+          "sourceHash": "44b29992e4af2e479ba9e5ac46d1bd991759d1cfe9d0ef793aa6ba30c50af46e",
+          "fetchedAt": "2026-10-07T04:29:09.870Z",
+          "field": "description",
+          "rawText": "As a Bachelor of Data Science (BDS) student at SP Jain School of Global Management, you will become part of a dynamic, diverse and high-calibre student community leading to unique peer-to-peer learning experiences. We are proud of what our students have achieved. See their success stories."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_bc0c6967b967a67f",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "数据科学学士学位:提高你的职业潜力",
+      "nameEn": "Bachelor of Data Science: Boost Your Career Potential",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "SP Jain's Bachelor of Data Science students have landed jobs in Australia and interned at leading universities and companies. See our success stories.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers",
+      "sourceCheckedAt": "2026-10-07T04:29:13.873Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "SP Jain's Bachelor of Data Science students have landed jobs in Australia and interned at leading universities and companies. See our success stories.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers",
+          "sourceCheckedAt": "2026-10-07T04:29:13.873Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers",
+          "sourcePageTitle": "Careers | Jobs and Internships | SP Jain Bachelor of Data Science",
+          "sourceHash": "535010309e3849701eb2cacdf3955431eb6f709e24423b6b053928546044905d",
+          "fetchedAt": "2026-10-07T04:29:13.873Z",
+          "field": "name",
+          "rawText": "Bachelor of Data Science: Boost Your Career Potential"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers",
+          "sourcePageTitle": "Careers | Jobs and Internships | SP Jain Bachelor of Data Science",
+          "sourceHash": "535010309e3849701eb2cacdf3955431eb6f709e24423b6b053928546044905d",
+          "fetchedAt": "2026-10-07T04:29:13.873Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers",
+          "sourcePageTitle": "Careers | Jobs and Internships | SP Jain Bachelor of Data Science",
+          "sourceHash": "535010309e3849701eb2cacdf3955431eb6f709e24423b6b053928546044905d",
+          "fetchedAt": "2026-10-07T04:29:13.873Z",
+          "field": "description",
+          "rawText": "SP Jain's Bachelor of Data Science students have landed jobs in Australia and interned at leading universities and companies. See our success stories."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_c51c719bf63b088b",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "经济基础",
+      "nameEn": "BACHELOR OF ECONOMICS",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Graduate with an Australian degree and the skills, knowledge and their application that validate the BEC program learning outcomes listed here.",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+      "sourceCheckedAt": "2026-10-07T04:29:52.649Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Graduate with an Australian degree and the skills, knowledge and their application that validate the BEC program learning outcomes listed here.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+          "sourceCheckedAt": "2026-10-07T04:29:52.649Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "On successful completion of SP Jain's BEC, you graduate with an Australian undergraduate degree and the skills, knowledge and their application that validate the following learning outcomes: 1. Knowledge Acquire a sound and in-depth knowledge of the theory and scholarly literature in the discipline of Economics Integrate theoretical and technical aspects of Economics, which include Macroeconomics and Microeconomics, Quantitative Methods, Econometrics, Monetary Economics, Behavioural Finance and Economics 2. Skills Analyse economic data and events from primary and secondary sources and provide critical analysis and possible solutions using both quantitative and interpretive analysis Professionally practice and excel in research relevant to the area of work 3. Application of Knowledge and Skills Identify economic issues in the environment, exercise judgment and provide solution options with respect to individual, social and regulatory factors Critically apply theoretical and technical economic knowledge and skills to present and communicate economic events and trends in a coherent way to suitable audiences, which include corporations, investors, statutory bodies and policy makers Reflect on performance feedback to identify action learning opportunities and self-improvements --> --> Make an Enquiry Make an Enquiry TOLL-FREE NUMBER: 1800-212-1827 Get a Brochure --> Attend a Session --> Apply Now Chat MBA OPEN DAYS & Profile Evaluation Days Register Here ABOUT US Heritage Vision & Values Recognition Leadership Board of Directors Accreditations & Registrations Institutional Policies Privacy Policy EXPLORE Global Learning News Events SP Jain Blog Undergraduate Updates Alumni Careers Global Agents CAMPUS Mumbai Dubai Singapore Sydney CONTACT US SP Jain School of Global Management, Singapore Campus 10 Hyderabad Road, Next to HortPark, off Alexandra Road, Singapore, 119579 Call: +65 6270 4748 Email: admissionssg@spjain.org registrar@spjain.org Chat with a Student Ambassador --> --> SP JAIN GLOBAL INSIGHTS --> © 2025 S P Jain School of Global Management S P Jain School of Global Management Pty. Ltd. Provider Category: Institute of Higher Education. TEQSA Provider Identification: PRV12041. CRICOS Provider Code: 03335G. Name of PEl (Private Education Institution): S P Jain School of Global Management | Registered with Skills and Workforce Development Agency (SWDA) | PEI Registration Number: 200516544Z | Period of Registration: 09 May 2023 to 08 May 2029. © 2025 S P Jain School of Global Management S P Jain School of Global Management Pty. Ltd. Provider Category: Institute of Higher Education. TEQSA Provider Identification: PRV12041. CRICOS Provider Code: 03335G. Name of PEl (Private Education Institution): S P Jain School of Global Management | Registered with Skills and Workforce Development Agency (SWDA) | PEI Registration Number: 200516544Z | Period of Registration: 09 May 2023 to 08 May 2029. © 2025 S P Jain School of Global Management S P Jain School of Global Management Pty. Ltd. Provider Category: Institute of Higher Education. TEQSA Provider Identification: PRV12041. CRICOS Provider Code: 03335G. --> © 2025 S P Jain School of Global Management S P Jain School of Global Management Pty. Ltd. Provider Category: Institute of Higher Education. TEQSA Provider Identification: PRV12041. CRICOS Provider Code: 03335G. Name of PEl (Private Education Institution): S P Jain School of Global Management | Registered with Skills and Workforce Development Agency (SWDA) | PEI Registration Number: 200516544Z | Period of Registration: 09 May 2023 to 08 May 2029. Stay Connected With Us News & Events News Events Global Campus Global Learning Dubai Mumbai Singapore Sydney OTHER SP Jain Blog EMBA Updates Undergraduate Updates Alumni Careers Our Global Agents Discover Our Heritage Vision & Values Recognition Leadership Contact Us Mumbai Dubai Singapore Sydney 1800 212 1827 CRICOS Institution Code: 03335G --> Get counselled Get A BROCHURE APPLY NOW × Connec",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+          "sourceCheckedAt": "2026-10-07T04:29:52.649Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+          "sourcePageTitle": "BEC | Graduate Attributes and Program Learning Outcomes | SP Jain",
+          "sourceHash": "f7af81efd0b0547ddc7399ae0c429db809c7791eba58620abcdc43b52bc9dd4b",
+          "fetchedAt": "2026-10-07T04:29:52.649Z",
+          "field": "name",
+          "rawText": "BACHELOR OF ECONOMICS"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+          "sourcePageTitle": "BEC | Graduate Attributes and Program Learning Outcomes | SP Jain",
+          "sourceHash": "f7af81efd0b0547ddc7399ae0c429db809c7791eba58620abcdc43b52bc9dd4b",
+          "fetchedAt": "2026-10-07T04:29:52.649Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+          "sourcePageTitle": "BEC | Graduate Attributes and Program Learning Outcomes | SP Jain",
+          "sourceHash": "f7af81efd0b0547ddc7399ae0c429db809c7791eba58620abcdc43b52bc9dd4b",
+          "fetchedAt": "2026-10-07T04:29:52.649Z",
+          "field": "description",
+          "rawText": "Graduate with an Australian degree and the skills, knowledge and their application that validate the BEC program learning outcomes listed here."
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+          "sourcePageTitle": "BEC | Graduate Attributes and Program Learning Outcomes | SP Jain",
+          "sourceHash": "f7af81efd0b0547ddc7399ae0c429db809c7791eba58620abcdc43b52bc9dd4b",
+          "fetchedAt": "2026-10-07T04:29:52.649Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "On successful completion of SP Jain's BEC, you graduate with an Australian undergraduate degree and the skills, knowledge and their application that validate the following learning outcomes: 1. Knowledge Acquire a sound and in-depth knowledge of the theory and scholarly literature in the discipline of Economics Integrate theoretical and technical aspects of Economics, which include Macroeconomics and Microeconomics, Quantitative Methods, Econometrics, Monetary Economics, Behavioural Finance and Economics 2. Skills Analyse economic data and events from primary and secondary sources and provide critical analysis and possible solutions using both quantitative and interpretive analysis Professionally practice and excel in research relevant to the area of work 3. Application of Knowledge and Skills Identify economic issues in the environment, exercise judgment and provide solution options with respect to individual, social and regulatory factors Critically apply theoretical and technical economic knowledge and skills to present and communicate economic events and trends in a coherent way to suitable audiences, which include corporations, investors, statutory bodies and policy makers Reflect on performance feedback to identify action learning opportunities and self-improvements --> --> Make an Enquiry Make an Enquiry TOLL-FREE NUMBER: 1800-212-1827 Get a Brochure --> Attend a Session --> Apply Now Chat MBA OPEN DAYS & Profile Evaluation Days Register Here ABOUT US Heritage Vision & Values Recognition Leadership Board of Directors Accreditations & Registrations Institutional Policies Privacy Policy EXPLORE Global Learning News Events SP Jain Blog Undergraduate Updates Alumni Careers Global Agents CAMPUS Mumbai Dubai Singapore Sydney CONTACT US SP Jain School of Global Management, Singapore Campus 10 Hyderabad Road, Next to HortPark, off Alexandra Road, Singapore, 119579 Call: +65 6270 4748 Email: admissionssg@spjain.org registrar@spjain.org Chat with a Student Ambassador --> --> SP JAIN GLOBAL INSIGHTS --> © 2025 S P Jain School of Global Management S P Jain School of Global Management Pty. Ltd. Provider Category: Institute of Higher Education. TEQSA Provider Identification: PRV12041. CRICOS Provider Code: 03335G. Name of PEl (Private Education Institution): S P Jain School of Global Management | Registered with Skills and Workforce Development Agency (SWDA) | PEI Registration Number: 200516544Z | Period of Registration: 09 May 2023 to 08 May 2029. © 2025 S P Jain School of Global Management S P Jain School of Global Management Pty. Ltd. Provider Category: Institute of Higher Education. TEQSA Provider Identification: PRV12041. CRICOS Provider Code: 03335G. Name of PEl (Private Education Institution): S P Jain School of Global Management | Registered with Skills and Workforce Development Agency (SWDA) | PEI Registration Number: 200516544Z | Period of Registration: 09 May 2023 to 08 May 2029. © 2025 S P Jain School of Global Management S P Jain School of Global Management Pty. Ltd. Provider Category: Institute of Higher Education. TEQSA Provider Identification: PRV12041. CRICOS Provider Code: 03335G. --> © 2025 S P Jain School of Global Management S P Jain School of Global Management Pty. Ltd. Provider Category: Institute of Higher Education. TEQSA Provider Identification: PRV12041. CRICOS Provider Code: 03335G. Name of PEl (Private Education Institution): S P Jain School of Global Management | Registered with Skills and Workforce Development Agency (SWDA) | PEI Registration Number: 200516544Z | Period of Registration: 09 May 2023 to 08 May 2029. Stay Connected With Us News & Events News Events Global Campus Global Learning Dubai Mumbai Singapore Sydney OTHER SP Jain Blog EMBA Updates Undergraduate Updates Alumni Careers Our Global Agents Discover Our Heritage Vision & Values Recognition Leadership Contact Us Mumbai Dubai Singapore Sydney 1800 212 1827 CRICOS Institution Code: 03335G --> Get counselled Get A BROCHURE APPLY NOW × Connec"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_5d6b70c5d9a0468e",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "经济学学士",
+      "nameEn": "Bachelor of Economics",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Find key contacts, support services and resources for the Bachelor of Economics program at SP Jain Global. ",
+      "officialUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/important-contacts-and-resources",
+      "sourceCheckedAt": "2026-10-07T06:45:00.483Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Find key contacts, support services and resources for the Bachelor of Economics program at SP Jain Global. ",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/important-contacts-and-resources",
+          "sourceCheckedAt": "2026-10-07T06:45:00.483Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/important-contacts-and-resources",
+          "sourcePageTitle": "Important Contacts & Resources | Bachelor of Economics at SP Jain Global",
+          "sourceHash": "92bf3c74107f3804253e23675741dd4152b93ddc8c6a2440a066a9679967bc61",
+          "fetchedAt": "2026-10-07T06:45:00.483Z",
+          "field": "name",
+          "rawText": "Bachelor of Economics"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/important-contacts-and-resources",
+          "sourcePageTitle": "Important Contacts & Resources | Bachelor of Economics at SP Jain Global",
+          "sourceHash": "92bf3c74107f3804253e23675741dd4152b93ddc8c6a2440a066a9679967bc61",
+          "fetchedAt": "2026-10-07T06:45:00.483Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/important-contacts-and-resources"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/important-contacts-and-resources",
+          "sourcePageTitle": "Important Contacts & Resources | Bachelor of Economics at SP Jain Global",
+          "sourceHash": "92bf3c74107f3804253e23675741dd4152b93ddc8c6a2440a066a9679967bc61",
+          "fetchedAt": "2026-10-07T06:45:00.483Z",
+          "field": "description",
+          "rawText": "Find key contacts, support services and resources for the Bachelor of Economics program at SP Jain Global."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_9703c93e06c18977",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "全球商业硕士",
+      "nameEn": "Master of Global Business",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "SP Jain's Master of Global Business is a 16-month postgraduate program (inclusive of a 4-month internship). Study on-campus in Singapore and Dubai.",
+      "officialUrl": "https://www.spjain.sg/programs/postgraduate/mgb",
+      "sourceCheckedAt": "2026-10-07T06:45:01.810Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "SP Jain's Master of Global Business is a 16-month postgraduate program (inclusive of a 4-month internship). Study on-campus in Singapore and Dubai.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/mgb",
+          "sourceCheckedAt": "2026-10-07T06:45:01.810Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/mgb",
+          "sourcePageTitle": "SP Jain Master of Global Business | Study in Dubai and Sydney",
+          "sourceHash": "e6269bcff561b015ea8869ee0dbc5b5deca050c2eac46b1f19f90c45626bd34b",
+          "fetchedAt": "2026-10-07T06:45:01.810Z",
+          "field": "name",
+          "rawText": "Master of Global Business"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/mgb",
+          "sourcePageTitle": "SP Jain Master of Global Business | Study in Dubai and Sydney",
+          "sourceHash": "e6269bcff561b015ea8869ee0dbc5b5deca050c2eac46b1f19f90c45626bd34b",
+          "fetchedAt": "2026-10-07T06:45:01.810Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/postgraduate/mgb"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/mgb",
+          "sourcePageTitle": "SP Jain Master of Global Business | Study in Dubai and Sydney",
+          "sourceHash": "e6269bcff561b015ea8869ee0dbc5b5deca050c2eac46b1f19f90c45626bd34b",
+          "fetchedAt": "2026-10-07T06:45:01.810Z",
+          "field": "description",
+          "rawText": "SP Jain's Master of Global Business is a 16-month postgraduate program (inclusive of a 4-month internship). Study on-campus in Singapore and Dubai."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_bcd2b9c263d5df4f",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "全球甲基溴全球管理",
+      "nameEn": "Global MBA",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "SP Jain's Global MBA (GMBA) is a 12-month full-time postgraduate program for professionals with 3+ years of work experience.",
+      "officialUrl": "https://www.spjain.sg/programs/postgraduate/gmba",
+      "sourceCheckedAt": "2026-10-07T06:45:03.585Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "SP Jain's Global MBA (GMBA) is a 12-month full-time postgraduate program for professionals with 3+ years of work experience.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/gmba",
+          "sourceCheckedAt": "2026-10-07T06:45:03.585Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/gmba",
+          "sourcePageTitle": "SP Jain Global MBA Program | Study in Dubai & Singapore",
+          "sourceHash": "39becbc3de9b472637b8a4487d9739b11ec799efbdf2fe76560b6374ec63172f",
+          "fetchedAt": "2026-10-07T06:45:03.585Z",
+          "field": "name",
+          "rawText": "Global MBA"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/gmba",
+          "sourcePageTitle": "SP Jain Global MBA Program | Study in Dubai & Singapore",
+          "sourceHash": "39becbc3de9b472637b8a4487d9739b11ec799efbdf2fe76560b6374ec63172f",
+          "fetchedAt": "2026-10-07T06:45:03.585Z",
+          "field": "description",
+          "rawText": "SP Jain's Global MBA (GMBA) is a 12-month full-time postgraduate program for professionals with 3+ years of work experience."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_b10b17c4792bb2bf",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "商业人造情报硕士",
+      "nameEn": "Master of Artificial Intelligence in Business",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "SP Jain's Master of Artificial Intelligence in Business (MAIB) is a 2-year postgraduate program offered online and on-campus in Dubai and Sydney.",
+      "officialUrl": "https://www.spjain.org/programs/postgraduate/master-of-artificial-intelligence-in-business",
+      "sourceCheckedAt": "2026-10-07T06:45:09.796Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "SP Jain's Master of Artificial Intelligence in Business (MAIB) is a 2-year postgraduate program offered online and on-campus in Dubai and Sydney.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business",
+          "sourceCheckedAt": "2026-10-07T06:45:09.796Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business",
+          "sourcePageTitle": "Master of Artificial Intelligence in Business | SP Jain Global",
+          "sourceHash": "d72a03fc6ce039275ccb1cb3834ae1e815f237fe987be601baaaf1fe4776dbb3",
+          "fetchedAt": "2026-10-07T06:45:09.796Z",
+          "field": "name",
+          "rawText": "Master of Artificial Intelligence in Business"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business",
+          "sourcePageTitle": "Master of Artificial Intelligence in Business | SP Jain Global",
+          "sourceHash": "d72a03fc6ce039275ccb1cb3834ae1e815f237fe987be601baaaf1fe4776dbb3",
+          "fetchedAt": "2026-10-07T06:45:09.796Z",
+          "field": "description",
+          "rawText": "SP Jain's Master of Artificial Intelligence in Business (MAIB) is a 2-year postgraduate program offered online and on-campus in Dubai and Sydney."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_c55ab0b568a3a632",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "管理硕士",
+      "nameEn": "Master of Management",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Apply for SP Jain Global’s Master of Management degree program. Study at the Sydney campus, specialise in key business areas, and build skills for global success.",
+      "officialUrl": "https://www.spjain.sg/programs/postgraduate/master-of-management",
+      "sourceCheckedAt": "2026-10-07T06:45:11.597Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Apply for SP Jain Global’s Master of Management degree program. Study at the Sydney campus, specialise in key business areas, and build skills for global success.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-management",
+          "sourceCheckedAt": "2026-10-07T06:45:11.597Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-management",
+          "sourcePageTitle": "Master of Management (MoM) Program | SP Jain Global’s 2-Year Full-Time Degree in AU",
+          "sourceHash": "0cb48226bcb28e348d51546431f63c97f04122d06883c34dec642c658cf76ae6",
+          "fetchedAt": "2026-10-07T06:45:11.597Z",
+          "field": "name",
+          "rawText": "Master of Management"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-management",
+          "sourcePageTitle": "Master of Management (MoM) Program | SP Jain Global’s 2-Year Full-Time Degree in AU",
+          "sourceHash": "0cb48226bcb28e348d51546431f63c97f04122d06883c34dec642c658cf76ae6",
+          "fetchedAt": "2026-10-07T06:45:11.597Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/postgraduate/master-of-management"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-management",
+          "sourcePageTitle": "Master of Management (MoM) Program | SP Jain Global’s 2-Year Full-Time Degree in AU",
+          "sourceHash": "0cb48226bcb28e348d51546431f63c97f04122d06883c34dec642c658cf76ae6",
+          "fetchedAt": "2026-10-07T06:45:11.597Z",
+          "field": "description",
+          "rawText": "Apply for SP Jain Global’s Master of Management degree program. Study at the Sydney campus, specialise in key business areas, and build skills for global success."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_29f1f92dd7a01d55",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "商业学院理工硕士:见我们的系",
+      "nameEn": "Master of AI in Business: Meet Our Faculty",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "SP Jain's MAIB faculty have been selected on the basis of proven success & expertise. Learn from a multinational community of scholars & industry experts. ",
+      "officialUrl": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/faculty",
+      "sourceCheckedAt": "2026-10-07T06:45:24.501Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "SP Jain's MAIB faculty have been selected on the basis of proven success & expertise. Learn from a multinational community of scholars & industry experts. ",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/faculty",
+          "sourceCheckedAt": "2026-10-07T06:45:24.501Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/faculty",
+          "sourcePageTitle": "Faculty | Master of Artificial Intelligence in Business | SP Jain",
+          "sourceHash": "86aea93a29313e6266f9e28fc1626ba7fa4c6eab971a06c2ffcbc876fe832d9e",
+          "fetchedAt": "2026-10-07T06:45:24.501Z",
+          "field": "name",
+          "rawText": "Master of AI in Business: Meet Our Faculty"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/faculty",
+          "sourcePageTitle": "Faculty | Master of Artificial Intelligence in Business | SP Jain",
+          "sourceHash": "86aea93a29313e6266f9e28fc1626ba7fa4c6eab971a06c2ffcbc876fe832d9e",
+          "fetchedAt": "2026-10-07T06:45:24.501Z",
+          "field": "detailUrl",
+          "rawText": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/faculty"
+        },
+        {
+          "sourceUrl": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/faculty",
+          "sourcePageTitle": "Faculty | Master of Artificial Intelligence in Business | SP Jain",
+          "sourceHash": "86aea93a29313e6266f9e28fc1626ba7fa4c6eab971a06c2ffcbc876fe832d9e",
+          "fetchedAt": "2026-10-07T06:45:24.501Z",
+          "field": "description",
+          "rawText": "SP Jain's MAIB faculty have been selected on the basis of proven success & expertise. Learn from a multinational community of scholars & industry experts."
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.spjain.sg/",
+      "fetchedAt": "2026-10-07T04:28:19.636Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "69ef9689ececd51a1c9d58e7fd67ba6dfa6e3f5e221e0fc77b22738e090f6946",
+      "title": "World's leading B-School | SP Jain School of Global Management",
+      "snapshotFile": "raw/0001-69ef9689ecec.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate",
+      "fetchedAt": "2026-10-07T04:28:22.353Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1d76e06254efa921d2933d4c7a927d88f32a653900ddcca92110fe29e1a3a998",
+      "title": "Undergraduate Programs | SP Jain School of Global Management",
+      "snapshotFile": "raw/0002-1d76e06254ef.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba",
+      "fetchedAt": "2026-10-07T04:28:24.362Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a99c1eb1ed0d829969f6f694e1b2e6621f0efd2c15be8b4ac1d939920684ace8",
+      "title": "SP Jain BBA | Bachelor of Business Administration | Study BBA Abroad",
+      "snapshotFile": "raw/0003-a99c1eb1ed0d.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science",
+      "fetchedAt": "2026-10-07T04:28:26.397Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "033dc808b4c4e6eff0486308af1b5d1a871d76e07ff50f60d83e3ea8e33cbf7f",
+      "title": "SP Jain - Bachelor of Data Science (BDS) | Study in Mumbai & Sydney",
+      "snapshotFile": "raw/0004-033dc808b4c4.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics",
+      "fetchedAt": "2026-10-07T04:28:27.655Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fb5df785aee47be046a81aa76d7d91e0763413a9d0819c35247cb552471f5886",
+      "title": "Bachelor of Economics (BEC) Program | SP Jain School of Global Management",
+      "snapshotFile": "raw/0005-fb5df785aee4.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/why-spjain",
+      "fetchedAt": "2026-10-07T04:28:30.368Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "59090106c5e878c518f6c24f9fa1ee51a272941fb46bc8421022b0a59563d985",
+      "title": "BBA Program Highlights | SP Jain School of Global Management",
+      "snapshotFile": "raw/0006-59090106c5e8.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/learning-outcomes",
+      "fetchedAt": "2026-10-07T04:28:32.830Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "74899b7ef5297c5a9ec59f1b91f393fdc4769ae8bb10fbd16a412df0fd7c1a9e",
+      "title": "BBA | Graduate Attributes and Program Learning Outcomes | SP Jain",
+      "snapshotFile": "raw/0007-74899b7ef529.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/program-structure",
+      "fetchedAt": "2026-10-07T04:28:34.408Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f82434cbdce258d7cdf30ebb1242dc6ea6f2ac766992a9e7d863460522d2b433",
+      "title": "BBA | Program Structure, Curriculum and Assessment | SP Jain Global",
+      "snapshotFile": "raw/0008-f82434cbdce2.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/specialisations",
+      "fetchedAt": "2026-10-07T04:28:36.903Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f8b20d9f8ea5be62014801f109a4116051efd55494800109f996d402c67afeae",
+      "title": "BBA Specialisations at SP Jain Global",
+      "snapshotFile": "raw/0009-f8b20d9f8ea5.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/study-abroad-program",
+      "fetchedAt": "2026-10-07T04:28:38.836Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2dad12c44cda623ddb44db94554a73a7ee317d6da50332a15e30b9d2a38075ac",
+      "title": "BBA | Study Abroad Program | SP Jain's Partner Universities",
+      "snapshotFile": "raw/0010-2dad12c44cda.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/fees",
+      "fetchedAt": "2026-10-07T04:28:39.737Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cc6b7465a6fdfd9810bff5d7ed4717b854daea34251cf9bb261386763c79532a",
+      "title": "BBA Program Fees for September 2026 | SP Jain Global",
+      "snapshotFile": "raw/0011-cc6b7465a6fd.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/students/student-life",
+      "fetchedAt": "2026-10-07T04:28:43.191Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b0dabde9f648b38b83667459e2c982887260393433d09785796e6fd47f9583e3",
+      "title": "BBA student life in Singapore, Dubai, and Sydney",
+      "snapshotFile": "raw/0012-b0dabde9f648.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/careers",
+      "fetchedAt": "2026-10-07T04:28:44.926Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6bf3eb1d1d3adf52293c6f0a97296ba60ba72c62206cc5fed7341402bf33beb6",
+      "title": "SP Jain BBA | Global Career Opportunities | Graduate Outcomes",
+      "snapshotFile": "raw/0013-6bf3eb1d1d3a.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/entrance-test",
+      "fetchedAt": "2026-10-07T04:28:45.744Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0747f3ea4159b529b2aa8a451a4f9de485a471dac252c840496f0c63bce15dad",
+      "title": "SP Jain Entrance Test | Undergraduate Programs | Sample Papers",
+      "snapshotFile": "raw/0014-0747f3ea4159.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student",
+      "fetchedAt": "2026-10-07T04:28:51.149Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "71ca69edbd04762fd71b1ff9a3d75f352ca73a9e471e028951d579990520b916",
+      "title": "Year 2/3 Transfer Students | BBA Flexible Learning Options | SP Jain",
+      "snapshotFile": "raw/0015-71ca69edbd04.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/gallery",
+      "fetchedAt": "2026-10-07T04:28:51.781Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e9bdedcc61c31ce88fb378bc57eeaddff3c2ab75b4d7fce843b05bcc74b9da57",
+      "title": "BBA Media Gallery | SP Jain - Dubai, Mumbai, Singapore & Sydney",
+      "snapshotFile": "raw/0016-e9bdedcc61c3.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/london-study-option",
+      "fetchedAt": "2026-10-07T04:28:54.010Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9ad9a556e9e7b960bcd781ef6e41d1f957d98468906b0edf0bff89275d692ff7",
+      "title": "Study BBA in London at SPJ London | SP Jain Global",
+      "snapshotFile": "raw/0017-9ad9a556e9e7.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/open-day",
+      "fetchedAt": "2026-10-07T04:28:56.422Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "82b51a81242d8ced03a6064a3ab8df0b7c97005ed2779a5db6385b53e2c1d582",
+      "title": "SP Jain's Undergraduate Programs | Attend a virtual Open Day",
+      "snapshotFile": "raw/0018-82b51a81242d.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain",
+      "fetchedAt": "2026-10-07T04:29:00.032Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "26abdc6722209ae64aa66f9309f580d56592e2abaf96c867ae3ccc44fbb07406",
+      "title": "Why SP Jain's Bachelor of Data Science | Study in Mumbai & Sydney",
+      "snapshotFile": "raw/0019-26abdc672220.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/learning-outcomes",
+      "fetchedAt": "2026-10-07T04:29:02.403Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b69257790d792e910b91ef1981b5296469e64e47ec090ce2c661bf9523626876",
+      "title": "SP Jain Bachelor of Data Science | Program Learning Outcomes",
+      "snapshotFile": "raw/0020-b69257790d79.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+      "fetchedAt": "2026-10-07T04:29:04.368Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f3ad834b3979e0c007c81c2ba8fec2d530d336bdddef8439c0fac0ef59f08563",
+      "title": "Bachelor of Data Science | Program Structure & Assessment | SP Jain",
+      "snapshotFile": "raw/0021-f3ad834b3979.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty",
+      "fetchedAt": "2026-10-07T04:29:06.603Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "941b34db337d3c0bc5dce2dc077817b4394ebdd3770f73cc244485f500d58815",
+      "title": "Faculty | Bachelor of Data Science | SP Jain School of Global Management",
+      "snapshotFile": "raw/0022-941b34db337d.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+      "fetchedAt": "2026-10-07T04:29:08.570Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a7264329342ab26418fa18b3457b08c9ef84ad6a39ebf7f28c36b9bfeb87650d",
+      "title": "SP Jain's Bachelor of Data Science (BDS) | Program Fees & Scholarships",
+      "snapshotFile": "raw/0023-a7264329342a.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements",
+      "fetchedAt": "2026-10-07T04:29:09.870Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "44b29992e4af2e479ba9e5ac46d1bd991759d1cfe9d0ef793aa6ba30c50af46e",
+      "title": "Student Achievements | Bachelor of Data Science (BDS) | SP Jain Global",
+      "snapshotFile": "raw/0024-44b29992e4af.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-life",
+      "fetchedAt": "2026-10-07T04:29:12.093Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5ab1dc140e31859878b8eb4e3c414537dbc174104cf20b4933d214ac3ce20a38",
+      "title": "Bachelor of Data Science | Student Life at SP Jain | Mumbai & Sydney",
+      "snapshotFile": "raw/0025-5ab1dc140e31.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers",
+      "fetchedAt": "2026-10-07T04:29:13.873Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "535010309e3849701eb2cacdf3955431eb6f709e24423b6b053928546044905d",
+      "title": "Careers | Jobs and Internships | SP Jain Bachelor of Data Science",
+      "snapshotFile": "raw/0026-535010309e38.html"
+    },
+    {
+      "url": "https://www.spjain.sg/brochures/undergraduate/bachelor-of-data-science",
+      "fetchedAt": "2026-10-07T04:29:17.896Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec900a6bb4aef09e2920077b85a1a06fc1f6a45fe131ac36868b72a0d1578cbf",
+      "title": "SP Jain's Bachelor of Data Science (BDS) | Download Brochure",
+      "snapshotFile": "raw/0027-ec900a6bb4ae.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/gallery",
+      "fetchedAt": "2026-10-07T04:29:20.794Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9ae1d6f768d51872f123d1953b8752fcd159085199e9ad03c593c91dc4655c6b",
+      "title": "Bachelor of Data Science (BDS) | Media Gallery | SP Jain Global",
+      "snapshotFile": "raw/0028-9ae1d6f768d5.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+      "fetchedAt": "2026-10-07T04:29:23.210Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a7264329342ab26418fa18b3457b08c9ef84ad6a39ebf7f28c36b9bfeb87650d",
+      "title": "SP Jain's Bachelor of Data Science (BDS) | Program Fees & Scholarships",
+      "snapshotFile": "raw/0029-a7264329342a.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/why-spjain",
+      "fetchedAt": "2026-10-07T04:29:24.538Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2ab3bb8d75c02c9f5da90ecaac74f6d25b66027d6780c24b18a7e78ddbbe58e6",
+      "title": "Why Choose SP Jain Global for Your Economics Degree?",
+      "snapshotFile": "raw/0030-2ab3bb8d75c0.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/faculty",
+      "fetchedAt": "2026-10-07T04:29:30.569Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "da2aea74564f7cf9a87df4492784ad8de4ca629ae703f27363336995e1a000dc",
+      "title": "Meet the Faculty of Bachelor of Economics at SP Jain Global",
+      "snapshotFile": "raw/0031-da2aea74564f.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/program-structure",
+      "fetchedAt": "2026-10-07T04:29:34.881Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "936e8ffaf112dbb02466837eae10d9776f05f19064d9fcccff0bb1905fbd5a14",
+      "title": "Curriculum and Program Structure for Bachelor of Economics",
+      "snapshotFile": "raw/0032-936e8ffaf112.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/fees",
+      "fetchedAt": "2026-10-07T04:29:37.045Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "95c2de6b258288f999a887d4387783705cecca66d8e93cbfd1994889e649ac44",
+      "title": "Fees for BEC Program at SP Jain Global",
+      "snapshotFile": "raw/0033-95c2de6b2582.html"
+    },
+    {
+      "url": "https://www.spjain.sg/brochures/undergraduate/bachelor-of-economics",
+      "fetchedAt": "2026-10-07T04:29:38.232Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6cfad8e6261f7db3489b58b14bbbda2e41b232ca6814acfc198de193ac07d7fc",
+      "title": "SP Jain BEC - Download Brochure | Bachelor of Economics",
+      "snapshotFile": "raw/0034-6cfad8e6261f.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/program-structure",
+      "fetchedAt": "2026-10-07T04:29:40.579Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f82434cbdce258d7cdf30ebb1242dc6ea6f2ac766992a9e7d863460522d2b433",
+      "title": "BBA | Program Structure, Curriculum and Assessment | SP Jain Global",
+      "snapshotFile": "raw/0035-f82434cbdce2.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/students/student-life",
+      "fetchedAt": "2026-10-07T04:29:42.281Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b0dabde9f648b38b83667459e2c982887260393433d09785796e6fd47f9583e3",
+      "title": "BBA student life in Singapore, Dubai, and Sydney",
+      "snapshotFile": "raw/0036-b0dabde9f648.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+      "fetchedAt": "2026-10-07T04:29:46.610Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f3ad834b3979e0c007c81c2ba8fec2d530d336bdddef8439c0fac0ef59f08563",
+      "title": "Bachelor of Data Science | Program Structure & Assessment | SP Jain",
+      "snapshotFile": "raw/0037-f3ad834b3979.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-life",
+      "fetchedAt": "2026-10-07T04:29:48.297Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5ab1dc140e31859878b8eb4e3c414537dbc174104cf20b4933d214ac3ce20a38",
+      "title": "Bachelor of Data Science | Student Life at SP Jain | Mumbai & Sydney",
+      "snapshotFile": "raw/0038-5ab1dc140e31.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+      "fetchedAt": "2026-10-07T04:29:52.649Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f7af81efd0b0547ddc7399ae0c429db809c7791eba58620abcdc43b52bc9dd4b",
+      "title": "BEC | Graduate Attributes and Program Learning Outcomes | SP Jain",
+      "snapshotFile": "raw/0039-f7af81efd0b0.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate",
+      "fetchedAt": "2026-10-07T04:29:55.163Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1d76e06254efa921d2933d4c7a927d88f32a653900ddcca92110fe29e1a3a998",
+      "title": "Undergraduate Programs | SP Jain School of Global Management",
+      "snapshotFile": "raw/0040-1d76e06254ef.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/admissions",
+      "fetchedAt": "2026-10-07T06:42:43.250Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0673d19fd7855f1913df7ad02a3ee2b30b5b8ea8e638a809555025348a20cb9c",
+      "title": "BBA Admissions Process | BBA Course Eligibility | SP Jain BBA Program",
+      "snapshotFile": "raw/0001-0673d19fd785.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba",
+      "fetchedAt": "2026-10-07T06:42:45.040Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a99c1eb1ed0d829969f6f694e1b2e6621f0efd2c15be8b4ac1d939920684ace8",
+      "title": "SP Jain BBA | Bachelor of Business Administration | Study BBA Abroad",
+      "snapshotFile": "raw/0002-a99c1eb1ed0d.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science",
+      "fetchedAt": "2026-10-07T06:42:47.044Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "033dc808b4c4e6eff0486308af1b5d1a871d76e07ff50f60d83e3ea8e33cbf7f",
+      "title": "SP Jain - Bachelor of Data Science (BDS) | Study in Mumbai & Sydney",
+      "snapshotFile": "raw/0003-033dc808b4c4.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics",
+      "fetchedAt": "2026-10-07T06:42:49.048Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fb5df785aee47be046a81aa76d7d91e0763413a9d0819c35247cb552471f5886",
+      "title": "Bachelor of Economics (BEC) Program | SP Jain School of Global Management",
+      "snapshotFile": "raw/0004-fb5df785aee4.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/why-spjain",
+      "fetchedAt": "2026-10-07T06:42:51.124Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "59090106c5e878c518f6c24f9fa1ee51a272941fb46bc8421022b0a59563d985",
+      "title": "BBA Program Highlights | SP Jain School of Global Management",
+      "snapshotFile": "raw/0005-59090106c5e8.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/learning-outcomes",
+      "fetchedAt": "2026-10-07T06:42:53.056Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "74899b7ef5297c5a9ec59f1b91f393fdc4769ae8bb10fbd16a412df0fd7c1a9e",
+      "title": "BBA | Graduate Attributes and Program Learning Outcomes | SP Jain",
+      "snapshotFile": "raw/0006-74899b7ef529.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/program-structure",
+      "fetchedAt": "2026-10-07T06:42:55.071Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f82434cbdce258d7cdf30ebb1242dc6ea6f2ac766992a9e7d863460522d2b433",
+      "title": "BBA | Program Structure, Curriculum and Assessment | SP Jain Global",
+      "snapshotFile": "raw/0007-f82434cbdce2.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/specialisations",
+      "fetchedAt": "2026-10-07T06:42:57.079Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f8b20d9f8ea5be62014801f109a4116051efd55494800109f996d402c67afeae",
+      "title": "BBA Specialisations at SP Jain Global",
+      "snapshotFile": "raw/0008-f8b20d9f8ea5.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/study-abroad-program",
+      "fetchedAt": "2026-10-07T06:42:59.087Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2dad12c44cda623ddb44db94554a73a7ee317d6da50332a15e30b9d2a38075ac",
+      "title": "BBA | Study Abroad Program | SP Jain's Partner Universities",
+      "snapshotFile": "raw/0009-2dad12c44cda.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/fees",
+      "fetchedAt": "2026-10-07T06:43:01.111Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cc6b7465a6fdfd9810bff5d7ed4717b854daea34251cf9bb261386763c79532a",
+      "title": "BBA Program Fees for September 2026 | SP Jain Global",
+      "snapshotFile": "raw/0010-cc6b7465a6fd.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/students/student-life",
+      "fetchedAt": "2026-10-07T06:43:03.105Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b0dabde9f648b38b83667459e2c982887260393433d09785796e6fd47f9583e3",
+      "title": "BBA student life in Singapore, Dubai, and Sydney",
+      "snapshotFile": "raw/0011-b0dabde9f648.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/careers",
+      "fetchedAt": "2026-10-07T06:43:05.107Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6bf3eb1d1d3adf52293c6f0a97296ba60ba72c62206cc5fed7341402bf33beb6",
+      "title": "SP Jain BBA | Global Career Opportunities | Graduate Outcomes",
+      "snapshotFile": "raw/0012-6bf3eb1d1d3a.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/entrance-test",
+      "fetchedAt": "2026-10-07T06:43:07.352Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0747f3ea4159b529b2aa8a451a4f9de485a471dac252c840496f0c63bce15dad",
+      "title": "SP Jain Entrance Test | Undergraduate Programs | Sample Papers",
+      "snapshotFile": "raw/0013-0747f3ea4159.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student",
+      "fetchedAt": "2026-10-07T06:43:11.125Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "71ca69edbd04762fd71b1ff9a3d75f352ca73a9e471e028951d579990520b916",
+      "title": "Year 2/3 Transfer Students | BBA Flexible Learning Options | SP Jain",
+      "snapshotFile": "raw/0014-71ca69edbd04.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/gallery",
+      "fetchedAt": "2026-10-07T06:43:13.128Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e9bdedcc61c31ce88fb378bc57eeaddff3c2ab75b4d7fce843b05bcc74b9da57",
+      "title": "BBA Media Gallery | SP Jain - Dubai, Mumbai, Singapore & Sydney",
+      "snapshotFile": "raw/0015-e9bdedcc61c3.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/london-study-option",
+      "fetchedAt": "2026-10-07T06:43:15.154Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9ad9a556e9e7b960bcd781ef6e41d1f957d98468906b0edf0bff89275d692ff7",
+      "title": "Study BBA in London at SPJ London | SP Jain Global",
+      "snapshotFile": "raw/0016-9ad9a556e9e7.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/open-day",
+      "fetchedAt": "2026-10-07T06:43:17.176Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "82b51a81242d8ced03a6064a3ab8df0b7c97005ed2779a5db6385b53e2c1d582",
+      "title": "SP Jain's Undergraduate Programs | Attend a virtual Open Day",
+      "snapshotFile": "raw/0017-82b51a81242d.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain",
+      "fetchedAt": "2026-10-07T06:43:21.233Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "26abdc6722209ae64aa66f9309f580d56592e2abaf96c867ae3ccc44fbb07406",
+      "title": "Why SP Jain's Bachelor of Data Science | Study in Mumbai & Sydney",
+      "snapshotFile": "raw/0018-26abdc672220.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/learning-outcomes",
+      "fetchedAt": "2026-10-07T06:43:23.170Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b69257790d792e910b91ef1981b5296469e64e47ec090ce2c661bf9523626876",
+      "title": "SP Jain Bachelor of Data Science | Program Learning Outcomes",
+      "snapshotFile": "raw/0019-b69257790d79.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+      "fetchedAt": "2026-10-07T06:43:25.241Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f3ad834b3979e0c007c81c2ba8fec2d530d336bdddef8439c0fac0ef59f08563",
+      "title": "Bachelor of Data Science | Program Structure & Assessment | SP Jain",
+      "snapshotFile": "raw/0020-f3ad834b3979.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty",
+      "fetchedAt": "2026-10-07T06:43:27.193Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "941b34db337d3c0bc5dce2dc077817b4394ebdd3770f73cc244485f500d58815",
+      "title": "Faculty | Bachelor of Data Science | SP Jain School of Global Management",
+      "snapshotFile": "raw/0021-941b34db337d.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+      "fetchedAt": "2026-10-07T06:43:29.198Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a7264329342ab26418fa18b3457b08c9ef84ad6a39ebf7f28c36b9bfeb87650d",
+      "title": "SP Jain's Bachelor of Data Science (BDS) | Program Fees & Scholarships",
+      "snapshotFile": "raw/0022-a7264329342a.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements",
+      "fetchedAt": "2026-10-07T06:43:31.471Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "44b29992e4af2e479ba9e5ac46d1bd991759d1cfe9d0ef793aa6ba30c50af46e",
+      "title": "Student Achievements | Bachelor of Data Science (BDS) | SP Jain Global",
+      "snapshotFile": "raw/0023-44b29992e4af.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-life",
+      "fetchedAt": "2026-10-07T06:43:33.243Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5ab1dc140e31859878b8eb4e3c414537dbc174104cf20b4933d214ac3ce20a38",
+      "title": "Bachelor of Data Science | Student Life at SP Jain | Mumbai & Sydney",
+      "snapshotFile": "raw/0024-5ab1dc140e31.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers",
+      "fetchedAt": "2026-10-07T06:43:35.230Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "535010309e3849701eb2cacdf3955431eb6f709e24423b6b053928546044905d",
+      "title": "Careers | Jobs and Internships | SP Jain Bachelor of Data Science",
+      "snapshotFile": "raw/0025-535010309e38.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/gallery",
+      "fetchedAt": "2026-10-07T06:43:39.246Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9ae1d6f768d51872f123d1953b8752fcd159085199e9ad03c593c91dc4655c6b",
+      "title": "Bachelor of Data Science (BDS) | Media Gallery | SP Jain Global",
+      "snapshotFile": "raw/0026-9ae1d6f768d5.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+      "fetchedAt": "2026-10-07T06:43:41.886Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a7264329342ab26418fa18b3457b08c9ef84ad6a39ebf7f28c36b9bfeb87650d",
+      "title": "SP Jain's Bachelor of Data Science (BDS) | Program Fees & Scholarships",
+      "snapshotFile": "raw/0027-a7264329342a.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/why-spjain",
+      "fetchedAt": "2026-10-07T06:43:43.296Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2ab3bb8d75c02c9f5da90ecaac74f6d25b66027d6780c24b18a7e78ddbbe58e6",
+      "title": "Why Choose SP Jain Global for Your Economics Degree?",
+      "snapshotFile": "raw/0028-2ab3bb8d75c0.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/faculty",
+      "fetchedAt": "2026-10-07T06:43:49.284Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "da2aea74564f7cf9a87df4492784ad8de4ca629ae703f27363336995e1a000dc",
+      "title": "Meet the Faculty of Bachelor of Economics at SP Jain Global",
+      "snapshotFile": "raw/0029-da2aea74564f.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/program-structure",
+      "fetchedAt": "2026-10-07T06:43:53.294Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "936e8ffaf112dbb02466837eae10d9776f05f19064d9fcccff0bb1905fbd5a14",
+      "title": "Curriculum and Program Structure for Bachelor of Economics",
+      "snapshotFile": "raw/0030-936e8ffaf112.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/fees",
+      "fetchedAt": "2026-10-07T06:43:55.332Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "95c2de6b258288f999a887d4387783705cecca66d8e93cbfd1994889e649ac44",
+      "title": "Fees for BEC Program at SP Jain Global",
+      "snapshotFile": "raw/0031-95c2de6b2582.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/program-structure",
+      "fetchedAt": "2026-10-07T06:43:57.315Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f82434cbdce258d7cdf30ebb1242dc6ea6f2ac766992a9e7d863460522d2b433",
+      "title": "BBA | Program Structure, Curriculum and Assessment | SP Jain Global",
+      "snapshotFile": "raw/0032-f82434cbdce2.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/students/student-life",
+      "fetchedAt": "2026-10-07T06:43:59.334Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b0dabde9f648b38b83667459e2c982887260393433d09785796e6fd47f9583e3",
+      "title": "BBA student life in Singapore, Dubai, and Sydney",
+      "snapshotFile": "raw/0033-b0dabde9f648.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+      "fetchedAt": "2026-10-07T06:44:03.345Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f3ad834b3979e0c007c81c2ba8fec2d530d336bdddef8439c0fac0ef59f08563",
+      "title": "Bachelor of Data Science | Program Structure & Assessment | SP Jain",
+      "snapshotFile": "raw/0034-f3ad834b3979.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-life",
+      "fetchedAt": "2026-10-07T06:44:05.352Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5ab1dc140e31859878b8eb4e3c414537dbc174104cf20b4933d214ac3ce20a38",
+      "title": "Bachelor of Data Science | Student Life at SP Jain | Mumbai & Sydney",
+      "snapshotFile": "raw/0035-5ab1dc140e31.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+      "fetchedAt": "2026-10-07T06:44:09.352Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f7af81efd0b0547ddc7399ae0c429db809c7791eba58620abcdc43b52bc9dd4b",
+      "title": "BEC | Graduate Attributes and Program Learning Outcomes | SP Jain",
+      "snapshotFile": "raw/0036-f7af81efd0b0.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate",
+      "fetchedAt": "2026-10-07T06:44:11.701Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1d76e06254efa921d2933d4c7a927d88f32a653900ddcca92110fe29e1a3a998",
+      "title": "Undergraduate Programs | SP Jain School of Global Management",
+      "snapshotFile": "raw/0037-1d76e06254ef.html"
+    },
+    {
+      "url": "https://www.spjain.sg/brochures/undergraduate/bachelor-of-data-science",
+      "fetchedAt": "2026-10-07T06:44:15.367Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec900a6bb4aef09e2920077b85a1a06fc1f6a45fe131ac36868b72a0d1578cbf",
+      "title": "SP Jain's Bachelor of Data Science (BDS) | Download Brochure",
+      "snapshotFile": "raw/0038-ec900a6bb4ae.html"
+    },
+    {
+      "url": "https://www.spjain.sg/brochures/undergraduate/bachelor-of-economics",
+      "fetchedAt": "2026-10-07T06:44:17.393Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6cfad8e6261f7db3489b58b14bbbda2e41b232ca6814acfc198de193ac07d7fc",
+      "title": "SP Jain BEC - Download Brochure | Bachelor of Economics",
+      "snapshotFile": "raw/0039-6cfad8e6261f.html"
+    },
+    {
+      "url": "https://www.spjain.sg/brochures/undergraduate/bba",
+      "fetchedAt": "2026-10-07T06:44:19.396Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9785789efdb86d7d554db47bc4c3092bae9b9f96dc23a6729784904fa0bd791f",
+      "title": "SP Jain BBA - Download Brochure | Bachelor of Business Administration",
+      "snapshotFile": "raw/0040-9785789efdb8.html"
+    },
+    {
+      "url": "https://www.spjain.sg/brochures",
+      "fetchedAt": "2026-10-07T06:44:23.135Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b056e49bd9c5b29215a7a9b7f97aee2c6bd75024d8115e55642f9cc08f82db84",
+      "title": "Get a Brochure | SP Jain School of Global Management Singapore",
+      "snapshotFile": "raw/0041-b056e49bd9c5.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/sp-jain-welcomes-undergraduate-students-of-jan19-and-sept18-cohorts-at-singapore-campus",
+      "fetchedAt": "2026-10-07T06:44:24.125Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e26eec8ee369d6e3159ece229b16df3db41ec770885ff12b3457bf6e08a996e6",
+      "title": "SP Jain welcomes Undergraduate students of Jan’19 and Sept’18 cohorts at Singapore campus",
+      "snapshotFile": "raw/0042-e26eec8ee369.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/topic/undergraduate-programs",
+      "fetchedAt": "2026-10-07T06:44:25.421Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9d59ea2e7887d2c292293e834b1f5c9b2cb4a4d3eb938341a742b66459d4d256",
+      "title": "Events | SP Jain School of Global Management | Undergraduate Programs",
+      "snapshotFile": "raw/0043-9d59ea2e7887.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/sp-jain-welcomes-talented-and-diverse-class-of-2024-for-its-undergraduate-programs",
+      "fetchedAt": "2026-10-07T06:44:27.875Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "afd8320e63505bdce28cf30563b100b36182b70d35db9a45fcf13ae8f5d67603",
+      "title": "SP Jain Global’s Undergraduate September 2024 Orientation",
+      "snapshotFile": "raw/0044-afd8320e6350.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/topic/undergraduate-programs/page/2",
+      "fetchedAt": "2026-10-07T06:44:29.442Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b68e7be68dc2c2fa52f8bf81532f7b140a2e74ca76cbf50bf43a17ffe48dcb04",
+      "title": "Events | SP Jain School of Global Management | Undergraduate Programs (2)",
+      "snapshotFile": "raw/0045-b68e7be68dc2.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/topic/undergraduate-programs/page/1",
+      "fetchedAt": "2026-10-07T06:44:32.096Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b2b787adcbec06a33fb3442bc17f4e3243f53580d8800c6c4c94cb31923d060e",
+      "title": "Events | SP Jain School of Global Management | Undergraduate Programs",
+      "snapshotFile": "raw/0046-b2b787adcbec.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/topic/undergraduate-programs/page/3",
+      "fetchedAt": "2026-10-07T06:44:33.682Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "18f13c557e33f3f3a9aa89063c8cadada03036285228efcd350f39b27001ed5d",
+      "title": "Events | SP Jain School of Global Management | Undergraduate Programs (3)",
+      "snapshotFile": "raw/0047-18f13c557e33.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/topic/undergraduate-programs/page/4",
+      "fetchedAt": "2026-10-07T06:44:36.399Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aef96f65f9e1b60bc7627b9d2d970fb4b11189569294d1b5a426b93959c37dcc",
+      "title": "Events | SP Jain School of Global Management | Undergraduate Programs (4)",
+      "snapshotFile": "raw/0048-aef96f65f9e1.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/undergraduate-students-interact-with-the-worlds-leading-innovators-at-dubai-future-accelerators",
+      "fetchedAt": "2026-10-07T06:44:38.087Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "76266190916743943da869a8ef33be24e268e0d2cbeda5e3296984365d374094",
+      "title": "Undergraduate students interact with the world’s leading innovators at Dubai Future Accelerators",
+      "snapshotFile": "raw/0049-762661909167.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/undergraduate-students-at-wadi-adventure",
+      "fetchedAt": "2026-10-07T06:44:40.115Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "61fccd89b3af26fb54b25f451dc584e02a37e6199ca56c71842a68f089ef8f68",
+      "title": "UNDERGRADUATE STUDENTS AT WADI ADVENTURE",
+      "snapshotFile": "raw/0050-61fccd89b3af.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/visit-to-unhcr-dubai-by-the-sp-jain-undergraduate-students",
+      "fetchedAt": "2026-10-07T06:44:41.476Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "60f05091e16896aea6f9089ca404db6694b4d771d746fc83ac12eb8b63f90c71",
+      "title": "Visit to UNHCR, Dubai by the SP Jain Undergraduate Students",
+      "snapshotFile": "raw/0051-60f05091e168.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/topic/bba-singapore-orientation-undergraduate",
+      "fetchedAt": "2026-10-07T06:44:44.456Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "55dd7b68f8e98f73478a9aba5609692b8790bbd9746f0d66d2f27bf3f03933b5",
+      "title": "Events | SP Jain School of Global Management | BBA, Singapore, Orientation, Undergraduate",
+      "snapshotFile": "raw/0052-55dd7b68f8e9.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/sp-jain-global-welcomes-the-class-of-2025-at-global-undergraduate-orientation-ceremonies",
+      "fetchedAt": "2026-10-07T06:44:46.496Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0bc59f34128cd564938fb9c467ab49f7225f4c4589f01156ae610c6c511102c0",
+      "title": "SP Jain Global welcomes the Class of 2025 at global undergraduate orientation ceremonies",
+      "snapshotFile": "raw/0053-0bc59f34128c.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/admissions",
+      "fetchedAt": "2026-10-07T06:44:47.731Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dd8e27f3c071e8e0a3f9cc807873180b5cde4d6edb636b1761cf4b39605654dc",
+      "title": "SP Jain - Bachelor of Data Science (BDS) | Admissions | Entrance Test",
+      "snapshotFile": "raw/0054-dd8e27f3c071.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/admissions",
+      "fetchedAt": "2026-10-07T06:44:49.751Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0c9ed11f0da2ae8de7f214a2943b58f41a6a20a08c9a24b77ead030b370498a6",
+      "title": "Admissions Process for Bachelor of Economics at SP Jain Global",
+      "snapshotFile": "raw/0055-0c9ed11f0da2.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/scholarships",
+      "fetchedAt": "2026-10-07T06:44:52.492Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0bc3015be50bacebe24c66d973a1663a56ffeb47af41fbe2f6f240006f676f26",
+      "title": "Undergraduate Scholarships | SP Jain School of Global Management",
+      "snapshotFile": "raw/0056-0bc3015be50b.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/faqs",
+      "fetchedAt": "2026-10-07T06:44:54.145Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2cc1a9fd9bdaa41625478dcd0460123ce7b005bbe3e6d3e488bddab32d65e8ef",
+      "title": "Undergraduate Programs FAQs | SP Jain School of Global Management",
+      "snapshotFile": "raw/0057-2cc1a9fd9bda.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/important-contacts-and-resources",
+      "fetchedAt": "2026-10-07T06:44:55.529Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3e4d2427d05e58a867f6e9f6a43980888b02a2450d537ba07efa22aa6f677b50",
+      "title": "SP Jain BBA | Important Contacts | Sydney, Singapore, Dubai, Mumbai",
+      "snapshotFile": "raw/0058-3e4d2427d05e.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/important-contacts-and-resources",
+      "fetchedAt": "2026-10-07T06:44:58.138Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2268daa2e4ffbc7dad3196fa92a3521e36b5ff59a787043dc3da10ea2d0a9ff2",
+      "title": "BDS | Important Contacts & Links | Study in Sydney & Mumbai | SP Jain",
+      "snapshotFile": "raw/0059-2268daa2e4ff.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/important-contacts-and-resources",
+      "fetchedAt": "2026-10-07T06:45:00.483Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "92bf3c74107f3804253e23675741dd4152b93ddc8c6a2440a066a9679967bc61",
+      "title": "Important Contacts & Resources | Bachelor of Economics at SP Jain Global",
+      "snapshotFile": "raw/0060-92bf3c74107f.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/postgraduate/mgb",
+      "fetchedAt": "2026-10-07T06:45:01.810Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e6269bcff561b015ea8869ee0dbc5b5deca050c2eac46b1f19f90c45626bd34b",
+      "title": "SP Jain Master of Global Business | Study in Dubai and Sydney",
+      "snapshotFile": "raw/0061-e6269bcff561.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/postgraduate/gmba",
+      "fetchedAt": "2026-10-07T06:45:03.585Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "39becbc3de9b472637b8a4487d9739b11ec799efbdf2fe76560b6374ec63172f",
+      "title": "SP Jain Global MBA Program | Study in Dubai & Singapore",
+      "snapshotFile": "raw/0062-39becbc3de9b.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/postgraduate/elo/executive-mba",
+      "fetchedAt": "2026-10-07T06:45:07.566Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f5c4c45a19a46e7e3e6c875877ae3695a1257768c0483bc41968221f55ddba51",
+      "title": "Executive MBA (EMBA) | Part-time online MBA program | SP Jain",
+      "snapshotFile": "raw/0063-f5c4c45a19a4.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business",
+      "fetchedAt": "2026-10-07T06:45:09.796Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d72a03fc6ce039275ccb1cb3834ae1e815f237fe987be601baaaf1fe4776dbb3",
+      "title": "Master of Artificial Intelligence in Business | SP Jain Global",
+      "snapshotFile": "raw/0064-d72a03fc6ce0.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-management",
+      "fetchedAt": "2026-10-07T06:45:11.597Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0cb48226bcb28e348d51546431f63c97f04122d06883c34dec642c658cf76ae6",
+      "title": "Master of Management (MoM) Program | SP Jain Global’s 2-Year Full-Time Degree in AU",
+      "snapshotFile": "raw/0065-0cb48226bcb2.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-management/fees",
+      "fetchedAt": "2026-10-07T06:45:21.614Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ef89f4c04e8bccfab89377ad540a0603f8783b002825880b845c1c56faf7fb94",
+      "title": "Master of Management Fees | SP Jain Global Sydney 2026 Intake",
+      "snapshotFile": "raw/0066-ef89f4c04e8b.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/faculty",
+      "fetchedAt": "2026-10-07T06:45:24.501Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "86aea93a29313e6266f9e28fc1626ba7fa4c6eab971a06c2ffcbc876fe832d9e",
+      "title": "Faculty | Master of Artificial Intelligence in Business | SP Jain",
+      "snapshotFile": "raw/0067-86aea93a2931.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs/postgraduate",
+      "fetchedAt": "2026-10-07T06:45:26.577Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0ceb53d6da699642192d124db0c55276c382ae5abfd4ed23f80b9f0ed09ce8ad",
+      "title": "Postgraduate Programs | SP Jain School of Global Management",
+      "snapshotFile": "raw/0068-0ceb53d6da69.html"
+    },
+    {
+      "url": "https://www.spjain.sg/programs",
+      "fetchedAt": "2026-10-07T06:45:27.658Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "771a5ac8b087a1ef0743839191f95cd300ab2b31b67f4e826ebc0c22368f4e94",
+      "title": "Programs | SP Jain School of Global Management",
+      "snapshotFile": "raw/0069-771a5ac8b087.html"
+    },
+    {
+      "url": "https://www.spjain.sg/summer-program/singapore",
+      "fetchedAt": "2026-10-07T06:45:29.909Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "18ccbe23286aa1252e12de0bece38e1a51c811923f9e5442d626624937dd6179",
+      "title": "SP Jain Global Summer School Program",
+      "snapshotFile": "raw/0070-18ccbe23286a.html"
+    },
+    {
+      "url": "https://www.spjain.sg/faculty/profiles",
+      "fetchedAt": "2026-10-07T06:45:31.656Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c3c15c5dfe742a1a43b969db097895abd2ba9c43cfcf6fdf47ee723cef7fab83",
+      "title": "Faculty Profiles | SP Jain School of Global Management",
+      "snapshotFile": "raw/0071-c3c15c5dfe74.html"
+    },
+    {
+      "url": "https://www.spjain.sg/faculty/research-publications",
+      "fetchedAt": "2026-10-07T06:45:34.215Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "359fb0e5713b2f11ea83c30b142bf78f8ddba18e025b32fb2109cf8c8d0d0f46",
+      "title": "Faculty Research and Publications | SP Jain School of Global Management",
+      "snapshotFile": "raw/0072-359fb0e5713b.html"
+    },
+    {
+      "url": "https://www.spjain.sg/faculty/overview",
+      "fetchedAt": "2026-10-07T06:45:35.876Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0b3208a9afdde964e40b01fe77c5b9ae019d59c7009eef48bee52394083a5d8b",
+      "title": "Faculty | Diversity and Insights | SP Jain School of Global Management",
+      "snapshotFile": "raw/0073-0b3208a9afdd.html"
+    },
+    {
+      "url": "https://www.spjain.sg/faculty/overview",
+      "fetchedAt": "2026-10-07T06:45:38.335Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0b3208a9afdde964e40b01fe77c5b9ae019d59c7009eef48bee52394083a5d8b",
+      "title": "Faculty | Diversity and Insights | SP Jain School of Global Management",
+      "snapshotFile": "raw/0074-0b3208a9afdd.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/visiting-wisdom-dr-ashish-das-holds-a-guest-lecture-for-bachelor-of-data-science-students",
+      "fetchedAt": "2026-10-07T06:45:40.256Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "11ac6c34b425cbd81d528f767d8dd201502123578c182335346c10b33b8b133b",
+      "title": "Visiting Wisdom: Dr. Ashish Das holds a guest lecture for Bachelor of Data Science students",
+      "snapshotFile": "raw/0075-11ac6c34b425.html"
+    },
+    {
+      "url": "https://www.spjain.sg/faculty/profiles",
+      "fetchedAt": "2026-10-07T06:45:42.263Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c3c15c5dfe742a1a43b969db097895abd2ba9c43cfcf6fdf47ee723cef7fab83",
+      "title": "Faculty Profiles | SP Jain School of Global Management",
+      "snapshotFile": "raw/0076-c3c15c5dfe74.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/topic/bachelor-of-business-administration",
+      "fetchedAt": "2026-10-07T06:45:46.240Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "983a5b344b330e2ab536f30649d12a571267943c2a12b5afce787f4611637045",
+      "title": "Events | SP Jain School of Global Management | Bachelor of Business Administration",
+      "snapshotFile": "raw/0077-983a5b344b33.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/topic/bachelor-of-data-science",
+      "fetchedAt": "2026-10-07T06:45:48.257Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e0841c33246214ee808841aa3b3be23e185ed4402b1d8272f9ec44fbed6848a7",
+      "title": "Events | SP Jain School of Global Management | Bachelor of Data Science",
+      "snapshotFile": "raw/0078-e0841c332462.html"
+    },
+    {
+      "url": "https://www.spjain.sg/blog/events/topic/postgraduate-programs",
+      "fetchedAt": "2026-10-07T06:45:50.440Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "961680501abf67948a54a571646c0e5b3aba71461ba8adb6534763fc0ffe050a",
+      "title": "Events | SP Jain School of Global Management | Postgraduate Programs",
+      "snapshotFile": "raw/0079-961680501abf.html"
+    },
+    {
+      "url": "https://www.spjain.sg/faculty/profiles/nitin-patwa",
+      "fetchedAt": "2026-10-07T06:45:52.273Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f2c2a4afe2fb915632a9f8ebcc6f7f271fc875e109b2b70006deab69b347206b",
+      "title": "Nitin Patwa | SP Jain School of Global Management",
+      "snapshotFile": "raw/0080-f2c2a4afe2fb.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:45:52.354Z",
+    "seedUrls": [
+      "https://www.spjain.sg/programs/undergraduate/bba/admissions",
+      "https://www.spjain.sg/programs/postgraduate/mgb/admissions",
+      "https://www.spjain.sg/programs/postgraduate/gmba/admissions",
+      "https://www.spjain.sg/programs/postgraduate/executive-mba/admissions",
+      "https://www.spjain.sg/programs/postgraduate/elo/executive-mba/admissions",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/admissions",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/admissions",
+      "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/admissions",
+      "https://www.spjain.sg/programs/postgraduate/master-of-management/admission-process",
+      "https://www.spjain.sg/programs/undergraduate/bba",
+      "https://www.spjain.sg/programs/postgraduate/mgb",
+      "https://www.spjain.sg/programs/postgraduate/gmba",
+      "https://www.spjain.sg/programs/postgraduate/executive-mba",
+      "https://www.spjain.sg/programs/postgraduate/elo/executive-mba",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics",
+      "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business",
+      "https://www.spjain.sg/programs/postgraduate/master-of-management",
+      "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business.",
+      "https://www.spjain.sg/programs/undergraduate/bba/why-spjain",
+      "https://www.spjain.sg/programs/undergraduate/bba/academics/learning-outcomes",
+      "https://www.spjain.sg/programs/undergraduate/bba/academics/program-structure",
+      "https://www.spjain.sg/programs/undergraduate/bba/academics/specialisations",
+      "https://www.spjain.sg/programs/undergraduate/bba/academics/study-abroad-program",
+      "https://www.spjain.sg/programs/undergraduate/bba/fees",
+      "https://www.spjain.sg/programs/undergraduate/bba/students/student-life",
+      "https://www.spjain.sg/programs/undergraduate/bba/careers",
+      "https://www.spjain.sg/programs/undergraduate/scholarships",
+      "https://www.spjain.sg/programs/undergraduate/entrance-test",
+      "https://www.spjain.sg/programs/undergraduate/faqs",
+      "https://www.spjain.sg/programs/undergraduate/bba/important-contacts-and-resources",
+      "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-1-aspirant",
+      "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student",
+      "https://www.spjain.sg/programs/undergraduate/bba/gallery",
+      "https://www.spjain.sg/programs/undergraduate/bba/london-study-option",
+      "https://www.spjain.sg/programs/undergraduate/open-day",
+      "https://www.spjain.sg/programs/postgraduate/emba/fees",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/message-from-the-dean",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/learning-outcomes",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-life",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/careers",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/important-contacts-and-resources",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/gallery",
+      "https://www.spjain.sg/programs/undergraduate/bds/fees",
+      "https://www.spjain.sg/programs/postgraduate/master-of-management/message-from-program-director",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/why-spjain",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/learning-outcomes",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/specialisations",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/faculty",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/projects",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/program-structure",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/fees",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/important-contacts-and-resources",
+      "https://www.spjain.sg/programs/postgraduate/master-of-management/scholarships",
+      "https://www.spjain.sg/programs/postgraduate/master-of-management/brochure",
+      "https://www.spjain.sg/programs/postgraduate/master-of-management/important-contacts-resources",
+      "https://www.spjain.sg/programs/postgraduate/master-of-management/fees",
+      "https://www.spjain.sg/programs/undergraduate/bba/academics",
+      "https://www.spjain.sg/programs/undergraduate/bba/students",
+      "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students",
+      "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/faculty",
+      "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics",
+      "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+      "https://www.spjain.sg/programs/undergraduate/bec",
+      "https://www.spjain.sg/programs/undergraduate/bec/academics",
+      "https://www.spjain.sg/programs/undergraduate",
+      "https://www.spjain.sg/programs/postgraduate",
+      "https://www.spjain.sg/programs",
+      "https://www.spjain.sg/brochures/undergraduate/bba",
+      "https://www.spjain.sg/brochures/undergraduate/bachelor-of-data-science",
+      "https://www.spjain.sg/brochures/undergraduate/bachelor-of-economics",
+      "https://www.spjain.sg/brochures/undergraduate"
+    ],
+    "pages": 80
+  },
+  "detailEnrichment": {
+    "enrichedAt": "2026-10-09T01:54:01.634Z",
+    "source": "saved official programme-page snapshots",
+    "rule": "Only visible source text is copied; missing fields remain null; status remains DRAFT."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.494Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}
