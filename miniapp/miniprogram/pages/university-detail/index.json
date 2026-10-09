@@ -1,5 +1,7 @@
 {
   "navigationStyle": "custom",
+  "navigationBarBackgroundColor": "#f5d66f",
+  "navigationBarTextStyle": "black",
   "usingComponents": {
     "app-state": "/components/app-state/index"
   }

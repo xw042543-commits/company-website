@@ -1,6 +1,7 @@
 import { request } from './http';
 import type { Result } from '../utils/result';
 import { createExpiringCache } from '../utils/expiring-cache';
+import { universityLogoUrl } from './university-media';
 
 const programmeCache = createExpiringCache<ProgrammeDetail>(2 * 60 * 1000);
 
@@ -22,6 +23,7 @@ export interface ProgrammeDetail {
   readonly universitySlug: string;
   readonly universityNameZh: string;
   readonly universityNameEn: string;
+  readonly universityLogoUrl: string | null;
   readonly cityZh: string;
   readonly descriptionZh: string;
   readonly categoryCode: string;
@@ -162,7 +164,8 @@ export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
   }
   const sections: ProgrammeDetailSection[] = [];
   for (const section of raw.sections) {
-    if (!object(section) || !text(section.type) || !integerOrZero(section.sortOrder)) {
+    if (!object(section) || !text(section.type) || !integerOrZero(section.sortOrder)
+      || !['titleZh', 'titleEn', 'bodyZh', 'bodyEn'].every((field) => section[field] == null || typeof section[field] === 'string')) {
       return invalid('INVALID_PROGRAMME_DETAIL_RESPONSE');
     }
     sections.push({ type: section.type, titleZh: optional(section.titleZh), titleEn: optional(section.titleEn),
@@ -172,11 +175,12 @@ export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
     id: raw.id, programmeCode: optional(raw.programmeCode), slug: raw.slug, nameZh: raw.nameZh, nameEn: optional(raw.nameEn),
     universitySlug: raw.universitySlug, universityNameZh: raw.universityNameZh,
     universityNameEn: optional(raw.universityNameEn), cityZh: optional(raw.cityZh),
+    universityLogoUrl: universityLogoUrl(raw.universitySlug),
     descriptionZh: optional(raw.descriptionZh), categoryCode: optional(raw.categoryCode),
     studyLevelCode: optional(raw.studyLevelCode), courseModeCode: optional(raw.courseModeCode),
-    languageCodes: stringList(raw.languageCodes), studyPaceDisplay: optional(raw.studyPaceDisplay),
+    languageCodes: stringList(raw.languageCodes).map((value) => value.trim()), studyPaceDisplay: optional(raw.studyPaceDisplay),
     durationDisplay: optional(raw.durationDisplay), tuitionDisplay: optional(raw.tuitionDisplay),
-    intakeDisplayTexts: stringList(raw.intakeDisplayTexts), sections: sections.sort((a, b) => a.sortOrder - b.sortOrder),
+    intakeDisplayTexts: stringList(raw.intakeDisplayTexts).map((value) => value.trim()), sections: sections.sort((a, b) => a.sortOrder - b.sortOrder),
     imageUrl: secureUrl(raw.imageUrl),
   } };
 }

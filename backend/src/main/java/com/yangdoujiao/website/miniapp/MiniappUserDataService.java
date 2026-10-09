@@ -1,6 +1,7 @@
 package com.yangdoujiao.website.miniapp;
 
 import java.time.OffsetDateTime;
+import com.yangdoujiao.website.application.ApplicationRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -22,14 +23,17 @@ public class MiniappUserDataService {
     private final MiniappStudyPlanRepository plans;
     private final ConsultationEnquiryRepository consultations;
     private final ProgrammeRepository programmes;
+    private final ApplicationRepository applications;
     private final MiniappWalletRepository wallet;
 
     public MiniappUserDataService(MiniappProgrammeFavoriteRepository favorites, MiniappStudyPlanRepository plans,
-            ConsultationEnquiryRepository consultations, ProgrammeRepository programmes, MiniappWalletRepository wallet) {
+            ConsultationEnquiryRepository consultations, ProgrammeRepository programmes,
+            ApplicationRepository applications, MiniappWalletRepository wallet) {
         this.favorites = favorites;
         this.plans = plans;
         this.consultations = consultations;
         this.programmes = programmes;
+        this.applications = applications;
         this.wallet = wallet;
     }
 
@@ -37,7 +41,7 @@ public class MiniappUserDataService {
     public Overview overview(long userId) {
         long orderCount = consultations.countByUserAccountId(userId);
         return new Overview(favorites.countByUserAccountId(userId), plans.countByUserAccountId(userId),
-                orderCount, orderCount);
+                orderCount, applications.countByUser(userId));
     }
 
     @Transactional(readOnly = true)

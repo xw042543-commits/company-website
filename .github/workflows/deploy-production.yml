@@ -62,18 +62,29 @@ jobs:
           PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
           PRODUCTION_SSH_PRIVATE_KEY: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
           PRODUCTION_SSH_KNOWN_HOSTS: ${{ secrets.PRODUCTION_SSH_KNOWN_HOSTS }}
+          APP_MINIAPP_WECHAT_APP_ID: ${{ secrets.APP_MINIAPP_WECHAT_APP_ID }}
+          APP_MINIAPP_WECHAT_APP_SECRET: ${{ secrets.APP_MINIAPP_WECHAT_APP_SECRET }}
         run: |
           umask 077
-          printf '%s\n' "$PRODUCTION_SSH_PRIVATE_KEY" > "$RUNNER_TEMP/production_deploy_key"
-          printf '%s\n' "$PRODUCTION_SSH_KNOWN_HOSTS" > "$RUNNER_TEMP/production_known_hosts"
-          chmod 600 "$RUNNER_TEMP/production_deploy_key" "$RUNNER_TEMP/production_known_hosts"
+          deploy_key="$RUNNER_TEMP/production_deploy_key"
+          known_hosts="$RUNNER_TEMP/production_known_hosts"
+          deploy_script="$RUNNER_TEMP/production_deploy_script"
+          trap 'rm -f "$deploy_key" "$known_hosts" "$deploy_script"' EXIT
+          printf '%s\n' "$PRODUCTION_SSH_PRIVATE_KEY" > "$deploy_key"
+          printf '%s\n' "$PRODUCTION_SSH_KNOWN_HOSTS" > "$known_hosts"
+          {
+            printf 'export APP_MINIAPP_WECHAT_APP_ID=%q\n' "$APP_MINIAPP_WECHAT_APP_ID"
+            printf 'export APP_MINIAPP_WECHAT_APP_SECRET=%q\n' "$APP_MINIAPP_WECHAT_APP_SECRET"
+            cat scripts/deploy-production.sh
+          } > "$deploy_script"
+          chmod 600 "$deploy_key" "$known_hosts" "$deploy_script"
           release_sha="$RELEASE_SHA"
-          ssh -i "$RUNNER_TEMP/production_deploy_key" \
+          ssh -i "$deploy_key" \
             -o BatchMode=yes \
             -o IdentitiesOnly=yes \
             -o StrictHostKeyChecking=yes \
-            -o UserKnownHostsFile="$RUNNER_TEMP/production_known_hosts" \
+            -o UserKnownHostsFile="$known_hosts" \
             -p "$PRODUCTION_SSH_PORT" \
             "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
             "bash -s -- '$release_sha'" \
-            < scripts/deploy-production.sh
+            < "$deploy_script"

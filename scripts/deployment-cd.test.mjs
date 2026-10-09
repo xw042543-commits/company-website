@@ -13,7 +13,8 @@ const workflow = readFileSync(new URL("../.github/workflows/deploy-production.ym
 function runDeploymentCommands({ source = script, runningServices = "frontend backend", failTag = "", consumeStdin = false } = {}) {
   const start = source.indexOf("\ndocker compose --env-file .env.production -f compose.production.yaml config --quiet\n");
   assert.notEqual(start, -1, "the deployment commands must be exercised");
-  return spawnSync("bash", ["-s"], {
+  const bash = process.platform === "win32" ? "C:\\msys64\\usr\\bin\\bash.exe" : "bash";
+  return spawnSync(bash, ["-s"], {
     encoding: "utf8",
     timeout: 5000,
     env: {
@@ -33,7 +34,7 @@ docker() {
         config) [[ "$*" == 'config --quiet' ]] ;;
         ps)
           [[ "$2 $3 $4" == '--status running -q' ]] || return 90
-          case " $DEPLOY_TEST_RUNNING_SERVICES " in
+          case " \${DEPLOY_TEST_RUNNING_SERVICES:-} " in
             *" $5 "*) printf '%s-container\\n' "$5" ;;
           esac ;;
         build)
@@ -42,7 +43,7 @@ docker() {
         up) printf 'up\\n' ;;
         exec)
           printf 'readiness\\n'
-          if [[ $DEPLOY_TEST_CONSUME_STDIN == true ]]; then command cat >/dev/null; fi ;;
+          if [[ \${DEPLOY_TEST_CONSUME_STDIN:-false} == true ]]; then command cat >/dev/null; fi ;;
         *) return 90 ;;
       esac ;;
     container)
@@ -54,7 +55,7 @@ docker() {
       esac ;;
     image)
       [[ $2 == tag ]] || return 90
-      [[ $4 != "$DEPLOY_TEST_FAIL_TAG" ]] || return 91
+      [[ $4 != "\${DEPLOY_TEST_FAIL_TAG:-}" ]] || return 91
       printf 'tag %s %s\\n' "$3" "$4" ;;
     run)
       case "$*" in
@@ -94,12 +95,18 @@ test("production CD verifies SSH identity and streams the exact release script",
     "PRODUCTION_SSH_USER",
     "PRODUCTION_SSH_PRIVATE_KEY",
     "PRODUCTION_SSH_KNOWN_HOSTS",
+    "APP_MINIAPP_WECHAT_APP_ID",
+    "APP_MINIAPP_WECHAT_APP_SECRET",
   ]) assert.match(workflow, new RegExp(`secrets\\.${secret}`));
   assert.match(workflow, /StrictHostKeyChecking=yes/);
   assert.match(workflow, /actions\/checkout@v7/);
   assert.match(workflow, /ref: \$\{\{ steps\.release\.outputs\.sha \}\}/);
   assert.match(workflow, /bash -s -- '\$release_sha'/);
-  assert.match(workflow, /< scripts\/deploy-production\.sh/);
+  assert.match(workflow, /printf 'export APP_MINIAPP_WECHAT_APP_ID=%q/);
+  assert.match(workflow, /printf 'export APP_MINIAPP_WECHAT_APP_SECRET=%q/);
+  assert.match(workflow, /cat scripts\/deploy-production\.sh/);
+  assert.match(workflow, /< "\$deploy_script"/);
+  assert.match(workflow, /trap 'rm -f/);
   assert.doesNotMatch(workflow, /StrictHostKeyChecking=no|sshpass|password=/);
 });
 
@@ -111,6 +118,16 @@ test("production deploy validates and advances to the exact release SHA", () => 
   assert.match(script, /git rev-parse origin\/main/);
   assert.match(script, /git merge --ff-only "\$release_sha"/);
   assert.doesNotMatch(script, /reset --hard|checkout -f|clean -f/);
+});
+
+test("production deploy validates and atomically stores supplied mini-program credentials", () => {
+  assert.match(script, /\^wx\[0-9a-f\]\{16\}\$/);
+  assert.match(script, /\^\[0-9a-f\]\{32\}\$/);
+  assert.match(script, /mktemp \.env\.production\.XXXXXX/);
+  assert.match(script, /update_production_value APP_MINIAPP_AUTH_ENABLED true/);
+  assert.match(script, /update_production_value APP_MINIAPP_WECHAT_APP_ID/);
+  assert.match(script, /update_production_value APP_MINIAPP_WECHAT_APP_SECRET/);
+  assert.doesNotMatch(script, /echo[^\n]*miniapp_secret|set -x/);
 });
 
 test("production deploy validates configuration, health, and public launch", () => {

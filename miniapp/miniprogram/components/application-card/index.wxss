@@ -1,0 +1,7 @@
+.application-card { padding:28rpx; background:#fff; border:1rpx solid #e9eeef; border-radius:24rpx; box-shadow:0 8rpx 28rpx rgba(30,64,53,.025); }
+.identity { display:flex; align-items:flex-start; gap:20rpx; flex-wrap:wrap; }
+.logo-box { width:100rpx; height:108rpx; border:1rpx solid #edf0f1; border-radius:16rpx; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.logo-box image { width:88rpx; height:88rpx; }.logo-fallback{color:#65756e;font-size:24rpx;}
+.identity-copy { flex:1; min-width:160rpx; }.school{font-size:32rpx;font-weight:700;color:#172b3c;line-height:1.35;}.programme{margin-top:8rpx;font-size:27rpx;color:#48596e;line-height:1.5;}.level{margin-top:4rpx;color:#63738b;font-size:23rpx;line-height:1.5;overflow-wrap:break-word;}
+.badge{padding:8rpx 16rpx;border-radius:14rpx;font-size:23rpx;line-height:1.5;white-space:nowrap;}.badge--green{background:#e5faf0;color:#087447;}.badge--warning{background:#fff3d9;color:#965a00;}.badge--muted{background:#eef1f5;color:#566478;}
+.metadata{margin-top:22rpx;padding-top:16rpx;border-top:1rpx solid #f0f2f4;}.meta-row{display:flex;gap:18rpx;margin-top:8rpx;color:#67758a;font-size:24rpx;line-height:1.5;}.meta-row>text:first-child{flex-shrink:0;}.reference{overflow-wrap:anywhere;min-width:0;}.chevron{margin-left:auto;font-size:30rpx;}.application-card--compact{padding:24rpx;box-shadow:none;}.application-card--compact .metadata{margin-top:14rpx;padding-top:0;border:0;}

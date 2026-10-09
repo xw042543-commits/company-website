@@ -16,7 +16,8 @@
     "pages/circle-compose/index",
     "pages/circle-me/index",
     "pages/messages/index",
-    "pages/account/index"
+    "pages/account/index",
+    "pages/application-detail/index"
   ],
   "window": {
     "backgroundColor": "#eef5f1",
