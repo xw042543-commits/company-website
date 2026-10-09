@@ -72,8 +72,8 @@ export function PublicHome({ locale }: { locale: Locale }) {
           return <article className="public-home-school-card" key={school.id}>
             <div className="public-home-school-logo">{school.logoSrc ? <Image src={school.logoSrc} width={180} height={100} alt={words(locale, `${school.nameZh}标志`, `${school.nameEn} logo`)} /> : <span>{school.aliases[0]}</span>}</div>
             <div className="public-home-school-content">
-              <div><h3>{locale === "zh" ? school.nameZh : school.nameEn}</h3>{locale === "zh" && <p className="public-home-school-secondary">{school.nameEn}</p>}</div>
-              <p className="public-home-school-location"><span aria-hidden="true">⌖</span>{locale === "zh" ? `${school.cityZh}，${school.countryZh}` : `${school.cityEn}, ${school.countryEn}`} <span aria-label={words(locale, "马来西亚国旗", "Malaysia flag")}>🇲🇾</span></p>
+              <div><h3>{locale === "zh" ? school.nameZh : school.nameEn}</h3><p className="public-home-school-secondary">{locale === "zh" ? school.nameEn : school.nameZh}</p></div>
+              <p className="public-home-school-location"><span aria-hidden="true">⌖</span>{locale === "zh" ? `${school.cityZh}，${school.countryZh}` : `${school.cityEn}, ${school.countryEn}`} <Image className="country-flag country-flag-image" src="/flags/my.svg" width={24} height={16} alt={words(locale, "马来西亚国旗", "Malaysia flag")} /></p>
               {subjects?.length ? <div className="public-home-school-subjects">{subjects.slice(0, 3).map(subject => <span key={subject}>{subject}</span>)}</div> : null}
               <p className="public-home-school-status"><span aria-hidden="true">✓</span>{school.programmeStatus === "available" ? words(locale, "课程资料可浏览", "Programme details available") : words(locale, "课程资料正在整理", "Programme details coming soon")}</p>
               <Link className="public-home-school-action" href={detailHref}>{words(locale, "登录查看院校详情", "Sign in to view details")} <span aria-hidden="true">→</span></Link>
