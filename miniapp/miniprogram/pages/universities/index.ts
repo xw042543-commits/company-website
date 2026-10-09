@@ -8,7 +8,7 @@ type ListedUniversity = UniversitySummary & { favorite: boolean };
 type FilterKey = 'country' | 'category' | 'level';
 
 interface UniversityEvent extends WechatMiniprogram.BaseEvent { detail: { slug?: string }; }
-interface PickerEvent extends WechatMiniprogram.BaseEvent { detail: { value: string }; }
+type FilterEvent = WechatMiniprogram.BaseEvent;
 
 const allOption = (label: string): FilterOption => ({ code: 'ALL', nameZh: label, nameEn: 'All' });
 
@@ -18,6 +18,10 @@ Page({
     country: 'ALL',
     category: 'ALL',
     level: 'ALL',
+    openFilterKey: '' as '' | FilterKey,
+    openFilterOptions: [] as FilterOption[],
+    openFilterValue: 'ALL',
+    skeletonCards: [0, 1, 2],
     countryIndex: 0,
     categoryIndex: 0,
     levelIndex: 0,
@@ -40,40 +44,59 @@ Page({
   onShow() { this.syncFavorites(); },
   onPullDownRefresh() { void this.loadUniversities(true).finally(() => wx.stopPullDownRefresh()); },
   onReachBottom() {
-    if (this.data.state !== 'ready' || this.data.loadingMore || this.data.page >= this.data.totalPages) return;
+    if (this.data.openFilterKey || this.data.state !== 'ready' || this.data.loadingMore || this.data.page >= this.data.totalPages) return;
     void this.loadUniversities(false);
   },
 
   updateQuery(event: WechatMiniprogram.Input) { this.setData({ query: event.detail.value }); },
-  submitSearch() { void this.loadUniversities(true); },
+  submitSearch() {
+    if (this.data.state === 'loading') return;
+    this.setData({ query: this.data.query.trim(), openFilterKey: '', state: 'loading' as ViewState }, () => void this.loadUniversities(true));
+  },
 
-  chooseFilter(event: PickerEvent) {
-    const key = event.currentTarget.dataset.key as FilterKey;
-    const index = Number(event.detail.value);
+  openFilter(event: FilterEvent) {
+    const key: unknown = event.currentTarget.dataset.key;
+    if (key !== 'country' && key !== 'level' && key !== 'category') return;
+    if (this.data.openFilterKey === key) { this.closeFilters(); return; }
     const optionKey = (key + 'Options') as 'countryOptions' | 'categoryOptions' | 'levelOptions';
-    const options = this.data[optionKey] as FilterOption[];
-    const selected = options[index] ?? options[0]!;
+    this.setData({ openFilterKey: key, openFilterOptions: this.data[optionKey], openFilterValue: this.data[key] });
+  },
+
+  selectFilter(event: FilterEvent) {
+    const key = this.data.openFilterKey;
+    if (!key) return;
+    const optionKey = (key + 'Options') as 'countryOptions' | 'categoryOptions' | 'levelOptions';
+    const options = this.data[optionKey];
+    const index = options.findIndex((option) => option.code === event.currentTarget.dataset.code);
+    const selected = options[index];
+    if (!selected || this.data[key] === selected.code) { this.closeFilters(); return; }
     this.setData({
       [key]: selected.code,
       [key + 'Index']: index,
+      openFilterKey: '',
     }, () => void this.loadUniversities(true));
   },
+
+  closeFilters() { this.setData({ openFilterKey: '' }); },
 
   clearFilters() {
     this.setData({
       query: '', country: 'ALL', category: 'ALL', level: 'ALL',
       countryIndex: 0, categoryIndex: 0, levelIndex: 0,
+      openFilterKey: '',
     }, () => void this.loadUniversities(true));
   },
 
   retry() { void this.loadUniversities(true); },
 
   openUniversity(event: UniversityEvent) {
+    if (this.data.openFilterKey) return;
     const route = universityDetailRoute(event.detail.slug ?? '');
     if (route.ok) wx.navigateTo({ url: route.value });
   },
 
   toggleFavorite(event: UniversityEvent) {
+    if (this.data.openFilterKey) return;
     const slug = event.detail.slug;
     if (!slug) return;
     const active = favoriteUniversities.toggle(slug);
@@ -94,16 +117,21 @@ Page({
       this.setData({ filtersLoading: false });
       return;
     }
-    this.setData({
+    const options = {
       countryOptions: [allOption('全部地区'), ...result.value.countries],
       categoryOptions: [allOption('全部专业'), ...result.value.subjectCategories],
       levelOptions: [allOption('全部学历'), ...result.value.studyLevels],
+    };
+    const key = this.data.openFilterKey;
+    this.setData({
+      ...options,
+      openFilterOptions: key ? options[(key + 'Options') as keyof typeof options] : [],
       filtersLoading: false,
     });
   },
 
   async loadUniversities(reset: boolean) {
-    if (reset) this.setData({ state: 'loading' as ViewState, page: 1, totalPages: 0 });
+    if (reset) this.setData({ state: 'loading' as ViewState, page: 1, totalPages: 0, loadingMore: false });
     else this.setData({ loadingMore: true });
     const nextPage = reset ? 1 : this.data.page + 1;
     const result = await searchUniversities({

@@ -10,6 +10,7 @@ import {
 } from '../miniprogram/services/universities.ts';
 import type { RequestOptions, TransportOptions } from '../miniprogram/services/http.ts';
 import type { Result } from '../miniprogram/utils/result.ts';
+import { resetFilterOptionsCache } from '../miniprogram/services/catalogue.ts';
 
 const fixture = {
   items: [{
@@ -156,6 +157,154 @@ test('omits empty and ALL filters while preserving API parameter names', () => {
   });
 
   assert.equal(path, '/api/v1/universities/search?category=BUSINESS&level=BACHELOR&page=2&size=12&sort=relevance');
+});
+
+test('combines keyword, country, qualification and subject using the existing API names', () => {
+  const path = buildUniversitySearchPath({ q: '  SEGi business  ', country: 'MY', level: 'BACHELOR', category: 'BUSINESS' });
+  const query = new URL(path, 'https://example.test').searchParams;
+  assert.deepEqual(Object.fromEntries(query), {
+    q: 'SEGi business', country: 'MY', category: 'BUSINESS', level: 'BACHELOR',
+    page: '1', size: '12', sort: 'relevance',
+  });
+  assert.equal(buildUniversitySearchPath({ country: 'ALL', level: 'ALL', category: 'ALL' }),
+    '/api/v1/universities/search?page=1&size=12&sort=relevance');
+});
+
+interface DirectoryHarness {
+  data: Record<string, unknown>;
+  setData(patch: Record<string, unknown>, callback?: () => void): void;
+  openFilter(event: { currentTarget: { dataset: { key: string } } }): void;
+  selectFilter(event: { currentTarget: { dataset: { code: string } } }): void;
+  closeFilters(): void;
+  clearFilters(): void;
+  submitSearch(): void;
+  onReachBottom(): void;
+  loadFilters(): Promise<void>;
+}
+
+let directoryImport = 0;
+async function withDirectory(run: (page: DirectoryHarness, requests: TransportOptions[]) => Promise<void>) {
+  const originalPage = Object.getOwnPropertyDescriptor(globalThis, 'Page');
+  const originalWx = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  const requests: TransportOptions[] = [];
+  let page: DirectoryHarness | undefined;
+  resetFilterOptionsCache();
+  Object.defineProperty(globalThis, 'Page', { configurable: true, value(definition: DirectoryHarness) {
+    page = definition;
+    definition.setData = (patch, callback) => { Object.assign(definition.data, patch); callback?.(); };
+  } });
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+    getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }),
+    request(options: TransportOptions) { requests.push(options); return { abort() {} }; },
+  } });
+  try {
+    await import(new URL(`../miniprogram/pages/universities/index.ts?directory=${++directoryImport}`, import.meta.url).href);
+    assert.ok(page);
+    await run(page, requests);
+  } finally {
+    if (originalPage) Object.defineProperty(globalThis, 'Page', originalPage);
+    else Reflect.deleteProperty(globalThis, 'Page');
+    if (originalWx) Object.defineProperty(globalThis, 'wx', originalWx);
+    else Reflect.deleteProperty(globalThis, 'wx');
+    resetFilterOptionsCache();
+  }
+}
+
+test('inline filters open one menu and current or invalid selections close without a search', async () => {
+  await withDirectory(async (page, requests) => {
+    assert.equal(typeof page.openFilter, 'function', 'directory must expose its inline filter action');
+    page.openFilter({ currentTarget: { dataset: { key: 'country' } } });
+    assert.equal(page.data.openFilterKey, 'country');
+    page.openFilter({ currentTarget: { dataset: { key: 'level' } } });
+    assert.equal(page.data.openFilterKey, 'level');
+    page.selectFilter({ currentTarget: { dataset: { code: 'ALL' } } });
+    assert.equal(page.data.openFilterKey, '');
+    page.openFilter({ currentTarget: { dataset: { key: 'category' } } });
+    page.selectFilter({ currentTarget: { dataset: { code: 'INVALID' } } });
+    assert.equal(page.data.category, 'ALL');
+    assert.equal(page.data.openFilterKey, '');
+    page.openFilter({ currentTarget: { dataset: { key: 'country' } } });
+    page.closeFilters();
+    assert.equal(page.data.openFilterKey, '');
+    assert.equal(requests.length, 0);
+  });
+});
+
+test('a changed inline selection reloads page one with all active filters and reset clears them', async () => {
+  await withDirectory(async (page, requests) => {
+    assert.equal(typeof page.openFilter, 'function');
+    Object.assign(page.data, { query: '  SEGi  ', country: 'MY', level: 'BACHELOR', page: 3, totalPages: 5,
+      categoryOptions: [{ code: 'ALL', nameZh: '全部专业', nameEn: 'All' }, { code: 'BUSINESS', nameZh: '商科', nameEn: 'Business' }] });
+    page.openFilter({ currentTarget: { dataset: { key: 'category' } } });
+    page.selectFilter({ currentTarget: { dataset: { code: 'BUSINESS' } } });
+    assert.equal(page.data.openFilterKey, '');
+    assert.equal(page.data.page, 1);
+    assert.equal(page.data.totalPages, 0);
+    assert.equal(page.data.categoryIndex, 1);
+    assert.equal(requests.length, 1);
+    const query = new URL(requests[0]!.url).searchParams;
+    assert.deepEqual(Object.fromEntries(query), { q: 'SEGi', country: 'MY', category: 'BUSINESS', level: 'BACHELOR', page: '1', size: '12', sort: 'relevance' });
+    requests[0]!.success({ statusCode: 200, data: fixture, header: {}, cookies: [] });
+    await new Promise((resolve) => setImmediate(resolve));
+    page.openFilter({ currentTarget: { dataset: { key: 'country' } } });
+    page.clearFilters();
+    assert.deepEqual([page.data.query, page.data.country, page.data.level, page.data.category, page.data.openFilterKey], ['', 'ALL', 'ALL', 'ALL', '']);
+    assert.equal(new URL(requests[1]!.url).searchParams.has('country'), false);
+    requests[1]!.success({ statusCode: 200, data: fixture, header: {}, cookies: [] });
+    await new Promise((resolve) => setImmediate(resolve));
+  });
+});
+
+test('catalogue failure leaves neutral inline filters usable', async () => {
+  await withDirectory(async (page, requests) => {
+    const loading = page.loadFilters();
+    requests[0]!.success({ statusCode: 503, data: {}, header: {}, cookies: [] });
+    await loading;
+    assert.equal(page.data.filtersLoading, false);
+    assert.equal(typeof page.openFilter, 'function');
+    for (const key of ['country', 'level', 'category']) {
+      page.openFilter({ currentTarget: { dataset: { key } } });
+      assert.equal(page.data.openFilterKey, key);
+      assert.equal((page.data.openFilterOptions as Array<{ code: string }>)[0]?.code, 'ALL');
+      page.selectFilter({ currentTarget: { dataset: { code: 'ALL' } } });
+      assert.equal(page.data.openFilterKey, '');
+    }
+    assert.equal(requests.length, 1);
+  });
+});
+
+test('open filters block result pagination and a loading search cannot be submitted twice', async () => {
+  await withDirectory(async (page, requests) => {
+    assert.equal(typeof page.openFilter, 'function');
+    Object.assign(page.data, { state: 'ready', page: 1, totalPages: 2 });
+    page.openFilter({ currentTarget: { dataset: { key: 'country' } } });
+    page.onReachBottom();
+    assert.equal(requests.length, 0);
+    page.closeFilters();
+    page.data.query = '  SEGi  ';
+    page.submitSearch();
+    page.submitSearch();
+    assert.equal(page.data.query, 'SEGi');
+    assert.equal(requests.length, 1);
+    requests[0]!.success({ statusCode: 200, data: fixture, header: {}, cookies: [] });
+    await new Promise((resolve) => setImmediate(resolve));
+  });
+});
+
+test('search marks itself loading before the native render callback so rapid taps issue one request', async () => {
+  await withDirectory(async (page, requests) => {
+    const callbacks: Array<() => void> = [];
+    page.setData = (patch, callback) => { Object.assign(page.data, patch); if (callback) callbacks.push(callback); };
+    Object.assign(page.data, { state: 'ready', query: '  SEGi  ' });
+    page.submitSearch();
+    page.submitSearch();
+    assert.equal(page.data.state, 'loading');
+    assert.equal(callbacks.length, 1);
+    callbacks[0]!();
+    assert.equal(requests.length, 1);
+    requests[0]!.success({ statusCode: 200, data: fixture, header: {}, cookies: [] });
+    await new Promise((resolve) => setImmediate(resolve));
+  });
 });
 
 test('maps university detail without inventing optional content', () => {

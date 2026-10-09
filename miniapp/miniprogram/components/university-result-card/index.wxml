@@ -1,0 +1,18 @@
+<view class="university-result-card">
+  <button class="university-selection" bindtap="select" hover-class="university-selection--pressed" aria-label="查看{{university.nameZh || university.nameEn}}院校详情">
+    <image wx:if="{{displayImageUrl && !imageFailed}}" class="campus-image" src="{{displayImageUrl}}" mode="aspectFill" lazy-load fade-show binderror="imageError" aria-hidden="true" />
+    <view wx:else class="campus-fallback" aria-hidden="true">
+      <text class="fallback-brand">洋豆角</text>
+      <text class="fallback-copy">院校资料</text>
+    </view>
+    <view class="photo-shade" aria-hidden="true"></view>
+    <view class="university-identity">
+      <view class="university-name">{{university.nameZh}}</view>
+      <view class="university-name-en">{{university.nameEn}}</view>
+      <view class="university-location">{{university.location || '地点资料待补充'}}</view>
+    </view>
+  </button>
+  <button class="favorite-button {{favorite ? 'favorite-button--active' : ''}}" catchtap="toggleFavorite" aria-label="{{favorite ? '取消收藏' : '收藏院校'}}" hover-class="favorite-button--pressed">
+    <text aria-hidden="true">{{favorite ? '♥' : '♡'}}</text>
+  </button>
+</view>

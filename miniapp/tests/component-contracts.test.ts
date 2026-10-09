@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFile } from 'node:fs/promises';
 
 interface CardContext {
   data: { university: Record<string, unknown>; imageFailed: boolean; [key: string]: unknown };
@@ -188,4 +189,75 @@ test('community card only clears a failed avatar when its URL changes', async ()
   context.data.post = { ...context.data.post, authorAvatarUrl: 'https://example.test/b.png' };
   communityCard.properties.post.observer.call(context);
   assert.equal(context.data.imageFailed, false);
+});
+
+interface ResultCardDefinition extends CardDefinition {
+  methods: CardDefinition['methods'] & { toggleFavorite(this: CardContext): void };
+}
+
+test('directory photo card has native image loading, labelled independent actions and a branded fallback', async () => {
+  const markup = await readFile(new URL('../miniprogram/components/university-result-card/index.wxml', import.meta.url), 'utf8');
+  assert.match(markup, /mode="aspectFill"/);
+  assert.match(markup, /lazy-load/);
+  assert.match(markup, /fade-show/);
+  assert.match(markup, /binderror="imageError"/);
+  assert.match(markup, /catchtap="toggleFavorite"/);
+  assert.match(markup, /aria-label="\{\{favorite \? '取消收藏' : '收藏院校'\}\}"/);
+  assert.match(markup, /洋豆角/);
+  assert.doesNotMatch(markup, /ranking|排名|QS/);
+});
+
+test('directory photo card preserves an image failure for metadata updates and emits select and favorite slugs', async () => {
+  let resultCard: ResultCardDefinition | undefined;
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'Component');
+  Object.defineProperty(globalThis, 'Component', { configurable: true, value(definition: ResultCardDefinition) { resultCard = definition; } });
+  try { await import(new URL('../miniprogram/components/university-result-card/index.ts', import.meta.url).href); }
+  finally {
+    if (original) Object.defineProperty(globalThis, 'Component', original);
+    else Reflect.deleteProperty(globalThis, 'Component');
+  }
+  assert.ok(resultCard);
+  const events: Array<{ name: string; detail: { slug: unknown } }> = [];
+  const context: CardContext = {
+    data: { ...resultCard.data, imageFailed: false, university: { slug: 'segi-university', coverImageUrl: 'https://example.test/campus.jpg', imageUrl: 'https://example.test/logo.jpg' } },
+    setData(update) { Object.assign(this.data, update); },
+    triggerEvent(name, detail) { events.push({ name, detail }); },
+  };
+  const observer = resultCard.properties.university.observer;
+  assert.ok(observer);
+  observer.call(context);
+  assert.equal(context.data.displayImageUrl, 'https://example.test/campus.jpg');
+  resultCard.methods.imageError!.call(context);
+  context.data.university = { ...context.data.university, nameEn: 'Updated university name' };
+  observer.call(context);
+  assert.equal(context.data.imageFailed, true);
+  resultCard.methods.select.call(context);
+  resultCard.methods.toggleFavorite.call(context);
+  assert.deepEqual(events, [
+    { name: 'select', detail: { slug: 'segi-university' } },
+    { name: 'favorite', detail: { slug: 'segi-university' } },
+  ]);
+  context.data.university = { slug: 'segi-university', coverImageUrl: null, imageUrl: 'https://example.test/logo.jpg' };
+  observer.call(context);
+  assert.equal(context.data.displayImageUrl, 'https://example.test/logo.jpg');
+  assert.equal(context.data.imageFailed, false);
+  context.data.university = { slug: 'segi-university', coverImageUrl: null, imageUrl: null };
+  observer.call(context);
+  assert.equal(context.data.displayImageUrl, null);
+});
+
+test('directory uses inline option menus, an outside dismiss layer and matching photo skeletons', async () => {
+  const markup = await readFile(new URL('../miniprogram/pages/universities/index.wxml', import.meta.url), 'utf8');
+  const config = JSON.parse(await readFile(new URL('../miniprogram/pages/universities/index.json', import.meta.url), 'utf8'));
+  assert.doesNotMatch(markup, /<picker/);
+  assert.match(markup, /(?:bind|catch)tap="openFilter"/);
+  assert.match(markup, /^<view[^>]+bindtap="closeFilters"/, 'taps anywhere outside the menus must dismiss them');
+  assert.match(markup, /bindtap="selectFilter"/);
+  assert.match(markup, /catchtap="closeFilters"/);
+  assert.match(markup, /filter-option--selected/);
+  assert.match(markup, /✓/);
+  assert.match(markup, /university-result-card/);
+  assert.match(markup, /photo-skeleton/);
+  assert.equal(config.usingComponents['university-result-card'], '/components/university-result-card/index');
+  assert.equal(config.usingComponents['university-card'], undefined);
 });
