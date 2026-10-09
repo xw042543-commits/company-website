@@ -3,11 +3,13 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
 import { Pagination } from "@/components/pagination";
+import { RemoteImage } from "@/components/remote-image";
 import { ResultsState } from "@/components/results-state";
 import { SaveToggle } from "@/components/save-toggle";
 import { universityProfile } from "@/data/university-profiles";
 import { findUniversityBySlug } from "@/data/university-catalog";
 import { localProgrammeLevels } from "@/data/local-programmes";
+import { universityMedia } from "@/data/university-media";
 import { getFilterOptions } from "@/lib/filter-options-api";
 import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { programmeDetailPath } from "@/lib/programme-routes";
@@ -70,6 +72,8 @@ export default async function Detail({ params, searchParams }: DetailProps) {
     filterResult.status === "ready" ? filterResult.options : undefined,
   );
   const directoryUniversity = findUniversityBySlug(slug);
+  const databaseMedia = universityMedia(slug);
+  const universityImage = detailResult.university.imageUrl ?? databaseMedia?.logoSrc ?? directoryUniversity?.logoSrc;
   const profile = directoryUniversity ? universityProfile(directoryUniversity.id) : undefined;
   const selectedLevel = first(query, "level");
   const programmeKeyword = first(query, "q");
@@ -89,8 +93,10 @@ export default async function Detail({ params, searchParams }: DetailProps) {
     <BackLink locale={locale} />
     <header className="university-detail-header">
       <div className="university-identity-logo">
-        {directoryUniversity?.logoSrc
-          ? <Image src={directoryUniversity.logoSrc} width={220} height={160} alt={words(locale, `${view.name} 标志`, `${view.name} logo`)} priority />
+        {universityImage
+          ? universityImage.startsWith("http")
+            ? <RemoteImage src={universityImage} label={view.name} alt={words(locale, `${view.name} 标志`, `${view.name} logo`)} />
+            : <Image src={universityImage} width={220} height={160} alt={words(locale, `${view.name} 标志`, `${view.name} logo`)} priority />
           : <span>{view.name.slice(0, 1)}</span>}
       </div>
       <div className="university-detail-heading">
@@ -125,10 +131,14 @@ export default async function Detail({ params, searchParams }: DetailProps) {
             <p className="section-label">{words(locale, "认识院校", "Discover the university")}</p>
             <h2>{words(locale, "院校介绍", "University profile")}</h2>
           </div>
-          <div className={`university-overview-grid${profile?.campusImageSrc ? " has-photo" : " no-photo"}`}>
-            {profile?.campusImageSrc && <div>
-              <div className={`detail-image university-profile-media${profile?.campusImageSrc ? " has-photo" : ""}`}>
-                <Image src={profile.campusImageSrc} fill sizes="(max-width: 760px) 100vw, 640px" alt={words(locale, `${view.name} 校园`, `${view.name} campus`)} priority />
+          <div className={`university-overview-grid${profile?.campusImageSrc || universityImage ? " has-photo" : " no-photo"}`}>
+            {(profile?.campusImageSrc || universityImage) && <div>
+              <div className="detail-image university-profile-media has-photo">
+                {profile?.campusImageSrc
+                  ? <Image src={profile.campusImageSrc} fill sizes="(max-width: 760px) 100vw, 640px" alt={words(locale, `${view.name} 校园`, `${view.name} campus`)} priority />
+                  : universityImage?.startsWith("http")
+                    ? <RemoteImage src={universityImage} label={view.name} alt={words(locale, `${view.name} 校园`, `${view.name} campus`)} />
+                    : <Image src={universityImage!} fill sizes="(max-width: 760px) 100vw, 640px" alt={words(locale, `${view.name} 校园`, `${view.name} campus`)} priority />}
               </div>
               {profile.imageCredit && <p className="image-credit">{words(locale, "图片来源", "Image source")}: <a href={profile.imageCredit.href} target="_blank" rel="noreferrer">{profile.imageCredit.label}</a></p>}
             </div>}
@@ -178,6 +188,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
                 {view.programmes.map((programme) => {
                   const programmePath = programmeDetailPath(locale, slug, programme.id);
                   return <article className="programme-detail-card" id={`programme-${programme.id}`} key={programme.id}>
+                  {programme.imageUrl && <RemoteImage className="programme-card-image" src={programme.imageUrl} label={programme.name} alt="" />}
                   <div className="programme-card-heading"><h3><Link className="programme-title-link" href={programmePath}>{programme.name}</Link></h3><SaveToggle compact locale={locale} item={{ key: `programme:${slug}:${programme.id}`, kind: "programme", name: programme.name, secondaryName: programme.secondaryName, context: view.name, path: programmePath, facts: [[words(locale, "学历", "Level"), programme.level], [words(locale, "学制", "Duration"), programme.duration], [words(locale, "参考学费", "Tuition"), programme.tuition]].filter((fact): fact is [string, string] => Boolean(fact[1])).map(([label, value]) => ({ label, value })) }} /></div>
                   {programme.secondaryName && <p className="detail-secondary-name">{programme.secondaryName}</p>}
                   <dl className="course-details">

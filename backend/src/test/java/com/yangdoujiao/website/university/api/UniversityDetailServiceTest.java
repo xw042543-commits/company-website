@@ -21,6 +21,7 @@ import com.yangdoujiao.website.catalog.StudyLevel;
 import com.yangdoujiao.website.catalog.SubjectCategory;
 import com.yangdoujiao.website.common.api.PageResponse;
 import com.yangdoujiao.website.common.exception.ResourceNotFoundException;
+import com.yangdoujiao.website.media.MediaLookupRepository;
 import com.yangdoujiao.website.programme.Programme;
 import com.yangdoujiao.website.programme.ProgrammeIntakeRepository;
 import com.yangdoujiao.website.programme.ProgrammeRepository;
@@ -41,6 +42,7 @@ class UniversityDetailServiceTest {
     @Mock private UniversityProgrammeQueryRepository programmeQuery;
     @Mock private UniversitySearchCriteriaFactory criteriaFactory;
     @Mock private SearchFilterCodeValidator filterCodeValidator;
+    @Mock private MediaLookupRepository media;
     @Mock private University university;
     @Mock private Programme programme;
     @Mock private SubjectCategory subjectCategory;
@@ -152,13 +154,18 @@ class UniversityDetailServiceTest {
     }
 
     private UniversityDetailService service() {
+        org.mockito.Mockito.lenient().when(media.findUniversityImageUrls(org.mockito.ArgumentMatchers.any()))
+                .thenReturn(java.util.Map.of());
+        org.mockito.Mockito.lenient().when(media.findProgrammeImageUrls(org.mockito.ArgumentMatchers.any()))
+                .thenReturn(java.util.Map.of());
         return new UniversityDetailService(
                 universities,
                 programmes,
                 intakes,
                 programmeQuery,
                 criteriaFactory,
-                filterCodeValidator
+                filterCodeValidator,
+                media
         );
     }
 }

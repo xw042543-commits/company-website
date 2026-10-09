@@ -31,7 +31,8 @@ export function isNavigationActive(pathname: string, locale: Locale, path: strin
   return path ? pathname === target || pathname.startsWith(`${target}/`) : pathname === target || pathname === `${target}/`;
 }
 export const publicNavigation = [
-  ["", "首页", "Home"], ["about", "关于我们", "About us"],
+  ["", "首页", "Home"], ["universities", "院校一览", "Universities"],
+  ["about", "关于我们", "About us"],
 ] as const;
 export const memberNavigation = [
   ["", "首页", "Home"], ["planning", "留学规划", "Study planning"],
