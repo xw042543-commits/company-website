@@ -13,18 +13,18 @@
         <text wx:else aria-hidden="true">{{logoLetter}}</text>
       </view>
       <view class="identity-copy">
-        <view class="programme-title">{{programme.nameZh}}</view>
+        <view class="programme-title" aria-role="heading" aria-level="1">{{programme.nameZh}}</view>
         <view class="programme-title-en">{{programme.nameEn}}</view>
         <view class="university-name">{{programme.universityNameZh}}</view>
       </view>
     </view>
 
     <view wx:for="{{documentSections}}" wx:key="key" wx:for-item="section" class="document-section">
-      <view class="section-title" role="heading">{{section.key === 'INTRODUCTION' ? '专业描述' : section.key === 'BASIC_INFORMATION' ? '基本信息' : section.title || '详细资料'}}</view>
-      <view wx:if="{{section.key === 'BASIC_INFORMATION'}}" class="facts-table" role="table" aria-label="基本信息">
-        <view wx:for="{{basicFacts}}" wx:key="label" role="row" class="fact-row">
-          <view class="fact-label" role="rowheader">{{item.label}}</view>
-          <view class="fact-value" role="cell">{{item.value}}</view>
+      <view class="section-title" aria-role="heading" aria-level="2">{{section.key === 'INTRODUCTION' ? '专业描述' : section.key === 'BASIC_INFORMATION' ? '基本信息' : section.title || '详细资料'}}</view>
+      <view wx:if="{{section.key === 'BASIC_INFORMATION'}}" class="facts-table" aria-role="table" aria-label="基本信息">
+        <view wx:for="{{basicFacts}}" wx:key="label" aria-role="row" class="fact-row">
+          <view class="fact-label" aria-role="rowheader">{{item.label}}</view>
+          <view class="fact-value" aria-role="cell">{{item.value}}</view>
         </view>
       </view>
       <view wx:elif="{{section.locked}}" class="locked-section">

@@ -92,10 +92,13 @@ test('programme document template clears custom navigation and renders semantic 
   assert.match(markup!, /wx:for="\{\{documentSections\}\}"/);
   assert.match(markup!, /专业描述/);
   assert.match(markup!, /基本信息/);
-  assert.match(markup!, /role="table"/);
-  assert.match(markup!, /wx:for="\{\{basicFacts\}\}"[^>]+role="row"/);
-  assert.match(markup!, /role="rowheader"/);
-  assert.match(markup!, /role="cell"/);
+  assert.doesNotMatch(markup!, /\srole\s*=/, 'native WeChat templates must use aria-role rather than the HTML role attribute');
+  assert.match(markup!, /class="programme-title"[^>]+aria-role="heading"[^>]+aria-level="1"/);
+  assert.match(markup!, /class="section-title"[^>]+aria-role="heading"[^>]+aria-level="2"/);
+  assert.match(markup!, /class="facts-table"[^>]+aria-role="table"/);
+  assert.match(markup!, /wx:for="\{\{basicFacts\}\}"[^>]+aria-role="row"/);
+  assert.match(markup!, /class="fact-label"[^>]+aria-role="rowheader"/);
+  assert.match(markup!, /class="fact-value"[^>]+aria-role="cell"/);
   const locked = markup!.match(/<view wx:elif="\{\{section.locked\}\}"[\s\S]*?(?=<view wx:else)/)?.[0];
   assert.ok(locked, 'locked branches must be distinct from public body rendering');
   assert.match(locked, /aria-hidden="true"/);
