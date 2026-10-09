@@ -15,6 +15,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import com.yangdoujiao.website.auth.AuthHash;
 import com.yangdoujiao.website.auth.account.*;
 import com.yangdoujiao.website.common.exception.ApiException;
+import com.yangdoujiao.website.university.UniversityRepository;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
@@ -34,25 +35,34 @@ public class CommunityWriteService {
     private final StringRedisTemplate redis;
     private final CommunityMetrics metrics;
     private final CommunityNotificationPublisher notifications;
+    private final UniversityRepository universities;
 
     public CommunityWriteService(CommunityProperties properties, CommunityPostRepository posts,
             CommunityCommentRepository comments, CommunityIdempotencyRecordRepository idempotency,
             CommunityUserRestrictionRepository restrictions, UserAccountRepository accounts,
             CommunityRateLimiter limiter, CommunityRiskPolicy risk, ObjectMapper json, Clock clock, StringRedisTemplate redis,
-            CommunityMetrics metrics, CommunityNotificationPublisher notifications) {
+            CommunityMetrics metrics, CommunityNotificationPublisher notifications, UniversityRepository universities) {
         this.properties = properties; this.posts = posts; this.comments = comments; this.idempotency = idempotency;
         this.restrictions = restrictions; this.accounts = accounts; this.limiter = limiter; this.risk = risk;
         this.json = json; this.clock = clock; this.redis = redis; this.metrics = metrics;
         this.notifications = notifications;
+        this.universities = universities;
     }
 
     public CreationResult createPost(long actorId, String address, String key, CommunityPostRequest request) {
         String body = normalize(request == null ? null : request.body(), 2000);
-        return execute(actorId, "CREATE_POST", key, hash(List.of(body)), () -> {
+        var metadata = CommunityPostMetadata.from(request);
+        // Preserve the historical fingerprint for semantically body-only requests.
+        String fingerprint = metadata.title() == null && metadata.category() == CommunityCategory.GENERAL && metadata.universityId() == null
+                ? hash(List.of(body)) : hash(java.util.Arrays.asList(body, metadata.title(), metadata.category().name(),
+                        metadata.universityId() == null ? null : metadata.universityId().toString()));
+        return execute(actorId, "CREATE_POST", key, fingerprint, () -> {
             requireAllowed(actorId);
+            if (metadata.universityId() != null && !universities.existsById(metadata.universityId())) throw new ApiException(
+                    HttpStatus.BAD_REQUEST, "INVALID_COMMUNITY_UNIVERSITY", "University does not exist");
             limiter.checkPost(actorId, address);
-            var status = classify(body);
-            var post = posts.saveAndFlush(CommunityPost.create(actorId, body, status,
+            var status = classify(metadata.title() == null ? body : metadata.title() + "\n" + body);
+            var post = posts.saveAndFlush(CommunityPost.create(actorId, body, metadata, status,
                     status == CommunityContentStatus.PENDING_REVIEW ? "RISK_REVIEW" : null, now()));
             return new CommunityCreationResponse(post.getId().toString(), null, null, post.getBody(), post.getStatus(),
                     post.getCreatedAt(), post.getPublishedAt());
@@ -184,14 +194,17 @@ public class CommunityWriteService {
         return new ApiException(HttpStatus.BAD_REQUEST, "INVALID_COMMUNITY_ID", "Community ID must be a decimal string");
     }
     private static String normalize(JsonNode node, int maximum) {
-        if (node == null || !node.isString()) throw invalidBody();
+        return normalize(node, maximum, CommunityWriteService::invalidBody);
+    }
+    static String normalize(JsonNode node, int maximum, Supplier<ApiException> invalidText) {
+        if (node == null || !node.isString()) throw invalidText.get();
         String body = node.asString().replace("\r\n", "\n").replace('\r', '\n');
         if (body.codePoints().allMatch(point -> Character.isWhitespace(point) || Character.isSpaceChar(point))
-                || body.codePointCount(0, body.length()) > maximum) throw invalidBody();
+                || body.codePointCount(0, body.length()) > maximum) throw invalidText.get();
         for (int offset = 0; offset < body.length();) {
             int codePoint = body.codePointAt(offset);
             if ((Character.isISOControl(codePoint) && codePoint != '\n' && codePoint != '\t')
-                    || codePoint >= 0xD800 && codePoint <= 0xDFFF) throw invalidBody();
+                    || codePoint >= 0xD800 && codePoint <= 0xDFFF) throw invalidText.get();
             offset += Character.charCount(codePoint);
         }
         return body;

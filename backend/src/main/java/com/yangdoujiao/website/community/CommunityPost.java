@@ -28,6 +28,16 @@ public class CommunityPost {
     @Column(name = "body", nullable = false, columnDefinition = "TEXT")
     private String body;
 
+    @Column(name = "title", length = 60)
+    private String title;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "category", nullable = false, length = 30)
+    private CommunityCategory category;
+
+    @Column(name = "university_id")
+    private Long universityId;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 30)
     private CommunityContentStatus status;
@@ -59,9 +69,18 @@ public class CommunityPost {
 
     static CommunityPost create(Long authorAccountId, String body, CommunityContentStatus status,
             String riskReasonCode, OffsetDateTime now) {
+        return create(authorAccountId, body, new CommunityPostMetadata(null, CommunityCategory.GENERAL, null),
+                status, riskReasonCode, now);
+    }
+
+    static CommunityPost create(Long authorAccountId, String body, CommunityPostMetadata metadata,
+            CommunityContentStatus status, String riskReasonCode, OffsetDateTime now) {
         CommunityPost post = new CommunityPost();
         post.authorAccountId = authorAccountId;
         post.body = body;
+        post.title = metadata.title();
+        post.category = metadata.category();
+        post.universityId = metadata.universityId();
         post.status = status;
         post.riskReasonCode = riskReasonCode;
         post.publishedAt = status == CommunityContentStatus.PUBLISHED ? now : null;

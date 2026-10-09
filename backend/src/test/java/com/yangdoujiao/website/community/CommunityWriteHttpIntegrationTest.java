@@ -84,6 +84,84 @@ class CommunityWriteHttpIntegrationTest {
         assertThat(posts.count()).isEqualTo(1);
     }
 
+    @Test void legacyPostsDefaultMetadataAndFullMetadataPersistsWithoutLosingDecimalPrecision() throws Exception {
+        String legacy = write("/api/v1/community/posts", "legacy-metadata", Map.of("body", "legacy body"))
+                .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
+        long legacyId = Long.parseLong(JsonPath.read(legacy, "$.id"));
+        assertThat(jdbc.queryForMap("SELECT title,category,university_id FROM community_posts WHERE id=?", legacyId))
+                .containsEntry("title", null).containsEntry("category", "GENERAL").containsEntry("university_id", null);
+        long university = 9007199254740993L;
+        jdbc.update("INSERT INTO universities(id,name,slug,country) VALUES (?,'Campus fixture',?,'Malaysia')",
+                university, "campus-" + UUID.randomUUID());
+        String created = write("/api/v1/community/posts", "full-metadata", Map.of("body", "body", "title", "😀".repeat(60),
+                "category", "HOUSING", "universityId", Long.toString(university)))
+                .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
+        long id = Long.parseLong(JsonPath.read(created, "$.id"));
+        assertThat(jdbc.queryForMap("SELECT title,category,university_id FROM community_posts WHERE id=?", id))
+                .containsEntry("title", "😀".repeat(60)).containsEntry("category", "HOUSING").containsEntry("university_id", university);
+    }
+
+    @Test void invalidMetadataIsRejectedBeforeStoringContentOrIdempotency() throws Exception {
+        for (Map<String, ?> metadata : java.util.List.<Map<String, ?>>of(
+                Map.of("category", "UNKNOWN"), Map.of("category", "general"), Map.of("category", 1),
+                java.util.Collections.singletonMap("category", null),
+                Map.of("title", ""), Map.of("title", " \u00a0"), Map.of("title", "a".repeat(61)),
+                Map.of("title", "😀".repeat(61)), Map.of("title", "\u0000"), Map.of("title", 123),
+                Map.of("universityId", Long.toString(Long.MAX_VALUE)), Map.of("universityId", 1),
+                Map.of("universityId", "0"), Map.of("universityId", "01"), Map.of("universityId", "9223372036854775808"))) {
+            var payload = new java.util.HashMap<String, Object>(metadata);
+            payload.put("body", "body");
+            write("/api/v1/community/posts", UUID.randomUUID().toString(), payload).andExpect(status().isBadRequest());
+        }
+        mvc.perform(post("/api/v1/community/posts").with(user(UserPrincipal.from(author))).with(csrf())
+                .header("Idempotency-Key", "title-surrogate").contentType("application/json")
+                .content("{\"body\":\"body\",\"title\":\"\\ud800\"}"))
+                .andExpect(status().isBadRequest());
+        assertThat(posts.count()).isZero();
+        assertThat(idempotency.count()).isZero();
+    }
+
+    @Test void metadataChangesConflictAndNormalizedTitleReplaysOriginalResult() throws Exception {
+        String response = write("/api/v1/community/posts", "metadata-key",
+                Map.of("body", "body", "title", "title\r\nline", "category", "STUDY"))
+                .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
+        write("/api/v1/community/posts", "metadata-key", Map.of("body", "body", "title", "title\nline", "category", "STUDY"))
+                .andExpect(status().isOk()).andExpect(content().json(response));
+        write("/api/v1/community/posts", "metadata-key", Map.of("body", "body", "title", "title\nline", "category", "MEETUP"))
+                .andExpect(status().isConflict()).andExpect(jsonPath("$.code").value("IDEMPOTENCY_CONFLICT"));
+        write("/api/v1/community/posts", "metadata-key", Map.of("body", "body", "title", "other", "category", "STUDY"))
+                .andExpect(status().isConflict());
+        long university = jdbc.queryForObject("INSERT INTO universities(name,slug,country) VALUES ('Campus fixture',?,'Malaysia') RETURNING id",
+                Long.class, "digest-campus-" + UUID.randomUUID());
+        write("/api/v1/community/posts", "metadata-key", Map.of("body", "body", "title", "title\nline", "category", "STUDY",
+                "universityId", Long.toString(university))).andExpect(status().isConflict());
+        assertThat(posts.count()).isEqualTo(1);
+    }
+
+    @Test void titleRiskTermsEnterExistingReviewAndRejectPaths() throws Exception {
+        String response = write("/api/v1/community/posts", "title-review", Map.of("body", "safe body", "title", "fixture-review"))
+                .andExpect(status().isCreated()).andExpect(jsonPath("$.status").value("PENDING_REVIEW"))
+                .andReturn().getResponse().getContentAsString();
+        mvc.perform(get("/api/v1/community/posts/" + JsonPath.read(response, "$.id"))).andExpect(status().isNotFound());
+        write("/api/v1/community/posts", "title-reject", Map.of("body", "safe body", "title", "fixture-reject"))
+                .andExpect(status().isBadRequest()).andExpect(jsonPath("$.code").value("COMMUNITY_CONTENT_REJECTED"));
+        assertThat(posts.count()).isEqualTo(1);
+        assertThat(idempotency.count()).isEqualTo(1);
+    }
+
+    @Test void preMigrationBodyOnlyIdempotencyHashRemainsReplayable() throws Exception {
+        var post = seedPost(CommunityContentStatus.PUBLISHED);
+        String original = "{\"id\":\"" + post.getId() + "\",\"body\":\"post\",\"status\":\"PUBLISHED\"}";
+        idempotency.saveAndFlush(CommunityIdempotencyRecord.create(author.getId(), "CREATE_POST", "historic-key",
+                com.yangdoujiao.website.auth.AuthHash.sha256("[\"post\"]"), post.getId(), original, OffsetDateTime.now()));
+        failRedis();
+        write("/api/v1/community/posts", "historic-key", Map.of("body", "post"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.id").value(post.getId().toString()));
+        write("/api/v1/community/posts", "historic-key", Map.of("body", "post", "category", "GENERAL"))
+                .andExpect(status().isOk());
+        assertThat(posts.count()).isEqualTo(1);
+    }
+
     @Test void unicodeLimitsCountCodePointsAndNormalizeOnlyLineEndings() throws Exception {
         write("/api/v1/community/posts", "emoji-boundary", Map.of("body", "😀".repeat(2000)))
                 .andExpect(status().isCreated());
