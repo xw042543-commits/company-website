@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "消息",
+  "enablePullDownRefresh": true,
+  "usingComponents": { "app-state": "/components/app-state/index" }
+}

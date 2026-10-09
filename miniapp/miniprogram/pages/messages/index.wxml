@@ -1,0 +1,34 @@
+<view class="page-shell messages-page">
+  <view class="messages-heading">消息</view>
+  <view class="message-filters" role="tablist">
+    <button wx:for="{{filters}}" wx:key="key" class="message-filter {{category === item.key ? 'message-filter--active' : ''}}" data-category="{{item.key}}" bindtap="selectCategory" aria-label="{{item.label}}消息" aria-selected="{{category === item.key}}">{{item.label}}</button>
+  </view>
+
+  <view wx:if="{{detail}}" class="message-detail">
+    <view class="detail-header"><text class="detail-category">{{detail.categoryLabel}}</text><button class="detail-close" bindtap="closeDetail" aria-label="关闭消息详情">关闭</button></view>
+    <view class="detail-title">{{detail.title}}</view>
+    <view class="detail-time">{{detail.displayTime}}</view>
+    <text class="detail-body" selectable="{{true}}">{{detail.body}}</text>
+  </view>
+
+  <view wx:if="{{state === 'ready'}}" class="message-list">
+    <button wx:for="{{items}}" wx:key="id" class="message-row {{!item.readAt ? 'message-row--unread' : ''}} {{readingId ? 'message-row--busy' : ''}}" data-id="{{item.id}}" bindtap="openMessage" disabled="{{!!readingId}}" aria-label="{{item.readAt ? '已读' : '未读'}}，{{item.title}}，{{item.categoryLabel}}">
+      <view class="message-title-line"><view class="message-title">{{item.title}}</view><view wx:if="{{!item.readAt}}" class="message-unread-dot" /></view>
+      <view class="message-body">{{item.body}}</view>
+      <view class="message-meta"><text>{{item.categoryLabel}}</text><text>{{item.displayTime}}</text><text wx:if="{{readingId === item.id}}">正在打开…</text></view>
+    </button>
+    <view wx:if="{{loadingMore}}" class="messages-foot">正在加载更多消息…</view>
+    <view wx:elif="{{loadMoreError}}" class="messages-foot"><view>更多消息暂时无法加载</view><button class="messages-retry" bindtap="loadMore">重试</button></view>
+    <button wx:elif="{{hasMore}}" class="messages-more" bindtap="loadMore">加载更多</button>
+    <view wx:else class="messages-foot">已显示全部消息</view>
+  </view>
+  <app-state wx:elif="{{state === 'loading'}}" kind="loading" title="正在读取消息" description="请稍候。" />
+  <app-state wx:elif="{{state === 'empty'}}" kind="empty" title="暂无消息" description="收到消息后，会显示在这里。" />
+  <view wx:elif="{{state === 'unauthorized'}}" class="message-login">
+    <view class="login-title">登录后查看消息</view><view class="login-copy">接收U圈互动、系统通知和申请进度。</view>
+    <button class="login-button" bindtap="login" loading="{{loggingIn}}" disabled="{{loggingIn}}">{{loggingIn ? '正在登录' : '微信登录'}}</button>
+  </view>
+  <app-state wx:elif="{{state === 'offline'}}" kind="offline" title="消息服务暂时不可用" description="请检查网络后重试。" retryable="{{true}}" bind:retry="retry" />
+  <app-state wx:elif="{{state === 'failed'}}" kind="failed" title="暂时无法读取消息" description="请稍后重新加载。" retryable="{{true}}" bind:retry="retry" />
+  <view wx:if="{{countError && state !== 'unauthorized'}}" class="count-warning">未读状态暂时无法更新<text class="count-retry" bindtap="retry" role="button">重新加载</text></view>
+</view>

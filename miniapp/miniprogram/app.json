@@ -14,6 +14,7 @@
     "pages/circle-detail/index",
     "pages/circle-compose/index",
     "pages/circle-me/index",
+    "pages/messages/index",
     "pages/account/index"
   ],
   "window": {
@@ -25,24 +26,32 @@
   "tabBar": {
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
-    "color": "#536a63",
-    "selectedColor": "#286858",
+    "color": "#687488",
+    "selectedColor": "#00854c",
     "list": [
       {
         "pagePath": "pages/home/index",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/universities/index",
-        "text": "院校"
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-green.png"
       },
       {
         "pagePath": "pages/circle/index",
-        "text": "U圈"
+        "text": "U圈",
+        "iconPath": "assets/icons/circle.png",
+        "selectedIconPath": "assets/icons/circle-green.png"
+      },
+      {
+        "pagePath": "pages/messages/index",
+        "text": "消息",
+        "iconPath": "assets/icons/messages.png",
+        "selectedIconPath": "assets/icons/messages-green.png"
       },
       {
         "pagePath": "pages/account/index",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "assets/icons/account.png",
+        "selectedIconPath": "assets/icons/account-green.png"
       }
     ]
   },

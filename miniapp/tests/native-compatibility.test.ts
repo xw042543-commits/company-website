@@ -7,6 +7,17 @@ import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
 const root = new URL('../miniprogram/', import.meta.url);
+test('component styles avoid native-unsupported type and attribute selectors', () => {
+  for (const component of ['app-state', 'community-post-card']) {
+    const css = readFileSync(new URL(`components/${component}/index.wxss`, root), 'utf8');
+    const selectors = [...css.matchAll(/([^{}]+)\{/g)].map((match) => (match[1] ?? '').trim());
+    for (const selector of selectors) {
+      if (selector.startsWith('@') || selector === 'to' || selector === 'from') continue;
+      assert.doesNotMatch(selector, /\[|(^|[\s,>+~])(?:view|text|button|image)(?=[\s.:#,{]|$)/, `${component}: ${selector}`);
+    }
+  }
+});
+
 test('native templates do not call JavaScript array methods', () => {
   function inspect(directory: string) {
     for (const entry of readdirSync(directory, { withFileTypes: true })) {

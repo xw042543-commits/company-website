@@ -7,9 +7,27 @@ import {
   mapUniversityDetail,
   mapUniversityPage,
   mapUniversityProgrammePage,
+  getUniversityProgrammes,
 } from '../miniprogram/services/universities.ts';
 import type { RequestOptions, TransportOptions } from '../miniprogram/services/http.ts';
 import type { Result } from '../miniprogram/utils/result.ts';
+
+test('native university queries encode filters without URLSearchParams', () => {
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'URLSearchParams')!;
+  Object.defineProperty(globalThis, 'URLSearchParams', { configurable: true, value: undefined });
+  try {
+    const path = buildUniversitySearchPath({ q: ' 商科 & A+B ', country: 'ALL', category: 'BUSINESS', level: 'BACHELOR' });
+    const query = new URL(`https://example.test${path}`).searchParams;
+    assert.equal(query.get('q'), '商科 & A+B');
+    assert.equal(query.get('category'), 'BUSINESS');
+    assert.equal(query.get('level'), 'BACHELOR');
+    assert.equal(query.get('page'), '1');
+    assert.equal(query.get('size'), '12');
+    assert.equal(query.has('country'), false);
+  } finally {
+    Object.defineProperty(globalThis, 'URLSearchParams', original);
+  }
+});
 
 const fixture = {
   items: [{
@@ -34,6 +52,38 @@ const fixture = {
   totalItems: 1,
   totalPages: 1,
 };
+
+test('programme requests respect the backend page-size ceiling', async () => {
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  let requestedUrl = '';
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+    getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }),
+    request: (options: TransportOptions) => {
+      requestedUrl = options.url;
+      options.success({ statusCode: 200, data: { items: [], page: 1, pageSize: 48, totalItems: 0, totalPages: 0 }, header: {}, cookies: [] });
+      return { abort() {} };
+    },
+  } });
+  try {
+    assert.equal((await getUniversityProgrammes('segi')).ok, true);
+    assert.equal(new URL(requestedUrl).searchParams.get('size'), '48');
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
+
+test('published Chinese-only programmes remain accessible without fabricated English names', () => {
+  const result = mapUniversityProgrammePage({ items: [{ id: 584, slug: 'segi-bachelor-001',
+    nameZh: '商务管理（荣誉）学士学位', nameEn: null }], page: 1, pageSize: 48, totalItems: 1, totalPages: 1 });
+  assert.equal(result.ok, true);
+  if (result.ok) {
+    assert.equal(result.value.items[0]?.id, 584);
+    assert.equal(result.value.items[0]?.nameEn, '');
+  }
+  assert.equal(mapUniversityProgrammePage({ items: [{ id: 584, slug: 'segi-bachelor-001', nameZh: null, nameEn: null }],
+    page: 1, pageSize: 48, totalItems: 1, totalPages: 1 }).ok, false);
+});
 
 test('late university responses cannot replace the newest search generation', async () => {
   const resolvers: Array<(value: Result<unknown>) => void> = [];

@@ -19,11 +19,13 @@ public class CommunityModerationService {
     private final UserAccountRepository accounts;
     private final CommunityCursorCodec cursors;
     private final CommunityAuditLogger audit;
+    private final CommunityNotificationPublisher notifications;
     CommunityModerationService(CommunityModerationTargets targets,CommunityModerationQueryRepository query,CommunityReportRepository reports,
             CommunityModerationActionRepository actions,CommunityUserRestrictionRepository restrictions,UserAccountRepository accounts,
-            CommunityCursorCodec cursors,CommunityAuditLogger audit) {
+            CommunityCursorCodec cursors,CommunityAuditLogger audit,CommunityNotificationPublisher notifications) {
         this.targets=targets;this.query=query;this.reports=reports;this.actions=actions;this.restrictions=restrictions;
         this.accounts=accounts;this.cursors=cursors;this.audit=audit;
+        this.notifications=notifications;
     }
     @Transactional(readOnly=true)
     public CommunityModerationPage queue(String status,CommunityTargetType type,String reason,OffsetDateTime from,OffsetDateTime to,String cursor,int size) {
@@ -72,6 +74,9 @@ public class CommunityModerationService {
             }
         }
         target.decide(next,now);
+        if(next==CommunityContentStatus.PUBLISHED&&before!=CommunityContentStatus.PUBLISHED&&target.comment()!=null) {
+            notifications.comment(target.post(),target.comment());
+        }
         reports.resolveOpen(type,id,request.command()==CommunityModerationCommand.REJECT_REPORT?CommunityReportStatus.RESOLVED_REJECTED:CommunityReportStatus.RESOLVED_ACTIONED,
                 actor,request.reasonCode().name(),now);
         if(next!=before){targets.reconcile(target);targets.invalidateAfterCommit();}

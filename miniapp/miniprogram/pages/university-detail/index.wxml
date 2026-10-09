@@ -43,7 +43,7 @@
           <view class="programme-arrow">→</view>
         </view>
         <view class="programme-name">{{item.nameZh}}</view>
-        <view class="programme-name-en">{{item.nameEn}}</view>
+        <view wx:if="{{item.nameEn}}" class="programme-name-en">{{item.nameEn}}</view>
         <view class="programme-meta">
           <text wx:if="{{item.durationDisplay}}">{{item.durationDisplay}}</text>
           <text wx:if="{{item.tuitionDisplay}}">{{item.tuitionDisplay}}</text>
