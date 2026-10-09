@@ -1,8 +1,7 @@
 <view class="home-page">
   <view class="home-top">
     <view class="brand-row">
-      <view class="brand-mark" aria-hidden="true"><view></view><view></view><view></view></view>
-      <view><view class="brand-name">洋豆角</view><view class="brand-latin">UDAJO</view></view>
+      <image class="brand-logo" src="/assets/brand/udajo-logo-transparent.png" mode="aspectFit" aria-label="洋豆角 UDAJO" />
     </view>
 
     <swiper

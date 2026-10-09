@@ -1,10 +1,7 @@
 .home-page { min-height:100vh; padding-bottom:calc(40rpx + env(safe-area-inset-bottom)); background:#f7fbf9; }
 .home-top { padding:26rpx 24rpx 0; background:linear-gradient(145deg,#e8fff5 0%,#f4fbff 55%,#fff9ef 100%); }
-.brand-row { display:flex; align-items:center; gap:14rpx; padding:6rpx 8rpx 22rpx; }
-.brand-mark { display:flex; gap:6rpx; }
-.brand-mark view { width:16rpx; height:16rpx; border-radius:50%; background:#079b55; }
-.brand-name { color:#153f36; font-size:27rpx; font-weight:800; line-height:1; }
-.brand-latin { margin-top:4rpx; color:#526d65; font-size:18rpx; font-weight:700; letter-spacing:2rpx; }
+.brand-row { display:flex; align-items:center; padding:0 8rpx 18rpx; background:transparent; border:0; box-shadow:none; }
+.brand-logo { display:block; width:112rpx; height:112rpx; background:transparent; border:0; border-radius:0; box-shadow:none; }
 .hero-swiper,.hero-static { height:420rpx; overflow:hidden; border-radius:30rpx; box-shadow:0 22rpx 60rpx rgba(20,74,58,.16); }
 .hero-slide,.hero-static { position:relative; height:100%; background:linear-gradient(135deg,#0e8051,#174b73); }
 .hero-image,.hero-fallback,.hero-shade { position:absolute; top:0; right:0; bottom:0; left:0; width:100%; height:100%; }
