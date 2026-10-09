@@ -176,7 +176,9 @@ const validSearchPage = {
       durationDisplay: "3 years",
       intakeDisplayTexts: ["September 2027"],
       tuitionDisplay: "CNY 100,000–120,000",
+      imageUrl: null,
     }],
+    imageUrl: null,
   }],
   page: 1,
   pageSize: 12,
@@ -197,6 +199,7 @@ const validUniversityDetail = {
   descriptionZh: "院校中文介绍",
   descriptionEn: "University description",
   popular: true,
+  imageUrl: null,
 };
 
 const validUniversityProgrammePage = {
@@ -225,6 +228,7 @@ const validUniversityProgrammePage = {
     tuitionDisplay: "MYR 35,000–40,000",
     intakeMonths: ["2027-09"],
     intakeDisplayTexts: ["September 2027"],
+    imageUrl: null,
   }],
   page: 1,
   pageSize: 12,
@@ -356,6 +360,7 @@ test("maps a V1 result to a localized card with at most three programmes", () =>
     nameZh: "马来亚大学",
     nameEn: "University of Malaya",
     country: "马来西亚",
+    countryCode: "MY",
     countryZh: "马来西亚",
     countryEn: "Malaysia",
     city: "吉隆坡",

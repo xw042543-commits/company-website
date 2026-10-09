@@ -140,7 +140,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
                     ? <RemoteImage src={universityImage} label={view.name} alt={words(locale, `${view.name} 校园`, `${view.name} campus`)} />
                     : <Image src={universityImage!} fill sizes="(max-width: 760px) 100vw, 640px" alt={words(locale, `${view.name} 校园`, `${view.name} campus`)} priority />}
               </div>
-              {profile.imageCredit && <p className="image-credit">{words(locale, "图片来源", "Image source")}: <a href={profile.imageCredit.href} target="_blank" rel="noreferrer">{profile.imageCredit.label}</a></p>}
+              {profile?.imageCredit && <p className="image-credit">{words(locale, "图片来源", "Image source")}: <a href={profile.imageCredit.href} target="_blank" rel="noreferrer">{profile.imageCredit.label}</a></p>}
             </div>}
             <div className="university-overview-copy">
               <p>{(profile ? (locale === "zh" ? profile.introductionZh : profile.introductionEn) : view.description) || words(
