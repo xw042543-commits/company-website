@@ -1,8 +1,8 @@
 <view class="app-state app-state--{{kind}}">
   <view wx:if="{{kind === 'loading'}}" class="skeleton" aria-hidden="true">
-    <view class="skeleton-row"><view class="skeleton-thumb"></view><view class="skeleton-lines"><view></view><view></view><view></view></view></view>
-    <view class="skeleton-row"><view class="skeleton-thumb"></view><view class="skeleton-lines"><view></view><view></view><view></view></view></view>
-    <view class="skeleton-row"><view class="skeleton-thumb"></view><view class="skeleton-lines"><view></view><view></view><view></view></view></view>
+    <view class="skeleton-row"><view class="skeleton-thumb"></view><view class="skeleton-lines"><view class="skeleton-line"></view><view class="skeleton-line"></view><view class="skeleton-line"></view></view></view>
+    <view class="skeleton-row"><view class="skeleton-thumb"></view><view class="skeleton-lines"><view class="skeleton-line"></view><view class="skeleton-line"></view><view class="skeleton-line"></view></view></view>
+    <view class="skeleton-row"><view class="skeleton-thumb"></view><view class="skeleton-lines"><view class="skeleton-line"></view><view class="skeleton-line"></view><view class="skeleton-line"></view></view></view>
   </view>
   <view wx:if="{{kind !== 'loading'}}" class="state-symbol">{{kind === 'empty' ? '○' : '!'}}</view>
   <view class="state-title">{{title}}</view>

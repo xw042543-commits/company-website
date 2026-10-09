@@ -19,19 +19,25 @@ public class CommunityReactionService {
     private final CommunityCommentRepository comments;
     private final CommunityReactionRepository reactions;
     private final Clock clock;
+    private final CommunityNotificationPublisher notifications;
 
     public CommunityReactionService(CommunityProperties properties, UserAccountRepository accounts,
             CommunityUserRestrictionRepository restrictions, CommunityPostRepository posts,
-            CommunityCommentRepository comments, CommunityReactionRepository reactions, Clock clock) {
+            CommunityCommentRepository comments, CommunityReactionRepository reactions, Clock clock,
+            CommunityNotificationPublisher notifications) {
         this.properties = properties; this.accounts = accounts; this.restrictions = restrictions;
         this.posts = posts; this.comments = comments; this.reactions = reactions; this.clock = clock;
+        this.notifications = notifications;
     }
 
     public void like(long actorId, CommunityTargetType type, long targetId) {
         requireActor(actorId, true);
         var target = lockedTarget(type, targetId);
         requirePublic(target);
-        if (reactions.insertIfAbsent(actorId, type.name(), targetId) == 1) target.adjustLikes(1, now());
+        if (reactions.insertIfAbsent(actorId, type.name(), targetId) == 1) {
+            target.adjustLikes(1, now());
+            notifications.like(actorId, type, targetId, target.post(), target.comment());
+        }
     }
 
     public void unlike(long actorId, CommunityTargetType type, long targetId) {

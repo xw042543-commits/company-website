@@ -176,7 +176,9 @@ const validSearchPage = {
       durationDisplay: "3 years",
       intakeDisplayTexts: ["September 2027"],
       tuitionDisplay: "CNY 100,000–120,000",
+      imageUrl: null,
     }],
+    imageUrl: null,
   }],
   page: 1,
   pageSize: 12,
@@ -197,6 +199,7 @@ const validUniversityDetail = {
   descriptionZh: "院校中文介绍",
   descriptionEn: "University description",
   popular: true,
+  imageUrl: null,
 };
 
 const validUniversityProgrammePage = {
@@ -225,12 +228,28 @@ const validUniversityProgrammePage = {
     tuitionDisplay: "MYR 35,000–40,000",
     intakeMonths: ["2027-09"],
     intakeDisplayTexts: ["September 2027"],
+    imageUrl: null,
   }],
   page: 1,
   pageSize: 12,
   totalItems: 1,
   totalPages: 1,
 };
+
+test("optional media accepts legacy, null and image values but rejects malformed values", () => {
+  for (const imageUrl of [undefined, null, "https://example.test/campus.jpg", 42, {}, []]) {
+    const valid = imageUrl === undefined || imageUrl === null || typeof imageUrl === "string";
+    const item = validSearchPage.items[0];
+    const search = { ...validSearchPage, items: [{ ...item, imageUrl }] };
+    const matched = { ...validSearchPage, items: [{ ...item, matchedProgrammes: [{ ...item.matchedProgrammes[0], imageUrl }] }] };
+    const detail = { ...validUniversityDetail, imageUrl };
+    const programme = { ...validUniversityProgrammePage.items[0], imageUrl };
+    assert.deepEqual(parseSearchPage(search), valid ? search : null);
+    assert.deepEqual(parseSearchPage(matched), valid ? matched : null);
+    assert.deepEqual(parseUniversityDetail(detail), valid ? detail : null);
+    assert.deepEqual(parseUniversityProgramme(programme), valid ? programme : null);
+  }
+});
 
 test("builds the V1 university search path from every supported filter", () => {
   assert.equal(
@@ -356,6 +375,7 @@ test("maps a V1 result to a localized card with at most three programmes", () =>
     nameZh: "马来亚大学",
     nameEn: "University of Malaya",
     country: "马来西亚",
+    countryCode: "MY",
     countryZh: "马来西亚",
     countryEn: "Malaysia",
     city: "吉隆坡",

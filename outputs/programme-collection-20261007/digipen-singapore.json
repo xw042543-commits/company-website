@@ -1,0 +1,17 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:29:42.529Z",
+  "sourceKey": "digipen-singapore",
+  "sourceName": "DigiPen Institute of Technology Singapore",
+  "warnings": [
+    "robots.txt 禁止抓取：https://www.digipen.edu.sg/"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:43:58.526Z"
+  }
+}

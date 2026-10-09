@@ -97,6 +97,11 @@ public class MiniappUserDataController {
         return service.order(userId(principal), referenceCode);
     }
 
+    @GetMapping("/wallet")
+    public MiniappUserDataService.WalletResponse wallet(@AuthenticationPrincipal UserPrincipal principal) {
+        return service.wallet(userId(principal));
+    }
+
     private long userId(UserPrincipal principal) {
         if (principal == null) {
             throw new ApiException(HttpStatus.UNAUTHORIZED, "AUTH_REQUIRED", "Authentication required");

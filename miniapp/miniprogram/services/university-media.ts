@@ -1,6 +1,6 @@
 const WEBSITE_ORIGIN = 'https://yangdoujiao.com';
 
-// Published API slugs paired with the reviewed website catalogue's existing assets.
+// API identifiers paired with reviewed website assets; media aliases never alter routes.
 const API_SLUGS: Readonly<Record<string, string>> = {
   um: 'university-of-malaya', ukm: 'universiti-kebangsaan-malaysia',
   utm: 'universiti-teknologi-malaysia', upm: 'universiti-putra-malaysia',

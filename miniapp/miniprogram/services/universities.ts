@@ -77,6 +77,7 @@ export interface UniversitySearchService {
 
 export function createUniversitySearchService(
   requester: UnknownRequester = (options) => request<unknown>(options),
+  requestKey = 'university-search',
 ): UniversitySearchService {
   let generation = 0;
   return {
@@ -85,7 +86,7 @@ export function createUniversitySearchService(
       const result = await requester({
         method: 'GET',
         path: buildUniversitySearchPath(input),
-        requestKey: 'university-search',
+        requestKey,
       });
       if (current !== generation) return superseded();
       if (!result.ok) return result;
@@ -95,9 +96,10 @@ export function createUniversitySearchService(
 }
 
 const defaultUniversitySearch = createUniversitySearchService();
+const homeUniversitySearch = createUniversitySearchService(undefined, 'home-university-preview');
 
-export function searchUniversities(input: UniversitySearchInput = {}): Promise<Result<UniversityPage>> {
-  return defaultUniversitySearch.search(input);
+export function searchUniversities(input: UniversitySearchInput = {}, scope: 'list' | 'home' = 'list'): Promise<Result<UniversityPage>> {
+  return (scope === 'home' ? homeUniversitySearch : defaultUniversitySearch).search(input);
 }
 
 const universityDetailCache = createExpiringCache<UniversityDetail>(2 * 60 * 1000);
@@ -122,7 +124,7 @@ export async function getUniversityDetail(slug: string): Promise<Result<Universi
 export async function getUniversityProgrammes(
   slug: string,
   page = 1,
-  size = 50,
+  size = 48,
 ): Promise<Result<UniversityProgrammePage>> {
   const normalized = normalizeSlug(slug);
   if (!normalized) return invalid('INVALID_UNIVERSITY_SLUG');
@@ -141,15 +143,15 @@ export async function getUniversityProgrammes(
 }
 
 export function buildUniversitySearchPath(input: UniversitySearchInput): `/api/${string}` {
-  const query = new URLSearchParams();
+  const query: string[] = [];
   addFilter(query, 'q', input.q);
   addFilter(query, 'country', input.country);
   addFilter(query, 'category', input.category);
   addFilter(query, 'level', input.level);
-  query.set('page', String(input.page ?? 1));
-  query.set('size', String(input.size ?? 12));
-  query.set('sort', 'relevance');
-  return `/api/v1/universities/search?${query.toString()}`;
+  addFilter(query, 'page', String(input.page ?? 1));
+  addFilter(query, 'size', String(input.size ?? 12));
+  addFilter(query, 'sort', 'relevance');
+  return `/api/v1/universities/search?${query.join('&')}`;
 }
 
 export function mapUniversityPage(raw: unknown): Result<UniversityPage> {
@@ -232,7 +234,8 @@ export function mapUniversityProgrammePage(raw: unknown): Result<UniversityProgr
   const items: UniversityProgramme[] = [];
   for (const item of raw.items) {
     if (!isObject(item) || !positiveInteger(item.id) || !text(item.slug)
-      || !text(item.nameZh) || (item.nameEn != null && typeof item.nameEn !== 'string')) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
+      || !text(item.nameZh)
+      || (item.nameEn != null && typeof item.nameEn !== 'string')) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
     items.push({
       id: item.id,
       slug: item.slug,
@@ -268,9 +271,9 @@ function secureImage(value: unknown): string | null {
   return typeof value === 'string' && value.startsWith('https://') ? value : null;
 }
 
-function addFilter(query: URLSearchParams, name: string, value: string | undefined): void {
+function addFilter(query: string[], name: string, value: string | undefined): void {
   const normalized = value?.trim();
-  if (normalized && normalized !== 'ALL') query.set(name, normalized);
+  if (normalized && normalized !== 'ALL') query.push(`${encodeURIComponent(name)}=${encodeURIComponent(normalized)}`);
 }
 
 function isObject(value: unknown): value is Record<string, unknown> {

@@ -1,0 +1,2346 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.492Z",
+  "sourceKey": "sim-global-education",
+  "sourceName": "SIM Global Education",
+  "warnings": [
+    "HTTP 404：https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/.showmore--0",
+    "HTTP 404：https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/.showmore--0"
+  ],
+  "university": {
+    "candidateId": "university_2057f7ffe46e6f39",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Singapore Institute of Management",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.sim.edu.sg",
+    "logoSourceUrl": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/sim-homepage/header%20logos/sim-logo-2023.svg?ext=.svg",
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:29:56.607Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.sim.edu.sg/",
+        "sourcePageTitle": "Singapore Institute of Management | Degree & Diploma Programmes | Professional Short Courses",
+        "sourceHash": "3abdeb5febc976d6bb3e0e084a43fff2a4c270b735845c59ccccba3c5bf248fd",
+        "fetchedAt": "2026-10-07T04:29:56.607Z",
+        "field": "name",
+        "rawText": "Singapore Institute of Management"
+      },
+      {
+        "sourceUrl": "https://www.sim.edu.sg/",
+        "sourcePageTitle": "Singapore Institute of Management | Degree & Diploma Programmes | Professional Short Courses",
+        "sourceHash": "3abdeb5febc976d6bb3e0e084a43fff2a4c270b735845c59ccccba3c5bf248fd",
+        "fetchedAt": "2026-10-07T04:29:56.607Z",
+        "field": "city",
+        "rawText": "Singapore"
+      }
+    ],
+    "institutionTypeRaw": "Private education institution",
+    "selectionRank": 18,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": [
+      {
+        "kind": "LOGO",
+        "assetUrl": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/sim-homepage/header%20logos/sim-logo-2023.svg?ext=.svg",
+        "sourceUrl": "https://www.sim.edu.sg/",
+        "sourceCheckedAt": "2026-10-07T04:29:56.607Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      },
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/sim-homepage/og%20image/sim-ge-og.jpg?ext=.jpg",
+        "sourceUrl": "https://www.sim.edu.sg/",
+        "sourceCheckedAt": "2026-10-07T04:29:56.607Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_0c323828535995fc",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "单电声波XSIM AI.DEA(第1页)",
+      "nameEn": "SINGTEL x SIM AI.DEA (PHASE 1)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Built for senior leaders and decision-makers, this program establishes the strategic clarity required to lead with AI. Participants cut through the hype to identify where AI delivers real business value, how it should align to organisational priorities, and what readiness looks like across people, data, technology, and governance. The course strengthens executive judgement, critical evaluation, and risk-aware decision-making, while grounding leaders in cyber, ethical, and regulatory considerations. By the end of Phase 1, leaders will be positioned to set clear AI ambition, challenge assumptions, and confidently direct secure, high-impact adoption.For enquiries, please reach out to Joan Lim at joanlim@sim.edu.sg",
+      "officialUrl": "https://www.sim.edu.sg/professional-development/courses/course-listing/ai-dea-phase-1",
+      "sourceCheckedAt": "2026-10-07T04:31:07.698Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Built for senior leaders and decision-makers, this program establishes the strategic clarity required to lead with AI. Participants cut through the hype to identify where AI delivers real business value, how it should align to organisational priorities, and what readiness looks like across people, data, technology, and governance. The course strengthens executive judgement, critical evaluation, and risk-aware decision-making, while grounding leaders in cyber, ethical, and regulatory considerations. By the end of Phase 1, leaders will be positioned to set clear AI ambition, challenge assumptions, and confidently direct secure, high-impact adoption.For enquiries, please reach out to Joan Lim at joanlim@sim.edu.sg",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/professional-development/courses/course-listing/ai-dea-phase-1",
+          "sourceCheckedAt": "2026-10-07T04:31:07.698Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/professional-development/courses/course-listing/ai-dea-phase-1",
+          "sourcePageTitle": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+          "sourceHash": "1e1af4f2e31e1e783e00a94b574d537df1a618c5e2e096b307c6c2ccbcb2531d",
+          "fetchedAt": "2026-10-07T04:31:07.698Z",
+          "field": "name",
+          "rawText": "SINGTEL x SIM AI.DEA (PHASE 1)"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/professional-development/courses/course-listing/ai-dea-phase-1",
+          "sourcePageTitle": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+          "sourceHash": "1e1af4f2e31e1e783e00a94b574d537df1a618c5e2e096b307c6c2ccbcb2531d",
+          "fetchedAt": "2026-10-07T04:31:07.698Z",
+          "field": "description",
+          "rawText": "Built for senior leaders and decision-makers, this program establishes the strategic clarity required to lead with AI. Participants cut through the hype to identify where AI delivers real business value, how it should align to organisational priorities, and what readiness looks like across people, data, technology, and governance. The course strengthens executive judgement, critical evaluation, and risk-aware decision-making, while grounding leaders in cyber, ethical, and regulatory considerations. By the end of Phase 1, leaders will be positioned to set clear AI ambition, challenge assumptions, and confidently direct secure, high-impact adoption.For enquiries, please reach out to Joan Lim at joanlim@sim.edu.sg"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_0763bd3110886c1b",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "唱诗歌的Singtel x SIMACADE 我的蒂克托克马萨诸塞州",
+      "nameEn": "SINGTEL x SIM ACADEMY TIKTOK MASTERCLASS",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Accelerated by the COVID-19 pandemic, consumers have increasingly shifted their purchasing habits online — favoring the convenience, flexibility, and variety offered by digital platforms. TikTok, with its explosive growth and influence, has quickly become a key player in this space, transforming the way people discover brands, make buying decisions, and engage with content.This 3-Day Accelerator Programme empowers entrepreneurs, marketers, and businesses to harness the power of TikTok for real results — whether it’s building brand visibility, driving traffic, or boosting sales. Through interactive hands-on sessions, participants will master content creation, decode the algorithm, and launch campaigns that convert.Whether you're new to TikTok or looking to scale your digital presence, this programme gives you the tools, strategies, and confidence to grow your business in the mobile-first era.",
+      "officialUrl": "https://www.sim.edu.sg/professional-development/courses/course-listing/tiktok-masterclass-695cc6a0cac5ac4a68ce6a67d4f7f8f9",
+      "sourceCheckedAt": "2026-10-07T04:31:09.790Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Accelerated by the COVID-19 pandemic, consumers have increasingly shifted their purchasing habits online — favoring the convenience, flexibility, and variety offered by digital platforms. TikTok, with its explosive growth and influence, has quickly become a key player in this space, transforming the way people discover brands, make buying decisions, and engage with content.This 3-Day Accelerator Programme empowers entrepreneurs, marketers, and businesses to harness the power of TikTok for real results — whether it’s building brand visibility, driving traffic, or boosting sales. Through interactive hands-on sessions, participants will master content creation, decode the algorithm, and launch campaigns that convert.Whether you're new to TikTok or looking to scale your digital presence, this programme gives you the tools, strategies, and confidence to grow your business in the mobile-first era.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/professional-development/courses/course-listing/tiktok-masterclass-695cc6a0cac5ac4a68ce6a67d4f7f8f9",
+          "sourceCheckedAt": "2026-10-07T04:31:09.790Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/professional-development/courses/course-listing/tiktok-masterclass-695cc6a0cac5ac4a68ce6a67d4f7f8f9",
+          "sourcePageTitle": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+          "sourceHash": "16518b95aa7fc687747733481877361225e4470a785123a2fd9abae431614375",
+          "fetchedAt": "2026-10-07T04:31:09.790Z",
+          "field": "name",
+          "rawText": "SINGTEL x SIM ACADEMY TIKTOK MASTERCLASS"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/professional-development/courses/course-listing/tiktok-masterclass-695cc6a0cac5ac4a68ce6a67d4f7f8f9",
+          "sourcePageTitle": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+          "sourceHash": "16518b95aa7fc687747733481877361225e4470a785123a2fd9abae431614375",
+          "fetchedAt": "2026-10-07T04:31:09.790Z",
+          "field": "description",
+          "rawText": "Accelerated by the COVID-19 pandemic, consumers have increasingly shifted their purchasing habits online — favoring the convenience, flexibility, and variety offered by digital platforms. TikTok, with its explosive growth and influence, has quickly become a key player in this space, transforming the way people discover brands, make buying decisions, and engage with content.This 3-Day Accelerator Programme empowers entrepreneurs, marketers, and businesses to harness the power of TikTok for real results — whether it’s building brand visibility, driving traffic, or boosting sales. Through interactive hands-on sessions, participants will master content creation, decode the algorithm, and launch campaigns that convert.Whether you're new to TikTok or looking to scale your digital presence, this programme gives you the tools, strategies, and confidence to grow your business in the mobile-first era."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_d97629371c7d4f55",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "学士学位",
+      "nameEn": "Bachelors Degrees",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "SIM collaborates with renowned universities globally to offer bachelor's degree programmes in Singapore. Explore our full-time, part-time, and bachelor's degrees here.",
+      "officialUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+      "sourceCheckedAt": "2026-10-07T04:30:02.403Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "SIM collaborates with renowned universities globally to offer bachelor's degree programmes in Singapore. Explore our full-time, part-time, and bachelor's degrees here.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+          "sourceCheckedAt": "2026-10-07T04:30:02.403Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/sim-homepage/og%20image/sim-ge-og.jpg?ext=.jpg",
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+          "sourceCheckedAt": "2026-10-07T04:30:02.403Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+          "sourcePageTitle": "Bachelor's Degrees | Bachelors with Honours - SIM",
+          "sourceHash": "69a3cff0842e07079eb9772fdbbfc42e14cb5436cd9e153d8edd7c51123801b9",
+          "fetchedAt": "2026-10-07T04:30:02.403Z",
+          "field": "name",
+          "rawText": "Bachelors Degrees"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+          "sourcePageTitle": "Bachelor's Degrees | Bachelors with Honours - SIM",
+          "sourceHash": "69a3cff0842e07079eb9772fdbbfc42e14cb5436cd9e153d8edd7c51123801b9",
+          "fetchedAt": "2026-10-07T04:30:02.403Z",
+          "field": "detailUrl",
+          "rawText": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+          "sourcePageTitle": "Bachelor's Degrees | Bachelors with Honours - SIM",
+          "sourceHash": "69a3cff0842e07079eb9772fdbbfc42e14cb5436cd9e153d8edd7c51123801b9",
+          "fetchedAt": "2026-10-07T04:30:02.403Z",
+          "field": "description",
+          "rawText": "SIM collaborates with renowned universities globally to offer bachelor's degree programmes in Singapore. Explore our full-time, part-time, and bachelor's degrees here."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_8da09c609cb67384",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "文凭课程",
+      "nameEn": "Diploma Courses",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "SIM's diploma courses in Singapore are designed to offer a well-rounded, focused course of study that provides you with a good foundational understanding of specific fields and exposure to real-world practices.",
+      "officialUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+      "sourceCheckedAt": "2026-10-07T04:30:07.470Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "SIM's diploma courses in Singapore are designed to offer a well-rounded, focused course of study that provides you with a good foundational understanding of specific fields and exposure to real-world practices.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+          "sourceCheckedAt": "2026-10-07T04:30:07.470Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/sim-homepage/og%20image/sim-ge-og.jpg?ext=.jpg",
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+          "sourceCheckedAt": "2026-10-07T04:30:07.470Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+          "sourcePageTitle": "Diploma | Diploma Courses in Singapore | Industry-focused Curriculum - SIM",
+          "sourceHash": "adf536c4a6b83f0c178ce41a9a3661b64d389f4e8733ba55778faafc447812e6",
+          "fetchedAt": "2026-10-07T04:30:07.470Z",
+          "field": "name",
+          "rawText": "Diploma Courses"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+          "sourcePageTitle": "Diploma | Diploma Courses in Singapore | Industry-focused Curriculum - SIM",
+          "sourceHash": "adf536c4a6b83f0c178ce41a9a3661b64d389f4e8733ba55778faafc447812e6",
+          "fetchedAt": "2026-10-07T04:30:07.470Z",
+          "field": "detailUrl",
+          "rawText": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+          "sourcePageTitle": "Diploma | Diploma Courses in Singapore | Industry-focused Curriculum - SIM",
+          "sourceHash": "adf536c4a6b83f0c178ce41a9a3661b64d389f4e8733ba55778faafc447812e6",
+          "fetchedAt": "2026-10-07T04:30:07.470Z",
+          "field": "description",
+          "rawText": "SIM's diploma courses in Singapore are designed to offer a well-rounded, focused course of study that provides you with a good foundational understanding of specific fields and exposure to real-world practices."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_be75e98b59483949",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机科学学士",
+      "nameEn": "Bachelor of Science (Honours) in Computer Science",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "This programme equips you with an in-depth understanding of the key conceptual and technological issues involved in building software systems.",
+      "officialUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+      "sourceCheckedAt": "2026-10-07T06:45:59.116Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "This programme equips you with an in-depth understanding of the key conceptual and technological issues involved in building software systems.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+          "sourceCheckedAt": "2026-10-07T06:45:59.116Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CURRICULUM",
+          "titleZh": "课程结构",
+          "titleEn": "Curriculum",
+          "bodyZh": null,
+          "bodyEn": "Structure This programme will run over two semesters each year. Student can study up to four new modules in one semester; or two plus final project. Classes All classes are conducted on SIM campus unless otherwise stated. Classes are held in three-hour blocks between Monday and Friday, starting at 8.30am, 12pm, or 3.30pm. There are occasional classes on weeknights at 7pm and weekends. Average teacher-student ratio: 1:80 Minimum class size to commence: 25 students Academic Support Local faculty support from SIM and online academic support from Goldsmiths, University of London. View a list of lecturers A blended learning approach is adopted. Besides learning via online resources, SIM prepares students for discussion, coursework or project work; face-to-face sessions emphasizing discussions, case studies, and hands-on exercises. In class, the lecturer facilitates discussion and learning. As such, a large amount of time is spent on a mixture of: Lectures, Lab work, Computer simulation sessions, and Online learning through Coursera Academic materials are drawn from: Coursera, Virtual Learning Environment (VLE), SIMConnect portal, and University materials such as subject guides, past exam papers and exam commentaries, reading lists and handbooks on good study strategies Learning with Coursera The BSc Computer Science (CS) programme is fully developed and taught by the same faculty that teaches on-campus at University of London. The University of London leverages Coursera&rsquo;s online education platform to deliver the programme curriculum, allowing our students to benefit from Coursera features such as interactive video transcription, in-course note taking, and seamless learning across multiple devices. The supplementary readings, video lectures, assignments, and discussion forums are extensively discussed in class. Students also collaborate on group projects using Zoom and Slack. Students may access all course materials anywhere with the mobile app on Coursera, available on iOS and Android. Using the mobile app, learners can: (1) Save a week&rsquo;s worth of content for offline access with one click (2) Save and submit quizzes offline (3) View text transcripts of lecture videos (4) Take notes directly in the app (5) Set reminder alerts to help students progress. Show more Show less Assessment & Attendance Modules: Each module, excluding the Final Project, is assessed either by coursework or a combination of coursework and a written examination. Each coursework element may consist of multiple items of assessment. The pass mark for any element of assessment is 40%. Students are required to have a portable computer for assessment. Final Project: The summative assessment for the Final Project consists of both coursework and a written examination, weighted in the ratio 80:20. The written examination consists of questions relating to the project. Attendance requirement: Local: 75% International (inclusive of Dependent Pass/Long-term Visit Pass holders): 90% Show more Show less Requirements to Graduate The award of the BSc (Hons) degree requires successful completion of all modules and final project. Grading Scheme: 70-100: First Class Honours 60-69: Second Upper Class Honours 50-59: Second Lower Class Honours 40-49: Third Class Honours 0-39: Fail A student who does not qualify for honours may be awarded a Diploma of Higher Education in Computing Studies as an exit award. Graduates can attend the SIM ceremony held every April on campus. Alumni may also attend the University of London graduation ceremony held in end-April/ May in the UK. Show more Show less Modules Year 1 Modules Learn the fundamentals: how computers work, how to programme, and more about the mathematics that underpins computer science. CM1005 Introduction to programming I CM1010 Introduction to programming II CM1015 Computational mathematics* CM1020 Discrete mathematics CM1025 Fundamentals of computer science CM1030 How computers work CM1035 Algorithms and data structure",
+          "sortOrder": 20,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+          "sourceCheckedAt": "2026-10-07T06:45:59.116Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "The classic stereotype of the nerdy, solo, and socially awkward computer scientist is officially a relic of the past. As the economy digitises, technologists are being integrated into the fabric of business. These days attending meetings, presenting at conferences, and sharing ideas with colleagues are as crucial a part of a developer&rsquo;s work as writing code. Upon successful completion of this programme, you will be able to: Demonstrate a sound understanding of all the main areas of computer science and also demonstrate the ability to exercise critical judgement in the evaluation of computing applications; Show problem solving and critical evaluation skills, draw upon supporting evidence and demonstrate a deep understanding of the need for a high quality solution; Demonstrate the ability to produce a substantial piece of work from problem inception to implementation and documentation. Show More Show Less",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+          "sourceCheckedAt": "2026-10-07T06:45:59.116Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Computer Science | UOL Computer Science Degree - SIM",
+          "sourceHash": "0e932de08c3b76d04eac1c26d6c68983e417dab4493c29e99fb664aaadbef184",
+          "fetchedAt": "2026-10-07T06:45:59.116Z",
+          "field": "name",
+          "rawText": "Bachelor of Science (Honours) in Computer Science"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Computer Science | UOL Computer Science Degree - SIM",
+          "sourceHash": "0e932de08c3b76d04eac1c26d6c68983e417dab4493c29e99fb664aaadbef184",
+          "fetchedAt": "2026-10-07T06:45:59.116Z",
+          "field": "description",
+          "rawText": "This programme equips you with an in-depth understanding of the key conceptual and technological issues involved in building software systems."
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Computer Science | UOL Computer Science Degree - SIM",
+          "sourceHash": "0e932de08c3b76d04eac1c26d6c68983e417dab4493c29e99fb664aaadbef184",
+          "fetchedAt": "2026-10-07T06:45:59.116Z",
+          "field": "detailSections.CURRICULUM",
+          "rawText": "Structure This programme will run over two semesters each year. Student can study up to four new modules in one semester; or two plus final project. Classes All classes are conducted on SIM campus unless otherwise stated. Classes are held in three-hour blocks between Monday and Friday, starting at 8.30am, 12pm, or 3.30pm. There are occasional classes on weeknights at 7pm and weekends. Average teacher-student ratio: 1:80 Minimum class size to commence: 25 students Academic Support Local faculty support from SIM and online academic support from Goldsmiths, University of London. View a list of lecturers A blended learning approach is adopted. Besides learning via online resources, SIM prepares students for discussion, coursework or project work; face-to-face sessions emphasizing discussions, case studies, and hands-on exercises. In class, the lecturer facilitates discussion and learning. As such, a large amount of time is spent on a mixture of: Lectures, Lab work, Computer simulation sessions, and Online learning through Coursera Academic materials are drawn from: Coursera, Virtual Learning Environment (VLE), SIMConnect portal, and University materials such as subject guides, past exam papers and exam commentaries, reading lists and handbooks on good study strategies Learning with Coursera The BSc Computer Science (CS) programme is fully developed and taught by the same faculty that teaches on-campus at University of London. The University of London leverages Coursera&rsquo;s online education platform to deliver the programme curriculum, allowing our students to benefit from Coursera features such as interactive video transcription, in-course note taking, and seamless learning across multiple devices. The supplementary readings, video lectures, assignments, and discussion forums are extensively discussed in class. Students also collaborate on group projects using Zoom and Slack. Students may access all course materials anywhere with the mobile app on Coursera, available on iOS and Android. Using the mobile app, learners can: (1) Save a week&rsquo;s worth of content for offline access with one click (2) Save and submit quizzes offline (3) View text transcripts of lecture videos (4) Take notes directly in the app (5) Set reminder alerts to help students progress. Show more Show less Assessment & Attendance Modules: Each module, excluding the Final Project, is assessed either by coursework or a combination of coursework and a written examination. Each coursework element may consist of multiple items of assessment. The pass mark for any element of assessment is 40%. Students are required to have a portable computer for assessment. Final Project: The summative assessment for the Final Project consists of both coursework and a written examination, weighted in the ratio 80:20. The written examination consists of questions relating to the project. Attendance requirement: Local: 75% International (inclusive of Dependent Pass/Long-term Visit Pass holders): 90% Show more Show less Requirements to Graduate The award of the BSc (Hons) degree requires successful completion of all modules and final project. Grading Scheme: 70-100: First Class Honours 60-69: Second Upper Class Honours 50-59: Second Lower Class Honours 40-49: Third Class Honours 0-39: Fail A student who does not qualify for honours may be awarded a Diploma of Higher Education in Computing Studies as an exit award. Graduates can attend the SIM ceremony held every April on campus. Alumni may also attend the University of London graduation ceremony held in end-April/ May in the UK. Show more Show less Modules Year 1 Modules Learn the fundamentals: how computers work, how to programme, and more about the mathematics that underpins computer science. CM1005 Introduction to programming I CM1010 Introduction to programming II CM1015 Computational mathematics* CM1020 Discrete mathematics CM1025 Fundamentals of computer science CM1030 How computers work CM1035 Algorithms and data structure"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Computer Science | UOL Computer Science Degree - SIM",
+          "sourceHash": "0e932de08c3b76d04eac1c26d6c68983e417dab4493c29e99fb664aaadbef184",
+          "fetchedAt": "2026-10-07T06:45:59.116Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "The classic stereotype of the nerdy, solo, and socially awkward computer scientist is officially a relic of the past. As the economy digitises, technologists are being integrated into the fabric of business. These days attending meetings, presenting at conferences, and sharing ideas with colleagues are as crucial a part of a developer&rsquo;s work as writing code. Upon successful completion of this programme, you will be able to: Demonstrate a sound understanding of all the main areas of computer science and also demonstrate the ability to exercise critical judgement in the evaluation of computing applications; Show problem solving and critical evaluation skills, draw upon supporting evidence and demonstrate a deep understanding of the need for a high quality solution; Demonstrate the ability to produce a substantial piece of work from problem inception to implementation and documentation. Show More Show Less"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_86c7b440a6c57c39",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "商业和管理学士",
+      "nameEn": "Bachelor of Science (Honours) in Business and Management",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "The programme provides a solid understanding of the different functional areas of business to develop excellent analytical skills for management.",
+      "officialUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+      "sourceCheckedAt": "2026-10-07T06:46:01.650Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "The programme provides a solid understanding of the different functional areas of business to develop excellent analytical skills for management.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+          "sourceCheckedAt": "2026-10-07T06:46:01.650Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CURRICULUM",
+          "titleZh": "课程结构",
+          "titleEn": "Curriculum",
+          "bodyZh": null,
+          "bodyEn": "Structure Blended lectures, group discussions, workshops and online study. Duration of each lesson is 3 hours. Classes are taught by local faculty, supplemented by webinars by the London School of Economics on the Virtual Learning Environment. View a list of lecturers Academic materials include Virtual Learning Environment, SIMConnect portal, subject guides, past exam papers and exam commentaries, reading lists and handbooks on good study strategies. Learning support include intensive revision, classes on study skills, academic writing and the Peer-Assisted Learning sessions. Local students may transfer between the part-time and full-time programme after a year, at the annual course enrolment exercise for continuing students. Minimum class size to commence is 25 students. Students will be informed within 30 days after the application period. For Full-time Programme: Full time classes are held in three-hour blocks between Monday and Friday, starting at 8.30am, 12pm, or 3.30pm. There are occasional classes on weeknights at 7pm and weekends. Average teacher-student ratio: 1:79 View sample of full-time class schedule (PDF 67 KB) For Part-time Programme: Classes for part-time programmes are held from 7pm to 10pm on weeknights or 8.30am, 12pm, or 3.30pm on Saturdays. There are occasional classes on Sundays and public holidays. Average teacher-student ratio: 1:46 View sample of part-time class schedule (PDF 120 KB) Show more Show less Assessment & Attendance Assessment by the University is made up of examinations, MCQ and/or coursework. For example, the Assessment Plan for students enrolled in the BSc Business and Management programme as follows: *The assessment plan varies for each student depending on your choice of courses. Attendance and Coursework are part of the University's requirements to sit for the examinations. Resits are available in Oct/Nov. Key dates: Summer Assessment Exams: End-Apr &ndash; Jun Summer Assessment Results released: Mid-Aug Autumn Assessment Exams: Oct/Nov Autumn Assessment Results released: End-Jan Attendance requirement: Local: 75% International (Student Pass holders/ Long-term Visit Pass holders): 90% Show more Show less Requirements to Graduate The award of the BSc (Hons) degree requires successful completion of all 12 modules (standard entry) or 9 modules (graduate entry). Grading Scheme 70-100: First Class Honours 60-69: Second Upper Class Honours 50-59: Second Lower Class Honours 40-49: Third Class Honours 0-39: Fail Graduates can attend the SIM ceremony held every April on campus. Alumni may also attend the University of London graduation ceremony held in end-April/ May in the UK. Show more Show less Modules Standard Entry Route 100 modules 1. EC1002 Introduction to economics 2. MT105A Mathematics 1 (half module) and ST104A Statistics 1 (half module) 3. AC1025 Principles of accounting 4. MN1178 Business and management in a global context 200 and 300 modules 5. MN2177 Core management concepts (MN1178) 6-7. Any course from the optional course list 8. Any MN course 9. Any 300 level course from the optional course list 10. Any 300 level MN course 11. Any 300 level MN course 12. Any course* Notes: * RPL awarded from one named or unnamed 100 module can be placed here. Assessment for IS2184, ST2187, ST3188 and ST3189 includes coursework. Graduate Entry Route 100 modules 1. EC1002 Introduction to economics 2. MT105A Mathematics 1 (half module) and ST104A Statistics 1 (half module) 3. AC1025 Principles of accounting 4. MN1178 Business and management in a global context 200 and 300 modules 5. MN2177 Core management concepts (MN1178) 6-7. Any course from the optional course list 8. Any 300 level MN course 9. Any 300 level MN course Notes: * RPL awarded from one named or unnamed 100 module can be placed here. Assessment for IS2184, ST2187, ST3188 and ST3189 includes coursework. View 2026-2027 modules offered at SIM View modules information",
+          "sortOrder": 20,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+          "sourceCheckedAt": "2026-10-07T06:46:01.650Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "Upon successful completion of this programme, you will be able to: Understand aspects of business and sociology management relevant to managing organisations effectively; Analyse business and management issues from the perspective of a number of social science disciplines; Formulate and develop arguments on management issues in a logical manner.",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+          "sourceCheckedAt": "2026-10-07T06:46:01.650Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Business and Management | University of London Singapore - SIM",
+          "sourceHash": "3453c3bbcf2813a0f7d311b5025471e7fefe21c5a90f083da90a2ecfeb5ed00d",
+          "fetchedAt": "2026-10-07T06:46:01.650Z",
+          "field": "name",
+          "rawText": "Bachelor of Science (Honours) in Business and Management"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Business and Management | University of London Singapore - SIM",
+          "sourceHash": "3453c3bbcf2813a0f7d311b5025471e7fefe21c5a90f083da90a2ecfeb5ed00d",
+          "fetchedAt": "2026-10-07T06:46:01.650Z",
+          "field": "description",
+          "rawText": "The programme provides a solid understanding of the different functional areas of business to develop excellent analytical skills for management."
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Business and Management | University of London Singapore - SIM",
+          "sourceHash": "3453c3bbcf2813a0f7d311b5025471e7fefe21c5a90f083da90a2ecfeb5ed00d",
+          "fetchedAt": "2026-10-07T06:46:01.650Z",
+          "field": "detailSections.CURRICULUM",
+          "rawText": "Structure Blended lectures, group discussions, workshops and online study. Duration of each lesson is 3 hours. Classes are taught by local faculty, supplemented by webinars by the London School of Economics on the Virtual Learning Environment. View a list of lecturers Academic materials include Virtual Learning Environment, SIMConnect portal, subject guides, past exam papers and exam commentaries, reading lists and handbooks on good study strategies. Learning support include intensive revision, classes on study skills, academic writing and the Peer-Assisted Learning sessions. Local students may transfer between the part-time and full-time programme after a year, at the annual course enrolment exercise for continuing students. Minimum class size to commence is 25 students. Students will be informed within 30 days after the application period. For Full-time Programme: Full time classes are held in three-hour blocks between Monday and Friday, starting at 8.30am, 12pm, or 3.30pm. There are occasional classes on weeknights at 7pm and weekends. Average teacher-student ratio: 1:79 View sample of full-time class schedule (PDF 67 KB) For Part-time Programme: Classes for part-time programmes are held from 7pm to 10pm on weeknights or 8.30am, 12pm, or 3.30pm on Saturdays. There are occasional classes on Sundays and public holidays. Average teacher-student ratio: 1:46 View sample of part-time class schedule (PDF 120 KB) Show more Show less Assessment & Attendance Assessment by the University is made up of examinations, MCQ and/or coursework. For example, the Assessment Plan for students enrolled in the BSc Business and Management programme as follows: *The assessment plan varies for each student depending on your choice of courses. Attendance and Coursework are part of the University's requirements to sit for the examinations. Resits are available in Oct/Nov. Key dates: Summer Assessment Exams: End-Apr &ndash; Jun Summer Assessment Results released: Mid-Aug Autumn Assessment Exams: Oct/Nov Autumn Assessment Results released: End-Jan Attendance requirement: Local: 75% International (Student Pass holders/ Long-term Visit Pass holders): 90% Show more Show less Requirements to Graduate The award of the BSc (Hons) degree requires successful completion of all 12 modules (standard entry) or 9 modules (graduate entry). Grading Scheme 70-100: First Class Honours 60-69: Second Upper Class Honours 50-59: Second Lower Class Honours 40-49: Third Class Honours 0-39: Fail Graduates can attend the SIM ceremony held every April on campus. Alumni may also attend the University of London graduation ceremony held in end-April/ May in the UK. Show more Show less Modules Standard Entry Route 100 modules 1. EC1002 Introduction to economics 2. MT105A Mathematics 1 (half module) and ST104A Statistics 1 (half module) 3. AC1025 Principles of accounting 4. MN1178 Business and management in a global context 200 and 300 modules 5. MN2177 Core management concepts (MN1178) 6-7. Any course from the optional course list 8. Any MN course 9. Any 300 level course from the optional course list 10. Any 300 level MN course 11. Any 300 level MN course 12. Any course* Notes: * RPL awarded from one named or unnamed 100 module can be placed here. Assessment for IS2184, ST2187, ST3188 and ST3189 includes coursework. Graduate Entry Route 100 modules 1. EC1002 Introduction to economics 2. MT105A Mathematics 1 (half module) and ST104A Statistics 1 (half module) 3. AC1025 Principles of accounting 4. MN1178 Business and management in a global context 200 and 300 modules 5. MN2177 Core management concepts (MN1178) 6-7. Any course from the optional course list 8. Any 300 level MN course 9. Any 300 level MN course Notes: * RPL awarded from one named or unnamed 100 module can be placed here. Assessment for IS2184, ST2187, ST3188 and ST3189 includes coursework. View 2026-2027 modules offered at SIM View modules information"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Business and Management | University of London Singapore - SIM",
+          "sourceHash": "3453c3bbcf2813a0f7d311b5025471e7fefe21c5a90f083da90a2ecfeb5ed00d",
+          "fetchedAt": "2026-10-07T06:46:01.650Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "Upon successful completion of this programme, you will be able to: Understand aspects of business and sociology management relevant to managing organisations effectively; Analyse business and management issues from the perspective of a number of social science disciplines; Formulate and develop arguments on management issues in a logical manner."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_04bb51bea750040a",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机科学(网络和移动发展)理学士学位",
+      "nameEn": "Bachelor of Science (Honours) in Computer Science (Web and Mobile Development)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Learn the skills you need to develop applications for web and mobile devices, which are critical application areas for computer science.",
+      "officialUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+      "sourceCheckedAt": "2026-10-07T06:46:03.355Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Learn the skills you need to develop applications for web and mobile devices, which are critical application areas for computer science.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+          "sourceCheckedAt": "2026-10-07T06:46:03.355Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CURRICULUM",
+          "titleZh": "课程结构",
+          "titleEn": "Curriculum",
+          "bodyZh": null,
+          "bodyEn": "Structure This programme will run over two semesters each year. Student can study up to four new modules in one semester; or two plus final project. Classes All classes are conducted on SIM campus unless otherwise stated. Classes are held in three-hour blocks between Monday and Friday, starting at 8.30am, 12pm, or 3.30pm. There are occasional classes on weeknights at 7pm and weekends. Average teacher-student ratio: 1:80 Minimum class size to commence: 25 students Academic Support Local faculty support from SIM and online academic support from Goldsmiths, University of London. View a list of lecturers A blended learning approach is adopted. Besides learning via online resources, SIM prepares students for discussion, coursework or project work; face-to-face sessions emphasizing discussions, case studies, and hands-on exercises. In class, the lecturer facilitates discussion and learning. As such, a large amount of time is spent on a mixture of: Lectures, Lab work, Computer simulation sessions, and Online learning through Coursera Academic materials are drawn from: Coursera, Virtual Learning Environment (VLE), SIMConnect portal, and University materials such as subject guides, past exam papers and exam commentaries, reading lists and handbooks on good study strategies Learning with Coursera The BSc Computer Science (CS) programme is fully developed and taught by the same faculty that teaches on-campus at University of London. The University of London leverages Coursera&rsquo;s online education platform to deliver the programme curriculum, allowing our students to benefit from Coursera features such as interactive video transcription, in-course note taking, and seamless learning across multiple devices. The supplementary readings, video lectures, assignments, and discussion forums are extensively discussed in class. Students also collaborate on group projects using Zoom and Slack. Students may access all course materials anywhere with the mobile app on Coursera, available on iOS and Android. Using the mobile app, learners can: (1) Save a week&rsquo;s worth of content for offline access with one click (2) Save and submit quizzes offline (3) View text transcripts of lecture videos (4) Take notes directly in the app (5) Set reminder alerts to help students progress. Show more Show less Assessment & Attendance Modules: Each module, excluding the Final Project, is assessed either by coursework or a combination of coursework and a written examination. Each coursework element may consist of multiple items of assessment. The pass mark for any element of assessment is 40%. Students are required to have a portable computer for assessment. Final Project: The summative assessment for the Final Project consists of both coursework and a written examination, weighted in the ratio 80:20. The written examination consists of questions relating to the project. Attendance requirement: Local: 75% International (inclusive of Dependent Pass/Long-term Visit Pass holders): 90% Show more Show less Requirements to Graduate The award of the BSc (Hons) degree requires successful completion of all modules and final project. Grading Scheme: 70-100: First Class Honours 60-69: Second Upper Class Honours 50-59: Second Lower Class Honours 40-49: Third Class Honours 0-39: Fail A student who does not qualify for honours may be awarded a Diploma of Higher Education in Computing Studies as an exit award. Graduates can attend the SIM ceremony held every April on campus. Alumni may also attend the University of London graduation ceremony held in end-April/ May in the UK. Show more Show less Modules Year 1 Modules Learn the fundamentals: how computers work, how to programme, and more about the mathematics that underpins computer science. CM1005 Introduction to programming I CM1010 Introduction to programming II CM1015 Computational mathematics* CM1020 Discrete mathematics CM1025 Fundamentals of computer science CM1030 How computers work CM1035 Algorithms and data structure",
+          "sortOrder": 20,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+          "sourceCheckedAt": "2026-10-07T06:46:03.355Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "The classic stereotype of the nerdy, solo, and socially awkward computer scientist is officially a relic of the past. As the economy digitises, technologists are being integrated into the fabric of business. These days attending meetings, presenting at conferences, and sharing ideas with colleagues are as crucial a part of a developer&rsquo;s work as writing code. Upon successful completion of this programme, you will be able to: Be able to develop applications for the web and mobile devices like smartphones and tablets; Carry out a substantial project where you have created a mobile or web application; Learn about mobile development, web development and databases. Show More Show Less",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+          "sourceCheckedAt": "2026-10-07T06:46:03.355Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Computer Science (Web and Mobile Development) | SIM",
+          "sourceHash": "1db37f0bfe3980d2989a0993ed2f296dcefd57a95b2c385a141451511e10ced6",
+          "fetchedAt": "2026-10-07T06:46:03.355Z",
+          "field": "name",
+          "rawText": "Bachelor of Science (Honours) in Computer Science (Web and Mobile Development)"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Computer Science (Web and Mobile Development) | SIM",
+          "sourceHash": "1db37f0bfe3980d2989a0993ed2f296dcefd57a95b2c385a141451511e10ced6",
+          "fetchedAt": "2026-10-07T06:46:03.355Z",
+          "field": "description",
+          "rawText": "Learn the skills you need to develop applications for web and mobile devices, which are critical application areas for computer science."
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Computer Science (Web and Mobile Development) | SIM",
+          "sourceHash": "1db37f0bfe3980d2989a0993ed2f296dcefd57a95b2c385a141451511e10ced6",
+          "fetchedAt": "2026-10-07T06:46:03.355Z",
+          "field": "detailSections.CURRICULUM",
+          "rawText": "Structure This programme will run over two semesters each year. Student can study up to four new modules in one semester; or two plus final project. Classes All classes are conducted on SIM campus unless otherwise stated. Classes are held in three-hour blocks between Monday and Friday, starting at 8.30am, 12pm, or 3.30pm. There are occasional classes on weeknights at 7pm and weekends. Average teacher-student ratio: 1:80 Minimum class size to commence: 25 students Academic Support Local faculty support from SIM and online academic support from Goldsmiths, University of London. View a list of lecturers A blended learning approach is adopted. Besides learning via online resources, SIM prepares students for discussion, coursework or project work; face-to-face sessions emphasizing discussions, case studies, and hands-on exercises. In class, the lecturer facilitates discussion and learning. As such, a large amount of time is spent on a mixture of: Lectures, Lab work, Computer simulation sessions, and Online learning through Coursera Academic materials are drawn from: Coursera, Virtual Learning Environment (VLE), SIMConnect portal, and University materials such as subject guides, past exam papers and exam commentaries, reading lists and handbooks on good study strategies Learning with Coursera The BSc Computer Science (CS) programme is fully developed and taught by the same faculty that teaches on-campus at University of London. The University of London leverages Coursera&rsquo;s online education platform to deliver the programme curriculum, allowing our students to benefit from Coursera features such as interactive video transcription, in-course note taking, and seamless learning across multiple devices. The supplementary readings, video lectures, assignments, and discussion forums are extensively discussed in class. Students also collaborate on group projects using Zoom and Slack. Students may access all course materials anywhere with the mobile app on Coursera, available on iOS and Android. Using the mobile app, learners can: (1) Save a week&rsquo;s worth of content for offline access with one click (2) Save and submit quizzes offline (3) View text transcripts of lecture videos (4) Take notes directly in the app (5) Set reminder alerts to help students progress. Show more Show less Assessment & Attendance Modules: Each module, excluding the Final Project, is assessed either by coursework or a combination of coursework and a written examination. Each coursework element may consist of multiple items of assessment. The pass mark for any element of assessment is 40%. Students are required to have a portable computer for assessment. Final Project: The summative assessment for the Final Project consists of both coursework and a written examination, weighted in the ratio 80:20. The written examination consists of questions relating to the project. Attendance requirement: Local: 75% International (inclusive of Dependent Pass/Long-term Visit Pass holders): 90% Show more Show less Requirements to Graduate The award of the BSc (Hons) degree requires successful completion of all modules and final project. Grading Scheme: 70-100: First Class Honours 60-69: Second Upper Class Honours 50-59: Second Lower Class Honours 40-49: Third Class Honours 0-39: Fail A student who does not qualify for honours may be awarded a Diploma of Higher Education in Computing Studies as an exit award. Graduates can attend the SIM ceremony held every April on campus. Alumni may also attend the University of London graduation ceremony held in end-April/ May in the UK. Show more Show less Modules Year 1 Modules Learn the fundamentals: how computers work, how to programme, and more about the mathematics that underpins computer science. CM1005 Introduction to programming I CM1010 Introduction to programming II CM1015 Computational mathematics* CM1020 Discrete mathematics CM1025 Fundamentals of computer science CM1030 How computers work CM1035 Algorithms and data structure"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+          "sourcePageTitle": "Bachelor of Science (Honours) in Computer Science (Web and Mobile Development) | SIM",
+          "sourceHash": "1db37f0bfe3980d2989a0993ed2f296dcefd57a95b2c385a141451511e10ced6",
+          "fetchedAt": "2026-10-07T06:46:03.355Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "The classic stereotype of the nerdy, solo, and socially awkward computer scientist is officially a relic of the past. As the economy digitises, technologists are being integrated into the fabric of business. These days attending meetings, presenting at conferences, and sharing ideas with colleagues are as crucial a part of a developer&rsquo;s work as writing code. Upon successful completion of this programme, you will be able to: Be able to develop applications for the web and mobile devices like smartphones and tablets; Carry out a substantial project where you have created a mobile or web application; Learn about mobile development, web development and databases. Show More Show Less"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_f67096d2155fef37",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "商业信息系统学士",
+      "nameEn": "Bachelor of Business Information Systems",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Learn to design, develop and integrate information systems to support business needs and give organisations a global competitive edge.",
+      "officialUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+      "sourceCheckedAt": "2026-10-07T06:46:05.508Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Learn to design, develop and integrate information systems to support business needs and give organisations a global competitive edge.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+          "sourceCheckedAt": "2026-10-07T06:46:05.508Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CURRICULUM",
+          "titleZh": "课程结构",
+          "titleEn": "Curriculum",
+          "bodyZh": null,
+          "bodyEn": "Structure This programme is taught in Singapore by local academics and/or practitioners, as well as UOW academics. Average teacher-student ratio is 1:50. The course is intensive and demanding but rewarding and achievable. Classes include face-to-face lectures, tutorials and lab sessions. Classes are typically in 3-hour blocks: 8:30 &ndash; 11:30am, 12noon &ndash; 3pm, or 3:30 &ndash; 6:30pm on weekdays and may be held on Saturday mornings and/or afternoons (subject to timetable). Classes delivered by UOW academics are conducted in an intensive mode &ndash; a continuous block of seven days for each module. Students typically study two modules per term. Each year comprises of 4 terms. Minimum class size to commence: 24 students In the event that the minimum number is not met, the intake may not commence. The student shall be informed within one month before programme commencement. View a list of lecturers Show more Show less Assessment & Attendance Students are normally assessed by continuous assessment in the following form: Assignments Class tests Laboratory exercises Practical laboratory tests Presentations Projects Tutorial exercises Some assignments and presentations will be group-based. Assessment may have minimum achievement requirement necessary to pass the module. Most modules have a final examination at the end of term. Students are to pass all modules within the current year of study before proceeding to the next year of study. For modules with pre-requisites, students may be required to meet the pre-requisites before undertaking the modules. Attendance requirement: Local students: 80% International students: 90% Show more Show less Requirements to Graduate Students who successfully complete 144 credit points and all academic requirements of the degree programme will be awarded the Bachelor of Business Information Systems by the University of Wollongong, Australia. A degree conferral ceremony will be held in Singapore Modules To be awarded the Bachelor of Business Information Systems, student must complete, or be exempted from completing (depending on their advanced standing status), a total of 23 modules comprising of core modules, prescribed elective modules and one final year project. Core Modules Networks and Communications Human Computer Interaction Fundamental Programming with Python Computing and Cyber Security Fundamentals System Analysis Database Management Systems Object Oriented Design & Programming Introduction to Web Technology IT Project Management Mathematics for Computing Principles of eBusiness Introduction to Management Software Development Methodologies* Big Data Management* Systems Administration* Business Process Management* Web Server Programming* Management Information Systems Java Programming Generative AI Emerging Information Technologies And Their Applications Project * Modules are taught by UOW Academics, supported by local tutors. Elective Modules Industry and Trade in Asia Accounting Principles Professional Communication: Concepts and Practice Marketing Principles Frontend Web Programming Statistics for Business Strategic eBusiness Solutions Accounting in Organisations Managing Human Resources Organisational Behaviour Organisational Analysis Management of Change Economic Essentials for Business Mobile Multimedia 3D Modelling and Animation Knowledge and Information Engineering Algorithms & Data Structures Advanced Programming Database Systems Interactive Computer Graphics* Game Engine Essentials* Cryptography and Secure Applications* Network Security* System Security* * Modules are taught by UOW Academics, supported by local tutors. Teach-Out View list of modules and descriptions (PDF 455 KB) View detailed programme structure (PDF 522 KB) The modules are subject to changes by the university and subject to availability. Not all modules will be offered every term.",
+          "sortOrder": 20,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+          "sourceCheckedAt": "2026-10-07T06:46:05.508Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "The curriculum is anchored in systems analysis, design and implementation of information systems. Graduates will gain: Understanding of the organisational, social and data management aspects of business Understanding of software design, implementation and testing methodologies Appreciation of appropriate user interaction entities Exposure to the challenges faced in managing and administrating information systems across different environments, and the solutions and technologies available Familiarity with the security needs of systems Industry experience through an internship programme Working knowledge of real-world enterprise systems such as enterprise resource planning (ERP), customer relationship management (CRM), supply chain management, and product lifecycle management Show More Show Less",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+          "sourceCheckedAt": "2026-10-07T06:46:05.508Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+          "sourcePageTitle": "Bachelor of Business Information Systems | SIM Information System Course | University of Wollongong - SIM Global Education",
+          "sourceHash": "3cbc5e237d7b931ce2097baebdf5bf84817f195126be7fac6f86790884565837",
+          "fetchedAt": "2026-10-07T06:46:05.508Z",
+          "field": "name",
+          "rawText": "Bachelor of Business Information Systems"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+          "sourcePageTitle": "Bachelor of Business Information Systems | SIM Information System Course | University of Wollongong - SIM Global Education",
+          "sourceHash": "3cbc5e237d7b931ce2097baebdf5bf84817f195126be7fac6f86790884565837",
+          "fetchedAt": "2026-10-07T06:46:05.508Z",
+          "field": "description",
+          "rawText": "Learn to design, develop and integrate information systems to support business needs and give organisations a global competitive edge."
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+          "sourcePageTitle": "Bachelor of Business Information Systems | SIM Information System Course | University of Wollongong - SIM Global Education",
+          "sourceHash": "3cbc5e237d7b931ce2097baebdf5bf84817f195126be7fac6f86790884565837",
+          "fetchedAt": "2026-10-07T06:46:05.508Z",
+          "field": "detailSections.CURRICULUM",
+          "rawText": "Structure This programme is taught in Singapore by local academics and/or practitioners, as well as UOW academics. Average teacher-student ratio is 1:50. The course is intensive and demanding but rewarding and achievable. Classes include face-to-face lectures, tutorials and lab sessions. Classes are typically in 3-hour blocks: 8:30 &ndash; 11:30am, 12noon &ndash; 3pm, or 3:30 &ndash; 6:30pm on weekdays and may be held on Saturday mornings and/or afternoons (subject to timetable). Classes delivered by UOW academics are conducted in an intensive mode &ndash; a continuous block of seven days for each module. Students typically study two modules per term. Each year comprises of 4 terms. Minimum class size to commence: 24 students In the event that the minimum number is not met, the intake may not commence. The student shall be informed within one month before programme commencement. View a list of lecturers Show more Show less Assessment & Attendance Students are normally assessed by continuous assessment in the following form: Assignments Class tests Laboratory exercises Practical laboratory tests Presentations Projects Tutorial exercises Some assignments and presentations will be group-based. Assessment may have minimum achievement requirement necessary to pass the module. Most modules have a final examination at the end of term. Students are to pass all modules within the current year of study before proceeding to the next year of study. For modules with pre-requisites, students may be required to meet the pre-requisites before undertaking the modules. Attendance requirement: Local students: 80% International students: 90% Show more Show less Requirements to Graduate Students who successfully complete 144 credit points and all academic requirements of the degree programme will be awarded the Bachelor of Business Information Systems by the University of Wollongong, Australia. A degree conferral ceremony will be held in Singapore Modules To be awarded the Bachelor of Business Information Systems, student must complete, or be exempted from completing (depending on their advanced standing status), a total of 23 modules comprising of core modules, prescribed elective modules and one final year project. Core Modules Networks and Communications Human Computer Interaction Fundamental Programming with Python Computing and Cyber Security Fundamentals System Analysis Database Management Systems Object Oriented Design & Programming Introduction to Web Technology IT Project Management Mathematics for Computing Principles of eBusiness Introduction to Management Software Development Methodologies* Big Data Management* Systems Administration* Business Process Management* Web Server Programming* Management Information Systems Java Programming Generative AI Emerging Information Technologies And Their Applications Project * Modules are taught by UOW Academics, supported by local tutors. Elective Modules Industry and Trade in Asia Accounting Principles Professional Communication: Concepts and Practice Marketing Principles Frontend Web Programming Statistics for Business Strategic eBusiness Solutions Accounting in Organisations Managing Human Resources Organisational Behaviour Organisational Analysis Management of Change Economic Essentials for Business Mobile Multimedia 3D Modelling and Animation Knowledge and Information Engineering Algorithms & Data Structures Advanced Programming Database Systems Interactive Computer Graphics* Game Engine Essentials* Cryptography and Secure Applications* Network Security* System Security* * Modules are taught by UOW Academics, supported by local tutors. Teach-Out View list of modules and descriptions (PDF 455 KB) View detailed programme structure (PDF 522 KB) The modules are subject to changes by the university and subject to availability. Not all modules will be offered every term."
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+          "sourcePageTitle": "Bachelor of Business Information Systems | SIM Information System Course | University of Wollongong - SIM Global Education",
+          "sourceHash": "3cbc5e237d7b931ce2097baebdf5bf84817f195126be7fac6f86790884565837",
+          "fetchedAt": "2026-10-07T06:46:05.508Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "The curriculum is anchored in systems analysis, design and implementation of information systems. Graduates will gain: Understanding of the organisational, social and data management aspects of business Understanding of software design, implementation and testing methodologies Appreciation of appropriate user interaction entities Exposure to the challenges faced in managing and administrating information systems across different environments, and the solutions and technologies available Familiarity with the security needs of systems Industry experience through an internship programme Working knowledge of real-world enterprise systems such as enterprise resource planning (ERP), customer relationship management (CRM), supply chain management, and product lifecycle management Show More Show Less"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_05e24ec806b65e94",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "会前商业管理证书",
+      "nameEn": "Certificate in Pre-Sessional Business Management",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Established to address the academic challenges of secondary school graduates, the CPBM programme aims to help those who wish to join SIM certificate programmes despite initial qualifications. This programme is designed to build a strong academic foundation and essential study skills for higher education success. The CPBM provides a comprehensive curriculum, emphasing in enhancing English skills and critical thinking, and laying down foundational business studies and economics principles. It serves as a bridge in preparing students for a smooth transition to advanced studies at SIM.",
+      "officialUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/certificate-in-pre-sessional-business-management",
+      "sourceCheckedAt": "2026-10-07T06:46:07.181Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Established to address the academic challenges of secondary school graduates, the CPBM programme aims to help those who wish to join SIM certificate programmes despite initial qualifications. This programme is designed to build a strong academic foundation and essential study skills for higher education success. The CPBM provides a comprehensive curriculum, emphasing in enhancing English skills and critical thinking, and laying down foundational business studies and economics principles. It serves as a bridge in preparing students for a smooth transition to advanced studies at SIM.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/certificate-in-pre-sessional-business-management",
+          "sourceCheckedAt": "2026-10-07T06:46:07.181Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CURRICULUM",
+          "titleZh": "课程结构",
+          "titleEn": "Curriculum",
+          "bodyZh": null,
+          "bodyEn": "Structure Lecturers are both academic and industry-based professionals with extensive work experience and expertise in their domain knowledge. Average teacher-student ratio is 1:19. View a list of lecturers&rsquo; teaching modules The course is 100% face-to-face lecture-based learning. Coursework includes attendance at lectures, discussions of case studies, tests, presentations, and completion of group and individual-written assignments. Students are required to access relevant websites and the Internet for research and assignments in their own time. Besides attending lectures, students also participate in computer lab sessions. Contact hours: total: 195 hours. Each lesson: 3 hours. Classes and workshops are organised to teach study skills, academic writing and presentation. Academic materials: Virtual Learning Environment Academic materials such as module books (soft copies), past assessment papers, reading lists and handbooks on good study strategies Minimum class size to commence: 20 students. Students will be informed within 30 days before class commences. Show more Show less Assessment & Attendance For 100% continuous module, the module is assessed through multiple continuous assessments. Continuous assessments may include case studies, class tests, discussion, presentation, group and individual assignments. Students must pass all the modules in the course to qualify for progression to the Certificate programmes. Attendance requirement: 75% attendance to sit for exams. Student&rsquo;s Pass holders: at least 90% attendance in any month of the course (as required by the Singapore Immigration & Checkpoints Authority). Show more Show less Requirements to Graduate To graduate, students must successfully complete and pass all 4 modules. Graduating students will receive a result transcript and the Certificate of Completion from SIM. Graduating students will be deemed as meeting the academic requirement for entry into SIM Certificate in Foundation Studies Modules Upper-Intermediate English Business Studies Fundamentals of Economics Thinking Skills in the Digital Age View module descriptions",
+          "sortOrder": 20,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/certificate-in-pre-sessional-business-management",
+          "sourceCheckedAt": "2026-10-07T06:46:07.181Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/certificate-in-pre-sessional-business-management",
+          "sourcePageTitle": "Certificate in Pre-Sessional Business Management | SIM",
+          "sourceHash": "d6c2e4706a11562cf8ffd93f2350c91188bbb4ec7051fc297c53ca9645415791",
+          "fetchedAt": "2026-10-07T06:46:07.181Z",
+          "field": "name",
+          "rawText": "Certificate in Pre-Sessional Business Management"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/certificate-in-pre-sessional-business-management",
+          "sourcePageTitle": "Certificate in Pre-Sessional Business Management | SIM",
+          "sourceHash": "d6c2e4706a11562cf8ffd93f2350c91188bbb4ec7051fc297c53ca9645415791",
+          "fetchedAt": "2026-10-07T06:46:07.181Z",
+          "field": "description",
+          "rawText": "Established to address the academic challenges of secondary school graduates, the CPBM programme aims to help those who wish to join SIM certificate programmes despite initial qualifications. This programme is designed to build a strong academic foundation and essential study skills for higher education success. The CPBM provides a comprehensive curriculum, emphasing in enhancing English skills and critical thinking, and laying down foundational business studies and economics principles. It serves as a bridge in preparing students for a smooth transition to advanced studies at SIM."
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/certificate-in-pre-sessional-business-management",
+          "sourcePageTitle": "Certificate in Pre-Sessional Business Management | SIM",
+          "sourceHash": "d6c2e4706a11562cf8ffd93f2350c91188bbb4ec7051fc297c53ca9645415791",
+          "fetchedAt": "2026-10-07T06:46:07.181Z",
+          "field": "detailSections.CURRICULUM",
+          "rawText": "Structure Lecturers are both academic and industry-based professionals with extensive work experience and expertise in their domain knowledge. Average teacher-student ratio is 1:19. View a list of lecturers&rsquo; teaching modules The course is 100% face-to-face lecture-based learning. Coursework includes attendance at lectures, discussions of case studies, tests, presentations, and completion of group and individual-written assignments. Students are required to access relevant websites and the Internet for research and assignments in their own time. Besides attending lectures, students also participate in computer lab sessions. Contact hours: total: 195 hours. Each lesson: 3 hours. Classes and workshops are organised to teach study skills, academic writing and presentation. Academic materials: Virtual Learning Environment Academic materials such as module books (soft copies), past assessment papers, reading lists and handbooks on good study strategies Minimum class size to commence: 20 students. Students will be informed within 30 days before class commences. Show more Show less Assessment & Attendance For 100% continuous module, the module is assessed through multiple continuous assessments. Continuous assessments may include case studies, class tests, discussion, presentation, group and individual assignments. Students must pass all the modules in the course to qualify for progression to the Certificate programmes. Attendance requirement: 75% attendance to sit for exams. Student&rsquo;s Pass holders: at least 90% attendance in any month of the course (as required by the Singapore Immigration & Checkpoints Authority). Show more Show less Requirements to Graduate To graduate, students must successfully complete and pass all 4 modules. Graduating students will receive a result transcript and the Certificate of Completion from SIM. Graduating students will be deemed as meeting the academic requirement for entry into SIM Certificate in Foundation Studies Modules Upper-Intermediate English Business Studies Fundamentals of Economics Thinking Skills in the Digital Age View module descriptions"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_15281d1a0da73736",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "文学士(通讯和国际贸易)",
+      "nameEn": "Bachelor of Arts (Communication and International Trade)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Learn the art and process of communication skills with international focus and expose yourself to globalization and trade.",
+      "officialUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+      "sourceCheckedAt": "2026-10-07T06:46:09.657Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Learn the art and process of communication skills with international focus and expose yourself to globalization and trade.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+          "sourceCheckedAt": "2026-10-07T06:46:09.657Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CURRICULUM",
+          "titleZh": "课程结构",
+          "titleEn": "Curriculum",
+          "bodyZh": null,
+          "bodyEn": "Structure Blended learning. Activities, consultations, discussions, exercises, lectures, online learning and presentations. Each lesson consists of 1.5 hours of lecture and 1.5 hours of consultation. To ensure parity in standards, rigors of the program, integrity of the UB degree, more than 50% of modules are taught by US / overseas visiting faculty, covering the full semester throughout the entire program. The rest of the modules are taught by qualified local faculty with the experience and academic expertise approved by UB. Average teacher-student ratio = 1:40. Minimum class size to commence: 25 students. Students will be informed at least one month prior to course commencement if class cannot commence due to low take up rate. View a list of lecturers&rsquo; teaching modules (PDF) Assessment & Attendance The normal module load for students is 12 to 15 credit hours a semester. Students may register for modules and make changes to their class schedule. Students who choose to drop or resign from any modules, are on official leave of absence or have to repeat any failed modules, may take more than three years to complete their studies. Continuous assessment comprises tests, quizzes, assignments, projects, presentations, participations and activities scheduled throughout the semester. The final exam is held in the 2 -3 weeks after the semester ends. Students progress through each semester till they satisfactorily complete the conferral requirements. Attendance requirement: Local students &ndash; Minimum attendance requirement as stipulated by UB or 75%, whichever is higher. International students &ndash; Minimum attendance requirement is 90% as mandated by the Immigration and Checkpoints Authority of Singapore (ICA). Show more Show less Requirements to Graduate Completion of min. of 131 credits with a min. overall and UB GPA of 2.0 to be awarded the degree. With the credit exemptions, students may be able to complete the course of study in less than 4 years. Students who successfully complete all the requirements of the program will be awarded the Bachelor of Arts and/or Science degree in the relevant major(s) by the University at Buffalo, The State University of New York, US. Students earning baccalaureate degrees are eligible to receive Latin Honors based on their UB cumulative GPA on the following scale: Average (based on 4.0 = A) 3.20 cum laude (Distinction) 3.50 magna cum laude (High Distinction) 3.75 summa cum laude (Highest Distinction) To qualify for Latin Honors, students must present a minimum of 60 credits of UB undergraduate coursework, at least 54 of which must be graded credits (i.e. not satisfactory or unsatisfactory &ndash; grades of &lsquo;S&rsquo; or &lsquo;U&rsquo;) Show more Show less Modules Total credits required for degree: 134-136 Credits Required for Major: 109 Credits Required for UB Curriculum: 25-27 Credits Required for Free Electives (Any Level): 0 Credits Required for Free Electives (Upper Division, at least 300-Level): 0 Prerequisite Modules for Communication COM 101 Principles of Communication (3 credits) Introduces the study of communication in interpersonal, small-group, organizational, mass, and intercultural contexts; covers basic communication models, theory, and research methods used in communication. COM 217 Communication in Organizations (3 credits) Provides a practical introduction to principles of organizational communication, including basic theories, methods, and applications of organizational communication. COM 225 Interpersonal Communication (3 credits) Conducts an in-depth analysis of psychological and sociological processes involved in interpersonal communication. COM 240 Introduction to Mass Communication (3 credits) Considers formal organization, functions, and development of mass media; communication as a social process; audience characteristics; structured networks; and communication in bureaucracies. COM 337 Communication Theory (3 credits) Introduces the process of communicati",
+          "sortOrder": 20,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+          "sourceCheckedAt": "2026-10-07T06:46:09.657Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "Upon successful completion of this programme, you will: Learn the finer points of interpersonal communication Be able to apply critical thinking to the use of mass media Discover the complexity of delivering information in organizational and mediated communication situations Broaden your horizons through the study of international and inter-cultural communication Understand the growth of multinationals and foreign direct investments, international trade, the internationalization of capital and financial markets Learn to handle the new international divisions of labor, and the rapid development of technology and innovation. Be exposed to a wide range of perspectives on the global economy Develop important skills in policy and data analysis at various geographic scales Show More Show Less",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+          "sourceCheckedAt": "2026-10-07T06:46:09.657Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+          "sourcePageTitle": "Bachelor of Arts (Communication and International Trade) | University at Buffalo - SIM Global Education",
+          "sourceHash": "40096a6cb645c5dcd05eaf4464759a7222a8e8919444a6be98029962441acde6",
+          "fetchedAt": "2026-10-07T06:46:09.657Z",
+          "field": "name",
+          "rawText": "Bachelor of Arts (Communication and International Trade)"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+          "sourcePageTitle": "Bachelor of Arts (Communication and International Trade) | University at Buffalo - SIM Global Education",
+          "sourceHash": "40096a6cb645c5dcd05eaf4464759a7222a8e8919444a6be98029962441acde6",
+          "fetchedAt": "2026-10-07T06:46:09.657Z",
+          "field": "description",
+          "rawText": "Learn the art and process of communication skills with international focus and expose yourself to globalization and trade."
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+          "sourcePageTitle": "Bachelor of Arts (Communication and International Trade) | University at Buffalo - SIM Global Education",
+          "sourceHash": "40096a6cb645c5dcd05eaf4464759a7222a8e8919444a6be98029962441acde6",
+          "fetchedAt": "2026-10-07T06:46:09.657Z",
+          "field": "detailSections.CURRICULUM",
+          "rawText": "Structure Blended learning. Activities, consultations, discussions, exercises, lectures, online learning and presentations. Each lesson consists of 1.5 hours of lecture and 1.5 hours of consultation. To ensure parity in standards, rigors of the program, integrity of the UB degree, more than 50% of modules are taught by US / overseas visiting faculty, covering the full semester throughout the entire program. The rest of the modules are taught by qualified local faculty with the experience and academic expertise approved by UB. Average teacher-student ratio = 1:40. Minimum class size to commence: 25 students. Students will be informed at least one month prior to course commencement if class cannot commence due to low take up rate. View a list of lecturers&rsquo; teaching modules (PDF) Assessment & Attendance The normal module load for students is 12 to 15 credit hours a semester. Students may register for modules and make changes to their class schedule. Students who choose to drop or resign from any modules, are on official leave of absence or have to repeat any failed modules, may take more than three years to complete their studies. Continuous assessment comprises tests, quizzes, assignments, projects, presentations, participations and activities scheduled throughout the semester. The final exam is held in the 2 -3 weeks after the semester ends. Students progress through each semester till they satisfactorily complete the conferral requirements. Attendance requirement: Local students &ndash; Minimum attendance requirement as stipulated by UB or 75%, whichever is higher. International students &ndash; Minimum attendance requirement is 90% as mandated by the Immigration and Checkpoints Authority of Singapore (ICA). Show more Show less Requirements to Graduate Completion of min. of 131 credits with a min. overall and UB GPA of 2.0 to be awarded the degree. With the credit exemptions, students may be able to complete the course of study in less than 4 years. Students who successfully complete all the requirements of the program will be awarded the Bachelor of Arts and/or Science degree in the relevant major(s) by the University at Buffalo, The State University of New York, US. Students earning baccalaureate degrees are eligible to receive Latin Honors based on their UB cumulative GPA on the following scale: Average (based on 4.0 = A) 3.20 cum laude (Distinction) 3.50 magna cum laude (High Distinction) 3.75 summa cum laude (Highest Distinction) To qualify for Latin Honors, students must present a minimum of 60 credits of UB undergraduate coursework, at least 54 of which must be graded credits (i.e. not satisfactory or unsatisfactory &ndash; grades of &lsquo;S&rsquo; or &lsquo;U&rsquo;) Show more Show less Modules Total credits required for degree: 134-136 Credits Required for Major: 109 Credits Required for UB Curriculum: 25-27 Credits Required for Free Electives (Any Level): 0 Credits Required for Free Electives (Upper Division, at least 300-Level): 0 Prerequisite Modules for Communication COM 101 Principles of Communication (3 credits) Introduces the study of communication in interpersonal, small-group, organizational, mass, and intercultural contexts; covers basic communication models, theory, and research methods used in communication. COM 217 Communication in Organizations (3 credits) Provides a practical introduction to principles of organizational communication, including basic theories, methods, and applications of organizational communication. COM 225 Interpersonal Communication (3 credits) Conducts an in-depth analysis of psychological and sociological processes involved in interpersonal communication. COM 240 Introduction to Mass Communication (3 credits) Considers formal organization, functions, and development of mass media; communication as a social process; audience characteristics; structured networks; and communication in bureaucracies. COM 337 Communication Theory (3 credits) Introduces the process of communicati"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+          "sourcePageTitle": "Bachelor of Arts (Communication and International Trade) | University at Buffalo - SIM Global Education",
+          "sourceHash": "40096a6cb645c5dcd05eaf4464759a7222a8e8919444a6be98029962441acde6",
+          "fetchedAt": "2026-10-07T06:46:09.657Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "Upon successful completion of this programme, you will: Learn the finer points of interpersonal communication Be able to apply critical thinking to the use of mass media Discover the complexity of delivering information in organizational and mediated communication situations Broaden your horizons through the study of international and inter-cultural communication Understand the growth of multinationals and foreign direct investments, international trade, the internationalization of capital and financial markets Learn to handle the new international divisions of labor, and the rapid development of technology and innovation. Be exposed to a wide range of perspectives on the global economy Develop important skills in policy and data analysis at various geographic scales Show More Show Less"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_a239978b7405ee8f",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "文学士(社会学)",
+      "nameEn": "Bachelor of Arts (Sociology)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Learn the art and process of dynamic social systems and issues related to each other and societal issues. A study of all people, for all people. Learn the art and process of dynamic social systems and issues related to each other and societal issues in social world.",
+      "officialUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+      "sourceCheckedAt": "2026-10-07T06:46:11.230Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Learn the art and process of dynamic social systems and issues related to each other and societal issues. A study of all people, for all people. Learn the art and process of dynamic social systems and issues related to each other and societal issues in social world.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+          "sourceCheckedAt": "2026-10-07T06:46:11.230Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CURRICULUM",
+          "titleZh": "课程结构",
+          "titleEn": "Curriculum",
+          "bodyZh": null,
+          "bodyEn": "Structure Blended Learning. Activities, consultations, discussions, exercises, lectures, online learning and presentations. Each lesson consists of 1.5 hours of lecture and 1.5 hours of consultation. To ensure parity in standards, rigors of the program, integrity of the UB degree, more than 50% of modules are taught by US/overseas visiting faculty, covering the full semester throughout the entire program. The rest of the modules are taught by qualified local faculty with the experience and academic expertise approved by UB. Average teacher-student ratio = 1:40. Minimum class size to commence: 25 students. Students will be informed at least one month prior to course commencement if class cannot commence due to low take up rate. View a list of lecturers&rsquo; teaching modules (PDF) Assessment & Attendance The normal module load for students is 12 to 15 credit hours a semester. Students may register for modules and make changes to their class schedule. Students who choose to drop or resign from any modules, are on official leave of absence or have to repeat any failed modules, may take more than three years to complete their studies. Continuous assessment comprises tests, quizzes, assignments, projects, presentations, participations and activities scheduled throughout the semester. The final exam is held in the 2 - 3 weeks after the semester ends. Students progress through each semester till they satisfactorily complete the conferral requirements. Attendance requirement: Local students &ndash; Minimum attendance requirement as stipulated by UB or 75%, whichever is higher. International students &ndash; Minimum attendance requirement is 90% as mandated by the Immigration and Checkpoints Authority of Singapore (ICA). Show more Show less Requirements to Graduate Completion of min. of 120 credits with a min. overall and UB GPA of 2.0 to be awarded the degree. With the credit exemptions, students may be able to complete the course of study in less than 3 years. Students who successfully complete all the requirements of the program will be awarded the Bachelor of Arts and/or Science degree in the relevant major(s) by the University at Buffalo, The State University of New York, US. Students earning baccalaureate degrees are eligible to receive Latin Honors based on their UB cumulative GPA on the following scale: Average (based on 4.0 = A) 3.20 cum laude (Distinction) 3.50 magna cum laude (High Distinction) 3.75 summa cum laude (Highest Distinction) To qualify for Latin Honors, students must present a minimum of 60 credits of UB undergraduate coursework, at least 54 of which must be graded credits (i.e. not satisfactory or unsatisfactory &ndash; grades of &lsquo;S&rsquo; or &lsquo;U&rsquo;) Show more Show less Modules Total credits required for degree: 120 Credits Required for Major: 37 Credits Required for UB Curriculum: 27-36 Credits Required for Free Electives (Any Level): 11-17 Credits Required for Free Electives (Upper Division, at least 300-Level): 36-39 Required Modules SOC 101 Introduction to Sociology (3 credits) Sociology is the scientific study of human society and social life. In this course, we analyze how people influence and are influenced by other people and the social structures in which they live. We examine key concepts, theories, and ideas in sociology, including subfields such as culture, sex and gender, race and ethnicity, crime and deviance, and collective action and social movements. SOC 293 Social Research Methods (3 credits) This course is about using scientific rigor to examine the world around us. It requires re-evaluating everyday methods of gathering information and drawing conclusions and using theory, causal modeling, and carefully collected data to arrive at logical, complete, and better-supported explanations of events and social phenomena. Students will learn about and practice doing sociology. The skills developed provide the foundations necessary to conduct professional research and to become better ",
+          "sortOrder": 20,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+          "sourceCheckedAt": "2026-10-07T06:46:11.230Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "Upon successful completion of this programme, you will: Study the finer points about an individual, social groups, and social systems and their relationships Learn about the causes, characteristics, changes, and consequences of human behavior in groups Understand the structure and dynamics of social systems and issues relate to each other and societal issues",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+          "sourceCheckedAt": "2026-10-07T06:46:11.230Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+          "sourcePageTitle": "Bachelor of Arts (Sociology) | University At Buffalo - SIM Global Education",
+          "sourceHash": "06a658115853b906810d08d6a0bb6a32f970b739d48715a7dfdc9743ab4b4369",
+          "fetchedAt": "2026-10-07T06:46:11.230Z",
+          "field": "name",
+          "rawText": "Bachelor of Arts (Sociology)"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+          "sourcePageTitle": "Bachelor of Arts (Sociology) | University At Buffalo - SIM Global Education",
+          "sourceHash": "06a658115853b906810d08d6a0bb6a32f970b739d48715a7dfdc9743ab4b4369",
+          "fetchedAt": "2026-10-07T06:46:11.230Z",
+          "field": "description",
+          "rawText": "Learn the art and process of dynamic social systems and issues related to each other and societal issues. A study of all people, for all people. Learn the art and process of dynamic social systems and issues related to each other and societal issues in social world."
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+          "sourcePageTitle": "Bachelor of Arts (Sociology) | University At Buffalo - SIM Global Education",
+          "sourceHash": "06a658115853b906810d08d6a0bb6a32f970b739d48715a7dfdc9743ab4b4369",
+          "fetchedAt": "2026-10-07T06:46:11.230Z",
+          "field": "detailSections.CURRICULUM",
+          "rawText": "Structure Blended Learning. Activities, consultations, discussions, exercises, lectures, online learning and presentations. Each lesson consists of 1.5 hours of lecture and 1.5 hours of consultation. To ensure parity in standards, rigors of the program, integrity of the UB degree, more than 50% of modules are taught by US/overseas visiting faculty, covering the full semester throughout the entire program. The rest of the modules are taught by qualified local faculty with the experience and academic expertise approved by UB. Average teacher-student ratio = 1:40. Minimum class size to commence: 25 students. Students will be informed at least one month prior to course commencement if class cannot commence due to low take up rate. View a list of lecturers&rsquo; teaching modules (PDF) Assessment & Attendance The normal module load for students is 12 to 15 credit hours a semester. Students may register for modules and make changes to their class schedule. Students who choose to drop or resign from any modules, are on official leave of absence or have to repeat any failed modules, may take more than three years to complete their studies. Continuous assessment comprises tests, quizzes, assignments, projects, presentations, participations and activities scheduled throughout the semester. The final exam is held in the 2 - 3 weeks after the semester ends. Students progress through each semester till they satisfactorily complete the conferral requirements. Attendance requirement: Local students &ndash; Minimum attendance requirement as stipulated by UB or 75%, whichever is higher. International students &ndash; Minimum attendance requirement is 90% as mandated by the Immigration and Checkpoints Authority of Singapore (ICA). Show more Show less Requirements to Graduate Completion of min. of 120 credits with a min. overall and UB GPA of 2.0 to be awarded the degree. With the credit exemptions, students may be able to complete the course of study in less than 3 years. Students who successfully complete all the requirements of the program will be awarded the Bachelor of Arts and/or Science degree in the relevant major(s) by the University at Buffalo, The State University of New York, US. Students earning baccalaureate degrees are eligible to receive Latin Honors based on their UB cumulative GPA on the following scale: Average (based on 4.0 = A) 3.20 cum laude (Distinction) 3.50 magna cum laude (High Distinction) 3.75 summa cum laude (Highest Distinction) To qualify for Latin Honors, students must present a minimum of 60 credits of UB undergraduate coursework, at least 54 of which must be graded credits (i.e. not satisfactory or unsatisfactory &ndash; grades of &lsquo;S&rsquo; or &lsquo;U&rsquo;) Show more Show less Modules Total credits required for degree: 120 Credits Required for Major: 37 Credits Required for UB Curriculum: 27-36 Credits Required for Free Electives (Any Level): 11-17 Credits Required for Free Electives (Upper Division, at least 300-Level): 36-39 Required Modules SOC 101 Introduction to Sociology (3 credits) Sociology is the scientific study of human society and social life. In this course, we analyze how people influence and are influenced by other people and the social structures in which they live. We examine key concepts, theories, and ideas in sociology, including subfields such as culture, sex and gender, race and ethnicity, crime and deviance, and collective action and social movements. SOC 293 Social Research Methods (3 credits) This course is about using scientific rigor to examine the world around us. It requires re-evaluating everyday methods of gathering information and drawing conclusions and using theory, causal modeling, and carefully collected data to arrive at logical, complete, and better-supported explanations of events and social phenomena. Students will learn about and practice doing sociology. The skills developed provide the foundations necessary to conduct professional research and to become better "
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+          "sourcePageTitle": "Bachelor of Arts (Sociology) | University At Buffalo - SIM Global Education",
+          "sourceHash": "06a658115853b906810d08d6a0bb6a32f970b739d48715a7dfdc9743ab4b4369",
+          "fetchedAt": "2026-10-07T06:46:11.230Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "Upon successful completion of this programme, you will: Study the finer points about an individual, social groups, and social systems and their relationships Learn about the causes, characteristics, changes, and consequences of human behavior in groups Understand the structure and dynamics of social systems and issues relate to each other and societal issues"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.sim.edu.sg/",
+      "fetchedAt": "2026-10-07T04:29:56.607Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3abdeb5febc976d6bb3e0e084a43fff2a4c270b735845c59ccccba3c5bf248fd",
+      "title": "Singapore Institute of Management | Degree & Diploma Programmes | Professional Short Courses",
+      "snapshotFile": "raw/0001-3abdeb5febc9.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing",
+      "fetchedAt": "2026-10-07T04:29:58.649Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "80502f773001fe729e7101cc5bb05e4412810fac484ab2b72931c03b886ddf49",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0002-80502f773001.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/masters-postgraduate",
+      "fetchedAt": "2026-10-07T04:30:01.378Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0510678bee90e92de5c5ce2694313ced65daf6e2c91fcf0e31b7e7c71bc8d99e",
+      "title": "Master's Degree | Postgraduate Degree | Flexible & Part-Time Master's Degree in Singapore - SIM",
+      "snapshotFile": "raw/0003-0510678bee90.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+      "fetchedAt": "2026-10-07T04:30:02.403Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "69a3cff0842e07079eb9772fdbbfc42e14cb5436cd9e153d8edd7c51123801b9",
+      "title": "Bachelor's Degrees | Bachelors with Honours - SIM",
+      "snapshotFile": "raw/0004-69a3cff0842e.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+      "fetchedAt": "2026-10-07T04:30:07.470Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "adf536c4a6b83f0c178ce41a9a3661b64d389f4e8733ba55778faafc447812e6",
+      "title": "Diploma | Diploma Courses in Singapore | Industry-focused Curriculum - SIM",
+      "snapshotFile": "raw/0005-adf536c4a6b8.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/certificate-courses-foundation-programmes",
+      "fetchedAt": "2026-10-07T04:30:08.707Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2faeb206abfe3ccc84ae8c9486deab8dd67dde65abc6c48d38d23ca799a4a9f3",
+      "title": "Certificate Courses & Foundation Programmes | SIM",
+      "snapshotFile": "raw/0006-2faeb206abfe.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/aviation",
+      "fetchedAt": "2026-10-07T04:30:10.496Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6ff1b7a4ba8a8eaa05aa8223789e73d8db57ea1e57af5ce4456eb5812e0dcca2",
+      "title": "Aviation Management | Aviation Degree | RMIT University - SIM Global Education",
+      "snapshotFile": "raw/0007-6ff1b7a4ba8a.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/arts-social-science",
+      "fetchedAt": "2026-10-07T04:30:12.746Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8bfa0f973c283d9bc3e481159ebe011433824f448649fb2cffc15f9674683cbd",
+      "title": "Bachelor of Arts | Bachelor of Social Sciences | SIM",
+      "snapshotFile": "raw/0008-8bfa0f973c28.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business",
+      "fetchedAt": "2026-10-07T04:30:14.447Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6a95c18a8731a7b2590bd3162a97014c8d8323f42903fbffa22dafcb6a1ff7be",
+      "title": "Business Courses | Business Degree - SIM Global Education",
+      "snapshotFile": "raw/0009-6a95c18a8731.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science",
+      "fetchedAt": "2026-10-07T04:30:16.694Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "de978d76d620c1c559de08da0698f3b1a37cec5d9c3b5e684b11b98e959f7159",
+      "title": "IT and Computer Science | Computer Science Degree Singapore - SIM Global Education",
+      "snapshotFile": "raw/0010-de978d76d620.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/nursing",
+      "fetchedAt": "2026-10-07T04:30:18.639Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2de2537899a3841c806a8cd58b9b38a516c1f12ddd9bbaddd7766928b0b8d9a6",
+      "title": "Nursing & Research | Part-Time Nursing Degree for Registered Nurses in Singapore | University of Sydney - SIM Global Education",
+      "snapshotFile": "raw/0011-2de2537899a3.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/brochures-prospectus",
+      "fetchedAt": "2026-10-07T04:30:20.578Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1883abb67d087cc87e581ac98d06a0458a5aeffa55c9d4fee2b0549f0a703be4",
+      "title": "SIM GE Brochures & Prospectuses | SIM",
+      "snapshotFile": "raw/0012-1883abb67d08.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-guidance",
+      "fetchedAt": "2026-10-07T04:30:22.409Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f8794d8ffa8dcec64de842441bc26623cf73854e4cb5ae0462be006c9477cbfd",
+      "title": "SIM GE Programme Guidance | Degrees & Diplomas | SIM",
+      "snapshotFile": "raw/0013-f8794d8ffa8d.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/teach-out-inactive-programmes",
+      "fetchedAt": "2026-10-07T04:30:24.393Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bf8c87288138cd6c6bf4b481601439982de8441055714f57fb6aaa2915115957",
+      "title": "Teach-Out & Inactive Programmes | SIM",
+      "snapshotFile": "raw/0014-bf8c87288138.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing",
+      "fetchedAt": "2026-10-07T04:30:41.335Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5eca776c8acece5a4e82d2a23dbb42c595e16c21067101abaa4f2d0ff4b8be30",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0015-5eca776c8ace.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/ai-programmes",
+      "fetchedAt": "2026-10-07T04:30:42.610Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0ecb8468fc8627a025a8a899469e00cef1c45e1ee2952754bf95986d0ce50b3e",
+      "title": "SIM Academy X Preface AI | Powering an AI‑Ready Workforce Through Applied Learning",
+      "snapshotFile": "raw/0016-0ecb8468fc86.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/skillsfuture-courses",
+      "fetchedAt": "2026-10-07T04:30:48.266Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8a909fceb9a0d05a7772cd4bcb51139d759693ac1da8b98ea4bd1bb06decfff6",
+      "title": "Courses Eligible for SkillsFuture Credit | Short Course Singapore - SIM Academy",
+      "snapshotFile": "raw/0017-8a909fceb9a0.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/sustainability-courses",
+      "fetchedAt": "2026-10-07T04:30:50.391Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0511ad8baf16d37ced1cae6035f02d0da912eddd61b0a9cf474f1fe01eb85679",
+      "title": "Begin your sustainability journey with SIM Academy X Terrama Sustainability Lab | SIM",
+      "snapshotFile": "raw/0018-0511ad8baf16.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/leadership-management-complexity",
+      "fetchedAt": "2026-10-07T04:30:52.500Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4464f4d59c4e07fbb8fe8416fbd8ae6800fb4fb620999e3ec54bcf3d41ba3256",
+      "title": "Leadership and Management Courses | Management Skills | Essential Managerial Techniques - SIM Academy",
+      "snapshotFile": "raw/0019-4464f4d59c4e.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/digital",
+      "fetchedAt": "2026-10-07T04:30:53.352Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e09dc0be8ac1f72ddb5d5610f96f151e4bf7b8d7060ea4d17e97f9bec5500cd6",
+      "title": "Digital Courses | SIM",
+      "snapshotFile": "raw/0020-e09dc0be8ac1.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/people-skills",
+      "fetchedAt": "2026-10-07T04:30:55.416Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a2e35d7fa882094bb7ca8898113f889867d7db51c47d447b381c4484bd3679f4",
+      "title": "People Skills Courses | SIM",
+      "snapshotFile": "raw/0021-a2e35d7fa882.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/online-courses",
+      "fetchedAt": "2026-10-07T04:30:57.796Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cb4375b66d17ed7441b2de7a0a9957adebf6c79eafc7dda6655a01c747bf94e8",
+      "title": "Online Courses | Online Learning Courses Singapore - SIM Academy",
+      "snapshotFile": "raw/0022-cb4375b66d17.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/systems-thinking",
+      "fetchedAt": "2026-10-07T04:30:59.494Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e2942df4085d1b42c2b45dacfdfea4ffd986c60994efa1f3e18459467476c1f9",
+      "title": "Systems Thinking Courses | SIM",
+      "snapshotFile": "raw/0023-e2942df4085d.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/creativity-innovation",
+      "fetchedAt": "2026-10-07T04:31:02.080Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "00b74fba4de1b23a52535a8874a82f8f2fed2a8b9d10d22bfd7365b94d8344e5",
+      "title": "Creativity and Innovation Courses | SIM",
+      "snapshotFile": "raw/0024-00b74fba4de1.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/sctp-programme",
+      "fetchedAt": "2026-10-07T04:31:03.526Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4990b0ed59a13a267f3653f711a2fd9334990f1c05a447fe91af015c455aa753",
+      "title": "Enrol now | SkillsFuture Career Transition Programme (SCTP)",
+      "snapshotFile": "raw/0025-4990b0ed59a1.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/enterprise-solutions/programmes",
+      "fetchedAt": "2026-10-07T04:31:05.929Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "67735d1f22b2635f920757c082651fdd75cc0cdc0579777fd0767f2568013f2e",
+      "title": "Our Programmes | Corporate Learning Solutions | Systems Leadership | - SIM Academy",
+      "snapshotFile": "raw/0026-67735d1f22b2.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing/ai-dea-phase-1",
+      "fetchedAt": "2026-10-07T04:31:07.698Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1e1af4f2e31e1e783e00a94b574d537df1a618c5e2e096b307c6c2ccbcb2531d",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0027-1e1af4f2e31e.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing/tiktok-masterclass-695cc6a0cac5ac4a68ce6a67d4f7f8f9",
+      "fetchedAt": "2026-10-07T04:31:09.790Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "16518b95aa7fc687747733481877361225e4470a785123a2fd9abae431614375",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0028-16518b95aa7f.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/enterprise-solutions/international-immersion-programme",
+      "fetchedAt": "2026-10-07T04:31:11.713Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a9f6f031f084079d5dd31c59d6d103885ed5019e5be45e7889c1de05f8483f67",
+      "title": "International Learning | Corporate Learning by SIM Academy | SIM",
+      "snapshotFile": "raw/0029-a9f6f031f084.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4",
+      "fetchedAt": "2026-10-07T04:31:14.146Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3384594afd3b27933ee744804cad77fd60500109e35a3f7d0d6315a90bc9b91d",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0030-3384594afd3b.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1",
+      "fetchedAt": "2026-10-07T04:31:15.912Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3b9146c09f1aca2721b15de629dd88d2d8352b191f3536890c298eeee2a33e35",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0031-3b9146c09f1a.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2",
+      "fetchedAt": "2026-10-07T04:31:18.076Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "74193f635d58657b2e15a0427bf3ef220b775812829481bb7fe88a83250cc534",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0032-74193f635d58.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3",
+      "fetchedAt": "2026-10-07T04:31:19.799Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5fa74a0271f10d7091b66e1f5bd7efb30194e5e454a0cbfe5c175f492f9bc2a7",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0033-5fa74a0271f1.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Fundings=SkillsFuture%20Credit%7CSkillsFuture%20Funding%7C",
+      "fetchedAt": "2026-10-07T04:31:22.951Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8d20b58a2b736a49471620f422fa564a854fafb56da9b22fd335ac5ee3580828",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0034-8d20b58a2b73.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?LearningModes=0%7C",
+      "fetchedAt": "2026-10-07T04:31:24.344Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3ee4a9bf3489bc89b109e88ec14629dcbdefc78cb715848f4a6b7e0f7a31acab",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0035-3ee4a9bf3489.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B84000000B7TREA0%7C",
+      "fetchedAt": "2026-10-07T04:31:27.710Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e63345c467e7a556b0e10f28f7bc2770b66e0f042c0474bb0cf1011f8ebd79dc",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0036-e63345c467e7.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B2w000001u7gVEAQ%7C",
+      "fetchedAt": "2026-10-07T04:31:30.222Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5f2f129605e8aa6e432350bd9a1b05fc2c40a7a9e1f4ed1d9dee875f01afb1bc",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0037-5f2f129605e8.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B84000000B7TREA0%7Ca0B84000000B7TSEA0%7Ca0B84000000B7TTEA0%7Ca0B84000000B7TUEA0%7Ca0B2w000001u7gVEAQ%7C",
+      "fetchedAt": "2026-10-07T04:31:33.030Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f087f2beaf26b958c7a3bbe1603e2e2a9b2784ff519f573539af2659fd77b6f1",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0038-f087f2beaf26.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/articles-inspirations/top-5-sim-professional-courses-you-can-take-with-skillsfuture-credit",
+      "fetchedAt": "2026-10-07T04:31:33.878Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "83581dcaf84a22c08481b705cdb57f25d047d3ef0567ef360a9610b09db3ba7b",
+      "title": "Top 5 SIM Professional Courses You Can Take with SkillsFuture Credit | SIM",
+      "snapshotFile": "raw/0039-83581dcaf84a.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/articles-inspirations/hp-sim-skillsfuture-queen-bee-programme",
+      "fetchedAt": "2026-10-07T04:31:35.923Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a30907dfbd8f73e4db37a090873eb8097ed572b63f0e1727eba0c935f6043a5a",
+      "title": "HP-SIM Skillsfuture Queen Bee Programme",
+      "snapshotFile": "raw/0040-a30907dfbd8f.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing",
+      "fetchedAt": "2026-10-07T06:44:45.189Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bd4f73a00da3212744c0858384ae0a2f472dac588fa7b32f8a37b0c4036d736d",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0001-bd4f73a00da3.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/masters-postgraduate",
+      "fetchedAt": "2026-10-07T06:44:46.229Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d833c1a8689e055d98887e52bbc67b7037c67d50cff422c25954e52c18186b9e",
+      "title": "Master's Degree | Postgraduate Degree | Flexible & Part-Time Master's Degree in Singapore - SIM",
+      "snapshotFile": "raw/0002-d833c1a8689e.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+      "fetchedAt": "2026-10-07T06:44:48.541Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8a5b6c60f755325801b7039f1d0d9ecfec9568bbee4eab510b2062de627187b7",
+      "title": "Bachelor's Degrees | Bachelors with Honours - SIM",
+      "snapshotFile": "raw/0003-8a5b6c60f755.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+      "fetchedAt": "2026-10-07T06:44:50.253Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e54787d24bed07fd51c21a6b796e67bd3ccb44eb1806d50f1ac3eaa648b31103",
+      "title": "Diploma | Diploma Courses in Singapore | Industry-focused Curriculum - SIM",
+      "snapshotFile": "raw/0004-e54787d24bed.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/certificate-courses-foundation-programmes",
+      "fetchedAt": "2026-10-07T06:44:52.290Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9f48e56368cfe9460293f68efa23f5aee8b1c31204095a47e82e0f1da7d4cd24",
+      "title": "Certificate Courses & Foundation Programmes | SIM",
+      "snapshotFile": "raw/0005-9f48e56368cf.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/aviation",
+      "fetchedAt": "2026-10-07T06:44:54.239Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2ab47db4a3dcac16f6418b8d7a38c9e7b0e348c885b1638c309ad8c7c904c757",
+      "title": "Aviation Management | Aviation Degree | RMIT University - SIM Global Education",
+      "snapshotFile": "raw/0006-2ab47db4a3dc.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/arts-social-science",
+      "fetchedAt": "2026-10-07T06:44:56.532Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "139991c72bc15795cb611563b44d7d692b3396c5947b032fe2eb901d79601e0a",
+      "title": "Bachelor of Arts | Bachelor of Social Sciences | SIM",
+      "snapshotFile": "raw/0007-139991c72bc1.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business",
+      "fetchedAt": "2026-10-07T06:44:58.419Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6edaa27a7f83a8ceae575a141bea43bbd9429f912d1f8a3313d313a053a0b79e",
+      "title": "Business Courses | Business Degree - SIM Global Education",
+      "snapshotFile": "raw/0008-6edaa27a7f83.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science",
+      "fetchedAt": "2026-10-07T06:45:00.311Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6551504134a59ccc601bdafba132e6b5231f4b6cf8a7ba62d429f478035e918b",
+      "title": "IT and Computer Science | Computer Science Degree Singapore - SIM Global Education",
+      "snapshotFile": "raw/0009-6551504134a5.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/nursing",
+      "fetchedAt": "2026-10-07T06:45:02.570Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1cecbe749b8b573c3b667070431f20fa340a828c44358aeebeb8b3a31e2c5c32",
+      "title": "Nursing & Research | Part-Time Nursing Degree for Registered Nurses in Singapore | University of Sydney - SIM Global Education",
+      "snapshotFile": "raw/0010-1cecbe749b8b.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/brochures-prospectus",
+      "fetchedAt": "2026-10-07T06:45:04.376Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4762cc2a91e24d7b40d1afa4b4441e34b416cec604b9375a4bac41fc68b95696",
+      "title": "SIM GE Brochures & Prospectuses | SIM",
+      "snapshotFile": "raw/0011-4762cc2a91e2.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-guidance",
+      "fetchedAt": "2026-10-07T06:45:06.307Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "da576c12bca1d0480ad59ccf6256f86e4db9892c0e5797bd54bfa86db6ac9c46",
+      "title": "SIM GE Programme Guidance | Degrees & Diplomas | SIM",
+      "snapshotFile": "raw/0012-da576c12bca1.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/teach-out-inactive-programmes",
+      "fetchedAt": "2026-10-07T06:45:08.259Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3cc9dace2cc8b5dfcbdc66b4d2696cf93582798153e8b4cfc28644613ee4d15b",
+      "title": "Teach-Out & Inactive Programmes | SIM",
+      "snapshotFile": "raw/0013-3cc9dace2cc8.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing",
+      "fetchedAt": "2026-10-07T06:45:12.025Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c29976877ca0d3dfeda70462e6fe3c609e430d3647fcf903fd54888e9d5f40d8",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0014-c29976877ca0.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/ai-programmes",
+      "fetchedAt": "2026-10-07T06:45:13.376Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f330b3d5f2e0542b111066ab2e22d317a039e221510ee3627ad3fab973ab2bbc",
+      "title": "SIM Academy X Preface AI | Powering an AI‑Ready Workforce Through Applied Learning",
+      "snapshotFile": "raw/0015-f330b3d5f2e0.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/skillsfuture-courses",
+      "fetchedAt": "2026-10-07T06:45:14.882Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1bcfb6341d4737edea9f6ccb4e6e7796b983093dac34e15d3f76f457db71685f",
+      "title": "Courses Eligible for SkillsFuture Credit | Short Course Singapore - SIM Academy",
+      "snapshotFile": "raw/0016-1bcfb6341d47.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/sustainability-courses",
+      "fetchedAt": "2026-10-07T06:45:16.863Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bf6c99310f5e80c571925ddd3358fffdb5a704c565c82e7fc1fb8927757ee83b",
+      "title": "Begin your sustainability journey with SIM Academy X Terrama Sustainability Lab | SIM",
+      "snapshotFile": "raw/0017-bf6c99310f5e.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/leadership-management-complexity",
+      "fetchedAt": "2026-10-07T06:45:18.998Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c7d7be5a409e2c40dfcc183a9d23f6036465723c26d6a42d9234316478c1695a",
+      "title": "Leadership and Management Courses | Management Skills | Essential Managerial Techniques - SIM Academy",
+      "snapshotFile": "raw/0018-c7d7be5a409e.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/digital",
+      "fetchedAt": "2026-10-07T06:45:20.964Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0810de3ac4e84fdfedc79bd2481e37eca9dadba4a4dc3101155305e99d31470b",
+      "title": "Digital Courses | SIM",
+      "snapshotFile": "raw/0019-0810de3ac4e8.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/people-skills",
+      "fetchedAt": "2026-10-07T06:45:22.735Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "102edea40d9dc7caed7a622b3144e8004450d72ec04d66590b776eaaa47d5043",
+      "title": "People Skills Courses | SIM",
+      "snapshotFile": "raw/0020-102edea40d9d.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/online-courses",
+      "fetchedAt": "2026-10-07T06:45:24.851Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "71b5598287f233b60e6cedc710ed7d166e9eb0881ff2ed04590010c980826890",
+      "title": "Online Courses | Online Learning Courses Singapore - SIM Academy",
+      "snapshotFile": "raw/0021-71b5598287f2.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/systems-thinking",
+      "fetchedAt": "2026-10-07T06:45:26.753Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "af88422832f2c148f1c554c872620ac5e03f1a7d94f208ce3ecfa4c10cc2438a",
+      "title": "Systems Thinking Courses | SIM",
+      "snapshotFile": "raw/0022-af88422832f2.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/creativity-innovation",
+      "fetchedAt": "2026-10-07T06:45:28.938Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "08b153e81843582b3d4dd4a088d27bfe434750050163818e14c882a335cbca3a",
+      "title": "Creativity and Innovation Courses | SIM",
+      "snapshotFile": "raw/0023-08b153e81843.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing/ai-dea-phase-1",
+      "fetchedAt": "2026-10-07T06:45:31.189Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "76379db347f5cf2ae861bae80ec7cc7447c55d17209947a7bf617f3cf98019cc",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0024-76379db347f5.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing/tiktok-masterclass-695cc6a0cac5ac4a68ce6a67d4f7f8f9",
+      "fetchedAt": "2026-10-07T06:45:33.286Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "686c210e85006f72a9e77fb1d0b37ffa979a98d8ba5c128ace6553a285ba8874",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0025-686c210e8500.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4",
+      "fetchedAt": "2026-10-07T06:45:35.385Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "50518b9e801ec2bf818d77479cb67bcb1c2e45d178ec63f45125a260d3a9d7b8",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0026-50518b9e801e.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1",
+      "fetchedAt": "2026-10-07T06:45:37.294Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a8408654e9bd76384549c3bb3b916317d60518cf9a1932000b0f0167e0cb33a7",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0027-a8408654e9bd.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2",
+      "fetchedAt": "2026-10-07T06:45:39.145Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f124e7ee860097dc2476583b6652e245dfab506704cf323eab36a03212972708",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0028-f124e7ee8600.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3",
+      "fetchedAt": "2026-10-07T06:45:41.249Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "39e918b66ac7c121ef99fbe410acb43dcb569631554977a2f4bfe757dd3822bb",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0029-39e918b66ac7.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Fundings=SkillsFuture%20Credit%7CSkillsFuture%20Funding%7C",
+      "fetchedAt": "2026-10-07T06:45:47.428Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3a307541308b486be307e6a715a2cd5ab8cda337bea6c55bb5385f9cfd559acf",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0030-3a307541308b.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?LearningModes=0%7C",
+      "fetchedAt": "2026-10-07T06:45:49.577Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e9a00f27aea25ceba3bb1121692674618c88c6d64ede678e29f8326f1d7877e0",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0031-e9a00f27aea2.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B84000000B7TREA0%7C",
+      "fetchedAt": "2026-10-07T06:45:52.783Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8ac062408de7832b38187ad37b9e5500d1f57a8c71af6963fe3aa05fbf868a3c",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0032-8ac062408de7.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B2w000001u7gVEAQ%7C",
+      "fetchedAt": "2026-10-07T06:45:55.102Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0af7ce5d20166111653907f9542c6bdd34716d56965fde599718bda1213a9824",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0033-0af7ce5d2016.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B84000000B7TREA0%7Ca0B84000000B7TSEA0%7Ca0B84000000B7TTEA0%7Ca0B84000000B7TUEA0%7Ca0B2w000001u7gVEAQ%7C",
+      "fetchedAt": "2026-10-07T06:45:57.668Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d6340209edf36cbb978e6eda9e2eca795cb2a8c62080bba7f0bf993afa13b306",
+      "title": "Professional Development Course Listing | Professional Courses in Singapore - SIM Academy",
+      "snapshotFile": "raw/0034-d6340209edf3.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+      "fetchedAt": "2026-10-07T06:45:59.116Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0e932de08c3b76d04eac1c26d6c68983e417dab4493c29e99fb664aaadbef184",
+      "title": "Bachelor of Science (Honours) in Computer Science | UOL Computer Science Degree - SIM",
+      "snapshotFile": "raw/0035-0e932de08c3b.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+      "fetchedAt": "2026-10-07T06:46:01.650Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3453c3bbcf2813a0f7d311b5025471e7fefe21c5a90f083da90a2ecfeb5ed00d",
+      "title": "Bachelor of Science (Honours) in Business and Management | University of London Singapore - SIM",
+      "snapshotFile": "raw/0036-3453c3bbcf28.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+      "fetchedAt": "2026-10-07T06:46:03.355Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1db37f0bfe3980d2989a0993ed2f296dcefd57a95b2c385a141451511e10ced6",
+      "title": "Bachelor of Science (Honours) in Computer Science (Web and Mobile Development) | SIM",
+      "snapshotFile": "raw/0037-1db37f0bfe39.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+      "fetchedAt": "2026-10-07T06:46:05.508Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3cbc5e237d7b931ce2097baebdf5bf84817f195126be7fac6f86790884565837",
+      "title": "Bachelor of Business Information Systems | SIM Information System Course | University of Wollongong - SIM Global Education",
+      "snapshotFile": "raw/0038-3cbc5e237d7b.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/certificate-in-pre-sessional-business-management",
+      "fetchedAt": "2026-10-07T06:46:07.181Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d6c2e4706a11562cf8ffd93f2350c91188bbb4ec7051fc297c53ca9645415791",
+      "title": "Certificate in Pre-Sessional Business Management | SIM",
+      "snapshotFile": "raw/0039-d6c2e4706a11.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+      "fetchedAt": "2026-10-07T06:46:09.657Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "40096a6cb645c5dcd05eaf4464759a7222a8e8919444a6be98029962441acde6",
+      "title": "Bachelor of Arts (Communication and International Trade) | University at Buffalo - SIM Global Education",
+      "snapshotFile": "raw/0040-40096a6cb645.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+      "fetchedAt": "2026-10-07T06:46:11.230Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "06a658115853b906810d08d6a0bb6a32f970b739d48715a7dfdc9743ab4b4369",
+      "title": "Bachelor of Arts (Sociology) | University At Buffalo - SIM Global Education",
+      "snapshotFile": "raw/0041-06a658115853.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-comparison-page",
+      "fetchedAt": "2026-10-07T06:46:13.131Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "019c9ff1826b8565efec3d1c76a5eee24a31bf25cfaf932f1ff9bcb86e0047b7",
+      "title": "University Partners & SIM Global Education | SIM",
+      "snapshotFile": "raw/0042-019c9ff1826b.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C",
+      "fetchedAt": "2026-10-07T06:46:16.912Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d9c89386267f1297429c828c6eacf02c7c387d118ff21aac50576e5e80fb40dd",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0043-d9c89386267f.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C&discipline=3%7C4%7C7%7C8%7C9%7C59%7C",
+      "fetchedAt": "2026-10-07T06:46:19.138Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ef02315e05a17191cfed3d0f64ffca6b5292bc47c13b94b11166af9c6ef0211c",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0044-ef02315e05a1.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "fetchedAt": "2026-10-07T06:46:21.163Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b1520dc02931b7dcb420f4f113cf11b66d03268e6f6ecad9370a2b25ae28fe74",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0045-b1520dc02931.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "fetchedAt": "2026-10-07T06:46:22.846Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4072dbcb77e237dc3f8b68b8fe66e28bfd7e338c7e1b06d76476c159e505e7df",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0046-4072dbcb77e2.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/education-pathway-tool",
+      "fetchedAt": "2026-10-07T06:46:24.610Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a3b90a674410494c304c1a027174c91700ebdae83ed068906add2eb2b87379f1",
+      "title": "Education Pathway Tool | SIM",
+      "snapshotFile": "raw/0047-a3b90a674410.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C",
+      "fetchedAt": "2026-10-07T06:46:27.102Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ca396acb4324a3b39b2c64a3b0ba3230b5fc0688e43aac06ca66012ba265011a",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0048-ca396acb4324.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=3%7C4%7C7%7C8%7C9%7C29%7C59%7C",
+      "fetchedAt": "2026-10-07T06:46:29.059Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "adb5a1b47a4df22080bf2f7da0ca6a47aff48887de36a7f254965e6f940ae5bb",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0049-adb5a1b47a4d.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=53%7C",
+      "fetchedAt": "2026-10-07T06:46:31.009Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "38575a28136b047fa81d7aae46fe522b7a7b466bcf9aba43cc2de058876e3b88",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0050-38575a28136b.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "fetchedAt": "2026-10-07T06:46:32.958Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7a5c44ea133a8f23e69cb1f90683cbfa8d8f914fdf0421bc3425af6a3b5ffce8",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0051-7a5c44ea133a.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=54%7C",
+      "fetchedAt": "2026-10-07T06:46:34.840Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "77c2df54e952e7b4284b0d66fcbc7d9930bb4ed42f383e35ffc18a170285f53c",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0052-77c2df54e952.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=56%7C",
+      "fetchedAt": "2026-10-07T06:46:36.963Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7b238be860341daff66529aa517390f72c75fb5a8eadabe0f8312ffd4cf4fe5b",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0053-7b238be86034.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "fetchedAt": "2026-10-07T06:46:39.107Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "87163c75706776aca125d797d6dd8f445644e3c92d330f9b1ee2f96c7500c9b6",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0054-87163c757067.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=57%7C",
+      "fetchedAt": "2026-10-07T06:46:41.248Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2a5f90c316b3cd2563e18b558b4f045b08590eec11853c28da58c3a2e7a84a3d",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0055-2a5f90c316b3.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1%7C",
+      "fetchedAt": "2026-10-07T06:46:42.834Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c8cbdf58bbf816031c92f0c287b3eb027c8d3220defcb7fd23228fd43cbac6fa",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0056-c8cbdf58bbf8.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "fetchedAt": "2026-10-07T06:46:45.137Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "47eeadabdecaa83a9d3ca2483e9f725a6915425db946aa3cbd3888e41c36d35c",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0057-47eeadabdeca.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "fetchedAt": "2026-10-07T06:46:47.728Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "fd26ffd99e2c328eed1512025d5a7bd9fd5d1706a66c12f2df2d8b6f7b3c9fa6",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0058-fd26ffd99e2c.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C",
+      "fetchedAt": "2026-10-07T06:46:49.365Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "98bbe8495188cfc81ffd3e0f5f01c9690816b5f84ef970dd9c6fed9f96ece8ac",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0059-98bbe8495188.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=3%7C4%7C7%7C8%7C9%7C29%7C59%7C",
+      "fetchedAt": "2026-10-07T06:46:51.055Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7e0cd62414d15bb1731b4556f780ace9a25baae59d6db90c027f7259fb6463e5",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0060-7e0cd62414d1.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "fetchedAt": "2026-10-07T06:46:52.958Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6f11069820a3f09c5bd49cdec7574000c0c490518d646159dfc61434ab0e07ed",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0061-6f11069820a3.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "fetchedAt": "2026-10-07T06:46:55.078Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1320ddc9ef06ab3b81fc38d73af43b3574bd97fd8f0428da8b90d71c2b2ef7d4",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0062-1320ddc9ef06.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=58%7C",
+      "fetchedAt": "2026-10-07T06:46:56.963Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "62e7e7463aa4fa10965a21f2d28ac110a851f8994a4fe659319caf5b92064d73",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0063-62e7e7463aa4.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=53%7C",
+      "fetchedAt": "2026-10-07T06:47:01.608Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5ed05f863bf4c7f4a14beb065d9e169c994206b75b2b783360227d64174848c7",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0064-5ed05f863bf4.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=3%7C4%7C7%7C8%7C9%7C59%7C",
+      "fetchedAt": "2026-10-07T06:47:03.140Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b8caddf5af196a4d5d7857ee58e3bea49c414af54f664d16d469b93ad83b9f15",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0065-b8caddf5af19.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=3%7C",
+      "fetchedAt": "2026-10-07T06:47:06.002Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f10644b1fd1d616fe1367aa212dc28b70f8f7e4b46e1439ec49d03ee83d8c112",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0066-f10644b1fd1d.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=4%7C",
+      "fetchedAt": "2026-10-07T06:47:07.145Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "08b61ec1bcba33db4ebf4fc7b1d941edf020a70f07a71f150ae52c07e33bdd2b",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0067-08b61ec1bcba.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=8%7C",
+      "fetchedAt": "2026-10-07T06:47:09.148Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8d3f1029a0addf568a4b884c0dc65a23947398846a40bd2f545d0459502acfc2",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0068-8d3f1029a0ad.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=7%7C",
+      "fetchedAt": "2026-10-07T06:47:11.186Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a016225c2eb8bb47deb091f7629b0ee2ebe05270592617017f2ca276de6ced7d",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0069-a016225c2eb8.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=59%7C",
+      "fetchedAt": "2026-10-07T06:47:13.217Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5a63370b4dfb77bbd6ef57448639e62bc0409e9e9ace6fac0736bad96bc9e223",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0070-5a63370b4dfb.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=9%7C",
+      "fetchedAt": "2026-10-07T06:47:15.166Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4e5b206558f3ba62c9f7eefe655ff92f3707dcc5eca6d2cbcbfd808238dcf0ac",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0071-4e5b206558f3.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/arts-social-science/psychology",
+      "fetchedAt": "2026-10-07T06:47:17.028Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e306db6accf3fd0de5b98cab8c7592c2eeb24ed4176fec5829a0d1ddb7e5230f",
+      "title": "Psychology Degrees | Psychology Courses in Singapore | SIM",
+      "snapshotFile": "raw/0072-e306db6accf3.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "fetchedAt": "2026-10-07T06:47:19.150Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ea656f280204488010fa7cdc2e8ee3835d346e504f714b0bc3c7761594d7e258",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0073-ea656f280204.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=10%7C",
+      "fetchedAt": "2026-10-07T06:47:21.239Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "41983ea920200dd96c9bcd9dcb7eb28cccae28755e34f3b86a0ab6b4729152c0",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0074-41983ea92020.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/accountancy",
+      "fetchedAt": "2026-10-07T06:47:23.333Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a31f109d630277ed8d65e50dfc52116031e629933b2d1fc7faeb4bb06b49b44a",
+      "title": "Accountancy | Accountancy Courses | Accounting Courses | SIM",
+      "snapshotFile": "raw/0075-a31f109d6302.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=13%7C",
+      "fetchedAt": "2026-10-07T06:47:26.464Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "12590cbad37d8d6808403e9a5bd1f111af06b790f3f4c2b88c9da33533a99589",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0076-12590cbad37d.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=15%7C",
+      "fetchedAt": "2026-10-07T06:47:27.628Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6535b7ac3f16c37699617b6f2661abfc877a7cf3bcefc7ec6b47e63b1a198922",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0077-6535b7ac3f16.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=16%7C",
+      "fetchedAt": "2026-10-07T06:47:29.673Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "93bcc5d482ab2590526e67080b557517a31f01f81e69c70ec73c7c1c6fe3f124",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0078-93bcc5d482ab.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/business-analytics",
+      "fetchedAt": "2026-10-07T06:47:31.421Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5ae00c6ce7e03cfbd54991337fd355fb6e9dfa525fb8b81003a136b7f1cad0cb",
+      "title": "Business Analytics Courses in Singapore | SIM Global Education",
+      "snapshotFile": "raw/0079-5ae00c6ce7e0.html"
+    },
+    {
+      "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=60%7C",
+      "fetchedAt": "2026-10-07T06:47:33.781Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ff422574fb23e1a1c44a69ace839d1992c524f04fe34d3a3f8516aa51cfd3c1c",
+      "title": "Programme Listing | Diploma & Foundation | Bachelor's Degree | Postgraduate - SIM GE",
+      "snapshotFile": "raw/0080-ff422574fb23.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:47:33.884Z",
+    "seedUrls": [
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/masters-postgraduate",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/certificate-courses-foundation-programmes",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/aviation",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/arts-social-science",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/nursing",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/brochures-prospectus",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-guidance",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/teach-out-inactive-programmes",
+      "https://www.sim.edu.sg/professional-development/courses/course-listing",
+      "https://www.sim.edu.sg/professional-development/courses/ai-programmes",
+      "https://www.sim.edu.sg/professional-development/courses/skillsfuture-courses",
+      "https://www.sim.edu.sg/professional-development/courses/sustainability-courses",
+      "https://www.sim.edu.sg/professional-development/courses/leadership-management-complexity",
+      "https://www.sim.edu.sg/professional-development/courses/digital",
+      "https://www.sim.edu.sg/professional-development/courses/people-skills",
+      "https://www.sim.edu.sg/professional-development/courses/online-courses",
+      "https://www.sim.edu.sg/professional-development/courses/systems-thinking",
+      "https://www.sim.edu.sg/professional-development/courses/creativity-innovation",
+      "https://www.sim.edu.sg/professional-development/courses/course-listing/ai-dea-phase-1",
+      "https://www.sim.edu.sg/professional-development/courses/course-listing/tiktok-masterclass-695cc6a0cac5ac4a68ce6a67d4f7f8f9",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3",
+      "https://www.sim.edu.sg/professional-development/courses/course-listing?Fundings=SkillsFuture%20Credit%7CSkillsFuture%20Funding%7C",
+      "https://www.sim.edu.sg/professional-development/courses/course-listing?LearningModes=0%7C",
+      "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B84000000B7TREA0%7C",
+      "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B2w000001u7gVEAQ%7C",
+      "https://www.sim.edu.sg/professional-development/courses/course-listing?Categories=a0B84000000B7TREA0%7Ca0B84000000B7TSEA0%7Ca0B84000000B7TTEA0%7Ca0B84000000B7TUEA0%7Ca0B2w000001u7gVEAQ%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-business-and-management",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-computer-science-web-and-mobile-development",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business-information-systems",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/certificate-in-pre-sessional-business-management",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-communication-and-international-trade",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-sociology",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-comparison-page",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/.showmore--0",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C&discipline=3%7C4%7C7%7C8%7C9%7C59%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=3%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/education-pathway-tool",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=3%7C4%7C7%7C8%7C9%7C29%7C59%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=53%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=54%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=56%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=2%7C&discipline=57%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=1%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=3%7C4%7C7%7C8%7C9%7C29%7C59%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?academic=4%7C&discipline=58%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/.showmore--0",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=53%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=3%7C4%7C7%7C8%7C9%7C59%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=3%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=4%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=8%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=7%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=59%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=9%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/arts-social-science/psychology",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=10%7C13%7C15%7C16%7C20%7C21%7C22%7C23%7C24%7C25%7C26%7C27%7C28%7C29%7C30%7C32%7C34%7C35%7C37%7C38%7C39%7C40%7C41%7C60%7C61%7C63%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=10%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/accountancy",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=13%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=15%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=16%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/business-analytics",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=60%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=20%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=21%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=22%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=24%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=25%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=26%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/financial-management",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=27%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/hrm",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=28%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=29%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=63%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=30%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=32%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/business/management",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=34%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=35%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=39%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=40%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=42%7C43%7C45%7C46%7C47%7C48%7C49%7C50%7C51%7C52%7C62%7C64%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=42%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=43%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=64%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/computer-science",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=45%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=62%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/data-analytics",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=46%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/data-science",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=47%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=49%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=50%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/information-technology",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=51%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/it-computer-science/machine-learning",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=52%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing?discipline=57%7C",
+      "https://www.sim.edu.sg/degrees-diplomas/programmes/teach-out-inactive-programmes/bachelor-of-applied-science-construction-management-honours"
+    ],
+    "pages": 80
+  },
+  "detailEnrichment": {
+    "enrichedAt": "2026-10-09T01:54:01.606Z",
+    "source": "saved official programme-page snapshots",
+    "rule": "Only visible source text is copied; missing fields remain null; status remains DRAFT."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.492Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

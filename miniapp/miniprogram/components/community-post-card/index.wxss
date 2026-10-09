@@ -22,7 +22,7 @@
 .post-actions { display: flex; justify-content: flex-end; gap: 10rpx; }
 .metric-button { display: flex; min-width: 112rpx; align-items: center; justify-content: center; gap: 12rpx; padding: 0 18rpx; }
 .metric-button--active { color: var(--color-action); font-weight: 700; }
-.metric-button[disabled] { opacity: 0.46; }
+.metric-button--disabled { opacity: 0.46; }
 .comment-icon { box-sizing: border-box; width: 30rpx; height: 24rpx; border: 3rpx solid currentColor; border-radius: 9rpx; }
 .heart-icon { position: relative; box-sizing: border-box; width: 28rpx; height: 28rpx; transform: rotate(45deg) scale(0.72); border-right: 4rpx solid currentColor; border-bottom: 4rpx solid currentColor; }
 .heart-icon::before,

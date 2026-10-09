@@ -1,0 +1,996 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.472Z",
+  "sourceKey": "kaplan-singapore",
+  "sourceName": "Kaplan Singapore",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_64732df3d4d91979",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Kaplan Singapore",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": "Kaplan provides a future-ready curriculum, giving students access to renowned universities around the world. From on-campus to online degrees in Singapore, we help you become the best version of yourself.",
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.kaplan.com.sg",
+    "logoSourceUrl": "https://www.kaplan.com.sg/themes/custom/ksg_theme/kaplan-logo.png",
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:30:18.312Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.kaplan.com.sg/",
+        "sourcePageTitle": "From Diploma to Degree (Online & Onsite) - Kaplan (Singapore)",
+        "sourceHash": "4311bb84a7701962fbb8b02266ad094d9ed61594e2859ada46472fa65d0dc03a",
+        "fetchedAt": "2026-10-07T04:30:18.312Z",
+        "field": "name",
+        "rawText": "Kaplan Singapore"
+      },
+      {
+        "sourceUrl": "https://www.kaplan.com.sg/",
+        "sourcePageTitle": "From Diploma to Degree (Online & Onsite) - Kaplan (Singapore)",
+        "sourceHash": "4311bb84a7701962fbb8b02266ad094d9ed61594e2859ada46472fa65d0dc03a",
+        "fetchedAt": "2026-10-07T04:30:18.312Z",
+        "field": "description",
+        "rawText": "Kaplan provides a future-ready curriculum, giving students access to renowned universities around the world. From on-campus to online degrees in Singapore, we help you become the best version of yourself."
+      }
+    ],
+    "institutionTypeRaw": "Private education institution",
+    "selectionRank": 19,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": [
+      {
+        "kind": "LOGO",
+        "assetUrl": "https://www.kaplan.com.sg/themes/custom/ksg_theme/kaplan-logo.png",
+        "sourceUrl": "https://www.kaplan.com.sg/",
+        "sourceCheckedAt": "2026-10-07T04:30:18.312Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_02a91be3b1be9334",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "新加坡CA资格证书预备课程",
+      "nameEn": "Preparatory Course For Singapore CA Qualification",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Kaplan offers Preparatory Course For Singapore CA Qualification",
+      "officialUrl": "https://www.kaplan.com.sg/financial-certification/sca-preparatory-course-for-singapore-ca-qualification",
+      "sourceCheckedAt": "2026-10-07T04:30:46.479Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Kaplan offers Preparatory Course For Singapore CA Qualification",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.kaplan.com.sg/financial-certification/sca-preparatory-course-for-singapore-ca-qualification",
+          "sourceCheckedAt": "2026-10-07T04:30:46.479Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/financial-certification/sca-preparatory-course-for-singapore-ca-qualification",
+          "sourcePageTitle": "Preparatory Course For Singapore CA Qualification",
+          "sourceHash": "54308f1bdd53bf9af990e2231f9871956ffba90c7b15b308f54fd452831bc986",
+          "fetchedAt": "2026-10-07T04:30:46.479Z",
+          "field": "name",
+          "rawText": "Preparatory Course For Singapore CA Qualification"
+        },
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/financial-certification/sca-preparatory-course-for-singapore-ca-qualification",
+          "sourcePageTitle": "Preparatory Course For Singapore CA Qualification",
+          "sourceHash": "54308f1bdd53bf9af990e2231f9871956ffba90c7b15b308f54fd452831bc986",
+          "fetchedAt": "2026-10-07T04:30:46.479Z",
+          "field": "description",
+          "rawText": "Kaplan offers Preparatory Course For Singapore CA Qualification"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_b83a7fdffd865c16",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "英文证书,一级(电子学习)",
+      "nameEn": "Certificate in English Level 1 (E-Learning)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Study the Certificate in English Level 1 (E-Learning) at Kaplan (Singapore). Build English foundations online at your own pace. Enrol today.",
+      "officialUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-1-elearning",
+      "sourceCheckedAt": "2026-10-07T04:30:52.858Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Study the Certificate in English Level 1 (E-Learning) at Kaplan (Singapore). Build English foundations online at your own pace. Enrol today.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-1-elearning",
+          "sourceCheckedAt": "2026-10-07T04:30:52.858Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-1-elearning",
+          "sourcePageTitle": "Certificate in English Level 1 (Online) | Kaplan (Singapore)",
+          "sourceHash": "4315ff30454e8b4f81c13f91a81aa9a475ff92aa7a06c8362751daaaaf82e764",
+          "fetchedAt": "2026-10-07T04:30:52.858Z",
+          "field": "name",
+          "rawText": "Certificate in English Level 1 (E-Learning)"
+        },
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-1-elearning",
+          "sourcePageTitle": "Certificate in English Level 1 (Online) | Kaplan (Singapore)",
+          "sourceHash": "4315ff30454e8b4f81c13f91a81aa9a475ff92aa7a06c8362751daaaaf82e764",
+          "fetchedAt": "2026-10-07T04:30:52.858Z",
+          "field": "description",
+          "rawText": "Study the Certificate in English Level 1 (E-Learning) at Kaplan (Singapore). Build English foundations online at your own pace. Enrol today."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_1316320d2c5bbd85",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "英文证书第2级(电子学习)",
+      "nameEn": "Certificate in English Level 2 (E-Learning)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Kaplan offers Certificate in English Level 2 (E-Learning)",
+      "officialUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-2-elearning",
+      "sourceCheckedAt": "2026-10-07T04:30:54.992Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Kaplan offers Certificate in English Level 2 (E-Learning)",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-2-elearning",
+          "sourceCheckedAt": "2026-10-07T04:30:54.992Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-2-elearning",
+          "sourcePageTitle": "Certificate in English Level 2 (E-Learning)",
+          "sourceHash": "5f1baee91656f555c80e199c2bf5548420c1a6573510e0b87d32f2ef7783d497",
+          "fetchedAt": "2026-10-07T04:30:54.992Z",
+          "field": "name",
+          "rawText": "Certificate in English Level 2 (E-Learning)"
+        },
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-2-elearning",
+          "sourcePageTitle": "Certificate in English Level 2 (E-Learning)",
+          "sourceHash": "5f1baee91656f555c80e199c2bf5548420c1a6573510e0b87d32f2ef7783d497",
+          "fetchedAt": "2026-10-07T04:30:54.992Z",
+          "field": "description",
+          "rawText": "Kaplan offers Certificate in English Level 2 (E-Learning)"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_9f54ed21624c0209",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "英文证书3级(电子学习)",
+      "nameEn": "Certificate in English Level 3 (E-Learning)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Kaplan offers Certificate in English Level 3 (E-Learning)",
+      "officialUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-3-elearning",
+      "sourceCheckedAt": "2026-10-07T04:30:57.003Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Kaplan offers Certificate in English Level 3 (E-Learning)",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-3-elearning",
+          "sourceCheckedAt": "2026-10-07T04:30:57.003Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-3-elearning",
+          "sourcePageTitle": "Certificate in English Level 3 (E-Learning)",
+          "sourceHash": "8303a8ea07cc39c07d1dad26de8d55083e3846742c1ad997bc0ae6b6185152c1",
+          "fetchedAt": "2026-10-07T04:30:57.003Z",
+          "field": "name",
+          "rawText": "Certificate in English Level 3 (E-Learning)"
+        },
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-3-elearning",
+          "sourcePageTitle": "Certificate in English Level 3 (E-Learning)",
+          "sourceHash": "8303a8ea07cc39c07d1dad26de8d55083e3846742c1ad997bc0ae6b6185152c1",
+          "fetchedAt": "2026-10-07T04:30:57.003Z",
+          "field": "description",
+          "rawText": "Kaplan offers Certificate in English Level 3 (E-Learning)"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_03254d72ade1b7e1",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "英文证书4级(电子学习)",
+      "nameEn": "Certificate in English Level 4 (E-Learning)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Kaplan offers Certificate in English Level 4 (E-Learning)",
+      "officialUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-4-elearning",
+      "sourceCheckedAt": "2026-10-07T04:31:01.533Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Kaplan offers Certificate in English Level 4 (E-Learning)",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-4-elearning",
+          "sourceCheckedAt": "2026-10-07T04:31:01.533Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-4-elearning",
+          "sourcePageTitle": "Certificate in English Level 4 (E-Learning)",
+          "sourceHash": "cd88240264214be96bcc605c424c51eb6580ca8f5bcd89e8aef60b141a86fd76",
+          "fetchedAt": "2026-10-07T04:31:01.533Z",
+          "field": "name",
+          "rawText": "Certificate in English Level 4 (E-Learning)"
+        },
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-4-elearning",
+          "sourcePageTitle": "Certificate in English Level 4 (E-Learning)",
+          "sourceHash": "cd88240264214be96bcc605c424c51eb6580ca8f5bcd89e8aef60b141a86fd76",
+          "fetchedAt": "2026-10-07T04:31:01.533Z",
+          "field": "description",
+          "rawText": "Kaplan offers Certificate in English Level 4 (E-Learning)"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_03dfd79a4006fe1b",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "英文证书5级(电子学习)",
+      "nameEn": "Certificate in English Level 5 (E-Learning)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Kaplan offers Certificate in English Level 5 (E-Learning)",
+      "officialUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-5-elearning",
+      "sourceCheckedAt": "2026-10-07T04:31:02.424Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Kaplan offers Certificate in English Level 5 (E-Learning)",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-5-elearning",
+          "sourceCheckedAt": "2026-10-07T04:31:02.424Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-5-elearning",
+          "sourcePageTitle": "Certificate in English Level 5 (E-Learning)",
+          "sourceHash": "1bf03d8aafd13d7b37497eb160f33035c1cbb1e1d3a8f4d31ea1619deefc0c94",
+          "fetchedAt": "2026-10-07T04:31:02.424Z",
+          "field": "name",
+          "rawText": "Certificate in English Level 5 (E-Learning)"
+        },
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-5-elearning",
+          "sourcePageTitle": "Certificate in English Level 5 (E-Learning)",
+          "sourceHash": "1bf03d8aafd13d7b37497eb160f33035c1cbb1e1d3a8f4d31ea1619deefc0c94",
+          "fetchedAt": "2026-10-07T04:31:02.424Z",
+          "field": "description",
+          "rawText": "Kaplan offers Certificate in English Level 5 (E-Learning)"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_7dbb17390dffa979",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "专业商业文凭英语",
+      "nameEn": "Diploma in Professional Business English",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Kaplan offers Diploma in Professional Business English",
+      "officialUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/diploma-professional-business-english",
+      "sourceCheckedAt": "2026-10-07T04:31:04.380Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Kaplan offers Diploma in Professional Business English",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/diploma-professional-business-english",
+          "sourceCheckedAt": "2026-10-07T04:31:04.380Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/diploma-professional-business-english",
+          "sourcePageTitle": "Diploma in Professional Business English",
+          "sourceHash": "d3c1d0d051ddb283d3e3d95bc566854a6dee0bcd167a0ba04111d9b87daff77e",
+          "fetchedAt": "2026-10-07T04:31:04.380Z",
+          "field": "name",
+          "rawText": "Diploma in Professional Business English"
+        },
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/diploma-professional-business-english",
+          "sourcePageTitle": "Diploma in Professional Business English",
+          "sourceHash": "d3c1d0d051ddb283d3e3d95bc566854a6dee0bcd167a0ba04111d9b87daff77e",
+          "fetchedAt": "2026-10-07T04:31:04.380Z",
+          "field": "description",
+          "rawText": "Kaplan offers Diploma in Professional Business English"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_91202f049678e3ca",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "剑桥国际普通中等教育证书考试预备课程",
+      "nameEn": "Preparatory Course for Cambridge International General Certificate of Secondary Education (IGCSE) Examination",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Kaplan offers a preparatory course for IGSCE (Cambridge International General Certificate of Secondary Education). Enrol now to prepare for IGCSE in Singapore!",
+      "officialUrl": "https://www.kaplan.com.sg/preparatory-course/igcse-preparatory-course-for-cambridge-international-general-certificate-of-secondary-education-igcse-examination",
+      "sourceCheckedAt": "2026-10-07T04:31:08.770Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Kaplan offers a preparatory course for IGSCE (Cambridge International General Certificate of Secondary Education). Enrol now to prepare for IGCSE in Singapore!",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.kaplan.com.sg/preparatory-course/igcse-preparatory-course-for-cambridge-international-general-certificate-of-secondary-education-igcse-examination",
+          "sourceCheckedAt": "2026-10-07T04:31:08.770Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/preparatory-course/igcse-preparatory-course-for-cambridge-international-general-certificate-of-secondary-education-igcse-examination",
+          "sourcePageTitle": "Preparatory Course for Cambridge International General Certificate of Secondary Education (IGCSE) Examination - Kaplan (Singapore)",
+          "sourceHash": "fd543096086017349a961c70312987a593e117b3f7a6d02cba648fb47d9fb41a",
+          "fetchedAt": "2026-10-07T04:31:08.770Z",
+          "field": "name",
+          "rawText": "Preparatory Course for Cambridge International General Certificate of Secondary Education (IGCSE) Examination"
+        },
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/preparatory-course/igcse-preparatory-course-for-cambridge-international-general-certificate-of-secondary-education-igcse-examination",
+          "sourcePageTitle": "Preparatory Course for Cambridge International General Certificate of Secondary Education (IGCSE) Examination - Kaplan (Singapore)",
+          "sourceHash": "fd543096086017349a961c70312987a593e117b3f7a6d02cba648fb47d9fb41a",
+          "fetchedAt": "2026-10-07T04:31:08.770Z",
+          "field": "description",
+          "rawText": "Kaplan offers a preparatory course for IGSCE (Cambridge International General Certificate of Secondary Education). Enrol now to prepare for IGCSE in Singapore!"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.kaplan.com.sg/",
+      "fetchedAt": "2026-10-07T04:30:18.312Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4311bb84a7701962fbb8b02266ad094d9ed61594e2859ada46472fa65d0dc03a",
+      "title": "From Diploma to Degree (Online & Onsite) - Kaplan (Singapore)",
+      "snapshotFile": "raw/0001-4311bb84a770.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/programme-finder",
+      "fetchedAt": "2026-10-07T04:30:20.506Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0c3bc0d5424f08965bd7581eddd3ab848b6061ffcf04436fcb12a22bb69a9bfc",
+      "title": "Course & Programme Finder | Kaplan (Singapore)",
+      "snapshotFile": "raw/0002-0c3bc0d5424f.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses",
+      "fetchedAt": "2026-10-07T04:30:22.404Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "519839137b2833db6c28ccfa8454cd9cb98a6646352929b8c75f2aacf2efee3f",
+      "title": "Preparatory Courses in Singapore | Kaplan (Singapore)",
+      "snapshotFile": "raw/0003-519839137b28.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/diplomas-courses",
+      "fetchedAt": "2026-10-07T04:30:24.329Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8e810f21ed9d76e6f52b722ac941b5e7ffddacde178cb8269856d1bb74595348",
+      "title": "Diploma Courses (Part Time, Private) Offered at Kaplan (Singapore)",
+      "snapshotFile": "raw/0004-8e810f21ed9d.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/diplomas-courses/part-time",
+      "fetchedAt": "2026-10-07T04:30:26.428Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "78084ab04880d9f9123591895c7a82bbb4251b923f702c623434766e61bb27a2",
+      "title": "Part-Time Diploma Courses | Kaplan (Singapore)",
+      "snapshotFile": "raw/0005-78084ab04880.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/diplomas-courses/full-time",
+      "fetchedAt": "2026-10-07T04:30:28.431Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1496d0e73eedd918c6b3582e4e9d30d1bc5e3676405e5a6994368715915b07d3",
+      "title": "Full-Time Diploma Courses in Singapore | Kaplan",
+      "snapshotFile": "raw/0006-1496d0e73eed.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/diplomas-courses/online-learning",
+      "fetchedAt": "2026-10-07T04:30:30.439Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fa1d06482b24e8a894797f286ab53f83d968875435bb07df7383d6de9f1ad833",
+      "title": "100% Online Diploma Courses | Kaplan (Singapore)",
+      "snapshotFile": "raw/0007-fa1d06482b24.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/bachelor-degrees-courses",
+      "fetchedAt": "2026-10-07T04:30:32.774Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "27dc3292bc2a10d7afcec5461f5ebdfb5bb971b538c57ab71a19f4ee79bb5d16",
+      "title": "Bachelor's Degree Courses (Part Time Available) - Kaplan (Singapore)",
+      "snapshotFile": "raw/0008-27dc3292bc2a.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/disciplines/accounting-banking-and-finance-courses",
+      "fetchedAt": "2026-10-07T04:30:34.623Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5c8c0df98cca4683365125632e62c4520cb89d012217abbe67ec15f74e9a4d51",
+      "title": "Accounting, Banking & Finance Courses - Kaplan (Singapore)",
+      "snapshotFile": "raw/0009-5c8c0df98cca.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/disciplines/ai-data-science-and-analytics-courses",
+      "fetchedAt": "2026-10-07T04:30:36.366Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "80106bd1296ee527716d13c677baa8a1797434593b50e86a1fcee1376861d9c1",
+      "title": "Data Science & Analytics Courses - Kaplan (Singapore)",
+      "snapshotFile": "raw/0010-80106bd1296e.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/discipline/engineering-and-energy-courses",
+      "fetchedAt": "2026-10-07T04:30:38.456Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d9233c7a07ed5d1a67e6eb4ea5f16ed81ef2c8bbad1d1c2793512d3884c8df83",
+      "title": "Engineering & Energy in Singapore | Kaplan (Singapore)",
+      "snapshotFile": "raw/0011-d9233c7a07ed.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/disciplines/information-technology-courses",
+      "fetchedAt": "2026-10-07T04:30:40.400Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ea19502f1a4cd32cd91d6f801ba4b2c73fffffa85c100ce6a4205db89d4e74c5",
+      "title": "Information Technology IT Courses in Singapore at Kaplan",
+      "snapshotFile": "raw/0012-ea19502f1a4c.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/student-engagement-student-leadership-programme",
+      "fetchedAt": "2026-10-07T04:30:42.760Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "01d8be0503a7e9518a9a2fd981203b27c75eef3cf35f59ed911846a2b497e2ca",
+      "title": "Student Leadership Programme | Kaplan (Singapore)",
+      "snapshotFile": "raw/0013-01d8be0503a7.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/why-kaplan-university-partners",
+      "fetchedAt": "2026-10-07T04:30:44.733Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1e9c27f6f16b049e80e8c1ff5e4d184a7b360f590dd144b7bdce906285157012",
+      "title": "Our University Partners | Kaplan (Singapore)",
+      "snapshotFile": "raw/0014-1e9c27f6f16b.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/financial-certification/sca-preparatory-course-for-singapore-ca-qualification",
+      "fetchedAt": "2026-10-07T04:30:46.479Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "54308f1bdd53bf9af990e2231f9871956ffba90c7b15b308f54fd452831bc986",
+      "title": "Preparatory Course For Singapore CA Qualification",
+      "snapshotFile": "raw/0015-54308f1bdd53.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/programme-directory",
+      "fetchedAt": "2026-10-07T04:30:48.483Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f6266631c2acac83b41d032b63a5f229aa4502756612a2a1018a80fc8979389f",
+      "title": "Course & Programme Directory | Kaplan (Singapore)",
+      "snapshotFile": "raw/0016-f6266631c2ac.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses",
+      "fetchedAt": "2026-10-07T04:30:50.464Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7c0443e14f5ae80b4c76cea7f378a1f9d7e2bfdcd5fe791ee420312a28df77ba",
+      "title": "Preparatory Courses in Singapore | Kaplan (Singapore)",
+      "snapshotFile": "raw/0017-7c0443e14f5a.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-1-elearning",
+      "fetchedAt": "2026-10-07T04:30:52.858Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4315ff30454e8b4f81c13f91a81aa9a475ff92aa7a06c8362751daaaaf82e764",
+      "title": "Certificate in English Level 1 (Online) | Kaplan (Singapore)",
+      "snapshotFile": "raw/0018-4315ff30454e.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-2-elearning",
+      "fetchedAt": "2026-10-07T04:30:54.992Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f1baee91656f555c80e199c2bf5548420c1a6573510e0b87d32f2ef7783d497",
+      "title": "Certificate in English Level 2 (E-Learning)",
+      "snapshotFile": "raw/0019-5f1baee91656.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-3-elearning",
+      "fetchedAt": "2026-10-07T04:30:57.003Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8303a8ea07cc39c07d1dad26de8d55083e3846742c1ad997bc0ae6b6185152c1",
+      "title": "Certificate in English Level 3 (E-Learning)",
+      "snapshotFile": "raw/0020-8303a8ea07cc.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-4-elearning",
+      "fetchedAt": "2026-10-07T04:31:01.533Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cd88240264214be96bcc605c424c51eb6580ca8f5bcd89e8aef60b141a86fd76",
+      "title": "Certificate in English Level 4 (E-Learning)",
+      "snapshotFile": "raw/0021-cd8824026421.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-5-elearning",
+      "fetchedAt": "2026-10-07T04:31:02.424Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1bf03d8aafd13d7b37497eb160f33035c1cbb1e1d3a8f4d31ea1619deefc0c94",
+      "title": "Certificate in English Level 5 (E-Learning)",
+      "snapshotFile": "raw/0022-1bf03d8aafd1.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/diploma-professional-business-english",
+      "fetchedAt": "2026-10-07T04:31:04.380Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d3c1d0d051ddb283d3e3d95bc566854a6dee0bcd167a0ba04111d9b87daff77e",
+      "title": "Diploma in Professional Business English",
+      "snapshotFile": "raw/0023-d3c1d0d051dd.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/preparatory-course/igcse-preparatory-course-for-cambridge-international-general-certificate-of-secondary-education-igcse-examination",
+      "fetchedAt": "2026-10-07T04:31:08.770Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fd543096086017349a961c70312987a593e117b3f7a6d02cba648fb47d9fb41a",
+      "title": "Preparatory Course for Cambridge International General Certificate of Secondary Education (IGCSE) Examination - Kaplan (Singapore)",
+      "snapshotFile": "raw/0024-fd5430960860.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/PrepCourseALL_Kevin_AL",
+      "fetchedAt": "2026-10-07T04:31:10.333Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ccc1791ccf7b5e98c5eff38c2837a7044ac58ab254ad1839ed3e4128cd2ac8c2",
+      "title": "PrepCourseALL_Kevin_AL | Kaplan (Singapore)",
+      "snapshotFile": "raw/0025-ccc1791ccf7b.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/disciplines/business-management-marketing-courses",
+      "fetchedAt": "2026-10-07T04:31:11.040Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d5ddad283ee6856d72b8dcaeb7bdaf965b8459e5a8094fbf33c7470c9d9a0c11",
+      "title": "Business, Management & Marketing Courses - Kaplan (Singapore)",
+      "snapshotFile": "raw/0026-d5ddad283ee6.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/bachelor-degrees-courses",
+      "fetchedAt": "2026-10-07T04:31:13.197Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "26bdc50493499e6cb30a39139457d729f3ff9e6819e6f8af9ca9fa9422374bc5",
+      "title": "Bachelor's Degree Courses (Part Time Available) - Kaplan (Singapore)",
+      "snapshotFile": "raw/0027-26bdc5049349.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/programme-preview/all/120/all",
+      "fetchedAt": "2026-10-07T04:31:16.351Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6d4dc46a8004331e52cfc4c23d3aa74337047ac1aaac9292af5ab1d9736ff39b",
+      "title": "Programme Previews List | Kaplan (Singapore)",
+      "snapshotFile": "raw/0028-6d4dc46a8004.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/programme-preview/all/302/all",
+      "fetchedAt": "2026-10-07T04:31:18.601Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6ed2a14fe192fa406d8690903a1e8e21626ed06687800c312c9bdbcda9ea75bd",
+      "title": "Programme Previews List | Kaplan (Singapore)",
+      "snapshotFile": "raw/0029-6ed2a14fe192.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/programme-preview/all/659/all",
+      "fetchedAt": "2026-10-07T04:31:20.098Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "03bd123523dbdf29d464e261077e6d59293f8dc984f13f81442618804d04c536",
+      "title": "Programme Previews List | Kaplan (Singapore)",
+      "snapshotFile": "raw/0030-03bd123523db.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/discipline/engineering-and-energy-courses",
+      "fetchedAt": "2026-10-07T04:31:21.492Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d9233c7a07ed5d1a67e6eb4ea5f16ed81ef2c8bbad1d1c2793512d3884c8df83",
+      "title": "Engineering & Energy in Singapore | Kaplan (Singapore)",
+      "snapshotFile": "raw/0031-d9233c7a07ed.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/programme-preview/all/40/all",
+      "fetchedAt": "2026-10-07T04:31:23.972Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c50d3a06b496ae19c8d5ae654e90329703fc36c88897495f463808eaffd92ac2",
+      "title": "Programme Previews List | Kaplan (Singapore)",
+      "snapshotFile": "raw/0032-c50d3a06b496.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-1-elearning",
+      "fetchedAt": "2026-10-07T04:31:25.246Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "615204be27736fddefe0b881c0f3229c023cb13d934da20f6f08aeb74a3b0b16",
+      "title": "Certificate in English Level 1 (Online) | Kaplan (Singapore)",
+      "snapshotFile": "raw/0033-615204be2773.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/programme-preview/654/all/all",
+      "fetchedAt": "2026-10-07T04:31:28.097Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1bc15baf7fd9f2dea3541ed7bc51221da00ae234ee590fcf6fba4c4d348ed511",
+      "title": "Programme Previews List | Kaplan (Singapore)",
+      "snapshotFile": "raw/0034-1bc15baf7fd9.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-2-elearning",
+      "fetchedAt": "2026-10-07T04:31:29.628Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "64fce6e0648f9f70c16c43651cc77211acafe2d978bb29c9e8bb8a19310f3c3d",
+      "title": "Certificate in English Level 2 (E-Learning)",
+      "snapshotFile": "raw/0035-64fce6e0648f.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-3-elearning",
+      "fetchedAt": "2026-10-07T04:31:31.261Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1349fe4e922d0472ada0e3d604a0437d3eb7a456ecdb1847f6a342960a7bff5e",
+      "title": "Certificate in English Level 3 (E-Learning)",
+      "snapshotFile": "raw/0036-1349fe4e922d.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-4-elearning",
+      "fetchedAt": "2026-10-07T04:31:33.386Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c88396a71b3eb1cc5e28ba185c0f572326c9132711368c6382d5976c8e2a5548",
+      "title": "Certificate in English Level 4 (E-Learning)",
+      "snapshotFile": "raw/0037-c88396a71b3e.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-5-elearning",
+      "fetchedAt": "2026-10-07T04:31:35.271Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b915b91a65e990c63f2a023f84decee75b37d2a0dd2160f8a466083bdffe011f",
+      "title": "Certificate in English Level 5 (E-Learning)",
+      "snapshotFile": "raw/0038-b915b91a65e9.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/diploma-professional-business-english",
+      "fetchedAt": "2026-10-07T04:31:37.298Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "50d71d8a5bd291b606ddc584d46b3a2fb86859b910c8bd9bb595f3d02fb8158b",
+      "title": "Diploma in Professional Business English",
+      "snapshotFile": "raw/0039-50d71d8a5bd2.html"
+    },
+    {
+      "url": "https://www.kaplan.com.sg/preparatory-course/igcse-preparatory-course-for-cambridge-international-general-certificate-of-secondary-education-igcse-examination",
+      "fetchedAt": "2026-10-07T04:31:39.362Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d0711e94c7f2864bb6332eddc400b3dd58fe9334e3fff71361237b630b563352",
+      "title": "Preparatory Course for Cambridge International General Certificate of Secondary Education (IGCSE) Examination - Kaplan (Singapore)",
+      "snapshotFile": "raw/0040-d0711e94c7f2.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:45:52.524Z"
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.472Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

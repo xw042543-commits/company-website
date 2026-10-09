@@ -1,0 +1,17 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:24:59.341Z",
+  "sourceKey": "university-of-michigan-ann-arbor",
+  "sourceName": "University of Michigan-Ann Arbor",
+  "warnings": [
+    "HTTP 403：https://umich.edu/"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:33:47.956Z"
+  }
+}

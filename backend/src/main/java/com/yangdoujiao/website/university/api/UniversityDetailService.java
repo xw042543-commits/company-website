@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.yangdoujiao.website.catalog.CategoryStatus;
 import com.yangdoujiao.website.common.api.PageResponse;
 import com.yangdoujiao.website.common.exception.ResourceNotFoundException;
+import com.yangdoujiao.website.media.MediaLookupRepository;
 import com.yangdoujiao.website.programme.Programme;
 import com.yangdoujiao.website.programme.ProgrammeIntake;
 import com.yangdoujiao.website.programme.ProgrammeIntakeRepository;
@@ -33,6 +34,7 @@ public class UniversityDetailService {
     private final UniversityProgrammeQueryRepository programmeQuery;
     private final UniversitySearchCriteriaFactory criteriaFactory;
     private final SearchFilterCodeValidator filterCodeValidator;
+    private final MediaLookupRepository media;
 
     public UniversityDetailService(
             UniversityRepository universities,
@@ -40,7 +42,8 @@ public class UniversityDetailService {
             ProgrammeIntakeRepository intakes,
             UniversityProgrammeQueryRepository programmeQuery,
             UniversitySearchCriteriaFactory criteriaFactory,
-            SearchFilterCodeValidator filterCodeValidator
+            SearchFilterCodeValidator filterCodeValidator,
+            MediaLookupRepository media
     ) {
         this.universities = universities;
         this.programmes = programmes;
@@ -48,13 +51,15 @@ public class UniversityDetailService {
         this.programmeQuery = programmeQuery;
         this.criteriaFactory = criteriaFactory;
         this.filterCodeValidator = filterCodeValidator;
+        this.media = media;
     }
 
     @Transactional(readOnly = true)
     public UniversityDetailResponse getPublishedBySlug(String slug) {
         University university = universities.findBySlugAndStatus(slug, CategoryStatus.PUBLISHED)
                 .orElseThrow(() -> new ResourceNotFoundException("University not found"));
-        return UniversityDetailResponse.from(university);
+        String imageUrl = media.findUniversityImageUrls(List.of(university.getId())).get(university.getId());
+        return UniversityDetailResponse.from(university, imageUrl);
     }
 
     @Transactional(readOnly = true)
@@ -85,13 +90,16 @@ public class UniversityDetailService {
                 .findAllByProgramme_IdInOrderByIntakeDateAsc(ids)
                 .stream()
                 .collect(Collectors.groupingBy(intake -> intake.getProgramme().getId()));
+        String universityImage = media.findUniversityImageUrls(List.of(university.getId())).get(university.getId());
+        Map<Long, String> programmeImages = media.findProgrammeImageUrls(ids);
 
         List<UniversityProgrammeResponse> items = ids.stream()
                 .map(programmeById::get)
                 .filter(Objects::nonNull)
                 .map(programme -> UniversityProgrammeResponse.from(
                         programme,
-                        intakesByProgrammeId.getOrDefault(programme.getId(), List.of())
+                        intakesByProgrammeId.getOrDefault(programme.getId(), List.of()),
+                        programmeImages.getOrDefault(programme.getId(), universityImage)
                 ))
                 .toList();
         return PageResponse.of(
@@ -110,7 +118,10 @@ public class UniversityDetailService {
                 .orElseThrow(() -> new ResourceNotFoundException("Programme not found"));
         List<ProgrammeIntake> programmeIntakes = intakes
                 .findByProgrammeIdOrderByIntakeDateAsc(programme.getId());
-        return UniversityProgrammeResponse.from(programme, programmeIntakes);
+        String universityImage = media.findUniversityImageUrls(List.of(university.getId())).get(university.getId());
+        String imageUrl = media.findProgrammeImageUrls(List.of(programme.getId()))
+                .getOrDefault(programme.getId(), universityImage);
+        return UniversityProgrammeResponse.from(programme, programmeIntakes, imageUrl);
     }
 
     private Optional<Programme> findPublishedProgramme(Long universityId, String identifier) {

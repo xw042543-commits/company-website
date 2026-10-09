@@ -1,0 +1,1194 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-sheffield",
+    "displayName": "The University of Sheffield",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.sheffield.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.sheffield.ac.uk",
+      "sheffield.ac.uk"
+    ],
+    "discoveredUrls": 125,
+    "parsedProgrammes": 78,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-foundation-year-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-foundation-year-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-mchem",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-biological-and-medicinal-chemistry-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-biological-and-medicinal-chemistry-mchem",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/civil-and-structural-engineering-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/civil-and-structural-engineering-foundation-year-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/civil-engineering-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/civil-engineering-foundation-year-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-mcomp",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-mcomp",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-foundation-year-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-foundation-year-mcomp",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-foundation-year-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-foundation-year-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-foundation-year-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-foundation-year-mcomp",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-foundation-year-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-foundation-year-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/criminology-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/data-science-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/dental-hygiene-and-dental-therapy-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/dental-surgery-bds",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/digital-media-and-society-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/east-asian-studies-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-and-mathematics-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-and-politics-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-finance-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/education-and-psychology-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-foundation-year-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-foundation-year-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-and-history-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-and-modern-languages-cultures-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-and-music-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-and-philosophy-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-language-and-linguistics-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-language-and-literature-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-literature-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/environmental-science-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/financial-mathematics-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-beng-hons",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-meng-hons",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-foundation-year-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-foundation-year-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/geography-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/geography-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/geography-and-planning-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/global-sustainable-development-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/graduate-entry-medicine-mbchb",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/history-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/history-and-modern-languages-cultures-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/history-and-philosophy-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/history-and-politics-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/journalism-studies-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/landscape-architecture-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/landscape-architecture-mla",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/law-llb",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/law-european-and-international-llb",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/law-and-criminology-llb",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/linguistics-and-modern-languages-cultures-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-foundation-year-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-foundation-year-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mathematics-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mathematics-mmath",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mathematics-and-philosophy-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-foundation-year-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-foundation-year-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-foundation-year-beng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-foundation-year-meng",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/medicine-mbchb",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/modern-languages-and-cultures-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/music-bmus",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/music-and-east-asian-studies-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/music-and-modern-languages-cultures-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/nursing-adult-bmedsci",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/orthoptics-bmedsci",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/pharmacy-mpharm",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/philosophy-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/philosophy-politics-and-economics-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/philosophy-religion-and-ethics-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-mphys",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-and-astrophysics-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-and-astrophysics-mphys",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-foundation-year-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-foundation-year-mphys",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/politics-and-international-relations-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/politics-and-modern-languages-cultures-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/politics-and-philosophy-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/politics-and-sociology-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/psychology-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/social-sciences-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/sociology-ba",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/speech-and-language-therapy-bmedsci",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/theoretical-physics-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/theoretical-physics-mphys",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/urban-planning-mplanug",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/zoology-bsc",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/zoology-mbiolsci",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/a/dual-honours",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/b/dual-honours",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/e/dual-honours",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/g/dual-honours",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/h/dual-honours",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/l/dual-honours",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/m/dual-honours",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/p/dual-honours",
+      "HTTP 429：https://www.sheffield.ac.uk/undergraduate/courses/dual-combined-honours-degrees",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/open-days",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/online-information-sessions",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/subject-tasters",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/fees-funding",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/visit",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/campus-tours",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/offer-holder",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/subject-tasters/online",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/tuition-fees-2026",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/loans",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/bursaries",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/additional",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/money-tools",
+      "HTTP 429：https://sheffield.ac.uk/careers/prospective/undergraduate",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/register-your-interest",
+      "HTTP 429：https://sheffield.ac.uk/management/undergraduate/our-careers-and-employability-support/meet-our-alumni",
+      "HTTP 429：https://sheffield.ac.uk/management/undergraduate/our-careers-and-employability-support",
+      "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/velicia",
+      "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/jack-whiteman",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/fees-costs",
+      "HTTP 429：https://sheffield.ac.uk/management/undergraduate/our-careers-and-employability-support/placements-and-internships/work-placements",
+      "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/denisse",
+      "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/brandon",
+      "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/hannah",
+      "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/siung",
+      "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/ethan",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/sefy",
+      "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/jay",
+      "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/hasan",
+      "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/lawrence",
+      "HTTP 429：https://sheffield.ac.uk/architecture-landscape/undergraduate/profiles/holly-barber",
+      "HTTP 429：https://sheffield.ac.uk/architecture-landscape/undergraduate/profiles/ella-macleod",
+      "HTTP 429：https://sheffield.ac.uk/architecture-landscape/undergraduate/profiles/emma-koch",
+      "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/career",
+      "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/all-profiles/flo-brand",
+      "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/teaching/field",
+      "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/all-profiles/phoebe-gardner-smith",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/ashlin",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/dimitris",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/harriet",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/evelyn",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/katerina",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/yukta",
+      "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/all-profiles/hannah-hinchliffe",
+      "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/hamza",
+      "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/josephine",
+      "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/luke",
+      "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/sanjana-dange",
+      "HTTP 429：https://sheffield.ac.uk/las/undergraduate/student-profiles/charlotte",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/daniel",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/thomas",
+      "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/anish",
+      "HTTP 429：https://sheffield.ac.uk/courses",
+      "HTTP 429：https://sheffield.ac.uk/research/centres/cross-faculty",
+      "HTTP 429：https://sheffield.ac.uk/schools/programmes",
+      "HTTP 429：https://sheffield.ac.uk/departments/faculties",
+      "HTTP 429：https://sheffield.ac.uk/courses/home",
+      "HTTP 429：https://sheffield.ac.uk/courses/subjects",
+      "HTTP 429：https://sheffield.ac.uk/education/lifelong-learning/courses",
+      "HTTP 429：https://sheffield.ac.uk/courses/subjects/management-business-administration",
+      "HTTP 429：https://sheffield.ac.uk/courses/aerospace-engineering",
+      "HTTP 429：https://sheffield.ac.uk/courses/subjects/civil-structural-engineering",
+      "HTTP 429：https://sheffield.ac.uk/courses/subjects/architecture-landscape",
+      "HTTP 429：https://sheffield.ac.uk/courses/subjects/biological-life-sciences",
+      "HTTP 429：https://sheffield.ac.uk/courses/subjects/chemical-engineering",
+      "HTTP 429：https://sheffield.ac.uk/courses/subjects/languages-cultures",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/apply",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/requirements",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/application",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/assess",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/results",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/scholarships",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/english-language",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/uk-qualifications",
+      "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/international-qualifications",
+      "HTTP 429：https://sheffield.ac.uk/international/fees-and-funding/scholarships/undergraduate/international-undergraduate-scholarship",
+      "HTTP 429：https://sheffield.ac.uk/?home",
+      "HTTP 429：https://sheffield.ac.uk/postgraduate/taught",
+      "HTTP 429：https://sheffield.ac.uk/postgraduate/phd",
+      "HTTP 429：https://sheffield.ac.uk/apprenticeships",
+      "HTTP 429：https://sheffield.ac.uk/mature/home",
+      "HTTP 429：https://sheffield.ac.uk/online-learning/home",
+      "HTTP 429：https://sheffield.ac.uk/eltc",
+      "HTTP 429：https://sheffield.ac.uk/study/home",
+      "HTTP 429：https://sheffield.ac.uk/study/teaching",
+      "HTTP 429：https://sheffield.ac.uk/study/facilities",
+      "HTTP 429：https://sheffield.ac.uk/study/ranking",
+      "HTTP 429：https://sheffield.ac.uk/study/career",
+      "HTTP 429：https://sheffield.ac.uk/study/su",
+      "HTTP 429：https://sheffield.ac.uk/study/clubs-societies-sport",
+      "HTTP 429：https://sheffield.ac.uk/sheffield-guide/home",
+      "HTTP 429：https://sheffield.ac.uk/study/support",
+      "HTTP 429：https://sheffield.ac.uk/inclusion/race/bame-students",
+      "HTTP 429：https://sheffield.ac.uk/accommodation/home",
+      "HTTP 429：https://sheffield.ac.uk/accommodation/rents",
+      "HTTP 429：https://sheffield.ac.uk/visit-us/home",
+      "HTTP 429：https://sheffield.ac.uk/postgraduate/visit",
+      "HTTP 429：https://sheffield.ac.uk/international/visits",
+      "HTTP 429：https://sheffield.ac.uk/student-visas-immigration/home",
+      "HTTP 429：https://sheffield.ac.uk/international/home",
+      "HTTP 429：https://sheffield.ac.uk/new-students/international-students",
+      "HTTP 429：https://sheffield.ac.uk/international-summer-school/home",
+      "HTTP 429：https://sheffield.ac.uk/postgraduate/taught/fees",
+      "HTTP 429：https://sheffield.ac.uk/postgraduate/taught/funding",
+      "HTTP 429：https://sheffield.ac.uk/postgraduate/phd/fees",
+      "HTTP 429：https://sheffield.ac.uk/money-matters/home",
+      "HTTP 429：https://sheffield.ac.uk/research/home",
+      "HTTP 429：https://sheffield.ac.uk/vision/our-pillars/research",
+      "HTTP 429：https://sheffield.ac.uk/research/people",
+      "HTTP 429：https://sheffield.ac.uk/research/ref-2021",
+      "HTTP 429：https://sheffield.ac.uk/rpi/home",
+      "HTTP 429：https://sheffield.ac.uk/research/culture",
+      "HTTP 429：https://sheffield.ac.uk/openresearch/home",
+      "HTTP 429：https://sheffield.ac.uk/postgraduate/phd/search",
+      "HTTP 429：https://sheffield.ac.uk/postgraduate/phd/projects",
+      "HTTP 429：https://sheffield.ac.uk/research/centres",
+      "HTTP 429：https://sheffield.ac.uk/collaborate/support-industry/access-facilities",
+      "HTTP 429：https://sheffield.ac.uk/library/research",
+      "HTTP 429：https://sheffield.ac.uk/about/impact",
+      "HTTP 429：https://sheffield.ac.uk/research/features",
+      "HTTP 429：https://sheffield.ac.uk/research/features/sdg",
+      "HTTP 429：https://sheffield.ac.uk/research/people/nobel-laureates",
+      "HTTP 429：https://sheffield.ac.uk/about/queens-prize",
+      "HTTP 429：https://sheffield.ac.uk/collaborate/home",
+      "HTTP 429：https://sheffield.ac.uk/collaborate/support-industry",
+      "HTTP 429：https://sheffield.ac.uk/collaborate/partners",
+      "HTTP 429：https://sheffield.ac.uk/city-region/home",
+      "HTTP 429：https://sheffield.ac.uk/internationalpartnerships/home",
+      "HTTP 429：https://sheffield.ac.uk/internationalpartnerships/global-networks",
+      "HTTP 429：https://sheffield.ac.uk/global/we-are-international",
+      "HTTP 429：https://sheffield.ac.uk/globalopps/home",
+      "HTTP 429：https://sheffield.ac.uk/alumni",
+      "HTTP 429：https://sheffield.ac.uk/alumni/update",
+      "HTTP 429：https://sheffield.ac.uk/giving",
+      "HTTP 429：https://sheffield.ac.uk/alumni/our-alumni",
+      "HTTP 429：https://sheffield.ac.uk/alumni/volunteer",
+      "HTTP 429：https://sheffield.ac.uk/giving/home",
+      "HTTP 429：https://sheffield.ac.uk/forged/home",
+      "HTTP 429：https://sheffield.ac.uk/forged/get-involved",
+      "HTTP 429：https://sheffield.ac.uk/giving/donate/online",
+      "HTTP 429：https://sheffield.ac.uk/giving/causes/mnd",
+      "HTTP 429：https://sheffield.ac.uk/schools/home",
+      "HTTP 429：https://sheffield.ac.uk/schools/teachers-advisors",
+      "HTTP 429：https://sheffield.ac.uk/schools/activities",
+      "HTTP 429：https://sheffield.ac.uk/schools/partnerships",
+      "HTTP 429：https://sheffield.ac.uk/cafesandbars/home",
+      "HTTP 429：https://sheffield.ac.uk/about/home",
+      "HTTP 429：https://sheffield.ac.uk/whatson/home",
+      "HTTP 429：https://sheffield.ac.uk/jobs/home",
+      "HTTP 429：https://sheffield.ac.uk/ambition/home",
+      "HTTP 429：https://sheffield.ac.uk/our-education/home",
+      "HTTP 429：https://sheffield.ac.uk/sustainability/home",
+      "HTTP 429：https://sheffield.ac.uk/inclusion/home",
+      "HTTP 429：https://sheffield.ac.uk/about/supporting-sanctuary",
+      "HTTP 429：https://sheffield.ac.uk/vision/home",
+      "HTTP 429：https://sheffield.ac.uk/govern",
+      "HTTP 429：https://sheffield.ac.uk/about/rankings",
+      "HTTP 429：https://sheffield.ac.uk/about/world-top-100",
+      "HTTP 429：https://sheffield.ac.uk/departments",
+      "HTTP 429：https://sheffield.ac.uk/departments/academic",
+      "HTTP 429：https://sheffield.ac.uk/departments/professional-services",
+      "HTTP 429：https://www.sheffield.ac.uk/postgraduate/visit/masters-study-discovery-afternoon",
+      "HTTP 429：https://sheffield.ac.uk/postgraduate/visit/masters-study-discovery-afternoon",
+      "HTTP 429：https://sheffield.ac.uk/education/lifelong-learning",
+      "HTTP 429：https://sheffield.ac.uk/apprenticeships/home",
+      "HTTP 429：https://www.sheffield.ac.uk/postgraduate/taught",
+      "HTTP 429：https://sheffield.ac.uk/research/features/helping-stroke-survivors-regain-independence",
+      "HTTP 429：https://sheffield.ac.uk/whatson/current",
+      "HTTP 429：https://sheffield.ac.uk/accommodation",
+      "HTTP 429：https://sheffield.ac.uk/international",
+      "HTTP 404：https://www.sheffield.ac.uk/undergraduate/courses/index"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/dual-honours",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/education/lifelong-learning/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/home",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/accounting-and-financial-management-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:11.327Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/accounting-and-financial-management-and-economics-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:13.503Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/aerospace-engineering-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:15.519Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/aerospace-engineering-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:17.521Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/aerospace-engineering-foundation-year-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:19.515Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/aerospace-engineering-foundation-year-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:21.526Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/architectural-engineering-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:23.540Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/architecture-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:25.557Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/architecture-and-landscape-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:27.547Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biochemistry-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:29.587Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biochemistry-mbiolsci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biological-sciences-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:29.587Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biological-sciences-mbiolsci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biomedical-engineering-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:37.585Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biomedical-engineering-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:39.595Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biomedical-engineering-foundation-year-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:41.613Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biomedical-engineering-foundation-year-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:43.611Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biomedical-science-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:45.883Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/biomedical-science-mbiomedsci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/business-management-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:49.805Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/business-management-and-economics-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:51.626Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/business-management-and-modern-languages-cultures-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:53.678Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:55.681Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:27.592Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-foundation-year-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:29.804Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-foundation-year-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:31.809Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:33.602Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-mchem",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:35.606Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-biological-and-medicinal-chemistry-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:37.620Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-biological-and-medicinal-chemistry-mchem",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:39.623Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/civil-and-structural-engineering-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:41.628Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/civil-and-structural-engineering-foundation-year-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:43.637Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/civil-engineering-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:45.651Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/civil-engineering-foundation-year-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:47.634Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:49.648Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-mcomp",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:51.676Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:53.485Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-mcomp",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:55.662Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-foundation-year-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:57.878Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-foundation-year-mcomp",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:59.664Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:01.697Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:03.501Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-foundation-year-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:05.676Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-foundation-year-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:07.665Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-foundation-year-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:09.688Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-foundation-year-mcomp",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:12.256Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:13.700Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:15.908Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-foundation-year-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:17.712Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-foundation-year-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:19.722Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/criminology-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:21.733Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/data-science-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:23.744Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/dental-hygiene-and-dental-therapy-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:25.758Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/dental-surgery-bds",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/digital-media-and-society-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:29.766Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/east-asian-studies-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:31.771Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/economics-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:33.787Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/economics-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:35.817Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/economics-and-mathematics-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:37.786Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/economics-and-politics-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:39.823Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/economics-finance-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:41.812Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/education-and-psychology-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:44.032Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:45.834Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:47.826Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-foundation-year-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:50.028Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-foundation-year-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:51.851Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/english-and-history-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:53.861Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/english-and-modern-languages-cultures-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:55.858Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/english-and-music-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:57.909Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/english-and-philosophy-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:59.868Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/english-language-and-linguistics-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:01.858Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/english-language-and-literature-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:03.892Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/english-literature-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:05.877Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/environmental-science-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:07.886Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/financial-mathematics-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:09.907Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-beng-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:12.235Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-meng-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:13.921Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-foundation-year-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-foundation-year-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/geography-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/geography-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/geography-and-planning-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/global-sustainable-development-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/graduate-entry-medicine-mbchb",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/history-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/history-and-modern-languages-cultures-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/history-and-philosophy-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/history-and-politics-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/journalism-studies-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/landscape-architecture-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/landscape-architecture-mla",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/law-llb",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/law-european-and-international-llb",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/law-and-criminology-llb",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/linguistics-and-modern-languages-cultures-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-foundation-year-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-foundation-year-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mathematics-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mathematics-mmath",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mathematics-and-philosophy-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-foundation-year-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-foundation-year-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-foundation-year-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-foundation-year-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/medicine-mbchb",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/modern-languages-and-cultures-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/music-bmus",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/music-and-east-asian-studies-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/music-and-modern-languages-cultures-ba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/undergraduate/courses/2027/nursing-adult-bmedsci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/architecture-landscape/undergraduate/profiles/ella-macleod",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:27.547Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/cs/undergraduate/profiles/do-things-youre-bad-its-only-way-get-good-them",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:14:49.648Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/spir/undergraduate/profiles/suki-cheung",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:29.766Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/spir/undergraduate/profiles/katy-turnbull",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:29.766Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sheffield",
+      "url": "https://sheffield.ac.uk/spir/undergraduate/profiles/anesu-matanda-mambingo",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:29.766Z",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-10-08T02:18:40.697Z",
+  "records": [
+    {
+      "sourceKey": "singapore-university-of-technology-and-design",
+      "status": "added",
+      "assetStatus": 200,
+      "assetContentType": "image/jpeg",
+      "assetHash": "4d4275069f37284e738d9593f0159ee89b4ba4db5ca871244adbcdff4131a8f2",
+      "kind": "UNIVERSITY_IMAGE",
+      "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Singapore%20University%20of%20Technology%20and%20Design%20%28SUTD%29%20campus.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Singapore_University_of_Technology_and_Design_(SUTD)_campus.jpg",
+      "licenceRaw": "Creative Commons Attribution-ShareAlike; attribution required"
+    },
+    {
+      "sourceKey": "singapore-institute-of-technology",
+      "status": "added",
+      "assetStatus": 200,
+      "assetContentType": "image/jpeg",
+      "assetHash": "b1d14cddb05ee1ffab598d0b4ee386974050aea9a370aa54570cf137b762860f",
+      "kind": "UNIVERSITY_IMAGE",
+      "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Singapore%20Institute%20of%20Technology%20campus%2C%20Temasek%20Polytechnic%20-%2020160920-07.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Singapore_Institute_of_Technology_campus,_Temasek_Polytechnic_-_20160920-07.jpg",
+      "licenceRaw": "Creative Commons Attribution-ShareAlike 4.0 International"
+    }
+  ]
+}

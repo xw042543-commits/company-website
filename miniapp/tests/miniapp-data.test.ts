@@ -12,6 +12,21 @@ test('maps programme detail sections in API sort order', () => {
   if (result.ok) assert.deepEqual(result.value.sections.map((item) => item.type), ['INTRODUCTION', 'CAREER_OUTLOOK']);
 });
 
+test('accepts missing English programme names without inventing a translation', () => {
+  for (const nameEn of [null, undefined, '']) {
+    const result = mapProgrammeDetail({ id: 584, slug: 'segi-bachelor-001',
+      nameZh: '商务管理（荣誉）学士学位', nameEn, universitySlug: 'segi',
+      universityNameZh: '世纪大学', sections: [] });
+    assert.equal(result.ok, true);
+    if (result.ok) {
+      assert.equal(result.value.nameZh, '商务管理（荣誉）学士学位');
+      assert.equal(result.value.nameEn, '');
+    }
+  }
+  assert.equal(mapProgrammeDetail({ id: 584, slug: 'segi-bachelor-001', nameZh: '商科',
+    nameEn: 123, universitySlug: 'segi', universityNameZh: '世纪大学', sections: [] }).ok, false);
+});
+
 test('rejects malformed programme detail instead of presenting incomplete business data', () => {
   assert.deepEqual(mapProgrammeDetail({ id: 0, sections: [] }), {
     ok: false, error: { kind: 'unexpected', code: 'INVALID_PROGRAMME_DETAIL_RESPONSE' },

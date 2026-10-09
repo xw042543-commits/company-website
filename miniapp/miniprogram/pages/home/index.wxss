@@ -1,33 +1,50 @@
-.home-page { min-height:100vh; padding-bottom:calc(40rpx + env(safe-area-inset-bottom)); background:#f7fbf9; }
-.home-top { padding:26rpx 24rpx 0; background:linear-gradient(145deg,#e8fff5 0%,#f4fbff 55%,#fff9ef 100%); }
-.brand-row { display:flex; align-items:center; padding:0 8rpx 18rpx; background:transparent; border:0; box-shadow:none; }
-.brand-logo { display:block; width:112rpx; height:112rpx; background:transparent; border:0; border-radius:0; box-shadow:none; }
-.hero-swiper,.hero-static { height:420rpx; overflow:hidden; border-radius:30rpx; box-shadow:0 22rpx 60rpx rgba(20,74,58,.16); }
-.hero-slide,.hero-static { position:relative; height:100%; background:linear-gradient(135deg,#0e8051,#174b73); }
-.hero-image,.hero-fallback,.hero-shade { position:absolute; top:0; right:0; bottom:0; left:0; width:100%; height:100%; }
-.hero-fallback { background:radial-gradient(circle at 78% 28%,rgba(151,235,194,.65),transparent 24%),linear-gradient(135deg,#0f8754,#176b71 60%,#214f7a); }
-.hero-orbit { position:absolute; right:-36rpx; top:46rpx; width:280rpx; height:280rpx; border:2rpx solid rgba(255,255,255,.35); border-radius:50%; box-shadow:0 0 0 46rpx rgba(255,255,255,.06); }
-.hero-shade { background:linear-gradient(90deg,rgba(8,48,37,.88) 0%,rgba(8,48,37,.50) 56%,rgba(8,48,37,.06)); }
-.hero-copy { position:absolute; z-index:2; left:34rpx; right:34rpx; bottom:48rpx; color:#fff; }
-.hero-pill { display:inline-flex; padding:8rpx 16rpx; border-radius:8rpx; background:#08a95e; font-size:20rpx; font-weight:700; }
-.hero-title { max-width:520rpx; margin-top:18rpx; font-size:43rpx; font-weight:850; line-height:1.16; }
-.hero-subtitle { max-width:520rpx; margin-top:8rpx; font-size:22rpx; line-height:1.35; opacity:.9; }
-.hero-meta { margin-top:14rpx; font-size:21rpx; opacity:.85; }
-.hero-link { margin-top:18rpx; font-size:24rpx; font-weight:750; }
-.home-content { padding:26rpx 24rpx; }
-.search-entry { display:flex; min-height:92rpx; align-items:center; padding:0 24rpx; border:1rpx solid #d7e7e0; border-radius:22rpx; background:#fff; box-shadow:0 10rpx 30rpx rgba(25,82,65,.07); }
-.search-symbol { position:relative; box-sizing:border-box; width:28rpx; height:28rpx; border:4rpx solid #0b9b5b; border-radius:50%; }
-.search-symbol::after { position:absolute; right:-11rpx; bottom:-7rpx; width:13rpx; height:4rpx; border-radius:2rpx; background:#0b9b5b; content:""; transform:rotate(45deg); }
-.search-copy { flex:1; margin-left:18rpx; color:#60756e; font-size:26rpx; }
-.search-arrow { color:#0b8c54; font-size:28rpx; }
-.feature-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10rpx; margin-top:28rpx; }
-.feature-item { min-width:0; padding:10rpx 2rpx; text-align:center; }
-.feature-icon { display:flex; width:74rpx; height:74rpx; margin:0 auto; align-items:center; justify-content:center; border-radius:24rpx; color:#08774c; font-size:23rpx; font-weight:800; box-shadow:inset 0 0 0 1rpx rgba(20,80,65,.07); }
-.feature-icon--mint { background:#dff7ec; }.feature-icon--blue { background:#e2f0ff;color:#27649a; }.feature-icon--violet { background:#eee8ff;color:#6752a5; }.feature-icon--orange { background:#fff0dc;color:#b86223; }
-.feature-label { margin-top:12rpx; color:#173f36; font-size:23rpx; font-weight:750; }
-.feature-caption { display:none; }
-.section-heading { display:flex; margin:46rpx 2rpx 20rpx; align-items:flex-end; justify-content:space-between; }
-.section-kicker { color:#0b9b5b; font-size:20rpx; font-weight:700; letter-spacing:2rpx; }
-.section-title { margin-top:6rpx; color:#153f36; font-size:36rpx; font-weight:850; }
-.section-hint { min-height:56rpx; color:#08774c; font-size:23rpx; font-weight:700; line-height:56rpx; }
-.home-university-list { display:flex; flex-direction:column; gap:18rpx; }
+.home-page { min-height: 100vh; background: #f8fcfa; color: #17251f; }
+.home-hero { position: relative; box-sizing: content-box; height: 600rpx; overflow: hidden; border-radius: 0 0 24rpx 24rpx; background: #edf6f0; }
+.brand-row { position: relative; z-index: 3; display: flex; width: 240rpx; height: 44px; align-items: center; gap: 14rpx; padding-left: 32rpx; pointer-events: none; }
+.brand-logo { display: block; width: 88rpx; height: 88rpx; background: transparent; }
+.hero-swiper { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; }
+.hero-slide { position: relative; height: 100%; background: #e9f5ee; }
+.hero-image { position: absolute; width: 100%; height: 100%; }
+.hero-shade { position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(90deg, rgba(242,249,245,.8), rgba(242,249,245,.5) 40%, transparent 68%), linear-gradient(0deg, rgba(230,246,237,.9), transparent 32%); pointer-events: none; }
+.hero-shade--campus { background: linear-gradient(90deg, rgba(241,249,244,.98), rgba(241,249,244,.84) 45%, rgba(241,249,244,.05)); }
+.hero-copy { position: absolute; z-index: 2; left: 32rpx; right: 26rpx; bottom: 48rpx; }
+.hero-pill { display: inline-block; padding: 5rpx 14rpx; border-radius: 5rpx; background: #00864b; color: #fff; font-size: 21rpx; font-weight: 600; }
+.hero-title { max-width: 485rpx; margin-top: 16rpx; color: #10231b; font-size: 36rpx; font-weight: 700; line-height: 1.4; }
+.hero-title-line, .hero-description-line { display: block; }
+.hero-description { max-width: 390rpx; margin-top: 12rpx; color: #344a40; font-size: 23rpx; line-height: 1.65; }
+.hero-arrow { width: 42rpx; height: 42rpx; margin-top: 20rpx; }
+.hero-dots { position: absolute; z-index: 3; display: flex; align-items: center; justify-content: center; gap: 8rpx; right: 0; bottom: 20rpx; left: 0; pointer-events: none; }
+.hero-dot { width: 8rpx; height: 8rpx; border-radius: 8rpx; background: #b7c8bf; }
+.hero-dot--active { width: 28rpx; background: #00854c; }
+.home-content { padding: 30rpx 28rpx 24rpx; }
+.search-entry { display: flex; box-sizing: border-box; height: 72rpx; padding: 0 20rpx; align-items: center; border: 1rpx solid #e1eae5; border-radius: 12rpx; background: #fff; }
+.search-icon { width: 30rpx; height: 30rpx; flex-shrink: 0; }
+.search-copy { margin-left: 16rpx; font-size: 23rpx; color: #68776f; }
+.feature-grid { display: flex; justify-content: space-between; margin-top: 26rpx; }
+.feature-item { flex: 1; min-width: 0; padding: 0 2rpx; text-align: center; }
+.feature-icon { display: flex; width: 88rpx; height: 88rpx; margin: 0 auto; align-items: center; justify-content: center; border-radius: 50%; background: #e9f7ef; }
+.feature-icon--orange { background: #fff3e8; }
+.feature-symbol { width: 44rpx; height: 44rpx; }
+.feature-label { margin-top: 12rpx; font-size: 23rpx; line-height: 1.5; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; margin: 34rpx 0 14rpx; }
+.section-title { font-size: 30rpx; font-weight: 600; }
+.section-more { display: flex; align-items: center; gap: 8rpx; min-height: 64rpx; font-size: 22rpx; color: #007646; }
+.university-scroll { width: calc(100% + 28rpx); white-space: nowrap; }
+.university-row { display: inline-flex; align-items: stretch; gap: 14rpx; padding: 0 28rpx 6rpx 0; }
+.campus-card { width: 226rpx; overflow: hidden; flex-shrink: 0; border: 1rpx solid #e4ece7; border-radius: 14rpx; background: #fff; white-space: normal; }
+.campus-photo-wrap { position: relative; height: 142rpx; background: #e8f3ed; }
+.campus-photo, .campus-photo-fallback { width: 100%; height: 100%; }
+.campus-photo-fallback { display: flex; align-items: center; justify-content: center; }
+.campus-fallback-icon { width: 56rpx; height: 56rpx; opacity: .55; }
+.favorite-button { position: absolute; top: 5rpx; right: 5rpx; display: flex; align-items: center; justify-content: center; width: 64rpx; height: 64rpx; margin: 0; padding: 0; border-radius: 50%; background: rgba(255,255,255,.93); }
+.favorite-button::after { border: 0; }
+.favorite-icon { width: 30rpx; height: 30rpx; }
+.campus-details { padding: 12rpx 14rpx 16rpx; }
+.campus-logo-wrap { display: flex; height: 65rpx; align-items: center; margin-bottom: 10rpx; }
+.campus-logo { width: 85rpx; height: 62rpx; }
+.campus-logo-placeholder { width: 40rpx; height: 40rpx; }
+.campus-name { min-height: 34rpx; font-size: 24rpx; line-height: 1.4; font-weight: 600; }
+.campus-name-en { height: 52rpx; margin-top: 5rpx; overflow: hidden; color: #68776f; font-size: 19rpx; line-height: 1.4; }
+.campus-location { display: flex; align-items: center; margin-top: 8rpx; gap: 5rpx; color: #68776f; font-size: 18rpx; }
+.location-icon { width: 19rpx; height: 19rpx; flex-shrink: 0; }
+.location-copy { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

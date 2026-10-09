@@ -1,0 +1,1064 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-bath",
+    "displayName": "University of Bath",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.bath.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.bath.ac.uk",
+      "bath.ac.uk"
+    ],
+    "discoveredUrls": 149,
+    "parsedProgrammes": 29,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/topics/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/faculty-of-engineering-design-undergraduate-courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/postgraduate/faculty-of-engineering-design-postgraduate-taught-courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/doctoral-programme/faculty-of-engineering-design-postgraduate-research/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/department-of-architecture-civil-engineering-undergraduate-courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "http://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/department-of-electronic-electrical-engineering-undergraduate-courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-aerospace-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-aerospace-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-aerospace-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-aerospace-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/architecture/bsc-architecture-including-placements",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/architecture/march-architecture",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/beng-chemical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/beng-chemical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/meng-chemical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/meng-chemical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/meng-chemical-engineering-with-environmental-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/meng-chemical-engineering-with-environmental-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/beng-civil-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/beng-civil-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/meng-civil-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/meng-civil-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/beng-computer-systems-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/beng-computer-systems-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/meng-computer-systems-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/meng-computer-systems-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/beng-electrical-and-electronic-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/beng-electrical-and-electronic-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/meng-electrical-and-electronic-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/meng-electrical-and-electronic-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/beng-electronic-engineering-with-space-science-and-technology-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/beng-electronic-engineering-with-space-science-and-technology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/meng-electronic-engineering-with-space-science-and-technology-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/meng-electronic-engineering-with-space-science-and-technology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-integrated-design-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-integrated-design-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-integrated-design-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-integrated-design-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/integrated-mechanical-and-electrical-engineering/beng-integrated-mechanical-and-electrical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/integrated-mechanical-and-electrical-engineering/beng-integrated-mechanical-and-electrical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/integrated-mechanical-and-electrical-engineering/meng-integrated-mechanical-and-electrical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/integrated-mechanical-and-electrical-engineering/meng-integrated-mechanical-and-electrical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-mechanical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-mechanical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-mechanical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-mechanical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-mechanical-engineering-with-manufacturing-and-management-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-mechanical-engineering-with-manufacturing-and-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-mechanical-engineering-with-manufacturing-and-management-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-mechanical-engineering-with-manufacturing-and-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-mechanical-with-automotive-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-mechanical-with-automotive-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-mechanical-with-automotive-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-mechanical-with-automotive-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/robotics-engineering/beng-robotics-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/robotics-engineering/beng-robotics-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/robotics-engineering/meng-robotics-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/robotics-engineering/meng-robotics-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/beng-structural-and-architectural-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/beng-structural-and-architectural-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/meng-structural-and-architectural-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/meng-structural-and-architectural-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-aerospace-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-aerospace-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-aerospace-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-aerospace-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/architecture/bsc-architecture",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/architecture/march-architecture-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/architecture/march-architecture",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/chemical-engineering/beng-chemical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/chemical-engineering/beng-chemical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/chemical-engineering/meng-chemical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/chemical-engineering/meng-chemical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/chemical-engineering/meng-chemical-engineering-with-environmental-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/chemical-engineering/meng-chemical-engineering-with-environmental-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/civil-engineering/beng-civil-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/civil-engineering/beng-civil-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/civil-engineering/meng-civil-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/civil-engineering/meng-civil-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/beng-computer-systems-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/beng-computer-systems-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/meng-computer-systems-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/meng-computer-systems-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/beng-electrical-and-electronic-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/beng-electrical-and-electronic-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/meng-electrical-and-electronic-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/meng-electrical-and-electronic-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/beng-electronic-engineering-with-space-science-and-technology-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/beng-electronic-engineering-with-space-science-and-technology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/meng-electronic-engineering-with-space-science-and-technology-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/electronic-and-electrical-engineering/meng-electronic-engineering-with-space-science-and-technology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-integrated-design-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-integrated-design-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-integrated-design-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-integrated-design-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/integrated-mechanical-and-electrical-engineering/beng-integrated-mechanical-and-electrical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/integrated-mechanical-and-electrical-engineering/beng-integrated-mechanical-and-electrical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/integrated-mechanical-and-electrical-engineering/meng-integrated-mechanical-and-electrical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/integrated-mechanical-and-electrical-engineering/meng-integrated-mechanical-and-electrical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-mechanical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-mechanical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-mechanical-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-mechanical-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-mechanical-engineering-with-manufacturing-and-management-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-mechanical-engineering-with-manufacturing-and-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-mechanical-engineering-with-manufacturing-and-management-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-mechanical-engineering-with-manufacturing-and-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-mechanical-with-automotive-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-mechanical-with-automotive-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-mechanical-with-automotive-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/meng-mechanical-with-automotive-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/robotics-engineering/beng-robotics-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/robotics-engineering/beng-robotics-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/robotics-engineering/meng-robotics-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/robotics-engineering/meng-robotics-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/civil-engineering/beng-structural-and-architectural-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/civil-engineering/beng-structural-and-architectural-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/civil-engineering/meng-structural-and-architectural-engineering-with-professional-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-aerospace-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:10:29.266Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-aerospace-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:10:33.098Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/architecture/march-architecture/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:10:37.114Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/beng-chemical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:10:41.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/meng-chemical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:10:45.208Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/chemical-engineering/meng-chemical-engineering-with-environmental-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:10:49.199Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/beng-civil-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:10:53.160Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/meng-civil-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:10:57.150Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/beng-computer-systems-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:55.570Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/meng-computer-systems-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:59.526Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/beng-electrical-and-electronic-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:03.566Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/meng-electrical-and-electronic-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:07.607Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/beng-electronic-engineering-with-space-science-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:11.612Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/electronic-and-electrical-engineering/meng-electronic-engineering-with-space-science-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:15.576Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-integrated-design-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:19.599Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-integrated-design-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:23.652Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/integrated-mechanical-and-electrical-engineering/beng-integrated-mechanical-and-electrical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:27.634Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/integrated-mechanical-and-electrical-engineering/meng-integrated-mechanical-and-electrical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:31.653Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-mechanical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:35.671Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-mechanical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:39.667Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-mechanical-engineering-with-manufacturing-and-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:43.683Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-mechanical-engineering-with-manufacturing-and-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:47.707Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/beng-mechanical-with-automotive-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:51.718Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/mechanical-engineering/meng-mechanical-with-automotive-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:55.711Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/robotics-engineering/beng-robotics-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:59.754Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/robotics-engineering/meng-robotics-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:17:03.702Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/beng-structural-and-architectural-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:17:07.740Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/civil-engineering/meng-structural-and-architectural-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:17:11.767Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-bath",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/architecture/bsc-architecture/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:17:21.820Z",
+      "error": null
+    }
+  ]
+}

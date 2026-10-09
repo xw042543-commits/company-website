@@ -3,6 +3,22 @@ import test from 'node:test';
 
 import { currentRuntimeConfig, resolveRuntimeConfig } from '../miniprogram/config/runtime.ts';
 
+test('native runtime resolves origins without the browser URL global', () => {
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'URL')!;
+  Object.defineProperty(globalThis, 'URL', { configurable: true, value: undefined });
+  try {
+    assert.equal(resolveRuntimeConfig('production').apiOrigin, 'https://yangdoujiao.com');
+    assert.equal(resolveRuntimeConfig('preview', 'https://yangdoujiao.com:443/').apiOrigin, 'https://yangdoujiao.com');
+    assert.equal(resolveRuntimeConfig('local').apiOrigin, 'http://127.0.0.1:8080');
+    assert.equal(resolveRuntimeConfig('local', 'http://localhost:8080/').apiOrigin, 'http://localhost:8080');
+    for (const origin of ['https://yangdoujiao.com.evil.test', 'https://user@yangdoujiao.com', 'https://yangdoujiao.com/path', 'https://yangdoujiao.com?x=1', 'https://yangdoujiao.com#x', 'https://yangdoujiao.com:8080', 'https://yangdoujiao.com\\\\evil.test', 'http://localhost:9000']) {
+      assert.throws(() => resolveRuntimeConfig('local', origin), /Unsafe API origin/, origin);
+    }
+  } finally {
+    Object.defineProperty(globalThis, 'URL', original);
+  }
+});
+
 test('production runtime uses the canonical HTTPS API origin', () => {
   const config = resolveRuntimeConfig('production');
 

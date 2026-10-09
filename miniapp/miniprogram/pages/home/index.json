@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "洋豆角留学",
+  "navigationStyle": "custom",
   "usingComponents": {
-    "app-state": "/components/app-state/index",
-    "university-card": "/components/university-card/index"
+    "app-state": "/components/app-state/index"
   }
 }

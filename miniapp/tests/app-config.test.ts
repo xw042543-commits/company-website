@@ -21,11 +21,18 @@ test('registers the approved four tabs in order', () => {
     app.tabBar.list.map((item) => [item.pagePath, item.text]),
     [
       ['pages/home/index', '首页'],
-      ['pages/universities/index', '院校'],
       ['pages/circle/index', 'U圈'],
+      ['pages/messages/index', '消息'],
       ['pages/account/index', '我的'],
     ],
   );
+});
+
+test('keeps universities registered as a regular page', () => {
+  const app = readAppConfig();
+  assert.equal(app.pages.includes('pages/universities/index'), true);
+  assert.equal(app.tabBar.list.some((item) => item.pagePath === 'pages/universities/index'), false);
+  assert.equal(app.pages.includes('pages/messages/index'), true);
 });
 
 test('does not register planning as a bottom tab', () => {

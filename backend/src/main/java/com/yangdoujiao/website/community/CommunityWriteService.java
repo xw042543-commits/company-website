@@ -33,15 +33,17 @@ public class CommunityWriteService {
     private final Clock clock;
     private final StringRedisTemplate redis;
     private final CommunityMetrics metrics;
+    private final CommunityNotificationPublisher notifications;
 
     public CommunityWriteService(CommunityProperties properties, CommunityPostRepository posts,
             CommunityCommentRepository comments, CommunityIdempotencyRecordRepository idempotency,
             CommunityUserRestrictionRepository restrictions, UserAccountRepository accounts,
             CommunityRateLimiter limiter, CommunityRiskPolicy risk, ObjectMapper json, Clock clock, StringRedisTemplate redis,
-            CommunityMetrics metrics) {
+            CommunityMetrics metrics, CommunityNotificationPublisher notifications) {
         this.properties = properties; this.posts = posts; this.comments = comments; this.idempotency = idempotency;
         this.restrictions = restrictions; this.accounts = accounts; this.limiter = limiter; this.risk = risk;
         this.json = json; this.clock = clock; this.redis = redis; this.metrics = metrics;
+        this.notifications = notifications;
     }
 
     public CreationResult createPost(long actorId, String address, String key, CommunityPostRequest request) {
@@ -71,7 +73,10 @@ public class CommunityWriteService {
             var status = classify(body);
             var comment = comments.saveAndFlush(CommunityComment.create(postId, actorId, parentId,
                     parent == null ? null : parent.getAuthorAccountId(), body, status, now()));
-            if (status == CommunityContentStatus.PUBLISHED) post.adjustCommentCount(1, now());
+            if (status == CommunityContentStatus.PUBLISHED) {
+                post.adjustCommentCount(1, now());
+                notifications.comment(post, comment);
+            }
             return new CommunityCreationResponse(comment.getId().toString(), Long.toString(postId),
                     parentId == null ? null : parentId.toString(), comment.getBody(), comment.getStatus(), comment.getCreatedAt(), null);
         });

@@ -1,0 +1,1214 @@
+{
+  "region": "united-kingdom",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.519Z",
+  "sourceKey": "university-of-leeds",
+  "sourceName": "University of Leeds",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_19ef02828bcae13b",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "University of Leeds",
+    "countryCode": null,
+    "countryRaw": "United Kingdom",
+    "cityZh": null,
+    "cityEn": "Leeds",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.leeds.ac.uk",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:06:59.629Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.leeds.ac.uk/",
+        "sourcePageTitle": "University of Leeds",
+        "sourceHash": "78096277c083d2abe0114983ccf39c603c01f0ab7793ed4777b9ff0cf9fcba42",
+        "fetchedAt": "2026-10-07T04:06:59.629Z",
+        "field": "name",
+        "rawText": "University of Leeds"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 14,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+    "media": []
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_43e4c42814a645e3",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "远程学习博士学位",
+      "nameEn": "PhD by distance learning",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Doctoral",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.leeds.ac.uk/online-courses/doc/phd-distance-learning",
+      "sourceCheckedAt": "2026-10-07T04:07:59.854Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/2",
+          "sourcePageTitle": "Taster courses for high school students | University of Leeds",
+          "sourceHash": "61c159afcfe62a80c53d6b8fd3da06e0297f2959675fad276702ab3e01138555",
+          "fetchedAt": "2026-10-07T04:07:59.854Z",
+          "field": "name",
+          "rawText": "PhD by distance learning"
+        },
+        {
+          "sourceUrl": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/2",
+          "sourcePageTitle": "Taster courses for high school students | University of Leeds",
+          "sourceHash": "61c159afcfe62a80c53d6b8fd3da06e0297f2959675fad276702ab3e01138555",
+          "fetchedAt": "2026-10-07T04:07:59.854Z",
+          "field": "detailUrl",
+          "rawText": "https://www.leeds.ac.uk/online-courses/doc/phd-distance-learning"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.leeds.ac.uk/",
+      "fetchedAt": "2026-10-07T04:06:59.629Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "78096277c083d2abe0114983ccf39c603c01f0ab7793ed4777b9ff0cf9fcba42",
+      "title": "University of Leeds",
+      "snapshotFile": "raw/0001-78096277c083.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate",
+      "fetchedAt": "2026-10-07T04:07:01.600Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3d518954a24292754fa9662b9f57ded4f3b54171b6b0cb3ddb22512f5d5f147c",
+      "title": "Undergraduate courses | University of Leeds",
+      "snapshotFile": "raw/0002-3d518954a242.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-open-days",
+      "fetchedAt": "2026-10-07T04:07:03.515Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "252b6a857d45bdd14578fc077c096302e9ab8ad262785e511678eb829ad82fd7",
+      "title": "Undergraduate Open Days | University of Leeds",
+      "snapshotFile": "raw/0003-252b6a857d45.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career",
+      "fetchedAt": "2026-10-07T04:07:05.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "55a8c0e5f77bc0c053114cb3303d2375c806e7d806ced47f5dd9129f0bd39b50",
+      "title": "Careers and employability | University of Leeds",
+      "snapshotFile": "raw/0004-55a8c0e5f77b.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-fees/doc/fees-undergraduate-fees",
+      "fetchedAt": "2026-10-07T04:07:07.612Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e402e91f14d0929d308b9f7ed033fba7b1f53fa2665e557c6b06bfd5a8d9847b",
+      "title": "Undergraduate fees | University of Leeds",
+      "snapshotFile": "raw/0005-e402e91f14d0.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-fees/doc/living-expenses",
+      "fetchedAt": "2026-10-07T04:07:09.591Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "060b4486059c5958aaee6a4d37d7e682bd0093a6d43264cae664bc51429c2cf7",
+      "title": "Living costs and budgeting | University of Leeds",
+      "snapshotFile": "raw/0006-060b4486059c.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-funding",
+      "fetchedAt": "2026-10-07T04:07:11.722Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "10fed3ce96b925effcbd717291a55d6bdcf400336b7522f8655b1cb226b331b6",
+      "title": "Undergraduate funding overview | University of Leeds",
+      "snapshotFile": "raw/0007-10fed3ce96b9.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-campus-city-life",
+      "fetchedAt": "2026-10-07T04:07:13.652Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "20d045c2241f96f028f3ee686b4d3a75662e5c268db363cde3cf8082f2ba94fe",
+      "title": "City life | University of Leeds",
+      "snapshotFile": "raw/0008-20d045c2241f.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-life/doc/students-union",
+      "fetchedAt": "2026-10-07T04:07:15.621Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1db127b6ddd5f253fe2de8a21b8ef29f2a783b999ae17106672464a4b2079afe",
+      "title": "Students’ Union | University of Leeds",
+      "snapshotFile": "raw/0009-1db127b6ddd5.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-life/doc/wellbeing-support",
+      "fetchedAt": "2026-10-07T04:07:17.578Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "93a5efe7d8c75c97836aca62cf858e8d9fb417daa1b2fd0ff5543e74f3832d71",
+      "title": "Wellbeing and support | University of Leeds",
+      "snapshotFile": "raw/0010-93a5efe7d8c7.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-life/doc/sport-fitness",
+      "fetchedAt": "2026-10-07T04:07:19.731Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3308187587b7b24a73e35df92f6ae3828ff70f9be0e23a32a894034689e4e4cc",
+      "title": "Sport and fitness | University of Leeds",
+      "snapshotFile": "raw/0011-3308187587b7.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career/doc/careers-support",
+      "fetchedAt": "2026-10-07T04:07:21.610Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "445fecf468a98e8ab47544fe97c4acaf0fa6a1a425a2a0f15da65126cd5b6f35",
+      "title": "Careers support | University of Leeds",
+      "snapshotFile": "raw/0012-445fecf468a9.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career/doc/work-experience",
+      "fetchedAt": "2026-10-07T04:07:23.704Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bb5c845732498f2e9719104de5479707a8c81d87a05eb35929f92113bf810e7b",
+      "title": "Work experience | University of Leeds",
+      "snapshotFile": "raw/0013-bb5c84573249.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career/doc/student-enterprise",
+      "fetchedAt": "2026-10-07T04:07:25.636Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a57aab882b63836663af9a908ee9f156b48e863bdf1fb15e51f86a28be333069",
+      "title": "Student enterprise | University of Leeds",
+      "snapshotFile": "raw/0014-a57aab882b63.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career/doc/enrichment-volunteering",
+      "fetchedAt": "2026-10-07T04:07:27.668Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "093820aa3266bcfbeffb4b5722275b3821261a41c8cfe7b22087268fd1c5f844",
+      "title": "Volunteering | University of Leeds",
+      "snapshotFile": "raw/0015-093820aa3266.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-learning-experience/doc/study-facilities",
+      "fetchedAt": "2026-10-07T04:07:29.674Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5bc0aeae3845f138cf4bbdef5c0c5c20bb534105f601362723bc3fce06e88cf",
+      "title": "Study facilities | University of Leeds",
+      "snapshotFile": "raw/0016-e5bc0aeae384.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-learning-experience/doc/learning-teaching",
+      "fetchedAt": "2026-10-07T04:07:31.686Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0e3f22c07e661bf0a9ea88394bb9d15ffd03fd5e1708cb5708012f224765bc38",
+      "title": "Learning and teaching | University of Leeds",
+      "snapshotFile": "raw/0017-0e3f22c07e66.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/doc/enrichment-study-abroad",
+      "fetchedAt": "2026-10-07T04:07:33.665Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "60771bd5f0b85a00e4d92a5580ff1cace10f153a67caa4cc70fbc4c7d3fae119",
+      "title": "Study abroad | University of Leeds",
+      "snapshotFile": "raw/0018-60771bd5f0b8.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15413/ellie-sleightholm",
+      "fetchedAt": "2026-10-07T04:07:35.557Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "991b7090ee16370e51ccd69facaba915288d00a21ae5cdbb406bb2eaa9374e9a",
+      "title": "Ellie Sleightholm | University of Leeds",
+      "snapshotFile": "raw/0019-991b7090ee16.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15400/rohan-cheerala",
+      "fetchedAt": "2026-10-07T04:07:37.532Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1bada8e83576ebf389823c725e2885450c3074ea3889bceee8d808c30e47b1b1",
+      "title": "Rohan Cheerala | University of Leeds",
+      "snapshotFile": "raw/0020-1bada8e83576.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15431/george-hobley",
+      "fetchedAt": "2026-10-07T04:07:39.568Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9b5a174d3a3501a0468a4fbc14693238b4c6f363fdae2668cd08536b3de64922",
+      "title": "George Hobley | University of Leeds",
+      "snapshotFile": "raw/0021-9b5a174d3a35.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15161/jefferson-sanchez",
+      "fetchedAt": "2026-10-07T04:07:41.535Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "db4824d494e1cb6e84b38bfaef2c3f678077429bd52c253fe539a5d2b797a260",
+      "title": "Jefferson Sanchez | University of Leeds",
+      "snapshotFile": "raw/0022-db4824d494e1.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer",
+      "fetchedAt": "2026-10-07T04:07:43.752Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0323a960eedf6705ad6062a77dfc78341586def348579f01dcabd419d46e219a",
+      "title": "Undergraduate offer | University of Leeds",
+      "snapshotFile": "raw/0023-0323a960eedf.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-advisors",
+      "fetchedAt": "2026-10-07T04:07:45.820Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5551960953d8f50e9677b8862689ab9e2d666438c33708b625ebbf4b55b4bcf6",
+      "title": "Teachers and advisors | University of Leeds",
+      "snapshotFile": "raw/0024-5551960953d8.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses",
+      "fetchedAt": "2026-10-07T04:07:47.781Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "73fdfad4e5d6c61eac6509b50c77d474e3aca0746f3f8c67e7124223e1c4194c",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0025-73fdfad4e5d6.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/2",
+      "fetchedAt": "2026-10-07T04:07:49.721Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0136538321c5dd261698066b6c1ab6352e5098a5652eae0a9338e2af577a8f75",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0026-0136538321c5.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/3",
+      "fetchedAt": "2026-10-07T04:07:51.759Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "59f2d9346023a05ac92bdef13dc49681da274103529dc872d092301715e0242c",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0027-59f2d9346023.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/4",
+      "fetchedAt": "2026-10-07T04:07:53.744Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8003f2665820f08acfa29894b7c21f1c1d6cf40942864f6bdffe969ea109d36a",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0028-8003f2665820.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/5",
+      "fetchedAt": "2026-10-07T04:07:55.756Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c2f6f4bd66af94c88c67fdfa43a9866d625a2d5598f9272966fcb0150abcc7e4",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0029-c2f6f4bd66af.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/6",
+      "fetchedAt": "2026-10-07T04:07:57.822Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "48f33e7ac8cb1bdca8d227ecdd6d2cb7f35a66802e435fb6c7d5de43605a9ade",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0030-48f33e7ac8cb.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/2",
+      "fetchedAt": "2026-10-07T04:07:59.854Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "61c159afcfe62a80c53d6b8fd3da06e0297f2959675fad276702ab3e01138555",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0031-61c159afcfe6.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/3",
+      "fetchedAt": "2026-10-07T04:08:01.844Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f5f94f05c12609a154d977b926f177eea2ef58aef76d6d8f8542341b72011c30",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0032-f5f94f05c126.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/4",
+      "fetchedAt": "2026-10-07T04:08:03.820Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a3f8fbec5a181288d2c6447ef24509d4b332f977bf2f3b2b87ac8f4f63806119",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0033-a3f8fbec5a18.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/5",
+      "fetchedAt": "2026-10-07T04:08:05.886Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "85f40b313349702be1d4fa62aba5d9473165db7f3e5d002499d29f1d03ef845e",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0034-85f40b313349.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/6",
+      "fetchedAt": "2026-10-07T04:08:07.945Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6553631e55c9d9ddc98dca07b05c4c7a9e10dd31c0c68fc75f6c707f847939cd",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0035-6553631e55c9.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses",
+      "fetchedAt": "2026-10-07T04:08:09.840Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e2830e16a72485cd1972858e9763a3390cd0b341debc1620412d831142aed199",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0036-e2830e16a724.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-parents-carers",
+      "fetchedAt": "2026-10-07T04:08:11.804Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3670781d96b56794a890d9b01e2caf1e75f2c1a3edf029bd9081847d2dfe6d8",
+      "title": "Parents and carers | University of Leeds",
+      "snapshotFile": "raw/0037-b3670781d96b.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-open-days/doc/whats-on-open-days",
+      "fetchedAt": "2026-10-07T04:08:13.803Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "da1a65cbfac3e81447687cd2416552c82997d7ed6f3311a7087cad5919a2c0d1",
+      "title": "Planning your Open Day | University of Leeds",
+      "snapshotFile": "raw/0038-da1a65cbfac3.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-open-days/doc/open-day-parking-travel",
+      "fetchedAt": "2026-10-07T04:08:15.753Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2a0602f049cca28acf82a09ef0d9fc465f93305b2c9ea8ef2b89ff807315e410",
+      "title": "Travel to Open Day | University of Leeds",
+      "snapshotFile": "raw/0039-2a0602f049cc.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-open-days/doc/registration-arrival",
+      "fetchedAt": "2026-10-07T04:08:17.878Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cf4b99a60c6d8f68b4ac6351d68b9425ea5bd9e2bf55e961ef787dfffdb6cdd3",
+      "title": "Arriving at Open Day | University of Leeds",
+      "snapshotFile": "raw/0040-cf4b99a60c6d.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/doc/enrichment-study-abroad",
+      "fetchedAt": "2026-10-07T06:12:07.333Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "60771bd5f0b85a00e4d92a5580ff1cace10f153a67caa4cc70fbc4c7d3fae119",
+      "title": "Study abroad | University of Leeds",
+      "snapshotFile": "raw/0001-60771bd5f0b8.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15413/ellie-sleightholm",
+      "fetchedAt": "2026-10-07T06:12:09.150Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "991b7090ee16370e51ccd69facaba915288d00a21ae5cdbb406bb2eaa9374e9a",
+      "title": "Ellie Sleightholm | University of Leeds",
+      "snapshotFile": "raw/0002-991b7090ee16.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15400/rohan-cheerala",
+      "fetchedAt": "2026-10-07T06:12:11.230Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1bada8e83576ebf389823c725e2885450c3074ea3889bceee8d808c30e47b1b1",
+      "title": "Rohan Cheerala | University of Leeds",
+      "snapshotFile": "raw/0003-1bada8e83576.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15431/george-hobley",
+      "fetchedAt": "2026-10-07T06:12:13.222Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9b5a174d3a3501a0468a4fbc14693238b4c6f363fdae2668cd08536b3de64922",
+      "title": "George Hobley | University of Leeds",
+      "snapshotFile": "raw/0004-9b5a174d3a35.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15161/jefferson-sanchez",
+      "fetchedAt": "2026-10-07T06:12:15.216Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "db4824d494e1cb6e84b38bfaef2c3f678077429bd52c253fe539a5d2b797a260",
+      "title": "Jefferson Sanchez | University of Leeds",
+      "snapshotFile": "raw/0005-db4824d494e1.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15293/robert-bruce",
+      "fetchedAt": "2026-10-07T06:12:17.320Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f8dc93dc2f1f8c1642f5097d3b0bc9f8c36ab31b2dcbf00b0d1ec1610ee229cb",
+      "title": "Robert Bruce | University of Leeds",
+      "snapshotFile": "raw/0006-f8dc93dc2f1f.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/doc/video-transcript-study-abroad-university-leeds-ben-barrett",
+      "fetchedAt": "2026-10-07T06:12:19.367Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fae634f0e62fcb0ebd2a00d7fddcc5e87434e521d92363df790a26c2327f2cbf",
+      "title": "Video transcript: Study Abroad with the University of Leeds – Ben Barrett | University of Leeds",
+      "snapshotFile": "raw/0007-fae634f0e62f.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/18540/isla-loness",
+      "fetchedAt": "2026-10-07T06:12:21.219Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c2edf235b8468a127c71ea82a5b9dcd25d31ec0c1dd072bb5aaf952b68236642",
+      "title": "Isla Loness | University of Leeds",
+      "snapshotFile": "raw/0008-c2edf235b846.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate",
+      "fetchedAt": "2026-10-07T06:12:23.601Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3d518954a24292754fa9662b9f57ded4f3b54171b6b0cb3ddb22512f5d5f147c",
+      "title": "Undergraduate courses | University of Leeds",
+      "snapshotFile": "raw/0009-3d518954a242.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-fees/doc/fees-undergraduate-fees",
+      "fetchedAt": "2026-10-07T06:12:25.403Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e402e91f14d0929d308b9f7ed033fba7b1f53fa2665e557c6b06bfd5a8d9847b",
+      "title": "Undergraduate fees | University of Leeds",
+      "snapshotFile": "raw/0010-e402e91f14d0.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-fees/doc/living-expenses",
+      "fetchedAt": "2026-10-07T06:12:27.439Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "060b4486059c5958aaee6a4d37d7e682bd0093a6d43264cae664bc51429c2cf7",
+      "title": "Living costs and budgeting | University of Leeds",
+      "snapshotFile": "raw/0011-060b4486059c.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-funding",
+      "fetchedAt": "2026-10-07T06:12:29.467Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "10fed3ce96b925effcbd717291a55d6bdcf400336b7522f8655b1cb226b331b6",
+      "title": "Undergraduate funding overview | University of Leeds",
+      "snapshotFile": "raw/0012-10fed3ce96b9.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-campus-city-life",
+      "fetchedAt": "2026-10-07T06:12:31.418Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "20d045c2241f96f028f3ee686b4d3a75662e5c268db363cde3cf8082f2ba94fe",
+      "title": "City life | University of Leeds",
+      "snapshotFile": "raw/0013-20d045c2241f.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-life/doc/students-union",
+      "fetchedAt": "2026-10-07T06:12:33.465Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "451592333deaafad810952d8eec7292628c5fa5fcc53eff2e4bd315b1c473546",
+      "title": "Students’ Union | University of Leeds",
+      "snapshotFile": "raw/0014-451592333dea.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-life/doc/wellbeing-support",
+      "fetchedAt": "2026-10-07T06:12:35.470Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "93a5efe7d8c75c97836aca62cf858e8d9fb417daa1b2fd0ff5543e74f3832d71",
+      "title": "Wellbeing and support | University of Leeds",
+      "snapshotFile": "raw/0015-93a5efe7d8c7.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-life/doc/sport-fitness",
+      "fetchedAt": "2026-10-07T06:12:37.483Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3308187587b7b24a73e35df92f6ae3828ff70f9be0e23a32a894034689e4e4cc",
+      "title": "Sport and fitness | University of Leeds",
+      "snapshotFile": "raw/0016-3308187587b7.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career",
+      "fetchedAt": "2026-10-07T06:12:39.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "55a8c0e5f77bc0c053114cb3303d2375c806e7d806ced47f5dd9129f0bd39b50",
+      "title": "Careers and employability | University of Leeds",
+      "snapshotFile": "raw/0017-55a8c0e5f77b.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career/doc/careers-support",
+      "fetchedAt": "2026-10-07T06:12:41.495Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "445fecf468a98e8ab47544fe97c4acaf0fa6a1a425a2a0f15da65126cd5b6f35",
+      "title": "Careers support | University of Leeds",
+      "snapshotFile": "raw/0018-445fecf468a9.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career/doc/work-experience",
+      "fetchedAt": "2026-10-07T06:12:43.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bb5c845732498f2e9719104de5479707a8c81d87a05eb35929f92113bf810e7b",
+      "title": "Work experience | University of Leeds",
+      "snapshotFile": "raw/0019-bb5c84573249.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career/doc/student-enterprise",
+      "fetchedAt": "2026-10-07T06:12:45.520Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a57aab882b63836663af9a908ee9f156b48e863bdf1fb15e51f86a28be333069",
+      "title": "Student enterprise | University of Leeds",
+      "snapshotFile": "raw/0020-a57aab882b63.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-career/doc/enrichment-volunteering",
+      "fetchedAt": "2026-10-07T06:12:47.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "093820aa3266bcfbeffb4b5722275b3821261a41c8cfe7b22087268fd1c5f844",
+      "title": "Volunteering | University of Leeds",
+      "snapshotFile": "raw/0021-093820aa3266.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-learning-experience/doc/study-facilities",
+      "fetchedAt": "2026-10-07T06:12:49.530Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5bc0aeae3845f138cf4bbdef5c0c5c20bb534105f601362723bc3fce06e88cf",
+      "title": "Study facilities | University of Leeds",
+      "snapshotFile": "raw/0022-e5bc0aeae384.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-learning-experience/doc/learning-teaching",
+      "fetchedAt": "2026-10-07T06:12:51.542Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0e3f22c07e661bf0a9ea88394bb9d15ffd03fd5e1708cb5708012f224765bc38",
+      "title": "Learning and teaching | University of Leeds",
+      "snapshotFile": "raw/0023-0e3f22c07e66.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer",
+      "fetchedAt": "2026-10-07T06:12:53.590Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0323a960eedf6705ad6062a77dfc78341586def348579f01dcabd419d46e219a",
+      "title": "Undergraduate offer | University of Leeds",
+      "snapshotFile": "raw/0024-0323a960eedf.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-advisors",
+      "fetchedAt": "2026-10-07T06:12:55.668Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5551960953d8f50e9677b8862689ab9e2d666438c33708b625ebbf4b55b4bcf6",
+      "title": "Teachers and advisors | University of Leeds",
+      "snapshotFile": "raw/0025-5551960953d8.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses",
+      "fetchedAt": "2026-10-07T06:12:57.515Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "73fdfad4e5d6c61eac6509b50c77d474e3aca0746f3f8c67e7124223e1c4194c",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0026-73fdfad4e5d6.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/2",
+      "fetchedAt": "2026-10-07T06:12:59.607Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0136538321c5dd261698066b6c1ab6352e5098a5652eae0a9338e2af577a8f75",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0027-0136538321c5.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/3",
+      "fetchedAt": "2026-10-07T06:13:01.569Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "59f2d9346023a05ac92bdef13dc49681da274103529dc872d092301715e0242c",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0028-59f2d9346023.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/4",
+      "fetchedAt": "2026-10-07T06:13:03.615Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8003f2665820f08acfa29894b7c21f1c1d6cf40942864f6bdffe969ea109d36a",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0029-8003f2665820.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/5",
+      "fetchedAt": "2026-10-07T06:13:05.589Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c2f6f4bd66af94c88c67fdfa43a9866d625a2d5598f9272966fcb0150abcc7e4",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0030-c2f6f4bd66af.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/undergraduate-taster-courses/page/6",
+      "fetchedAt": "2026-10-07T06:13:07.572Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "48f33e7ac8cb1bdca8d227ecdd6d2cb7f35a66802e435fb6c7d5de43605a9ade",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0031-48f33e7ac8cb.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/2",
+      "fetchedAt": "2026-10-07T06:13:09.560Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "61c159afcfe62a80c53d6b8fd3da06e0297f2959675fad276702ab3e01138555",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0032-61c159afcfe6.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/3",
+      "fetchedAt": "2026-10-07T06:13:11.662Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f5f94f05c12609a154d977b926f177eea2ef58aef76d6d8f8542341b72011c30",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0033-f5f94f05c126.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/4",
+      "fetchedAt": "2026-10-07T06:13:13.649Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a3f8fbec5a181288d2c6447ef24509d4b332f977bf2f3b2b87ac8f4f63806119",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0034-a3f8fbec5a18.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/5",
+      "fetchedAt": "2026-10-07T06:13:15.615Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "85f40b313349702be1d4fa62aba5d9473165db7f3e5d002499d29f1d03ef845e",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0035-85f40b313349.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses/page/6",
+      "fetchedAt": "2026-10-07T06:13:17.681Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6553631e55c9d9ddc98dca07b05c4c7a9e10dd31c0c68fc75f6c707f847939cd",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0036-6553631e55c9.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/short-online-courses/doc/undergraduate-taster-courses",
+      "fetchedAt": "2026-10-07T06:13:19.620Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e2830e16a72485cd1972858e9763a3390cd0b341debc1620412d831142aed199",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0037-e2830e16a724.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-parents-carers",
+      "fetchedAt": "2026-10-07T06:13:21.561Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3670781d96b56794a890d9b01e2caf1e75f2c1a3edf029bd9081847d2dfe6d8",
+      "title": "Parents and carers | University of Leeds",
+      "snapshotFile": "raw/0038-b3670781d96b.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-opportunities/doc/enrichment-study-abroad",
+      "fetchedAt": "2026-10-07T06:13:23.619Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "60771bd5f0b85a00e4d92a5580ff1cace10f153a67caa4cc70fbc4c7d3fae119",
+      "title": "Study abroad | University of Leeds",
+      "snapshotFile": "raw/0039-60771bd5f0b8.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/14987/ben-barrett",
+      "fetchedAt": "2026-10-07T06:13:25.506Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b59c3eeba6a1ddc97dac6570e646e176b82d57bebf2b1df6a7645af5a4c26213",
+      "title": "Ben Barrett | University of Leeds",
+      "snapshotFile": "raw/0040-b59c3eeba6a1.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-open-days",
+      "fetchedAt": "2026-10-07T06:13:27.569Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "252b6a857d45bdd14578fc077c096302e9ab8ad262785e511678eb829ad82fd7",
+      "title": "Undergraduate Open Days | University of Leeds",
+      "snapshotFile": "raw/0041-252b6a857d45.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-fees/doc/fee-assessment",
+      "fetchedAt": "2026-10-07T06:13:29.638Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c4b6a4105a150dbc773f3736b9226e7f9262b916e728545cd65b4a3f46a30e9c",
+      "title": "Fee assessment | University of Leeds",
+      "snapshotFile": "raw/0042-c4b6a4105a15.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-funding-loans-bursaries/doc/help-available",
+      "fetchedAt": "2026-10-07T06:13:31.836Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e977e5dbc5cd3ea45d1d08f97de192a859531e367fef554fb46ca71070460838",
+      "title": "Student loans | University of Leeds",
+      "snapshotFile": "raw/0043-e977e5dbc5cd.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-fees/doc/living-expenses/page/2",
+      "fetchedAt": "2026-10-07T06:13:33.736Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "944fc10b6737a83d859c4f7ce7948f502e3c62adb38d6e04f27a2699f703ab30",
+      "title": "Living costs and budgeting | University of Leeds",
+      "snapshotFile": "raw/0044-944fc10b6737.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-funding/doc/student-loans",
+      "fetchedAt": "2026-10-07T06:13:35.677Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e977e5dbc5cd3ea45d1d08f97de192a859531e367fef554fb46ca71070460838",
+      "title": "Student loans | University of Leeds",
+      "snapshotFile": "raw/0045-e977e5dbc5cd.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-funding/doc/nhs-funding",
+      "fetchedAt": "2026-10-07T06:13:37.776Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a3bad195cf29d0b5b48dcae8281acd49f5f28aa7e2a8661404be925d04e3b13c",
+      "title": "NHS funding | University of Leeds",
+      "snapshotFile": "raw/0046-a3bad195cf29.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-funding/doc/funding-disabled-students",
+      "fetchedAt": "2026-10-07T06:13:39.765Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e53321eeeff11fba8a2bd56b4865aca3d67dd242a33aacca08a0401be160480f",
+      "title": "Funding for disabled students | University of Leeds",
+      "snapshotFile": "raw/0047-e53321eeeff1.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-funding/doc/funding-students-dependents",
+      "fetchedAt": "2026-10-07T06:13:41.709Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8ac1d5403e6ab2fe2eac895b8ed430e13790ab2bce05ac81f32c7f3129a7be2a",
+      "title": "Funding for students with dependents | University of Leeds",
+      "snapshotFile": "raw/0048-8ac1d5403e6a.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-funding/doc/financial-hardship-funding",
+      "fetchedAt": "2026-10-07T06:13:43.717Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8bee086ed38b3480be86fea749fbd038f2fee4ece7387f6e2f7ba0ec739df44f",
+      "title": "Financial hardship funding | University of Leeds",
+      "snapshotFile": "raw/0049-8bee086ed38b.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-opportunities/doc/work-experience",
+      "fetchedAt": "2026-10-07T06:13:45.664Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bb5c845732498f2e9719104de5479707a8c81d87a05eb35929f92113bf810e7b",
+      "title": "Work experience | University of Leeds",
+      "snapshotFile": "raw/0050-bb5c84573249.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-opportunities/doc/student-enterprise",
+      "fetchedAt": "2026-10-07T06:13:47.718Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a57aab882b63836663af9a908ee9f156b48e863bdf1fb15e51f86a28be333069",
+      "title": "Student enterprise | University of Leeds",
+      "snapshotFile": "raw/0051-a57aab882b63.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-student-opportunities/doc/enrichment-volunteering",
+      "fetchedAt": "2026-10-07T06:13:49.751Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "093820aa3266bcfbeffb4b5722275b3821261a41c8cfe7b22087268fd1c5f844",
+      "title": "Volunteering | University of Leeds",
+      "snapshotFile": "raw/0052-093820aa3266.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/language-centre/doc/undergraduate-pre-sessional-english",
+      "fetchedAt": "2026-10-07T06:13:51.749Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec58ac121ce3e1d97ed1454c18ddbd1abad1f482b6ba158a47d8c31adaefa616",
+      "title": "Undergraduate pre-sessional English | University of Leeds",
+      "snapshotFile": "raw/0053-ec58ac121ce3.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/language-centre-courses/doc/undergraduate-pre-sessional-english",
+      "fetchedAt": "2026-10-07T06:13:53.719Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1dbc5cd2c032b0593a78f9e25ed945dcc21a733f5a325efd940df533663bfdbb",
+      "title": "Undergraduate pre-sessional English | University of Leeds",
+      "snapshotFile": "raw/0054-1dbc5cd2c032.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/language-centre-courses/doc/undergraduate-pre-sessional-english/page/2",
+      "fetchedAt": "2026-10-07T06:13:55.667Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "62fd55fd3761a1b8714487e455cbaea06a7de5f727f61ce856b4a48d887a088d",
+      "title": "Undergraduate pre-sessional English | University of Leeds",
+      "snapshotFile": "raw/0055-62fd55fd3761.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer/doc/your-offer-explained",
+      "fetchedAt": "2026-10-07T06:13:57.616Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "04ce74d12ab7a9606bda1a739b9330d1e0c273f58a8a911a8170166884187502",
+      "title": "Your offer explained | University of Leeds",
+      "snapshotFile": "raw/0056-04ce74d12ab7.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer/doc/undergraduate-offer-accommodation",
+      "fetchedAt": "2026-10-07T06:13:59.638Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "40817ad94e078abe97394433717a7f982471e1acf5be45b899d14292ac1aabc9",
+      "title": "Accommodation next steps | University of Leeds",
+      "snapshotFile": "raw/0057-40817ad94e07.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer/doc/fees-and-funding",
+      "fetchedAt": "2026-10-07T06:14:01.677Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d2b00dcf8979f116bcada73b6eff1ff23b296af66abdc9c71030c2d5be383f4d",
+      "title": "Fees and funding | University of Leeds",
+      "snapshotFile": "raw/0058-d2b00dcf8979.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer/doc/campus-life",
+      "fetchedAt": "2026-10-07T06:14:03.689Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4cea222c430b27f2af47497b2b6b4ff0398e39b3ba38d24d7ee57bd308c143f4",
+      "title": "Campus life | University of Leeds",
+      "snapshotFile": "raw/0059-4cea222c430b.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer/doc/offer-city-life",
+      "fetchedAt": "2026-10-07T06:14:05.716Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "68d3296902e16dd1082799b077eccc61a8ee6c286aba6bb350ae5a7b4259e512",
+      "title": "City life | University of Leeds",
+      "snapshotFile": "raw/0060-68d3296902e1.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer/doc/wellbeing-and-support",
+      "fetchedAt": "2026-10-07T06:14:07.672Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2371e115448ed793dfff04fa6c3ee19edafac00ec8d2658194e59470e092a3a6",
+      "title": "Wellbeing and support | University of Leeds",
+      "snapshotFile": "raw/0061-2371e115448e.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer/doc/international-preparation-arrival",
+      "fetchedAt": "2026-10-07T06:14:09.663Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3a4bb709d2f521e44f3f7ea0a09e9d7f2ec5fdb1cbb02a0d0ef2699def69bd6c",
+      "title": "International preparation and arrival | University of Leeds",
+      "snapshotFile": "raw/0062-3a4bb709d2f5.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-offer/doc/international-undergraduate-offer-holders",
+      "fetchedAt": "2026-10-07T06:14:11.715Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3a4bb709d2f521e44f3f7ea0a09e9d7f2ec5fdb1cbb02a0d0ef2699def69bd6c",
+      "title": "International preparation and arrival | University of Leeds",
+      "snapshotFile": "raw/0063-3a4bb709d2f5.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-advisors/doc/preparing-university-online-study-resources",
+      "fetchedAt": "2026-10-07T06:14:13.742Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "219413e1a357232f54ce42536e4f9ed6c9aa98dffb873aa0144a47a58293f1f4",
+      "title": "Preparing for university study – online resources | University of Leeds",
+      "snapshotFile": "raw/0064-219413e1a357.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/art-design-online-taster-courses",
+      "fetchedAt": "2026-10-07T06:14:15.747Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c2f6f4bd66af94c88c67fdfa43a9866d625a2d5598f9272966fcb0150abcc7e4",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0065-c2f6f4bd66af.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/business-studies-online-taster-courses",
+      "fetchedAt": "2026-10-07T06:14:17.807Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8003f2665820f08acfa29894b7c21f1c1d6cf40942864f6bdffe969ea109d36a",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0066-8003f2665820.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/stem-online-taster-courses",
+      "fetchedAt": "2026-10-07T06:14:19.864Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0136538321c5dd261698066b6c1ab6352e5098a5652eae0a9338e2af577a8f75",
+      "title": "Taster courses for high school students | University of Leeds",
+      "snapshotFile": "raw/0067-0136538321c5.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/students-schools",
+      "fetchedAt": "2026-10-07T06:14:21.752Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d2664a2ce6cce7314b57e04676a7d107ceb471cbee74259e57bc2d084e6c5d42",
+      "title": "Students into schools | University of Leeds",
+      "snapshotFile": "raw/0068-d2664a2ce6cc.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/research-study-skills",
+      "fetchedAt": "2026-10-07T06:14:23.756Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d9ea2b7d2aa5eff81cd660bd21c45cda2df4a596c4c4a72cb6df7c921ef3fa21",
+      "title": "Research and study skills | University of Leeds",
+      "snapshotFile": "raw/0069-d9ea2b7d2aa5.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/subject-specific-outreach",
+      "fetchedAt": "2026-10-07T06:14:25.766Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee63cc52bc0e0bcdd19510234156901fc68222068a31f4ad99de3ba91ba583cd",
+      "title": "Subject-specific outreach | University of Leeds",
+      "snapshotFile": "raw/0070-ee63cc52bc0e.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/live-webinars-schools-colleges",
+      "fetchedAt": "2026-10-07T06:14:27.769Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "be5f74a956ce9eeae018e71d85e1e90ad7976df939d489c3f3c1e2098977309c",
+      "title": "Live webinars for schools and colleges | University of Leeds",
+      "snapshotFile": "raw/0071-be5f74a956ce.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/he-talks-workshops",
+      "fetchedAt": "2026-10-07T06:14:29.730Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "52ec0fda5d78fd89c59e8ee1240e24403f343820187385cde51b694fa39439d7",
+      "title": "Higher education talks and workshops | University of Leeds",
+      "snapshotFile": "raw/0072-52ec0fda5d78.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/leeds-futures",
+      "fetchedAt": "2026-10-07T06:14:31.771Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f65f9598f1a716107f8bfd8227cd3b684863daf179acf7a99c3e9850660b20ff",
+      "title": "Leeds Futures | University of Leeds",
+      "snapshotFile": "raw/0073-f65f9598f1a7.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/leeds-to-success",
+      "fetchedAt": "2026-10-07T06:14:33.733Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dbd0bc2d42ae75fc94869da63be380de75b5cb132d739f4c184938fbffb61778",
+      "title": "Leeds to Success | University of Leeds",
+      "snapshotFile": "raw/0074-dbd0bc2d42ae.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/support-disabled-learners",
+      "fetchedAt": "2026-10-07T06:14:35.799Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e540f628b4b7341335d5f3fd043af44ccbc177e02af27b4222d8b89594ca842f",
+      "title": "Support for disabled learners | University of Leeds",
+      "snapshotFile": "raw/0075-e540f628b4b7.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-students/doc/leeds-summer-schools",
+      "fetchedAt": "2026-10-07T06:14:37.769Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6587ce3462b6da44bc5978e8fa2ad316a1b3e70f42aec30921908c6bcdd17624",
+      "title": "Leeds Summer Schools | University of Leeds",
+      "snapshotFile": "raw/0076-6587ce3462b6.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-teachers-advisors/doc/teachers-advisors-cpd-webinars",
+      "fetchedAt": "2026-10-07T06:14:39.803Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4f4cd3a71c9923d11020b392df109f87ed1f5f8351c0fec7b90b434e1183aa98",
+      "title": "Teacher CPD webinars | University of Leeds",
+      "snapshotFile": "raw/0077-4f4cd3a71c99.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-teachers-advisors/doc/advancing-access",
+      "fetchedAt": "2026-10-07T06:14:41.827Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3c15c811962ab1e6988710d75254fd7787730b53cc4e1e48b785c41c42b02d16",
+      "title": "Advancing Access | University of Leeds",
+      "snapshotFile": "raw/0078-3c15c811962a.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-teachers-advisors/doc/talks-teachers",
+      "fetchedAt": "2026-10-07T06:14:43.863Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8dd66da1963dedfe5f02d9e4eb3a422f4587d3e3eaf567848e4021c6f50421d4",
+      "title": "Talks for teachers | University of Leeds",
+      "snapshotFile": "raw/0079-8dd66da1963d.html"
+    },
+    {
+      "url": "https://www.leeds.ac.uk/undergraduate-teachers-supporting-teachers-advisors/doc/teacher-cpd-conferences",
+      "fetchedAt": "2026-10-07T06:14:45.771Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2d800a0e50423430ab161897fa5338443bcd823137e01adf611f58c8446657d5",
+      "title": "Teacher CPD Conferences | University of Leeds",
+      "snapshotFile": "raw/0080-2d800a0e5042.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:14:45.832Z",
+    "seedUrls": [
+      "https://www.leeds.ac.uk/undergraduate/doc/enrichment-study-abroad",
+      "https://www.leeds.ac.uk/undergraduate/doc/contact-us",
+      "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15413/ellie-sleightholm",
+      "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15400/rohan-cheerala",
+      "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15431/george-hobley",
+      "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15161/jefferson-sanchez",
+      "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15293/robert-bruce",
+      "https://www.leeds.ac.uk/undergraduate/doc/video-transcript-study-abroad-university-leeds-ben-barrett",
+      "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/18540/isla-loness",
+      "https://www.leeds.ac.uk/undergraduate"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:20.608Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.519Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

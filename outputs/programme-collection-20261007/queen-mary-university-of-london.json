@@ -1,0 +1,17 @@
+{
+  "region": "united-kingdom",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:09:39.833Z",
+  "sourceKey": "queen-mary-university-of-london",
+  "sourceName": "Queen Mary University of London",
+  "warnings": [
+    "https://www.qmul.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:15:08.176Z"
+  }
+}

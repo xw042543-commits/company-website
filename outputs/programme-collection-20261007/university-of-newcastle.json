@@ -1,0 +1,17 @@
+{
+  "region": "australia",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:01:50.666Z",
+  "sourceKey": "university-of-newcastle",
+  "sourceName": "The University of Newcastle",
+  "warnings": [
+    "https://www.newcastle.edu.au/degrees：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:03:57.363Z"
+  }
+}

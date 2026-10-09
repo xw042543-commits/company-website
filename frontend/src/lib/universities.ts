@@ -17,12 +17,14 @@ import {
 } from "./university-api.ts";
 import { boundedPage, first, formatEnglishDisplayText, pageNumber, type Locale, type Query } from "./site.ts";
 import { requestInternalApi } from "./internal-api-request.ts";
+import type { FilterOptions } from "./filter-options-api.ts";
 
 export type SchoolSummary = {
   id: string;
   slug: string;
   name: string;
   country: string;
+  countryCode?: string;
   city?: string;
   nameZh?: string;
   nameEn?: string;
@@ -107,7 +109,7 @@ export async function getUniversitySearch(
   query: Query,
   locale: Locale,
   baseUrl?: string,
-  options: { programmeSearch?: boolean } = {},
+  options: { programmeSearch?: boolean; filterOptions?: FilterOptions } = {},
 ): Promise<SchoolSearchResult> {
   if (!baseUrl) {
     const pageSize = 12;
@@ -146,7 +148,10 @@ export async function getUniversitySearch(
 
   return {
     status: "ready",
-    schools: result.page.items.map((item) => enrichSchoolSummary(toSchoolSummary(item, locale), locale)),
+    schools: result.page.items.map((item) => enrichSchoolSummary(
+      toSchoolSummary(item, locale, options.filterOptions),
+      locale,
+    )),
     page: result.page.page,
     pageSize: result.page.pageSize,
     totalItems: result.page.totalItems,
@@ -183,6 +188,7 @@ export async function getUniversityDetailWithFallback(
       descriptionZh: profile?.introductionZh ?? null,
       descriptionEn: profile?.introductionEn ?? null,
       popular: FEATURED_UNIVERSITY_IDS.some((id) => id === university.id),
+      imageUrl: null,
     },
   };
 }

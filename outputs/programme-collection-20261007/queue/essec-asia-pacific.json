@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "essec-asia-pacific",
+    "displayName": "ESSEC Asia-Pacific",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://www.essec.edu/en/pages/asia-pacific/"
+    ],
+    "allowedHosts": [
+      "www.essec.edu",
+      "essec.edu"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "HTTP 404：https://www.essec.edu/en/pages/asia-pacific/"
+    ]
+  },
+  "queue": []
+}

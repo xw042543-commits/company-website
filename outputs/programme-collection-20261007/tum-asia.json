@@ -1,0 +1,1561 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.502Z",
+  "sourceKey": "tum-asia",
+  "sourceName": "TUM Asia",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_a86833c7ff1f1e7f",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Technical University of Munich",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://tum-asia.edu.sg",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:28:18.450Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://tum-asia.edu.sg/",
+        "sourcePageTitle": "TUM Asia – Technical University of Munich Asia",
+        "sourceHash": "8a76fa4073c972715784d5203c30ea5e7e1a86a2ccf55dacc501d3bd60f7ca17",
+        "fetchedAt": "2026-10-07T04:28:18.450Z",
+        "field": "name",
+        "rawText": "Technical University of Munich"
+      }
+    ],
+    "institutionTypeRaw": "Offshore institution with local campus",
+    "selectionRank": 10,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": [
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://tum-asia.edu.sg/wp-content/uploads/2024/12/tum-main-logo.png",
+        "sourceUrl": "https://tum-asia.edu.sg/",
+        "sourceCheckedAt": "2026-10-07T04:28:18.450Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_7acdfbf5620e25c9",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "化学工程学士",
+      "nameEn": "Bachelor of Engineering in Chemical Engineering",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Bachelor's Degree Programme",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": "P4Y",
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "The Bachelor of Engineering in Chemical Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme equips students with Industry 4.0 skills in chemical engineering, including data engineering, additive manufacturing, laboratory practice and advanced process technologies.",
+      "officialUrl": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+      "sourceCheckedAt": "2026-10-07T04:28:24.482Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "The Bachelor of Engineering in Chemical Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme equips students with Industry 4.0 skills in chemical engineering, including data engineering, additive manufacturing, laboratory practice and advanced process technologies.",
+          "sortOrder": 0,
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+          "sourceCheckedAt": "2026-10-07T04:28:24.482Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "ADMISSIONS",
+          "titleZh": "申请要求",
+          "titleEn": "Admissions",
+          "bodyZh": null,
+          "bodyEn": "Applicants to the Bachelor of Engineering in Chemical Engineering must meet the academic and English language requirements set by the Technical University of Munich and the Singapore Institute of Technology. Admission is assessed based on applicants’ academic background, relevant preparation in engineering disciplines, and supporting documentation. POLYTECHNIC DIPLOMAS Diploma holders from any of the five local polytechnics and A Level / IB Diploma graduates are welcome to apply. Applicants with Chemical Engineering or closely related Science and Technology diplomas are strongly encouraged to apply. Students with other qualifications (completed a formal 12-year education equivalent to A-Levels) are eligible to apply as well. Note: Incoming students are required to submit soft copies of the following documents for TUM’s online matriculation during their first year of study: PDF copy of valid passport (personal particulars page only) Recent passport size photo PDF copy of resume/CV PDF copy of the notarised Polytechnic/O and A-level/IB academic documents (final certificate and transcripts) PDF copy of SIT’s Admission Letter More details will be shared at the matriculation stage. SINGAPORE GCE A-LEVELS Applicants with the Singapore-Cambridge A-Level qualification must meet the following requirements: A total of 7 subjects. 4 Advanced Level subjects, including 3 subjects at H2 level, and 1 subject at H1 level. There must be at least 4 independent general education subjects obtained in the same sitting. Candidates must have taken at least 1 H2 mathematics and 1 H2 Science subject (Biology, Chemistry or Physics). Obtained a pass in General Paper (GP) of Knowledge & Inquiry (KI) in the same sitting, while satisfying Mother Tongue Language (MTL)* requirement. In general, applicants presenting Singapore-Cambridge A-Level results are not required to submit the A-Level certificate during the application. However, for the SIT-TUM programme, it is mandatory to submit the O-Level and A-Level transcripts during the application, and the transcripts, School Graduation Certificate, and other documents during matriculation. More details will be shared with incoming students. *GCE A-Level/IB Applicants need to fulfil the language requirements as stipulated by the German Higher Education System. *GCE A-Level applicants must have taken 2 language subjects, out of which 1 must be at H1level to fulfil the language requirements stipulated by the German Higher Education System. The same language taken at both A-Level and O-Level is not acceptable. If you have been exempted from taking MTL for your GCE A-Level, you can retake the subject to fulfil the language requirement. For further enquires on the langue requirements, please contact TUM Asia Admission Office at admission@tum-asia.edu.sg . Note: Incoming students are required to submit softcopies of the following documents for TUM’s online matriculation during their first year of study: PDF copy of valid passport (personal particular page only) Recent passport size photo PDF copy of resume/CV PDF copy of the notraised Polytechnic/O and A-level/IB academic documents (final certificate and transcripts) PDF copy of SIT’s Admission Letter More details will be shared at the matriculation stage. INTERNATIONAL GCE A-LEVELS Applicants must present at least three independent A-Level subjects with a minimum grade of C in each subject. Of these, 2 subjects must be chosen as follows: a language, history, geography, social studies/politics, economics, mathematics, biology, chemistry, physics, computer science according to “→List A: General-education A level subjects that meet the basic requirements” (subject 1 and subject 2, possibly subject 3) List A: https://www.daad.de/en/studying-in-germany/requirements/gce-list-a/ List B: https://www.daad.de/en/studying-in-germany/requirements/gce-list-b/ The third subject is a further general education subject, independent of the two subjects chosen above, this can come from",
+          "sortOrder": 10,
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+          "sourceCheckedAt": "2026-10-07T04:28:24.482Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+          "sourcePageTitle": "Chemical Engineering – TUM Asia",
+          "sourceHash": "ff8fd87f988cd70c39f17412685370962c46b87acf4a30d6ef798c571068b852",
+          "fetchedAt": "2026-10-07T04:28:24.482Z",
+          "field": "name",
+          "rawText": "Bachelor of Engineering in Chemical Engineering"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+          "sourcePageTitle": "Chemical Engineering – TUM Asia",
+          "sourceHash": "ff8fd87f988cd70c39f17412685370962c46b87acf4a30d6ef798c571068b852",
+          "fetchedAt": "2026-10-07T04:28:24.482Z",
+          "field": "description",
+          "rawText": "The Bachelor of Engineering in Chemical Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme equips students with Industry 4.0 skills in chemical engineering, including data engineering, additive manufacturing, laboratory practice and advanced process technologies."
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+          "sourcePageTitle": "Chemical Engineering – TUM Asia",
+          "sourceHash": "ff8fd87f988cd70c39f17412685370962c46b87acf4a30d6ef798c571068b852",
+          "fetchedAt": "2026-10-07T04:28:24.482Z",
+          "field": "durationDisplay",
+          "rawText": "P4Y"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+          "sourcePageTitle": "Chemical Engineering – TUM Asia",
+          "sourceHash": "ff8fd87f988cd70c39f17412685370962c46b87acf4a30d6ef798c571068b852",
+          "fetchedAt": "2026-10-07T04:28:24.482Z",
+          "field": "studyLevelRaw",
+          "rawText": "Bachelor's Degree Programme"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+          "sourcePageTitle": "Chemical Engineering – TUM Asia",
+          "sourceHash": "ff8fd87f988cd70c39f17412685370962c46b87acf4a30d6ef798c571068b852",
+          "fetchedAt": "2026-10-07T04:28:24.482Z",
+          "field": "detailSections.ADMISSIONS",
+          "rawText": "Applicants to the Bachelor of Engineering in Chemical Engineering must meet the academic and English language requirements set by the Technical University of Munich and the Singapore Institute of Technology. Admission is assessed based on applicants’ academic background, relevant preparation in engineering disciplines, and supporting documentation. POLYTECHNIC DIPLOMAS Diploma holders from any of the five local polytechnics and A Level / IB Diploma graduates are welcome to apply. Applicants with Chemical Engineering or closely related Science and Technology diplomas are strongly encouraged to apply. Students with other qualifications (completed a formal 12-year education equivalent to A-Levels) are eligible to apply as well. Note: Incoming students are required to submit soft copies of the following documents for TUM’s online matriculation during their first year of study: PDF copy of valid passport (personal particulars page only) Recent passport size photo PDF copy of resume/CV PDF copy of the notarised Polytechnic/O and A-level/IB academic documents (final certificate and transcripts) PDF copy of SIT’s Admission Letter More details will be shared at the matriculation stage. SINGAPORE GCE A-LEVELS Applicants with the Singapore-Cambridge A-Level qualification must meet the following requirements: A total of 7 subjects. 4 Advanced Level subjects, including 3 subjects at H2 level, and 1 subject at H1 level. There must be at least 4 independent general education subjects obtained in the same sitting. Candidates must have taken at least 1 H2 mathematics and 1 H2 Science subject (Biology, Chemistry or Physics). Obtained a pass in General Paper (GP) of Knowledge & Inquiry (KI) in the same sitting, while satisfying Mother Tongue Language (MTL)* requirement. In general, applicants presenting Singapore-Cambridge A-Level results are not required to submit the A-Level certificate during the application. However, for the SIT-TUM programme, it is mandatory to submit the O-Level and A-Level transcripts during the application, and the transcripts, School Graduation Certificate, and other documents during matriculation. More details will be shared with incoming students. *GCE A-Level/IB Applicants need to fulfil the language requirements as stipulated by the German Higher Education System. *GCE A-Level applicants must have taken 2 language subjects, out of which 1 must be at H1level to fulfil the language requirements stipulated by the German Higher Education System. The same language taken at both A-Level and O-Level is not acceptable. If you have been exempted from taking MTL for your GCE A-Level, you can retake the subject to fulfil the language requirement. For further enquires on the langue requirements, please contact TUM Asia Admission Office at admission@tum-asia.edu.sg . Note: Incoming students are required to submit softcopies of the following documents for TUM’s online matriculation during their first year of study: PDF copy of valid passport (personal particular page only) Recent passport size photo PDF copy of resume/CV PDF copy of the notraised Polytechnic/O and A-level/IB academic documents (final certificate and transcripts) PDF copy of SIT’s Admission Letter More details will be shared at the matriculation stage. INTERNATIONAL GCE A-LEVELS Applicants must present at least three independent A-Level subjects with a minimum grade of C in each subject. Of these, 2 subjects must be chosen as follows: a language, history, geography, social studies/politics, economics, mathematics, biology, chemistry, physics, computer science according to “→List A: General-education A level subjects that meet the basic requirements” (subject 1 and subject 2, possibly subject 3) List A: https://www.daad.de/en/studying-in-germany/requirements/gce-list-a/ List B: https://www.daad.de/en/studying-in-germany/requirements/gce-list-b/ The third subject is a further general education subject, independent of the two subjects chosen above, this can come from"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_94d4d876f6bd53ae",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "电子和数据工程学士",
+      "nameEn": "Bachelor of Engineering in Electronics and Data Engineering",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Bachelor's Degree Programme",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": "P4Y",
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "The Bachelor of Engineering in Electronics and Data Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme combines electronics and data engineering, equipping students with knowledge in semiconductor physics, circuit design, data science, machine learning, sensors, power electronics and advanced digital technologies for the electronics and semiconductor manufacturing sectors.",
+      "officialUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+      "sourceCheckedAt": "2026-10-07T04:28:28.060Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "The Bachelor of Engineering in Electronics and Data Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme combines electronics and data engineering, equipping students with knowledge in semiconductor physics, circuit design, data science, machine learning, sensors, power electronics and advanced digital technologies for the electronics and semiconductor manufacturing sectors.",
+          "sortOrder": 0,
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+          "sourceCheckedAt": "2026-10-07T04:28:28.060Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "ADMISSIONS",
+          "titleZh": "申请要求",
+          "titleEn": "Admissions",
+          "bodyZh": null,
+          "bodyEn": "Applicants to the Bachelor of Engineering in Electronics and Data Engineering must meet the academic and English language requirements set by the Technical University of Munich and the Singapore Institute of Technology. Admission is assessed based on applicants’ academic background, relevant preparation in engineering disciplines, and supporting documentation. POLYTECHNIC DIPLOMAS Diploma holders from any of the five local polytechnics and A Level / IB Diploma graduates are welcome to apply. Applicants with Electrical and Electronics Engineering, Electronics Engineering and IT, or closely related Science and Technology diplomas are strongly encouraged to apply. Students with other qualifications (completed a formal 12-year education equivalent to A-Levels) are eligible to apply as well. Note: Incoming students are required to submit soft copies of the following documents for TUM’s online matriculation during their first year of study: PDF copy of valid passport (personal particulars page only) Recent passport size photo PDF copy of resume/CV PDF copy of the notarised Polytechnic/O and A-level/IB academic documents (final certificate and transcripts) PDF copy of SIT’s Admission Letter More details will be shared at the matriculation stage. SINGAPORE GCE A-LEVELS Applicants with the Singapore-Cambridge A-Level qualification must meet the following requirements: A total of 7 subjects. 4 Advanced Level subjects, including 3 subjects at H2 level, and 1 subject at H1 level. There must be at least 4 independent general education subjects obtained in the same sitting. Candidates must have taken at least 1 H2 mathematics and 1 H2 Science subject (Biology, Chemistry or Physics). Obtained a pass in General Paper (GP) of Knowledge & Inquiry (KI) in the same sitting, while satisfying Mother Tongue Language (MTL)* requirement. In general, applicants presenting Singapore-Cambridge A-Level results are not required to submit the A-Level certificate during the application. However, for the SIT-TUM programme, it is mandatory to submit the O-Level and A-Level transcripts during the application, and the transcripts, School Graduation Certificate, and other documents during matriculation. More details will be shared with incoming students. *GCE A-Level/IB Applicants need to fulfil the language requirements as stipulated by the German Higher Education System. *GCE A-Level applicants must have taken 2 language subjects, out of which 1 must be at H1level to fulfil the language requirements stipulated by the German Higher Education System. The same language taken at both A-Level and O-Level is not acceptable. If you have been exempted from taking MTL for your GCE A-Level, you can retake the subject to fulfil the language requirement. For further enquires on the langue requirements, please contact TUM Asia Admission Office at admission@tum-asia.edu.sg . Note: Incoming students are required to submit softcopies of the following documents for TUM’s online matriculation during their first year of study: PDF copy of valid passport (personal particular page only) Recent passport size photo PDF copy of resume/CV PDF copy of the notraised Polytechnic/O and A-level/IB academic documents (final certificate and transcripts) PDF copy of SIT’s Admission Letter More details will be shared at the matriculation stage. INTERNATIONAL GCE A-LEVELS Applicants must present at least three independent A-Level subjects with a minimum grade of C in each subject. Of these, 2 subjects must be chosen as follows: a language, history, geography, social studies/politics, economics, mathematics, biology, chemistry, physics, computer science according to “→List A: General-education A level subjects that meet the basic requirements” (subject 1 and subject 2, possibly subject 3) List A: https://www.daad.de/en/studying-in-germany/requirements/gce-list-a/ List B: https://www.daad.de/en/studying-in-germany/requirements/gce-list-b/ The third subject is a further general education subject, i",
+          "sortOrder": 10,
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+          "sourceCheckedAt": "2026-10-07T04:28:28.060Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CAREER_OPPORTUNITIES",
+          "titleZh": "职业发展",
+          "titleEn": "Career opportunities",
+          "bodyZh": null,
+          "bodyEn": "Electrical and Electronics Engineer Application Engineer Process Engineer Data Engineer Data Analyst Production and Test Engineer",
+          "sortOrder": 40,
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+          "sourceCheckedAt": "2026-10-07T04:28:28.060Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "c01508e61a50732a6cefc9311a541c89d0acf4538fe7113c530afcd6ea23d3a9",
+          "fetchedAt": "2026-10-07T04:28:28.060Z",
+          "field": "name",
+          "rawText": "Bachelor of Engineering in Electronics and Data Engineering"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "c01508e61a50732a6cefc9311a541c89d0acf4538fe7113c530afcd6ea23d3a9",
+          "fetchedAt": "2026-10-07T04:28:28.060Z",
+          "field": "description",
+          "rawText": "The Bachelor of Engineering in Electronics and Data Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme combines electronics and data engineering, equipping students with knowledge in semiconductor physics, circuit design, data science, machine learning, sensors, power electronics and advanced digital technologies for the electronics and semiconductor manufacturing sectors."
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "c01508e61a50732a6cefc9311a541c89d0acf4538fe7113c530afcd6ea23d3a9",
+          "fetchedAt": "2026-10-07T04:28:28.060Z",
+          "field": "durationDisplay",
+          "rawText": "P4Y"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "c01508e61a50732a6cefc9311a541c89d0acf4538fe7113c530afcd6ea23d3a9",
+          "fetchedAt": "2026-10-07T04:28:28.060Z",
+          "field": "studyLevelRaw",
+          "rawText": "Bachelor's Degree Programme"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "c01508e61a50732a6cefc9311a541c89d0acf4538fe7113c530afcd6ea23d3a9",
+          "fetchedAt": "2026-10-07T04:28:28.060Z",
+          "field": "detailSections.ADMISSIONS",
+          "rawText": "Applicants to the Bachelor of Engineering in Electronics and Data Engineering must meet the academic and English language requirements set by the Technical University of Munich and the Singapore Institute of Technology. Admission is assessed based on applicants’ academic background, relevant preparation in engineering disciplines, and supporting documentation. POLYTECHNIC DIPLOMAS Diploma holders from any of the five local polytechnics and A Level / IB Diploma graduates are welcome to apply. Applicants with Electrical and Electronics Engineering, Electronics Engineering and IT, or closely related Science and Technology diplomas are strongly encouraged to apply. Students with other qualifications (completed a formal 12-year education equivalent to A-Levels) are eligible to apply as well. Note: Incoming students are required to submit soft copies of the following documents for TUM’s online matriculation during their first year of study: PDF copy of valid passport (personal particulars page only) Recent passport size photo PDF copy of resume/CV PDF copy of the notarised Polytechnic/O and A-level/IB academic documents (final certificate and transcripts) PDF copy of SIT’s Admission Letter More details will be shared at the matriculation stage. SINGAPORE GCE A-LEVELS Applicants with the Singapore-Cambridge A-Level qualification must meet the following requirements: A total of 7 subjects. 4 Advanced Level subjects, including 3 subjects at H2 level, and 1 subject at H1 level. There must be at least 4 independent general education subjects obtained in the same sitting. Candidates must have taken at least 1 H2 mathematics and 1 H2 Science subject (Biology, Chemistry or Physics). Obtained a pass in General Paper (GP) of Knowledge & Inquiry (KI) in the same sitting, while satisfying Mother Tongue Language (MTL)* requirement. In general, applicants presenting Singapore-Cambridge A-Level results are not required to submit the A-Level certificate during the application. However, for the SIT-TUM programme, it is mandatory to submit the O-Level and A-Level transcripts during the application, and the transcripts, School Graduation Certificate, and other documents during matriculation. More details will be shared with incoming students. *GCE A-Level/IB Applicants need to fulfil the language requirements as stipulated by the German Higher Education System. *GCE A-Level applicants must have taken 2 language subjects, out of which 1 must be at H1level to fulfil the language requirements stipulated by the German Higher Education System. The same language taken at both A-Level and O-Level is not acceptable. If you have been exempted from taking MTL for your GCE A-Level, you can retake the subject to fulfil the language requirement. For further enquires on the langue requirements, please contact TUM Asia Admission Office at admission@tum-asia.edu.sg . Note: Incoming students are required to submit softcopies of the following documents for TUM’s online matriculation during their first year of study: PDF copy of valid passport (personal particular page only) Recent passport size photo PDF copy of resume/CV PDF copy of the notraised Polytechnic/O and A-level/IB academic documents (final certificate and transcripts) PDF copy of SIT’s Admission Letter More details will be shared at the matriculation stage. INTERNATIONAL GCE A-LEVELS Applicants must present at least three independent A-Level subjects with a minimum grade of C in each subject. Of these, 2 subjects must be chosen as follows: a language, history, geography, social studies/politics, economics, mathematics, biology, chemistry, physics, computer science according to “→List A: General-education A level subjects that meet the basic requirements” (subject 1 and subject 2, possibly subject 3) List A: https://www.daad.de/en/studying-in-germany/requirements/gce-list-a/ List B: https://www.daad.de/en/studying-in-germany/requirements/gce-list-b/ The third subject is a further general education subject, i"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "c01508e61a50732a6cefc9311a541c89d0acf4538fe7113c530afcd6ea23d3a9",
+          "fetchedAt": "2026-10-07T04:28:28.060Z",
+          "field": "detailSections.CAREER_OPPORTUNITIES",
+          "rawText": "Electrical and Electronics Engineer Application Engineer Process Engineer Data Engineer Data Analyst Production and Test Engineer"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_3d9ac9aa7fc76084",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "化学工程学士",
+      "nameEn": "Bachelor of Engineering in Chemical Engineering",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Bachelor's Degree Programme",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": "P4Y",
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "The Bachelor of Engineering in Chemical Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme equips students with Industry 4.0 skills in chemical engineering, including data engineering, additive manufacturing, laboratory practice and advanced process technologies.",
+      "officialUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/chemical-engineering/",
+      "sourceCheckedAt": "2026-10-07T04:28:32.915Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "The Bachelor of Engineering in Chemical Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme equips students with Industry 4.0 skills in chemical engineering, including data engineering, additive manufacturing, laboratory practice and advanced process technologies.",
+          "sortOrder": 0,
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/chemical-engineering/",
+          "sourceCheckedAt": "2026-10-07T04:28:32.915Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/chemical-engineering/",
+          "sourcePageTitle": "Chemical Engineering – TUM Asia",
+          "sourceHash": "9b4202c0be450d8712bf43a186254b49cff0c2c5e6bbbe548cd944fa6bc929b8",
+          "fetchedAt": "2026-10-07T04:28:32.915Z",
+          "field": "name",
+          "rawText": "Bachelor of Engineering in Chemical Engineering"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/chemical-engineering/",
+          "sourcePageTitle": "Chemical Engineering – TUM Asia",
+          "sourceHash": "9b4202c0be450d8712bf43a186254b49cff0c2c5e6bbbe548cd944fa6bc929b8",
+          "fetchedAt": "2026-10-07T04:28:32.915Z",
+          "field": "description",
+          "rawText": "The Bachelor of Engineering in Chemical Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme equips students with Industry 4.0 skills in chemical engineering, including data engineering, additive manufacturing, laboratory practice and advanced process technologies."
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/chemical-engineering/",
+          "sourcePageTitle": "Chemical Engineering – TUM Asia",
+          "sourceHash": "9b4202c0be450d8712bf43a186254b49cff0c2c5e6bbbe548cd944fa6bc929b8",
+          "fetchedAt": "2026-10-07T04:28:32.915Z",
+          "field": "durationDisplay",
+          "rawText": "P4Y"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/chemical-engineering/",
+          "sourcePageTitle": "Chemical Engineering – TUM Asia",
+          "sourceHash": "9b4202c0be450d8712bf43a186254b49cff0c2c5e6bbbe548cd944fa6bc929b8",
+          "fetchedAt": "2026-10-07T04:28:32.915Z",
+          "field": "studyLevelRaw",
+          "rawText": "Bachelor's Degree Programme"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_f2b88e818863d5e0",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "电子和数据工程学士",
+      "nameEn": "Bachelor of Engineering in Electronics and Data Engineering",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Bachelor's Degree Programme",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": "P4Y",
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "The Bachelor of Engineering in Electronics and Data Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme combines electronics and data engineering, equipping students with knowledge in semiconductor physics, circuit design, data science, machine learning, sensors, power electronics and advanced digital technologies for the electronics and semiconductor manufacturing sectors.",
+      "officialUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/electronics-and-data-engineering/",
+      "sourceCheckedAt": "2026-10-07T04:28:36.031Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "The Bachelor of Engineering in Electronics and Data Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme combines electronics and data engineering, equipping students with knowledge in semiconductor physics, circuit design, data science, machine learning, sensors, power electronics and advanced digital technologies for the electronics and semiconductor manufacturing sectors.",
+          "sortOrder": 0,
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/electronics-and-data-engineering/",
+          "sourceCheckedAt": "2026-10-07T04:28:36.031Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "8c7e24ee59e1b7de9eb2fbfe68696464020df5724b19330c5a4598b20d0fa49f",
+          "fetchedAt": "2026-10-07T04:28:36.031Z",
+          "field": "name",
+          "rawText": "Bachelor of Engineering in Electronics and Data Engineering"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "8c7e24ee59e1b7de9eb2fbfe68696464020df5724b19330c5a4598b20d0fa49f",
+          "fetchedAt": "2026-10-07T04:28:36.031Z",
+          "field": "description",
+          "rawText": "The Bachelor of Engineering in Electronics and Data Engineering is a 4-year full-time joint undergraduate programme delivered in Singapore and awarded jointly by the Technical University of Munich and the Singapore Institute of Technology. The programme combines electronics and data engineering, equipping students with knowledge in semiconductor physics, circuit design, data science, machine learning, sensors, power electronics and advanced digital technologies for the electronics and semiconductor manufacturing sectors."
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "8c7e24ee59e1b7de9eb2fbfe68696464020df5724b19330c5a4598b20d0fa49f",
+          "fetchedAt": "2026-10-07T04:28:36.031Z",
+          "field": "durationDisplay",
+          "rawText": "P4Y"
+        },
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/cn/undergraduate-studies/electronics-and-data-engineering/",
+          "sourcePageTitle": "Electronics and Data Engineering – TUM Asia",
+          "sourceHash": "8c7e24ee59e1b7de9eb2fbfe68696464020df5724b19330c5a4598b20d0fa49f",
+          "fetchedAt": "2026-10-07T04:28:36.031Z",
+          "field": "studyLevelRaw",
+          "rawText": "Bachelor's Degree Programme"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://tum-asia.edu.sg/",
+      "fetchedAt": "2026-10-07T04:28:18.450Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8a76fa4073c972715784d5203c30ea5e7e1a86a2ccf55dacc501d3bd60f7ca17",
+      "title": "TUM Asia – Technical University of Munich Asia",
+      "snapshotFile": "raw/0001-8a76fa4073c9.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/undergraduate-studies/",
+      "fetchedAt": "2026-10-07T04:28:20.348Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2822982610cf71dfcae06a54ff1b086cc57bf6d5d2e7199f092287f8ce3a7d21",
+      "title": "Undergraduate Studies – TUM Asia",
+      "snapshotFile": "raw/0002-2822982610cf.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+      "fetchedAt": "2026-10-07T04:28:24.482Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ff8fd87f988cd70c39f17412685370962c46b87acf4a30d6ef798c571068b852",
+      "title": "Chemical Engineering – TUM Asia",
+      "snapshotFile": "raw/0003-ff8fd87f988c.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+      "fetchedAt": "2026-10-07T04:28:28.060Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c01508e61a50732a6cefc9311a541c89d0acf4538fe7113c530afcd6ea23d3a9",
+      "title": "Electronics and Data Engineering – TUM Asia",
+      "snapshotFile": "raw/0004-c01508e61a50.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/undergraduate-studies/",
+      "fetchedAt": "2026-10-07T04:28:28.515Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "83fd03c4815cd1df8013da2ce2a3a594c96b159f3ab84027c30687d1de48cac4",
+      "title": "Undergraduate Studies – TUM Asia",
+      "snapshotFile": "raw/0005-83fd03c4815c.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/undergraduate-studies/chemical-engineering/",
+      "fetchedAt": "2026-10-07T04:28:32.915Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9b4202c0be450d8712bf43a186254b49cff0c2c5e6bbbe548cd944fa6bc929b8",
+      "title": "Chemical Engineering – TUM Asia",
+      "snapshotFile": "raw/0006-9b4202c0be45.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/undergraduate-studies/electronics-and-data-engineering/",
+      "fetchedAt": "2026-10-07T04:28:36.031Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8c7e24ee59e1b7de9eb2fbfe68696464020df5724b19330c5a4598b20d0fa49f",
+      "title": "Electronics and Data Engineering – TUM Asia",
+      "snapshotFile": "raw/0007-8c7e24ee59e1.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/lifelong-learning/course-finder",
+      "fetchedAt": "2026-10-07T04:28:37.476Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "877ab5828806687dd1134f0eb5b87f53d542105b9e8d57ac8ed735d2ad361271",
+      "title": "Course Finder​ – TUM Asia",
+      "snapshotFile": "raw/0008-877ab5828806.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/",
+      "fetchedAt": "2026-10-07T04:28:39.759Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4d7712c352884a9e4cfbd8ade0072c76c5e0dd7813c11061493e654734d29084",
+      "title": "Faculty – TUM Asia",
+      "snapshotFile": "raw/0009-4d7712c35288.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/helge-stein/",
+      "fetchedAt": "2026-10-07T04:28:41.413Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ce8f87eebb0b953a9bc5f9041a6131100850f4c7e3e6bbdded5925667d132578",
+      "title": "Prof. Dr. Helge Stein – TUM Asia",
+      "snapshotFile": "raw/0010-ce8f87eebb0b.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/kai-olaf-hinrichsen/",
+      "fetchedAt": "2026-10-07T04:28:43.389Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "32e956e975c14380da45236bfb39ffde7d674a80caf88bd5058a1c4950d6d1cc",
+      "title": "Prof. Dr. – Ing. Kai-Olaf Hinrichsen – TUM Asia",
+      "snapshotFile": "raw/0011-32e956e975c1.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/sebastian-rehfeldt/",
+      "fetchedAt": "2026-10-07T04:28:45.403Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "380c133f9838ee1c97b24bceeef09603416d3a0387cb2285ee415c9d41c38738",
+      "title": "Dr.-Ing. Sebastian Rehfeldt – TUM Asia",
+      "snapshotFile": "raw/0012-380c133f9838.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/franz-hagn/",
+      "fetchedAt": "2026-10-07T04:28:47.496Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dee1582eb85c4800ffb52625f13f963f89ef20c9d6ae01587d824102f7a9b816",
+      "title": "Prof. Dr. Franz Hagn – TUM Asia",
+      "snapshotFile": "raw/0013-dee1582eb85c.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/undergraduate-chemical-engineering/",
+      "fetchedAt": "2026-10-07T04:28:49.796Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "804a610dc2e5074465dca2559268c6509c06f89f04781ed84f8b72ffe5e3ad49",
+      "title": "Bachelor of Engineering in Chemical Engineering – TUM Asia",
+      "snapshotFile": "raw/0014-804a610dc2e5.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/undergraduate-chemical-engineering/",
+      "fetchedAt": "2026-10-07T04:28:51.884Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dabf9b280be20a379e6ae0561c4bb6116a8247843baf9eb43c8a3139755893cb",
+      "title": "Bachelor of Engineering in Chemical Engineering – TUM Asia",
+      "snapshotFile": "raw/0015-dabf9b280be2.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/christoph-wieland/",
+      "fetchedAt": "2026-10-07T04:28:53.376Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "479c8a42af33d98a4b1d381da751adfa7c9414a670fc18b353117b4485d311b8",
+      "title": "Dr.-Ing. Christoph Wieland – TUM Asia",
+      "snapshotFile": "raw/0016-479c8a42af33.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/harald-klein/",
+      "fetchedAt": "2026-10-07T04:28:55.515Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "75f17cb51dc96e12eac23625af94bfbbd6bd8b8e66be0d80a334c79a56bbc604",
+      "title": "Prof. Dr.-Ing. Harald Klein – TUM Asia",
+      "snapshotFile": "raw/0017-75f17cb51dc9.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/andreas-jentys/",
+      "fetchedAt": "2026-10-07T04:28:57.535Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8c2602cd6e814e8e01d7670df04c2c1086c82627b1fd511b5aea67dec2b8e782",
+      "title": "Prof. Dr. Andreas Jentys – TUM Asia",
+      "snapshotFile": "raw/0018-8c2602cd6e81.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/fritz-kuehn/",
+      "fetchedAt": "2026-10-07T04:28:59.516Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "598061671ff00022a2c49f0712e578bce8f01e03caa24e2586143b25dae756ad",
+      "title": "Prof. Dr. Fritz Kühn – TUM Asia",
+      "snapshotFile": "raw/0019-598061671ff0.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/alson-chng/",
+      "fetchedAt": "2026-10-07T04:29:01.592Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "de19aa24a8e0c5413b47e5c37423f4ea02c180b20db6a28713067d39e3d815a3",
+      "title": "Dr. Alson Chng Yong Sheng – TUM Asia",
+      "snapshotFile": "raw/0020-de19aa24a8e0.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/ulrich-heiz/",
+      "fetchedAt": "2026-10-07T04:29:03.498Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "456c3ce3cea7e8b00290dd75f43b39200015d3888901d460106e4caf58728c8b",
+      "title": "Prof. Dr. Ulrich Heiz – TUM Asia",
+      "snapshotFile": "raw/0021-456c3ce3cea7.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/ghulam-destgeer/",
+      "fetchedAt": "2026-10-07T04:29:05.470Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bc52fe48c2b443f49f840af247a9ecee76abfa86fea7c8548be81bb2ea257ccb",
+      "title": "Prof. Dr. Ghulam Destgeer – TUM Asia",
+      "snapshotFile": "raw/0022-bc52fe48c2b4.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/undergraduate-electronics-data-engineering/",
+      "fetchedAt": "2026-10-07T04:29:07.876Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "49247031147e5c090161fd9f6f807bc699e431251aa72c865fb2abbfd571321c",
+      "title": "Bachelor of Engineering in Electronics & Data Engineering – TUM Asia",
+      "snapshotFile": "raw/0023-49247031147e.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/undergraduate-electronics-data-engineering/",
+      "fetchedAt": "2026-10-07T04:29:10.560Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "10c4b8a08a0499084c5143031ddad27902980e73b18dcda11314b0d0d64813bb",
+      "title": "Bachelor of Engineering in Electronics & Data Engineering – TUM Asia",
+      "snapshotFile": "raw/0024-10c4b8a08a04.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/johannes-russer/",
+      "fetchedAt": "2026-10-07T04:29:11.931Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "34f600d71505c03523298b7327f7511dc70487ee3783a722114ffa4b9f52ce9a",
+      "title": "Dr. Johannes Russer – TUM Asia",
+      "snapshotFile": "raw/0025-34f600d71505.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/oliver-hayden/",
+      "fetchedAt": "2026-10-07T04:29:13.970Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "abbad15ef509c21ddce18d338695ea83c70c780eac571c12ddefc1ad24cd4279",
+      "title": "Prof. Dr. Oliver Hayden – TUM Asia",
+      "snapshotFile": "raw/0026-abbad15ef509.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/andreas-herkersdorf/",
+      "fetchedAt": "2026-10-07T04:29:16.026Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ad7fb5f8cb3b4eda904f8200a73beb1c8f64570546c30c308b43a32881a55caa",
+      "title": "Prof. Dr. Sc. Techn. Andreas Herkersdorf – TUM Asia",
+      "snapshotFile": "raw/0027-ad7fb5f8cb3b.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/alexander-koch/",
+      "fetchedAt": "2026-10-07T04:29:18.017Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "610e627becdccc18ecdc78628958c975bdd988f84a66fc7314dccd75cb49527b",
+      "title": "Prof. Dr.-Ing. Dr. H.C. Alexander W. Koch – TUM Asia",
+      "snapshotFile": "raw/0028-610e627becdc.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/michael-joham/",
+      "fetchedAt": "2026-10-07T04:29:20.004Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4a29ddd000d73e5500152c875bbd94f482cce0b839bb6971d2f997398e1b5b61",
+      "title": "Dr. Michael Joham – TUM Asia",
+      "snapshotFile": "raw/0029-4a29ddd000d7.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/aaron-tan/",
+      "fetchedAt": "2026-10-07T04:29:21.975Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a8d12632e8f0c84ca8fa0d5ec2f67774efa3af63d5b211e75e1f01cde3991f77",
+      "title": "Dr. Aaron Tan – TUM Asia",
+      "snapshotFile": "raw/0030-a8d12632e8f0.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/thomas-maul/",
+      "fetchedAt": "2026-10-07T04:29:23.992Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d0d05493366f43e9feea05e687582f0008dd7c9b43c1da17f84993a6d027ed86",
+      "title": "Dr. Thomas Maul – TUM Asia",
+      "snapshotFile": "raw/0031-d0d05493366f.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/ralph-kennel/",
+      "fetchedAt": "2026-10-07T04:29:26.035Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "42e141e77c9dcedab224e05ead8326f8127ed92ae3c1f52853861a318d29c71b",
+      "title": "Prof. Ralph Kennel – TUM Asia",
+      "snapshotFile": "raw/0032-42e141e77c9d.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/michael-pehl/",
+      "fetchedAt": "2026-10-07T04:29:28.549Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "46d161d56759617065a63f78e688cac2bdcd903c54c34df8212b8a93a7ba6d9c",
+      "title": "Dr. -Ing. Michael Pehl – TUM Asia",
+      "snapshotFile": "raw/0033-46d161d56759.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/tokio-martin-buss/",
+      "fetchedAt": "2026-10-07T04:29:30.043Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "992a0a688cb81dfa2398eaed962678cd370ab5e3ce56dc8cbcd400a7f0da1092",
+      "title": "Prof. Dr.-Ing./Univ. Tokio Martin Buss – TUM Asia",
+      "snapshotFile": "raw/0034-992a0a688cb8.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/michael-zwick/",
+      "fetchedAt": "2026-10-07T04:29:32.015Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "86be7d7cce4fa13148dec2601bddeadfc8d49dd6fa1e75d03e3281892e9fbf41",
+      "title": "Dr.-Ing Michael Zwick – TUM Asia",
+      "snapshotFile": "raw/0035-86be7d7cce4f.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/gerhard-kramer/",
+      "fetchedAt": "2026-10-07T04:29:34.006Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7a665daa12e08c2103146cab639ef46067919f1ee7b0c060d367b90a5057cb54",
+      "title": "Prof. Gerhard Kramer – TUM Asia",
+      "snapshotFile": "raw/0036-7a665daa12e0.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/gerhard-rigoll/",
+      "fetchedAt": "2026-10-07T04:29:36.124Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a7d0811b523dfda39711c49955de22518e93c152b26b2480d7042327577809da",
+      "title": "Prof. Dr. Gerhard Rigoll – TUM Asia",
+      "snapshotFile": "raw/0037-a7d0811b523d.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/wolfgang-utschick/",
+      "fetchedAt": "2026-10-07T04:29:38.045Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6f3ee8f7b5a18f83500bc3ca404f550e652732a254edef73b34491860bc019b9",
+      "title": "Prof. Dr. Wolfgang Utschick – TUM Asia",
+      "snapshotFile": "raw/0038-6f3ee8f7b5a1.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/ulf-schlichtmann/",
+      "fetchedAt": "2026-10-07T04:29:40.089Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "00ff66f5ef38bdb6f97da09aa4435aaa5189b7722ef18492e1360830e74312bc",
+      "title": "Prof. Dr.-Ing. Ulf Schlichtmann – TUM Asia",
+      "snapshotFile": "raw/0039-00ff66f5ef38.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/lifelong-learning/course-finder/",
+      "fetchedAt": "2026-10-07T04:29:42.385Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c855a1d0b494e806ba7bdf3d738b6aef0a3ed1c14baf8c0a5d4b9ecbdf766328",
+      "title": "Course Finder​ – TUM Asia",
+      "snapshotFile": "raw/0040-c855a1d0b494.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/lifelong-learning/courses/rail-transport-and-rail-planning/",
+      "fetchedAt": "2026-10-07T06:41:13.775Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ac9f6ab69b3474db28d6f7964168bf876a3082d631dfdd5cc640db2be04ff176",
+      "title": "Rail Transport and Rail Planning – TUM Asia",
+      "snapshotFile": "raw/0001-ac9f6ab69b34.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/undergraduate-studies/",
+      "fetchedAt": "2026-10-07T06:41:15.196Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e42cd773b812b7a55174d9fc928c131bf88f13d3b6d7fd4105a771ab0cca94af",
+      "title": "Undergraduate Studies – TUM Asia",
+      "snapshotFile": "raw/0002-e42cd773b812.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/undergraduate-studies/chemical-engineering/",
+      "fetchedAt": "2026-10-07T06:41:18.222Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "57bb71dfd87ac2a0be610a96ce2bb0415bd8309c400e018b92800ca815293cc6",
+      "title": "Chemical Engineering – TUM Asia",
+      "snapshotFile": "raw/0003-57bb71dfd87a.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/undergraduate-studies/electronics-and-data-engineering/",
+      "fetchedAt": "2026-10-07T06:41:20.744Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "38106f0c53b7582f1063ef76904aaf9f11fff7e79849a1f974de3fc4d047ad7c",
+      "title": "Electronics and Data Engineering – TUM Asia",
+      "snapshotFile": "raw/0004-38106f0c53b7.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/undergraduate-studies/",
+      "fetchedAt": "2026-10-07T06:41:21.211Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "328af985d7b272322dfe2aa8237cde665f1328042d67aaefd7e1c2271b0f8864",
+      "title": "Undergraduate Studies – TUM Asia",
+      "snapshotFile": "raw/0005-328af985d7b2.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/undergraduate-studies/chemical-engineering/",
+      "fetchedAt": "2026-10-07T06:41:27.625Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1ac6401ffb219633e50983def0c7664362c96ffc7bd24c251af4ca2c5edd66da",
+      "title": "Chemical Engineering – TUM Asia",
+      "snapshotFile": "raw/0006-1ac6401ffb21.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/undergraduate-studies/electronics-and-data-engineering/",
+      "fetchedAt": "2026-10-07T06:41:28.177Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c0439e462dc9ab38c60574f8564a365df98b8cc6a88690467888e857aed80c0f",
+      "title": "Electronics and Data Engineering – TUM Asia",
+      "snapshotFile": "raw/0007-c0439e462dc9.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/lifelong-learning/courses/rolling-stock/",
+      "fetchedAt": "2026-10-07T06:41:31.684Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "319103a8f4086f629a78d822f5ca9d013ec302ddc709cd18eece452517155b77",
+      "title": "Rolling Stock – TUM Asia",
+      "snapshotFile": "raw/0008-319103a8f408.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/lifelong-learning/courses/rail-transport-and-rail-planning/",
+      "fetchedAt": "2026-10-07T06:41:34.088Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "298c750e2b81d0f980644dcc6d0ca16b4d094aa1bcf5f55c997a26878fffdbed",
+      "title": "Rail Transport and Rail Planning – TUM Asia",
+      "snapshotFile": "raw/0009-298c750e2b81.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/lifelong-learning/courses/rolling-stock/",
+      "fetchedAt": "2026-10-07T06:41:37.083Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0c06db9360673fd03450dc0bf5b3c9ef5f7da3e0817765e60641dff8f5606762",
+      "title": "Rolling Stock – TUM Asia",
+      "snapshotFile": "raw/0010-0c06db936067.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/lifelong-learning/course-finder",
+      "fetchedAt": "2026-10-07T06:41:38.467Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e9522b624ab92067e500ea3e0db888b5bdd52711a33a3cc1e66f5449c59b9f60",
+      "title": "Course Finder​ – TUM Asia",
+      "snapshotFile": "raw/0011-e9522b624ab9.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/",
+      "fetchedAt": "2026-10-07T06:41:40.971Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2b3d839fe538378becb24a18a7be2b00f4ae676fa466b6e69ce0e5421fc17405",
+      "title": "Faculty – TUM Asia",
+      "snapshotFile": "raw/0012-2b3d839fe538.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/helge-stein/",
+      "fetchedAt": "2026-10-07T06:41:41.543Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a817ff9b63671331af243709623d745bcb2ecd289d1244492f9893855a796310",
+      "title": "Prof. Dr. Helge Stein – TUM Asia",
+      "snapshotFile": "raw/0013-a817ff9b6367.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/kai-olaf-hinrichsen/",
+      "fetchedAt": "2026-10-07T06:41:44.538Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e0d3096d823bc3a77d2487c9b42ac02acd783b47d031b654a4176b795ea9caa5",
+      "title": "Prof. Dr. – Ing. Kai-Olaf Hinrichsen – TUM Asia",
+      "snapshotFile": "raw/0014-e0d3096d823b.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/sebastian-rehfeldt/",
+      "fetchedAt": "2026-10-07T06:41:46.522Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "45eff7f155efab233d543584e227f6ce5c73dbfc48d966197e839b9c2ebecabd",
+      "title": "Dr.-Ing. Sebastian Rehfeldt – TUM Asia",
+      "snapshotFile": "raw/0015-45eff7f155ef.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/franz-hagn/",
+      "fetchedAt": "2026-10-07T06:41:48.419Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "05f68b690339d1278a5884014e6cf53e67fe2ef80330d848fe8b0dab3512c8d6",
+      "title": "Prof. Dr. Franz Hagn – TUM Asia",
+      "snapshotFile": "raw/0016-05f68b690339.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/undergraduate-chemical-engineering/",
+      "fetchedAt": "2026-10-07T06:41:50.722Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dac8d8ac1b86f3cf68f410728544eef13bdb4c8f1c740323e45c615ea853942e",
+      "title": "Bachelor of Engineering in Chemical Engineering – TUM Asia",
+      "snapshotFile": "raw/0017-dac8d8ac1b86.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/undergraduate-chemical-engineering/",
+      "fetchedAt": "2026-10-07T06:41:53.069Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "613a2336c40badcc42aa8f0f8c003aa25d72df57421b5c6097fb03a924327bea",
+      "title": "Bachelor of Engineering in Chemical Engineering – TUM Asia",
+      "snapshotFile": "raw/0018-613a2336c40b.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/christoph-wieland/",
+      "fetchedAt": "2026-10-07T06:41:54.544Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ef1f3e1d9d1dbbf48ade7c6619f9eef2bc1d35fdbea7c03c136ba5c8a4c41724",
+      "title": "Dr.-Ing. Christoph Wieland – TUM Asia",
+      "snapshotFile": "raw/0019-ef1f3e1d9d1d.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/harald-klein/",
+      "fetchedAt": "2026-10-07T06:41:56.498Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1e7afa70de38a041b94494178b52125ee4a1cafb89c752bc3f288d946b66aef2",
+      "title": "Prof. Dr.-Ing. Harald Klein – TUM Asia",
+      "snapshotFile": "raw/0020-1e7afa70de38.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/andreas-jentys/",
+      "fetchedAt": "2026-10-07T06:41:58.491Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4cd429ed6e6612951f9ba44975fcbcca3bf7daee911b829dc0af61acb71d1285",
+      "title": "Prof. Dr. Andreas Jentys – TUM Asia",
+      "snapshotFile": "raw/0021-4cd429ed6e66.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/fritz-kuehn/",
+      "fetchedAt": "2026-10-07T06:42:00.503Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "98fe71175e40a473e36277f0048f13e6a9e640a0362e124eeda7518c0db301a4",
+      "title": "Prof. Dr. Fritz Kühn – TUM Asia",
+      "snapshotFile": "raw/0022-98fe71175e40.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/alson-chng/",
+      "fetchedAt": "2026-10-07T06:42:01.640Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ce56d7aa8a3db716a5b801bc3351a11aadd24318cc5df74a2837fc8a07365091",
+      "title": "Dr. Alson Chng Yong Sheng – TUM Asia",
+      "snapshotFile": "raw/0023-ce56d7aa8a3d.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/ulrich-heiz/",
+      "fetchedAt": "2026-10-07T06:42:04.583Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6b983793d9e2b4e7ff3458218a6a2fae7da2acd399b7b166dcfda44561964a7d",
+      "title": "Prof. Dr. Ulrich Heiz – TUM Asia",
+      "snapshotFile": "raw/0024-6b983793d9e2.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/ghulam-destgeer/",
+      "fetchedAt": "2026-10-07T06:42:05.603Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "72ea0b20b705a6c63ff83a90994ef37b4809e2f838b9947673ce9c5b3bca8e97",
+      "title": "Prof. Dr. Ghulam Destgeer – TUM Asia",
+      "snapshotFile": "raw/0025-72ea0b20b705.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/undergraduate-electronics-data-engineering/",
+      "fetchedAt": "2026-10-07T06:42:08.867Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "05e0256e677f52ecea9e65830c12b9f6cdd89264d20bb1b3572b30a2ef806225",
+      "title": "Bachelor of Engineering in Electronics & Data Engineering – TUM Asia",
+      "snapshotFile": "raw/0026-05e0256e677f.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/undergraduate-electronics-data-engineering/",
+      "fetchedAt": "2026-10-07T06:42:11.119Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7032b63405b941302c26d6f279fc7485f8bdb7dba791e48e8c6226d60c6a508c",
+      "title": "Bachelor of Engineering in Electronics & Data Engineering – TUM Asia",
+      "snapshotFile": "raw/0027-7032b63405b9.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/johannes-russer/",
+      "fetchedAt": "2026-10-07T06:42:12.624Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "47b179ae188a68c5902dfedc8f2b717b9e51057ea93a63a4a36cf2b73486f6fe",
+      "title": "Dr. Johannes Russer – TUM Asia",
+      "snapshotFile": "raw/0028-47b179ae188a.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/oliver-hayden/",
+      "fetchedAt": "2026-10-07T06:42:14.599Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7441370d9e2ce32d47c80e86419f6eef7ae0d22992d997b875f235e6a3d30362",
+      "title": "Prof. Dr. Oliver Hayden – TUM Asia",
+      "snapshotFile": "raw/0029-7441370d9e2c.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/andreas-herkersdorf/",
+      "fetchedAt": "2026-10-07T06:42:16.575Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a7a249e1180848bb5bb373fdc7271846ec9c5796200da51ceacab53e166c2384",
+      "title": "Prof. Dr. Sc. Techn. Andreas Herkersdorf – TUM Asia",
+      "snapshotFile": "raw/0030-a7a249e11808.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/alexander-koch/",
+      "fetchedAt": "2026-10-07T06:42:18.722Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "84dfa03794dcd76637a8f73dd5a2966e65fe73ad29d54852311b25e53f6c8169",
+      "title": "Prof. Dr.-Ing. Dr. H.C. Alexander W. Koch – TUM Asia",
+      "snapshotFile": "raw/0031-84dfa03794dc.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/michael-joham/",
+      "fetchedAt": "2026-10-07T06:42:20.680Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d4215ea2acbc2ec8933137ff2bc15e081f0e1ee917deb959adb24b488a7ff6a4",
+      "title": "Dr. Michael Joham – TUM Asia",
+      "snapshotFile": "raw/0032-d4215ea2acbc.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/aaron-tan/",
+      "fetchedAt": "2026-10-07T06:42:22.755Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "12ded467624cf875c749afdddfb4a9dc75158a91a825fcfea210087fd577449b",
+      "title": "Dr. Aaron Tan – TUM Asia",
+      "snapshotFile": "raw/0033-12ded467624c.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/thomas-maul/",
+      "fetchedAt": "2026-10-07T06:42:24.786Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "830c45961be478503e48222f1651cb7a44c0e7e5372942bc22436faa3632af76",
+      "title": "Dr. Thomas Maul – TUM Asia",
+      "snapshotFile": "raw/0034-830c45961be4.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/ralph-kennel/",
+      "fetchedAt": "2026-10-07T06:42:27.282Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5299c4c37f42a226db1d75b9422f1fc5dbdbefbcb99c6de5046d80e71eb12cd6",
+      "title": "Prof. Ralph Kennel – TUM Asia",
+      "snapshotFile": "raw/0035-5299c4c37f42.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/michael-pehl/",
+      "fetchedAt": "2026-10-07T06:42:28.709Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f4218ef6359ca02ae5817e731a06cdc762899cca2e452ae2f3fbccd0a4dc011a",
+      "title": "Dr. -Ing. Michael Pehl – TUM Asia",
+      "snapshotFile": "raw/0036-f4218ef6359c.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/tokio-martin-buss/",
+      "fetchedAt": "2026-10-07T06:42:30.674Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b18e526479f4df62a04c92aa5ece3e925ff5d86018d153da7bd38f65e18b3b33",
+      "title": "Prof. Dr.-Ing./Univ. Tokio Martin Buss – TUM Asia",
+      "snapshotFile": "raw/0037-b18e526479f4.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/michael-zwick/",
+      "fetchedAt": "2026-10-07T06:42:32.718Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fbc3cc1613117adabb27d9a78571071b66d8a27fb2a8b177f51275a424d5c1f4",
+      "title": "Dr.-Ing Michael Zwick – TUM Asia",
+      "snapshotFile": "raw/0038-fbc3cc161311.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/gerhard-kramer/",
+      "fetchedAt": "2026-10-07T06:42:34.856Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "18406b15a5f69e3abea4ff7e46f371e7274d4922d3e400b3a36008fbed73c8a7",
+      "title": "Prof. Gerhard Kramer – TUM Asia",
+      "snapshotFile": "raw/0039-18406b15a5f6.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/gerhard-rigoll/",
+      "fetchedAt": "2026-10-07T06:42:36.705Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a6721aaffc96c524158ce40e199fce16a71e7e289d2d5f04f37ecaa957bd3492",
+      "title": "Prof. Dr. Gerhard Rigoll – TUM Asia",
+      "snapshotFile": "raw/0040-a6721aaffc96.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/wolfgang-utschick/",
+      "fetchedAt": "2026-10-07T06:42:38.677Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c995ca59d8aab8a918a46071d4a5df47d2d7947c887f0101e1e8817b1c1b6d5c",
+      "title": "Prof. Dr. Wolfgang Utschick – TUM Asia",
+      "snapshotFile": "raw/0041-c995ca59d8aa.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/ulf-schlichtmann/",
+      "fetchedAt": "2026-10-07T06:42:40.703Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "da09f83ad561f356fbf0dc537d73ca736062836728a8af983248d3271620ca60",
+      "title": "Prof. Dr.-Ing. Ulf Schlichtmann – TUM Asia",
+      "snapshotFile": "raw/0042-da09f83ad561.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/lifelong-learning/course-finder/",
+      "fetchedAt": "2026-10-07T06:42:43.111Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c5ccfa1d6af9cb3738f3b7b0b1eb3fffd722a4ad3d897f846775c8ccab379d8f",
+      "title": "Course Finder​ – TUM Asia",
+      "snapshotFile": "raw/0043-c5ccfa1d6af9.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/",
+      "fetchedAt": "2026-10-07T06:42:45.341Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bbc18cc0c06d697a5c531760513caa5541806e49cb2fe2c5bbec7ebb7f0cf2c6",
+      "title": "Faculty – TUM Asia",
+      "snapshotFile": "raw/0044-bbc18cc0c06d.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/helge-stein/",
+      "fetchedAt": "2026-10-07T06:42:46.938Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8b12a5a2af17f617ce8a944c52936a67bd7daf9b5a46c1d254272ec5b2ba1545",
+      "title": "Prof. Dr. Helge Stein – TUM Asia",
+      "snapshotFile": "raw/0045-8b12a5a2af17.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/kai-olaf-hinrichsen/",
+      "fetchedAt": "2026-10-07T06:42:48.987Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c6ed2322ac329ef503c62a453244cefcbf341dabf6c700172ba25d976fb88cd8",
+      "title": "Prof. Dr. – Ing. Kai-Olaf Hinrichsen – TUM Asia",
+      "snapshotFile": "raw/0046-c6ed2322ac32.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/sebastian-rehfeldt/",
+      "fetchedAt": "2026-10-07T06:42:50.878Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d6e7942422d648cae0b31c4a4e86eca0cea9b27466aebb18fc4e3c973564fda7",
+      "title": "Dr.-Ing. Sebastian Rehfeldt – TUM Asia",
+      "snapshotFile": "raw/0047-d6e7942422d6.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/franz-hagn/",
+      "fetchedAt": "2026-10-07T06:42:52.939Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "83871377b95067bf7fa2496793a6a333b52801c1bff5f0bc4dc05e5727e199a4",
+      "title": "Prof. Dr. Franz Hagn – TUM Asia",
+      "snapshotFile": "raw/0048-83871377b950.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/christoph-wieland/",
+      "fetchedAt": "2026-10-07T06:42:54.860Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee5cdc0f9036d13c67ea1e2cac1516d07528c58421e649f8d94f7c868c538080",
+      "title": "Dr.-Ing. Christoph Wieland – TUM Asia",
+      "snapshotFile": "raw/0049-ee5cdc0f9036.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/harald-klein/",
+      "fetchedAt": "2026-10-07T06:42:56.873Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9d44f08af465d9c850a3a70c0918d3b0d2022fd4c34d9f98d61d06caa34e091f",
+      "title": "Prof. Dr.-Ing. Harald Klein – TUM Asia",
+      "snapshotFile": "raw/0050-9d44f08af465.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/andreas-jentys/",
+      "fetchedAt": "2026-10-07T06:42:59.013Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dc88577848480552ba679cfb22cdf734d4d27c72f0d9cc8f50b2287955ffc9c8",
+      "title": "Prof. Dr. Andreas Jentys – TUM Asia",
+      "snapshotFile": "raw/0051-dc8857784848.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/fritz-kuehn/",
+      "fetchedAt": "2026-10-07T06:42:59.879Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "778dc03cf11444410eadc46cc4655242640d36b9ffd6c97722afa1264f187aff",
+      "title": "Prof. Dr. Fritz Kühn – TUM Asia",
+      "snapshotFile": "raw/0052-778dc03cf114.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/alson-chng/",
+      "fetchedAt": "2026-10-07T06:43:02.963Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5a37bfeda1895b1d427bde068cb8685438247d65c4f3f34c0214e17cc23cc46b",
+      "title": "Dr. Alson Chng Yong Sheng – TUM Asia",
+      "snapshotFile": "raw/0053-5a37bfeda189.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/ulrich-heiz/",
+      "fetchedAt": "2026-10-07T06:43:05.043Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5a05075f313ab15265d34f17f3afac8254eb3a394f19e0aff32b9c0430ff2301",
+      "title": "Prof. Dr. Ulrich Heiz – TUM Asia",
+      "snapshotFile": "raw/0054-5a05075f313a.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/ghulam-destgeer/",
+      "fetchedAt": "2026-10-07T06:43:06.903Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1f74f74ad3096bde77e67db4f986e0e8d984fb64ff1d0384aceeaedfe13e2117",
+      "title": "Prof. Dr. Ghulam Destgeer – TUM Asia",
+      "snapshotFile": "raw/0055-1f74f74ad309.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/johannes-russer/",
+      "fetchedAt": "2026-10-07T06:43:09.006Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dbc88451ebe78043d49e18214f1b1821f392d9bd79bb8a7de77f27d8360aa741",
+      "title": "Dr. Johannes Russer – TUM Asia",
+      "snapshotFile": "raw/0056-dbc88451ebe7.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/oliver-hayden/",
+      "fetchedAt": "2026-10-07T06:43:11.018Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "35d4676c100d4bde689a499f615c1009cb1e50bc392db35464d5c87a350c719f",
+      "title": "Prof. Dr. Oliver Hayden – TUM Asia",
+      "snapshotFile": "raw/0057-35d4676c100d.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/andreas-herkersdorf/",
+      "fetchedAt": "2026-10-07T06:43:12.961Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee3516b5ef5bcdce99f9bbffc30ac6ea6c97dc1d7c1f8364210f5f4e6bda115a",
+      "title": "Prof. Dr. Sc. Techn. Andreas Herkersdorf – TUM Asia",
+      "snapshotFile": "raw/0058-ee3516b5ef5b.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/alexander-koch/",
+      "fetchedAt": "2026-10-07T06:43:15.030Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "34e8ae3644a42a90cc2015da928e13cf317fe17631031969524a732c7b2af110",
+      "title": "Prof. Dr.-Ing. Dr. H.C. Alexander W. Koch – TUM Asia",
+      "snapshotFile": "raw/0059-34e8ae3644a4.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/michael-joham/",
+      "fetchedAt": "2026-10-07T06:43:16.997Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "07481174cc6397f1c7dee1dc10c4a9f146870ff6c0c2df25cc3c27273e5de794",
+      "title": "Dr. Michael Joham – TUM Asia",
+      "snapshotFile": "raw/0060-07481174cc63.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/aaron-tan/",
+      "fetchedAt": "2026-10-07T06:43:18.959Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "09501d1176651c0f2f52d9ca1ca985b317cc37073ddd22e8bf3733f9271b474d",
+      "title": "Dr. Aaron Tan – TUM Asia",
+      "snapshotFile": "raw/0061-09501d117665.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/thomas-maul/",
+      "fetchedAt": "2026-10-07T06:43:21.020Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "98f049e125ef184ef06e5a964f81f9b4f9d768a0f5b948a08054e493e836bd37",
+      "title": "Dr. Thomas Maul – TUM Asia",
+      "snapshotFile": "raw/0062-98f049e125ef.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/ralph-kennel/",
+      "fetchedAt": "2026-10-07T06:43:23.124Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1e2e36220cd8cd0b80803a810eb5c9a7a208fc01689c984268a8ca448a65f2d7",
+      "title": "Prof. Ralph Kennel – TUM Asia",
+      "snapshotFile": "raw/0063-1e2e36220cd8.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/michael-pehl/",
+      "fetchedAt": "2026-10-07T06:43:25.050Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c77c77c8af29294025df19ecad1fc520824e2f315a7cace13dd7f1d0c6c4a73f",
+      "title": "Dr. -Ing. Michael Pehl – TUM Asia",
+      "snapshotFile": "raw/0064-c77c77c8af29.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/tokio-martin-buss/",
+      "fetchedAt": "2026-10-07T06:43:28.101Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "47ff0b9d63c7b806215122f622dd54726e7149cdfb51c4475887f4f045db1496",
+      "title": "Prof. Dr.-Ing./Univ. Tokio Martin Buss – TUM Asia",
+      "snapshotFile": "raw/0065-47ff0b9d63c7.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/michael-zwick/",
+      "fetchedAt": "2026-10-07T06:43:29.683Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8ae3e89af7a64eee706d3d61659f05dc6c8c3a628847fede4b07467fd1b6412f",
+      "title": "Dr.-Ing Michael Zwick – TUM Asia",
+      "snapshotFile": "raw/0066-8ae3e89af7a6.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/gerhard-kramer/",
+      "fetchedAt": "2026-10-07T06:43:31.819Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ac7a5a25e3080a41ffdf84914cbb01ce5c875c6970ab008c4845a522c6b863ec",
+      "title": "Prof. Gerhard Kramer – TUM Asia",
+      "snapshotFile": "raw/0067-ac7a5a25e308.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/gerhard-rigoll/",
+      "fetchedAt": "2026-10-07T06:43:33.719Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1ae0f1f4ef5b246404132544aac8ebbe659acac08235142105169ff39e6d6e7f",
+      "title": "Prof. Dr. Gerhard Rigoll – TUM Asia",
+      "snapshotFile": "raw/0068-1ae0f1f4ef5b.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/wolfgang-utschick/",
+      "fetchedAt": "2026-10-07T06:43:35.834Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "110800948cb3ead7a1a2f7ddc07f59bc17dc6d7bfaa26f291d6ff488f81c1340",
+      "title": "Prof. Dr. Wolfgang Utschick – TUM Asia",
+      "snapshotFile": "raw/0069-110800948cb3.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/ulf-schlichtmann/",
+      "fetchedAt": "2026-10-07T06:43:37.731Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e39c0ff6fe4795cf5d65a232228c7d42f726d9e4611e5ef9e56bb0a944b9cd72",
+      "title": "Prof. Dr.-Ing. Ulf Schlichtmann – TUM Asia",
+      "snapshotFile": "raw/0070-e39c0ff6fe47.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/lifelong-learning/course-finder/",
+      "fetchedAt": "2026-10-07T06:43:38.600Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e9522b624ab92067e500ea3e0db888b5bdd52711a33a3cc1e66f5449c59b9f60",
+      "title": "Course Finder​ – TUM Asia",
+      "snapshotFile": "raw/0071-e9522b624ab9.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/suresh-valiyaveettil/",
+      "fetchedAt": "2026-10-07T06:43:41.549Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b05acd81bbe03bb7a4b37309ab5b453c3ae0f22f64207d4f7bbd35f6c104ecc4",
+      "title": "Assoc. Prof. Suresh Valiyaveettil – TUM Asia",
+      "snapshotFile": "raw/0072-b05acd81bbe0.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/thomas-bruck/",
+      "fetchedAt": "2026-10-07T06:43:42.559Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e69fa7baca8ea73242944173203424941455b66dc74338a05bfbfa40d4a65ac4",
+      "title": "Prof. Dr. Thomas Brück – TUM Asia",
+      "snapshotFile": "raw/0073-e69fa7baca8e.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/claudia-schmidt/",
+      "fetchedAt": "2026-10-07T06:43:45.558Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "624d2d9fbf796326cf83d1c7affd14bfc74e598c34ec413b4118e2e1e559fdd2",
+      "title": "Dr. Claudia Schmidt – TUM Asia",
+      "snapshotFile": "raw/0074-624d2d9fbf79.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/angela-casini/",
+      "fetchedAt": "2026-10-07T06:43:46.572Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dfe5918d9a04cea071e843722ee79e4ac5af1c2ff3c7845bb0f089d1f4b9da27",
+      "title": "Prof. Dr. Angela Casini – TUM Asia",
+      "snapshotFile": "raw/0075-dfe5918d9a04.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/jennifer-strunk/",
+      "fetchedAt": "2026-10-07T06:43:48.631Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "38b42cef7dc46b8f9a6ced49d628b429e2f3169b910b39502c327199f06c27b2",
+      "title": "Prof. Dr. Jennifer Strunk – TUM Asia",
+      "snapshotFile": "raw/0076-38b42cef7dc4.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/thomas-hamacher/",
+      "fetchedAt": "2026-10-07T06:43:51.550Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fe9a3f12d8f45259d946cef287865978203cdda1f19d76fe2383b97192a74aaf",
+      "title": "Prof. Dr. Thomas Hamacher – TUM Asia",
+      "snapshotFile": "raw/0077-fe9a3f12d8f4.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/faculty/eric-tchouamou-njoya/",
+      "fetchedAt": "2026-10-07T06:43:53.594Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d2750188f31b705e7c199dc8e523b5cf9f8f027ffedeb5f772a6f3d5fb855e3e",
+      "title": "Dr. Eric Tchouamou Njoya – TUM Asia",
+      "snapshotFile": "raw/0078-d2750188f31b.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/suresh-valiyaveettil/",
+      "fetchedAt": "2026-10-07T06:43:55.820Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0b8f833e11b18fb0e174c0c21b29cbeff73fdc70fb6b3427841c6cde7b4e753b",
+      "title": "Assoc. Prof. Suresh Valiyaveettil – TUM Asia",
+      "snapshotFile": "raw/0079-0b8f833e11b1.html"
+    },
+    {
+      "url": "https://tum-asia.edu.sg/cn/faculty/thomas-bruck/",
+      "fetchedAt": "2026-10-07T06:43:58.459Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ea6f995c4a70ae8e0e6549815c34e3bffd9dd31accd852cd5df9235abed509bd",
+      "title": "Prof. Dr. Thomas Brück – TUM Asia",
+      "snapshotFile": "raw/0080-ea6f995c4a70.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:43:58.525Z",
+    "seedUrls": [
+      "https://tum-asia.edu.sg/lifelong-learning/courses/rail-transport-and-rail-planning/",
+      "https://tum-asia.edu.sg/lifelong-learning/courses/rolling-stock/",
+      "https://tum-asia.edu.sg/cn/lifelong-learning/courses/rail-transport-and-rail-planning/",
+      "https://tum-asia.edu.sg/cn/lifelong-learning/courses/rolling-stock/"
+    ],
+    "pages": 80
+  },
+  "detailEnrichment": {
+    "enrichedAt": "2026-10-09T01:54:01.772Z",
+    "source": "saved official programme-page snapshots",
+    "rule": "Only visible source text is copied; missing fields remain null; status remains DRAFT."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.502Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

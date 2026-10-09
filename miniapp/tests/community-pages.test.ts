@@ -20,14 +20,14 @@ import {
 
 const root = new URL('../miniprogram/', import.meta.url);
 
-test('registers all community pages while keeping U圈 as the third tab', async () => {
+test('registers all community pages while keeping U圈 as the second tab', async () => {
   const app = JSON.parse(await readFile(new URL('app.json', root), 'utf8')) as {
     pages: string[]; tabBar: { list: Array<{ pagePath: string }> };
   };
   assert.ok(app.pages.includes('pages/circle-detail/index'));
   assert.ok(app.pages.includes('pages/circle-compose/index'));
   assert.ok(app.pages.includes('pages/circle-me/index'));
-  assert.equal(app.tabBar.list[2]?.pagePath, 'pages/circle/index');
+  assert.equal(app.tabBar.list[1]?.pagePath, 'pages/circle/index');
 });
 
 test('feed ignores stale results, deduplicates append and guards a concurrent load-more', () => {

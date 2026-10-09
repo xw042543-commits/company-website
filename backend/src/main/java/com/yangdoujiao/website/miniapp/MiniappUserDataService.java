@@ -24,14 +24,17 @@ public class MiniappUserDataService {
     private final ConsultationEnquiryRepository consultations;
     private final ProgrammeRepository programmes;
     private final ApplicationRepository applications;
+    private final MiniappWalletRepository wallet;
 
     public MiniappUserDataService(MiniappProgrammeFavoriteRepository favorites, MiniappStudyPlanRepository plans,
-            ConsultationEnquiryRepository consultations, ProgrammeRepository programmes, ApplicationRepository applications) {
+            ConsultationEnquiryRepository consultations, ProgrammeRepository programmes,
+            ApplicationRepository applications, MiniappWalletRepository wallet) {
         this.favorites = favorites;
         this.plans = plans;
         this.consultations = consultations;
         this.programmes = programmes;
         this.applications = applications;
+        this.wallet = wallet;
     }
 
     @Transactional(readOnly = true)
@@ -102,6 +105,15 @@ public class MiniappUserDataService {
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "ORDER_NOT_FOUND", "Application order not found"));
         return ApplicationOrderDetail.from(enquiry);
     }
+
+    @Transactional
+    public WalletResponse wallet(long userId) {
+        var account = wallet.findOrCreate(userId);
+        return new WalletResponse(account.balance(), account.points(), wallet.entries(userId));
+    }
+
+    public record WalletResponse(java.math.BigDecimal balance, long points,
+            List<MiniappWalletRepository.WalletEntry> entries) {}
 
     private Programme publishedProgramme(long programmeId) {
         return programmes.findPublishedForFavorite(programmeId)

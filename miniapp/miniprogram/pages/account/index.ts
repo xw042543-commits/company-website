@@ -8,6 +8,7 @@ Page({
     overview: { favorites: 0, plans: 0, consultations: 0, orders: 0 } as UserOverview,
     menuItems: [
       { key: 'orders', label: '我的订单', caption: '查看申请进度、材料与费用' },
+      { key: 'wallet', label: '会员积分', caption: '管理账户余额、积分与使用记录' },
       { key: 'plans', label: '我的规划', caption: '管理留学目标、背景和预算' },
       { key: 'favorites', label: '专业收藏', caption: '查看已保存的专业' },
       { key: 'consultations', label: '咨询记录', caption: '查看已提交的咨询' },
@@ -50,6 +51,7 @@ Page({
     }
     const routes: Record<string, string> = {
       orders: '/pages/orders/index', plans: '/pages/plans/index', favorites: '/pages/favorites/index',
+      wallet: '/pages/wallet/index',
       consultations: '/pages/consultations/index',
     };
     const route = key ? routes[key] : undefined;

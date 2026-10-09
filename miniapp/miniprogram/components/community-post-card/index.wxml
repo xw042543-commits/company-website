@@ -22,7 +22,7 @@
       <text>{{post.commentCount}}</text>
     </button>
     <button
-      class="metric-button {{post.likedByMe ? 'metric-button--active' : ''}}"
+      class="metric-button {{post.likedByMe ? 'metric-button--active' : ''}} {{reacting ? 'metric-button--disabled' : ''}}"
       disabled="{{reacting}}"
       bindtap="react"
       aria-label="{{post.likedByMe ? '取消点赞' : '点赞'}}，当前{{post.likeCount}}个赞"
