@@ -40,14 +40,16 @@ public class CommunityHotSnapshotCache {
     private final CommunityCursorCodec cursors;
     private final ObjectMapper json;
     private final Clock clock;
+    private final CommunityMetrics metrics;
 
     public CommunityHotSnapshotCache(StringRedisTemplate redis, CommunityPostRepository posts,
-            CommunityCursorCodec cursors, ObjectMapper json, Clock clock) {
+            CommunityCursorCodec cursors, ObjectMapper json, Clock clock, CommunityMetrics metrics) {
         this.redis = redis;
         this.posts = posts;
         this.cursors = cursors;
         this.json = json;
         this.clock = clock;
+        this.metrics = metrics;
     }
 
     public SnapshotPage page(String cursor, int size) {
@@ -62,6 +64,7 @@ public class CommunityHotSnapshotCache {
             String nextCursor = end < manifest.count() ? cursors.encodeHot(manifest.version(), end, manifest.expiresAt()) : null;
             return new SnapshotPage(ids.stream().map(Long::valueOf).toList(), nextCursor);
         } catch (DataAccessException exception) {
+            metrics.redisUnavailable(CommunityMetrics.Command.HOT);
             throw unavailable();
         }
     }

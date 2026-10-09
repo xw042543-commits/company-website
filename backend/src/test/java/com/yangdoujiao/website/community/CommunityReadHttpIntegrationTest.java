@@ -228,14 +228,14 @@ class CommunityReadHttpIntegrationTest {
         seedPost(CommunityContentStatus.PUBLISHED, time);
         var initial = snapshots.page(null, 1);
         var replicaCodec = new CommunityCursorCodec(json, clock, "test-shared-community-cursor-key-32-bytes");
-        var replica = new CommunityHotSnapshotCache(redis, posts, replicaCodec, json, clock);
+        var replica = new CommunityHotSnapshotCache(redis, posts, replicaCodec, json, clock, org.mockito.Mockito.mock(CommunityMetrics.class));
         assertThat(replica.page(initial.nextCursor(), 1).ids()).containsExactly(second.getId());
         var position = cursors.decodeHot(initial.nextCursor());
         Long ttl = redis.getExpire("community:hot:v1:" + position.snapshotVersion() + ":manifest", java.util.concurrent.TimeUnit.MILLISECONDS);
         assertThat(ttl).isBetween(30000L, 45000L);
         var laterClock = java.time.Clock.offset(clock, java.time.Duration.ofSeconds(46));
         var laterCodec = new CommunityCursorCodec(json, laterClock, "test-shared-community-cursor-key-32-bytes");
-        var laterReplica = new CommunityHotSnapshotCache(redis, posts, laterCodec, json, laterClock);
+        var laterReplica = new CommunityHotSnapshotCache(redis, posts, laterCodec, json, laterClock, org.mockito.Mockito.mock(CommunityMetrics.class));
         org.assertj.core.api.Assertions.assertThatThrownBy(() -> laterReplica.page(initial.nextCursor(), 1))
                 .isInstanceOfSatisfying(com.yangdoujiao.website.common.exception.ApiException.class,
                         error -> assertThat(error.getCode()).isEqualTo("COMMUNITY_HOT_SNAPSHOT_EXPIRED"));

@@ -39,6 +39,15 @@ logging:
     root: INFO
     com.yangdoujiao.website: INFO
 
+management:
+  metrics:
+    distribution:
+      percentiles-histogram:
+        "community.feed": true
+        "community.detail": true
+        "community.publish": true
+        "community.comment": true
+
 app:
   community:
     cursor-secret: ${APP_COMMUNITY_CURSOR_SECRET:}

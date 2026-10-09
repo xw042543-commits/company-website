@@ -20,7 +20,7 @@ class CommunityHotSnapshotCacheTest {
         var json = JsonMapper.builder().build();
         Clock clock = Clock.systemUTC();
         var codec = new CommunityCursorCodec(json, clock, "test-shared-community-cursor-key-32-bytes");
-        var cache = new CommunityHotSnapshotCache(redis, mock(CommunityPostRepository.class), codec, json, clock);
+        var cache = new CommunityHotSnapshotCache(redis, mock(CommunityPostRepository.class), codec, json, clock, mock(CommunityMetrics.class));
         String continuation = codec.encodeHot("b2ced83c-214b-42e4-9f73-87e2357a8e20", 1, OffsetDateTime.now(clock).plusSeconds(45));
         for (String cursor : new String[] { null, continuation }) {
             assertThatThrownBy(() -> cache.page(cursor, 20)).isInstanceOfSatisfying(ApiException.class,

@@ -23,12 +23,13 @@ public class CommunityReportService {
     private final int threshold;
     private final CommunityModerationActionRepository actions;
     private final CommunityAuditLogger audit;
+    private final CommunityMetrics metrics;
     CommunityReportService(CommunityProperties properties,CommunityReportRepository reports,
             CommunityIdempotencyRecordRepository receipts,CommunityUserRestrictionRepository restrictions,
             UserAccountRepository accounts,CommunityModerationTargets targets,CommunityRateLimiter limiter,ObjectMapper json,
-            CommunityModerationActionRepository actions,CommunityAuditLogger audit) {
+            CommunityModerationActionRepository actions,CommunityAuditLogger audit,CommunityMetrics metrics) {
         this.properties=properties;this.reports=reports;this.receipts=receipts;this.restrictions=restrictions;this.accounts=accounts;
-        this.targets=targets;this.limiter=limiter;this.json=json;this.threshold=properties.autoHideReportThreshold();this.actions=actions;this.audit=audit;
+        this.targets=targets;this.limiter=limiter;this.json=json;this.threshold=properties.autoHideReportThreshold();this.actions=actions;this.audit=audit;this.metrics=metrics;
     }
     public Result submit(long actor,String address,String key,CommunityReportRequest request) {
         if (request == null || request.targetType() == null || request.reasonCode() == null
@@ -51,6 +52,7 @@ public class CommunityReportService {
                 throw new ApiException(HttpStatus.CONFLICT, "IDEMPOTENCY_CONFLICT", "Idempotency key was used for a different request");
             }
             if(receipt.getResultResponse()==null)throw CommunityRateLimiter.unavailable();
+            metrics.idempotencyHit(CommunityMetrics.Command.REPORT);
             return new Result(json.readValue(receipt.getResultResponse(),CommunityReportResponse.class),true);
         }
         CommunityRestrictionGuard.requireAllowed(restrictions,actor,targets.now());

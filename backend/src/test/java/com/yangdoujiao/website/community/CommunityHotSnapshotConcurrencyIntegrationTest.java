@@ -52,8 +52,8 @@ class CommunityHotSnapshotConcurrencyIntegrationTest {
         });
         var bRepository = mock(CommunityPostRepository.class);
         when(bRepository.findHotRanking(any(), any())).thenReturn(ids(21L, 22L));
-        var a = new CommunityHotSnapshotCache(redis, aRepository, codec, json, clock);
-        var b = new CommunityHotSnapshotCache(redis, bRepository, codec, json, clock);
+        var a = new CommunityHotSnapshotCache(redis, aRepository, codec, json, clock, mock(CommunityMetrics.class));
+        var b = new CommunityHotSnapshotCache(redis, bRepository, codec, json, clock, mock(CommunityMetrics.class));
 
         try (var executor = Executors.newSingleThreadExecutor()) {
             var aResult = executor.submit(() -> a.page(null, 1));
@@ -88,7 +88,7 @@ class CommunityHotSnapshotConcurrencyIntegrationTest {
             redis.delete(PREFIX + "building");
             return ids(11L, 12L);
         });
-        var cache = new CommunityHotSnapshotCache(redis, repository, codec, json, clock);
+        var cache = new CommunityHotSnapshotCache(redis, repository, codec, json, clock, mock(CommunityMetrics.class));
         assertThatThrownBy(() -> cache.page(null, 1)).isInstanceOfSatisfying(ApiException.class,
                 error -> assertThat(error.getCode()).isEqualTo("COMMUNITY_HOT_SNAPSHOT_UNAVAILABLE"));
         assertThat(redis.keys(PREFIX + "*")).isEmpty();

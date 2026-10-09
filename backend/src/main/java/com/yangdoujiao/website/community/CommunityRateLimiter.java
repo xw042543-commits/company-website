@@ -22,8 +22,9 @@ public class CommunityRateLimiter {
             """, Long.class);
     private final StringRedisTemplate redis;
     private final CommunityProperties properties;
-    public CommunityRateLimiter(StringRedisTemplate redis, CommunityProperties properties) {
-        this.redis = redis; this.properties = properties;
+    private final CommunityMetrics metrics;
+    public CommunityRateLimiter(StringRedisTemplate redis, CommunityProperties properties, CommunityMetrics metrics) {
+        this.redis = redis; this.properties = properties; this.metrics = metrics;
     }
     public void checkPost(long accountId, String address) {
         check("post", accountId, address, properties.postPerMinute(), properties.postPerDay());
@@ -56,9 +57,25 @@ public class CommunityRateLimiter {
         try {
             count = redis.execute(CONSUME, List.of("community:limit:v1:" + operation + ":" + subject + ":" + window),
                     Long.toString(milliseconds));
-        } catch (DataAccessException exception) { throw unavailable(); }
-        if (count == null) throw unavailable();
-        if (count > maximum) throw new ApiException(HttpStatus.TOO_MANY_REQUESTS, "COMMUNITY_RATE_LIMITED", "Too many community requests");
+        } catch (DataAccessException exception) {
+            metrics.redisUnavailable(command(operation));
+            throw unavailable();
+        }
+        if (count == null) {
+            metrics.redisUnavailable(command(operation));
+            throw unavailable();
+        }
+        if (count > maximum) {
+            metrics.rateLimited(command(operation));
+            throw new ApiException(HttpStatus.TOO_MANY_REQUESTS, "COMMUNITY_RATE_LIMITED", "Too many community requests");
+        }
+    }
+    private static CommunityMetrics.Command command(String operation) {
+        return switch (operation) {
+            case "post" -> CommunityMetrics.Command.POST;
+            case "comment" -> CommunityMetrics.Command.COMMENT;
+            default -> CommunityMetrics.Command.REPORT;
+        };
     }
     static ApiException unavailable() {
         return new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "COMMUNITY_WRITE_UNAVAILABLE", "Community writes are temporarily unavailable");

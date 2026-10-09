@@ -32,14 +32,16 @@ public class CommunityWriteService {
     private final ObjectMapper json;
     private final Clock clock;
     private final StringRedisTemplate redis;
+    private final CommunityMetrics metrics;
 
     public CommunityWriteService(CommunityProperties properties, CommunityPostRepository posts,
             CommunityCommentRepository comments, CommunityIdempotencyRecordRepository idempotency,
             CommunityUserRestrictionRepository restrictions, UserAccountRepository accounts,
-            CommunityRateLimiter limiter, CommunityRiskPolicy risk, ObjectMapper json, Clock clock, StringRedisTemplate redis) {
+            CommunityRateLimiter limiter, CommunityRiskPolicy risk, ObjectMapper json, Clock clock, StringRedisTemplate redis,
+            CommunityMetrics metrics) {
         this.properties = properties; this.posts = posts; this.comments = comments; this.idempotency = idempotency;
         this.restrictions = restrictions; this.accounts = accounts; this.limiter = limiter; this.risk = risk;
-        this.json = json; this.clock = clock; this.redis = redis;
+        this.json = json; this.clock = clock; this.redis = redis; this.metrics = metrics;
     }
 
     public CreationResult createPost(long actorId, String address, String key, CommunityPostRequest request) {
@@ -122,6 +124,7 @@ public class CommunityWriteService {
             if (!record.getRequestHash().equals(fingerprint)) throw new ApiException(
                     HttpStatus.CONFLICT, "IDEMPOTENCY_CONFLICT", "Idempotency key was used for a different request");
             if (record.getResultResponse() == null) throw CommunityRateLimiter.unavailable();
+            metrics.idempotencyHit("CREATE_POST".equals(operation) ? CommunityMetrics.Command.POST : CommunityMetrics.Command.COMMENT);
             return new CreationResult(json.readValue(record.getResultResponse(), CommunityCreationResponse.class), true);
         }
         var response = action.get();
@@ -195,6 +198,7 @@ public class CommunityWriteService {
         TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
             @Override public void afterCommit() {
                 try { redis.delete("community:hot:v1:current"); } catch (DataAccessException ignored) {
+                    metrics.redisUnavailable(CommunityMetrics.Command.CACHE_INVALIDATION);
                     // A short-lived derived cache cannot override the committed PostgreSQL visibility decision.
                 }
             }
