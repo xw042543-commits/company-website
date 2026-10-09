@@ -142,6 +142,57 @@
   .adviser-record, .adviser-count-card { transition: none; }
 }
 
+/* Community moderation extends the established Adviser console. */
+.community-workspace { min-width: 0; }
+.community-navigation { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.community-navigation a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; color: var(--brand-deep); }
+.community-navigation a[aria-current="page"] { background: var(--wash); font-weight: 700; }
+.community-workspace button, .community-workspace select, .community-workspace input { min-height: 44px; }
+.community-workspace input, .community-workspace select { min-width: 0; max-width: 100%; }
+.community-filter-set, .community-action-form fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.community-filter-set legend, .community-action-form legend { margin-bottom: 12px; color: var(--brand-deep); font-weight: 700; }
+.community-status-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.community-status-filters button[aria-pressed="true"] { background: var(--brand-deep); color: var(--paper); }
+.community-filters { grid-template-columns: repeat(4, minmax(0, 1fr)); border-color: var(--line); border-radius: var(--radius-md); background: var(--paper); }
+.community-filters > div { min-width: 0; }
+.community-filter-hint { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .86rem; }
+.community-filters button { justify-self: start; }
+.community-announcement:not(:empty) { margin-bottom: 16px; padding: 14px; background: var(--support-cream); color: var(--ink); }
+.community-workspace .adviser-record-list, .community-workspace .adviser-detail { box-shadow: none; border-color: var(--line); border-radius: var(--radius-md); }
+.community-workspace .adviser-detail { position: static; }
+.community-workspace .community-record { grid-template-columns: minmax(0, 1fr) minmax(0, .65fr); border-radius: var(--radius-sm); }
+.community-workspace .community-record[data-selected="true"] { box-shadow: none; border-color: var(--brand-action); }
+.community-workspace .community-record:hover { transform: none; }
+.community-preview, .community-body { white-space: pre-wrap; overflow-wrap: anywhere; }
+.community-body { max-width: 70ch; margin: 0; }
+.community-detail-section { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
+.community-detail-section h3 { margin: 0 0 10px; font-size: 1.08rem; color: var(--brand-deep); }
+.community-report-list, .community-history { padding: 0; margin: 0; list-style: none; }
+.community-report-list li { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.community-report-list strong { font-variant-numeric: tabular-nums; }
+.community-history li { display: grid; gap: 3px; padding: 12px 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.community-history span, .community-history time { color: var(--muted); font-size: .9rem; }
+.community-history + button { margin-top: 12px; }
+.community-action-form { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
+.community-action-form fieldset > div { margin-bottom: 14px; }
+.community-action-form label { display: block; margin-bottom: 6px; }
+.community-confirmation { display: flex; align-items: flex-start; gap: 10px; }
+.community-workspace .community-confirmation input { flex: 0 0 20px; width: 20px; margin: 0; accent-color: var(--brand-action); }
+.community-confirmation label { display: flex; align-items: center; min-height: 44px; margin: 0; cursor: pointer; }
+@media (max-width: 1100px) {
+  .community-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 800px) {
+  .community-master-detail { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) {
+  .community-filters { grid-template-columns: minmax(0, 1fr); }
+  .community-workspace .community-record { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .community-workspace button, .community-workspace input, .community-workspace select, .community-navigation a { transition: none; transform: none; }
+}
+
 * { box-sizing: border-box; }
 html { min-height: 100%; overflow-x: clip; background: var(--paper); color: var(--ink); scroll-behavior: smooth; }
 body { min-height: 100vh; min-height: 100dvh; margin: 0; overflow-x: clip; background: linear-gradient(180deg, #f7faf8 0, var(--paper) 420px); color: var(--ink); font-family: Aptos, "Segoe UI Variable", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; font-size: 16px; line-height: 1.6; }
