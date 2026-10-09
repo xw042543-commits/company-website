@@ -246,6 +246,7 @@ function toProgramme(record: LocalProgrammeRecord, index: number) {
     tuitionDisplay: record.tuition ? formatFeeDisplay(record.tuition) : null,
     intakeMonths: [],
     intakeDisplayTexts: record.intakes ? [formatIntakeDisplay(record.intakes, "en")] : [],
+    imageUrl: null,
   };
 }
 
