@@ -3,6 +3,7 @@ import { adviserClient, type AdviserFailure } from "./adviser-consultation-api.t
 export type ModerationTargetType = "POST" | "COMMENT";
 export type ModerationContentStatus = "PENDING_REVIEW" | "PUBLISHED" | "HIDDEN" | "DELETED" | "REJECTED";
 export type ModerationCommand = "HIDE" | "RESTORE" | "REJECT_REPORT" | "MUTE" | "BAN";
+export type ModerationHistoryCommand = ModerationCommand | "AUTO_HIDE";
 export type ModerationAction = Readonly<{ command: ModerationCommand; reasonCode: string; version: number; restrictionEndsAt?: string | null }>;
 export type ModerationResult<T> = { status: "ready"; value: T } | AdviserFailure;
 export type ModerationQueueItem = {
@@ -11,7 +12,7 @@ export type ModerationQueueItem = {
 };
 export type ModerationQueue = { items: ModerationQueueItem[]; nextCursor: string | null };
 export type ModerationReportSummary = { reasonCode: string; status: "OPEN" | "RESOLVED_ACTIONED" | "RESOLVED_REJECTED"; count: number };
-export type ModerationHistoryAction = { id: string; command: ModerationCommand; reasonCode: string;
+export type ModerationHistoryAction = { id: string; command: ModerationHistoryCommand; reasonCode: string;
   previousStatus: ModerationContentStatus | null; nextStatus: ModerationContentStatus | null; createdAt: string };
 export type ModerationDetail = {
   targetType: ModerationTargetType; targetId: string; status: ModerationContentStatus; body: string;
@@ -30,6 +31,8 @@ const commands = ["HIDE", "RESTORE", "REJECT_REPORT", "MUTE", "BAN"];
 const reportReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "OTHER"];
 const decisionReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "POLICY_VIOLATION",
   "APPEAL_ACCEPTED", "REVIEW_APPROVED", "REPORT_UNFOUNDED"];
+const historyCommands = [...commands, "AUTO_HIDE"];
+const historyReasons = [...decisionReasons, "REPORT_THRESHOLD"];
 const token = (value: unknown, values: string[]): value is string => typeof value === "string" && values.includes(value);
 const targetType = (value: unknown): value is ModerationTargetType => value === "POST" || value === "COMMENT";
 const decimalId = (value: unknown): value is string => typeof value === "string" && /^[1-9][0-9]{0,18}$/.test(value)
@@ -59,7 +62,7 @@ function parseReport(value: unknown): ModerationReportSummary | null {
 }
 function parseHistory(value: unknown): ModerationHistoryAction | null {
   return record(value) && exact(value, ["id", "command", "reasonCode", "previousStatus", "nextStatus", "createdAt"])
-    && decimalId(value.id) && token(value.command, commands) && token(value.reasonCode, decisionReasons)
+    && decimalId(value.id) && token(value.command, historyCommands) && token(value.reasonCode, historyReasons)
     && (value.previousStatus === null || token(value.previousStatus, contentStatuses))
     && (value.nextStatus === null || token(value.nextStatus, contentStatuses)) && timestamp(value.createdAt)
     ? value as ModerationHistoryAction : null;
@@ -147,7 +150,7 @@ export async function submitCommunityModerationAction(baseUrl: string | undefine
         restrictionEndsAt: action.restrictionEndsAt ?? null }), signal: AbortSignal.timeout(5_000) });
     if (response.status !== 200) return failure(response.status);
     const value = await readJson(response, parseDetail);
-    return value && value.targetType === type && value.targetId === id && value.version === action.version + 1
+    return value && value.targetType === type && value.targetId === id && value.version > action.version
       ? { status: "ready", value } : { status: "error" };
   } catch { return { status: "unavailable" }; }
 }

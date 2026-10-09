@@ -74,7 +74,16 @@ public class CommunityReadService {
     }
 
     public CommunityPostDetail detail(Long id, UserPrincipal viewer) {
-        CommunityPost post = publishedPost(id);
+        CommunityPost post = posts.findById(id).orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND,
+                "COMMUNITY_POST_NOT_FOUND", "Community post is unavailable"));
+        if (post.getStatus() != PUBLIC) {
+            String code = switch (post.getStatus()) {
+                case HIDDEN -> "COMMUNITY_POST_HIDDEN";
+                case DELETED -> "COMMUNITY_POST_DELETED";
+                default -> "COMMUNITY_POST_NOT_FOUND";
+            };
+            throw new ApiException(HttpStatus.NOT_FOUND, code, "Community post is unavailable");
+        }
         Profile profile = profiles(List.of(post.getAuthorAccountId())).getOrDefault(post.getAuthorAccountId(), Profile.DEFAULT);
         return new CommunityPostDetail(post.getId().toString(), profile.name(), profile.avatarUrl(), post.getBody(),
                 post.getCommentCount(), post.getLikeCount(), post.getPublishedAt(),

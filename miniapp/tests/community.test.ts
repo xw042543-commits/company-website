@@ -327,6 +327,21 @@ test('community error mapping only accepts public code/status pairs and never le
   }
 });
 
+test('post detail preserves safe hidden deleted and missing codes without leaking error content', async () => {
+  for (const code of ['COMMUNITY_POST_HIDDEN', 'COMMUNITY_POST_DELETED', 'COMMUNITY_POST_NOT_FOUND']) {
+    for (const statusCode of [404, 400]) {
+      const client = createHttpClient(resolveRuntimeConfig('production'), (o) => {
+        o.success({ statusCode, data: { code, message: 'private hidden body', fieldErrors: { reason: 'internal rule' },
+          traceId: 'private', details: { body: 'private hidden body', reasonCode: 'internal rule' } }, header: {}, cookies: [] });
+        return { abort() {} };
+      });
+      assert.deepEqual(await createCommunityService(client.request, () => false).loadPost(id, scope), statusCode === 404
+        ? { ok: false, error: { kind: 'unexpected', code } }
+        : { ok: false, error: { kind: 'validation', code: 'REQUEST_REJECTED' } });
+    }
+  }
+});
+
 test('community feed cancellation is isolated per page scope and supersedes only the same page and sort', async () => {
   const pending: TransportOptions[] = [];
   const client = createHttpClient(resolveRuntimeConfig('production'), (o) => { pending.push(o); return { abort() {} }; }, () => 'token');

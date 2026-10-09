@@ -2,6 +2,23 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import type { ModerationDetail } from "./adviser-community-api.ts";
+import { loadCommunityModerationDetail } from "./adviser-community-api.ts";
+import * as communityUi from "./adviser-community-ui.ts";
+
+test("automatic-hide history displays fixed bilingual event and reason labels and keeps restore available", async () => {
+  const payload = JSON.parse(readFileSync(new URL("../../../backend/src/test/resources/community/automatic-hide-detail.json", import.meta.url), "utf8"));
+  const result = await loadCommunityModerationDetail("https://udajo.example", "POST", "42", {}, async () => Response.json(payload));
+  assert.equal(result.status, "ready");
+  if (result.status !== "ready") assert.fail("automatic history must render");
+  const event = result.value.actions[0];
+  assert.equal(communityUi.moderationCommandLabel("zh", event.command), "系统自动隐藏");
+  assert.equal(communityUi.moderationCommandLabel("en", event.command), "Automatically hidden");
+  assert.equal(communityUi.moderationReasonLabel("zh", event.reasonCode), "举报数量达到保护阈值");
+  assert.equal(communityUi.moderationReasonLabel("en", event.reasonCode), "Report threshold reached");
+  assert.equal(communityUi.canSubmitModeration({ command: "RESTORE", reasonCode: "APPEAL_ACCEPTED", version: result.value.version }), true);
+  assert.equal(communityUi.moderationCommandLabel("zh", "<private event>"), "未知操作");
+  assert.equal(communityUi.moderationReasonLabel("zh", "<private reason>"), "未知原因");
+});
 
 const historyHead: ModerationDetail = {
   targetType: "POST", targetId: "42", status: "HIDDEN", body: "Version 2 content", postId: null, parentCommentId: null,

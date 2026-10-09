@@ -11,7 +11,7 @@ import type { AdviserFailure } from "@/lib/adviser-consultation-api";
 import { abortableRequest, createLatestRequest } from "@/lib/adviser-consultations-ui";
 import {
   afterModerationFailure, canSubmitModeration, moderationErrorText, moderationQueueFilters,
-  muteExpiry, reasonsForCommand, reportReasons, resolveModerationHistoryPage, type QueueFilterDraft,
+  muteExpiry, reasonsForCommand, reportReasons, resolveModerationHistoryPage, moderationCommandLabel, moderationReasonLabel, type QueueFilterDraft,
 } from "@/lib/adviser-community-ui";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
@@ -49,14 +49,8 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
   const busy = queuePending || detailPending || saving;
   const data = queue?.status === "ready" ? queue.value : null;
   const w = (zh: string, en: string) => words(locale, zh, en);
-  const reasonLabel = (reason: string) => ({
-    SPAM: w("垃圾信息", "Spam"), HARASSMENT: w("骚扰", "Harassment"), SCAM: w("诈骗", "Scam"),
-    INAPPROPRIATE_CONTENT: w("不当内容", "Inappropriate content"), OTHER: w("其他", "Other"),
-    POLICY_VIOLATION: w("违反社区规则", "Policy violation"), APPEAL_ACCEPTED: w("申诉成立", "Appeal accepted"),
-    REVIEW_APPROVED: w("审核通过", "Review approved"), REPORT_UNFOUNDED: w("举报不成立", "Report unfounded"),
-  })[reason] ?? w("未知原因", "Unknown reason");
-  const commandLabel = (value: ModerationCommand) => ({ HIDE: w("隐藏内容", "Hide content"), RESTORE: w("恢复内容", "Restore content"),
-    REJECT_REPORT: w("驳回举报", "Reject reports"), MUTE: w("禁言作者", "Mute author"), BAN: w("封禁作者", "Ban author") })[value];
+  const reasonLabel = (reason: string) => moderationReasonLabel(locale, reason);
+  const commandLabel = (value: string) => moderationCommandLabel(locale, value);
   const statusLabel = (value: string) => ({ PENDING_REVIEW: w("待审核", "Pending review"), PUBLISHED: w("已发布", "Published"),
     HIDDEN: w("已隐藏", "Hidden"), DELETED: w("已删除", "Deleted"), REJECTED: w("已拒绝", "Rejected") })[value] ?? w("未知状态", "Unknown status");
   const reportStatus = (value: string) => value === "OPEN" ? w("待处理", "Open")

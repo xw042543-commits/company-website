@@ -12,7 +12,12 @@ import {
 } from '../../utils/community-ui';
 import { communityFeedRoute } from '../../utils/routes';
 
-type ViewState = 'loading' | 'ready' | 'empty' | 'not-found' | 'unavailable' | 'unauthorized' | 'offline' | 'failed';
+type ViewState = 'loading' | 'ready' | 'empty' | 'hidden' | 'deleted' | 'not-found' | 'unavailable' | 'unauthorized' | 'offline' | 'failed';
+const UNAVAILABLE_POST_COPY = {
+  hidden: { postStatusTitle: '这条帖子暂不可公开展示', postStatusDescription: '内容已隐藏，暂时无法查看或参与讨论。' },
+  deleted: { postStatusTitle: '这条帖子已删除', postStatusDescription: '无法继续查看或参与这条帖子的讨论。' },
+  'not-found': { postStatusTitle: '没有找到这条帖子', postStatusDescription: '链接可能已失效。' },
+};
 type CommentItem = CommunityComment & { displayTime: string; owner: boolean; avatarFailed: boolean; loadingReplies: boolean };
 interface DataEvent extends WechatMiniprogram.BaseEvent { currentTarget: WechatMiniprogram.BaseEvent['currentTarget'] & { dataset: { id?: string; parent?: string; type?: string; reason?: CommunityReportReason } } }
 
@@ -42,6 +47,8 @@ function detailError(error: { kind: string; code: string }): ViewState {
   if (error.kind === 'unauthorized') return 'unauthorized';
   if (error.kind === 'unavailable') return error.code === 'NETWORK_UNAVAILABLE' || error.code === 'TRANSPORT_ERROR' ? 'offline' : 'unavailable';
   if (error.code === 'COMMUNITY_POST_NOT_FOUND') return 'not-found';
+  if (error.code === 'COMMUNITY_POST_HIDDEN') return 'hidden';
+  if (error.code === 'COMMUNITY_POST_DELETED') return 'deleted';
   return 'failed';
 }
 
@@ -50,6 +57,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
   const definition: WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> = {
   data: {
     postState: 'loading' as ViewState, commentsState: 'loading' as ViewState,
+    ...UNAVAILABLE_POST_COPY['not-found'],
     post: null as CommunityPostDetail | null, postTime: '', comments: [] as CommentItem[],
     commentsCursor: null as string | null, loadingMoreComments: false, ownerPost: false,
     commentBody: '', commentCount: 0, replyParentId: null as string | null, replyAuthor: '', submittingComment: false,
@@ -83,12 +91,23 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     this.setData({ postState: 'loading' as ViewState });
     const result = await deps.loadPost(state.postId, state.requestScope);
     if (!state.active || generation !== state.postGeneration) return;
-    if (!result.ok) { this.setData({ postState: detailError(result.error) }); return; }
+    if (!result.ok) {
+      const postState = detailError(result.error);
+      if (postState === 'hidden' || postState === 'deleted' || postState === 'not-found') {
+        // Invalidate pending thread reads so previously public content cannot reappear after unavailability is confirmed.
+        state.commentsGeneration++; state.repliesEpoch++; state.replyGenerations.clear();
+        this.setData({ postState, ...UNAVAILABLE_POST_COPY[postState], post: null, postTime: '', ownerPost: false,
+          comments: [], commentsCursor: null, commentsState: 'empty', loadingMoreComments: false,
+          replyParentId: null, replyAuthor: '' });
+      } else this.setData({ postState });
+      return;
+    }
     const postAvatarFailed = this.data.post?.authorAvatarUrl === result.value.authorAvatarUrl ? this.data.postAvatarFailed : false;
     this.setData({ post: result.value, ownerPost: result.value.ownedByMe, postAvatarFailed,
       postTime: formatCommunityTime(result.value.publishedAt), postState: 'ready' as ViewState });
   },
   async loadComments(reset: boolean) {
+    if (['hidden', 'deleted', 'not-found'].includes(this.data.postState)) return;
     if (!reset && (this.data.loadingMoreComments || this.data.commentsState !== 'ready')) return;
     const state = detailRuntime(this);
     const cursor = reset ? null : this.data.commentsCursor;
@@ -139,7 +158,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     const result = await deps.createComment({ body, postId: state.postId, parentCommentId: this.data.replyParentId, idempotencyKey: state.commentSubmission.key ?? '' });
     if (!state.active) return;
     if (result.ok) {
-      state.commentSubmission = finishSubmission(state.commentSubmission, 'completed');
+      state.commentSubmission = createSubmissionState();
       this.setData({ commentBody: '', commentCount: 0, replyParentId: null, replyAuthor: '', submittingComment: false });
       wx.showToast({ title: result.value.status === 'PENDING_REVIEW' ? '评论已提交审核' : '评论已发布', icon: 'success' });
       await Promise.all([this.loadPost(), this.loadComments(true)]);

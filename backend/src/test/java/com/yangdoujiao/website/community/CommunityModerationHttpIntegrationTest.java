@@ -123,6 +123,31 @@ class CommunityModerationHttpIntegrationTest extends CommunityModerationIntegrat
         assertThat(redis.keys("community:hot:*"+snapshot+"*")).isNotEmpty();
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_reports WHERE target_id=?",Long.class,id)).isEqualTo(5);
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_moderation_actions WHERE target_type='POST' AND target_id=? AND action='AUTO_HIDE'",Long.class,id)).isEqualTo(1);
+        String detail = mvc.perform(get(path("POST", id)).with(user(UserPrincipal.from(adviser))))
+                .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+        // The same complete payload is consumed by the Adviser contract/UI tests; normalize only generated identifiers/time.
+        var normalized = JsonPath.parse(detail).set("$.targetId", "42").set("$.actions[0].id", "10")
+                .set("$.actions[0].createdAt", "2026-10-08T12:00:00Z").jsonString();
+        var mapper = new tools.jackson.databind.ObjectMapper();
+        try (var fixture = getClass().getResourceAsStream("/community/automatic-hide-detail.json")) {
+            assertThat(mapper.readTree(normalized)).isEqualTo(mapper.readTree(fixture));
+        }
+    }
+    @Test void postHideAndRestoreReturnPersistedVersionsAfterCommentCountFlushes() throws Exception {
+        long id = post(CommunityContentStatus.PUBLISHED);
+        comment(id, null, CommunityContentStatus.PUBLISHED);
+        jdbc.update("UPDATE community_posts SET comment_count=1 WHERE id=?", id);
+        long beforeHide = version("POST", id);
+        String hidden = action("POST", id, "HIDE", "SPAM", beforeHide, null).andExpect(status().isOk())
+                .andExpect(jsonPath("$.status").value("HIDDEN")).andReturn().getResponse().getContentAsString();
+        long hiddenVersion = JsonPath.<Number>read(hidden, "$.version").longValue();
+        assertThat(hiddenVersion).isGreaterThan(beforeHide + 1).isEqualTo(version("POST", id));
+        assertThat(jdbc.queryForObject("SELECT comment_count FROM community_posts WHERE id=?", Integer.class, id)).isZero();
+        action("POST", id, "RESTORE", "APPEAL_ACCEPTED", beforeHide, null).andExpect(status().isConflict());
+        String restored = action("POST", id, "RESTORE", "APPEAL_ACCEPTED", hiddenVersion, null).andExpect(status().isOk())
+                .andExpect(jsonPath("$.status").value("PUBLISHED")).andReturn().getResponse().getContentAsString();
+        assertThat(JsonPath.<Number>read(restored, "$.version").longValue()).isGreaterThan(hiddenVersion + 1).isEqualTo(version("POST", id));
+        assertThat(jdbc.queryForObject("SELECT comment_count FROM community_posts WHERE id=?", Integer.class, id)).isEqualTo(1);
     }
     @Test void transitionsReasonVersionAndDurationsAreStrictAndRestoreReconcilesVisibleReplies() throws Exception {
         long id=post(CommunityContentStatus.PUBLISHED),root=comment(id,null,CommunityContentStatus.PUBLISHED),reply=comment(id,root,CommunityContentStatus.PUBLISHED);

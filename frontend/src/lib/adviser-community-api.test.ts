@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync } from "node:fs";
 import { loadCommunityModerationQueue, loadCommunityModerationDetail, submitCommunityModerationAction } from "./adviser-community-api.ts";
 
 const origin = "https://udajo.example";
@@ -13,6 +14,7 @@ const detail = { targetType: "POST", targetId: "42", status: "PENDING_REVIEW", b
   actionsNextCursor: null };
 const csrf = { headerName: "X-XSRF-TOKEN", token: "safe-token" };
 const action = { command: "HIDE", reasonCode: "HARASSMENT", version: 3 } as const;
+const automaticHideDetail = JSON.parse(readFileSync(new URL("../../../backend/src/test/resources/community/automatic-hide-detail.json", import.meta.url), "utf8"));
 function transport(values: unknown[], status = 200) {
   const calls: { url: string; init?: RequestInit }[] = [];
   const request: typeof fetch = async (url, init) => {
@@ -114,6 +116,29 @@ test("action sends current version, reason and null restriction via credentialed
   assert.deepEqual(JSON.parse(calls[1].init?.body as string), { ...action, restrictionEndsAt: null });
 });
 
+test("backend automatic-hide detail is readable but automatic events cannot be submitted manually", async () => {
+  assert.deepEqual(await loadCommunityModerationDetail(origin, "POST", "42", {}, transport([automaticHideDetail]).request),
+    { status: "ready", value: automaticHideDetail });
+  const { request, calls } = transport([]);
+  for (const invalid of [{ ...action, command: "AUTO_HIDE", reasonCode: "REPORT_THRESHOLD" },
+    { ...action, reasonCode: "REPORT_THRESHOLD" }]) {
+    assert.deepEqual(await submitCommunityModerationAction(origin, "POST", "42", invalid as never, request), { status: "validation-error" });
+  }
+  assert.equal(calls.length, 0);
+});
+
+test("post hide and restore accept authoritative versions advanced by visibility and comment-count flushes", async () => {
+  const hidden = { ...detail, version: 5, status: "HIDDEN", reports: [], openReportCount: 0 };
+  const restored = { ...hidden, version: 7, status: "PUBLISHED" };
+  const { request, calls } = transport([csrf, hidden, csrf, restored]);
+  const result = await submitCommunityModerationAction(origin, "POST", "42", action, request);
+  assert.deepEqual(result, { status: "ready", value: hidden });
+  if (result.status !== "ready") assert.fail("hide must return the latest version");
+  assert.deepEqual(await submitCommunityModerationAction(origin, "POST", "42",
+    { command: "RESTORE", reasonCode: "APPEAL_ACCEPTED", version: result.value.version }, request), { status: "ready", value: restored });
+  assert.equal(JSON.parse(calls[3].init?.body as string).version, 5);
+});
+
 test("invalid actions are rejected before acquiring CSRF", async () => {
   const { request, calls } = transport([]);
   for (const bad of [{ ...action, version: -1 }, { ...action, version: "3" }, { ...action, version: Number.MAX_SAFE_INTEGER },
@@ -179,7 +204,8 @@ test("every protected request maps fixed HTTP failures without exposing raw back
 });
 
 test("malformed and mismatched write responses never become ready", async () => {
-  for (const bad of [{ ...detail, version: 3 }, { ...detail, version: 4, targetId: "43" }, { ...detail, version: 4, contact: "secret" }]) {
+  for (const bad of [{ ...detail, version: 2 }, { ...detail, version: 3 }, { ...detail, version: Number.MAX_SAFE_INTEGER + 1 },
+    { ...detail, version: 4, targetId: "43" }, { ...detail, version: 4, contact: "secret" }]) {
     assert.deepEqual(await submitCommunityModerationAction(origin, "POST", "42", action, transport([csrf, bad]).request), { status: "error" });
   }
   const malformed: typeof fetch = async () => new Response("not json");

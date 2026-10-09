@@ -2,6 +2,25 @@ import type { ModerationCommand, ModerationDetail, ModerationQueueFilters, Moder
 import type { AdviserFailure } from "./adviser-consultation-api.ts";
 import { type Locale, words } from "./site.ts";
 
+export function moderationReasonLabel(locale: Locale, reason: string): string {
+  const w = (zh: string, en: string) => words(locale, zh, en);
+  return ({
+    SPAM: w("垃圾信息", "Spam"), HARASSMENT: w("骚扰", "Harassment"), SCAM: w("诈骗", "Scam"),
+    INAPPROPRIATE_CONTENT: w("不当内容", "Inappropriate content"), OTHER: w("其他", "Other"),
+    POLICY_VIOLATION: w("违反社区规则", "Policy violation"), APPEAL_ACCEPTED: w("申诉成立", "Appeal accepted"),
+    REVIEW_APPROVED: w("审核通过", "Review approved"), REPORT_UNFOUNDED: w("举报不成立", "Report unfounded"),
+    REPORT_THRESHOLD: w("举报数量达到保护阈值", "Report threshold reached"),
+  })[reason] ?? w("未知原因", "Unknown reason");
+}
+
+export function moderationCommandLabel(locale: Locale, command: string): string {
+  const w = (zh: string, en: string) => words(locale, zh, en);
+  return ({ HIDE: w("隐藏内容", "Hide content"), RESTORE: w("恢复内容", "Restore content"),
+    REJECT_REPORT: w("驳回举报", "Reject reports"), MUTE: w("禁言作者", "Mute author"), BAN: w("封禁作者", "Ban author"),
+    AUTO_HIDE: w("系统自动隐藏", "Automatically hidden"),
+  })[command] ?? w("未知操作", "Unknown action");
+}
+
 export const reportReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "OTHER"] as const;
 const enforcementReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "POLICY_VIOLATION"];
 export function reasonsForCommand(command: ModerationCommand): string[] {

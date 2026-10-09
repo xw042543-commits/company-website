@@ -1,0 +1,13 @@
+{
+  "targetType": "POST",
+  "targetId": "42",
+  "status": "HIDDEN",
+  "body": "post",
+  "postId": null,
+  "parentCommentId": null,
+  "version": 2,
+  "openReportCount": 5,
+  "reports": [{ "reasonCode": "SPAM", "status": "OPEN", "count": 5 }],
+  "actions": [{ "id": "10", "command": "AUTO_HIDE", "reasonCode": "REPORT_THRESHOLD", "previousStatus": "PUBLISHED", "nextStatus": "HIDDEN", "createdAt": "2026-10-08T12:00:00Z" }],
+  "actionsNextCursor": null
+}

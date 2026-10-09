@@ -95,6 +95,40 @@ test('detail instances isolate ids, refresh state, ownership and idempotency fin
   assert.notEqual(reports[0].idempotencyKey, reports[1].idempotencyKey);
 });
 
+test('confirmed identical comments start new submissions while in-flight and failed retries reuse the key', async () => {
+  const module = await import('../miniprogram/pages/circle-detail/index.ts');
+  for (const status of ['PUBLISHED', 'PENDING_REVIEW']) {
+    const pending = deferred<Result<any>>(); const calls: any[] = []; let key = 0;
+    const definition: any = module.createCircleDetailPage({
+      loadPost: async (id: string) => ok({ id, authorName: '用户', authorAvatarUrl: null, body: '正文', commentCount: 0, likeCount: 0, publishedAt: '2026-10-08T00:00:00Z', likedByMe: false, ownedByMe: true }),
+      listComments: async () => ok({ items: [], nextCursor: null }),
+      createComment: async (input: any) => {
+        calls.push(input);
+        return calls.length === 1 ? pending.promise : ok({ id: String(calls.length), postId: '1', parentCommentId: null,
+          body: input.body, status, createdAt: '2026-10-08T00:00:00Z', publishedAt: null });
+      },
+      session: { getSnapshot: () => ({ status: 'authenticated', account: {} }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) },
+      createKey: () => `comment-${++key}`,
+    } as any);
+    const page = context(definition); definition.onLoad.call(page, { id: '1' });
+    await Promise.resolve(); await Promise.resolve();
+    page.data.commentBody = '同意';
+    const first = definition.submitComment.call(page);
+    await Promise.resolve();
+    await definition.submitComment.call(page);
+    assert.equal(calls.length, 1, 'in-flight repeat click must not send another submission');
+    pending.resolve({ ok: false, error: { kind: 'unavailable', code: 'NETWORK_UNAVAILABLE' } });
+    await first;
+    assert.equal(page.data.commentBody, '同意');
+    await definition.submitComment.call(page);
+    assert.equal(calls[0].idempotencyKey, calls[1].idempotencyKey, 'uncertain submission retries the same operation');
+    assert.equal(page.data.commentBody, '');
+    page.data.commentBody = '同意';
+    await definition.submitComment.call(page);
+    assert.notEqual(calls[1].idempotencyKey, calls[2].idempotencyKey, 'intentional identical comment after confirmation is a new operation');
+  }
+});
+
 test('detail refreshes personalized ownership once when the session becomes authenticated', async () => {
   const module = await import('../miniprogram/pages/circle-detail/index.ts');
   let listener: ((value: any) => void) | undefined;
@@ -210,6 +244,42 @@ test('same-avatar post refresh preserves fallback while a changed avatar resets 
   assert.equal(page.data.postAvatarFailed, true);
   avatar = 'https://example.test/two.png'; await definition.loadPost.call(page);
   assert.equal(page.data.postAvatarFailed, false);
+});
+
+test('unavailable post states distinguish hidden deleted and missing and discard stale content and pending comments', async () => {
+  const module = await import('../miniprogram/pages/circle-detail/index.ts');
+  for (const [code, expectedState, title] of [
+    ['COMMUNITY_POST_HIDDEN', 'hidden', '这条帖子暂不可公开展示'],
+    ['COMMUNITY_POST_DELETED', 'deleted', '这条帖子已删除'],
+    ['COMMUNITY_POST_NOT_FOUND', 'not-found', '没有找到这条帖子'],
+  ]) {
+    let unavailable = false; let commentRead = 0;
+    const pending = deferred<Result<any>>();
+    const comment = { id: '10', authorName: '用户', authorAvatarUrl: null, body: '旧评论', createdAt: '2026-10-08T00:00:00Z', likeCount: 0, likedByMe: false, ownedByMe: true, replies: [], repliesNextCursor: null };
+    const definition: any = module.createCircleDetailPage({
+      loadPost: async (id: string) => unavailable ? { ok: false, error: { kind: 'unexpected', code } }
+        : ok({ id, authorName: '用户', authorAvatarUrl: null, body: '旧正文', commentCount: 1, likeCount: 0, publishedAt: '2026-10-08T00:00:00Z', likedByMe: false, ownedByMe: true }),
+      listComments: async () => ++commentRead === 1 ? ok({ items: [comment], nextCursor: 'old.cursor' }) : pending.promise,
+      session: { getSnapshot: () => ({ status: 'authenticated', account: {} }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) },
+    } as any);
+    const page = context(definition); definition.onLoad.call(page, { id: '1' });
+    await Promise.resolve(); await Promise.resolve();
+    assert.equal(page.data.postState, 'ready');
+    page.data.reportOpen = true;
+    const comments = definition.loadComments.call(page, false);
+    unavailable = true;
+    await definition.loadPost.call(page);
+    assert.equal(page.data.postState, expectedState);
+    assert.equal(page.data.postStatusTitle, title);
+    assert.equal(page.data.post, null);
+    assert.equal(page.data.ownerPost, false);
+    assert.equal(page.data.reportOpen, true, 'an existing report request remains usable, including for a hidden post');
+    assert.deepEqual(page.data.comments, []);
+    assert.equal(page.data.commentsCursor, null);
+    pending.resolve(ok({ items: [{ ...comment, id: '11' }], nextCursor: null }));
+    await comments;
+    assert.deepEqual(page.data.comments, [], 'a late result must not revive the unavailable thread');
+  }
 });
 
 test('a write that completes after detail unload performs no toast, state update or follow-up read', async () => {

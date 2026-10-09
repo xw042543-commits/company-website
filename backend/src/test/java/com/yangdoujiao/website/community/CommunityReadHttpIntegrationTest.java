@@ -136,15 +136,31 @@ class CommunityReadHttpIntegrationTest {
     }
 
     @Test
-    void missingAndNonpublicDetailsAndCommentThreadsAreNotFound() throws Exception {
+    void unavailableDetailsDistinguishHiddenDeletedAndMissingWithoutExposingPrivateContent() throws Exception {
         for (var state : CommunityContentStatus.values()) {
             if (state == CommunityContentStatus.PUBLISHED) continue;
             var hidden = seedPost(state, TIME);
-            mvc.perform(get("/api/v1/community/posts/" + hidden.getId())).andExpect(status().isNotFound())
+            String expectedCode = switch (state) {
+                case HIDDEN -> "COMMUNITY_POST_HIDDEN";
+                case DELETED -> "COMMUNITY_POST_DELETED";
+                default -> "COMMUNITY_POST_NOT_FOUND";
+            };
+            for (boolean owner : new boolean[] {false, true}) {
+                var request = get("/api/v1/community/posts/" + hidden.getId());
+                if (owner) request.with(user(UserPrincipal.from(author)));
+                String body = mvc.perform(request).andExpect(status().isNotFound())
+                        .andExpect(jsonPath("$.code").value(expectedCode))
+                        .andExpect(jsonPath("$.message").value("Community post is unavailable"))
+                        .andExpect(jsonPath("$.fieldErrors").isEmpty())
+                        .andExpect(jsonPath("$.traceId").isNotEmpty()).andReturn().getResponse().getContentAsString();
+                assertThat(json.readTree(body).properties()).hasSize(4);
+                assertThat(body).doesNotContain("body 😀", "riskReason", "authorAccountId", "moderation", "Private real full name");
+            }
+            mvc.perform(get("/api/v1/community/posts/" + hidden.getId() + "/comments")).andExpect(status().isNotFound())
                     .andExpect(jsonPath("$.code").value("COMMUNITY_POST_NOT_FOUND"));
-            mvc.perform(get("/api/v1/community/posts/" + hidden.getId() + "/comments")).andExpect(status().isNotFound());
         }
-        mvc.perform(get("/api/v1/community/posts/9223372036854775807")).andExpect(status().isNotFound());
+        mvc.perform(get("/api/v1/community/posts/9223372036854775807")).andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code").value("COMMUNITY_POST_NOT_FOUND"));
     }
 
     @Test
