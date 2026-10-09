@@ -64,12 +64,66 @@ class V3MigrationCompatibilityTest {
                     RETURNING id
                     """, Long.class);
 
+            flywayFor(postgres, "16").migrate();
+            Long universityId = jdbcTemplate.queryForObject(
+                    "SELECT id FROM universities WHERE slug = 'university-of-malaya'", Long.class);
+            Long subjectId = jdbcTemplate.queryForObject("""
+                    INSERT INTO subject_categories(code, name_en) VALUES ('LEGACY', 'Legacy subject') RETURNING id
+                    """, Long.class);
+            Long programmeId = jdbcTemplate.queryForObject("""
+                    INSERT INTO programmes(programme_code, university_id, subject_category_id, slug, name_en, official_url)
+                    VALUES ('LEGACY', ?, ?, 'legacy-programme', 'Legacy programme', 'https://example.test/programme')
+                    RETURNING id
+                    """, Long.class, universityId, subjectId);
+            jdbcTemplate.update("""
+                    INSERT INTO programme_detail_sections(programme_id, section_type, title_en, body_en)
+                    VALUES (?, 'ADMISSIONS', 'Legacy admissions', 'Preserved admission requirements')
+                    """, programmeId);
+            jdbcTemplate.update("""
+                    INSERT INTO programme_media(programme_id, kind, asset_url, source_url)
+                    VALUES (?, 'COURSE_IMAGE', 'https://example.test/course.jpg', 'https://example.test/programme')
+                    """, programmeId);
+            jdbcTemplate.update("""
+                    INSERT INTO university_media(university_id, kind, asset_url, source_url)
+                    VALUES (?, 'LOGO', 'https://example.test/logo.jpg', 'https://example.test')
+                    """, universityId);
+            jdbcTemplate.update("""
+                    INSERT INTO miniapp_programme_favorites(user_account_id, programme_id) VALUES (?, ?)
+                    """, accountId, programmeId);
+            jdbcTemplate.update("""
+                    INSERT INTO miniapp_study_plans(user_account_id, goal, country, education)
+                    VALUES (?, 'MASTERS', 'Malaysia', 'Bachelor')
+                    """, accountId);
+            jdbcTemplate.update("UPDATE consultation_enquiries SET user_account_id = ? WHERE id = ?", accountId, enquiryId);
+
             Flyway latest = Flyway.configure()
                     .dataSource(postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword())
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("16");
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("18");
+            assertThat(latest.info().applied()).hasSize(18);
+            assertThat(java.util.Arrays.stream(latest.info().applied())
+                    .map(migration -> migration.getVersion().getVersion()).toList())
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 18)
+                            .mapToObj(Integer::toString).toList());
+            assertThat(jdbcTemplate.queryForObject(
+                    "SELECT official_url FROM programmes WHERE id = ?", String.class, programmeId))
+                    .isEqualTo("https://example.test/programme");
+            assertThat(jdbcTemplate.queryForObject(
+                    "SELECT body_en FROM programme_detail_sections WHERE programme_id = ?", String.class, programmeId))
+                    .isEqualTo("Preserved admission requirements");
+            for (String table : java.util.List.of("programme_media", "university_media",
+                    "miniapp_programme_favorites", "miniapp_study_plans")) {
+                assertThat(jdbcTemplate.queryForObject("SELECT count(*) FROM " + table, Integer.class)).isOne();
+            }
+            assertThat(jdbcTemplate.queryForObject(
+                    "SELECT user_account_id FROM consultation_enquiries WHERE id = ?", Long.class, enquiryId))
+                    .isEqualTo(accountId);
+            assertThat(jdbcTemplate.queryForList("""
+                    SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'
+                      AND table_name LIKE 'community_%'
+                    """, String.class)).contains("community_posts", "community_comments", "community_idempotency_records");
             assertThat(jdbcTemplate.queryForObject(
                     "SELECT role FROM user_accounts WHERE id = ?", String.class, accountId)).isEqualTo("USER");
             assertThat(jdbcTemplate.queryForMap("""

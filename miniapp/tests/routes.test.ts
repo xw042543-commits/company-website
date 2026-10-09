@@ -4,6 +4,7 @@ import test from 'node:test';
 import {
   programmeDetailRoute,
   universityDetailRoute,
+  communityPostRoute, communityComposeRoute, communityMeRoute, communityFeedRoute,
 } from '../miniprogram/utils/routes.ts';
 
 test('builds encoded university and programme detail routes', () => {
@@ -23,6 +24,15 @@ test('builds encoded university and programme detail routes', () => {
     ok: true,
     value: '/pages/programme-detail/index?universitySlug=segi-university&programmeId=584',
   });
+});
+
+test('community routes use canonical decimal strings and circle page paths', () => {
+  assert.deepEqual(communityPostRoute('9007199254740993'), { ok: true, value: '/pages/circle-detail/index?id=9007199254740993' });
+  assert.deepEqual(communityComposeRoute(), { ok: true, value: '/pages/circle-compose/index' });
+  assert.deepEqual(communityMeRoute(), { ok: true, value: '/pages/circle-me/index' });
+  assert.deepEqual(communityFeedRoute(), { ok: true, value: '/pages/circle/index' });
+  for (const bad of ['01', '0', '+1', ' 1', '1 ', '1&admin=1', '1/like', '9223372036854775808', 1])
+    assert.deepEqual(communityPostRoute(bad as string), { ok: false, error: { kind: 'validation', code: 'INVALID_DETAIL_ROUTE' } });
 });
 
 test('rejects blank and malformed university slugs with the route validation result', () => {

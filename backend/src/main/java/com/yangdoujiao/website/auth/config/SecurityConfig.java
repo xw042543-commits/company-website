@@ -18,7 +18,7 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.csrf.CsrfFilter;
 
 import com.yangdoujiao.website.auth.api.AuthSecurityErrorWriter;
 import com.yangdoujiao.website.auth.miniapp.MiniappBearerFilter;
@@ -61,6 +61,9 @@ public class SecurityConfig {
         http.cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/api/v1/miniapp/**")
+                        .ignoringRequestMatchers(request -> request.getRequestURI().substring(request.getContextPath().length())
+                                .startsWith("/api/v1/community/")
+                                && Boolean.TRUE.equals(request.getAttribute(MiniappBearerFilter.AUTHENTICATED_ATTRIBUTE)))
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler()))
                 .exceptionHandling(exceptions -> exceptions
@@ -84,6 +87,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,
                                 "/api/v1/miniapp/universities/*/programmes/*").permitAll()
                         .requestMatchers("/api/v1/miniapp/**").hasRole("USER")
+                        .requestMatchers(HttpMethod.GET, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
+                        .requestMatchers(HttpMethod.HEAD, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
+                        .requestMatchers("/api/v1/community/**").hasRole("USER")
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
                         .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")
                         .requestMatchers(HttpMethod.GET, PUBLIC_READ_PATHS).permitAll()
@@ -105,7 +111,7 @@ public class SecurityConfig {
                 .requestCache(AbstractHttpConfigurer::disable);
         MiniappBearerFilter miniappBearer = miniappBearerProvider.getIfAvailable();
         if (miniappBearer != null) {
-            http.addFilterBefore(miniappBearer, UsernamePasswordAuthenticationFilter.class);
+            http.addFilterBefore(miniappBearer, CsrfFilter.class);
         }
         return http.build();
     }

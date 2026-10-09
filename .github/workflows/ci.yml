@@ -112,6 +112,26 @@ jobs:
         working-directory: frontend
         run: npm run build
 
+  miniapp:
+    name: Miniapp - tests, types and lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: miniapp/package-lock.json
+      - name: Install miniapp dependencies
+        working-directory: miniapp
+        run: npm ci
+      - name: Verify integrated miniapp
+        working-directory: miniapp
+        run: npm run check
+
   deployment:
     name: Deployment - contracts and images
     runs-on: ubuntu-latest
@@ -161,6 +181,7 @@ jobs:
           FRONTEND_IMAGE=udajo/frontend:ci
           BACKEND_IMAGE=udajo/backend:ci
           EOF
+          printf 'APP_COMMUNITY_CURSOR_SECRET=%s\n' "$(openssl rand -hex 32)" >> "$RUNNER_TEMP/deployment.env"
 
       - name: Validate deployment contracts
         run: |

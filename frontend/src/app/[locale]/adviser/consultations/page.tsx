@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { AdviserConsultationsPanel } from "@/components/adviser-consultations-panel";
+import { adviserNavigation } from "@/lib/adviser-consultations-ui";
 import { isLocale, words } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Consultations · UDAJO", robots: { index: false, follow: false } };
@@ -23,6 +24,9 @@ export default async function AdviserConsultationsPage({ params }: { params: Pro
           <p>{words(locale, "查看客户提交的留学需求并持续跟进。", "Review submitted study-abroad needs and keep every enquiry moving.")}</p></div>
         <Link className="button secondary" href={`/${locale}/account`}>{words(locale, "我的账户", "My account")}</Link>
       </header>
+      <nav className="community-navigation" aria-label={words(locale, "顾问导航", "Adviser navigation")}>
+        {adviserNavigation(locale).map((item) => <Link key={item.href} href={item.href} aria-current={item.href.endsWith("/consultations") ? "page" : undefined}>{item.label}</Link>)}
+      </nav>
       <Suspense fallback={<p role="status">{words(locale, "正在载入咨询…", "Loading consultations…")}</p>}>
         <AdviserConsultationsPanel locale={locale} />
       </Suspense>

@@ -1,0 +1,36 @@
+<view class="page-shell detail-page">
+  <view wx:if="{{postState === 'loading'}}" class="detail-skeleton"><view class="skeleton-avatar"></view><view class="skeleton-line"></view><view class="skeleton-line short"></view></view>
+  <view wx:elif="{{postState === 'ready'}}" class="post-detail surface-card">
+    <view class="author-row"><image wx:if="{{post.authorAvatarUrl && !postAvatarFailed}}" class="avatar" src="{{post.authorAvatarUrl}}" mode="aspectFill" binderror="postAvatarError" /><view wx:else class="avatar-fallback">U</view><view class="author-copy"><view class="author-name">{{post.authorName}}</view><view class="post-time">{{postTime}}</view></view><button class="minor-action" data-type="POST" data-id="{{post.id}}" bindtap="openReport">举报</button></view>
+    <view class="post-body">{{post.body}}</view>
+    <view class="post-toolbar"><button class="toolbar-button {{post.likedByMe ? 'active' : ''}}" disabled="{{reactingTarget === post.id}}" bindtap="reactPost">{{post.likedByMe ? '已赞' : '点赞'}} {{post.likeCount}}</button><text class="count-copy">{{post.commentCount}} 条评论</text><button wx:if="{{ownerPost}}" class="danger-button" bindtap="deletePost">删除</button></view>
+  </view>
+  <app-state wx:elif="{{postState === 'hidden' || postState === 'deleted' || postState === 'not-found'}}" kind="empty" title="{{postStatusTitle}}" description="{{postStatusDescription}}" retryable="{{false}}" />
+  <app-state wx:elif="{{postState === 'unauthorized'}}" kind="failed" title="需要登录后查看" description="请完成登录后重试。" retryable="{{true}}" bind:retry="retryPost" />
+  <app-state wx:elif="{{postState === 'unavailable'}}" kind="failed" title="帖子暂时不可用" description="请稍后重新加载。" retryable="{{true}}" bind:retry="retryPost" />
+  <app-state wx:elif="{{postState === 'offline'}}" kind="offline" title="网络暂时不可用" description="请检查网络后重试。" retryable="{{true}}" bind:retry="retryPost" />
+  <app-state wx:elif="{{postState === 'failed'}}" kind="failed" title="帖子加载失败" description="请稍后重新加载。" retryable="{{true}}" bind:retry="retryPost" />
+
+  <block wx:if="{{postState !== 'hidden' && postState !== 'deleted' && postState !== 'not-found'}}">
+  <view class="section-title">评论</view>
+  <view wx:if="{{commentsState === 'ready'}}" class="comment-list">
+    <view wx:for="{{comments}}" wx:key="id" class="comment-block surface-card">
+      <view class="comment-head"><image wx:if="{{item.authorAvatarUrl && !item.avatarFailed}}" class="mini-avatar" src="{{item.authorAvatarUrl}}" mode="aspectFill" data-id="{{item.id}}" binderror="commentAvatarError" /><view wx:else class="mini-avatar">U</view><view class="comment-author">{{item.authorName}}</view><view class="comment-time">{{item.displayTime}}</view></view>
+      <view class="comment-body">{{item.body}}</view>
+      <view class="comment-actions"><button data-parent="{{item.id}}" data-id="{{item.authorName}}" bindtap="chooseReply">回复</button><button data-id="{{item.id}}" bindtap="reactComment">{{item.likedByMe ? '已赞' : '点赞'}} {{item.likeCount}}</button><button data-type="COMMENT" data-id="{{item.id}}" bindtap="openReport">举报</button><button wx:if="{{item.owner}}" class="danger" data-id="{{item.id}}" bindtap="deleteComment">删除</button></view>
+      <view wx:if="{{item.replies.length}}" class="reply-list"><view wx:for="{{item.replies}}" wx:for-item="reply" wx:key="id" class="reply-row"><view class="reply-head"><image wx:if="{{reply.authorAvatarUrl && !reply.avatarFailed}}" class="reply-avatar" src="{{reply.authorAvatarUrl}}" mode="aspectFill" data-id="{{reply.id}}" binderror="commentAvatarError" /><view wx:else class="reply-avatar">U</view><view class="reply-meta">{{reply.authorName}}</view></view><view class="reply-body">{{reply.body}}</view><view class="comment-actions"><button data-parent="{{item.id}}" data-id="{{reply.authorName}}" bindtap="chooseReply">回复</button><button data-id="{{reply.id}}" bindtap="reactComment">{{reply.likedByMe ? '已赞' : '点赞'}} {{reply.likeCount}}</button><button data-type="COMMENT" data-id="{{reply.id}}" bindtap="openReport">举报</button><button wx:if="{{reply.owner}}" class="danger" data-id="{{reply.id}}" bindtap="deleteComment">删除</button></view></view></view>
+      <button wx:if="{{item.repliesNextCursor}}" class="reply-more" disabled="{{item.loadingReplies}}" data-parent="{{item.id}}" bindtap="loadMoreReplies">{{item.loadingReplies ? '正在加载…' : '加载更多回复'}}</button>
+    </view>
+    <view wx:if="{{loadingMoreComments}}" class="list-foot">正在加载更多评论…</view><view wx:elif="{{!commentsCursor}}" class="list-foot">已显示全部评论</view>
+  </view>
+  <app-state wx:elif="{{commentsState === 'loading'}}" kind="loading" title="正在读取评论" description="评论与帖子分别加载。" />
+  <app-state wx:elif="{{commentsState === 'empty'}}" kind="empty" title="还没有评论" description="登录后可以参与讨论。" />
+  <app-state wx:elif="{{commentsState === 'offline'}}" kind="offline" title="评论加载失败" description="请检查网络后重试。" retryable="{{true}}" bind:retry="retryComments" />
+  <app-state wx:elif="{{commentsState === 'failed'}}" kind="failed" title="评论暂时不可用" description="请稍后重新加载。" retryable="{{true}}" bind:retry="retryComments" />
+
+  <view class="comment-composer surface-card"><view wx:if="{{replyParentId}}" class="replying">回复 {{replyAuthor}}<button bindtap="cancelReply">取消</button></view><textarea value="{{commentBody}}" maxlength="-1" placeholder="友善交流，分享真实经验" bindinput="updateComment" /><view class="composer-foot"><text class="counter {{commentCount > 1000 ? 'counter--danger' : ''}}">{{commentCount}} / 1000</text><button class="submit-button" disabled="{{submittingComment || !commentBody || commentCount > 1000}}" bindtap="submitComment">{{submittingComment ? '提交中…' : '发表评论'}}</button></view></view>
+
+  </block>
+
+  <view wx:if="{{reportOpen}}" class="report-mask" bindtap="closeReport"><view class="report-sheet" catchtap="noop"><view class="report-title">举报内容</view><view class="report-copy">请选择最符合的原因。我们只会提交你选择的分类和补充说明。</view><view class="reason-grid"><button wx:for="{{reportReasons}}" wx:key="code" class="reason-button {{reportReason === item.code ? 'selected' : ''}}" data-reason="{{item.code}}" bindtap="chooseReportReason">{{item.label}}{{reportReason === item.code ? '（已选）' : ''}}</button></view><textarea value="{{reportNote}}" maxlength="-1" placeholder="补充说明（选填）" bindinput="updateReportNote" /><view class="report-count {{reportNoteCount > 500 ? 'counter--danger' : ''}}">{{reportNoteCount}} / 500</view><view class="report-actions"><button bindtap="closeReport">取消</button><button class="submit-button" disabled="{{reporting || reportNoteCount > 500}}" bindtap="submitReport">{{reporting ? '提交中…' : '提交举报'}}</button></view></view></view>
+</view>

@@ -1,0 +1,34 @@
+<view class="post-card" aria-label="{{post.authorName}}发布的帖子">
+  <view class="post-head">
+    <image
+      wx:if="{{post.authorAvatarUrl && !imageFailed}}"
+      class="avatar"
+      src="{{post.authorAvatarUrl}}"
+      mode="aspectFill"
+      binderror="imageError"
+      aria-label="{{post.authorName}}的头像"
+    />
+    <view wx:else class="avatar-fallback" aria-label="默认头像">U</view>
+    <view class="author-copy">
+      <view class="author-name">{{post.authorName}}</view>
+      <view class="post-time">{{displayTime}}</view>
+    </view>
+    <button class="text-action" bindtap="report" aria-label="举报这条帖子">举报</button>
+  </view>
+  <view class="post-body" bindtap="open">{{post.bodyPreview}}</view>
+  <view class="post-actions">
+    <button class="metric-button" bindtap="open" aria-label="查看{{post.commentCount}}条评论">
+      <view class="comment-icon" aria-hidden="true"></view>
+      <text>{{post.commentCount}}</text>
+    </button>
+    <button
+      class="metric-button {{post.likedByMe ? 'metric-button--active' : ''}}"
+      disabled="{{reacting}}"
+      bindtap="react"
+      aria-label="{{post.likedByMe ? '取消点赞' : '点赞'}}，当前{{post.likeCount}}个赞"
+    >
+      <view class="heart-icon {{post.likedByMe ? 'heart-icon--active' : ''}}" aria-hidden="true"></view>
+      <text>{{post.likeCount}}</text>
+    </button>
+  </view>
+</view>

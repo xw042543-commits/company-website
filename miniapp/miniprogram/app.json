@@ -9,6 +9,9 @@
     "pages/favorites/index",
     "pages/consultations/index",
     "pages/circle/index",
+    "pages/circle-detail/index",
+    "pages/circle-compose/index",
+    "pages/circle-me/index",
     "pages/account/index"
   ],
   "window": {
