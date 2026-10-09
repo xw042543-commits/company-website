@@ -282,6 +282,9 @@ test('university profile has safe custom navigation, independent media fallbacks
   assert.match(markup, /data-section="programmes"[^>]+bindtap="selectSection"/);
   assert.match(markup, /院校简介/);
   assert.match(markup, /专业查询/);
+  assert.match(markup, /正在审核整理中，可在专业查询中查看已发布专业/);
+  assert.match(markup, /wx:if="\{\{programmeIntakeDisplays\[item.id\]\}\}"/);
+  assert.match(markup, /入学时间：\{\{programmeIntakeDisplays\[item.id\]\}\}/);
   assert.match(markup, /wx:for="\{\{programmeCategories\}\}"/);
   assert.match(markup, /bindtap="selectCategory"/);
   assert.match(markup, /wx:for="\{\{visibleProgrammes\}\}"/);
@@ -461,6 +464,94 @@ test('university profile clears the capsule and preserves favourites and validat
     page.consult.call(context);
     assert.deepEqual(toasts, ['已收藏', '专业资料暂时无法打开', '咨询功能正在接入']);
   } finally {
+    if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
+
+test('university profile fetches every programme page sequentially before exposing complete categories and counts', async () => {
+  const page = await loadUniversityDetailPage();
+  const { resetFilterOptionsCache } = await import('../miniprogram/services/catalogue.ts');
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  try {
+    for (const outcome of ['complete', 'offline', 'incomplete'] as const) {
+      resetFilterOptionsCache();
+      const slug = `contract-pagination-${outcome}`;
+      const requestedPages: number[] = [];
+      let inFlight = 0;
+      let maximumInFlight = 0;
+      const readySnapshots: Array<{ count: unknown; rows: number }> = [];
+      Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+        getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }),
+        setNavigationBarTitle() {},
+        request(options: { url: string; success(response: unknown): void; fail(response: unknown): void }) {
+          const url = new URL(options.url);
+          if (url.pathname.endsWith('/programmes')) {
+            const pageNumber = Number(url.searchParams.get('page'));
+            assert.equal(url.searchParams.get('size'), '50');
+            requestedPages.push(pageNumber);
+            inFlight++;
+            maximumInFlight = Math.max(maximumInFlight, inFlight);
+            queueMicrotask(() => {
+              inFlight--;
+              if (outcome === 'offline' && pageNumber === 2) {
+                options.fail({ errMsg: 'offline' });
+                return;
+              }
+              const length = pageNumber === 3 ? (outcome === 'incomplete' ? 0 : 1) : 50;
+              const items = Array.from({ length }, (_, index) => {
+                const id = (pageNumber - 1) * 50 + index + 1;
+                return { id, slug: `programme-${id}`, nameZh: `专业 ${id}`, nameEn: `Programme ${id}`,
+                  categoryCode: pageNumber === 1 ? 'BUSINESS' : 'NEW_CATEGORY', studyLevelCode: 'BACHELOR',
+                  durationDisplay: '3年', tuitionDisplay: '', intakeDisplayTexts: id === 51 ? ['一月', '九月'] : [],
+                };
+              });
+              options.success({ statusCode: 200, data: { items, page: pageNumber, pageSize: 50, totalItems: 101, totalPages: 3 }, header: {}, cookies: [] });
+            });
+          } else {
+            const data = url.pathname.endsWith('/filter-options') ? {
+              countries: [], subjectCategories: [{ code: 'BUSINESS', nameZh: '商科', nameEn: 'Business' }],
+              studyLevels: [], courseModes: [], languages: [],
+            } : { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', descriptionZh: '' };
+            options.success({ statusCode: 200, data, header: {}, cookies: [] });
+          }
+          return { abort() {} };
+        },
+      } });
+      const context: UniversityDetailPageContext = {
+        data: { ...page.data, slug },
+        setData(update) {
+          Object.assign(this.data, update);
+          if (update.state === 'ready') readySnapshots.push({ count: this.data.programmeCount, rows: this.data.visibleProgrammes.length });
+        },
+      };
+      await page.loadPage.call(context);
+      assert.deepEqual(requestedPages, outcome === 'offline' ? [1, 2] : [1, 2, 3]);
+      assert.equal(maximumInFlight, 1);
+      if (outcome !== 'complete') {
+        assert.equal(context.data.state, outcome === 'offline' ? 'offline' : 'failed');
+        assert.deepEqual(readySnapshots, []);
+        assert.deepEqual(context.data.visibleProgrammes, []);
+        assert.equal(context.data.programmeCount, 0);
+        continue;
+      }
+      assert.equal(context.data.state, 'ready');
+      assert.deepEqual(readySnapshots, [{ count: 101, rows: 101 }]);
+      assert.equal(context.data.programmes.length, 101);
+      assert.deepEqual(context.data.programmes.map((item) => item.id), Array.from({ length: 101 }, (_, index) => index + 1));
+      assert.deepEqual(context.data.programmeCategories, [
+        { code: 'ALL', label: '全部学院' }, { code: 'BUSINESS', label: '商科' }, { code: 'NEW_CATEGORY', label: 'NEW_CATEGORY' },
+      ]);
+      assert.equal((context.data.programmeIntakeDisplays as Record<number, string>)[51], '一月、九月');
+      assert.equal((context.data.programmeIntakeDisplays as Record<number, string>)[1], '');
+      page.selectCategory.call(context, { currentTarget: { dataset: { code: 'NEW_CATEGORY' } } });
+      assert.equal(context.data.visibleProgrammes.length, 51);
+      assert.equal(context.data.visibleProgrammes[0]?.id, 51);
+      page.selectCategory.call(context, { currentTarget: { dataset: { code: 'ALL' } } });
+      assert.equal(context.data.visibleProgrammes.length, 101);
+    }
+  } finally {
+    resetFilterOptionsCache();
     if (original) Object.defineProperty(globalThis, 'wx', original);
     else Reflect.deleteProperty(globalThis, 'wx');
   }

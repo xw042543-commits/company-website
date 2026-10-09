@@ -40,6 +40,7 @@
 .programme-name-en { margin-top:8rpx; color:#626c65; font-size:24rpx; line-height:1.5; overflow-wrap:break-word; word-break:break-word; }
 .programme-meta { display:flex; flex-wrap:wrap; gap:12rpx 20rpx; align-items:center; margin-top:14rpx; color:#49544d; font-size:23rpx; overflow-wrap:break-word; word-break:break-word; }
 .programme-level { padding:4rpx 10rpx; border-radius:6rpx; background:#f2f0e7; color:#49544d; }
+.programme-intakes { margin-top:12rpx; color:#49544d; font-size:23rpx; line-height:1.5; overflow-wrap:break-word; word-break:break-word; }
 .programme-arrow { flex-shrink:0; color:#49544d; font-size:44rpx; }
 .programme-empty { padding:44rpx 28rpx; color:#626c65; text-align:center; font-size:27rpx; line-height:1.6; }
 .bottom-action { position:fixed; z-index:5; right:0; bottom:0; left:0; display:flex; gap:16rpx; box-sizing:border-box; padding:16rpx 28rpx calc(16rpx + env(safe-area-inset-bottom)); border-top:1rpx solid #dce1dc; background:#fdfdfb; }

@@ -23,6 +23,7 @@ Page({
     activeCategory: 'ALL',
     programmeCategories: [{ code: 'ALL', label: '全部学院' }] as ProgrammeCategory[],
     visibleProgrammes: [] as UniversityProgramme[],
+    programmeIntakeDisplays: {} as Record<number, string>,
     descriptionParagraphs: [] as string[],
     location: '',
     statusBarHeight: 20,
@@ -98,7 +99,7 @@ Page({
     this.setData({ state: 'loading' as ViewState, imageFailed: false, logoFailed: false });
     const [detail, programmes, catalogue] = await Promise.all([
       getUniversityDetail(this.data.slug),
-      getUniversityProgrammes(this.data.slug),
+      getUniversityProgrammes(this.data.slug, 1, 50),
       loadFilterOptions(),
     ]);
     if (!detail.ok || !programmes.ok) {
@@ -107,18 +108,34 @@ Page({
       this.setData({ state: error?.kind === 'unavailable' ? 'offline' as ViewState : 'failed' as ViewState });
       return;
     }
+    const allProgrammes = [...programmes.value.items];
+    // The service shares one request key, so later pages must complete in order.
+    for (let page = 2; page <= programmes.value.totalPages; page++) {
+      const next = await getUniversityProgrammes(this.data.slug, page, 50);
+      if (!next.ok) {
+        if (next.error.code === 'REQUEST_SUPERSEDED') return;
+        this.setData({ state: next.error.kind === 'unavailable' ? 'offline' as ViewState : 'failed' as ViewState });
+        return;
+      }
+      allProgrammes.push(...next.value.items);
+    }
+    if (allProgrammes.length !== programmes.value.totalItems) {
+      this.setData({ state: 'failed' as ViewState });
+      return;
+    }
     const labels = new Map(catalogue.ok
       ? catalogue.value.subjectCategories.map((category) => [category.code, category.nameZh]) : []);
-    const programmeCategories = deriveProgrammeCategories(programmes.value.items, labels);
+    const programmeCategories = deriveProgrammeCategories(allProgrammes, labels);
     const activeCategory = programmeCategories.some((category) => category.code === this.data.activeCategory)
       ? this.data.activeCategory : 'ALL';
     this.setData({
       university: detail.value,
-      programmes: programmes.value.items,
+      programmes: allProgrammes,
       programmeCount: programmes.value.totalItems,
       programmeCategories,
       activeCategory,
-      visibleProgrammes: filterProgrammes(programmes.value.items, activeCategory),
+      visibleProgrammes: filterProgrammes(allProgrammes, activeCategory),
+      programmeIntakeDisplays: Object.fromEntries(allProgrammes.map((programme) => [programme.id, programme.intakeDisplayTexts.join('、')])),
       location: [detail.value.cityZh, detail.value.countryNameZh].filter(Boolean).join('，'),
       descriptionParagraphs: detail.value.descriptionZh.split(/\r?\n/).map((paragraph) => paragraph.trim()).filter(Boolean),
       logoLetter: detail.value.nameEn.charAt(0).toUpperCase() || 'U',

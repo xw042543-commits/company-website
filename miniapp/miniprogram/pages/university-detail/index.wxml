@@ -45,7 +45,7 @@
       <view wx:if="{{descriptionParagraphs.length > 0}}" class="introduction-copy">
         <view wx:for="{{descriptionParagraphs}}" wx:key="index" class="description-paragraph">{{item}}</view>
       </view>
-      <view wx:else class="description-paragraph">该院校的详细简介正在整理中，可在专业查询中查看已发布专业。</view>
+      <view wx:else class="description-paragraph">该院校的详细简介正在审核整理中，可在专业查询中查看已发布专业。</view>
     </view>
 
     <view wx:else class="programmes-panel" role="tabpanel">
@@ -65,6 +65,7 @@
               <text wx:if="{{item.durationDisplay}}">{{item.durationDisplay}}</text>
               <text wx:if="{{item.tuitionDisplay}}">{{item.tuitionDisplay}}</text>
             </view>
+            <view wx:if="{{programmeIntakeDisplays[item.id]}}" class="programme-intakes">入学时间：{{programmeIntakeDisplays[item.id]}}</view>
           </view>
           <text class="programme-arrow" aria-hidden="true">›</text>
         </button>
