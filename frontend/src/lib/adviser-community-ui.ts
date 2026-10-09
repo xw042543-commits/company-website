@@ -1,4 +1,4 @@
-import type { ModerationCommand, ModerationQueueFilters } from "./adviser-community-api.ts";
+import type { ModerationCommand, ModerationDetail, ModerationQueueFilters, ModerationResult } from "./adviser-community-api.ts";
 import type { AdviserFailure } from "./adviser-consultation-api.ts";
 import { type Locale, words } from "./site.ts";
 
@@ -27,6 +27,15 @@ export function canSubmitModeration(input: {
 
 export function afterModerationFailure<T extends { selectedId: string; refreshDetail: boolean }>(state: T, failure: AdviserFailure) {
   return failure.status === "conflict" ? { ...state, refreshDetail: true, needsReload: true } : { ...state, refreshDetail: false };
+}
+
+export async function resolveModerationHistoryPage(previous: ModerationDetail, page: ModerationDetail,
+  reloadHead: () => Promise<ModerationResult<ModerationDetail>>): Promise<ModerationResult<ModerationDetail>> {
+  // A continuation at a new version omits the latest decisions; only a fresh head can unlock moderation.
+  if (previous.version !== page.version) return reloadHead();
+  return { status: "ready", value: { ...page,
+    actions: [...previous.actions, ...page.actions.filter((action) => !previous.actions.some((item) => item.id === action.id))],
+  } };
 }
 
 export type QueueFilterDraft = { status: "PENDING" | "PROCESSED" | "HIDDEN"; targetType: string; reasonCode: string; from: string; to: string };

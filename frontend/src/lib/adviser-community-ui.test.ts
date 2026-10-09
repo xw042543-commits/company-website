@@ -1,6 +1,50 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import type { ModerationDetail } from "./adviser-community-api.ts";
+
+const historyHead: ModerationDetail = {
+  targetType: "POST", targetId: "42", status: "HIDDEN", body: "Version 2 content", postId: null, parentCommentId: null,
+  version: 2, openReportCount: 0, reports: [], actionsNextCursor: "older-actions",
+  actions: [{ id: "2", command: "HIDE", reasonCode: "SPAM", previousStatus: "PUBLISHED", nextStatus: "HIDDEN", createdAt: "2026-10-09T00:00:00Z" }],
+};
+const changedHistoryPage: ModerationDetail = {
+  ...historyHead, version: 3, status: "PUBLISHED", body: "Version 3 content", actionsNextCursor: null,
+  actions: [{ id: "1", command: "HIDE", reasonCode: "SPAM", previousStatus: "PUBLISHED", nextStatus: "HIDDEN", createdAt: "2026-10-08T00:00:00Z" }],
+};
+const refreshedHistoryHead: ModerationDetail = {
+  ...changedHistoryPage, actionsNextCursor: "older-actions",
+  actions: [{ id: "3", command: "RESTORE", reasonCode: "APPEAL_ACCEPTED", previousStatus: "HIDDEN", nextStatus: "PUBLISHED", createdAt: "2026-10-09T01:00:00Z" }, ...historyHead.actions],
+};
+
+test("history version change discards the cursor page and displays freshly loaded head decisions", async () => {
+  const { resolveModerationHistoryPage } = await import("./adviser-community-ui.ts");
+  let reloads = 0;
+  const result = await resolveModerationHistoryPage(historyHead, changedHistoryPage, async () => {
+    reloads += 1;
+    return { status: "ready", value: refreshedHistoryHead };
+  });
+  assert.equal(reloads, 1);
+  assert.deepEqual(result, { status: "ready", value: refreshedHistoryHead });
+  if (result.status === "ready") assert.deepEqual(result.value.actions.map((action) => action.id), ["3", "2"]);
+});
+
+test("history head reload failure never publishes a partial cursor page and can retry safely", async () => {
+  const { resolveModerationHistoryPage, canSubmitModeration } = await import("./adviser-community-ui.ts");
+  const failed = await resolveModerationHistoryPage(historyHead, changedHistoryPage, async () => ({ status: "unavailable" }));
+  assert.deepEqual(failed, { status: "unavailable" });
+  assert.equal(canSubmitModeration({ command: "RESTORE", reasonCode: "APPEAL_ACCEPTED", version: historyHead.version, needsReload: failed.status !== "ready" }), false);
+  const retried = await resolveModerationHistoryPage(historyHead, changedHistoryPage, async () => ({ status: "ready", value: refreshedHistoryHead }));
+  assert.deepEqual(retried, { status: "ready", value: refreshedHistoryHead });
+});
+
+test("same-version history continuation merges older decisions without a head reload", async () => {
+  const { resolveModerationHistoryPage } = await import("./adviser-community-ui.ts");
+  const page = { ...changedHistoryPage, version: 2, actions: [historyHead.actions[0], ...changedHistoryPage.actions] };
+  const result = await resolveModerationHistoryPage(historyHead, page, async () => { assert.fail("unchanged version must not reload the head"); });
+  assert.equal(result.status, "ready");
+  if (result.status === "ready") assert.deepEqual(result.value.actions.map((action) => action.id), ["2", "1"]);
+});
 
 test("requires an allowlisted reason and current safe version before submitting", async () => {
   const { canSubmitModeration } = await import("./adviser-community-ui.ts");

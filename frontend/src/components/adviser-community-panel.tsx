@@ -11,7 +11,7 @@ import type { AdviserFailure } from "@/lib/adviser-consultation-api";
 import { abortableRequest, createLatestRequest } from "@/lib/adviser-consultations-ui";
 import {
   afterModerationFailure, canSubmitModeration, moderationErrorText, moderationQueueFilters,
-  muteExpiry, reasonsForCommand, reportReasons, type QueueFilterDraft,
+  muteExpiry, reasonsForCommand, reportReasons, resolveModerationHistoryPage, type QueueFilterDraft,
 } from "@/lib/adviser-community-ui";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
@@ -99,14 +99,21 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
   async function loadDetail(target: SelectedTarget, actionsCursor?: string) {
     const request = detailRequests.current.start();
     setDetailPending(true); setDetailFailure(null); setNeedsReload(true); setConfirmed(false);
-    const result = await loadCommunityModerationDetail(browserApiBaseUrl(), target.targetType, target.targetId,
+    let result = await loadCommunityModerationDetail(browserApiBaseUrl(), target.targetType, target.targetId,
       actionsCursor ? { actionsCursor } : {}, abortableRequest(request.signal));
     if (!request.isCurrent()) return;
+    if (result.status === "ready" && actionsCursor && detail) {
+      result = await resolveModerationHistoryPage(detail, result.value, () => {
+        setReasonCode(""); setExpiry("");
+        setAnnouncement(w("其他顾问已处理此内容，正在重新载入最新详情和处理记录。请核对后再操作。",
+          "This content was handled by another adviser. Reloading the latest details and action history; review them before acting again."));
+        return loadCommunityModerationDetail(browserApiBaseUrl(), target.targetType, target.targetId, {}, abortableRequest(request.signal));
+      });
+      if (!request.isCurrent()) return;
+    }
     setDetailPending(false);
     if (result.status === "ready") {
-      setDetail((previous) => actionsCursor && previous?.version === result.value.version
-        ? { ...result.value, actions: [...previous.actions, ...result.value.actions.filter((action) => !previous.actions.some((item) => item.id === action.id))] }
-        : result.value);
+      setDetail(result.value);
       setNeedsReload(false);
     } else if (!handleAccessFailure(result)) setDetailFailure(result);
   }
