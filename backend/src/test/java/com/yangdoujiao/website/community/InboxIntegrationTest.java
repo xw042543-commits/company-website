@@ -21,6 +21,9 @@ class InboxIntegrationTest extends CommunityReactionIntegrationFixture {
     @Autowired CommunityModerationService moderation;
     @Autowired ObjectMapper json;
 
+    // Isolate rate-limit counters from other tests sharing the Redis container.
+    private String fixtureAddress() { return "2001:db8::" + Long.toHexString(actor.getId()); }
+
     @AfterEach void inboxCleanup() {
         for(Long id:accountIds) jdbc.update("DELETE FROM community_idempotency_records WHERE account_id=?",id);
         for(Long id:accountIds) jdbc.update("DELETE FROM community_moderation_actions WHERE actor_account_id=?",id);
@@ -84,14 +87,14 @@ class InboxIntegrationTest extends CommunityReactionIntegrationFixture {
     @Test void commentsRouteToDirectRecipientWithoutExcerptsAndIdempotentReplay() {
         long postId=post(CommunityContentStatus.PUBLISHED);var other=account();var third=account();
         var request=json.readValue(json.writeValueAsString(Map.of("body","PRIVATE unique text")),CommunityCommentRequest.class);
-        var root=writes.createComment(other.getId(),postId,"127.0.0.1","root",request);
-        writes.createComment(other.getId(),postId,"127.0.0.1","root",request);
+        var root=writes.createComment(other.getId(),postId,fixtureAddress(),"root",request);
+        writes.createComment(other.getId(),postId,fixtureAddress(),"root",request);
         assertThat(inbox.unreadCount(actor.getId())).isEqualTo(1);
         var reply=json.readValue(json.writeValueAsString(Map.of("body","reply","parentCommentId",root.response().id())),CommunityCommentRequest.class);
-        writes.createComment(third.getId(),postId,"127.0.0.1","reply",reply);
+        writes.createComment(third.getId(),postId,fixtureAddress(),"reply",reply);
         assertThat(inbox.unreadCount(other.getId())).isEqualTo(1);
         assertThat(inbox.unreadCount(actor.getId())).isEqualTo(1);
-        writes.createComment(actor.getId(),postId,"127.0.0.1","self",request);
+        writes.createComment(actor.getId(),postId,fixtureAddress(),"self",request);
         assertThat(inbox.unreadCount(actor.getId())).isEqualTo(1);
         assertThat(inbox.list(actor.getId(),"ALL",1,20).items().getFirst().body()).doesNotContain("PRIVATE");
     }
@@ -99,7 +102,7 @@ class InboxIntegrationTest extends CommunityReactionIntegrationFixture {
     @Test void pendingContentProducesNothingUntilApprovalAndRestoreDoesNotDuplicate() {
         long postId=post(CommunityContentStatus.PUBLISHED);var other=account();
         var request=json.readValue("{\"body\":\"inbox-review private text\"}",CommunityCommentRequest.class);
-        var created=writes.createComment(other.getId(),postId,"127.0.0.1","review",request);
+        var created=writes.createComment(other.getId(),postId,fixtureAddress(),"review",request);
         assertThat(inbox.unreadCount(actor.getId())).isZero();
         long commentId=Long.parseLong(created.response().id());
         moderation.decide(actor.getId(),CommunityTargetType.COMMENT,commentId,new CommunityModerationRequest(
@@ -115,7 +118,7 @@ class InboxIntegrationTest extends CommunityReactionIntegrationFixture {
         assertThat(inbox.unreadCount(actor.getId())).isEqualTo(1);
         var rejected=json.readValue("{\"body\":\"inbox-reject\"}",CommunityCommentRequest.class);
         org.assertj.core.api.Assertions.assertThatThrownBy(() -> writes.createComment(other.getId(),postId,
-            "127.0.0.1","reject",rejected)).isInstanceOf(com.yangdoujiao.website.common.exception.ApiException.class);
+            fixtureAddress(),"reject",rejected)).isInstanceOf(com.yangdoujiao.website.common.exception.ApiException.class);
         assertThat(inbox.unreadCount(actor.getId())).isEqualTo(1);
     }
 

@@ -9,11 +9,11 @@
 
 ## Global Constraints
 
-- Preserve all dirty user changes and local project.config.json; do not reset, push, publish or run migrations on production.
+- Preserve all dirty user changes and local project.config.json; do not reset the original checkout, deploy or run migrations on production. The user subsequently authorized recovery into a fresh local clone and submission through a feature branch/PR.
 - Existing linked worktree is miniapp-foundation. Git objects/dependencies recently had dataless cloud placeholders; report verification failures honestly and never delete them.
 - No Kafka, external message service or new auth mechanism.
 - All inbox reads and read mutations must scope to authenticated recipient, never trust a client user ID.
-- No application-order subsystem exists. Support SYSTEM/APPLICATION storage and server-only publishing contracts, but do not invent application events, deadlines or deep links. Tell user this producer remains unconnected.
+- The original baseline had no application-order subsystem; the recovered branch now includes main's consultation-backed order pages from PR #81. SYSTEM/APPLICATION storage and server-only publishing contracts are supported, but their event producers remain unconnected. Do not invent application events, deadlines or deep links.
 - With no messages show 暂无消息. Missing endpoint/network/auth errors must not be shown as empty.
 
 ## Task 1: Durable inbox API and community producers
@@ -44,3 +44,11 @@ Files: app.json, pages/messages/*, services/messages.ts, message store if requir
 ## Review
 - [ ] Independent review of changed implementation for ownership, deduplication, native compatibility and regression risks.
 - [ ] Report implemented features separately from unconnected system/application producers and undeployed migration.
+
+## Recovery verification — 2026-10-09
+
+- Recovered source into a fresh clone outside iCloud; original checkout and local credentials were not modified or copied. Rebased onto main `9b24f74`, preserving the logo, order pages and media work.
+- `miniapp: npm run check`: 202 tests passed; TypeScript and ESLint passed.
+- `backend: ./mvnw '-Dtest=InboxIntegrationTest,Community*Test,Miniapp*Test' test`: 222 tests passed, no failures/errors/skips. V19 applied only in disposable test containers.
+- Corrected the inbox test to use actual miniapp bearer authentication and isolated its Redis rate-limit address from other fixtures; production authentication and limits remain unchanged.
+- Independent final review found no blocking defects. Native-device rendering and production deployment remain unverified; SYSTEM/APPLICATION event producers remain unconnected.
