@@ -19,10 +19,11 @@ const TAB_LABELS: Record<string, string> = {
 };
 
 Page({
+  favoriteRevision: 0,
   data: {
     universitySlug: '', programmeId: '', state: 'loading' as ViewState,
     programme: null as ProgrammeDetail | null, tabs: [] as DetailTab[], activeTab: '',
-    favorite: false, saving: false, imageFailed: false,
+    favorite: false, saving: false, imageFailed: false, languageText: '', intakeText: '',
   },
   onLoad(options: Record<string, string | undefined>) {
     this.setData({
@@ -41,8 +42,10 @@ Page({
   async toggleFavorite() {
     const programme = this.data.programme;
     if (!programme || this.data.saving) return;
+    this.favoriteRevision += 1;
+    this.setData({ saving: true });
     const auth = await sessionStore.ensureAuthenticated();
-    if (!auth.ok) { wx.showToast({ title: '请先完成微信登录', icon: 'none' }); return; }
+    if (!auth.ok) { this.setData({ saving: false }); wx.showToast({ title: '请先完成微信登录', icon: 'none' }); return; }
     const previous = this.data.favorite;
     this.setData({ saving: true, favorite: !previous });
     const result = previous
@@ -60,11 +63,12 @@ Page({
       return;
     }
     const tabs = buildTabs(result.value);
-    this.setData({ programme: result.value, tabs, activeTab: tabs[0]?.key ?? '', state: 'ready' as ViewState });
+    this.setData({ programme: result.value, languageText: result.value.languageCodes.join(' · ') || '待确认', intakeText: result.value.intakeDisplayTexts.join(' · ') || '请咨询院校', tabs, activeTab: tabs[0]?.key ?? '', state: 'ready' as ViewState });
     wx.setNavigationBarTitle({ title: result.value.nameZh });
     if (sessionStore.getSnapshot().status === 'authenticated') {
+      const revision = this.favoriteRevision;
       const favorites = await getProgrammeFavorites();
-      if (favorites.ok) this.setData({ favorite: favorites.value.some((item) => item.id === result.value.id) });
+      if (favorites.ok && !this.data.saving && revision === this.favoriteRevision) this.setData({ favorite: favorites.value.some((item) => item.id === result.value.id) });
     }
   },
 });

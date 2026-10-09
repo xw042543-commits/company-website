@@ -15,10 +15,10 @@
     <view class="facts">
       <view class="fact"><text>学历</text><view class="fact-value">{{programme.studyLevelCode || '待确认'}}</view></view>
       <view class="fact"><text>学制</text><view class="fact-value">{{programme.durationDisplay || '待确认'}}</view></view>
-      <view class="fact"><text>授课</text><view class="fact-value">{{programme.languageCodes.join(' · ') || '待确认'}}</view></view>
+      <view class="fact"><text>授课</text><view class="fact-value">{{languageText}}</view></view>
       <view class="fact"><text>方式</text><view class="fact-value">{{programme.courseModeCode || programme.studyPaceDisplay || '待确认'}}</view></view>
       <view class="fact fact--wide"><text>参考学费</text><view class="fact-value">{{programme.tuitionDisplay || '请咨询最新费用'}}</view></view>
-      <view class="fact fact--wide"><text>入学时间</text><view class="fact-value">{{programme.intakeDisplayTexts.join(' · ') || '请咨询院校'}}</view></view>
+      <view class="fact fact--wide"><text>入学时间</text><view class="fact-value">{{intakeText}}</view></view>
     </view>
 
     <scroll-view wx:if="{{tabs.length}}" class="tabs" scroll-x enhanced show-scrollbar="{{false}}">
