@@ -24,6 +24,68 @@ const page = (item: unknown) => ({ items: [item], nextCursor: null });
 const invalid = { ok: false, error: { kind: 'unexpected', code: 'INVALID_COMMUNITY_RESPONSE' } };
 type Parser = (value: unknown) => Result<unknown>;
 
+for (const [name, parse, fixture] of [['posts', parseMyPostPage, mine], ['comments', parseMyCommentPage, myComment]] as const) {
+  test(`community personal ${name} only accepts each approved status and its exact safe label`, () => {
+    const labels = [
+      ['PUBLISHED', '已发布'], ['PENDING_REVIEW', '审核中'], ['HIDDEN', '内容暂不可公开展示'],
+      ['DELETED', '已删除'], ['REJECTED', '内容未通过审核'],
+    ] as const;
+    for (const [status, statusMessage] of labels) {
+      const value = page({ ...fixture, status, statusMessage });
+      assert.deepEqual(parse(value), { ok: true, value });
+      for (const bad of ['private moderation reason', `${statusMessage} `, ...labels.map(([, label]) => label).filter((label) => label !== statusMessage)])
+        assert.deepEqual(parse(page({ ...fixture, status, statusMessage: bad })), invalid);
+    }
+  });
+}
+
+test('community cursors reject nonzero payload pad bits in every page and reply preview without decoding contents', async () => {
+  const signature = 'A'.repeat(43);
+  const parsers = [parsePostPage, parseCommentPage, parseReplyPage, parseMyPostPage, parseMyCommentPage];
+  const service = createCommunityService(async () => ({ ok: true, value: { items: [], nextCursor: null } }));
+  for (const payload of ['AB', 'A_', 'AAB', 'AA_', 'A']) {
+    const bad = `${payload}.${signature}`;
+    for (const parse of parsers) assert.deepEqual(parse({ items: [], nextCursor: bad }), invalid);
+    assert.deepEqual(parseCommentPage(page({ ...comment, repliesNextCursor: bad })), invalid);
+    assert.deepEqual(await service.listPosts({ sort: 'latest', cursor: bad }), { ok: false, error: { kind: 'validation', code: 'INVALID_COMMUNITY_INPUT' } });
+  }
+  // Backend keyset fields and HMAC-SHA256 with the integration-test secret; contents remain opaque here.
+  const backendCursor = 'eyJ0aW1lc3RhbXAiOiIyMDI2LTEwLTA4VDAwOjAwWiIsImlkIjoiMSIsInNvcnQiOiJsYXRlc3QiLCJleHBpcmVzQXQiOiIyMDI2LTEwLTA5VDAwOjAwWiJ9.hkbc3FEw7GCuPU3VgnskHne3Gom21gJTuLx7aecYKL8';
+  for (const good of [cursor, backendCursor, ...['AA', 'AAA', 'AAAA', '_w', '__8'].map((payload) => `${payload}.${signature}`)]) {
+    const value = { items: [], nextCursor: good };
+    for (const parse of parsers) assert.deepEqual(parse(value), { ok: true, value });
+    assert.equal((await service.listPosts({ sort: 'latest', cursor: good })).ok, true);
+  }
+  for (const badSignature of [signature.slice(1), signature + 'A', 'A'.repeat(42) + 'B'])
+    assert.deepEqual(parsePostPage({ items: [], nextCursor: `AA.${badSignature}` }), invalid);
+});
+
+for (const finalStatus of [200, 401] as const) {
+  test(`community authenticated public reads refresh once after 401 and retry with the new memory token before ${finalStatus}`, async () => {
+    for (const route of ['feed', 'detail', 'comments', 'replies'] as const) {
+      let token = 'expired';
+      let refreshes = 0;
+      const requests: TransportOptions[] = [];
+      const value = route === 'detail' ? { ...detail, likedByMe: true } : { items: [], nextCursor: null };
+      const client = createHttpClient(resolveRuntimeConfig('production'), (options) => {
+        requests.push(options);
+        options.success({ statusCode: requests.length === 1 ? 401 : finalStatus,
+          data: requests.length === 1 || finalStatus === 401 ? { code: 'UNAUTHORIZED', message: 'private token reason', traceId: 'private' } : value,
+          header: {}, cookies: [] });
+        return { abort() {} };
+      }, () => token, async () => { refreshes++; token = 'refreshed'; return true; });
+      const service = createCommunityService(client.request, () => true);
+      const result = route === 'feed' ? await service.listPosts({ sort: 'latest' }) : route === 'detail' ? await service.loadPost(id)
+        : route === 'comments' ? await service.listComments({ postId: id }) : await service.listReplies({ postId: id, parentCommentId: '1' });
+      assert.deepEqual(result, finalStatus === 200 ? { ok: true, value } : { ok: false, error: { kind: 'unauthorized', code: 'AUTHENTICATION_REQUIRED' } });
+      assert.equal(refreshes, 1, route);
+      assert.equal(requests.length, 2, route);
+      assert.deepEqual(requests.map((request) => request.header.Authorization), ['Bearer expired', 'Bearer refreshed']);
+      assert.equal(requests[0]?.url, requests[1]?.url);
+    }
+  });
+}
+
 for (const [name, parse, fixture] of [
   ['post page', parsePostPage, page(summary)], ['detail', parsePostDetail, detail],
   ['comments', parseCommentPage, page(comment)], ['replies', parseReplyPage, page(reply)],

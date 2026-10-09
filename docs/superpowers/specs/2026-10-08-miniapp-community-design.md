@@ -180,6 +180,7 @@ U圈继续位于现有 Spring Boot 模块化单体中，新增 `community` 业�
 - 新的发帖、评论、点赞、举报受社区限制时返回 403，稳定代码 `COMMUNITY_USER_RESTRICTED`，在既有安全错误外层附加 `details:{restrictionKind:"MUTE"|"BAN",endsAt:ISO时间|null}`。MUTE 采用实际到期时间（历史无到期记录为 null），BAN 为永久限制，endsAt 为 null；多条生效限制优先 BAN，否则选择最晚 MUTE 到期，永久 MUTE 优先。已过期、未开始或已解除的限制不生效。不返回原因、操作者、账号 ID。一般账号不可写时仍可返回没有 details 的同名安全错误；已有幂等回执与取消点赞的既有清理语义保持不变。
 - 小程序错误只保留允许的稳定代码和经严格校验的上述 details；错误详情缺字段、多字段、错误枚举、无效 ISO 时间或 BAN 非空到期时间时降级为无详情的安全错误，不显示后端原始 message／fieldErrors／traceId。热门 409 的完整代码 `COMMUNITY_HOT_SNAPSHOT_EXPIRED` 保持可区分；`REQUEST_SUPERSEDED` 原样传递。
 - 客户端 `createSubmissionKey()` 每次新提交只调用一次，三个 POST 服务必须由调用方提供并复用 `idempotencyKey`，包括网络或刷新登录后的重试。取消点赞、点赞和删除不要求该键。公开读取随共享会话附加 Bearer，匿名读取可用；访问令牌仍只保留于共享会话内存。
+- 任务 6 审查修正：公开社区 GET／HEAD 未提供 Bearer 时允许匿名读取；提供无效或过期 Bearer 时返回既有安全 `401 UNAUTHORIZED`，不得降级为匿名成功。有效 Bearer 返回个人点赞状态，Cookie 会话的既有读取行为保持。小程序通过共享 HTTP 层刷新一次后使用新的内存令牌重试；再次 401 必须终止。个人状态说明必须与上述状态精确配对，任意说明或错配均拒绝。游标负载和签名均须为规范无填充 Base64URL，包括末尾未用位为零；客户端只检查形状，不解析负载或验证签名。
 
 ### 6.2 管理员接口
 

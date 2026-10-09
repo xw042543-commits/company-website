@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.yangdoujiao.website.auth.session.UserPrincipal;
+import com.yangdoujiao.website.auth.api.AuthSecurityErrorWriter;
 import com.yangdoujiao.website.common.exception.ApiException;
 
 import jakarta.servlet.FilterChain;
@@ -22,9 +23,11 @@ public class MiniappBearerFilter extends OncePerRequestFilter {
     private static final String PREFIX = "Bearer ";
 
     private final MiniappTokenService tokens;
+    private final AuthSecurityErrorWriter errors;
 
-    public MiniappBearerFilter(MiniappTokenService tokens) {
+    public MiniappBearerFilter(MiniappTokenService tokens, AuthSecurityErrorWriter errors) {
         this.tokens = tokens;
+        this.errors = errors;
     }
 
     @Override
@@ -50,6 +53,11 @@ public class MiniappBearerFilter extends OncePerRequestFilter {
                                 principal, null, principal.getAuthorities()));
             } catch (ApiException ignored) {
                 SecurityContextHolder.clearContext();
+                if (("GET".equals(request.getMethod()) || "HEAD".equals(request.getMethod()))
+                        && (path.equals("/api/v1/community/posts") || path.startsWith("/api/v1/community/posts/"))) {
+                    errors.writeUnauthorized(request, response);
+                    return;
+                }
             }
         }
         chain.doFilter(request, response);

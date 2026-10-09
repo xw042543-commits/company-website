@@ -26,6 +26,10 @@ import com.yangdoujiao.website.auth.account.UserAccount;
 import com.yangdoujiao.website.auth.account.UserAccountRepository;
 import com.yangdoujiao.website.auth.external.*;
 import com.yangdoujiao.website.auth.miniapp.MiniappTokenService;
+import com.yangdoujiao.website.auth.miniapp.MiniappAuthToken;
+import com.yangdoujiao.website.auth.miniapp.MiniappAuthTokenKind;
+import com.yangdoujiao.website.auth.miniapp.MiniappAuthTokenRepository;
+import com.yangdoujiao.website.auth.AuthHash;
 import com.yangdoujiao.website.auth.session.UserPrincipal;
 
 @SpringBootTest(properties = {"app.miniapp.auth.enabled=true",
@@ -46,6 +50,7 @@ class CommunityReadHttpIntegrationTest {
     @Autowired private UserAccountRepository accounts;
     @Autowired private UserExternalIdentityRepository identities;
     @Autowired private MiniappTokenService tokens;
+    @Autowired private MiniappAuthTokenRepository authTokens;
     @Autowired private org.springframework.data.redis.core.StringRedisTemplate redis;
     @Autowired private jakarta.persistence.EntityManagerFactory entityFactory;
     @Autowired private CommunityCursorCodec cursors;
@@ -316,7 +321,7 @@ class CommunityReadHttpIntegrationTest {
     }
 
     @Test
-    void bearerAndCookieReadersSeeTheirLikesButAnonymousAndInvalidBearerDoNot() throws Exception {
+    void bearerAndCookieReadersSeeTheirLikesButAnonymousDoesNot() throws Exception {
         var post = seedPost(CommunityContentStatus.PUBLISHED, TIME);
         var comment = comment(post, null, CommunityContentStatus.PUBLISHED);
         reactions.saveAndFlush(CommunityReaction.create(author.getId(), CommunityTargetType.POST, post.getId(), TIME));
@@ -330,9 +335,62 @@ class CommunityReadHttpIntegrationTest {
                 .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].likedByMe").value(true));
         mvc.perform(get("/api/v1/community/posts/" + post.getId()))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.likedByMe").value(false));
-        mvc.perform(get("/api/v1/community/posts/" + post.getId()).with(user(UserPrincipal.from(author)))
-                        .header("Authorization", "Bearer invalid"))
-                .andExpect(status().isOk()).andExpect(jsonPath("$.likedByMe").value(false));
+    }
+
+    @Test
+    void publicReadsPermitAbsentBearerAndPersonalizeValidBearerAndCookieAcrossAllRoutes() throws Exception {
+        var post = seedPost(CommunityContentStatus.PUBLISHED, TIME);
+        var root = comment(post, null, CommunityContentStatus.PUBLISHED);
+        var reply = comment(post, root.getId(), CommunityContentStatus.PUBLISHED);
+        for (var target : new CommunityComment[] {root, reply})
+            reactions.saveAndFlush(CommunityReaction.create(author.getId(), CommunityTargetType.COMMENT, target.getId(), TIME));
+        reactions.saveAndFlush(CommunityReaction.create(author.getId(), CommunityTargetType.POST, post.getId(), TIME));
+        String token = org.springframework.test.util.ReflectionTestUtils.invokeMethod(tokens.issue(author), "accessToken");
+        String[] routes = publicReadRoutes(post, root);
+        for (int i = 0; i < routes.length; i++) {
+            String liked = i == 1 ? "$.likedByMe" : "$.items[0].likedByMe";
+            mvc.perform(get(routes[i])).andExpect(status().isOk()).andExpect(jsonPath(liked).value(false));
+            mvc.perform(get(routes[i]).header("Authorization", "Bearer " + token))
+                    .andExpect(status().isOk()).andExpect(jsonPath(liked).value(true));
+            mvc.perform(get(routes[i]).with(user(UserPrincipal.from(author))))
+                    .andExpect(status().isOk()).andExpect(jsonPath(liked).value(true));
+            mvc.perform(head(routes[i])).andExpect(status().isOk());
+            mvc.perform(head(routes[i]).header("Authorization", "Bearer " + token)).andExpect(status().isOk());
+            mvc.perform(head(routes[i]).with(user(UserPrincipal.from(author)))).andExpect(status().isOk());
+        }
+    }
+
+    @Test
+    void publicReadsRejectInvalidAndExpiredSuppliedBearerWithSafeUnauthorizedEnvelope() throws Exception {
+        var post = seedPost(CommunityContentStatus.PUBLISHED, TIME);
+        var root = comment(post, null, CommunityContentStatus.PUBLISHED);
+        String expired = "expired-private-access-token";
+        var now = OffsetDateTime.now(clock);
+        authTokens.saveAndFlush(MiniappAuthToken.issue(author, AuthHash.sha256(expired), MiniappAuthTokenKind.ACCESS,
+                java.util.UUID.randomUUID(), now.minusMinutes(1), now.minusMinutes(2)));
+        for (String route : publicReadRoutes(post, root)) {
+            for (String token : new String[] {"invalid-private-access-token", expired}) {
+                for (var request : new org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder[] {get(route), head(route)}) {
+                    String body = mvc.perform(request.with(user(UserPrincipal.from(author)))
+                                    .header("Authorization", "Bearer " + token))
+                            .andExpect(status().isUnauthorized())
+                            .andExpect(content().contentTypeCompatibleWith("application/json"))
+                            .andExpect(jsonPath("$.code").value("UNAUTHORIZED"))
+                            .andExpect(jsonPath("$.message").value("Authentication is required"))
+                            .andExpect(jsonPath("$.fieldErrors").isEmpty())
+                            .andExpect(jsonPath("$.traceId").isNotEmpty())
+                            .andReturn().getResponse().getContentAsString();
+                    assertThat(json.readTree(body).properties()).hasSize(4);
+                    assertThat(body).doesNotContain(token, "MINIAPP_TOKEN_INVALID", "expired", "userAccountId", "Private real full name");
+                }
+            }
+        }
+    }
+
+    private String[] publicReadRoutes(CommunityPost post, CommunityComment root) {
+        String detail = "/api/v1/community/posts/" + post.getId();
+        return new String[] {"/api/v1/community/posts", detail, detail + "/comments",
+                detail + "/comments/" + root.getId() + "/replies"};
     }
 
     @Test

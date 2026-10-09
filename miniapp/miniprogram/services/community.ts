@@ -51,6 +51,10 @@ export interface ReportSubmission {
 type RecordValue = Record<string, unknown>;
 type Validator = (value: unknown) => boolean;
 const STATUSES: readonly unknown[] = ['PUBLISHED', 'PENDING_REVIEW', 'HIDDEN', 'DELETED', 'REJECTED'];
+const STATUS_MESSAGES: Readonly<Record<CommunityContentStatus, string>> = {
+  PUBLISHED: '已发布', PENDING_REVIEW: '审核中', HIDDEN: '内容暂不可公开展示',
+  DELETED: '已删除', REJECTED: '内容未通过审核',
+};
 const REASONS: readonly unknown[] = ['SPAM', 'HARASSMENT', 'SCAM', 'INAPPROPRIATE_CONTENT', 'OTHER'];
 
 function exact(value: unknown, keys: readonly string[]): value is RecordValue {
@@ -66,7 +70,12 @@ function text(value: unknown, max: number, min = 1): value is string {
 function count(value: unknown): boolean { return typeof value === 'number' && Number.isInteger(value) && value >= 0 && value <= 2147483647; }
 function opaqueCursor(value: unknown): value is string {
   if (typeof value !== 'string' || value.length > 4096 || !/^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$/.test(value)) return false;
-  return (value.split('.')[0]?.length ?? 1) % 4 !== 1;
+  const payload = value.split('.')[0] ?? '';
+  const remainder = payload.length % 4;
+  // Unpadded Base64URL leaves four unused low bits for 2 chars, two for 3 chars.
+  // Checking those bits keeps the cursor opaque and requires no browser/Node codecs.
+  return remainder === 0 || (remainder === 2 && /[AQgw]$/.test(payload))
+    || (remainder === 3 && /[AEIMQUYcgkosw048]$/.test(payload));
 }
 function nullableCursor(value: unknown): boolean { return value === null || opaqueCursor(value); }
 function avatar(value: unknown): boolean {
@@ -110,7 +119,8 @@ function report(v: unknown): boolean {
 function personal(v: unknown, isPost: boolean): boolean {
   return exact(v, isPost ? ['id', 'body', 'status', 'statusMessage', 'createdAt', 'publishedAt', 'commentCount', 'likeCount']
     : ['id', 'postId', 'parentCommentId', 'body', 'status', 'statusMessage', 'createdAt', 'likeCount'])
-    && isCommunityId(v.id) && text(v.body, isPost ? 2000 : 1000) && STATUSES.includes(v.status) && text(v.statusMessage, 200)
+    && isCommunityId(v.id) && text(v.body, isPost ? 2000 : 1000) && STATUSES.includes(v.status)
+    && v.statusMessage === STATUS_MESSAGES[v.status as CommunityContentStatus]
     && timestamp(v.createdAt) && count(v.likeCount) && (isPost ? count(v.commentCount) && (v.publishedAt === null || timestamp(v.publishedAt))
       : isCommunityId(v.postId) && (v.parentCommentId === null || isCommunityId(v.parentCommentId)));
 }
