@@ -101,11 +101,11 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("18");
-            assertThat(latest.info().applied()).hasSize(18);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("19");
+            assertThat(latest.info().applied()).hasSize(19);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 18)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 19)
                             .mapToObj(Integer::toString).toList());
             assertThat(jdbcTemplate.queryForObject(
                     "SELECT official_url FROM programmes WHERE id = ?", String.class, programmeId))

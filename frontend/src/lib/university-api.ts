@@ -18,7 +18,7 @@ export type MatchedProgramme = {
   durationDisplay: string | null;
   intakeDisplayTexts: string[];
   tuitionDisplay: string | null;
-  imageUrl: string | null;
+  imageUrl?: string | null;
 };
 
 export type UniversitySearchItem = {
@@ -34,7 +34,7 @@ export type UniversitySearchItem = {
   popular: boolean;
   matchedProgrammeCount: number;
   matchedProgrammes: MatchedProgramme[];
-  imageUrl: string | null;
+  imageUrl?: string | null;
 };
 
 export type UniversitySearchPage = {
@@ -58,7 +58,7 @@ export type UniversityDetail = {
   descriptionZh: string | null;
   descriptionEn: string | null;
   popular: boolean;
-  imageUrl: string | null;
+  imageUrl?: string | null;
 };
 
 export type UniversityProgramme = {
@@ -88,7 +88,7 @@ export type UniversityProgramme = {
   intakeDisplayTexts: string[];
   categoryDisplayZh?: string;
   categoryDisplayEn?: string;
-  imageUrl: string | null;
+  imageUrl?: string | null;
 };
 
 export type UniversityProgrammePage = {
@@ -200,7 +200,7 @@ function isMatchedProgramme(value: unknown): value is MatchedProgramme {
     && isNullableString(value.durationDisplay)
     && isStringArray(value.intakeDisplayTexts)
     && isNullableString(value.tuitionDisplay)
-    && isNullableString(value.imageUrl);
+    && (value.imageUrl === undefined || isNullableString(value.imageUrl));
 }
 
 function isUniversitySearchItem(value: unknown): value is UniversitySearchItem {
@@ -220,7 +220,7 @@ function isUniversitySearchItem(value: unknown): value is UniversitySearchItem {
     && isInteger(value.matchedProgrammeCount)
     && Array.isArray(value.matchedProgrammes)
     && value.matchedProgrammes.every(isMatchedProgramme)
-    && isNullableString(value.imageUrl);
+    && (value.imageUrl === undefined || isNullableString(value.imageUrl));
 }
 
 function isUniversityProgramme(value: unknown): value is UniversityProgramme {
@@ -250,7 +250,7 @@ function isUniversityProgramme(value: unknown): value is UniversityProgramme {
     && isNullableString(value.tuitionDisplay)
     && isStringArray(value.intakeMonths)
     && isStringArray(value.intakeDisplayTexts)
-    && isNullableString(value.imageUrl);
+    && (value.imageUrl === undefined || isNullableString(value.imageUrl));
 }
 
 export function parseUniversityProgramme(payload: unknown): UniversityProgramme | null {
@@ -291,7 +291,7 @@ export function parseUniversityDetail(payload: unknown): UniversityDetail | null
     || !isNullableString(payload.descriptionZh)
     || !isNullableString(payload.descriptionEn)
     || typeof payload.popular !== "boolean"
-    || !isNullableString(payload.imageUrl)) {
+    || (payload.imageUrl !== undefined && !isNullableString(payload.imageUrl))) {
     return null;
   }
 
