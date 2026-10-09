@@ -17,11 +17,9 @@ export default async function Universities({ params, searchParams }: { params: P
   if (!isLocale(locale)) notFound();
   const query = await searchParams;
   const baseUrl = serverApiBaseUrl();
-  const [result, filterResult] = await Promise.all([
-    getUniversitySearch(query, locale, baseUrl),
-    getFilterOptions(baseUrl),
-  ]);
+  const filterResult = await getFilterOptions(baseUrl);
   const options = filterResult.status === "ready" ? filterResult.options : undefined;
+  const result = await getUniversitySearch(query, locale, baseUrl, { filterOptions: options });
   const schools = result.status === "ready" ? result.schools : [];
   const page = result.status === "ready" ? result.page : 1;
   const totalItems = result.status === "ready" ? result.totalItems : 0;
