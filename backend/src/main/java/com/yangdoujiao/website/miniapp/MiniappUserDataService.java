@@ -1,6 +1,7 @@
 package com.yangdoujiao.website.miniapp;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,8 +33,9 @@ public class MiniappUserDataService {
 
     @Transactional(readOnly = true)
     public Overview overview(long userId) {
+        long orderCount = consultations.countByUserAccountId(userId);
         return new Overview(favorites.countByUserAccountId(userId), plans.countByUserAccountId(userId),
-                consultations.countByUserAccountId(userId));
+                orderCount, orderCount);
     }
 
     @Transactional(readOnly = true)
@@ -85,6 +87,19 @@ public class MiniappUserDataService {
                 .map(ConsultationRecordResponse::from).toList();
     }
 
+    @Transactional(readOnly = true)
+    public List<ApplicationOrderSummary> orders(long userId) {
+        return consultations.findAllByUserAccountIdOrderByCreatedAtDescIdDesc(userId).stream()
+                .map(ApplicationOrderSummary::from).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public ApplicationOrderDetail order(long userId, UUID referenceCode) {
+        ConsultationEnquiry enquiry = consultations.findByReferenceCodeAndUserAccountId(referenceCode, userId)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "ORDER_NOT_FOUND", "Application order not found"));
+        return ApplicationOrderDetail.from(enquiry);
+    }
+
     private Programme publishedProgramme(long programmeId) {
         return programmes.findPublishedForFavorite(programmeId)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "PROGRAMME_NOT_FOUND", "Programme not found"));
@@ -95,7 +110,7 @@ public class MiniappUserDataService {
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "PLAN_NOT_FOUND", "Study plan not found"));
     }
 
-    public record Overview(long favorites, long plans, long consultations) {
+    public record Overview(long favorites, long plans, long consultations, long orders) {
     }
 
     public record FavoriteResponse(Long id, String universitySlug, String name, String universityName,
@@ -128,6 +143,76 @@ public class MiniappUserDataService {
                     enquiry.getIntendedCourse(), enquiry.getQualification(), enquiry.getStatus().name(),
                     enquiry.getCreatedAt());
         }
+    }
+
+    public record ApplicationOrderSummary(UUID referenceCode, String universityName, String programmeName,
+            String qualification, String status, String statusLabel, OffsetDateTime submittedAt) {
+        static ApplicationOrderSummary from(ConsultationEnquiry enquiry) {
+            String status = switch (enquiry.getStatus()) {
+                case COMPLETED -> "COMPLETED";
+                case NEW, IN_PROGRESS -> "IN_PROGRESS";
+            };
+            return new ApplicationOrderSummary(enquiry.getReferenceCode(), enquiry.getIntendedSchool(),
+                    enquiry.getIntendedCourse(), enquiry.getQualification(), status,
+                    "COMPLETED".equals(status) ? "已完成" : "进行中", enquiry.getCreatedAt());
+        }
+    }
+
+    public record ApplicationOrderDetail(ApplicationOrderSummary order, int activeStage,
+            List<ApplicationStage> stages, List<ApplicationMaterial> materials,
+            PaymentStatus payment, List<ApplicationHistory> history, String currentMessage) {
+        static ApplicationOrderDetail from(ConsultationEnquiry enquiry) {
+            ApplicationOrderSummary summary = ApplicationOrderSummary.from(enquiry);
+            int activeStage = switch (enquiry.getStatus()) {
+                case NEW -> 1;
+                case IN_PROGRESS -> 2;
+                case COMPLETED -> 8;
+            };
+            List<String[]> definitions = List.of(
+                    new String[]{"材料准备", "整理申请所需资料"},
+                    new String[]{"材料初审", "顾问检查材料完整性"},
+                    new String[]{"申请递交", "按院校要求递交申请"},
+                    new String[]{"院校审核", "等待院校审核结果"},
+                    new String[]{"录取结果", "接收录取决定"},
+                    new String[]{"签证办理", "准备签证材料与进度"},
+                    new String[]{"入学报到", "完成注册与报到"},
+                    new String[]{"结案", "申请服务已完成"});
+            List<ApplicationStage> stages = new ArrayList<>();
+            for (int index = 1; index <= definitions.size(); index++) {
+                String state = index < activeStage || enquiry.getStatus() == com.yangdoujiao.website.consultation.ConsultationStatus.COMPLETED
+                        ? "COMPLETED" : index == activeStage ? "ACTIVE" : "PENDING";
+                stages.add(new ApplicationStage(index, definitions.get(index - 1)[0], definitions.get(index - 1)[1], state));
+            }
+            List<ApplicationMaterial> materials = List.of(
+                    new ApplicationMaterial("申请人学历", first(enquiry.getQualification(), "待确认"), "RECORDED"),
+                    new ApplicationMaterial("身份证明", "请按顾问通知准备", "PENDING"),
+                    new ApplicationMaterial("成绩与语言材料", "请按院校要求补充", "PENDING"));
+            List<ApplicationHistory> history = new ArrayList<>();
+            history.add(new ApplicationHistory("申请已创建", enquiry.getCreatedAt()));
+            if (enquiry.getStatusUpdatedAt() != null && !enquiry.getStatusUpdatedAt().equals(enquiry.getCreatedAt())) {
+                history.add(new ApplicationHistory(enquiry.getStatus() == com.yangdoujiao.website.consultation.ConsultationStatus.COMPLETED
+                        ? "申请处理完成" : "顾问开始处理", enquiry.getStatusUpdatedAt()));
+            }
+            String message = switch (enquiry.getStatus()) {
+                case NEW -> "资料已提交，顾问将尽快联系你确认申请材料。";
+                case IN_PROGRESS -> "当前正在进行材料初审，如需补充资料我们会及时通知你。";
+                case COMPLETED -> "本次申请服务已完成，如有疑问请联系顾问。";
+            };
+            return new ApplicationOrderDetail(summary, activeStage, List.copyOf(stages), materials,
+                    new PaymentStatus(false, "当前阶段无需支付"), List.copyOf(history), message);
+        }
+    }
+
+    public record ApplicationStage(int number, String title, String description, String state) {
+    }
+
+    public record ApplicationMaterial(String name, String description, String state) {
+    }
+
+    public record PaymentStatus(boolean paymentRequired, String message) {
+    }
+
+    public record ApplicationHistory(String title, OffsetDateTime occurredAt) {
     }
 
     private static String first(String preferred, String fallback) {

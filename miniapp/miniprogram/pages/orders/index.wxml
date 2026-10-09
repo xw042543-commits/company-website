@@ -1,0 +1,34 @@
+<view class="orders-page">
+  <scroll-view class="filter-bar" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="filter-row">
+      <button wx:for="{{tabs}}" wx:key="key" class="filter {{activeFilter === item.key ? 'filter--active' : ''}}"
+        data-key="{{item.key}}" bindtap="switchFilter">{{item.label}}</button>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{state === 'ready'}}" class="order-list">
+    <view wx:for="{{visibleOrders}}" wx:key="referenceCode" class="order-card" data-reference="{{item.referenceCode}}" bindtap="openOrder">
+      <view class="order-main">
+        <view class="school-mark">申</view>
+        <view class="order-copy">
+          <view class="university">{{item.universityName || '院校待确认'}}</view>
+          <view class="programme">{{item.programmeName || '专业待确认'}}</view>
+          <view class="qualification">{{item.qualification || '申请层次待确认'}}</view>
+        </view>
+        <view class="status status--{{item.statusTone}}">{{item.statusLabel}}</view>
+      </view>
+      <view class="order-meta">
+        <view><text>申请编号</text><text class="meta-value">{{item.referenceCode}}</text></view>
+        <view><text>提交时间</text><text class="meta-value">{{item.submittedDate || '待确认'}}</text></view>
+        <text class="chevron">›</text>
+      </view>
+    </view>
+    <view wx:if="{{visibleOrders.length === 0}}" class="filtered-empty">该状态下暂无申请</view>
+  </view>
+
+  <view wx:else class="state-wrap">
+    <app-state wx:if="{{state === 'loading'}}" kind="loading" title="正在读取订单" description="正在同步你的申请进度。" />
+    <app-state wx:elif="{{state === 'empty'}}" kind="empty" title="暂无申请订单" description="提交顾问咨询后，申请记录会显示在这里。" />
+    <app-state wx:else kind="failed" title="订单加载失败" description="请完成登录或稍后重试。" retryable="{{true}}" bind:retry="retry" />
+  </view>
+</view>

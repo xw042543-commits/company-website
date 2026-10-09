@@ -8,6 +8,8 @@
     "pages/plans/index",
     "pages/favorites/index",
     "pages/consultations/index",
+    "pages/orders/index",
+    "pages/order-detail/index",
     "pages/circle/index",
     "pages/circle-detail/index",
     "pages/circle-compose/index",

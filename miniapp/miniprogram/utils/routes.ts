@@ -3,6 +3,7 @@ import { isCommunityId } from './community-validation';
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const POSITIVE_INTEGER = /^[1-9]\d*$/;
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 export function communityPostRoute(id: string): Result<string> {
   if (!isCommunityId(id)) return invalidRoute();
@@ -11,6 +12,12 @@ export function communityPostRoute(id: string): Result<string> {
 export function communityComposeRoute(): Result<string> { return { ok: true, value: '/pages/circle-compose/index' }; }
 export function communityMeRoute(): Result<string> { return { ok: true, value: '/pages/circle-me/index' }; }
 export function communityFeedRoute(): Result<string> { return { ok: true, value: '/pages/circle/index' }; }
+
+export function applicationOrderRoute(referenceCode: string): Result<string> {
+  const normalized = referenceCode.trim();
+  if (!UUID.test(normalized)) return invalidRoute();
+  return { ok: true, value: `/pages/order-detail/index?referenceCode=${encodeURIComponent(normalized)}` };
+}
 
 function invalidRoute(): Result<never> {
   return {

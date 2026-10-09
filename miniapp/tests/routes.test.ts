@@ -4,7 +4,7 @@ import test from 'node:test';
 import {
   programmeDetailRoute,
   universityDetailRoute,
-  communityPostRoute, communityComposeRoute, communityMeRoute, communityFeedRoute,
+  communityPostRoute, communityComposeRoute, communityMeRoute, communityFeedRoute, applicationOrderRoute,
 } from '../miniprogram/utils/routes.ts';
 
 test('builds encoded university and programme detail routes', () => {
@@ -33,6 +33,17 @@ test('community routes use canonical decimal strings and circle page paths', () 
   assert.deepEqual(communityFeedRoute(), { ok: true, value: '/pages/circle/index' });
   for (const bad of ['01', '0', '+1', ' 1', '1 ', '1&admin=1', '1/like', '9223372036854775808', 1])
     assert.deepEqual(communityPostRoute(bad as string), { ok: false, error: { kind: 'validation', code: 'INVALID_DETAIL_ROUTE' } });
+});
+
+test('builds validated application order detail routes', () => {
+  const reference = 'c4d29e18-b266-4f6a-8e24-7cc312388174';
+  assert.deepEqual(applicationOrderRoute(reference), {
+    ok: true,
+    value: `/pages/order-detail/index?referenceCode=${reference}`,
+  });
+  for (const bad of ['', '../admin', 'APP202409001', `${reference}?admin=1`]) {
+    assert.equal(applicationOrderRoute(bad).ok, false);
+  }
 });
 
 test('rejects blank and malformed university slugs with the route validation result', () => {
