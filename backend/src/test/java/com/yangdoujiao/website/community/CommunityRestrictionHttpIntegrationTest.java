@@ -14,6 +14,12 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 class CommunityRestrictionHttpIntegrationTest extends CommunityReactionIntegrationFixture {
     @Autowired tools.jackson.databind.ObjectMapper json;
     @Autowired CommunityUserRestrictionRepository restrictions;
+    @org.junit.jupiter.api.BeforeEach void resetRateBudgets() {
+        // MockMvc requests share a client address across test classes. A fresh account
+        // does not isolate its address budget from earlier write/limiter tests.
+        var keys = redis.keys("community:limit:v1:*");
+        if (!keys.isEmpty()) redis.delete(keys);
+    }
     @org.junit.jupiter.api.AfterEach void cleanupReceipts() {
         for(long id:accountIds)jdbc.update("DELETE FROM community_idempotency_records WHERE account_id=?",id);
     }
