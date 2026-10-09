@@ -1,0 +1,707 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-st-andrews",
+    "displayName": "University of St Andrews",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.st-andrews.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.st-andrews.ac.uk",
+      "st-andrews.ac.uk"
+    ],
+    "discoveredUrls": 98,
+    "parsedProgrammes": 22,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://sport.wp.st-andrews.ac.uk/performance/programmes/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/lifelong-learning/courses/postgraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/lifelong-learning/courses/pre-sessional/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/postgraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/apply/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/postgraduate/apply/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/flexible/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/experience/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/foundation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/degree-routes/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/degree-routes/direct-entry/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/pathways/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/education/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/life/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/facilities/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/town/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/your-future/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/financial-assistance/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/scotland/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/england/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/northern-ireland/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/wales/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/channel-islands/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/republic-of-ireland/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/eu/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/world/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/how-to-pay/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/fees/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/fees/fee-status/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/postgraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/apply-undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/fife-park/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/gannochy-house/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/whitehorn-hall/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/agnes-blackadder-hall/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/david-russell-apartments/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/powell-hall/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/john-burnet-hall/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/mcintosh-hall/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/st-regulus-hall/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/st-salvators-hall/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/university-hall/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/andrew-melville-hall/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/foundation/who-can-apply/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/foundation/apply/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/foundation/webinars/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/foundation/fees/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/foundation/after-offer/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/degree-routes/honours/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/degree-routes/integrated-masters/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/international-honours/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:23:07.327Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/degree-routes/integrated-year-abroad/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/pathways/gateway/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/pathways/fe-he-pathways/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/degree-routes/freshman/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/faculties/science/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/faculties/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/faculties/arts/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/faculties/divinity/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/faculties/medicine/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/life/clubs-and-societies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/life/sport/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/life/recreation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/life/students-association/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/life/traditions/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/education/library/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/your-future/alumni/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/your-future/careers/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/why/your-future/entrepreneurship/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/study/tuition-fees/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/undergraduate/fees-semester-one/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/postgraduate/fife-park/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/accommodation/postgraduate/david-russell-apartments/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/biology/animal-behaviour-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/biology/cell-biology-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/biology/ecology-conservation-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/biology/evolutionary-biology-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/marine-biology/marine-biology-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/biology/molecular-biology-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/chemistry/chemical-sciences-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/chemistry/chemistry-mchem/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/chemistry/chemistry-with-medicinal-chemistry-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/chemistry/chemistry-with-medicinal-chemistry-mchem/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/chemistry/materials-chemistry-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/chemistry/materials-chemistry-mchem/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/computer-science/computer-science-msci/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/earth-environmental-sciences/environmental-earth-sciences-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/mathematics/applied-mathematics-mmath/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/mathematics/mathematics-mmath/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/mathematics/pure-mathematics-mmath/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/statistics/statistics-mmath/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/physics/astrophysics-mphys/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/physics/physics-mphys/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-st-andrews",
+      "url": "https://www.st-andrews.ac.uk/subjects/physics/theoretical-physics-mphys/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:09:59.143Z",
+      "error": null
+    }
+  ]
+}

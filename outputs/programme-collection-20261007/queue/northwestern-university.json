@@ -1,0 +1,237 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "northwestern-university",
+    "displayName": "Northwestern University",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.northwestern.edu/"
+    ],
+    "allowedHosts": [
+      "www.northwestern.edu",
+      "northwestern.edu"
+    ],
+    "discoveredUrls": 29,
+    "parsedProgrammes": 9,
+    "pagesRead": 120,
+    "warnings": [
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/referral-protocol-students-with-academic-behavioral-concerns.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/academic-support.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/inter-school-transfer-advice.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/remote-advising/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/schools-advising-leadership.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/connectnu/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/helping-students-financial-challenges/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/promoting-social-emotional-wellness/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/lunch-and-learn-sessions.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+      "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/connectnu/adviser-faqs.html：跳转超出允许域名: prd-nusso.it.northwestern.edu"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://hr.northwestern.edu/well-being/programs/employee-assistance-program/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://hr.northwestern.edu/well-being/programs/employee-assistance-program/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.northwestern.edu/academics/pre-collegiate-programs.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://admissions.northwestern.edu/academics/majors-minors/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.music.northwestern.edu/academics/summer-session/workshops",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.law.northwestern.edu/academics/continuing-legal-education/cle-credit/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://weinberg.northwestern.edu/undergraduate/advising/weinberg-college-advisers/meet-college-advisers/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://sesp.northwestern.edu/undergraduate/advising/academic-advisers/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://weinberg.northwestern.edu/undergraduate/advising/weinberg-college-advisers/ousa.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://catalogs.northwestern.edu/undergraduate/requirements-policies/undergraduate-registration-requirement/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.music.northwestern.edu/resources/students/undergraduate/advising",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.mccormick.northwestern.edu/students/undergraduate/advising-registration/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://sesp.northwestern.edu/undergraduate/advising/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.weinberg.northwestern.edu/undergraduate/advising/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.northwestern.edu/academics/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.northwestern.edu/academics/graduate-a-to-z.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.northwestern.edu/academics/professional-studies-a-to-z.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.northwestern.edu/academics/colleges-and-schools.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://www.northwestern.edu/academics/program-type-definitions.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://sesp.northwestern.edu/graduate-professional/learning-and-organizational-change/graduate-certificates/certificate-organizational-dynamics/index.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:15.748Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://sesp.northwestern.edu/graduate-professional/learning-and-organizational-change/ms-organizational-dynamics/index.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:20.840Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://catalogs.northwestern.edu/sps/graduate/public-policy-administration/public-policy-administration-ma/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:27.043Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://catalogs.northwestern.edu/sps/graduate/sports-administration/sports-administration-ma/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:27.043Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/liberal-arts-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:27.043Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/liberal-arts-music/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:27.043Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/communication-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:27.043Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://catalogs.northwestern.edu/undergraduate/dual-bachelors-degrees/communication-music/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:27.043Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "northwestern-university",
+      "url": "https://catalogs.northwestern.edu/undergraduate/arts-sciences/comparative-literary-studies/comparative-literary-studies-ba-ma/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:27.043Z",
+      "error": null
+    }
+  ]
+}

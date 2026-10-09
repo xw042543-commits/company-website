@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-bristol",
+    "displayName": "University of Bristol",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.bristol.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.bristol.ac.uk",
+      "bristol.ac.uk"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.bristol.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

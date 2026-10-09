@@ -1,0 +1,135 @@
+{
+  "generatedAt": "2026-10-09T06:31:04.754Z",
+  "records": [
+    {
+      "programmeCandidateId": "programme_a893348add821ea8",
+      "universitySourceKey": "adelaide-university",
+      "displayText": "2022-05-23T13:46",
+      "date": "2022-05-23",
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://catalog.adelaide.edu.au/browse/pace/courses/cyber-security-awareness---primary-years",
+      "sourceCheckedAt": "2026-10-07T05:57:56.351Z"
+    },
+    {
+      "programmeCandidateId": "programme_1ef59c224e88e9fa",
+      "universitySourceKey": "adelaide-university",
+      "displayText": "2022-05-31T13:22",
+      "date": "2022-05-31",
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://catalog.adelaide.edu.au/browse/pace/courses/cyber-security-awareness---secondary-years",
+      "sourceCheckedAt": "2026-10-07T05:57:58.338Z"
+    },
+    {
+      "programmeCandidateId": "programme_09f25c41408c0970",
+      "universitySourceKey": "adelaide-university",
+      "displayText": "2023-07-10T00:00",
+      "date": "2023-07-10",
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/maths-in-schools-online-3-6-v9-0",
+      "sourceCheckedAt": "2026-10-07T05:58:12.557Z"
+    },
+    {
+      "programmeCandidateId": "programme_2f7128e090998a39",
+      "universitySourceKey": "adelaide-university",
+      "displayText": "2023-08-31T00:00",
+      "date": "2023-08-31",
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/maths-in-schools-online-7-10-v9-0",
+      "sourceCheckedAt": "2026-10-07T05:58:14.963Z"
+    },
+    {
+      "programmeCandidateId": "programme_b44c3453cb99436e",
+      "universitySourceKey": "adelaide-university",
+      "displayText": "2023-04-19T00:00",
+      "date": "2023-04-19",
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/maths-in-schools-online-f-2-v9",
+      "sourceCheckedAt": "2026-10-07T05:58:16.591Z"
+    },
+    {
+      "programmeCandidateId": "programme_5336e5f7b31776bd",
+      "universitySourceKey": "adelaide-university",
+      "displayText": "2024-11-14T00:00",
+      "date": "2024-11-14",
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/ai-primary-v90",
+      "sourceCheckedAt": "2026-10-07T05:58:22.403Z"
+    },
+    {
+      "programmeCandidateId": "programme_03a1947ea68aceea",
+      "universitySourceKey": "adelaide-university",
+      "displayText": "2024-11-14T00:00",
+      "date": "2024-11-14",
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/ai-secondary-v90",
+      "sourceCheckedAt": "2026-10-07T05:58:24.595Z"
+    },
+    {
+      "programmeCandidateId": "programme_f1d0f2a04346e3ab",
+      "universitySourceKey": "unsw-sydney",
+      "displayText": "Term 1, 2 & 3",
+      "date": null,
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-science",
+      "sourceCheckedAt": "2026-10-07T04:00:44.349Z"
+    },
+    {
+      "programmeCandidateId": "programme_ee25141f465cb8e5",
+      "universitySourceKey": "unsw-sydney",
+      "displayText": "Term 1, 2 & 3",
+      "date": null,
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-advanced-science-honours",
+      "sourceCheckedAt": "2026-10-07T04:00:54.359Z"
+    },
+    {
+      "programmeCandidateId": "programme_1b1aec4437f2acd8",
+      "universitySourceKey": "unsw-sydney",
+      "displayText": "Term 1",
+      "date": null,
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://www.unsw.edu.au/study/undergraduate/university-preparation-program",
+      "sourceCheckedAt": "2026-10-07T04:01:04.359Z"
+    },
+    {
+      "programmeCandidateId": "programme_0eb33c542b714387",
+      "universitySourceKey": "unsw-sydney",
+      "displayText": "Term 1, 2 & 3",
+      "date": null,
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-science-honours",
+      "sourceCheckedAt": "2026-10-07T04:01:14.424Z"
+    },
+    {
+      "programmeCandidateId": "programme_d121d47a74fbdee0",
+      "universitySourceKey": "unsw-sydney",
+      "displayText": "Term 1",
+      "date": null,
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-psychological-science-honours",
+      "sourceCheckedAt": "2026-10-07T04:01:24.391Z"
+    },
+    {
+      "programmeCandidateId": "programme_3a45e5b326ec8202",
+      "universitySourceKey": "unsw-sydney",
+      "displayText": "Term 1",
+      "date": null,
+      "applicationDeadline": null,
+      "applicationDeadlineText": null,
+      "sourceUrl": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-criminology-criminal-justice-law",
+      "sourceCheckedAt": "2026-10-07T06:01:09.382Z"
+    }
+  ]
+}

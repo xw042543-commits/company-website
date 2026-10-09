@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "monash-university",
+    "displayName": "Monash University",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.monash.edu/study"
+    ],
+    "allowedHosts": [
+      "www.monash.edu",
+      "monash.edu"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.monash.edu/study：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

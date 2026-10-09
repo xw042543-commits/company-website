@@ -1,0 +1,1513 @@
+{
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T05:53:45.180Z",
+  "sourceKey": "australian-national-university",
+  "sourceName": "The Australian National University",
+  "warnings": [
+    "https://www.anu.edu.au/students/program-administration/fees-payments/undergraduate-commonwealth-supported-places：重定向次数超过 5 次",
+    "https://www.anu.edu.au/students/program-administration/fees-payments/sa-help：重定向次数超过 5 次",
+    "https://www.anu.edu.au/students/program-administration/fees-payments/help-loans-for-new-zealand-citizens：重定向次数超过 5 次",
+    "HTTP 404：https://www.anu.edu.au/current-students/program-administration/calendar/month",
+    "HTTP 404：https://www.anu.edu.au/study/accept/international-undergraduate-and-postgraduate-coursework-defer-or-decline"
+  ],
+  "university": {
+    "candidateId": "university_c31dd693ef7046c8",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "The Australian National University",
+    "countryCode": null,
+    "countryRaw": "Australia",
+    "cityZh": null,
+    "cityEn": "Canberra",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://programsandcourses.anu.edu.au",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T05:50:27.209Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://programsandcourses.anu.edu.au/program/find",
+        "sourcePageTitle": "Degree Finder - ANU",
+        "sourceHash": "838e44112cacc1db5fda5c02e5c26f7b196ef80cbada806df83efa036acf2c55",
+        "fetchedAt": "2026-10-07T05:50:27.209Z",
+        "field": "name",
+        "rawText": "The Australian National University"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 4,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+    "media": []
+  },
+  "programmes": [],
+  "pages": [
+    {
+      "url": "https://programsandcourses.anu.edu.au/program/find",
+      "fetchedAt": "2026-10-07T05:50:27.209Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "838e44112cacc1db5fda5c02e5c26f7b196ef80cbada806df83efa036acf2c55",
+      "title": "Degree Finder - ANU",
+      "snapshotFile": "raw/0001-838e44112cac.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/flexible-double?mode=compare&year=2027",
+      "fetchedAt": "2026-10-07T05:50:29.466Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8303a86dbc2c79ce40ac525b166ed81ef309c2ab2e851e3dd022662441637339",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0002-8303a86dbc2c.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/undergraduate",
+      "fetchedAt": "2026-10-07T05:50:31.135Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ce8842ca167b6464b6b28d7170ff0414d112b246c58c27acb8ab9f5a99cd6048",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0003-ce8842ca167b.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/flexible-double",
+      "fetchedAt": "2026-10-07T05:50:33.311Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8303a86dbc2c79ce40ac525b166ed81ef309c2ab2e851e3dd022662441637339",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0004-8303a86dbc2c.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/postgraduate",
+      "fetchedAt": "2026-10-07T05:50:35.142Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1f747033c90ccfbe28f724b21ca724942387cb727e2891f51122af29887d32e5",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0005-1f747033c90c.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/research",
+      "fetchedAt": "2026-10-07T05:50:37.161Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7a5421e85c9950cbc3beed81f19e6ecdb751d62ca0eac830feb2e3879bc96c22",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0006-7a5421e85c99.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/",
+      "fetchedAt": "2026-10-07T05:50:39.441Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d26ff6df28fdc84d514c264298d9c7c3906761a381d3c1654e56db446ed4c056",
+      "title": "The Australian National University",
+      "snapshotFile": "raw/0007-d26ff6df28fd.html"
+    },
+    {
+      "url": "https://study.anu.edu.au/related-information/information-undergraduate-students",
+      "fetchedAt": "2026-10-07T05:50:41.272Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a05a1fe2a7b5d968b5f425ec295c2179870d686dc65424f4ded62cfdfd47e70e",
+      "title": "Information for - Undergraduate students | The Australian National University",
+      "snapshotFile": "raw/0008-a05a1fe2a7b5.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration",
+      "fetchedAt": "2026-10-07T05:50:44.129Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "292b7c9dc0c27697e6ae6f061a24d1bbe169b87b970a3ac5960c74d2b16ce232",
+      "title": "Program administration | Australian National University",
+      "snapshotFile": "raw/0009-292b7c9dc0c2.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/timetabling/01-access-and-support-for-mytimetable",
+      "fetchedAt": "2026-10-07T05:50:46.460Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2d790bc94e3703e755c98a8bb85d93624c7050c1b1e90cb5a1e09bf30c164ef4",
+      "title": "01 Access and Support for MyTimetable | Australian National University",
+      "snapshotFile": "raw/0010-2d790bc94e37.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments",
+      "fetchedAt": "2026-10-07T05:50:48.483Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6f07f1db96f91810484ee93ed5eaf3ac607b92ffa71a19d78d84542c16861466",
+      "title": "Fees & payments | Australian National University",
+      "snapshotFile": "raw/0011-6f07f1db96f9.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/domestic-undergraduate-tuition-fees",
+      "fetchedAt": "2026-10-07T05:51:01.142Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3f50e13edeeacd0a63edad613b5151d9a91c6040038a378d1f6bb27d7584da88",
+      "title": "Domestic undergraduate tuition fees | Australian National University",
+      "snapshotFile": "raw/0012-3f50e13edeea.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management",
+      "fetchedAt": "2026-10-07T05:51:03.464Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d36b07256f31c588e39498f532e55063ef8bfb2459ea5a5d0ade868dbb86842b",
+      "title": "Program management | Australian National University",
+      "snapshotFile": "raw/0013-d36b07256f31.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment",
+      "fetchedAt": "2026-10-07T05:51:05.174Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a3e296d69ba8048168e33145dd7c6cb2ef2d86eeff65658eb0d1414d480792fb",
+      "title": "Enrolment | Australian National University",
+      "snapshotFile": "raw/0014-a3e296d69ba8.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/assessments-exams",
+      "fetchedAt": "2026-10-07T05:51:07.154Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "66f3d5ce6c1d24b331d3510e14e097fdef8d27cef115233b8aff163a4bb82095",
+      "title": "Assessments & exams | Australian National University",
+      "snapshotFile": "raw/0015-66f3d5ce6c1d.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/prizes",
+      "fetchedAt": "2026-10-07T05:51:09.217Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b0463a71c26a948775c55f94c6d8d822c350ea33b9e7045b5ea2f975ac7d84c4",
+      "title": "Prizes | Australian National University",
+      "snapshotFile": "raw/0016-b0463a71c26a.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/prizes/ann-bates-undergraduate-prize-for-indonesian-studies",
+      "fetchedAt": "2026-10-07T05:51:10.888Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a0e093eaf04baf3602cda780c104d52367582fc247d39590a64f3b8105ea6bac",
+      "title": "Ann Bates Undergraduate Prize for Indonesian Studies | Australian National University",
+      "snapshotFile": "raw/0017-a0e093eaf04b.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/prizes/anu-indonesia-institute-undergraduate-pustaka-prize-emerging-talent",
+      "fetchedAt": "2026-10-07T05:51:12.980Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "725144d3ad3e580a15dd816822fc860f2dc21cb6339fed0d8c2889e0b84df527",
+      "title": "ANU Indonesia Institute Undergraduate Pustaka Prize - Emerging Talent | Australian National University",
+      "snapshotFile": "raw/0018-725144d3ad3e.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/prizes/anu-indonesia-institute-undergraduate-pustaka-prize-highest-achiever",
+      "fetchedAt": "2026-10-07T05:51:14.997Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e379a5dacd5b58fd7bb8d1f988ec4b0b81e80c6f78da58153450ce9305a0798d",
+      "title": "ANU Indonesia Institute Undergraduate Pustaka Prize - Highest Achiever | Australian National University",
+      "snapshotFile": "raw/0019-e379a5dacd5b.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/timetabling",
+      "fetchedAt": "2026-10-07T05:51:17.579Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c4d85b76cf2989160a88979dc7760f7733f28112f3e7ea6bd77750f774b65f57",
+      "title": "Timetabling | Australian National University",
+      "snapshotFile": "raw/0020-c4d85b76cf29.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/timetabling/07-anu-timetable-viewer",
+      "fetchedAt": "2026-10-07T05:51:19.440Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a371f4a15f3536ca8fb47895b8fc73cc7253791c3ae7078b045cbcf800d57c93",
+      "title": "07 ANU Timetable Viewer | Australian National University",
+      "snapshotFile": "raw/0021-a371f4a15f35.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/assessments-exams",
+      "fetchedAt": "2026-10-07T05:51:20.721Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "66f3d5ce6c1d24b331d3510e14e097fdef8d27cef115233b8aff163a4bb82095",
+      "title": "Assessments & exams | Australian National University",
+      "snapshotFile": "raw/0022-66f3d5ce6c1d.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/tuition-fees-summary",
+      "fetchedAt": "2026-10-07T05:51:23.161Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cadb900f9a8536fc4d5bf8366f26a089ddc4930ca5bd8757893d8509253a2abb",
+      "title": "Tuition Fees Summary | Australian National University",
+      "snapshotFile": "raw/0023-cadb900f9a85.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fee-invoices",
+      "fetchedAt": "2026-10-07T05:51:24.340Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ffef310ce9afac4346205c865ef687afdd7f1afb05be3b7616721d70b30d18b2",
+      "title": "Fee invoices | Australian National University",
+      "snapshotFile": "raw/0024-ffef310ce9af.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fee-refunds",
+      "fetchedAt": "2026-10-07T05:51:26.355Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ec627a0080ec786b03b16a20f04cfcb5377e1568c56c590710173eb6d4775f86",
+      "title": "Fee refunds | Australian National University",
+      "snapshotFile": "raw/0025-ec627a0080ec.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fees-schedules",
+      "fetchedAt": "2026-10-07T05:51:29.981Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "395e69939de8ec720e40ac73e3551f87084fe1e9581041388ecda5ed003ca660",
+      "title": "Fees Schedules | Australian National University",
+      "snapshotFile": "raw/0026-395e69939de8.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/incidental-costs",
+      "fetchedAt": "2026-10-07T05:51:31.419Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0527855a022040dd37ac574bcf50ceb60c56397b95ba0551c072b299acecda9b",
+      "title": "Incidental costs | Australian National University",
+      "snapshotFile": "raw/0027-0527855a0220.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/services-amenities-fee",
+      "fetchedAt": "2026-10-07T05:51:32.377Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "fc1bda13836e9bd4b0a6ab2927dd8378e6537a60b23e0a4fd4ffa44d137fab24",
+      "title": "Services & amenities fee | Australian National University",
+      "snapshotFile": "raw/0028-fc1bda13836e.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/unique-student-identifier-usi",
+      "fetchedAt": "2026-10-07T05:51:34.376Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "77efc91c97c26509e12a45851a4d7cbee6e40aa38853f3815dc64c4e9065b198",
+      "title": "Unique Student Identifier (USI) | Australian National University",
+      "snapshotFile": "raw/0029-77efc91c97c2.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/update-your-bank-account-details-on-anuhub",
+      "fetchedAt": "2026-10-07T05:51:37.282Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "dab17bc84208a217d07981fb7f1617aaef7451cc48741f37d6e29c9699b8d2a7",
+      "title": "Update your bank account details on ANUHub | Australian National University",
+      "snapshotFile": "raw/0030-dab17bc84208.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/sponsors",
+      "fetchedAt": "2026-10-07T05:51:39.383Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b6c18f1bd6253d2ea70dd312985d0de0bd825ac75abc7ebc68023f8f3f01be1b",
+      "title": "Sponsors | Australian National University",
+      "snapshotFile": "raw/0031-b6c18f1bd625.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/domestic-postgraduate-coursework-fees",
+      "fetchedAt": "2026-10-07T05:51:41.325Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8a3f4d9b685b51d41a033c5cfab277d9b7467e65114a144c93284c3e9995329e",
+      "title": "Domestic postgraduate coursework fees | Australian National University",
+      "snapshotFile": "raw/0032-8a3f4d9b685b.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/international-tuition-fees",
+      "fetchedAt": "2026-10-07T05:51:42.420Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7256bf6418ee5fb3848d137d74293a705d03bf9c4315e43b71d5b8085bde0309",
+      "title": "International tuition fees | Australian National University",
+      "snapshotFile": "raw/0033-7256bf6418ee.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fee-information-for-new-students",
+      "fetchedAt": "2026-10-07T05:51:45.367Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "144db88683bd3ab1fe3fb476dfc6e64504f122a50cba0106053a0e7cd59457ed",
+      "title": "Fee information for new students | Australian National University",
+      "snapshotFile": "raw/0034-144db88683bd.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/international-student-payment-options",
+      "fetchedAt": "2026-10-07T05:51:47.523Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cba639724f7d7c5d50aa3b511ce27b8e6025cc1dd80f524fa10d69e267da75a9",
+      "title": "International student payment options | Australian National University",
+      "snapshotFile": "raw/0035-cba639724f7d.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/postgraduate-commonwealth-supported-places",
+      "fetchedAt": "2026-10-07T05:51:49.292Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "52aafc2497d17721db566e5536487a190c188bc088570e4d1cfe24c0412a4569",
+      "title": "Postgraduate commonwealth supported places | Australian National University",
+      "snapshotFile": "raw/0036-52aafc2497d1.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/hecs-help",
+      "fetchedAt": "2026-10-07T05:51:51.405Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "439da2aafff722da1b8e27ea6431073fc8a66e909ec9a1c463923908b549dfd2",
+      "title": "HECS-HELP | Australian National University",
+      "snapshotFile": "raw/0037-439da2aafff7.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fee-help",
+      "fetchedAt": "2026-10-07T05:51:53.527Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "addd9ad0ca554302c6d1b23d2398a13989e2bf9edb293127ad5354796f357981",
+      "title": "FEE-HELP | Australian National University",
+      "snapshotFile": "raw/0038-addd9ad0ca55.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/os-help",
+      "fetchedAt": "2026-10-07T05:51:55.402Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6466b3ea15fe090803cf4f1a98ea3ff481d9a0c24d7b49a1a3a91cbc42acd246",
+      "title": "OS-HELP | Australian National University",
+      "snapshotFile": "raw/0039-6466b3ea15fe.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/commonwealth-assistance-notice",
+      "fetchedAt": "2026-10-07T05:52:18.960Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f8804dc4f9cd7b43332bd38ef426ff7a95f9ea898c01fd6ce8ef207a967e311e",
+      "title": "Commonwealth assistance notice | Australian National University",
+      "snapshotFile": "raw/0040-f8804dc4f9cd.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment/student-learning-entitlement-sle",
+      "fetchedAt": "2026-10-07T05:52:20.985Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "06199a151b32fc2869805a22412fe13a2cfdaec4c18e3d7f20947e87d0f5fb04",
+      "title": "Student Learning Entitlement (SLE) | Australian National University",
+      "snapshotFile": "raw/0041-06199a151b32.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/canadian-student-loans",
+      "fetchedAt": "2026-10-07T05:52:23.054Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5c53ebe5584f4db32797d548de0a9a37c704abdc0ea7bc10daa557fd428ca6d4",
+      "title": "Canadian student loans | Australian National University",
+      "snapshotFile": "raw/0042-5c53ebe5584f.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/dfat-australia-awards",
+      "fetchedAt": "2026-10-07T05:52:25.154Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "84ad3b00b2f05dfec4ca7ab6f0a634440addb1d05df240b6aa911bfea7937b8d",
+      "title": "DFAT Australia Awards | Australian National University",
+      "snapshotFile": "raw/0043-84ad3b00b2f0.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/external-international-hdr-sponsorship-opportunities",
+      "fetchedAt": "2026-10-07T05:52:27.130Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c2463b309a28cafe685144b7d81576c2317b3ce1d1441083f9b8e27da1c02146",
+      "title": "External International HDR Sponsorship Opportunities | Australian National University",
+      "snapshotFile": "raw/0044-c2463b309a28.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/private-loans-international-students",
+      "fetchedAt": "2026-10-07T05:52:29.028Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0cafa2869d0d9bb3cba726769b019b06cc1e943d2cbb2315a4ad94d61b9fff5e",
+      "title": "Private loans (international students) | Australian National University",
+      "snapshotFile": "raw/0045-0cafa2869d0d.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/us-veterans-affairs-benefits",
+      "fetchedAt": "2026-10-07T05:52:31.011Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b1e6ebe58ef09e66f22f370022c89379485f6cf374354d83ed0983215d42adb2",
+      "title": "US Veterans Affairs benefits | Australian National University",
+      "snapshotFile": "raw/0046-b1e6ebe58ef0.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/estimated-cost-of-living-in-canberra",
+      "fetchedAt": "2026-10-07T05:52:32.256Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bbedfc00dd7400bb74fc79327cecc1ea58cdc2181ca5e928193cf847d75d26fa",
+      "title": "Estimated Cost of Living in Canberra | Australian National University",
+      "snapshotFile": "raw/0047-bbedfc00dd74.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/overseas-student-health-cover-duration-costs",
+      "fetchedAt": "2026-10-07T05:52:35.062Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "89a7ace498fab8cfa5b1337fc1e60cf0a4d504ffce4f6b8ebe34ceefd48a6052",
+      "title": "Overseas Student Health Cover - Duration & Costs | Australian National University",
+      "snapshotFile": "raw/0048-89a7ace498fa.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/academic-documents-after-conferral",
+      "fetchedAt": "2026-10-07T05:52:38.279Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6cb3147f7b97ea8e39d2c4b926615ebcd885d6216ffa2dbe256c82f9f10382c1",
+      "title": "Academic documents after conferral | Australian National University",
+      "snapshotFile": "raw/0049-6cb3147f7b97.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/assessments-exams/academic-problems-appeals-complaints-process",
+      "fetchedAt": "2026-10-07T05:52:40.282Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1fbf4c4bfb7cf33406bb5e90825775154ad6c5e10ed110b7623cc58f7be3f226",
+      "title": "Academic problems, appeals, complaints process | Australian National University",
+      "snapshotFile": "raw/0050-1fbf4c4bfb7c.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/census-dates",
+      "fetchedAt": "2026-10-07T05:52:42.856Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "02462394f500979300bfef8ce328dcba277c4d84989c07b869307f3b2d9c28c2",
+      "title": "Census dates | Australian National University",
+      "snapshotFile": "raw/0051-02462394f500.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/change-of-residency",
+      "fetchedAt": "2026-10-07T05:52:45.233Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "984a72e3654c2435573c7be258f745e9a31a8f7ce72dfe67221b2a3d3d92acc2",
+      "title": "Change of residency | Australian National University",
+      "snapshotFile": "raw/0052-984a72e3654c.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/changing-majors-minors-specialisations",
+      "fetchedAt": "2026-10-07T05:52:47.388Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ffe7d35572a093fc099b7bcfc33771d85357c31c73a02828887e56238428daf7",
+      "title": "Changing majors, minors & specialisations | Australian National University",
+      "snapshotFile": "raw/0053-ffe7d35572a0.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/coe-extension",
+      "fetchedAt": "2026-10-07T05:52:49.237Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9922597c4a028bcd5f2f2b365c3eea12ff3b97859cd8bac863978b80c2e33bcc",
+      "title": "CoE extension | Australian National University",
+      "snapshotFile": "raw/0054-9922597c4a02.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/conference-attendance",
+      "fetchedAt": "2026-10-07T05:52:51.287Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d2cb5a48907848e704b26833d906ba7465593f2085188b4ce03a6f5287423f6a",
+      "title": "Conference attendance | Australian National University",
+      "snapshotFile": "raw/0055-d2cb5a489078.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/cross-institutional-study",
+      "fetchedAt": "2026-10-07T05:52:53.227Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7279225a96b1b3caaeadaad289a72ae567a6e10dffc0718e0b6f230cff43adfc",
+      "title": "Cross-institutional study | Australian National University",
+      "snapshotFile": "raw/0056-7279225a96b1.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment/decisions-made-under-the-awards-rules",
+      "fetchedAt": "2026-10-07T05:52:55.347Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4a7d5db9857fcbbbdc3dd2aa3c99a23800eb4c1e55d57eb8c87288a2dfa3dabb",
+      "title": "Decisions made under the Awards Rules | Australian National University",
+      "snapshotFile": "raw/0057-4a7d5db9857f.html"
+    },
+    {
+      "url": "https://study.anu.edu.au/accept-your-offer/international-students-accept-decline-or-change-preference",
+      "fetchedAt": "2026-10-07T05:52:57.206Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "03c7b1613e375b0b8f68a298bba11b21c55061545788eb1e82e522213d07e5ba",
+      "title": "International students - Accept, decline or change preference | The Australian National University",
+      "snapshotFile": "raw/0058-03c7b1613e37.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/digital-documents-my-equals",
+      "fetchedAt": "2026-10-07T05:52:59.251Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "47e2af1a79f31ebd5d985ac36a13628ecc1a42b703474b541c0370a218b7ed6f",
+      "title": "Digital Documents (My eQuals) | Australian National University",
+      "snapshotFile": "raw/0059-47e2af1a79f3.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/document-certification-and-translation",
+      "fetchedAt": "2026-10-07T05:53:00.355Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5763b19eebf0223246ba7c4e2deeff9f7176d52f5997523f359815e5f69accfa",
+      "title": "Document Certification and Translation | Australian National University",
+      "snapshotFile": "raw/0060-5763b19eebf0.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/equivalent-full-time-student-load",
+      "fetchedAt": "2026-10-07T05:53:02.373Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0121ef699cc9a3772d24fb090e4486e3973de19a76e9dd3e7de734c3f0eb35b0",
+      "title": "Equivalent full-time student load | Australian National University",
+      "snapshotFile": "raw/0061-0121ef699cc9.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/ethics-and-integrity",
+      "fetchedAt": "2026-10-07T05:53:07.949Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bf76ff956f9362116636f1b8771da80068ec3cc78a3888f611cc0363767f18c9",
+      "title": "Ethics and integrity | Australian National University",
+      "snapshotFile": "raw/0062-bf76ff956f93.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/fieldwork",
+      "fetchedAt": "2026-10-07T05:53:09.055Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9ed895e1408e1cb7d8cc9a7763d1e2ae6d9d1c06fa65a218d3bcf1e416314084",
+      "title": "Fieldwork | Australian National University",
+      "snapshotFile": "raw/0063-9ed895e1408e.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/fraud-awareness",
+      "fetchedAt": "2026-10-07T05:53:11.089Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b3221469cd0836d081545ef1c4524940ba7fdd1a1cc05517f4ee8f4d8e3f085b",
+      "title": "Fraud Awareness | Australian National University",
+      "snapshotFile": "raw/0064-b3221469cd08.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment/get-confirmation-of-your-anu-studies",
+      "fetchedAt": "2026-10-07T05:53:12.149Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1b2bfa00c8661bb38aaf3214104b467f224f7ebbeac10f835d79d43654c4b174",
+      "title": "Get confirmation of your ANU studies | Australian National University",
+      "snapshotFile": "raw/0065-1b2bfa00c866.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/get-course-credit-or-exemption",
+      "fetchedAt": "2026-10-07T05:53:14.165Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7e9c874651569e6dcbd71eb9cc16d4e6774db56503f07834acbdba9dac53ae42",
+      "title": "Get course credit or exemption | Australian National University",
+      "snapshotFile": "raw/0066-7e9c87465156.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/graduate-search",
+      "fetchedAt": "2026-10-07T05:53:18.848Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "09ee17524a49e418b2e5a646899053f78732c847778817913acafd010641e9d5",
+      "title": "Graduate Search | Australian National University",
+      "snapshotFile": "raw/0067-09ee17524a49.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/information-for-international-student-visa-holders-studying-in-australia",
+      "fetchedAt": "2026-10-07T05:53:20.296Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a5e904975519528d17f6ae9b1a048c7900249bc67f7255bd019a7c8d55bf8b3d",
+      "title": "Information for International Student Visa Holders Studying in Australia | Australian National University",
+      "snapshotFile": "raw/0068-a5e904975519.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/late-withdrawal-due-to-special-circumstances",
+      "fetchedAt": "2026-10-07T05:53:23.044Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d73ff0a86bc8b4dfec1152dfbf7db71ebe39c27d745640371c096f587f1f8c9a",
+      "title": "Late withdrawal due to special circumstances | Australian National University",
+      "snapshotFile": "raw/0069-d73ff0a86bc8.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/manage-my-degree-mmd-eform-exemptions",
+      "fetchedAt": "2026-10-07T05:53:25.954Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "86a597062773fce0baef759ad95f5c4beaf851a3fac1c71dae58d997e5282963",
+      "title": "Manage My Degree (MMD) eForm Exemptions | Australian National University",
+      "snapshotFile": "raw/0070-86a597062773.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/program-and-course-advice",
+      "fetchedAt": "2026-10-07T05:53:28.015Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "13bad319665e7c752c418dc77cbe070a435fbf640d8d289d2d5d6b6276ac05d2",
+      "title": "Program and Course advice | Australian National University",
+      "snapshotFile": "raw/0071-13bad319665e.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/program-leave-domestic-coursework-student",
+      "fetchedAt": "2026-10-07T05:53:29.049Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e9b4591f71f770d97d7f6c39d44d797c0c7140d6b9a656316418b089be8e489e",
+      "title": "Program leave - domestic coursework student | Australian National University",
+      "snapshotFile": "raw/0072-e9b4591f71f7.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/program-leave-international-coursework-student",
+      "fetchedAt": "2026-10-07T05:53:32.012Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0faaee3eddbe7808c38fa58ba5549bfe89114dc13a5efe4755f6eae14e3732d0",
+      "title": "Program leave - international coursework student | Australian National University",
+      "snapshotFile": "raw/0073-0faaee3eddbe.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/purchase-an-academic-transcript",
+      "fetchedAt": "2026-10-07T05:53:33.934Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3cb103bcb2f978e386eab81f716b938561bce5216f617b3783f24c8b06ea84af",
+      "title": "Purchase an academic transcript | Australian National University",
+      "snapshotFile": "raw/0074-3cb103bcb2f9.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/reducing-your-study-load-as-an-international-student-coursework",
+      "fetchedAt": "2026-10-07T05:53:36.001Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5f85f2ab2a30bfb4cd9c4bbf6a0187895078f006eaf53c660820e0646282ad5b",
+      "title": "Reducing your study load as an international student (Coursework) | Australian National University",
+      "snapshotFile": "raw/0075-5f85f2ab2a30.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/repeating-a-failed-course",
+      "fetchedAt": "2026-10-07T05:53:38.076Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "74057dfa16154dc35325d06f506e2852828215fd3a23f269e2904f0a7184c241",
+      "title": "Repeating a failed course | Australian National University",
+      "snapshotFile": "raw/0076-74057dfa1615.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/requesting-remote-adjustments-2022",
+      "fetchedAt": "2026-10-07T05:53:40.073Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3afc61e1297734e36adff568a6f7a6ef9a7e596739438a8fe9ee28b7f3529a69",
+      "title": "Requesting remote adjustments 2022 | Australian National University",
+      "snapshotFile": "raw/0077-3afc61e12977.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/special-dispensation",
+      "fetchedAt": "2026-10-07T05:53:41.103Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a45ce4b9e4038fa74f20d0d6ac93ef8a1811817d8b6ffb71164a3faacf5acc13",
+      "title": "Special Dispensation | Australian National University",
+      "snapshotFile": "raw/0078-a45ce4b9e403.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/staying-on-track-with-your-hdr-program",
+      "fetchedAt": "2026-10-07T05:53:44.083Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5998c7d52018cb9c3b2f93c2761524eb7ffd326a06ab02a96f821376cc31c44a",
+      "title": "Staying on track with your HDR program | Australian National University",
+      "snapshotFile": "raw/0079-5998c7d52018.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/student-administration-anuhub-requests",
+      "fetchedAt": "2026-10-07T05:53:45.115Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "62db91d02990b421f9d12505a07f8633956b01dc832a8d679e739cbd8b81623a",
+      "title": "Student Administration ANUHub Requests | Australian National University",
+      "snapshotFile": "raw/0080-62db91d02990.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/undergraduate",
+      "fetchedAt": "2026-10-07T05:54:30.433Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ce8842ca167b6464b6b28d7170ff0414d112b246c58c27acb8ab9f5a99cd6048",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0001-ce8842ca167b.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/postgraduate",
+      "fetchedAt": "2026-10-07T05:54:32.435Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1f747033c90ccfbe28f724b21ca724942387cb727e2891f51122af29887d32e5",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0002-1f747033c90c.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/program/find",
+      "fetchedAt": "2026-10-07T05:54:34.458Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "838e44112cacc1db5fda5c02e5c26f7b196ef80cbada806df83efa036acf2c55",
+      "title": "Degree Finder - ANU",
+      "snapshotFile": "raw/0003-838e44112cac.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/flexible-double?mode=compare&year=2027",
+      "fetchedAt": "2026-10-07T05:54:36.492Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8303a86dbc2c79ce40ac525b166ed81ef309c2ab2e851e3dd022662441637339",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0004-8303a86dbc2c.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/flexible-double",
+      "fetchedAt": "2026-10-07T05:54:38.516Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8303a86dbc2c79ce40ac525b166ed81ef309c2ab2e851e3dd022662441637339",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0005-8303a86dbc2c.html"
+    },
+    {
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/research",
+      "fetchedAt": "2026-10-07T05:54:40.482Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7a5421e85c9950cbc3beed81f19e6ecdb751d62ca0eac830feb2e3879bc96c22",
+      "title": "Degree Builder - Programs and Courses - ANU",
+      "snapshotFile": "raw/0006-7a5421e85c99.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/",
+      "fetchedAt": "2026-10-07T05:54:42.777Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d26ff6df28fdc84d514c264298d9c7c3906761a381d3c1654e56db446ed4c056",
+      "title": "The Australian National University",
+      "snapshotFile": "raw/0007-d26ff6df28fd.html"
+    },
+    {
+      "url": "https://study.anu.edu.au/related-information/information-undergraduate-students",
+      "fetchedAt": "2026-10-07T05:54:44.603Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9ba28c79401335545f1f84ce37cb1d4ccc2ec8e3e76a0426ba533629f2a585bc",
+      "title": "Information for - Undergraduate students | The Australian National University",
+      "snapshotFile": "raw/0008-9ba28c794013.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration",
+      "fetchedAt": "2026-10-07T05:54:46.631Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "292b7c9dc0c27697e6ae6f061a24d1bbe169b87b970a3ac5960c74d2b16ce232",
+      "title": "Program administration | Australian National University",
+      "snapshotFile": "raw/0009-292b7c9dc0c2.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/timetabling/01-access-and-support-for-mytimetable",
+      "fetchedAt": "2026-10-07T05:54:48.823Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2d790bc94e3703e755c98a8bb85d93624c7050c1b1e90cb5a1e09bf30c164ef4",
+      "title": "01 Access and Support for MyTimetable | Australian National University",
+      "snapshotFile": "raw/0010-2d790bc94e37.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments",
+      "fetchedAt": "2026-10-07T05:54:50.623Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6f07f1db96f91810484ee93ed5eaf3ac607b92ffa71a19d78d84542c16861466",
+      "title": "Fees & payments | Australian National University",
+      "snapshotFile": "raw/0011-6f07f1db96f9.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/domestic-undergraduate-tuition-fees",
+      "fetchedAt": "2026-10-07T05:55:02.565Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3f50e13edeeacd0a63edad613b5151d9a91c6040038a378d1f6bb27d7584da88",
+      "title": "Domestic undergraduate tuition fees | Australian National University",
+      "snapshotFile": "raw/0012-3f50e13edeea.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management",
+      "fetchedAt": "2026-10-07T05:55:04.575Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d36b07256f31c588e39498f532e55063ef8bfb2459ea5a5d0ade868dbb86842b",
+      "title": "Program management | Australian National University",
+      "snapshotFile": "raw/0013-d36b07256f31.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment",
+      "fetchedAt": "2026-10-07T05:55:06.588Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a3e296d69ba8048168e33145dd7c6cb2ef2d86eeff65658eb0d1414d480792fb",
+      "title": "Enrolment | Australian National University",
+      "snapshotFile": "raw/0014-a3e296d69ba8.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/assessments-exams",
+      "fetchedAt": "2026-10-07T05:55:08.614Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "66f3d5ce6c1d24b331d3510e14e097fdef8d27cef115233b8aff163a4bb82095",
+      "title": "Assessments & exams | Australian National University",
+      "snapshotFile": "raw/0015-66f3d5ce6c1d.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/prizes",
+      "fetchedAt": "2026-10-07T05:55:10.612Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b0463a71c26a948775c55f94c6d8d822c350ea33b9e7045b5ea2f975ac7d84c4",
+      "title": "Prizes | Australian National University",
+      "snapshotFile": "raw/0016-b0463a71c26a.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/prizes/ann-bates-undergraduate-prize-for-indonesian-studies",
+      "fetchedAt": "2026-10-07T05:55:13.276Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e4811826c48b8880e4259988a3a9d0d3e705caab254ea0b650cb46491acd2f5c",
+      "title": "Ann Bates Undergraduate Prize for Indonesian Studies | Australian National University",
+      "snapshotFile": "raw/0017-e4811826c48b.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/prizes/anu-indonesia-institute-undergraduate-pustaka-prize-emerging-talent",
+      "fetchedAt": "2026-10-07T05:55:14.631Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "725144d3ad3e580a15dd816822fc860f2dc21cb6339fed0d8c2889e0b84df527",
+      "title": "ANU Indonesia Institute Undergraduate Pustaka Prize - Emerging Talent | Australian National University",
+      "snapshotFile": "raw/0018-725144d3ad3e.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/prizes/anu-indonesia-institute-undergraduate-pustaka-prize-highest-achiever",
+      "fetchedAt": "2026-10-07T05:55:16.626Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e379a5dacd5b58fd7bb8d1f988ec4b0b81e80c6f78da58153450ce9305a0798d",
+      "title": "ANU Indonesia Institute Undergraduate Pustaka Prize - Highest Achiever | Australian National University",
+      "snapshotFile": "raw/0019-e379a5dacd5b.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/timetabling",
+      "fetchedAt": "2026-10-07T05:55:31.866Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c4d85b76cf2989160a88979dc7760f7733f28112f3e7ea6bd77750f774b65f57",
+      "title": "Timetabling | Australian National University",
+      "snapshotFile": "raw/0020-c4d85b76cf29.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/timetabling/07-anu-timetable-viewer",
+      "fetchedAt": "2026-10-07T05:55:33.027Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "379e00ea5290e42fddebec1043de3af1847e50e5c4af33bb3d48d3aba48b6204",
+      "title": "07 ANU Timetable Viewer | Australian National University",
+      "snapshotFile": "raw/0021-379e00ea5290.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/assessments-exams",
+      "fetchedAt": "2026-10-07T05:55:34.436Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "66f3d5ce6c1d24b331d3510e14e097fdef8d27cef115233b8aff163a4bb82095",
+      "title": "Assessments & exams | Australian National University",
+      "snapshotFile": "raw/0022-66f3d5ce6c1d.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/tuition-fees-summary",
+      "fetchedAt": "2026-10-07T05:55:36.068Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cadb900f9a8536fc4d5bf8366f26a089ddc4930ca5bd8757893d8509253a2abb",
+      "title": "Tuition Fees Summary | Australian National University",
+      "snapshotFile": "raw/0023-cadb900f9a85.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fee-invoices",
+      "fetchedAt": "2026-10-07T05:55:40.043Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ffef310ce9afac4346205c865ef687afdd7f1afb05be3b7616721d70b30d18b2",
+      "title": "Fee invoices | Australian National University",
+      "snapshotFile": "raw/0024-ffef310ce9af.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fee-refunds",
+      "fetchedAt": "2026-10-07T05:55:40.246Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ec627a0080ec786b03b16a20f04cfcb5377e1568c56c590710173eb6d4775f86",
+      "title": "Fee refunds | Australian National University",
+      "snapshotFile": "raw/0025-ec627a0080ec.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fees-schedules",
+      "fetchedAt": "2026-10-07T05:55:42.249Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "395e69939de8ec720e40ac73e3551f87084fe1e9581041388ecda5ed003ca660",
+      "title": "Fees Schedules | Australian National University",
+      "snapshotFile": "raw/0026-395e69939de8.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/incidental-costs",
+      "fetchedAt": "2026-10-07T05:55:45.007Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "25410ba02b0f9fcae8fcc86eb11e93e05bc4c8b8a16ec5b31f57532d385514d9",
+      "title": "Incidental costs | Australian National University",
+      "snapshotFile": "raw/0027-25410ba02b0f.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/services-amenities-fee",
+      "fetchedAt": "2026-10-07T05:55:46.260Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "fc1bda13836e9bd4b0a6ab2927dd8378e6537a60b23e0a4fd4ffa44d137fab24",
+      "title": "Services & amenities fee | Australian National University",
+      "snapshotFile": "raw/0028-fc1bda13836e.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/unique-student-identifier-usi",
+      "fetchedAt": "2026-10-07T05:55:48.274Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "77efc91c97c26509e12a45851a4d7cbee6e40aa38853f3815dc64c4e9065b198",
+      "title": "Unique Student Identifier (USI) | Australian National University",
+      "snapshotFile": "raw/0029-77efc91c97c2.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/update-your-bank-account-details-on-anuhub",
+      "fetchedAt": "2026-10-07T05:55:51.861Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "dab17bc84208a217d07981fb7f1617aaef7451cc48741f37d6e29c9699b8d2a7",
+      "title": "Update your bank account details on ANUHub | Australian National University",
+      "snapshotFile": "raw/0030-dab17bc84208.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/sponsors",
+      "fetchedAt": "2026-10-07T05:55:53.059Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d0bbf94003fbefaee4d183562c96264f53bc65f07cf97f67eb3141edf8e3f280",
+      "title": "Sponsors | Australian National University",
+      "snapshotFile": "raw/0031-d0bbf94003fb.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/domestic-postgraduate-coursework-fees",
+      "fetchedAt": "2026-10-07T05:55:54.309Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8a3f4d9b685b51d41a033c5cfab277d9b7467e65114a144c93284c3e9995329e",
+      "title": "Domestic postgraduate coursework fees | Australian National University",
+      "snapshotFile": "raw/0032-8a3f4d9b685b.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/international-tuition-fees",
+      "fetchedAt": "2026-10-07T05:55:56.332Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7256bf6418ee5fb3848d137d74293a705d03bf9c4315e43b71d5b8085bde0309",
+      "title": "International tuition fees | Australian National University",
+      "snapshotFile": "raw/0033-7256bf6418ee.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fee-information-for-new-students",
+      "fetchedAt": "2026-10-07T05:55:58.879Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "144db88683bd3ab1fe3fb476dfc6e64504f122a50cba0106053a0e7cd59457ed",
+      "title": "Fee information for new students | Australian National University",
+      "snapshotFile": "raw/0034-144db88683bd.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/international-student-payment-options",
+      "fetchedAt": "2026-10-07T05:56:00.317Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cba639724f7d7c5d50aa3b511ce27b8e6025cc1dd80f524fa10d69e267da75a9",
+      "title": "International student payment options | Australian National University",
+      "snapshotFile": "raw/0035-cba639724f7d.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/postgraduate-commonwealth-supported-places",
+      "fetchedAt": "2026-10-07T05:56:03.151Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "92cab737c7250056f0b1da241071f182c6d5640a79c56d75e1e8456a11e06b4d",
+      "title": "Postgraduate commonwealth supported places | Australian National University",
+      "snapshotFile": "raw/0036-92cab737c725.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/hecs-help",
+      "fetchedAt": "2026-10-07T05:56:04.334Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "439da2aafff722da1b8e27ea6431073fc8a66e909ec9a1c463923908b549dfd2",
+      "title": "HECS-HELP | Australian National University",
+      "snapshotFile": "raw/0037-439da2aafff7.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/fee-help",
+      "fetchedAt": "2026-10-07T05:56:06.343Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "addd9ad0ca554302c6d1b23d2398a13989e2bf9edb293127ad5354796f357981",
+      "title": "FEE-HELP | Australian National University",
+      "snapshotFile": "raw/0038-addd9ad0ca55.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/os-help",
+      "fetchedAt": "2026-10-07T05:56:08.924Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6466b3ea15fe090803cf4f1a98ea3ff481d9a0c24d7b49a1a3a91cbc42acd246",
+      "title": "OS-HELP | Australian National University",
+      "snapshotFile": "raw/0039-6466b3ea15fe.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/commonwealth-assistance-notice",
+      "fetchedAt": "2026-10-07T05:56:31.589Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f8804dc4f9cd7b43332bd38ef426ff7a95f9ea898c01fd6ce8ef207a967e311e",
+      "title": "Commonwealth assistance notice | Australian National University",
+      "snapshotFile": "raw/0040-f8804dc4f9cd.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment/student-learning-entitlement-sle",
+      "fetchedAt": "2026-10-07T05:56:35.671Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "979bde745f47703aed93de55546a63c988a8e02828f15bce768ca448a80d25d0",
+      "title": "Student Learning Entitlement (SLE) | Australian National University",
+      "snapshotFile": "raw/0041-979bde745f47.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/canadian-student-loans",
+      "fetchedAt": "2026-10-07T05:56:35.865Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5c53ebe5584f4db32797d548de0a9a37c704abdc0ea7bc10daa557fd428ca6d4",
+      "title": "Canadian student loans | Australian National University",
+      "snapshotFile": "raw/0042-5c53ebe5584f.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/dfat-australia-awards",
+      "fetchedAt": "2026-10-07T05:56:39.924Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "aea5dd2c044c6f1cbe51e6a311ef0aec4e44bba18046798974618de364791a60",
+      "title": "DFAT Australia Awards | Australian National University",
+      "snapshotFile": "raw/0043-aea5dd2c044c.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/external-international-hdr-sponsorship-opportunities",
+      "fetchedAt": "2026-10-07T05:56:40.127Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c2463b309a28cafe685144b7d81576c2317b3ce1d1441083f9b8e27da1c02146",
+      "title": "External International HDR Sponsorship Opportunities | Australian National University",
+      "snapshotFile": "raw/0044-c2463b309a28.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/private-loans-international-students",
+      "fetchedAt": "2026-10-07T05:56:42.121Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0cafa2869d0d9bb3cba726769b019b06cc1e943d2cbb2315a4ad94d61b9fff5e",
+      "title": "Private loans (international students) | Australian National University",
+      "snapshotFile": "raw/0045-0cafa2869d0d.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/us-veterans-affairs-benefits",
+      "fetchedAt": "2026-10-07T05:56:45.834Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0e808a2a2ccc2b78b6828a84a235503dc29b042526b6032362ad865dcc8c2cfc",
+      "title": "US Veterans Affairs benefits | Australian National University",
+      "snapshotFile": "raw/0046-0e808a2a2ccc.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/estimated-cost-of-living-in-canberra",
+      "fetchedAt": "2026-10-07T05:56:46.148Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bbedfc00dd7400bb74fc79327cecc1ea58cdc2181ca5e928193cf847d75d26fa",
+      "title": "Estimated Cost of Living in Canberra | Australian National University",
+      "snapshotFile": "raw/0047-bbedfc00dd74.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/overseas-student-health-cover-duration-costs",
+      "fetchedAt": "2026-10-07T05:56:48.139Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "89a7ace498fab8cfa5b1337fc1e60cf0a4d504ffce4f6b8ebe34ceefd48a6052",
+      "title": "Overseas Student Health Cover - Duration & Costs | Australian National University",
+      "snapshotFile": "raw/0048-89a7ace498fa.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/academic-documents-after-conferral",
+      "fetchedAt": "2026-10-07T05:56:52.181Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6cb3147f7b97ea8e39d2c4b926615ebcd885d6216ffa2dbe256c82f9f10382c1",
+      "title": "Academic documents after conferral | Australian National University",
+      "snapshotFile": "raw/0049-6cb3147f7b97.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/assessments-exams/academic-problems-appeals-complaints-process",
+      "fetchedAt": "2026-10-07T05:56:54.157Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1fbf4c4bfb7cf33406bb5e90825775154ad6c5e10ed110b7623cc58f7be3f226",
+      "title": "Academic problems, appeals, complaints process | Australian National University",
+      "snapshotFile": "raw/0050-1fbf4c4bfb7c.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/census-dates",
+      "fetchedAt": "2026-10-07T05:56:56.798Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "02462394f500979300bfef8ce328dcba277c4d84989c07b869307f3b2d9c28c2",
+      "title": "Census dates | Australian National University",
+      "snapshotFile": "raw/0051-02462394f500.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/change-of-residency",
+      "fetchedAt": "2026-10-07T05:56:58.181Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "984a72e3654c2435573c7be258f745e9a31a8f7ce72dfe67221b2a3d3d92acc2",
+      "title": "Change of residency | Australian National University",
+      "snapshotFile": "raw/0052-984a72e3654c.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/changing-majors-minors-specialisations",
+      "fetchedAt": "2026-10-07T05:57:00.184Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ffe7d35572a093fc099b7bcfc33771d85357c31c73a02828887e56238428daf7",
+      "title": "Changing majors, minors & specialisations | Australian National University",
+      "snapshotFile": "raw/0053-ffe7d35572a0.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/coe-extension",
+      "fetchedAt": "2026-10-07T05:57:02.178Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9922597c4a028bcd5f2f2b365c3eea12ff3b97859cd8bac863978b80c2e33bcc",
+      "title": "CoE extension | Australian National University",
+      "snapshotFile": "raw/0054-9922597c4a02.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/conference-attendance",
+      "fetchedAt": "2026-10-07T05:57:04.247Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d2cb5a48907848e704b26833d906ba7465593f2085188b4ce03a6f5287423f6a",
+      "title": "Conference attendance | Australian National University",
+      "snapshotFile": "raw/0055-d2cb5a489078.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/cross-institutional-study",
+      "fetchedAt": "2026-10-07T05:57:06.207Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7279225a96b1b3caaeadaad289a72ae567a6e10dffc0718e0b6f230cff43adfc",
+      "title": "Cross-institutional study | Australian National University",
+      "snapshotFile": "raw/0056-7279225a96b1.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment/decisions-made-under-the-awards-rules",
+      "fetchedAt": "2026-10-07T05:57:08.197Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4a7d5db9857fcbbbdc3dd2aa3c99a23800eb4c1e55d57eb8c87288a2dfa3dabb",
+      "title": "Decisions made under the Awards Rules | Australian National University",
+      "snapshotFile": "raw/0057-4a7d5db9857f.html"
+    },
+    {
+      "url": "https://study.anu.edu.au/accept-your-offer/international-students-accept-decline-or-change-preference",
+      "fetchedAt": "2026-10-07T05:57:11.213Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "03c7b1613e375b0b8f68a298bba11b21c55061545788eb1e82e522213d07e5ba",
+      "title": "International students - Accept, decline or change preference | The Australian National University",
+      "snapshotFile": "raw/0058-03c7b1613e37.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/digital-documents-my-equals",
+      "fetchedAt": "2026-10-07T05:57:12.221Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "47e2af1a79f31ebd5d985ac36a13628ecc1a42b703474b541c0370a218b7ed6f",
+      "title": "Digital Documents (My eQuals) | Australian National University",
+      "snapshotFile": "raw/0059-47e2af1a79f3.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/document-certification-and-translation",
+      "fetchedAt": "2026-10-07T05:57:14.212Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5763b19eebf0223246ba7c4e2deeff9f7176d52f5997523f359815e5f69accfa",
+      "title": "Document Certification and Translation | Australian National University",
+      "snapshotFile": "raw/0060-5763b19eebf0.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/equivalent-full-time-student-load",
+      "fetchedAt": "2026-10-07T05:57:16.248Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0121ef699cc9a3772d24fb090e4486e3973de19a76e9dd3e7de734c3f0eb35b0",
+      "title": "Equivalent full-time student load | Australian National University",
+      "snapshotFile": "raw/0061-0121ef699cc9.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/ethics-and-integrity",
+      "fetchedAt": "2026-10-07T05:57:18.228Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bf76ff956f9362116636f1b8771da80068ec3cc78a3888f611cc0363767f18c9",
+      "title": "Ethics and integrity | Australian National University",
+      "snapshotFile": "raw/0062-bf76ff956f93.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/fieldwork",
+      "fetchedAt": "2026-10-07T05:57:20.232Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9ed895e1408e1cb7d8cc9a7763d1e2ae6d9d1c06fa65a218d3bcf1e416314084",
+      "title": "Fieldwork | Australian National University",
+      "snapshotFile": "raw/0063-9ed895e1408e.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/fraud-awareness",
+      "fetchedAt": "2026-10-07T05:57:22.251Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b3221469cd0836d081545ef1c4524940ba7fdd1a1cc05517f4ee8f4d8e3f085b",
+      "title": "Fraud Awareness | Australian National University",
+      "snapshotFile": "raw/0064-b3221469cd08.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/enrolment/get-confirmation-of-your-anu-studies",
+      "fetchedAt": "2026-10-07T05:57:24.257Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1b2bfa00c8661bb38aaf3214104b467f224f7ebbeac10f835d79d43654c4b174",
+      "title": "Get confirmation of your ANU studies | Australian National University",
+      "snapshotFile": "raw/0065-1b2bfa00c866.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/get-course-credit-or-exemption",
+      "fetchedAt": "2026-10-07T05:57:26.258Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7e9c874651569e6dcbd71eb9cc16d4e6774db56503f07834acbdba9dac53ae42",
+      "title": "Get course credit or exemption | Australian National University",
+      "snapshotFile": "raw/0066-7e9c87465156.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/graduate-search",
+      "fetchedAt": "2026-10-07T05:57:29.186Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b96bc6055b621bcf06e5ec765afeede672fb1a8473ed6a9391d9b951041f767d",
+      "title": "Graduate Search | Australian National University",
+      "snapshotFile": "raw/0067-b96bc6055b62.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/information-for-international-student-visa-holders-studying-in-australia",
+      "fetchedAt": "2026-10-07T05:57:30.264Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a5e904975519528d17f6ae9b1a048c7900249bc67f7255bd019a7c8d55bf8b3d",
+      "title": "Information for International Student Visa Holders Studying in Australia | Australian National University",
+      "snapshotFile": "raw/0068-a5e904975519.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/late-withdrawal-due-to-special-circumstances",
+      "fetchedAt": "2026-10-07T05:57:34.283Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d73ff0a86bc8b4dfec1152dfbf7db71ebe39c27d745640371c096f587f1f8c9a",
+      "title": "Late withdrawal due to special circumstances | Australian National University",
+      "snapshotFile": "raw/0069-d73ff0a86bc8.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/manage-my-degree-mmd-eform-exemptions",
+      "fetchedAt": "2026-10-07T05:57:36.273Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "86a597062773fce0baef759ad95f5c4beaf851a3fac1c71dae58d997e5282963",
+      "title": "Manage My Degree (MMD) eForm Exemptions | Australian National University",
+      "snapshotFile": "raw/0070-86a597062773.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/program-and-course-advice",
+      "fetchedAt": "2026-10-07T05:57:38.868Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "13bad319665e7c752c418dc77cbe070a435fbf640d8d289d2d5d6b6276ac05d2",
+      "title": "Program and Course advice | Australian National University",
+      "snapshotFile": "raw/0071-13bad319665e.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/program-leave-domestic-coursework-student",
+      "fetchedAt": "2026-10-07T05:57:40.300Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e9b4591f71f770d97d7f6c39d44d797c0c7140d6b9a656316418b089be8e489e",
+      "title": "Program leave - domestic coursework student | Australian National University",
+      "snapshotFile": "raw/0072-e9b4591f71f7.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/program-leave-international-coursework-student",
+      "fetchedAt": "2026-10-07T05:57:42.317Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0faaee3eddbe7808c38fa58ba5549bfe89114dc13a5efe4755f6eae14e3732d0",
+      "title": "Program leave - international coursework student | Australian National University",
+      "snapshotFile": "raw/0073-0faaee3eddbe.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/purchase-an-academic-transcript",
+      "fetchedAt": "2026-10-07T05:57:44.312Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3cb103bcb2f978e386eab81f716b938561bce5216f617b3783f24c8b06ea84af",
+      "title": "Purchase an academic transcript | Australian National University",
+      "snapshotFile": "raw/0074-3cb103bcb2f9.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/reducing-your-study-load-as-an-international-student-coursework",
+      "fetchedAt": "2026-10-07T05:57:46.328Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5f85f2ab2a30bfb4cd9c4bbf6a0187895078f006eaf53c660820e0646282ad5b",
+      "title": "Reducing your study load as an international student (Coursework) | Australian National University",
+      "snapshotFile": "raw/0075-5f85f2ab2a30.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/repeating-a-failed-course",
+      "fetchedAt": "2026-10-07T05:57:48.321Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "74057dfa16154dc35325d06f506e2852828215fd3a23f269e2904f0a7184c241",
+      "title": "Repeating a failed course | Australian National University",
+      "snapshotFile": "raw/0076-74057dfa1615.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/requesting-remote-adjustments-2022",
+      "fetchedAt": "2026-10-07T05:57:50.319Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3afc61e1297734e36adff568a6f7a6ef9a7e596739438a8fe9ee28b7f3529a69",
+      "title": "Requesting remote adjustments 2022 | Australian National University",
+      "snapshotFile": "raw/0077-3afc61e12977.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/special-dispensation",
+      "fetchedAt": "2026-10-07T05:57:53.357Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5428b7f5b4446aa30f23805755614c14fc929815cb493591c09e0520804793e8",
+      "title": "Special Dispensation | Australian National University",
+      "snapshotFile": "raw/0078-5428b7f5b444.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/staying-on-track-with-your-hdr-program",
+      "fetchedAt": "2026-10-07T05:57:55.314Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "05f319aec3545fbb34fc36417b6c1c429af2060be65d84e7a3a6629c020b60eb",
+      "title": "Staying on track with your HDR program | Australian National University",
+      "snapshotFile": "raw/0079-05f319aec354.html"
+    },
+    {
+      "url": "https://www.anu.edu.au/students/program-administration/program-management/student-administration-anuhub-requests",
+      "fetchedAt": "2026-10-07T05:57:57.282Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "80676bbe670ce13383db371dbfedf53aa200467ad0c9d529c14b1fac7701d59d",
+      "title": "Student Administration ANUHub Requests | Australian National University",
+      "snapshotFile": "raw/0080-80676bbe670c.html"
+    }
+  ],
+  "region": "australia",
+  "previousPass": {
+    "pages": 40,
+    "warnings": [
+      "https://www.anu.edu.au/students/program-administration/fees-payments/fee-refunds：重定向次数超过 5 次",
+      "HTTP 404：https://www.anu.edu.au/current-students/program-administration/calendar/month"
+    ]
+  },
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T05:57:57.338Z",
+    "seedUrls": [
+      "https://programsandcourses.anu.edu.au/degree-builder/program-type/undergraduate",
+      "https://programsandcourses.anu.edu.au/degree-builder/program-type/postgraduate",
+      "https://programsandcourses.anu.edu.au/program/find",
+      "https://programsandcourses.anu.edu.au/program/compareandcreate"
+    ],
+    "pages": 80
+  }
+}

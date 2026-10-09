@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-10-08T02:21:20.558Z",
+  "removedUrls": [
+    "https://main.oscweb.caltech.edu/static/core/img/caltech-logo-400x400.png",
+    "https://www.nyu.edu/jcr:content/cq:featuredimage.coreimg.82.1280.jpeg",
+    "https://www.duke.edu/wp-content/uploads/2026/02/duke-logo.png",
+    "https://www.sydney.edu.au/",
+    "https://www.swinburne.edu.au/content/dam/media/place/as-level-4-and-24g-/AS401%20-%20Content%20Studio%201_1D3A0087.jpg"
+  ],
+  "replacements": [
+    {
+      "sourceKey": "california-institute-of-technology",
+      "status": "added-pending-rate-limit-recheck",
+      "contentType": "text/html; charset=utf-8",
+      "kind": "UNIVERSITY_IMAGE",
+      "assetUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Beckman_Institute_at_Caltech.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beckman_Institute_at_Caltech.jpg",
+      "licenceRaw": "Creative Commons Attribution-ShareAlike; attribution required"
+    },
+    {
+      "sourceKey": "new-york-university",
+      "status": "added-pending-rate-limit-recheck",
+      "contentType": "text/html; charset=utf-8",
+      "kind": "UNIVERSITY_IMAGE",
+      "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NYU%20Stern%20School%20of%20Business%20-%20Full%20Building%20%2848072703233%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:NYU_Stern_School_of_Business_-_Full_Building_(48072703233).jpg",
+      "licenceRaw": "Creative Commons Attribution 2.0; attribution required"
+    }
+  ]
+}

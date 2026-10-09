@@ -1,0 +1,878 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "cornell-university",
+    "displayName": "Cornell University",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.cornell.edu/"
+    ],
+    "allowedHosts": [
+      "www.cornell.edu",
+      "cornell.edu"
+    ],
+    "discoveredUrls": 121,
+    "parsedProgrammes": 1,
+    "pagesRead": 120,
+    "warnings": [
+      "https://www.cornell.edu/academics/calendar/：跳转超出允许域名: registrar.cornell.edu",
+      "robots.txt 禁止抓取：https://www.cornell.edu/search/people.cfm",
+      "http://www.cornell.edu/leadership/：跳转超出允许域名: leadership.cornell.edu",
+      "HTTP 404：https://www.cornell.edu/about/timeline/item-list",
+      "https://www.cornell.edu/video/dedication-of-the-robert-w-holley-center-for-agriculture-and-health：跳转超出允许域名: vod.video.cornell.edu",
+      "https://www.cornell.edu/cuinfo/specialconditions/：跳转超出允许域名: cuinfo.cornell.edu",
+      "https://sce.cornell.edu/courses/programs/summer：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://sce.cornell.edu/courses/programs/winter：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://sce.cornell.edu/courses/programs/part-time：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://sce.cornell.edu/courses/programs/summer",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://sce.cornell.edu/courses/programs/winter",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://sce.cornell.edu/courses/programs/part-time",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://www.johnson.cornell.edu/programs/emba/metro-ny/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/africana-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/agricultural-sciences-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/american-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/animal-science-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/anthropology-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/applied-economics-management-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/archaeology-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/architecture-barch/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/asian-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/astronomy-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/atmospheric-science-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biological-engineering-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biological-sciences-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biological-sciences-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biology-society-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biomedical-engineering-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biometry-statistics-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/chemical-engineering-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/chemistry-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/china-asia-pacific-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/civil-engineering-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/classics-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/cognitive-science-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/college-scholar-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/communication-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/comparative-literature-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/computer-science-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/computer-science-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/design-environmental-analysis-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/earth-climate-sciences-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/earth-climate-sciences-ecsag-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/earth-climate-sciences-ecsen-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/economics-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/electrical-computer-engineering-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/engineering-physics-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/english-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/entomology-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/environment-sustainability-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/environment-sustainability-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/environmental-engineering-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/fashion-design-management-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/fgss-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/fiber-science-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/art-bfa/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/food-science-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/french-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/german-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/global-public-health-sciences-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/global-public-health-sciences-hum-ecol-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/global-development-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/government-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/health-care-policy-major-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/history-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/history-architecture-urban-development-bs-haud/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/history-art-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/hotel-management-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/human-biology-health-society-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/human-development-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/independent-major/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/industrial-labor-relations-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/information-science-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/information-science-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/information-science-systems-technology-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/interdisciplinary-studies-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/italian-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/jewish-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/landscape-architecture-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/latina-o-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/linguistics-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/materials-science-engineering-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/mathematics-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/mechanical-engineering-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/music-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/near-eastern-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/nutritional-sciences-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/operations-research-engineering-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/performing-media-arts-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/philosophy-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/physics-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/plant-sciences-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/public-policy-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/public-policy-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/psychology-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/religious-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/science-technology-studies-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/sociology-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/spanish-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/statistics-data-science-ba/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/urban-regional-studies-bs-urs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/viticulture-enology-bs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/actuarial-science-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/aerospace-engineering-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/africana-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/american-indian-indigenous-studies-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/asl-deaf-studies-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/american-studies-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/animal-science-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/anthropology-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/applied-economics-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/applied-exercise-science-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/applied-mathematics-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/arabic-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/archaeology-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/architecture-minor-for-non-departmental-students/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/artificial-intelligence-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/asian-american-studies-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/astrobiology-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/astronomy-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/atmospheric-science-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biological-engineering-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biomedical-engineering-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biomedical-sciences-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/biometry-statistics-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/business-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/china-asia-pacific-studies-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://catalog.cornell.edu/programs/caribbean-studies-minor/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "cornell-university",
+      "url": "https://business.cornell.edu/programs/emba-nyc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:23:32.674Z",
+      "error": null
+    }
+  ]
+}

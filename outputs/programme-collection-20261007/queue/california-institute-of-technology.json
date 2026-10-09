@@ -1,0 +1,70 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "california-institute-of-technology",
+    "displayName": "California Institute of Technology",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://www.caltech.edu/"
+    ],
+    "allowedHosts": [
+      "www.caltech.edu",
+      "caltech.edu"
+    ],
+    "discoveredUrls": 7,
+    "parsedProgrammes": 0,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "california-institute-of-technology",
+      "url": "https://ctlo.caltech.edu/universityteaching/programs/cpet",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "california-institute-of-technology",
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/surf",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "california-institute-of-technology",
+      "url": "http://online.caltech.edu/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "california-institute-of-technology",
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "california-institute-of-technology",
+      "url": "https://www.admissions.caltech.edu/why-caltech/academics/majors-minors",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "california-institute-of-technology",
+      "url": "https://www.caltech.edu/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "california-institute-of-technology",
+      "url": "https://gradoffice.caltech.edu/academics/optionreps",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

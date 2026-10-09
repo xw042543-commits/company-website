@@ -1,0 +1,17 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:27:58.888Z",
+  "sourceKey": "singapore-university-of-social-sciences",
+  "sourceName": "Singapore University of Social Sciences",
+  "warnings": [
+    "https://www.suss.edu.sg/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:41:01.873Z"
+  }
+}

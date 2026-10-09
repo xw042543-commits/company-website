@@ -1,0 +1,1584 @@
+{
+  "region": "australia",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.546Z",
+  "sourceKey": "university-of-sydney",
+  "sourceName": "The University of Sydney",
+  "warnings": [
+    "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/corporate/documents/study/guides/usyd-undergraduate-guide.pdf.coredownload.pdf",
+    "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/corporate/documents/study/guides/usyd-undergraduate-guide.pdf",
+    "HTTP 404：https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite/The%20MOOC%20is%20currently%20available%20here.",
+    "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/students/documents/enrolment/course-planning/course-planner.xlsx",
+    "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/students/documents/enrolment/course-planning/course-planner.docx"
+  ],
+  "university": {
+    "candidateId": "university_9e7a32e10baa4a80",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "The University of Sydney",
+    "countryCode": null,
+    "countryRaw": "Australia",
+    "cityZh": null,
+    "cityEn": "Sydney",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.sydney.edu.au",
+    "logoSourceUrl": "https://sydney.edu.au/content/dam/icons/logos/logo-usyd-dark.svg",
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T03:57:14.536Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html",
+        "sourcePageTitle": "Undergraduate courses - The University of Sydney",
+        "sourceHash": "a174abb620390526db6ead9be2833d141bcb099526553560ceaacf54101ddcea",
+        "fetchedAt": "2026-10-07T03:57:14.536Z",
+        "field": "name",
+        "rawText": "The University of Sydney"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 3,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+    "media": [
+      {
+        "kind": "LOGO",
+        "assetUrl": "https://sydney.edu.au/content/dam/icons/logos/logo-usyd-dark.svg",
+        "sourceUrl": "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html",
+        "sourceCheckedAt": "2026-10-07T03:57:14.536Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      },
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://www.sydney.edu.au/content/dam/corporate/ex/images/hero-crop/danielle-crop.jpg",
+        "sourceUrl": "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html",
+        "sourceCheckedAt": "2026-10-07T03:57:14.536Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_26f2c85656982b97",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "工程荣誉学士(土木工程)",
+      "nameEn": "Bachelor of Engineering Honours (Civil Engineering)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-civil-engineering2.html",
+      "sourceCheckedAt": "2026-10-07T03:57:42.590Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-civil-engineering2.html",
+          "sourcePageTitle": "Bachelor of Engineering Honours (Civil Engineering) - The University of Sydney",
+          "sourceHash": "36508c544e45ff3b00afcd4d90f4e6fbf89e10f3ebb381c183bd8e9e52919630",
+          "fetchedAt": "2026-10-07T03:57:42.590Z",
+          "field": "name",
+          "rawText": "Bachelor of Engineering Honours (Civil Engineering)"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-civil-engineering2.html",
+          "sourcePageTitle": "Bachelor of Engineering Honours (Civil Engineering) - The University of Sydney",
+          "sourceHash": "36508c544e45ff3b00afcd4d90f4e6fbf89e10f3ebb381c183bd8e9e52919630",
+          "fetchedAt": "2026-10-07T03:57:42.590Z",
+          "field": "detailUrl",
+          "rawText": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-civil-engineering2.html"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-civil-engineering2.html",
+          "sourcePageTitle": "Bachelor of Engineering Honours (Civil Engineering) - The University of Sydney",
+          "sourceHash": "36508c544e45ff3b00afcd4d90f4e6fbf89e10f3ebb381c183bd8e9e52919630",
+          "fetchedAt": "2026-10-07T03:57:42.590Z",
+          "field": "studyLevelRaw",
+          "rawText": "Undergraduate"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_d2cab8ad2084e9ce",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "专业工程硕士(土木工程)",
+      "nameEn": "Master of Professional Engineering (Civil Engineering)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil-engineering.html",
+      "sourceCheckedAt": "2026-10-07T03:57:44.530Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil-engineering.html",
+          "sourcePageTitle": "Master of Professional Engineering (Civil Engineering) - The University of Sydney",
+          "sourceHash": "58b4d4bc37847d10ae0886de7703271b7ee7328911f9f86d047c3496d51bb7ad",
+          "fetchedAt": "2026-10-07T03:57:44.530Z",
+          "field": "name",
+          "rawText": "Master of Professional Engineering (Civil Engineering)"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil-engineering.html",
+          "sourcePageTitle": "Master of Professional Engineering (Civil Engineering) - The University of Sydney",
+          "sourceHash": "58b4d4bc37847d10ae0886de7703271b7ee7328911f9f86d047c3496d51bb7ad",
+          "fetchedAt": "2026-10-07T03:57:44.530Z",
+          "field": "detailUrl",
+          "rawText": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil-engineering.html"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil-engineering.html",
+          "sourcePageTitle": "Master of Professional Engineering (Civil Engineering) - The University of Sydney",
+          "sourceHash": "58b4d4bc37847d10ae0886de7703271b7ee7328911f9f86d047c3496d51bb7ad",
+          "fetchedAt": "2026-10-07T03:57:44.530Z",
+          "field": "studyLevelRaw",
+          "rawText": "Postgraduate"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_d877b2fccc607372",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "专业工程硕士(加速)",
+      "nameEn": "Master of Professional Engineering (Accelerated)(Civil Engineering)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-accelerated-civil-engineering.html",
+      "sourceCheckedAt": "2026-10-07T03:57:46.517Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-accelerated-civil-engineering.html",
+          "sourcePageTitle": "Master of Professional Engineering (Accelerated)(Civil Engineering) - The University of Sydney",
+          "sourceHash": "bcc826b9085b04991266de95f8457774fdc8ff72ea056dd752a3ef41781bfe67",
+          "fetchedAt": "2026-10-07T03:57:46.517Z",
+          "field": "name",
+          "rawText": "Master of Professional Engineering (Accelerated)(Civil Engineering)"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-accelerated-civil-engineering.html",
+          "sourcePageTitle": "Master of Professional Engineering (Accelerated)(Civil Engineering) - The University of Sydney",
+          "sourceHash": "bcc826b9085b04991266de95f8457774fdc8ff72ea056dd752a3ef41781bfe67",
+          "fetchedAt": "2026-10-07T03:57:46.517Z",
+          "field": "detailUrl",
+          "rawText": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-accelerated-civil-engineering.html"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-accelerated-civil-engineering.html",
+          "sourcePageTitle": "Master of Professional Engineering (Accelerated)(Civil Engineering) - The University of Sydney",
+          "sourceHash": "bcc826b9085b04991266de95f8457774fdc8ff72ea056dd752a3ef41781bfe67",
+          "fetchedAt": "2026-10-07T03:57:46.517Z",
+          "field": "studyLevelRaw",
+          "rawText": "Postgraduate"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_51a304bc3ce875b0",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "工程硕士(土木工程)",
+      "nameEn": "Master of Engineering (Civil Engineering)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering0.html",
+      "sourceCheckedAt": "2026-10-07T03:58:08.830Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering0.html",
+          "sourcePageTitle": "Master of Engineering (Civil Engineering) - The University of Sydney",
+          "sourceHash": "0388a32c74f6e8ca80dd743a29c3f41fc7ea0448ff9c07e442d3c47457e4fca5",
+          "fetchedAt": "2026-10-07T03:58:08.830Z",
+          "field": "name",
+          "rawText": "Master of Engineering (Civil Engineering)"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering0.html",
+          "sourcePageTitle": "Master of Engineering (Civil Engineering) - The University of Sydney",
+          "sourceHash": "0388a32c74f6e8ca80dd743a29c3f41fc7ea0448ff9c07e442d3c47457e4fca5",
+          "fetchedAt": "2026-10-07T03:58:08.830Z",
+          "field": "detailUrl",
+          "rawText": "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering0.html"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering0.html",
+          "sourcePageTitle": "Master of Engineering (Civil Engineering) - The University of Sydney",
+          "sourceHash": "0388a32c74f6e8ca80dd743a29c3f41fc7ea0448ff9c07e442d3c47457e4fca5",
+          "fetchedAt": "2026-10-07T03:58:08.830Z",
+          "field": "studyLevelRaw",
+          "rawText": "Postgraduate"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_61c9ea735b1a53e2",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "教育学士(小学)",
+      "nameEn": "Bachelor of Education (Primary)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-education-primary0.html",
+      "sourceCheckedAt": "2026-10-07T03:58:28.707Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-education-primary0.html",
+          "sourcePageTitle": "Bachelor of Education (Primary) - The University of Sydney",
+          "sourceHash": "bbfba00270dcad498d976c3aede0301a21bbae4bdcb41053b890a71306bf0bd3",
+          "fetchedAt": "2026-10-07T03:58:28.707Z",
+          "field": "name",
+          "rawText": "Bachelor of Education (Primary)"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-education-primary0.html",
+          "sourcePageTitle": "Bachelor of Education (Primary) - The University of Sydney",
+          "sourceHash": "bbfba00270dcad498d976c3aede0301a21bbae4bdcb41053b890a71306bf0bd3",
+          "fetchedAt": "2026-10-07T03:58:28.707Z",
+          "field": "detailUrl",
+          "rawText": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-education-primary0.html"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-education-primary0.html",
+          "sourcePageTitle": "Bachelor of Education (Primary) - The University of Sydney",
+          "sourceHash": "bbfba00270dcad498d976c3aede0301a21bbae4bdcb41053b890a71306bf0bd3",
+          "fetchedAt": "2026-10-07T03:58:28.707Z",
+          "field": "studyLevelRaw",
+          "rawText": "Undergraduate"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_8fdbee8e36451da6",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "教学硕士(小学)",
+      "nameEn": "Master of Teaching (Primary)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-teaching-primary.html",
+      "sourceCheckedAt": "2026-10-07T03:58:30.535Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-teaching-primary.html",
+          "sourcePageTitle": "Master of Teaching (Primary) - The University of Sydney",
+          "sourceHash": "3cda464c7d111624155880b8a00bf17d8f2b5bb962cd90d9ab60450f6d3b6ce4",
+          "fetchedAt": "2026-10-07T03:58:30.535Z",
+          "field": "name",
+          "rawText": "Master of Teaching (Primary)"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-teaching-primary.html",
+          "sourcePageTitle": "Master of Teaching (Primary) - The University of Sydney",
+          "sourceHash": "3cda464c7d111624155880b8a00bf17d8f2b5bb962cd90d9ab60450f6d3b6ce4",
+          "fetchedAt": "2026-10-07T03:58:30.535Z",
+          "field": "detailUrl",
+          "rawText": "https://www.sydney.edu.au/courses/courses/pc/master-of-teaching-primary.html"
+        },
+        {
+          "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-teaching-primary.html",
+          "sourcePageTitle": "Master of Teaching (Primary) - The University of Sydney",
+          "sourceHash": "3cda464c7d111624155880b8a00bf17d8f2b5bb962cd90d9ab60450f6d3b6ce4",
+          "fetchedAt": "2026-10-07T03:58:30.535Z",
+          "field": "studyLevelRaw",
+          "rawText": "Postgraduate"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html",
+      "fetchedAt": "2026-10-07T03:57:14.536Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "a174abb620390526db6ead9be2833d141bcb099526553560ceaacf54101ddcea",
+      "title": "Undergraduate courses - The University of Sydney",
+      "snapshotFile": "raw/0001-a174abb62039.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/events-for-prospective-students/undergraduate.html",
+      "fetchedAt": "2026-10-07T03:57:16.237Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "70c4bf64537b8e82d171455e63725efb9aa4c40bbd096f7a16e19d4e400547fb",
+      "title": "Undergraduate events - The University of Sydney",
+      "snapshotFile": "raw/0002-70c4bf64537b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/engage/schools/high-school-outreach-and-access-programs.html",
+      "fetchedAt": "2026-10-07T03:57:18.741Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "c99fe256d068d7369e00cc4c67d25b91ee47cc1013c4f98591a901d98f990d3b",
+      "title": "Outreach and access programs - The University of Sydney",
+      "snapshotFile": "raw/0003-c99fe256d068.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/help/high-school-students.html?stay-connected=y",
+      "fetchedAt": "2026-10-07T03:57:20.823Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "780b4cd1e6361ad2a0780c072e7e9bc3179dc965b0aa820e5f5cc4a219f9f10b",
+      "title": "High school students - The University of Sydney",
+      "snapshotFile": "raw/0004-780b4cd1e636.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/domestic/bachelors-honours/domestic-undergraduate-scholarships.html",
+      "fetchedAt": "2026-10-07T03:57:22.562Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "e81682136ea937ff457b799edd8af51037fe4fe23c33f1e6218694672ca5061a",
+      "title": "Domestic undergraduate scholarships - The University of Sydney",
+      "snapshotFile": "raw/0005-e81682136ea9.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate.html",
+      "fetchedAt": "2026-10-07T03:57:26.952Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "9e744b9d47e5501431d22cf713aabe36ef39d512856b550aae5aa38552031660",
+      "title": "How to apply for undergraduate courses - The University of Sydney",
+      "snapshotFile": "raw/0006-9e744b9d47e5.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite/massive-open-online-course-mooc-for-mathematics.html",
+      "fetchedAt": "2026-10-07T03:57:28.585Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "d7852f3b72e04891bd57047f3cfbbfb4f4a8126dc563b9e7b078a29462df7f79",
+      "title": "Massive Open Online Course (MOOC) for mathematics - The University of Sydney",
+      "snapshotFile": "raw/0007-d7852f3b72e0.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/search.html",
+      "fetchedAt": "2026-10-07T03:57:30.289Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "8c4976dc0ed9eced608054c6200dc5e9cd451b6ddd86761f3445af06bd44a088",
+      "title": "Course search - The University of Sydney",
+      "snapshotFile": "raw/0008-8c4976dc0ed9.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/help/advice/atar-explained.html",
+      "fetchedAt": "2026-10-07T03:57:35.158Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "ef0084fbd6aa6f17f655c2f82322a1105b580146af8bdab27be8545c7f23082e",
+      "title": "ATAR explained - The University of Sydney",
+      "snapshotFile": "raw/0009-ef0084fbd6aa.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/b/peter-nicol-russell-undergraduate-scholarship.html",
+      "fetchedAt": "2026-10-07T03:57:36.454Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "5443e0be79968637c9c2b667ef5111b25162a060ed4449a0698ebf5f52b50be2",
+      "title": "The Peter Nicol Russell Undergraduate Scholarship - Scholarships",
+      "snapshotFile": "raw/0010-5443e0be7996.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/b/lr-ba-browne-undergraduate-scholarship-civil-engineering.html",
+      "fetchedAt": "2026-10-07T03:57:38.457Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "e458c3a3ca2e22d054daea1d0a8b2310d9cfd15d86b41c9923429bcb6301b3ff",
+      "title": "LR and BA Browne Undergraduate Scholarship in Civil Engineering - Scholarships",
+      "snapshotFile": "raw/0011-e458c3a3ca2e.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/engineering/study/study-areas/civil-engineering.html",
+      "fetchedAt": "2026-10-07T03:57:40.994Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "27e476c44c35114a6e0b04acd661673b7e9882917730ec901568ce24c2ec31ef",
+      "title": "Civil engineering - The University of Sydney",
+      "snapshotFile": "raw/0012-27e476c44c35.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-civil-engineering2.html",
+      "fetchedAt": "2026-10-07T03:57:42.590Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "36508c544e45ff3b00afcd4d90f4e6fbf89e10f3ebb381c183bd8e9e52919630",
+      "title": "Bachelor of Engineering Honours (Civil Engineering) - The University of Sydney",
+      "snapshotFile": "raw/0013-36508c544e45.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil-engineering.html",
+      "fetchedAt": "2026-10-07T03:57:44.530Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "58b4d4bc37847d10ae0886de7703271b7ee7328911f9f86d047c3496d51bb7ad",
+      "title": "Master of Professional Engineering (Civil Engineering) - The University of Sydney",
+      "snapshotFile": "raw/0014-58b4d4bc3784.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-accelerated-civil-engineering.html",
+      "fetchedAt": "2026-10-07T03:57:46.517Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "bcc826b9085b04991266de95f8457774fdc8ff72ea056dd752a3ef41781bfe67",
+      "title": "Master of Professional Engineering (Accelerated)(Civil Engineering) - The University of Sydney",
+      "snapshotFile": "raw/0015-bcc826b9085b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/humanitarian-engineering-civil.html",
+      "fetchedAt": "2026-10-07T03:57:48.621Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "3f24f1688f5f047a20355503742beba67bde16bbbbcf799fc89499e8a8c058f6",
+      "title": "Humanitarian Engineering (Civil) - The University of Sydney",
+      "snapshotFile": "raw/0016-3f24f1688f5f.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/computer-systems.html",
+      "fetchedAt": "2026-10-07T03:57:50.536Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "f3a227f4207b3874e9571a070d8201e7d54b87d6d9a86fa844702a208f3b2ea8",
+      "title": "Computer Systems - The University of Sydney",
+      "snapshotFile": "raw/0017-f3a227f4207b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/engineering-data-science.html",
+      "fetchedAt": "2026-10-07T03:57:52.524Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "4ed7ea8d285bfb3e29e9d105a7341c5130718c11e56d9b93adf10c7732aa0b32",
+      "title": "Engineering Data Science - The University of Sydney",
+      "snapshotFile": "raw/0018-4ed7ea8d285b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/geotechnical-engineering.html",
+      "fetchedAt": "2026-10-07T03:57:54.518Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "1ca20e26093f541ab2a17da5a1e4c465cd32b328366fc831a8468b73775560d0",
+      "title": "Geotechnical Engineering - The University of Sydney",
+      "snapshotFile": "raw/0019-1ca20e26093f.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/innovation-and-entrepreneurship.html",
+      "fetchedAt": "2026-10-07T03:57:56.539Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "dc3301f7dfe47a31d6685f36ab8b3776d9d92578131b094e19ba640f9b58ac66",
+      "title": "Innovation and Entrepreneurship - The University of Sydney",
+      "snapshotFile": "raw/0020-dc3301f7dfe4.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/integrated-building-engineering.html",
+      "fetchedAt": "2026-10-07T03:57:58.535Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "a9c2d4d3dd723342eabb147b70bc0ba0b29c411a6ff322cf1e7f5e29e5687012",
+      "title": "Integrated Building Engineering - The University of Sydney",
+      "snapshotFile": "raw/0021-a9c2d4d3dd72.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/project-management1.html",
+      "fetchedAt": "2026-10-07T03:58:00.569Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "c81abeea272739bed9854e75aa3cf2661c12d1dab754c6e5aa50618945af2386",
+      "title": "Project Management - The University of Sydney",
+      "snapshotFile": "raw/0022-c81abeea2727.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/structures.html",
+      "fetchedAt": "2026-10-07T03:58:02.558Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "7f65259d85e66150b419ab8287a127372f3371a45d0f4f3f0b764490e2b50472",
+      "title": "Structures - The University of Sydney",
+      "snapshotFile": "raw/0023-7f65259d85e6.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/transport1.html",
+      "fetchedAt": "2026-10-07T03:58:04.724Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "04477eb31a4088ad220c5fdbd665aa20ef9465a0824183a1556bb5d987ec9011",
+      "title": "Transport - The University of Sydney",
+      "snapshotFile": "raw/0024-04477eb31a40.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/water-engineering.html",
+      "fetchedAt": "2026-10-07T03:58:06.571Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "d65b82eb1de1acb826c072cd29f9ede04b31a037efe61f98daf6d9fbbee4bdda",
+      "title": "Water Engineering - The University of Sydney",
+      "snapshotFile": "raw/0025-d65b82eb1de1.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering0.html",
+      "fetchedAt": "2026-10-07T03:58:08.830Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "0388a32c74f6e8ca80dd743a29c3f41fc7ea0448ff9c07e442d3c47457e4fca5",
+      "title": "Master of Engineering (Civil Engineering) - The University of Sydney",
+      "snapshotFile": "raw/0026-0388a32c74f6.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/c/susan-wakil-rural-regional-undergraduate-scholarship.html",
+      "fetchedAt": "2026-10-07T03:58:10.577Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "f01753b8677667aaf0b3a4d317d2737b7533771643ee9d54a007e35a3efd0a9d",
+      "title": "Susan Wakil Scholarship - Undergraduate Rural and Regional - Scholarships",
+      "snapshotFile": "raw/0027-f01753b86776.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/c/susan-wakil-greater-sydney-undergraduate-scholarship.html",
+      "fetchedAt": "2026-10-07T03:58:12.601Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "48444b127f9539fd08a47c90e432b01db155662ddda2fca32443228cf63f2e42",
+      "title": "Susan Wakil Scholarship - Undergraduate Greater Sydney - Scholarships",
+      "snapshotFile": "raw/0028-48444b127f95.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/d/mrs-elva-rae-talented-mathematics-undergraduate-scholarship.html",
+      "fetchedAt": "2026-10-07T03:58:14.749Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "43fdc525de7f55095ee09d4a06b72a1157aec1fe7c1c21308786d8ec1a41d6a5",
+      "title": "Mrs Elva Rae Talented Mathematics Undergraduate Scholarship - Scholarships",
+      "snapshotFile": "raw/0029-43fdc525de7f.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/d/aboriginal-and-torres-strait-islander-undergraduate-psychology-s.html",
+      "fetchedAt": "2026-10-07T03:58:16.593Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "5cf41b07c16f24cd2183dfb9e0f20bef4ef723dbe104a604178aaee243342b04",
+      "title": "Aboriginal and Torres Strait Islander Undergraduate Psychology Scholarship - Scholarships",
+      "snapshotFile": "raw/0030-5cf41b07c16f.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/b/tom-austen-brown-undergraduate-scholarship-in-archaeology.html",
+      "fetchedAt": "2026-10-07T03:58:18.599Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "ae04bba45f68bdbe163ec121fd46316644130f6bad9263c1adfcb97088f1b657",
+      "title": "Tom Austen Brown Undergraduate Scholarship in Archaeology - Scholarships",
+      "snapshotFile": "raw/0031-ae04bba45f68.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/selection-rank.html",
+      "fetchedAt": "2026-10-07T03:58:20.947Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "16172be58ece3c229f7398091e970504fc74081b283873fc34f2e444fe3b8813",
+      "title": "Selection rank - The University of Sydney",
+      "snapshotFile": "raw/0032-16172be58ece.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/search.html",
+      "fetchedAt": "2026-10-07T03:58:22.743Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "8c4976dc0ed9eced608054c6200dc5e9cd451b6ddd86761f3445af06bd44a088",
+      "title": "Course search - The University of Sydney",
+      "snapshotFile": "raw/0033-8c4976dc0ed9.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/recognised-qualifications.html",
+      "fetchedAt": "2026-10-07T03:58:25.084Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "659bff15aa3c980342d6a7369c2c4ff0a2215fdee9ebe9733471cf1ef775aafd",
+      "title": "Recognised qualifications - The University of Sydney",
+      "snapshotFile": "raw/0034-659bff15aa3c.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite.html",
+      "fetchedAt": "2026-10-07T03:58:26.925Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "167b1fd02e1e9bde209d4872f3d107c5d6e5e35ac1e70ad08c4ba56959c5e9fb",
+      "title": "Mathematics course prerequisites - The University of Sydney",
+      "snapshotFile": "raw/0035-167b1fd02e1e.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-education-primary0.html",
+      "fetchedAt": "2026-10-07T03:58:28.707Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "bbfba00270dcad498d976c3aede0301a21bbae4bdcb41053b890a71306bf0bd3",
+      "title": "Bachelor of Education (Primary) - The University of Sydney",
+      "snapshotFile": "raw/0036-bbfba00270dc.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-teaching-primary.html",
+      "fetchedAt": "2026-10-07T03:58:30.535Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "3cda464c7d111624155880b8a00bf17d8f2b5bb962cd90d9ab60450f6d3b6ce4",
+      "title": "Master of Teaching (Primary) - The University of Sydney",
+      "snapshotFile": "raw/0037-3cda464c7d11.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/",
+      "fetchedAt": "2026-10-07T03:58:34.810Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "18fb55a2d103600e1ddfcb3582372772e8b2bedb79fbd91c0556ecadf06665e8",
+      "title": "Current students - The University of Sydney",
+      "snapshotFile": "raw/0038-18fb55a2d103.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/engage/give.html",
+      "fetchedAt": "2026-10-07T03:58:37.173Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "e395d4057237d465d0eb26b02c292c8e2b76a9cfc94a798ff3e7ed3101ff1768",
+      "title": "Give - The University of Sydney",
+      "snapshotFile": "raw/0039-e395d4057237.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/",
+      "fetchedAt": "2026-10-07T03:58:38.375Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "7eb7a8ca510d84fa055a50854a4aca75b107e3f59873881353085a02bd4f6616",
+      "title": "One of Australia’s top universities - The University of Sydney",
+      "snapshotFile": "raw/0040-7eb7a8ca510d.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-civil-engineering2.html",
+      "fetchedAt": "2026-10-07T05:54:30.304Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "36508c544e45ff3b00afcd4d90f4e6fbf89e10f3ebb381c183bd8e9e52919630",
+      "title": "Bachelor of Engineering Honours (Civil Engineering) - The University of Sydney",
+      "snapshotFile": "raw/0001-36508c544e45.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite/massive-open-online-course-mooc-for-mathematics.html",
+      "fetchedAt": "2026-10-07T05:54:32.803Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "8bcdca81e99750ea8f538cffff06c79f04c9fcedf5ec161d9deb0a362509b101",
+      "title": "Massive Open Online Course (MOOC) for mathematics - The University of Sydney",
+      "snapshotFile": "raw/0002-8bcdca81e997.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil-engineering.html",
+      "fetchedAt": "2026-10-07T05:54:34.320Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "58b4d4bc37847d10ae0886de7703271b7ee7328911f9f86d047c3496d51bb7ad",
+      "title": "Master of Professional Engineering (Civil Engineering) - The University of Sydney",
+      "snapshotFile": "raw/0003-58b4d4bc3784.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-accelerated-civil-engineering.html",
+      "fetchedAt": "2026-10-07T05:54:36.332Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "bcc826b9085b04991266de95f8457774fdc8ff72ea056dd752a3ef41781bfe67",
+      "title": "Master of Professional Engineering (Accelerated)(Civil Engineering) - The University of Sydney",
+      "snapshotFile": "raw/0004-bcc826b9085b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/humanitarian-engineering-civil.html",
+      "fetchedAt": "2026-10-07T05:54:38.716Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "3f24f1688f5f047a20355503742beba67bde16bbbbcf799fc89499e8a8c058f6",
+      "title": "Humanitarian Engineering (Civil) - The University of Sydney",
+      "snapshotFile": "raw/0005-3f24f1688f5f.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/computer-systems.html",
+      "fetchedAt": "2026-10-07T05:54:40.691Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "f3a227f4207b3874e9571a070d8201e7d54b87d6d9a86fa844702a208f3b2ea8",
+      "title": "Computer Systems - The University of Sydney",
+      "snapshotFile": "raw/0006-f3a227f4207b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/engineering-data-science.html",
+      "fetchedAt": "2026-10-07T05:54:42.830Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "4ed7ea8d285bfb3e29e9d105a7341c5130718c11e56d9b93adf10c7732aa0b32",
+      "title": "Engineering Data Science - The University of Sydney",
+      "snapshotFile": "raw/0007-4ed7ea8d285b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/geotechnical-engineering.html",
+      "fetchedAt": "2026-10-07T05:54:44.694Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "1ca20e26093f541ab2a17da5a1e4c465cd32b328366fc831a8468b73775560d0",
+      "title": "Geotechnical Engineering - The University of Sydney",
+      "snapshotFile": "raw/0008-1ca20e26093f.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/innovation-and-entrepreneurship.html",
+      "fetchedAt": "2026-10-07T05:54:46.729Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "dc3301f7dfe47a31d6685f36ab8b3776d9d92578131b094e19ba640f9b58ac66",
+      "title": "Innovation and Entrepreneurship - The University of Sydney",
+      "snapshotFile": "raw/0009-dc3301f7dfe4.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/integrated-building-engineering.html",
+      "fetchedAt": "2026-10-07T05:54:48.695Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "a9c2d4d3dd723342eabb147b70bc0ba0b29c411a6ff322cf1e7f5e29e5687012",
+      "title": "Integrated Building Engineering - The University of Sydney",
+      "snapshotFile": "raw/0010-a9c2d4d3dd72.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/project-management1.html",
+      "fetchedAt": "2026-10-07T05:54:51.784Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "c81abeea272739bed9854e75aa3cf2661c12d1dab754c6e5aa50618945af2386",
+      "title": "Project Management - The University of Sydney",
+      "snapshotFile": "raw/0011-c81abeea2727.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/structures.html",
+      "fetchedAt": "2026-10-07T05:54:53.156Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "7f65259d85e66150b419ab8287a127372f3371a45d0f4f3f0b764490e2b50472",
+      "title": "Structures - The University of Sydney",
+      "snapshotFile": "raw/0012-7f65259d85e6.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/transport1.html",
+      "fetchedAt": "2026-10-07T05:54:55.263Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "04477eb31a4088ad220c5fdbd665aa20ef9465a0824183a1556bb5d987ec9011",
+      "title": "Transport - The University of Sydney",
+      "snapshotFile": "raw/0013-04477eb31a40.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/water-engineering.html",
+      "fetchedAt": "2026-10-07T05:54:56.632Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "d65b82eb1de1acb826c072cd29f9ede04b31a037efe61f98daf6d9fbbee4bdda",
+      "title": "Water Engineering - The University of Sydney",
+      "snapshotFile": "raw/0014-d65b82eb1de1.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering0.html",
+      "fetchedAt": "2026-10-07T05:54:58.652Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "0388a32c74f6e8ca80dd743a29c3f41fc7ea0448ff9c07e442d3c47457e4fca5",
+      "title": "Master of Engineering (Civil Engineering) - The University of Sydney",
+      "snapshotFile": "raw/0015-0388a32c74f6.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-education-primary0.html",
+      "fetchedAt": "2026-10-07T05:55:00.414Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "bbfba00270dcad498d976c3aede0301a21bbae4bdcb41053b890a71306bf0bd3",
+      "title": "Bachelor of Education (Primary) - The University of Sydney",
+      "snapshotFile": "raw/0016-bbfba00270dc.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-teaching-primary.html",
+      "fetchedAt": "2026-10-07T05:55:02.415Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "3cda464c7d111624155880b8a00bf17d8f2b5bb962cd90d9ab60450f6d3b6ce4",
+      "title": "Master of Teaching (Primary) - The University of Sydney",
+      "snapshotFile": "raw/0017-3cda464c7d11.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/search.html",
+      "fetchedAt": "2026-10-07T05:55:04.641Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "8c4976dc0ed9eced608054c6200dc5e9cd451b6ddd86761f3445af06bd44a088",
+      "title": "Course search - The University of Sydney",
+      "snapshotFile": "raw/0018-8c4976dc0ed9.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/help/advice/atar-explained.html",
+      "fetchedAt": "2026-10-07T05:55:07.463Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "649720eac646c781a76b46be0f458e615575890b722f95099aff6b61cdd75dd9",
+      "title": "ATAR explained - The University of Sydney",
+      "snapshotFile": "raw/0019-649720eac646.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/selection-rank.html",
+      "fetchedAt": "2026-10-07T05:55:09.082Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "e4374f27c46283f5ed9e61fddcc396210bac19723db938900140bc99f8b208d2",
+      "title": "Selection rank - The University of Sydney",
+      "snapshotFile": "raw/0020-e4374f27c462.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/search.html",
+      "fetchedAt": "2026-10-07T05:55:10.891Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "8c4976dc0ed9eced608054c6200dc5e9cd451b6ddd86761f3445af06bd44a088",
+      "title": "Course search - The University of Sydney",
+      "snapshotFile": "raw/0021-8c4976dc0ed9.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/recognised-qualifications.html",
+      "fetchedAt": "2026-10-07T05:55:12.707Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "659bff15aa3c980342d6a7369c2c4ff0a2215fdee9ebe9733471cf1ef775aafd",
+      "title": "Recognised qualifications - The University of Sydney",
+      "snapshotFile": "raw/0022-659bff15aa3c.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite.html",
+      "fetchedAt": "2026-10-07T05:55:17.166Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "ca27ef0033fb16726fccf9e342cffce1a190eb474e4e783effbed47c08c93b38",
+      "title": "Mathematics course prerequisites - The University of Sydney",
+      "snapshotFile": "raw/0023-ca27ef0033fb.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate.html",
+      "fetchedAt": "2026-10-07T05:55:19.438Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "9e744b9d47e5501431d22cf713aabe36ef39d512856b550aae5aa38552031660",
+      "title": "How to apply for undergraduate courses - The University of Sydney",
+      "snapshotFile": "raw/0024-9e744b9d47e5.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/",
+      "fetchedAt": "2026-10-07T05:55:23.700Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "18fb55a2d103600e1ddfcb3582372772e8b2bedb79fbd91c0556ecadf06665e8",
+      "title": "Current students - The University of Sydney",
+      "snapshotFile": "raw/0025-18fb55a2d103.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/engage/give.html",
+      "fetchedAt": "2026-10-07T05:55:25.422Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "25ca02b5ce718be3ad09a7efa3e50ec622a8567b89184325d068f091b506a09b",
+      "title": "Give - The University of Sydney",
+      "snapshotFile": "raw/0026-25ca02b5ce71.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/",
+      "fetchedAt": "2026-10-07T05:55:27.214Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "a010ab333d80c8b3d0f91c7a833fe8333077d3833ab062a735db1011f9d7da95",
+      "title": "One of Australia’s top universities - The University of Sydney",
+      "snapshotFile": "raw/0027-a010ab333d80.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html",
+      "fetchedAt": "2026-10-07T05:55:29.457Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "179b2585f8f6eefd3b6b8cfb217c45b58ae03d67fe68d5677978564a68495431",
+      "title": "Undergraduate courses - The University of Sydney",
+      "snapshotFile": "raw/0028-179b2585f8f6.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/events-for-prospective-students/undergraduate.html",
+      "fetchedAt": "2026-10-07T05:55:31.653Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "70c4bf64537b8e82d171455e63725efb9aa4c40bbd096f7a16e19d4e400547fb",
+      "title": "Undergraduate events - The University of Sydney",
+      "snapshotFile": "raw/0029-70c4bf64537b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/study-options/postgraduate-courses.html",
+      "fetchedAt": "2026-10-07T05:55:33.461Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "e682387a09eee11acaff9ae2238afa78148599ab900a7e4639ff85f65a5fdc62",
+      "title": "Postgraduate courses - The University of Sydney",
+      "snapshotFile": "raw/0030-e682387a09ee.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/study-options/professional-development-short-courses.html",
+      "fetchedAt": "2026-10-07T05:55:35.466Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "74bd7872f670829df2f6a056162f9940623ca3d36c4a47af48923b3097ef23e8",
+      "title": "Sydney Short Courses - The University of Sydney",
+      "snapshotFile": "raw/0031-74bd7872f670.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/about-us/faculties-and-schools.html",
+      "fetchedAt": "2026-10-07T05:55:38.908Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "626c7c59d359f80f7f84b2283a3f644fac8b4075da1bbdc4a6e6011ccaecc4c0",
+      "title": "Faculties and schools - The University of Sydney",
+      "snapshotFile": "raw/0032-626c7c59d359.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/engage/schools/high-school-outreach-and-access-programs.html",
+      "fetchedAt": "2026-10-07T05:55:42.477Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "41e163065aebd51cf1123515bd7aec509a41e331637d1bc16824eb259823e068",
+      "title": "Outreach and access programs - The University of Sydney",
+      "snapshotFile": "raw/0033-41e163065aeb.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/help/high-school-students.html?stay-connected=y",
+      "fetchedAt": "2026-10-07T05:55:43.103Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "e3523988647bd66c46b7c118e1a2722d703ec2f163ca2e6d49c031acc2bf20b7",
+      "title": "High school students - The University of Sydney",
+      "snapshotFile": "raw/0034-e3523988647b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/domestic/bachelors-honours/domestic-undergraduate-scholarships.html",
+      "fetchedAt": "2026-10-07T05:55:44.937Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "251c2c3d2921de84e210e6bd966da357de36bdecc87c655ca88fafb76031dcf1",
+      "title": "Domestic undergraduate scholarships - The University of Sydney",
+      "snapshotFile": "raw/0035-251c2c3d2921.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/search.html?search-type=course&page=1",
+      "fetchedAt": "2026-10-07T05:55:46.904Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "8c4976dc0ed9eced608054c6200dc5e9cd451b6ddd86761f3445af06bd44a088",
+      "title": "Course search - The University of Sydney",
+      "snapshotFile": "raw/0036-8c4976dc0ed9.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/study-options/postgraduate-courses/flexible-study.html",
+      "fetchedAt": "2026-10-07T05:55:49.007Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "1d660ce39f86e323d8fa60003b267576127e1b04eaa6c9445a4052f03d4e2904",
+      "title": "Flexible study - The University of Sydney",
+      "snapshotFile": "raw/0037-1d660ce39f86.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/search.html?search-type=course&course-level=pc&page=1",
+      "fetchedAt": "2026-10-07T05:55:52.921Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "8c4976dc0ed9eced608054c6200dc5e9cd451b6ddd86761f3445af06bd44a088",
+      "title": "Course search - The University of Sydney",
+      "snapshotFile": "raw/0038-8c4976dc0ed9.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/courses/search.html?search-type=course&level=pc&coursecitizenship=DOM&availability=Part-time&years=2025&sort=metatitle",
+      "fetchedAt": "2026-10-07T05:55:54.875Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "8c4976dc0ed9eced608054c6200dc5e9cd451b6ddd86761f3445af06bd44a088",
+      "title": "Course search - The University of Sydney",
+      "snapshotFile": "raw/0039-8c4976dc0ed9.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study/study-options/professional-development-short-courses.html",
+      "fetchedAt": "2026-10-07T05:55:56.789Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "74bd7872f670829df2f6a056162f9940623ca3d36c4a47af48923b3097ef23e8",
+      "title": "Sydney Short Courses - The University of Sydney",
+      "snapshotFile": "raw/0040-74bd7872f670.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/b/peter-nicol-russell-undergraduate-scholarship.html",
+      "fetchedAt": "2026-10-07T05:55:58.856Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "9ff938e96545d41d7f865e21633d3a91264245baee48bf9707ec844ebd81b880",
+      "title": "The Peter Nicol Russell Undergraduate Scholarship - Scholarships",
+      "snapshotFile": "raw/0041-9ff938e96545.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/b/lr-ba-browne-undergraduate-scholarship-civil-engineering.html",
+      "fetchedAt": "2026-10-07T05:56:00.876Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "ab4610f124e8a67388466a04f5d349626992cea437330e29f2a7158d70a482d8",
+      "title": "LR and BA Browne Undergraduate Scholarship in Civil Engineering - Scholarships",
+      "snapshotFile": "raw/0042-ab4610f124e8.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/engineering/study/study-areas/civil-engineering.html",
+      "fetchedAt": "2026-10-07T05:56:03.238Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "27e476c44c35114a6e0b04acd661673b7e9882917730ec901568ce24c2ec31ef",
+      "title": "Civil engineering - The University of Sydney",
+      "snapshotFile": "raw/0043-27e476c44c35.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/c/susan-wakil-rural-regional-undergraduate-scholarship.html",
+      "fetchedAt": "2026-10-07T05:56:04.937Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "b720566dcb57eb7a1405101bda9518d6e5573e1922445c9b1038be6fa2559136",
+      "title": "Susan Wakil Scholarship - Undergraduate Rural and Regional - Scholarships",
+      "snapshotFile": "raw/0044-b720566dcb57.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/c/susan-wakil-greater-sydney-undergraduate-scholarship.html",
+      "fetchedAt": "2026-10-07T05:56:06.883Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "fa5e2e113157cecf49516fbdba1eb2a820ed94366e22a87f07218a9cbcd081b6",
+      "title": "Susan Wakil Scholarship - Undergraduate Greater Sydney - Scholarships",
+      "snapshotFile": "raw/0045-fa5e2e113157.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/d/mrs-elva-rae-talented-mathematics-undergraduate-scholarship.html",
+      "fetchedAt": "2026-10-07T05:56:08.894Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "5cd3a27d65e58064a66ab76a748c70bf1f6d63cc527e2c138a26eb51a47d574e",
+      "title": "Mrs Elva Rae Talented Mathematics Undergraduate Scholarship - Scholarships",
+      "snapshotFile": "raw/0046-5cd3a27d65e5.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/d/aboriginal-and-torres-strait-islander-undergraduate-psychology-s.html",
+      "fetchedAt": "2026-10-07T05:56:10.894Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "28516a5b6be4b56ace3d3e306d17f6f69968c6b3aad8739767741968631bb3e1",
+      "title": "Aboriginal and Torres Strait Islander Undergraduate Psychology Scholarship - Scholarships",
+      "snapshotFile": "raw/0047-28516a5b6be4.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/scholarships/b/tom-austen-brown-undergraduate-scholarship-in-archaeology.html",
+      "fetchedAt": "2026-10-07T05:56:12.925Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "bb63064a7a05fae576fd8e79d0e5580c814d7f846f02dc8eb97495b0483fbb70",
+      "title": "Tom Austen Brown Undergraduate Scholarship in Archaeology - Scholarships",
+      "snapshotFile": "raw/0048-bb63064a7a05.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/study.html",
+      "fetchedAt": "2026-10-07T05:56:14.812Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "002507fb25152e56a48b42349b3ab685743936a94bdea1df9fc175e329bc57ae",
+      "title": "Study with us - The University of Sydney",
+      "snapshotFile": "raw/0049-002507fb2515.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/research.html",
+      "fetchedAt": "2026-10-07T05:56:16.813Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "dcb67c8c6cc2c06bb29af59109808ac701b82015615e1efbb5011cdcee83e0a3",
+      "title": "Research - The University of Sydney",
+      "snapshotFile": "raw/0050-dcb67c8c6cc2.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/engage.html",
+      "fetchedAt": "2026-10-07T05:56:18.890Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "198a20815485b0f9c94faba850fb54ab338edc18a6d746ed4e309382aff3697e",
+      "title": "Engage with us - The University of Sydney",
+      "snapshotFile": "raw/0051-198a20815485.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/about-us.html",
+      "fetchedAt": "2026-10-07T05:56:20.854Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "51fcf9f3a4a00e6b05026f30121ba208b56bede40ed3a978a1a2a7e898a57c86",
+      "title": "About us - The University of Sydney",
+      "snapshotFile": "raw/0052-51fcf9f3a4a0.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/content/experience-fragments/corporate/study/lead_gen_mql/lead-gen-form-data/master1.html",
+      "fetchedAt": "2026-10-07T05:56:22.844Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "c39651adf4deeef230fd3e415d49749380b12d079a8785076459f8ba81e575af",
+      "title": "Stay informed",
+      "snapshotFile": "raw/0053-c39651adf4de.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/engage/visit.html",
+      "fetchedAt": "2026-10-07T05:56:25.199Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "2186ec60e09897449048fe3c372ec26e85262df63537cee13d2c30cdd4ba9d12",
+      "title": "Visit the University - The University of Sydney",
+      "snapshotFile": "raw/0054-2186ec60e098.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/handbooks/",
+      "fetchedAt": "2026-10-07T05:56:26.844Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "e1d83c61954c67db70da4077c4e861af2c4e2153e8b60901e677bf3375a6ac5f",
+      "title": "2026 Handbooks - The University of Sydney",
+      "snapshotFile": "raw/0055-e1d83c61954c.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning.html",
+      "fetchedAt": "2026-10-07T05:56:28.934Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "c892feffb55110b190fd4c6f264397dd81f25a82d8ab3bc438170285f2c4edc5",
+      "title": "Planning your course - The University of Sydney",
+      "snapshotFile": "raw/0056-c892feffb551.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/course-components.html",
+      "fetchedAt": "2026-10-07T05:56:30.907Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "e57397b61d428f737bd2fce98eea6fdf161b40683bfea31e72785198e9ec14c8",
+      "title": "Your course components - The University of Sydney",
+      "snapshotFile": "raw/0057-e57397b61d42.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/choosing-units.html",
+      "fetchedAt": "2026-10-07T05:56:33.114Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "f2ad0056d8aa46a0c7c192b0022e658e4ae4dd8f12dc879224ad2d585b269549",
+      "title": "Choose your units of study - The University of Sydney",
+      "snapshotFile": "raw/0058-f2ad0056d8aa.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/handbook-rules.html",
+      "fetchedAt": "2026-10-07T05:56:34.930Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "0bd9f5fc5553a81c584b11bf013bec873ca642daa5a010b913927e49353526e3",
+      "title": "Handbook and course rules - The University of Sydney",
+      "snapshotFile": "raw/0059-0bd9f5fc5553.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/sample-degree-plans.html",
+      "fetchedAt": "2026-10-07T05:56:36.916Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "c9b421179012ef05560c4e148c296d75dd1bb469e76505fd20f345fee6d63fde",
+      "title": "Sample degree plans - The University of Sydney",
+      "snapshotFile": "raw/0060-c9b421179012.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/tips.html",
+      "fetchedAt": "2026-10-07T05:56:39.032Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "7418bb7c484497b0de94d5f5c748ecf630c95c8151659d56e96e748a1086614e",
+      "title": "Tips to help you plan - The University of Sydney",
+      "snapshotFile": "raw/0061-7418bb7c4844.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/academic-advice.html",
+      "fetchedAt": "2026-10-07T05:56:40.932Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "57e644c04a8925b08f5772c3dd7b80f86c9f3cbac2c6f661673bb4f938ac06f1",
+      "title": "Academic advice - The University of Sydney",
+      "snapshotFile": "raw/0062-57e644c04a89.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/policies/policy-by-theme/coursework-study.html",
+      "fetchedAt": "2026-10-07T05:56:43.200Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "3174e511d4adcb2fe2e69d2659c499284d52be4cc9b66bd7c088bfbbfaed32e8",
+      "title": "Coursework study - The University of Sydney",
+      "snapshotFile": "raw/0063-3174e511d4ad.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/enrol-in-a-new-course.html",
+      "fetchedAt": "2026-10-07T05:56:44.996Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "eaf4a5b611088c62e0b07bf3217c5c7b433dae5d66f99fca56aca334a8a6610f",
+      "title": "Enrol in a new course - The University of Sydney",
+      "snapshotFile": "raw/0064-eaf4a5b61108.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/academic-advice/architecture-design-planning.html",
+      "fetchedAt": "2026-10-07T05:56:51.017Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "e530522fd76b6c8b1ced86b10d419fbcb5ed1057af7a1f1768143200393f0cb8",
+      "title": "Architecture, design and planning - The University of Sydney",
+      "snapshotFile": "raw/0065-e530522fd76b.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/academic-advice/arts-social-sciences.html",
+      "fetchedAt": "2026-10-07T05:56:52.987Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "057f8ed8cff8dbc79ad25e410d8583eebc8fcd5594796f26104983fced583ce6",
+      "title": "Arts and social sciences - The University of Sydney",
+      "snapshotFile": "raw/0066-057f8ed8cff8.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/academic-advice/business.html",
+      "fetchedAt": "2026-10-07T05:56:55.009Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "664dffd8becc783c987d6aa2442207d5002e86f925199b8368f52fe395af6e25",
+      "title": "Business - The University of Sydney",
+      "snapshotFile": "raw/0067-664dffd8becc.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/academic-advice/engineering-computer-science.html",
+      "fetchedAt": "2026-10-07T05:56:57.197Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "ce1b36c9168e2e17c92fc0915878a7b2133cc1c9e83ac5e615de4cd13f12a731",
+      "title": "Engineering and computer science - The University of Sydney",
+      "snapshotFile": "raw/0068-ce1b36c9168e.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/academic-advice/law.html",
+      "fetchedAt": "2026-10-07T05:56:59.059Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "43686f460951bf675064d4e0189ad4b1dbbbcb2baddc987017e74fd41de97bdb",
+      "title": "Law - The University of Sydney",
+      "snapshotFile": "raw/0069-43686f460951.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/academic-advice/medicine-health.html",
+      "fetchedAt": "2026-10-07T05:57:01.085Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "171d939dc60a3504760d5034db4c000a71fed931222938814ba1d2046b27986e",
+      "title": "Medicine and health - The University of Sydney",
+      "snapshotFile": "raw/0070-171d939dc60a.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/academic-advice/music.html",
+      "fetchedAt": "2026-10-07T05:57:03.306Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "7a470f89b060a6d9b23e2d22d00d2b4d39c45ab3a930a2f40fcf7c92b2c003b3",
+      "title": "Music - The University of Sydney",
+      "snapshotFile": "raw/0071-7a470f89b060.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/course-planning/academic-advice/science.html",
+      "fetchedAt": "2026-10-07T05:57:05.012Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "ebc12d7b219438bfa61694a1e6d5106badc3a2dc2d8af7252bd2a4ea25f7c663",
+      "title": "Science - The University of Sydney",
+      "snapshotFile": "raw/0072-ebc12d7b2194.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/policies/a-to-z-policy/coursework-policy.html",
+      "fetchedAt": "2026-10-07T05:57:07.207Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "18b6beca64e517eff152c217f664bd6d653e1f6bdfc9c2ec39503fb7a4b10ce4",
+      "title": "Coursework Policy - The University of Sydney",
+      "snapshotFile": "raw/0073-18b6beca64e5.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/music/study-music/undergraduate-courses-and-admission/creative-arts-special-admission-scheme-casas.html",
+      "fetchedAt": "2026-10-07T05:57:09.263Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "361f49c620e49c9cd7a688537ef7ed5fd90110ffd6c8d43b4f88dc72fa82cc37",
+      "title": "Creative Arts Special Admission Scheme - The University of Sydney",
+      "snapshotFile": "raw/0074-361f49c620e4.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/music/study-music/undergraduate-courses-and-admission.html",
+      "fetchedAt": "2026-10-07T05:57:11.217Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "d46814608daa3df8eeeda7ebc05ef406fc236c50d5f218afeb227bee0bf8d0f3",
+      "title": "Undergraduate courses - The University of Sydney",
+      "snapshotFile": "raw/0075-d46814608daa.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/music/study-music/undergraduate-courses-and-admission/difference-between-bachelor-of-music-degrees-at-the-con.html",
+      "fetchedAt": "2026-10-07T05:57:13.251Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "1b8353a9c7bad5c0e21059ae338d23ff1b0066e7bcf2299fc1d8ddd4296b8c09",
+      "title": "What’s the difference between the Bachelor of Music degrees at the Sydney Conservatorium of Music? - The University of Sydney",
+      "snapshotFile": "raw/0076-1b8353a9c7ba.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/policies/a-to-z-policy/coursework-rule.html",
+      "fetchedAt": "2026-10-07T05:57:15.206Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "8cadc154d3307c65410bcff7ba1f93c65cab21259ef065cc9fd20284544e952c",
+      "title": "University of Sydney (Coursework) Rule - The University of Sydney",
+      "snapshotFile": "raw/0077-8cadc154d330.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/enrol-in-a-new-course/when-to-enrol.html",
+      "fetchedAt": "2026-10-07T05:57:17.068Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "2dccaf004f6507c290f2f8c2fe20c9e21b9e39e772972c2424a7e2da40ef6cdc",
+      "title": "When to enrol - The University of Sydney",
+      "snapshotFile": "raw/0078-2dccaf004f65.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/students/enrol-in-a-new-course/how-to-enrol.html",
+      "fetchedAt": "2026-10-07T05:57:19.120Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "1ec46f42375a59b0c903a09e6c61042bf477b654fbf4a6878aeb036bd3d2df15",
+      "title": "How to enrol - The University of Sydney",
+      "snapshotFile": "raw/0079-1ec46f42375a.html"
+    },
+    {
+      "url": "https://www.sydney.edu.au/handbooks/science/coursework/science-advanced-studies/overview.html",
+      "fetchedAt": "2026-10-07T05:57:21.346Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "7232153e7fc626772968f379514c8877bed81419139154bfb1eebd4e4132780d",
+      "title": "Bachelor of Science and Bachelor of Advanced Studies - Overview - The University of Sydney",
+      "snapshotFile": "raw/0080-7232153e7fc6.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T05:57:21.409Z",
+    "seedUrls": [
+      "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-civil-engineering2.html",
+      "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil-engineering.html",
+      "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-accelerated-civil-engineering.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/humanitarian-engineering-civil.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/computer-systems.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/engineering-data-science.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/geotechnical-engineering.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/innovation-and-entrepreneurship.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/integrated-building-engineering.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/project-management1.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/structures.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/transport1.html",
+      "https://www.sydney.edu.au/courses/subject-areas/spec/water-engineering.html",
+      "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering.html",
+      "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-education-primary0.html",
+      "https://www.sydney.edu.au/courses/courses/pc/master-of-teaching-primary.html",
+      "https://www.sydney.edu.au/courses/search.html",
+      "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/atar-explained.html",
+      "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/selection-rank.html",
+      "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/recognised-qualifications.html",
+      "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite.html",
+      "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite/massive-open-online-course-mooc-for-mathematics.html",
+      "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite/The%20MOOC%20is%20currently%20available%20here."
+    ],
+    "pages": 80
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.546Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

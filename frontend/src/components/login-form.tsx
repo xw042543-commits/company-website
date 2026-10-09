@@ -51,7 +51,7 @@ export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps
     try {
       const response = await fetch("/api/demo-session", { method: "POST", credentials: "include" });
       if (!response.ok) throw new Error("demo unavailable");
-      router.push(returnTo ?? `/${locale}`);
+      router.replace(returnTo ?? `/${locale}/account`);
       router.refresh();
     } catch {
       setMessage({ tone: "error", text: words(locale, "本地演示登录暂时无法启动。", "The local demo session could not be started.") });

@@ -1,0 +1,17 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:28:18.604Z",
+  "sourceKey": "essec-asia-pacific",
+  "sourceName": "ESSEC Asia-Pacific",
+  "warnings": [
+    "HTTP 404：https://www.essec.edu/en/pages/asia-pacific/"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:41:11.050Z"
+  }
+}

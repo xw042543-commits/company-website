@@ -1,0 +1,1625 @@
+[
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "unsw-sydney",
+      "displayName": "UNSW Sydney",
+      "seedUrls": [
+        "https://www.unsw.edu.au/study/undergraduate"
+      ],
+      "allowedHosts": [
+        "www.unsw.edu.au",
+        "unsw.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Sydney",
+      "selectionRank": 1,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "university-of-melbourne",
+      "displayName": "The University of Melbourne",
+      "seedUrls": [
+        "https://study.unimelb.edu.au/study-with-us/undergraduate-courses"
+      ],
+      "allowedHosts": [
+        "www.unimelb.edu.au",
+        "unimelb.edu.au",
+        "study.unimelb.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "selectionRank": 2,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "university-of-sydney",
+      "displayName": "The University of Sydney",
+      "seedUrls": [
+        "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html"
+      ],
+      "allowedHosts": [
+        "www.sydney.edu.au",
+        "sydney.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Sydney",
+      "selectionRank": 3,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "australian-national-university",
+      "displayName": "The Australian National University",
+      "seedUrls": [
+        "https://study.anu.edu.au/"
+      ],
+      "allowedHosts": [
+        "www.anu.edu.au",
+        "anu.edu.au",
+        "study.anu.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Canberra",
+      "selectionRank": 4,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "monash-university",
+      "displayName": "Monash University",
+      "seedUrls": [
+        "https://www.monash.edu/study"
+      ],
+      "allowedHosts": [
+        "www.monash.edu",
+        "monash.edu"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "selectionRank": 5,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "university-of-queensland",
+      "displayName": "The University of Queensland",
+      "seedUrls": [
+        "https://study.uq.edu.au/"
+      ],
+      "allowedHosts": [
+        "www.uq.edu.au",
+        "uq.edu.au",
+        "study.uq.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Brisbane",
+      "selectionRank": 6,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "university-of-western-australia",
+      "displayName": "The University of Western Australia",
+      "seedUrls": [
+        "https://www.uwa.edu.au/study"
+      ],
+      "allowedHosts": [
+        "www.uwa.edu.au",
+        "uwa.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Perth",
+      "selectionRank": 7,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "adelaide-university",
+      "displayName": "Adelaide University",
+      "seedUrls": [
+        "https://adelaide.edu.au/study/"
+      ],
+      "allowedHosts": [
+        "adelaide.edu.au",
+        "www.adelaide.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Adelaide",
+      "selectionRank": 8,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "university-of-technology-sydney",
+      "displayName": "University of Technology Sydney",
+      "seedUrls": [
+        "https://www.uts.edu.au/study"
+      ],
+      "allowedHosts": [
+        "www.uts.edu.au",
+        "uts.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Sydney",
+      "selectionRank": 9,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "rmit-university",
+      "displayName": "RMIT University",
+      "seedUrls": [
+        "https://www.rmit.edu.au/study-with-us"
+      ],
+      "allowedHosts": [
+        "www.rmit.edu.au",
+        "rmit.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "selectionRank": 10,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "macquarie-university",
+      "displayName": "Macquarie University",
+      "seedUrls": [
+        "https://www.mq.edu.au/study/find-a-course"
+      ],
+      "allowedHosts": [
+        "www.mq.edu.au",
+        "mq.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Sydney",
+      "selectionRank": 11,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "curtin-university",
+      "displayName": "Curtin University",
+      "seedUrls": [
+        "https://www.curtin.edu.au/study/"
+      ],
+      "allowedHosts": [
+        "www.curtin.edu.au",
+        "curtin.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Perth",
+      "selectionRank": 12,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "university-of-wollongong",
+      "displayName": "University of Wollongong",
+      "seedUrls": [
+        "https://www.uow.edu.au/study/"
+      ],
+      "allowedHosts": [
+        "www.uow.edu.au",
+        "uow.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Wollongong",
+      "selectionRank": 13,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "deakin-university",
+      "displayName": "Deakin University",
+      "seedUrls": [
+        "https://www.deakin.edu.au/courses"
+      ],
+      "allowedHosts": [
+        "www.deakin.edu.au",
+        "deakin.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "selectionRank": 14,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "griffith-university",
+      "displayName": "Griffith University",
+      "seedUrls": [
+        "https://www.griffith.edu.au/study"
+      ],
+      "allowedHosts": [
+        "www.griffith.edu.au",
+        "griffith.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Brisbane",
+      "selectionRank": 15,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "queensland-university-of-technology",
+      "displayName": "Queensland University of Technology",
+      "seedUrls": [
+        "https://www.qut.edu.au/courses"
+      ],
+      "allowedHosts": [
+        "www.qut.edu.au",
+        "qut.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Brisbane",
+      "selectionRank": 16,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "la-trobe-university",
+      "displayName": "La Trobe University",
+      "seedUrls": [
+        "https://www.latrobe.edu.au/courses"
+      ],
+      "allowedHosts": [
+        "www.latrobe.edu.au",
+        "latrobe.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "selectionRank": 17,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "university-of-newcastle",
+      "displayName": "The University of Newcastle",
+      "seedUrls": [
+        "https://www.newcastle.edu.au/degrees"
+      ],
+      "allowedHosts": [
+        "www.newcastle.edu.au",
+        "newcastle.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Newcastle",
+      "selectionRank": 18,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "swinburne-university-of-technology",
+      "displayName": "Swinburne University of Technology",
+      "seedUrls": [
+        "https://www.swinburne.edu.au/courses/find-a-course/"
+      ],
+      "allowedHosts": [
+        "www.swinburne.edu.au",
+        "swinburne.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "selectionRank": 19,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "australia",
+    "source": {
+      "sourceKey": "university-of-tasmania",
+      "displayName": "University of Tasmania",
+      "seedUrls": [
+        "https://www.utas.edu.au/"
+      ],
+      "allowedHosts": [
+        "www.utas.edu.au",
+        "utas.edu.au"
+      ],
+      "countryRaw": "Australia",
+      "cityRaw": "Hobart",
+      "selectionRank": 20,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "imperial-college-london",
+      "displayName": "Imperial College London",
+      "seedUrls": [
+        "https://www.imperial.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.imperial.ac.uk",
+        "imperial.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "selectionRank": 1,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-oxford",
+      "displayName": "University of Oxford",
+      "seedUrls": [
+        "https://www.ox.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.ox.ac.uk",
+        "ox.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Oxford",
+      "selectionRank": 2,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-cambridge",
+      "displayName": "University of Cambridge",
+      "seedUrls": [
+        "https://www.cam.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.cam.ac.uk",
+        "cam.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Cambridge",
+      "selectionRank": 3,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-college-london",
+      "displayName": "UCL",
+      "seedUrls": [
+        "https://www.ucl.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.ucl.ac.uk",
+        "ucl.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "selectionRank": 4,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-edinburgh",
+      "displayName": "The University of Edinburgh",
+      "seedUrls": [
+        "https://www.ed.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.ed.ac.uk",
+        "ed.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Edinburgh",
+      "selectionRank": 5,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "kings-college-london",
+      "displayName": "King's College London",
+      "seedUrls": [
+        "https://www.kcl.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.kcl.ac.uk",
+        "kcl.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "selectionRank": 6,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-manchester",
+      "displayName": "The University of Manchester",
+      "seedUrls": [
+        "https://www.manchester.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.manchester.ac.uk",
+        "manchester.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Manchester",
+      "selectionRank": 7,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-bristol",
+      "displayName": "University of Bristol",
+      "seedUrls": [
+        "https://www.bristol.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.bristol.ac.uk",
+        "bristol.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Bristol",
+      "selectionRank": 8,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "london-school-of-economics",
+      "displayName": "The London School of Economics and Political Science",
+      "seedUrls": [
+        "https://www.lse.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.lse.ac.uk",
+        "lse.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "selectionRank": 9,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-warwick",
+      "displayName": "University of Warwick",
+      "seedUrls": [
+        "https://warwick.ac.uk/"
+      ],
+      "allowedHosts": [
+        "warwick.ac.uk",
+        "www.warwick.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Coventry",
+      "selectionRank": 10,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-birmingham",
+      "displayName": "University of Birmingham",
+      "seedUrls": [
+        "https://www.birmingham.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.birmingham.ac.uk",
+        "birmingham.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Birmingham",
+      "selectionRank": 11,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-glasgow",
+      "displayName": "University of Glasgow",
+      "seedUrls": [
+        "https://www.gla.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.gla.ac.uk",
+        "gla.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Glasgow",
+      "selectionRank": 12,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-southampton",
+      "displayName": "University of Southampton",
+      "seedUrls": [
+        "https://www.southampton.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.southampton.ac.uk",
+        "southampton.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Southampton",
+      "selectionRank": 13,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-leeds",
+      "displayName": "University of Leeds",
+      "seedUrls": [
+        "https://www.leeds.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.leeds.ac.uk",
+        "leeds.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Leeds",
+      "selectionRank": 14,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-sheffield",
+      "displayName": "The University of Sheffield",
+      "seedUrls": [
+        "https://www.sheffield.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.sheffield.ac.uk",
+        "sheffield.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Sheffield",
+      "selectionRank": 15,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "durham-university",
+      "displayName": "Durham University",
+      "seedUrls": [
+        "https://www.durham.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.durham.ac.uk",
+        "durham.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Durham",
+      "selectionRank": 16,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-nottingham",
+      "displayName": "University of Nottingham",
+      "seedUrls": [
+        "https://www.nottingham.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.nottingham.ac.uk",
+        "nottingham.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Nottingham",
+      "selectionRank": 17,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-st-andrews",
+      "displayName": "University of St Andrews",
+      "seedUrls": [
+        "https://www.st-andrews.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.st-andrews.ac.uk",
+        "st-andrews.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "St Andrews",
+      "selectionRank": 18,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "queen-mary-university-of-london",
+      "displayName": "Queen Mary University of London",
+      "seedUrls": [
+        "https://www.qmul.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.qmul.ac.uk",
+        "qmul.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "selectionRank": 19,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-kingdom",
+    "source": {
+      "sourceKey": "university-of-bath",
+      "displayName": "University of Bath",
+      "seedUrls": [
+        "https://www.bath.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.bath.ac.uk",
+        "bath.ac.uk"
+      ],
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Bath",
+      "selectionRank": 20,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "massachusetts-institute-of-technology",
+      "displayName": "Massachusetts Institute of Technology",
+      "seedUrls": [
+        "https://www.mit.edu/"
+      ],
+      "allowedHosts": [
+        "www.mit.edu",
+        "mit.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Cambridge, Massachusetts",
+      "selectionRank": 1,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "stanford-university",
+      "displayName": "Stanford University",
+      "seedUrls": [
+        "https://www.stanford.edu/"
+      ],
+      "allowedHosts": [
+        "www.stanford.edu",
+        "stanford.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Stanford, California",
+      "selectionRank": 2,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "harvard-university",
+      "displayName": "Harvard University",
+      "seedUrls": [
+        "https://www.harvard.edu/"
+      ],
+      "allowedHosts": [
+        "www.harvard.edu",
+        "harvard.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Cambridge, Massachusetts",
+      "selectionRank": 3,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "california-institute-of-technology",
+      "displayName": "California Institute of Technology",
+      "seedUrls": [
+        "https://www.caltech.edu/"
+      ],
+      "allowedHosts": [
+        "www.caltech.edu",
+        "caltech.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Pasadena, California",
+      "selectionRank": 4,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "university-of-pennsylvania",
+      "displayName": "University of Pennsylvania",
+      "seedUrls": [
+        "https://www.upenn.edu/"
+      ],
+      "allowedHosts": [
+        "www.upenn.edu",
+        "upenn.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Philadelphia, Pennsylvania",
+      "selectionRank": 5,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "cornell-university",
+      "displayName": "Cornell University",
+      "seedUrls": [
+        "https://www.cornell.edu/"
+      ],
+      "allowedHosts": [
+        "www.cornell.edu",
+        "cornell.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Ithaca, New York",
+      "selectionRank": 6,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "yale-university",
+      "displayName": "Yale University",
+      "seedUrls": [
+        "https://www.yale.edu/"
+      ],
+      "allowedHosts": [
+        "www.yale.edu",
+        "yale.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "New Haven, Connecticut",
+      "selectionRank": 7,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "johns-hopkins-university",
+      "displayName": "Johns Hopkins University",
+      "seedUrls": [
+        "https://www.jhu.edu/"
+      ],
+      "allowedHosts": [
+        "www.jhu.edu",
+        "jhu.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Baltimore, Maryland",
+      "selectionRank": 8,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "university-of-california-berkeley",
+      "displayName": "University of California, Berkeley",
+      "seedUrls": [
+        "https://www.berkeley.edu/"
+      ],
+      "allowedHosts": [
+        "www.berkeley.edu",
+        "berkeley.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Berkeley, California",
+      "selectionRank": 9,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "university-of-chicago",
+      "displayName": "University of Chicago",
+      "seedUrls": [
+        "https://www.uchicago.edu/"
+      ],
+      "allowedHosts": [
+        "www.uchicago.edu",
+        "uchicago.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Chicago, Illinois",
+      "selectionRank": 10,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "princeton-university",
+      "displayName": "Princeton University",
+      "seedUrls": [
+        "https://www.princeton.edu/"
+      ],
+      "allowedHosts": [
+        "www.princeton.edu",
+        "princeton.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Princeton, New Jersey",
+      "selectionRank": 11,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "columbia-university",
+      "displayName": "Columbia University",
+      "seedUrls": [
+        "https://www.columbia.edu/"
+      ],
+      "allowedHosts": [
+        "www.columbia.edu",
+        "columbia.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "New York City, New York",
+      "selectionRank": 12,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "northwestern-university",
+      "displayName": "Northwestern University",
+      "seedUrls": [
+        "https://www.northwestern.edu/"
+      ],
+      "allowedHosts": [
+        "www.northwestern.edu",
+        "northwestern.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Evanston, Illinois",
+      "selectionRank": 13,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "university-of-california-los-angeles",
+      "displayName": "University of California, Los Angeles",
+      "seedUrls": [
+        "https://www.ucla.edu/"
+      ],
+      "allowedHosts": [
+        "www.ucla.edu",
+        "ucla.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Los Angeles, California",
+      "selectionRank": 14,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "university-of-michigan-ann-arbor",
+      "displayName": "University of Michigan-Ann Arbor",
+      "seedUrls": [
+        "https://umich.edu/"
+      ],
+      "allowedHosts": [
+        "umich.edu",
+        "www.umich.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Ann Arbor, Michigan",
+      "selectionRank": 15,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "carnegie-mellon-university",
+      "displayName": "Carnegie Mellon University",
+      "seedUrls": [
+        "https://www.cmu.edu/"
+      ],
+      "allowedHosts": [
+        "www.cmu.edu",
+        "cmu.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Pittsburgh, Pennsylvania",
+      "selectionRank": 16,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "new-york-university",
+      "displayName": "New York University",
+      "seedUrls": [
+        "https://www.nyu.edu/"
+      ],
+      "allowedHosts": [
+        "www.nyu.edu",
+        "nyu.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "New York City, New York",
+      "selectionRank": 17,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "brown-university",
+      "displayName": "Brown University",
+      "seedUrls": [
+        "https://www.brown.edu/"
+      ],
+      "allowedHosts": [
+        "www.brown.edu",
+        "brown.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Providence, Rhode Island",
+      "selectionRank": 18,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "duke-university",
+      "displayName": "Duke University",
+      "seedUrls": [
+        "https://www.duke.edu/"
+      ],
+      "allowedHosts": [
+        "www.duke.edu",
+        "duke.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Durham, North Carolina",
+      "selectionRank": 19,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "united-states",
+    "source": {
+      "sourceKey": "university-of-texas-at-austin",
+      "displayName": "The University of Texas at Austin",
+      "seedUrls": [
+        "https://www.utexas.edu/"
+      ],
+      "allowedHosts": [
+        "www.utexas.edu",
+        "utexas.edu"
+      ],
+      "countryRaw": "United States",
+      "cityRaw": "Austin, Texas",
+      "selectionRank": 20,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "national-university-of-singapore",
+      "displayName": "National University of Singapore",
+      "seedUrls": [
+        "https://www.nus.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.nus.edu.sg",
+        "nus.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 1,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "nanyang-technological-university",
+      "displayName": "Nanyang Technological University, Singapore",
+      "seedUrls": [
+        "https://www.ntu.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.ntu.edu.sg",
+        "ntu.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 2,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "singapore-university-of-technology-and-design",
+      "displayName": "Singapore University of Technology and Design",
+      "seedUrls": [
+        "https://www.sutd.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.sutd.edu.sg",
+        "sutd.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 3,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "singapore-management-university",
+      "displayName": "Singapore Management University",
+      "seedUrls": [
+        "https://www.smu.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.smu.edu.sg",
+        "smu.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 4,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "singapore-institute-of-technology",
+      "displayName": "Singapore Institute of Technology",
+      "seedUrls": [
+        "https://www.singaporetech.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.singaporetech.edu.sg",
+        "singaporetech.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 5,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "singapore-university-of-social-sciences",
+      "displayName": "Singapore University of Social Sciences",
+      "seedUrls": [
+        "https://www.suss.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.suss.edu.sg",
+        "suss.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 6,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "university-of-the-arts-singapore",
+      "displayName": "University of the Arts Singapore",
+      "seedUrls": [
+        "https://uas.edu.sg/"
+      ],
+      "allowedHosts": [
+        "uas.edu.sg",
+        "www.uas.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Government-supported arts university",
+      "selectionRank": 7,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "insead-asia-campus",
+      "displayName": "INSEAD Asia Campus",
+      "seedUrls": [
+        "https://www.insead.edu/about-insead/asia-campus"
+      ],
+      "allowedHosts": [
+        "www.insead.edu",
+        "insead.edu"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 8,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "essec-asia-pacific",
+      "displayName": "ESSEC Asia-Pacific",
+      "seedUrls": [
+        "https://www.essec.edu/en/pages/asia-pacific/"
+      ],
+      "allowedHosts": [
+        "www.essec.edu",
+        "essec.edu"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 9,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "tum-asia",
+      "displayName": "TUM Asia",
+      "seedUrls": [
+        "https://tum-asia.edu.sg/"
+      ],
+      "allowedHosts": [
+        "tum-asia.edu.sg",
+        "www.tum-asia.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 10,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "sp-jain-singapore",
+      "displayName": "SP Jain School of Global Management Singapore",
+      "seedUrls": [
+        "https://www.spjain.sg/"
+      ],
+      "allowedHosts": [
+        "www.spjain.sg",
+        "spjain.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 11,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "digipen-singapore",
+      "displayName": "DigiPen Institute of Technology Singapore",
+      "seedUrls": [
+        "https://www.digipen.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.digipen.edu.sg",
+        "digipen.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 12,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "sorbonne-assas-asia",
+      "displayName": "Sorbonne-Assas International Law School – Asia",
+      "seedUrls": [
+        "https://www.assas-international.com/en/campuses/singapore"
+      ],
+      "allowedHosts": [
+        "www.assas-international.com",
+        "assas-international.com"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 13,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "ehl-campus-singapore",
+      "displayName": "EHL Campus Singapore",
+      "seedUrls": [
+        "https://www.ehl.edu/en/campuses/singapore-campus"
+      ],
+      "allowedHosts": [
+        "www.ehl.edu",
+        "ehl.edu"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 14,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "duke-nus-medical-school",
+      "displayName": "Duke-NUS Medical School",
+      "seedUrls": [
+        "https://www.duke-nus.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.duke-nus.edu.sg",
+        "duke-nus.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Graduate medical school",
+      "selectionRank": 15,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "james-cook-university-singapore",
+      "displayName": "James Cook University Singapore",
+      "seedUrls": [
+        "https://www.jcu.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.jcu.edu.sg",
+        "jcu.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Private education institution / branch campus",
+      "selectionRank": 16,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "curtin-singapore",
+      "displayName": "Curtin Singapore",
+      "seedUrls": [
+        "https://curtin.edu.sg/"
+      ],
+      "allowedHosts": [
+        "curtin.edu.sg",
+        "www.curtin.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Private education institution / branch campus",
+      "selectionRank": 17,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "sim-global-education",
+      "displayName": "SIM Global Education",
+      "seedUrls": [
+        "https://www.sim.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.sim.edu.sg",
+        "sim.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Private education institution",
+      "selectionRank": 18,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "kaplan-singapore",
+      "displayName": "Kaplan Singapore",
+      "seedUrls": [
+        "https://www.kaplan.com.sg/"
+      ],
+      "allowedHosts": [
+        "www.kaplan.com.sg",
+        "kaplan.com.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Private education institution",
+      "selectionRank": 19,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  },
+  {
+    "region": "singapore",
+    "source": {
+      "sourceKey": "psb-academy",
+      "displayName": "PSB Academy",
+      "seedUrls": [
+        "https://www.psb-academy.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.psb-academy.edu.sg",
+        "psb-academy.edu.sg"
+      ],
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "institutionTypeRaw": "Private education institution",
+      "selectionRank": 20,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl"
+    }
+  }
+]

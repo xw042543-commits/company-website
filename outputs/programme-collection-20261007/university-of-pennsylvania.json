@@ -1,0 +1,1300 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.534Z",
+  "sourceKey": "university-of-pennsylvania",
+  "sourceName": "University of Pennsylvania",
+  "warnings": [
+    "http://www.upenn.edu/faculty_senate/：跳转超出允许域名: provost.upenn.edu",
+    "https://ugrad.seas.upenn.edu/student-handbook/programs-options/majors/：跳转超出允许域名: academics.seas.upenn.edu",
+    "https://www.bio.upenn.edu/undergraduate/submatriculation/accelerated-dental-program：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+  ],
+  "university": {
+    "candidateId": "university_9d289c5341277329",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "University of Pennsylvania",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Philadelphia, Pennsylvania",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.upenn.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:14:50.221Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.upenn.edu/",
+        "sourcePageTitle": "University of Pennsylvania",
+        "sourceHash": "952f0e5337456cead5a0173beb03e9baf45f55c4935047fc2b1c0a00106314c2",
+        "fetchedAt": "2026-10-07T04:14:50.221Z",
+        "field": "name",
+        "rawText": "University of Pennsylvania"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 5,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": [
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://www.upenn.edu/themes/custom/penn_global/assets/img/penn-graphic.jpg",
+        "sourceUrl": "https://www.upenn.edu/",
+        "sourceCheckedAt": "2026-10-07T04:14:50.221Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_a1233acceb022f93",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "威茨曼博士课程",
+      "nameEn": "PhD Programs at Weitzman",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Doctoral",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.design.upenn.edu/phd-programs",
+      "sourceCheckedAt": "2026-10-07T06:29:31.952Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.design.upenn.edu/phd-programs",
+          "sourcePageTitle": "PhD Programs at Weitzman",
+          "sourceHash": "3b6e39a99c1b72d49cb29dc06798c7641d63e78baf0f87c653e72d3be509846c",
+          "fetchedAt": "2026-10-07T06:29:31.952Z",
+          "field": "name",
+          "rawText": "PhD Programs at Weitzman"
+        },
+        {
+          "sourceUrl": "https://www.design.upenn.edu/phd-programs",
+          "sourcePageTitle": "PhD Programs at Weitzman",
+          "sourceHash": "3b6e39a99c1b72d49cb29dc06798c7641d63e78baf0f87c653e72d3be509846c",
+          "fetchedAt": "2026-10-07T06:29:31.952Z",
+          "field": "detailUrl",
+          "rawText": "https://www.design.upenn.edu/phd-programs"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_042f49f04d1eac35",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "城市-区域规划博士",
+      "nameEn": "PhD in City & Regional Planning",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Doctoral",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.design.upenn.edu/city-regional-planning/phd/about",
+      "sourceCheckedAt": "2026-10-07T06:29:31.952Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.design.upenn.edu/phd-programs",
+          "sourcePageTitle": "PhD Programs at Weitzman",
+          "sourceHash": "3b6e39a99c1b72d49cb29dc06798c7641d63e78baf0f87c653e72d3be509846c",
+          "fetchedAt": "2026-10-07T06:29:31.952Z",
+          "field": "name",
+          "rawText": "PhD in City & Regional Planning"
+        },
+        {
+          "sourceUrl": "https://www.design.upenn.edu/phd-programs",
+          "sourcePageTitle": "PhD Programs at Weitzman",
+          "sourceHash": "3b6e39a99c1b72d49cb29dc06798c7641d63e78baf0f87c653e72d3be509846c",
+          "fetchedAt": "2026-10-07T06:29:31.952Z",
+          "field": "detailUrl",
+          "rawText": "https://www.design.upenn.edu/city-regional-planning/phd/about"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.upenn.edu/",
+      "fetchedAt": "2026-10-07T04:14:50.221Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "952f0e5337456cead5a0173beb03e9baf45f55c4935047fc2b1c0a00106314c2",
+      "title": "University of Pennsylvania",
+      "snapshotFile": "raw/0001-952f0e533745.html"
+    },
+    {
+      "url": "https://www.upenn.edu/academics/undergraduate",
+      "fetchedAt": "2026-10-07T04:14:52.478Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "286831b24f68a42e419e9a639a36f3c18e82cbf881836fa661af46bd5681f3d8",
+      "title": "Undergraduate | University of Pennsylvania",
+      "snapshotFile": "raw/0002-286831b24f68.html"
+    },
+    {
+      "url": "https://www.upenn.edu/academics",
+      "fetchedAt": "2026-10-07T04:14:54.446Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "44ce10e67b1ef7b05079546bfbe50ddcc08409c6a2b4ad3e7e8e9d257268535a",
+      "title": "Academics | University of Pennsylvania",
+      "snapshotFile": "raw/0003-44ce10e67b1e.html"
+    },
+    {
+      "url": "https://www.upenn.edu/index.php/academics/undergraduate",
+      "fetchedAt": "2026-10-07T04:14:56.508Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "10be85be0095ef60683b400738ee7b7ab27af679751e8317aa6d7fbdd9f9d87f",
+      "title": "Undergraduate | University of Pennsylvania",
+      "snapshotFile": "raw/0004-10be85be0095.html"
+    },
+    {
+      "url": "https://www.upenn.edu/academics/graduate",
+      "fetchedAt": "2026-10-07T04:14:58.498Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8fee9348461fba33f1dd016d9351141368dd4613fe696c5a93a983fed434c537",
+      "title": "Graduate and Professional Programs | University of Pennsylvania",
+      "snapshotFile": "raw/0005-8fee9348461f.html"
+    },
+    {
+      "url": "https://www.upenn.edu/academics/schools",
+      "fetchedAt": "2026-10-07T04:15:00.529Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5db199f74cd64492ad5db1c870c90870d5380cff65f1a8a67670b72b3a2c10e1",
+      "title": "Schools | University of Pennsylvania",
+      "snapshotFile": "raw/0006-5db199f74cd6.html"
+    },
+    {
+      "url": "https://www.upenn.edu/academics/global-initiatives",
+      "fetchedAt": "2026-10-07T04:15:02.517Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b4f608bc2b43cbb9a91a060b334b8f556b60409ad81a70b040042e4e75a45c9f",
+      "title": "Global Initiatives | University of Pennsylvania",
+      "snapshotFile": "raw/0007-b4f608bc2b43.html"
+    },
+    {
+      "url": "https://www.upenn.edu/academics/interdisciplinary",
+      "fetchedAt": "2026-10-07T04:15:04.524Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b9b7dd485cb323eecc40a690dd61af16ec7b39d924d55bf88a63c7e1a04371fd",
+      "title": "Interdisciplinary | University of Pennsylvania",
+      "snapshotFile": "raw/0008-b9b7dd485cb3.html"
+    },
+    {
+      "url": "https://www.upenn.edu/academics/online-learning",
+      "fetchedAt": "2026-10-07T04:15:06.529Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2a20c91e40d40eaf47c9ae6ec37a3dc7fd7c48cb9a4db82d9e2a0d3d448db2d2",
+      "title": "Online Learning | University of Pennsylvania",
+      "snapshotFile": "raw/0009-2a20c91e40d4.html"
+    },
+    {
+      "url": "https://www.upenn.edu/academics/off-campus-learning",
+      "fetchedAt": "2026-10-07T04:15:08.600Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "69cddefb4e384d6e288346f1580533c60e0cb45809ed613db614fc9d8c9153de",
+      "title": "Off-campus Learning | University of Pennsylvania",
+      "snapshotFile": "raw/0010-69cddefb4e38.html"
+    },
+    {
+      "url": "https://www.upenn.edu/athletics-and-recreation",
+      "fetchedAt": "2026-10-07T04:15:10.554Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f1730226a0db1d83d4ab0a28292b53f7c697e3a33fc7f0becf87f66487de8ec9",
+      "title": "Athletics & Recreation | University of Pennsylvania",
+      "snapshotFile": "raw/0011-f1730226a0db.html"
+    },
+    {
+      "url": "https://www.upenn.edu/research-and-innovation",
+      "fetchedAt": "2026-10-07T04:15:12.556Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "386406151dcfc7484e463c2130614d6d4c0c6a712b5d013e5950da710665265a",
+      "title": "Research & Innovation | University of Pennsylvania",
+      "snapshotFile": "raw/0012-386406151dcf.html"
+    },
+    {
+      "url": "https://www.upenn.edu/research-and-innovation/research-enterprise",
+      "fetchedAt": "2026-10-07T04:15:14.539Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "570102b36a5619e71a2dc92440976970d37a4dbea3d08b3539ed73c5099adf74",
+      "title": "Penn’s Research Enterprise | University of Pennsylvania",
+      "snapshotFile": "raw/0013-570102b36a56.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn",
+      "fetchedAt": "2026-10-07T04:15:16.589Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "780affe915e876b49f705b4f4a6555cdd6f36b6383872eb5d132814586321994",
+      "title": "Life at Penn | University of Pennsylvania",
+      "snapshotFile": "raw/0014-780affe915e8.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/arts",
+      "fetchedAt": "2026-10-07T04:15:18.565Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3bce7b63dc7586fd97f3df2045996933a7921073e6ebecae141ea1334e874629",
+      "title": "Arts & Culture | University of Pennsylvania",
+      "snapshotFile": "raw/0015-3bce7b63dc75.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/community",
+      "fetchedAt": "2026-10-07T04:15:20.614Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bc2aa6bba35ceb26b2cddf7bae13fd57d8cb33bd3b4ba0df560db416c7ca2750",
+      "title": "Community Involvement | University of Pennsylvania",
+      "snapshotFile": "raw/0016-bc2aa6bba35c.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/philadelphia",
+      "fetchedAt": "2026-10-07T04:15:22.567Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2f1cc2548b42290ccbde6fb0ce52cea3c4890a54d92448cbca1771e1366ddf9b",
+      "title": "Penn & Philadelphia | University of Pennsylvania",
+      "snapshotFile": "raw/0017-2f1cc2548b42.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/groups-and-organizations",
+      "fetchedAt": "2026-10-07T04:15:24.579Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cd507b690dce43802c78d286b42fe0b54c2e88bbab30ad0a5663b01e50a46182",
+      "title": "Groups & Organizations | University of Pennsylvania",
+      "snapshotFile": "raw/0018-cd507b690dce.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/housing-and-dining",
+      "fetchedAt": "2026-10-07T04:15:32.726Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0a6c6b103b3df81742b9ef1550c08d0b5881770c3d5efd1637205147e8ff0dbc",
+      "title": "Housing & Dining | University of Pennsylvania",
+      "snapshotFile": "raw/0019-0a6c6b103b3d.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/health-and-wellness",
+      "fetchedAt": "2026-10-07T04:15:34.745Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a705ab3092925fa3a9118aa77b590eda6699004e98d9690602178ca4dc0df1ca",
+      "title": "Health & Wellness | University of Pennsylvania",
+      "snapshotFile": "raw/0020-a705ab309292.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/safety",
+      "fetchedAt": "2026-10-07T04:15:36.744Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "286981f3598d3c6309e28129819a33c8ba0c0aecd4dc08c63d59a7bc4c75fd08",
+      "title": "Safety & Security | University of Pennsylvania",
+      "snapshotFile": "raw/0021-286981f3598d.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/safety/emergency-phone-numbers",
+      "fetchedAt": "2026-10-07T04:15:38.792Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "23775818ad4c89b227042a71ba2d563644efc95ab3fd5865620d07a37a34262b",
+      "title": "Emergency Contacts | University of Pennsylvania",
+      "snapshotFile": "raw/0022-23775818ad4c.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/safety/emergency-preparedness",
+      "fetchedAt": "2026-10-07T04:15:40.768Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "aba7bbaf15dde5056f63f00814e9978fb32f1504335357f2c2ae35305606ad24",
+      "title": "Emergency Preparedness | University of Pennsylvania",
+      "snapshotFile": "raw/0023-aba7bbaf15dd.html"
+    },
+    {
+      "url": "https://www.upenn.edu/life-at-penn/religion",
+      "fetchedAt": "2026-10-07T04:15:42.778Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ea47e7a2e983ab521961b4a332f00f19c2fa960baaee8ca840dc5a677dbd6e1d",
+      "title": "Spirituality & Religion | University of Pennsylvania",
+      "snapshotFile": "raw/0024-ea47e7a2e983.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about",
+      "fetchedAt": "2026-10-07T04:15:44.788Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a0adce4395e637b88f6048608a6a83a75d66f6dcbbe8a67e5fd7eb45b9020cb4",
+      "title": "About | University of Pennsylvania",
+      "snapshotFile": "raw/0025-a0adce4395e6.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/trustees-and-administration",
+      "fetchedAt": "2026-10-07T04:15:46.901Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "49f3b3543a4ebcc68e1078fe24c727726e230ff5df17e0b6ba4b2b69af87c9db",
+      "title": "Trustees & Administration | University of Pennsylvania",
+      "snapshotFile": "raw/0026-49f3b3543a4e.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/policies",
+      "fetchedAt": "2026-10-07T04:15:48.848Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e189e879182d6b3893b43d19bfd104a9aca4d006feec2fa5143c4a28580f35b9",
+      "title": "Policies | University of Pennsylvania",
+      "snapshotFile": "raw/0027-e189e879182d.html"
+    },
+    {
+      "url": "https://www.upenn.edu/pennforward",
+      "fetchedAt": "2026-10-07T04:15:50.849Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "286521e72f2ceadb313974254d1ef1de37688eae643cde4583c958cedc01370b",
+      "title": "Penn Forward | University of Pennsylvania",
+      "snapshotFile": "raw/0028-286521e72f2c.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/history",
+      "fetchedAt": "2026-10-07T04:15:52.792Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "be57a1fe25b7e783b47cb10a2a61635bb797a2cd7ca7d8745c4c6146b593ecdc",
+      "title": "Penn’s History | University of Pennsylvania",
+      "snapshotFile": "raw/0029-be57a1fe25b7.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/sustainability",
+      "fetchedAt": "2026-10-07T04:15:54.819Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7d265f81039cbda653e7689dfc106acd6ab320938ae4992a497dda1e9cb582a7",
+      "title": "Securing a Sustainable Future | University of Pennsylvania",
+      "snapshotFile": "raw/0030-7d265f81039c.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/sustainability/climate-investments",
+      "fetchedAt": "2026-10-07T04:15:56.824Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "66d904fe62fd8a5fbc14c3476281a0cc1beca8927577115ad4dfb18984476713",
+      "title": "Climate Investments | University of Pennsylvania",
+      "snapshotFile": "raw/0031-66d904fe62fd.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/sustainability/sustainability-initiatives",
+      "fetchedAt": "2026-10-07T04:15:58.842Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f7153e6b0439c0eeacce3423a2c7a9c05893288a4ca607374c0c891e6530f603",
+      "title": "Sustainability Initiatives | University of Pennsylvania",
+      "snapshotFile": "raw/0032-f7153e6b0439.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/sustainability/research-and-teaching",
+      "fetchedAt": "2026-10-07T04:16:00.871Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4ffb9d2d90c2b41b276bc37bbb2c796674099ff90a21516d70b6f1ad25e79c29",
+      "title": "Research & Teaching | University of Pennsylvania",
+      "snapshotFile": "raw/0033-4ffb9d2d90c2.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/communications",
+      "fetchedAt": "2026-10-07T04:16:02.871Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "24f41c424e24a3b7afb035e798d015d525771044bb03406f83ffb23a7d226e13",
+      "title": "News, Media, & Communication Services | University of Pennsylvania",
+      "snapshotFile": "raw/0034-24f41c424e24.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/facts",
+      "fetchedAt": "2026-10-07T04:16:04.937Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3c6b76c4f2ad471c12ea9c5f1df7df46a25360270d012058e457687d9a4a4671",
+      "title": "Facts | University of Pennsylvania",
+      "snapshotFile": "raw/0035-3c6b76c4f2ad.html"
+    },
+    {
+      "url": "https://www.upenn.edu/about/university-values",
+      "fetchedAt": "2026-10-07T04:16:06.897Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ff20bc8af762ad7391f96d3b1c7585536dce3fab5906f3cbdb0e1ae1dbc3776a",
+      "title": "University Values | University of Pennsylvania",
+      "snapshotFile": "raw/0036-ff20bc8af762.html"
+    },
+    {
+      "url": "https://www.upenn.edu/parents",
+      "fetchedAt": "2026-10-07T04:16:08.945Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d6dc043e9407368273555753d7feeb4a82de2e2c5ac063edc81e8fecfc9f761c",
+      "title": "Parents & Families | University of Pennsylvania",
+      "snapshotFile": "raw/0037-d6dc043e9407.html"
+    },
+    {
+      "url": "https://www.upenn.edu/visitors",
+      "fetchedAt": "2026-10-07T04:16:10.962Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "84bd52eb7dd36591115b9eb59e18a84f9cf1d669c3157dab69e198ba1f0d8704",
+      "title": "Information for Visitors | University of Pennsylvania",
+      "snapshotFile": "raw/0038-84bd52eb7dd3.html"
+    },
+    {
+      "url": "https://www.upenn.edu/directories",
+      "fetchedAt": "2026-10-07T04:16:12.968Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "58e03c98fb0024057263156395929ceb29653fb9d77e2f6df6f81cd734643579",
+      "title": "Penn Directory | University of Pennsylvania",
+      "snapshotFile": "raw/0039-58e03c98fb00.html"
+    },
+    {
+      "url": "https://www.upenn.edu/services",
+      "fetchedAt": "2026-10-07T04:16:14.994Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d7e1df785821312972f9dd2acd63ed2a55282d954729115402087be5b1715a28",
+      "title": "Services | University of Pennsylvania",
+      "snapshotFile": "raw/0040-d7e1df785821.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/penn-volunteers-public-service-penn-vips",
+      "fetchedAt": "2026-10-07T06:21:09.102Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "015ed364273a695c3b124ef49834340a461909f5e88155e74d859d5a2a6c67ee",
+      "title": "Penn Volunteers in Public Service (Penn VIPS) | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0001-015ed364273a.html"
+    },
+    {
+      "url": "https://www.upenn.edu/index.php/academics/undergraduate",
+      "fetchedAt": "2026-10-07T06:21:17.504Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "42a8c68e7d52150358738695ea2773fb17e10add2a23886586bb94320fd88f55",
+      "title": "Undergraduate | University of Pennsylvania",
+      "snapshotFile": "raw/0002-42a8c68e7d52.html"
+    },
+    {
+      "url": "https://catalog.upenn.edu/undergraduate/interdisciplinary/university-minors/",
+      "fetchedAt": "2026-10-07T06:21:19.515Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "01fa5ef21444b9a68fe9790d370dceb6df8f1a49cef1e41104b0e5b621b96a84",
+      "title": null,
+      "snapshotFile": "raw/0003-01fa5ef21444.html"
+    },
+    {
+      "url": "https://catalog.upenn.edu/undergraduate/academic-resources/quaker-consortium/",
+      "fetchedAt": "2026-10-07T06:21:21.531Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "41f78b33513367a336cfdd7eecf0b209c73ae15149e945816ce95d857d7e6c88",
+      "title": null,
+      "snapshotFile": "raw/0004-41f78b335133.html"
+    },
+    {
+      "url": "https://www.design.upenn.edu/architecture/undergraduate/about",
+      "fetchedAt": "2026-10-07T06:21:23.601Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aa5a208738f3c33bfc67fd192423f419c4dbb6cfbbeb47b062d6896fd9345cc8",
+      "title": "Undergraduate Architecture - About",
+      "snapshotFile": "raw/0005-aa5a208738f3.html"
+    },
+    {
+      "url": "https://www.upenn.edu/academics/undergraduate",
+      "fetchedAt": "2026-10-07T06:21:25.571Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d88ad2c0e399719d7ad53bbd9f25776fd380626c42b87b4ea1f0dcdb3bde6248",
+      "title": "Undergraduate | University of Pennsylvania",
+      "snapshotFile": "raw/0006-d88ad2c0e399.html"
+    },
+    {
+      "url": "https://catalog.upenn.edu/undergraduate/",
+      "fetchedAt": "2026-10-07T06:21:28.061Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e91fb7a633aa0979841fcc770eabb45e11c21d909f38e38153a0a5d1291a730e",
+      "title": null,
+      "snapshotFile": "raw/0007-e91fb7a633aa.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2025-2026",
+      "fetchedAt": "2026-10-07T06:21:38.491Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "95d2a29c8006b2fb8c91c23fefa3b08a4e87f94d1008333587c13264a42cdb70",
+      "title": "2025-2026 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0008-95d2a29c8006.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2024-2025",
+      "fetchedAt": "2026-10-07T06:21:48.457Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cbb310492e5ae9d2c75cf141782e38cac30618736f96ee4a0d66dcbca48131f2",
+      "title": "2024-2025 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0009-cbb310492e5a.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2023-2024",
+      "fetchedAt": "2026-10-07T06:21:58.450Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8c989e12ae9318e697ab9e6bc5d73aa45939c07645fd8fe0a714d867b7e1385c",
+      "title": "2023-2024 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0010-8c989e12ae93.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2022-2023",
+      "fetchedAt": "2026-10-07T06:22:08.496Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "813269ceac89390c72372bff1708924873ea49665d4e1b89ca43907e0c3d7fc9",
+      "title": "2022-2023 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0011-813269ceac89.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2021-2022",
+      "fetchedAt": "2026-10-07T06:22:18.816Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7528e5d648ae1c200a5304b0f3eaf8779d0213131da0d153fde5e3412fc97927",
+      "title": "2021-2022 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0012-7528e5d648ae.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2018-2019",
+      "fetchedAt": "2026-10-07T06:22:28.519Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "68f2744afbd5bf0dca20f1dc2ed4c710bc2277ebc1ed08ec6d700e8d69022f3b",
+      "title": "2018-2019 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0013-68f2744afbd5.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/inaugural-recipients-shah-family-prize-innovative-undergraduate-student-projects-netter-center",
+      "fetchedAt": "2026-10-07T06:22:38.685Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7cc50d1de097dc89e64263668b7af29443bb5bbe14cc275a69788af28909421c",
+      "title": "Inaugural Recipients of the Shah Family Prize for Innovative Undergraduate Student Projects at the Netter Center | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0014-7cc50d1de097.html"
+    },
+    {
+      "url": "https://catalog.upenn.edu/programs/",
+      "fetchedAt": "2026-10-07T06:22:40.084Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "284d0cb4a3b305afe25b176e0e874020d2bc1566739b89cbefe8438dd27b2a45",
+      "title": null,
+      "snapshotFile": "raw/0015-284d0cb4a3b3.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/courses",
+      "fetchedAt": "2026-10-07T06:22:49.778Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "44fdb5d150f59944165e679f49785bb7bcff108d5bd5399a4d54d0cd1a60e587",
+      "title": "ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0016-44fdb5d150f5.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs",
+      "fetchedAt": "2026-10-07T06:22:59.644Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f456192160cb5d6e4d4a06153a12a7c0fe00df5bea3e14bdfcf536c6d4253afa",
+      "title": "Programs | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0017-f456192160cb.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/get-involved/engage-our-programs",
+      "fetchedAt": "2026-10-07T06:23:09.671Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "39dce27308e304b616574fce8cde3328b2bded969c6a9528003761e54d636449",
+      "title": "Community Members & Organizations: Engage with Our Programs | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0018-39dce27308e3.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/get-involved/staff-faculty-and-alumni-volunteer-opportunities",
+      "fetchedAt": "2026-10-07T06:23:20.536Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "055259405149d65836226fd23f35a159aa89599859443ed4f210f8520a947dc3",
+      "title": "Staff, Faculty, and Alumni Volunteer Opportunities | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0019-055259405149.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/fall-2026-abcs-courses",
+      "fetchedAt": "2026-10-07T06:23:29.648Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2030ca1712165448b1098b8de99cf30666bc4b655b1c86b133e6a251170eef46",
+      "title": "Fall 2026 ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0020-2030ca171216.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/spring-2026-abcs-courses",
+      "fetchedAt": "2026-10-07T06:23:40.879Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3b10867ad90a2775c4159c47416b24a23b2b649ccfa2e07b69875206f96ae6f6",
+      "title": "Spring 2026 ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0021-3b10867ad90a.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/fall-2025-abcs-courses",
+      "fetchedAt": "2026-10-07T06:23:50.685Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b6dd7412f06b6a634cad78fd0474fba28ecfe4e989d2c8eefe718c39d6223f4b",
+      "title": "Fall 2025 ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0022-b6dd7412f06b.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/spring-2025-abcs-courses",
+      "fetchedAt": "2026-10-07T06:24:00.565Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "504e92b1d7b9878bf8f2b57667b7536f9eeb3d32ff76a1369285f21c7c2e4f71",
+      "title": "Spring 2025 ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0023-504e92b1d7b9.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/fall-2024-abcs-courses",
+      "fetchedAt": "2026-10-07T06:24:10.667Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "29187ff8a5a5e6822266855dcb00912cae70832f035004b1c2f455827bf9b175",
+      "title": "Fall 2024 ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0024-29187ff8a5a5.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/faculty-and-student-abcs-resources",
+      "fetchedAt": "2026-10-07T06:24:20.826Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "58762c3689358f04edd419650d822e9d604a70719ff6a616b0ef55953e4d39de",
+      "title": "Faculty and Student ABCS Resources | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0025-58762c368935.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/clearances-abcs",
+      "fetchedAt": "2026-10-07T06:24:29.737Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8ea84768ba1ad0a4ca8b53d5749275597d6a6d23a592f2310b14cb16bead57db",
+      "title": "Clearances for ABCS | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0026-8ea84768ba1a.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/abcs-summit",
+      "fetchedAt": "2026-10-07T06:24:40.601Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7c79dfc020b299bb47d0e8ba9decbbd06ccbc6771bb136ee7e93b1b097c670dd",
+      "title": "ABCS Summit | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0027-7c79dfc020b2.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/abcs-course-development-grants",
+      "fetchedAt": "2026-10-07T06:24:50.648Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d01e0888bec269e2761c632dfd933730d97ac060db3bc20bbc495682fee7a6ed",
+      "title": "ABCS Course Development Grants | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0028-d01e0888bec2.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/course-history",
+      "fetchedAt": "2026-10-07T06:24:59.774Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f9327b404075c7a669df5388ffdfd86398bf52ff80beebf5455ad389a71037a1",
+      "title": "Course History | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0029-f9327b404075.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/course-history/abcs-2023-2024",
+      "fetchedAt": "2026-10-07T06:25:10.642Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f5a41e98e8739c6493653d37596d9a670782637e4bb3a03289482b0ce4d9a8bf",
+      "title": "ABCS 2023-2024 | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0030-f5a41e98e873.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/abcs-courses/course-history/abcs-2022-2023",
+      "fetchedAt": "2026-10-07T06:25:20.674Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e80b21cd211f0a4522919c712a81805ef3cde45d5706d22f6d304e2444252b56",
+      "title": "ABCS 2022-2023 | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0031-e80b21cd211f.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/about-center/provost-faculty-fellows-netter-center",
+      "fetchedAt": "2026-10-07T06:25:30.652Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f473dc8cdf42b9245c2708437a268608e549a0a0054e7edf4d90dd87086f73c9",
+      "title": "Provost’s Faculty Fellows at the Netter Center | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0032-f473dc8cdf42.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/university-assisted-community-schools/arts-culture-humanities-partnerships/silverman",
+      "fetchedAt": "2026-10-07T06:25:40.655Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "87ba3ac4c1d646e42ec7806c15fbac5873c00fde31d8111c33552d44aede7d23",
+      "title": "Silverman Fellows | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0033-87ba3ac4c1d6.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/university-assisted-community-schools/extended-learning-after-school-and-summer",
+      "fetchedAt": "2026-10-07T06:25:50.678Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "462b4725e5f822d9cb29f38d6be1fe32615b27b333d09ba0c667224d3cbc9869",
+      "title": "Extended Learning: After School and Summer Programs | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0034-462b4725e5f8.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/university-assisted-community-schools/moelis-access-science/moelis-access",
+      "fetchedAt": "2026-10-07T06:26:00.701Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "59efa29315273191a92e3b6222e62a2501a57e9b2aaa76a537f29d7f2602288b",
+      "title": "Moelis Access Science Fellows and ABCS | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0035-59efa2931527.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/university-assisted-community-schools/moelis-access-science/mas-partners",
+      "fetchedAt": "2026-10-07T06:26:10.689Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d92cce889d6baaef3d63e475bb34330b91afc40a6dfae07b7f5b63eea3973dc5",
+      "title": "MAS Partners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0036-d92cce889d6b.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/university-assisted-community-schools/moelis-access-science/educational-pipeline-program",
+      "fetchedAt": "2026-10-07T06:26:20.729Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "89efda38b77cd792b032417287f0bd8588c13f4f38b3c15fff029d542df64518",
+      "title": "Educational Pipeline Program | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0037-89efda38b77c.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/university-assisted-community-schools/penn-reading-initiative",
+      "fetchedAt": "2026-10-07T06:26:29.880Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b7de05f0b40d6f8af213d3228eede26e42c652468b54fe4ccf7c4783fef0f955",
+      "title": "Penn Reading Initiative | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0038-b7de05f0b40d.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/university-assisted-community-schools/uacs-sports",
+      "fetchedAt": "2026-10-07T06:26:40.700Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c3dc8f66b06a0992d9bf3b9ab44e8d2d2e57a2db1db89874cb1158674e90d1f5",
+      "title": "UACS Sports, Fitness, and Health | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0039-c3dc8f66b06a.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/programs/CGS",
+      "fetchedAt": "2026-10-07T06:26:50.791Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "98d3094acb063e4dbd8d098823625a7e5fe1feae7fcf6594a304bbd74fb22846",
+      "title": "Cross-Grade Sports (CGS) | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0040-98d3094acb06.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/programs/PWBL",
+      "fetchedAt": "2026-10-07T06:27:00.734Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3cf5ea763b50b706f963b0ed0cd63da4269293a9a9d7d9d8a8b80b040808f148",
+      "title": "Penn-West Philadelphia Basketball League (PWBL) | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0041-3cf5ea763b50.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/programs/young-quakers-community-athletics",
+      "fetchedAt": "2026-10-07T06:27:09.880Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "948e5109e448133ea96c19a66f8ebfaa7104326df4ea021b6b65f10ccc5ef18d",
+      "title": "Young Quakers Community Athletics | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0042-948e5109e448.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/university-assisted-community-schools/young-quakers-community-athletics/yqca-program",
+      "fetchedAt": "2026-10-07T06:27:21.162Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3be0395587f9e48a6ca6d361cea62e4fbd1456693f401f64c352b1f3cd3802da",
+      "title": "YQCA Program Goals | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0043-3be0395587f9.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/university-assisted-community-schools/lea-university-assisted-community-school",
+      "fetchedAt": "2026-10-07T06:27:30.759Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "04cb9c5c0c66b701d4cf1078b0f7f7280955d25b7147b8bdcd5b08ecffbb3e55",
+      "title": "Lea University-Assisted Community School | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0044-04cb9c5c0c66.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/university-assisted-community-schools/uacs-partner-sites/sayre-university-0",
+      "fetchedAt": "2026-10-07T06:27:40.824Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8a3102f359ee022172dea97c58d1fb26f391ebcb6389df9fe5d86ab853dcdd7f",
+      "title": "Dr. Bernett L. Johnson, Jr. Sayre Health Center | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0045-8a3102f359ee.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/university-assisted-community-schools/youth-driven-anti-violence-program",
+      "fetchedAt": "2026-10-07T06:27:50.891Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e44c5aa3bea5874519bd851104a1637300e07e3bb8959603ca909c73e4b2e088",
+      "title": "Youth-Driven Anti-Violence Program | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0046-e44c5aa3bea5.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/additional-programs/nonprofit-connect",
+      "fetchedAt": "2026-10-07T06:28:00.788Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8fafd20f4b0660ff51eeb2ace32a1f4ded464e7f690201e0859e4467ee0d9761",
+      "title": "Nonprofit Connect | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0047-8fafd20f4b06.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/ppps",
+      "fetchedAt": "2026-10-07T06:28:09.894Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f13c0dc744b234d483a7975ea3ace9c2741b2e43aaa18b423a0e68872b738477",
+      "title": "Penn Program for Public Service Summer Internship | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0048-f13c0dc744b2.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/additional-programs/penn-volunteers-public-service-penn-vips/nonprofit-institute",
+      "fetchedAt": "2026-10-07T06:28:20.779Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8c8222f2b1724bdfc612bfec882cc2953cdc990b7779ed10adb07ddffb499718",
+      "title": "Nonprofit Institute | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0049-8c8222f2b172.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/penn-volunteers-public-service-penn-vips/staff-faculty-and-alumni-volunteer",
+      "fetchedAt": "2026-10-07T06:28:30.980Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "897e0eccbc69e216f36a029c60ec9c096b4e496acec3c22936b401f5b49c2131",
+      "title": "Staff, Faculty, and Alumni Volunteer Opportunities | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0050-897e0eccbc69.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/penn-volunteers-public-service-penn-vips/staff-and-faculty-volunteer-0",
+      "fetchedAt": "2026-10-07T06:28:40.720Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bb0831d55aa6a4175635eb071b31c5a195bbb3326af6b72bd2e57d2e044cdee8",
+      "title": "Penn VIPS Adopt A Family Program | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0051-bb0831d55aa6.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/penn-leads-vote",
+      "fetchedAt": "2026-10-07T06:28:50.817Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "39f66fe28993e5ebb06cbbdf621a2507fb09c5d0b49cb7d9792f762565cb366f",
+      "title": "Penn Leads the Vote | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0052-39f66fe28993.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/additional-programs/penn-gsenetter-center-alumni-fellowship-democratic-civic-engagement",
+      "fetchedAt": "2026-10-07T06:29:01.070Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "94069c8f54567184f67e4552d3a62f153454003a00fbc88b28bb7484683aa662",
+      "title": "Penn GSE/Netter Center Alumni Fellowship in Democratic Civic Engagement | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0053-94069c8f5456.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/about-center/advisory-boards/faculty-advisory-board",
+      "fetchedAt": "2026-10-07T06:29:09.899Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d2c250f048f3268c4caa28d5994905f7a941607ac9048088e1aca56f18ab3ffb",
+      "title": "Faculty Advisory Board | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0054-d2c250f048f3.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/about-center/advisory-boards/faculty-advisory-board/provost-netter-center-faculty-community-partnership",
+      "fetchedAt": "2026-10-07T06:29:19.916Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b0fa1ef55c06554a17280d248d144b540d55a3df9f93d81ce3c78991059266b1",
+      "title": "Provost-Netter Center Faculty-Community Partnership Award | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0055-b0fa1ef55c06.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/about-center/advisory-boards/faculty-advisory-board/provost-netter-center-faculty-community",
+      "fetchedAt": "2026-10-07T06:29:30.699Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "83b0e08dcf41445684a1193d029b379b92ea9f9dac8e215e699239f4f03a8035",
+      "title": "Provost-Netter Center Faculty-Community Partnership Award Recipients | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0056-83b0e08dcf41.html"
+    },
+    {
+      "url": "https://www.design.upenn.edu/phd-programs",
+      "fetchedAt": "2026-10-07T06:29:31.952Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3b6e39a99c1b72d49cb29dc06798c7641d63e78baf0f87c653e72d3be509846c",
+      "title": "PhD Programs at Weitzman",
+      "snapshotFile": "raw/0057-3b6e39a99c1b.html"
+    },
+    {
+      "url": "https://www.design.upenn.edu/information/faculty-and-staff",
+      "fetchedAt": "2026-10-07T06:29:33.937Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4a937e1d17181ae458be8ed4ee80031b39af19a6400bb1efadedfd0260f1bfef",
+      "title": "Information for Faculty and Staff",
+      "snapshotFile": "raw/0058-4a937e1d1718.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/abcs-courses/faculty-and-student-abcs-resources",
+      "fetchedAt": "2026-10-07T06:29:44.788Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "802c59f75ca628e1a4dd018d2776171d521cea8bec4de532184c166c7992c787",
+      "title": "Faculty and Student ABCS Resources | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0059-802c59f75ca6.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2025-2026",
+      "fetchedAt": "2026-10-07T06:29:54.821Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "183ce4b13e4ce2178cb24cf9db6a4156bb172877ba2d25c5ed6e144b66a1c810",
+      "title": "2025-2026 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0060-183ce4b13e4c.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2024-2025",
+      "fetchedAt": "2026-10-07T06:30:04.786Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "20dcca0423e2c96a41f230b3d0495050124a5189ac6f31d6d345526491ea2b7a",
+      "title": "2024-2025 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0061-20dcca0423e2.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2023-2024",
+      "fetchedAt": "2026-10-07T06:30:14.750Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "62f7cf11ba5b934df3ec9ca4089ebd1b7e9886f81eb5136127cc2e26c7968992",
+      "title": "2023-2024 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0062-62f7cf11ba5b.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2022-2023",
+      "fetchedAt": "2026-10-07T06:30:24.806Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "097adf36bd90ec16a3b197dcb03a76a80b2e00dafdaa94c14572d3cb36badd67",
+      "title": "2022-2023 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0063-097adf36bd90.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2021-2022",
+      "fetchedAt": "2026-10-07T06:30:34.775Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "30eaba3260af7f9d7a16e1f3eaa271ff99aeb321a499534f5017e45b33bffeec",
+      "title": "2021-2022 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0064-30eaba3260af.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/get-involved/penn-students/shah%C2%A0family%C2%A0prize%C2%A0-innovative-undergraduate-student-projects/2018-2019",
+      "fetchedAt": "2026-10-07T06:30:44.774Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ab0999f9f58c8642fe99fe37e3fdfd53a7393f03b82b191c041aa798275c8237",
+      "title": "2018-2019 Shah Prize Winners | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0065-ab0999f9f58c.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/carol-muller-and-west-philadelphia-high-school-named-2021-provost-netter-center-faculty-community",
+      "fetchedAt": "2026-10-07T06:30:54.743Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d6cf23b8a0619611d6f25c932111e6e6d56ba22b4a2f037e98db9f9088556b23",
+      "title": "Carol Muller and West Philadelphia High School named 2021 Provost-Netter Center Faculty-Community Partnership Award Recipients | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0066-d6cf23b8a061.html"
+    },
+    {
+      "url": "https://www.nettercenter.upenn.edu/rich-pepino-netter-center-faculty-community-partnership-award",
+      "fetchedAt": "2026-10-07T06:31:04.837Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "42c45d24602744026d91f2f61b57b7d084a77a0001b4f8b04ddf9dd67f479ba9",
+      "title": "Rich Pepino: Netter Center Faculty-Community Partnership Award | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0067-42c45d246027.html"
+    },
+    {
+      "url": "https://www.design.upenn.edu/faculty-affairs",
+      "fetchedAt": "2026-10-07T06:31:06.100Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6de63e42a9bca7e646033bed50900977e134129317d96e2cdbc22c0afd75a74e",
+      "title": "Faculty Affairs",
+      "snapshotFile": "raw/0068-6de63e42a9bc.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/courses",
+      "fetchedAt": "2026-10-07T06:31:25.735Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "497629ccc7d5e62b45d081bdef7985af57e9d60145b4878d59833e4d68e8e2e1",
+      "title": "ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0069-497629ccc7d5.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/programs",
+      "fetchedAt": "2026-10-07T06:31:27.064Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f2afd5a51ac323f6b9a7c87595bbf17ae9926d2fd26fc5d89705a093e62168fc",
+      "title": "Programs | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0070-f2afd5a51ac3.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/get-involved/engage-our-programs",
+      "fetchedAt": "2026-10-07T06:31:36.977Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "06ce0c0867ed3bd4700af13bf2b2137b27d161d455859f96fe33a65dcceeca32",
+      "title": "Community Members & Organizations: Engage with Our Programs | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0071-06ce0c0867ed.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/get-involved/staff-faculty-and-alumni-volunteer-opportunities",
+      "fetchedAt": "2026-10-07T06:31:47.028Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5a41e208d05f65a35154f85fe2a3020eaf0e50f6e267c5872a0ffc3c6f74af68",
+      "title": "Staff, Faculty, and Alumni Volunteer Opportunities | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0072-5a41e208d05f.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/abcs-courses/spring-2026-abcs-courses",
+      "fetchedAt": "2026-10-07T06:31:56.957Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "379bc2f700e584e21455f8fc07e7498133b67dd88bc7fd864f33112cb25cf860",
+      "title": "Spring 2026 ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0073-379bc2f700e5.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/abcs-courses/fall-2025-abcs-courses",
+      "fetchedAt": "2026-10-07T06:32:06.940Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0d8455b892fe2dd4c83df8a339c024108868e348f61c34c298469a3aa62ae203",
+      "title": "Fall 2025 ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0074-0d8455b892fe.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/abcs-courses/spring-2025-abcs-courses",
+      "fetchedAt": "2026-10-07T06:32:17.054Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a9b6f647b18d4f3ca25b6568bdbdd9d3beb28f522f49c490fe9630d6bf61c288",
+      "title": "Spring 2025 ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0075-a9b6f647b18d.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/abcs-courses/fall-2024-abcs-courses",
+      "fetchedAt": "2026-10-07T06:32:27.117Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0251df207b8458abf1f0db4872e71531808ed9d793b637a0f651f3e38b083c05",
+      "title": "Fall 2024 ABCS Courses | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0076-0251df207b84.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/abcs-courses/clearances-abcs",
+      "fetchedAt": "2026-10-07T06:32:37.033Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d12e802f343cf6d1e3e3b5838c6d139a0d12ff48c27883b23f93bec30b7096e7",
+      "title": "Clearances for ABCS | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0077-d12e802f343c.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/abcs-courses/abcs-summit",
+      "fetchedAt": "2026-10-07T06:32:47.011Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "350f146f5d622284fd3b3b14d53a81f735ccd1037eaa343079b9bdb051d41767",
+      "title": "ABCS Summit | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0078-350f146f5d62.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/abcs-courses/abcs-course-development-grants",
+      "fetchedAt": "2026-10-07T06:32:57.008Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8f31200576c301f1a39a9b2f448f1e8c2e5dcf96e4932c874f3b3575faaab87c",
+      "title": "ABCS Course Development Grants | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0079-8f31200576c3.html"
+    },
+    {
+      "url": "http://www.nettercenter.upenn.edu/what-we-do/abcs-courses/course-history",
+      "fetchedAt": "2026-10-07T06:33:06.959Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d1e30f3b4915ee1b2c36b6978a0ee72274e376ea0985f8d496147d822f8e4d48",
+      "title": "Course History | Netter Center for Community Partnerships",
+      "snapshotFile": "raw/0080-d1e30f3b4915.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:33:07.015Z",
+    "seedUrls": [
+      "https://ugrad.seas.upenn.edu/student-handbook/programs-options/majors/",
+      "https://www.nettercenter.upenn.edu/what-we-do/programs/penn-volunteers-public-service-penn-vips",
+      "https://catalog.upenn.edu/programs/",
+      "https://www.nettercenter.upenn.edu/what-we-do/courses",
+      "https://www.upenn.edu/index.php/academics/undergraduate",
+      "https://www.upenn.edu/index.php/academics/graduate",
+      "https://www.upenn.edu/index.php/academics/online-learning",
+      "https://www.upenn.edu/index.php/academics/global-initiatives",
+      "https://www.upenn.edu/index.php/academics/interdisciplinary",
+      "https://www.upenn.edu/index.php/academics/schools",
+      "https://www.upenn.edu/index.php/academics/off-campus-learning",
+      "https://www.bio.upenn.edu/undergraduate/submatriculation/accelerated-dental-program",
+      "https://catalog.upenn.edu/undergraduate/interdisciplinary/university-minors/",
+      "https://catalog.upenn.edu/undergraduate/academic-resources/quaker-consortium/",
+      "https://www.design.upenn.edu/architecture/undergraduate/about",
+      "https://www.upenn.edu/academics",
+      "https://www.upenn.edu/academics/undergraduate",
+      "https://www.upenn.edu/academics/graduate",
+      "https://www.upenn.edu/academics/schools",
+      "https://www.upenn.edu/academics/global-initiatives",
+      "https://www.upenn.edu/academics/interdisciplinary",
+      "https://www.upenn.edu/academics/online-learning",
+      "https://www.upenn.edu/academics/off-campus-learning",
+      "https://catalog.upenn.edu/undergraduate/",
+      "https://www.upenn.edu/index.php/academics"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:27.448Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.534Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}
