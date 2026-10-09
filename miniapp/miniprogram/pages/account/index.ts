@@ -1,5 +1,6 @@
 import { sessionStore } from '../../stores/session';
 import { getUserOverview, type UserOverview } from '../../services/miniapp-data';
+import { communityMeRoute } from '../../utils/routes';
 
 Page({
   data: {
@@ -9,6 +10,7 @@ Page({
       { key: 'plans', label: '我的规划', caption: '管理留学目标、背景和预算' },
       { key: 'favorites', label: '专业收藏', caption: '查看已保存的专业' },
       { key: 'consultations', label: '咨询记录', caption: '查看已提交的咨询' },
+      { key: 'community', label: '我的U圈', caption: '管理发布的帖子和评论' },
       { key: 'settings', label: '设置', caption: '账号与隐私设置' },
       { key: 'about', label: '关于我们', caption: '了解洋豆角' },
     ],
@@ -40,6 +42,11 @@ Page({
 
   openMenu(event: WechatMiniprogram.BaseEvent) {
     const key = event.currentTarget.dataset.key as string | undefined;
+    if (key === 'community') {
+      const route = communityMeRoute();
+      if (route.ok) wx.navigateTo({ url: route.value });
+      return;
+    }
     const routes: Record<string, string> = {
       plans: '/pages/plans/index', favorites: '/pages/favorites/index', consultations: '/pages/consultations/index',
     };

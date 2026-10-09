@@ -13,12 +13,38 @@ test('native templates do not call JavaScript array methods', () => {
       const path = join(directory, entry.name);
       if (entry.isDirectory()) inspect(path);
       else if (path.endsWith('.wxml')) {
-        const expressions = readFileSync(path, 'utf8').match(/{{[\s\S]*?}}/g) ?? [];
+        const template = readFileSync(path, 'utf8');
+        assert.doesNotMatch(template, /<\/?(?:div|span|strong|small|p|h[1-6]|section|article|i|b)(?:\s|>)/, path);
+        const expressions = template.match(/{{[\s\S]*?}}/g) ?? [];
         for (const expression of expressions) assert.doesNotMatch(expression, /\.(?:includes|join|map|filter|some)\s*\(/, path);
       }
     }
   }
   inspect(fileURLToPath(root));
+});
+
+test('account exposes registered C data pages and personal community navigation together', () => {
+  let definition: Record<string, unknown> = {};
+  const navigated: string[] = [];
+  const source = readFileSync(new URL('pages/account/index.ts', root), 'utf8');
+  const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
+  vm.runInNewContext(code, {
+    exports: {}, Page: (value: Record<string, unknown>) => { definition = value; },
+    require: () => ({
+      sessionStore: { getSnapshot: () => ({ status: 'anonymous' }) },
+      communityMeRoute: () => ({ ok: true, value: '/pages/circle-me/index' }),
+    }),
+    wx: { navigateTo: ({ url }: { url: string }) => navigated.push(url), showToast: () => assert.fail('expected real navigation') },
+  });
+  const menu = (definition.data as { menuItems: Array<{ key: string }> }).menuItems;
+  const openMenu = definition.openMenu as (event: { currentTarget: { dataset: { key: string } } }) => void;
+  const app = JSON.parse(readFileSync(new URL('app.json', root), 'utf8')) as { pages: string[] };
+  for (const [key, page] of [['plans', 'plans'], ['favorites', 'favorites'], ['consultations', 'consultations'], ['community', 'circle-me']] as const) {
+    assert.ok(menu.some((item) => item.key === key));
+    openMenu({ currentTarget: { dataset: { key } } });
+    assert.equal(navigated.at(-1), `/pages/${page}/index`);
+    assert.ok(app.pages.includes(`pages/${page}/index`));
+  }
 });
 
 test('planning locks duplicate saves before authentication and blocks edits while loading', async () => {

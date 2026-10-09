@@ -1,0 +1,12 @@
+<view class="page-shell compose-page">
+  <view class="compose-title">分享真实留学经验</view>
+  <view class="compose-copy">U圈目前仅支持纯文字内容。请勿发布联系方式、隐私资料或未经核实的信息。</view>
+  <view class="editor-card surface-card">
+    <label class="field-label" for="post-body">帖子正文</label>
+    <textarea id="post-body" value="{{body}}" maxlength="-1" placeholder="写下你的问题、经验或建议" bindinput="updateBody" focus="{{true}}" />
+    <view class="editor-meta"><text class="counter {{count > 2000 ? 'counter--danger' : ''}}">{{count}} / 2000</text><text>公开发布</text></view>
+  </view>
+  <view wx:if="{{notice}}" class="notice" role="alert">{{notice}}</view>
+  <button class="publish-button" disabled="{{submitting || !body || count > 2000}}" bindtap="submit">{{submitting ? '正在提交…' : '确认发布'}}</button>
+  <view class="review-note">安全检查认为内容需要人工确认时，将显示“审核中”，不会假装已经公开。</view>
+</view>

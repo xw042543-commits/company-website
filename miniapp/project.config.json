@@ -6,6 +6,7 @@
   "projectname": "udajo-miniapp",
   "setting": {
     "checkSiteMap": true,
+    "coverView": true,
     "es6": true,
     "minified": true,
     "postcss": true,
