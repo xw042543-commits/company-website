@@ -1,0 +1,1183 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:22:03.022Z",
+  "sourceKey": "university-of-california-berkeley",
+  "sourceName": "University of California, Berkeley",
+  "warnings": [
+    "http://guide.berkeley.edu/undergraduate/degree-programs/：跳转超出允许域名: registrar.berkeley.edu",
+    "HTTP 404：https://ourenvironment.berkeley.edu/undergraduate-programshttps://nature.berkeley.edu/advising/majors/molecular-environmental-biology",
+    "https://guide.berkeley.edu/undergraduate/degree-programs/：跳转超出允许域名: registrar.berkeley.edu",
+    "http://bulletin.berkeley.edu/undergraduate/degree-programs/：getaddrinfo ENOTFOUND bulletin.berkeley.edu"
+  ],
+  "university": {
+    "candidateId": "university_f6c1d5577125e08b",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "University of California, Berkeley",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Berkeley, California",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.berkeley.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:20:44.554Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.berkeley.edu/",
+        "sourcePageTitle": "University of California, Berkeley: Home",
+        "sourceHash": "f038aebcc01bd2b37a3e2118bac70e13d1fc2a8758a724ffbcdfdd7aaf1ddb74",
+        "fetchedAt": "2026-10-07T04:20:44.554Z",
+        "field": "name",
+        "rawText": "University of California, Berkeley"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 9,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": []
+  },
+  "programmes": [],
+  "pages": [
+    {
+      "url": "https://www.berkeley.edu/",
+      "fetchedAt": "2026-10-07T04:20:44.554Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f038aebcc01bd2b37a3e2118bac70e13d1fc2a8758a724ffbcdfdd7aaf1ddb74",
+      "title": "University of California, Berkeley: Home",
+      "snapshotFile": "raw/0001-f038aebcc01b.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/faculty-staff/",
+      "fetchedAt": "2026-10-07T04:20:46.604Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "209423669b750465d62631d0dc144fec705c89bb5e797d1fc5c45a15fdf7b568",
+      "title": "Faculty & Staff - University of California, Berkeley",
+      "snapshotFile": "raw/0002-209423669b75.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/students/",
+      "fetchedAt": "2026-10-07T04:20:48.598Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bb8b9d68011e9cd276aa99d30485f27783631035fcf6c66abd7e012874bd1df9",
+      "title": "Students - University of California, Berkeley",
+      "snapshotFile": "raw/0003-bb8b9d68011e.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/",
+      "fetchedAt": "2026-10-07T04:20:50.613Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8d4e0af32c8807ffdceb81a930ee2d2d169099476667829bcfe311eb9a993a62",
+      "title": "Campus Map - University of California, Berkeley",
+      "snapshotFile": "raw/0004-8d4e0af32c88.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/undergraduate-academic-building/",
+      "fetchedAt": "2026-10-07T04:20:52.618Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "883578536b4e12590185614cb8d28aaa346c22e5bbd7940dbd4465e35334fcc6",
+      "title": "Undergraduate Academic Building - University of California, Berkeley",
+      "snapshotFile": "raw/0005-883578536b4e.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/faculty-club/",
+      "fetchedAt": "2026-10-07T04:20:54.673Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d8793677bfdc1eef864aa333ae9e1c7cef2712cc279571f492e3dc55d608623a",
+      "title": "Faculty Club - University of California, Berkeley",
+      "snapshotFile": "raw/0006-d8793677bfdc.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/faculty-glade/",
+      "fetchedAt": "2026-10-07T04:20:56.628Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "49e4f0f26cb43de6bb720f16961d5d5d50a865c489230af9b0c8535d2f5ee890",
+      "title": "Faculty Glade - University of California, Berkeley",
+      "snapshotFile": "raw/0007-49e4f0f26cb4.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/investigative-reporting-program/",
+      "fetchedAt": "2026-10-07T04:20:58.649Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1768294fe115db537e5687101a11432e8ed66520ce1757c8b7cc9f4085f6a575",
+      "title": "Investigative Reporting Program - University of California, Berkeley",
+      "snapshotFile": "raw/0008-1768294fe115.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/womens-faculty-club/",
+      "fetchedAt": "2026-10-07T04:21:00.643Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b734cb463d951fdf71445a0cc33db5e8587938ae8da163e0236a6c20d1f38105",
+      "title": "Women's Faculty Club - University of California, Berkeley",
+      "snapshotFile": "raw/0009-b734cb463d95.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/directory/",
+      "fetchedAt": "2026-10-07T04:21:02.676Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2bb4b16537565c03acdce34f066c45654fe813be8544b222dc73274e8c0be168",
+      "title": "Campus directory - University of California, Berkeley",
+      "snapshotFile": "raw/0010-2bb4b1653756.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/about/",
+      "fetchedAt": "2026-10-07T04:21:04.568Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "04742bc164d0ae9ea87ebf25b6e4c56e653fee28f8d3a0289a5252a978793987",
+      "title": "About - University of California, Berkeley",
+      "snapshotFile": "raw/0011-04742bc164d0.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/about/by-the-numbers/",
+      "fetchedAt": "2026-10-07T04:21:06.676Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4a9f14cb2eed5430d157e401e4532318b300f20104ab39ada8dedda39b43a076",
+      "title": "By the numbers - University of California, Berkeley",
+      "snapshotFile": "raw/0012-4a9f14cb2eed.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/about/history-discoveries/",
+      "fetchedAt": "2026-10-07T04:21:08.701Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7b3fff27d06323649b722ab8f26a70cd75fe9da3ee685ef5275ab9fbcd43d59c",
+      "title": "History & discoveries - University of California, Berkeley",
+      "snapshotFile": "raw/0013-7b3fff27d063.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/about/traditions/",
+      "fetchedAt": "2026-10-07T04:21:10.711Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "66113af9e402bef229b747832d5ea50f3bb537157874e913cada787d8a839677",
+      "title": "Traditions - University of California, Berkeley",
+      "snapshotFile": "raw/0014-66113af9e402.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/about/experience-berkeley/",
+      "fetchedAt": "2026-10-07T04:21:12.771Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "05757e2d627ec24153d4b810dd5f66409761be2da9f4bd764024bbf908459e8c",
+      "title": "Experience Berkeley - University of California, Berkeley",
+      "snapshotFile": "raw/0015-05757e2d627e.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/about/leadership/",
+      "fetchedAt": "2026-10-07T04:21:14.603Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9acd72a69073c2eacf0b65c93e08f93c493579613da9588817218502b707762a",
+      "title": "Leadership - University of California, Berkeley",
+      "snapshotFile": "raw/0016-9acd72a69073.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/academics/",
+      "fetchedAt": "2026-10-07T04:21:16.713Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d06912773f6374f09f4eefd83932d8dcd9f47825f1a32a3d4d00d2224cea3666",
+      "title": "Academics - University of California, Berkeley",
+      "snapshotFile": "raw/0017-d06912773f63.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/academics/schools-colleges/",
+      "fetchedAt": "2026-10-07T04:21:18.714Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c975fb010536e011f5f6977e7dbacba76a045ae9930d55daf02d9d6b1653092b",
+      "title": "Schools & colleges - University of California, Berkeley",
+      "snapshotFile": "raw/0018-c975fb010536.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/atoz/dept/",
+      "fetchedAt": "2026-10-07T04:21:20.639Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7f2f8c10c70dc071b4797d7952c5866c9b16dff781d8e1d83bb5d58faf65f2a9",
+      "title": "Academic departments & programs - University of California, Berkeley",
+      "snapshotFile": "raw/0019-7f2f8c10c70d.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/academics/advising-tutoring/",
+      "fetchedAt": "2026-10-07T04:21:22.738Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5a79a57db6f349482a54fe6c4a2e80e1d4d1211886daa8a1ad99eab87274a813",
+      "title": "Advising & tutoring - University of California, Berkeley",
+      "snapshotFile": "raw/0020-5a79a57db6f3.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/research/",
+      "fetchedAt": "2026-10-07T04:21:24.559Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f238d9cf4b9c7be7be2c64e0c16401fd7994a0428353047224f28cf123e07b77",
+      "title": "Research - University of California, Berkeley",
+      "snapshotFile": "raw/0021-f238d9cf4b9c.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/research/museums-and-collections/",
+      "fetchedAt": "2026-10-07T04:21:26.775Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5b959ce08d28caf7a093a54f56d51fe0d8cb15a57f5f11bd4ee3a2d5c9b955f2",
+      "title": "Museums and collections - University of California, Berkeley",
+      "snapshotFile": "raw/0022-5b959ce08d28.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/campus-life/",
+      "fetchedAt": "2026-10-07T04:21:28.767Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec9b9b9065ad67f52ef8a0c35668a2a882ba20260166c794f3e747a633b0724f",
+      "title": "Campus Life - University of California, Berkeley",
+      "snapshotFile": "raw/0023-ec9b9b9065ad.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/campus-life/events-attractions/",
+      "fetchedAt": "2026-10-07T04:21:30.793Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9b0495f89e76225576612e365e5cd48fb389beaf0f2e4a5d47b7b8a7d412f118",
+      "title": "Events & attractions - University of California, Berkeley",
+      "snapshotFile": "raw/0024-9b0495f89e76.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/campus-life/housing-dining/",
+      "fetchedAt": "2026-10-07T04:21:32.614Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ed79b6b2d68dbd24b61fbe5bb6c2bd885c1d97c40bf8d57c2c923ab0e11686ec",
+      "title": "Housing & dining - University of California, Berkeley",
+      "snapshotFile": "raw/0025-ed79b6b2d68d.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/campus-life/student-organizations/",
+      "fetchedAt": "2026-10-07T04:21:34.832Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c1f333ef093881f63198f939c326f5719636d585f753f2027cc498595c40212f",
+      "title": "Student organizations - University of California, Berkeley",
+      "snapshotFile": "raw/0026-c1f333ef0938.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/campus-life/health-safety/",
+      "fetchedAt": "2026-10-07T04:21:36.817Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e2f924545d98e6140ea76ce86f9ccc5ddfd2d7dfb34ec84cfb1226f0f7f5518f",
+      "title": "Health & safety - University of California, Berkeley",
+      "snapshotFile": "raw/0027-e2f924545d98.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/research-impact/",
+      "fetchedAt": "2026-10-07T04:21:38.834Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "30a3b2067e5c648135654243ccbf08d8665dfd96ab012777dcd47b7b65d10df2",
+      "title": "Research With Results - University of California, Berkeley",
+      "snapshotFile": "raw/0028-30a3b2067e5c.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/jobs/",
+      "fetchedAt": "2026-10-07T04:21:40.796Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6f2aafd6d35826db623f6596ea916759254a561cb455c47e65281fd48252e4c1",
+      "title": "Jobs - University of California, Berkeley",
+      "snapshotFile": "raw/0029-6f2aafd6d358.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/heerf-report/",
+      "fetchedAt": "2026-10-07T04:21:42.853Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "28b2f718709f49f60ca950e0d11ec0788941efa9645b419335900f05d29e29ef",
+      "title": "HEERF Report - University of California, Berkeley",
+      "snapshotFile": "raw/0030-28b2f718709f.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/atoz/",
+      "fetchedAt": "2026-10-07T04:21:44.663Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a436a1a6e333097ee1226358466902c7cbc4c7df3c72de2dbcd14b7ac6709b35",
+      "title": "Websites A-Z - University of California, Berkeley",
+      "snapshotFile": "raw/0031-a436a1a6e333.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/1608-4th-street/",
+      "fetchedAt": "2026-10-07T04:21:47.019Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c3d0110918c81180068bfd950e3bd2070f8c8d4daa5491cfd06d2cabb3aab159",
+      "title": "1608 4th Street - University of California, Berkeley",
+      "snapshotFile": "raw/0032-c3d0110918c8.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/1925-walnut-st/",
+      "fetchedAt": "2026-10-07T04:21:49.122Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1f255d07875e219f226abe7e86c1d3dcc5f9092b73affd9aab0c01cf3cc65637",
+      "title": "1925 Walnut St - University of California, Berkeley",
+      "snapshotFile": "raw/0033-1f255d07875e.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/2108-allston-way/",
+      "fetchedAt": "2026-10-07T04:21:50.869Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f1bdc0f4dadccbdeaf026cd17f50732a0fc3ce62d57a4312d15216fd937d0ed8",
+      "title": "2108 Allston Way - University of California, Berkeley",
+      "snapshotFile": "raw/0034-f1bdc0f4dadc.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/2224-piedmont-ave/",
+      "fetchedAt": "2026-10-07T04:21:53.128Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f3d336c8aabed011d8bf0a8d018c710ec58c3a26f3b6d7d06fc80d799aaf37f1",
+      "title": "2224 Piedmont Ave. - University of California, Berkeley",
+      "snapshotFile": "raw/0035-f3d336c8aabe.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/2232-piedmont-ave/",
+      "fetchedAt": "2026-10-07T04:21:54.938Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f094499d0664e93e25b9f69ca6b7778a37137344e408a42de2c4d646bad387cb",
+      "title": "2232 Piedmont Ave. - University of California, Berkeley",
+      "snapshotFile": "raw/0036-f094499d0664.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/2240-piedmont-ave/",
+      "fetchedAt": "2026-10-07T04:21:58.123Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "40f583c95ced776a979efa752330c7a8aa9e2077e866fab385b5f6e49144094e",
+      "title": "2240 Piedmont Ave. - University of California, Berkeley",
+      "snapshotFile": "raw/0037-40f583c95ced.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/2334-bowditch/",
+      "fetchedAt": "2026-10-07T04:21:58.921Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "da8582bedcf1f536e3016c9eba337773ca40fc51867f5526d7dcf3bd44e62146",
+      "title": "2334 Bowditch - University of California, Berkeley",
+      "snapshotFile": "raw/0038-da8582bedcf1.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/2427-dwight-way/",
+      "fetchedAt": "2026-10-07T04:22:00.924Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "793c1b59f1228b614d727b4059d4d81818223a253b4a66a20a6189dd547c8fbc",
+      "title": "2427 Dwight Way - University of California, Berkeley",
+      "snapshotFile": "raw/0039-793c1b59f122.html"
+    },
+    {
+      "url": "https://www.berkeley.edu/map/2440-bancroft-way/",
+      "fetchedAt": "2026-10-07T04:22:02.978Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d8500ef0817e102e2c6b41a1bb4a0e4c11e3ebfe322eeeb40625a9089a4e3ca2",
+      "title": "2440 Bancroft Way - University of California, Berkeley",
+      "snapshotFile": "raw/0040-d8500ef0817e.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/aerospace-engineering/",
+      "fetchedAt": "2026-10-07T06:28:06.032Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2b4063e17a39a7c219ccd83b43e35171ec84a37e7b9083b2486770ec408e3f1e",
+      "title": "Aerospace Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0001-2b4063e17a39.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/",
+      "fetchedAt": "2026-10-07T06:28:30.195Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7d890ec9b7570568877d8881cf96e3dac64c8bf9b0d2c7f063fa09d31261ebe8",
+      "title": "Undergraduate programs - Berkeley Engineering",
+      "snapshotFile": "raw/0002-7d890ec9b757.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/bioengineering/",
+      "fetchedAt": "2026-10-07T06:28:32.144Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "05fadfbb70060767bcc8286721c8e1d8b385742026ae4801908fcf7c47d0c897",
+      "title": "Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0003-05fadfbb7006.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/civil-engineering/",
+      "fetchedAt": "2026-10-07T06:28:34.129Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ba1032cf353e544220c0974a0ce86c869d8fcad8416d50cc4581c159304ec519",
+      "title": "Civil Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0004-ba1032cf353e.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/electrical-engineering-computer-sciences/",
+      "fetchedAt": "2026-10-07T06:28:36.150Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3c66afc41f9557bfed5d92c6481ff19bdf45c1c877a7c91da2b6035359c6c2a1",
+      "title": "Electrical Engineering & Computer Sciences - Berkeley Engineering",
+      "snapshotFile": "raw/0005-3c66afc41f95.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/engineering-science/",
+      "fetchedAt": "2026-10-07T06:28:38.142Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6c28f8edf5abe4413075fa64be35bbfeb95af4d6762a2f14a13b3c4035eecfd2",
+      "title": "Engineering Science - Berkeley Engineering",
+      "snapshotFile": "raw/0006-6c28f8edf5ab.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/industrial-engineering-operations-research/",
+      "fetchedAt": "2026-10-07T06:28:40.170Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4f471ad27ccaa6ed0af1fd43b1978203b75e0498588b455e68558aaaf368bf71",
+      "title": "Industrial Engineering & Operations Research - Berkeley Engineering",
+      "snapshotFile": "raw/0007-4f471ad27cca.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/materials-science-engineering/",
+      "fetchedAt": "2026-10-07T06:28:42.110Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7f4fc4a6b5aa0af6caec193051ed08f1d7892a9fdc9b219760deb66e269fc3d4",
+      "title": "Materials Science & Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0008-7f4fc4a6b5aa.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/mechanical-engineering/",
+      "fetchedAt": "2026-10-07T06:28:44.138Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "869ebd4893a6da6b999cd046199d9ae6645d935df29b1d74792de248835fda51",
+      "title": "Mechanical Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0009-869ebd4893a6.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:28:46.155Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5d784ccb357241c98e4bb0e761ad4489e949912df1273216f8b12ae2b9c421df",
+      "title": "Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0010-5d784ccb3572.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/undeclared/",
+      "fetchedAt": "2026-10-07T06:28:48.144Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b127f443f6de6c73ca2d05e3f1d0a36a56a61a5f312cb691be2f8751dfe59f3b",
+      "title": "Undeclared - Berkeley Engineering",
+      "snapshotFile": "raw/0011-b127f443f6de.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/civil-engineering/",
+      "fetchedAt": "2026-10-07T06:28:50.230Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec78c3a8a737a05652b7a06fc077db36afb70590bb60255e50a0f6419056ea0a",
+      "title": "Civil Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0012-ec78c3a8a737.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/electrical-computer-engineering/",
+      "fetchedAt": "2026-10-07T06:28:52.176Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b86d89fd94168da466e91ad27bdf4f25a6275938b6db948b632e6493af04644d",
+      "title": "Electrical & Computer Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0013-b86d89fd9416.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/environmental-engineering-science/",
+      "fetchedAt": "2026-10-07T06:28:54.205Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dbdc4f1d7ff6c081d2a1644d26825cff1faee69ea646f65494f4d3775bbfcf15",
+      "title": "Environmental Engineering Science - Berkeley Engineering",
+      "snapshotFile": "raw/0014-dbdc4f1d7ff6.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/energy-engineering/",
+      "fetchedAt": "2026-10-07T06:28:56.251Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0137707545f6b14ce92c6473db90c2853bb5eb8e897912e3ac22b2b437e87079",
+      "title": "Energy Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0015-0137707545f6.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/engineering-mathematics-statistics/",
+      "fetchedAt": "2026-10-07T06:29:02.410Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "21590d2ca1f5a17da1ec37458f93836be761821252402cdd52367eeb614486df",
+      "title": "Engineering Mathematics & Statistics - Berkeley Engineering",
+      "snapshotFile": "raw/0016-21590d2ca1f5.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/engineering-physics/",
+      "fetchedAt": "2026-10-07T06:29:02.721Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7f97d3dc7a2a454e618d55cfd3b74330e7f7d4e12bcaef6e2b7d1417c68443a1",
+      "title": "Engineering Physics - Berkeley Engineering",
+      "snapshotFile": "raw/0017-7f97d3dc7a2a.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:05.092Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3b35d337d4c5ecfef418c3f89b97b2f75805bfd4ffa08251bc3b5b3c2b461627",
+      "title": "2022-23 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0018-3b35d337d4c5.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/",
+      "fetchedAt": "2026-10-07T06:29:07.068Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b696878382afdbaea14a567842388a78e277c2be4a80f48da9d0a1c62880ba2b",
+      "title": "2022-23 Major programs - Berkeley Engineering",
+      "snapshotFile": "raw/0019-b696878382af.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2013-14-undergraduate-guide/2013-14-academic-departments-and-programs/2013-14-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:09.606Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ebf8b26efdc989f0c72a6b7e060adaa4961e4201f65bc1cd7528be2fde6b0761",
+      "title": "2013-14 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0020-ebf8b26efdc9.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2014-15-undergraduate-guide/2014-15-academic-departments-and-programs/2014-15-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:11.223Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "621d98069594574b07da5637b277de4b161d8ff798e92f7767b65d71ec69572f",
+      "title": "2014-15 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0021-621d98069594.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2015-16-undergraduate-guide/2015-16-academic-departments-and-programs/2015-16-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:13.585Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e74ea1ec3e12b9dbd1b665e4e186c04bb67e5819f6161c82cef8a161258ea629",
+      "title": "2015-16 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0022-e74ea1ec3e12.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2016-17-undergraduate-guide/2016-17-academic-departments-and-programs/2016-17-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:15.659Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3d3eecffd38559deb610cca33d5cbf55511db450b0e7ea65d2fcef7dd4cacd8",
+      "title": "2016-17 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0023-b3d3eecffd38.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2017-18-undergraduate-guide/2017-18-degree-requirements/2017-18-major-programs/2017-18-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:17.516Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9773825faa3cf1856d78da8845335554228ad43d182f97ff0c1fd8456232064c",
+      "title": "2017-18 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0024-9773825faa3c.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2018-19-undergraduate-guide/2018-19-degree-requirements/2018-19-major-programs/2018-19-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:19.582Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b5eb936286c34f96e182ee16a6da1a34a5ae395d4b453ca9cfdac4b9dd18cb6a",
+      "title": "2018-19 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0025-b5eb936286c3.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2019-20-undergraduate-guide/2019-20-degree-requirements/2019-20-major-programs/2019-20-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:21.181Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3213c6d5e77e8fbbb2732f81f214bac6aead287e296aa54a0432f846052d8522",
+      "title": "2019-20 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0026-3213c6d5e77e.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2020-21-undergraduate-guide/2020-21-degree-requirements/2020-21-major-programs/2020-21-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:23.149Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "39041aeb53e87b26d14730bd6c26cabc23f79786f309662f1da19cdd7d633f1c",
+      "title": "2020-21 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0027-39041aeb53e8.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2021-22-undergraduate-guide/2021-22-degree-requirements/2021-22-major-programs/2021-22-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:29:27.517Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "507da832d534b28d99df5bcb31b4ea62c3fcfd7c6ba575df304af97f67775f15",
+      "title": "2021-22 Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0028-507da832d534.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-aerospace-engineering/",
+      "fetchedAt": "2026-10-07T06:29:31.104Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "243128866036319c91f3f8e85c2492c8436d8c530c5356f1d4d61d75b78b3055",
+      "title": "2022-23 Aerospace Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0029-243128866036.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-bioengineering/",
+      "fetchedAt": "2026-10-07T06:29:34.323Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0322fba0d22a140a533614b409e244ae406541b57b092d5c6ae935e647e6e174",
+      "title": "2022-23 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0030-0322fba0d22a.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-civil-engineering/",
+      "fetchedAt": "2026-10-07T06:29:37.394Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9690afcc9f211a82ad9fcd593e707e7bab4634d614eddf991ffb9008eaff594b",
+      "title": "2022-23 Civil Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0031-9690afcc9f21.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-electrical-engineering-computer-sciences/",
+      "fetchedAt": "2026-10-07T06:29:38.374Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6ae8388bdf48ee07b5697f391f736226db1f90aae668e9067ad25338349e6e66",
+      "title": "2022-23 Electrical Engineering & Computer Sciences - Berkeley Engineering",
+      "snapshotFile": "raw/0032-6ae8388bdf48.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-engineering-science/",
+      "fetchedAt": "2026-10-07T06:29:40.037Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d8fb27855b703c4dba237718a6f2ad7be3e4b85c29c6a724ae64bc69b5a5c245",
+      "title": "2022-23 Engineering Science - Berkeley Engineering",
+      "snapshotFile": "raw/0033-d8fb27855b70.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-engineering-science/2022-23-energy-engineering/",
+      "fetchedAt": "2026-10-07T06:29:42.020Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9482b58595bfc8bffe31ae35d39826b17f2e5275ec1738d6388b17814de16333",
+      "title": "2022-23 Energy Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0034-9482b58595bf.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-engineering-science/2022-23-engineering-mathematics-statistics/",
+      "fetchedAt": "2026-10-07T06:29:44.052Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2c7ff94cff0429c61a5856ca39f66cf064e338e432b3b5b4cfbcccc9e98a77b2",
+      "title": "2022-23 Engineering Mathematics & Statistics - Berkeley Engineering",
+      "snapshotFile": "raw/0035-2c7ff94cff04.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-engineering-science/2022-23-engineering-physics/",
+      "fetchedAt": "2026-10-07T06:29:46.049Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7396700ea49aa19e17150ecd5110cfe6e34388ba40c1cca08f6e516ee39714b0",
+      "title": "2022-23 Engineering Physics - Berkeley Engineering",
+      "snapshotFile": "raw/0036-7396700ea49a.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-engineering-science/2022-23-environmental-engineering-science/",
+      "fetchedAt": "2026-10-07T06:29:48.066Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b7cb2fa4d93f1fcea335cc4e231cf0940f8f8b3962bb0ffe5416883aa66b111f",
+      "title": "2022-23 Environmental Engineering Science - Berkeley Engineering",
+      "snapshotFile": "raw/0037-b7cb2fa4d93f.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-engineering-undeclared/",
+      "fetchedAt": "2026-10-07T06:29:50.075Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bcde2c6f3e2ce5d5dcd54a8ba525aa33cb98bcb24a4a7f7fdb1c6b707ea7d794",
+      "title": "2022-23 Engineering Undeclared - Berkeley Engineering",
+      "snapshotFile": "raw/0038-bcde2c6f3e2c.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-industrial-engineering-operations-research/",
+      "fetchedAt": "2026-10-07T06:29:52.072Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "23043cd44d5307972396e87b6cb5fbb08102952aaf03bbd057223b91641d8207",
+      "title": "2022-23 Industrial Engineering & Operations Research - Berkeley Engineering",
+      "snapshotFile": "raw/0039-23043cd44d53.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-materials-science-engineering/",
+      "fetchedAt": "2026-10-07T06:29:54.023Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5c4178f934f514aaec65c2229a2144b64f745bdf9ab14a0d209b574d8539d2a6",
+      "title": "2022-23 Materials Science & Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0040-5c4178f934f5.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-mechanical-engineering/",
+      "fetchedAt": "2026-10-07T06:29:56.127Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "de6f25dc77a7774ec0b40fbd3f0251ce222788f20ba27db96fb9021b4556742e",
+      "title": "2022-23 Mechanical Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0041-de6f25dc77a7.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-joint-majors/",
+      "fetchedAt": "2026-10-07T06:29:58.053Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1f38204e5fa7fab28df399b0d5cd5c1c67217c1fd4c9bd1360128b72dce03270",
+      "title": "2022-23 Joint majors - Berkeley Engineering",
+      "snapshotFile": "raw/0042-1f38204e5fa7.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-joint-majors/2022-23-bioengineering-and-materials-science-engineering/",
+      "fetchedAt": "2026-10-07T06:30:00.085Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "68088dce1a607a74a79e75fd9fc9b2f23ab56f8465f958564610ed69c29f68bd",
+      "title": "2022-23 Bioengineering and Materials Science & Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0043-68088dce1a60.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-joint-majors/2022-23-eecs-and-materials-science-engineering/",
+      "fetchedAt": "2026-10-07T06:30:02.135Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dfba1340db1c6bbbbf16e23231abb1a664a6557993b741b9ad817cce1164d2b2",
+      "title": "2022-23 EECS and Materials Science & Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0044-dfba1340db1c.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-joint-majors/2022-23-eecs-and-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:30:04.092Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8001c18743cb040c8edc5c4f291313c1e8056d2ec52e16c776d0035f98fc50bd",
+      "title": "2022-23 EECS and Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0045-8001c18743cb.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-joint-majors/2022-23-materials-science-engineering-and-mechanical-engineering/",
+      "fetchedAt": "2026-10-07T06:30:06.075Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5dce68d4dcf5ad9a48f2578471348dbee6a40395d4a3fd5b19387bbe34e20a1",
+      "title": "2022-23 Materials Science & Engineering and Mechanical Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0046-e5dce68d4dcf.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-joint-majors/2022-23-materials-science-engineering-and-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:30:08.140Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e0681b3d0db978f21154c6668be196b7ea558d69d4f6059c2b037235a41ce506",
+      "title": "2022-23 Materials Science & Engineering and Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0047-e0681b3d0db9.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2022-23-undergraduate-guide/2022-23-degree-requirements/2022-23-major-programs/2022-23-joint-majors/2022-23-mechanical-engineering-and-nuclear-engineering/",
+      "fetchedAt": "2026-10-07T06:30:09.806Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "308e2a67e91e2bd96779105bcc5293d8f5c0a149a98e7b1cc9f952d2d2c16af1",
+      "title": "2022-23 Mechanical Engineering and Nuclear Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0048-308e2a67e91e.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2013-14-undergraduate-guide/2013-14-academic-departments-and-programs/",
+      "fetchedAt": "2026-10-07T06:30:12.203Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "997b82585202b612e12d6192dd7a596912f2d798f856019e1b6deb8cc7900e4e",
+      "title": "2013-14 Academic departments and programs - Berkeley Engineering",
+      "snapshotFile": "raw/0049-997b82585202.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2014-15-undergraduate-guide/2014-15-academic-departments-and-programs/",
+      "fetchedAt": "2026-10-07T06:30:14.191Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7c48587cc606eb64bae805cdcd2a81330d4f8063c8954567192a70e315f08ff4",
+      "title": "2014-15 Academic departments and programs - Berkeley Engineering",
+      "snapshotFile": "raw/0050-7c48587cc606.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2015-16-undergraduate-guide/2015-16-academic-departments-and-programs/",
+      "fetchedAt": "2026-10-07T06:30:16.180Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7a6f77d7206ef3687989c4a13b1633ebcb426e23edeaaac45ecea0df6747d105",
+      "title": "2015-16 Academic departments and programs - Berkeley Engineering",
+      "snapshotFile": "raw/0051-7a6f77d7206e.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2016-17-undergraduate-guide/2016-17-academic-departments-and-programs/",
+      "fetchedAt": "2026-10-07T06:30:18.221Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b6cad7d851db9e70829dc638756f913948f33037b82c7ae44666dc32ea815985",
+      "title": "2016-17 Academic departments and programs - Berkeley Engineering",
+      "snapshotFile": "raw/0052-b6cad7d851db.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2017-18-undergraduate-guide/2017-18-degree-requirements/2017-18-major-programs/",
+      "fetchedAt": "2026-10-07T06:30:20.197Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c55f64bb75c59153d93ac1fed8a55ec14197db99ab232633cc34b6d6f3877639",
+      "title": "2017-18 Major programs - Berkeley Engineering",
+      "snapshotFile": "raw/0053-c55f64bb75c5.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2018-19-undergraduate-guide/2018-19-degree-requirements/2018-19-major-programs/",
+      "fetchedAt": "2026-10-07T06:30:21.862Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aa6245d1338894e20f82fb5767a737c747b514b2ae797b61dd2f2b9ef165f071",
+      "title": "2018-19 Major programs - Berkeley Engineering",
+      "snapshotFile": "raw/0054-aa6245d13388.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2019-20-undergraduate-guide/2019-20-degree-requirements/2019-20-major-programs/",
+      "fetchedAt": "2026-10-07T06:30:24.195Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d9b321f782f55bcf43e3ee2066c6947a0e75b69a58cdf22f08ef186d5a93b5a3",
+      "title": "2019-20 Major programs - Berkeley Engineering",
+      "snapshotFile": "raw/0055-d9b321f782f5.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2020-21-undergraduate-guide/2020-21-degree-requirements/2020-21-major-programs/",
+      "fetchedAt": "2026-10-07T06:30:26.146Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "209660d942c5507cc5f6daa03d09fed7ec35241e59f0ae48b6e2201e98117b17",
+      "title": "2020-21 Major programs - Berkeley Engineering",
+      "snapshotFile": "raw/0056-209660d942c5.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2021-22-undergraduate-guide/2021-22-degree-requirements/2021-22-major-programs/",
+      "fetchedAt": "2026-10-07T06:30:28.222Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8bac397fc2bc64dcff177f9b44fae272812c5420fbbd41371a48118ed9c70885",
+      "title": "2021-22 Major programs - Berkeley Engineering",
+      "snapshotFile": "raw/0057-8bac397fc2bc.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2013-14-undergraduate-guide/2013-14-academic-departments-and-programs/2013-14-bioengineering/",
+      "fetchedAt": "2026-10-07T06:30:30.267Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9b80aa6b5a693b015b9a5e9d3b9995973bb69d50418d66fae4543c3af8d76ab6",
+      "title": "2013-14 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0058-9b80aa6b5a69.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2014-15-undergraduate-guide/2014-15-academic-departments-and-programs/2014-15-bioengineering/",
+      "fetchedAt": "2026-10-07T06:30:32.262Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c183b961e3c59b1a2b6bd692e14891141f01e989d8a9c3135dbb558ce18171ef",
+      "title": "2014-15 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0059-c183b961e3c5.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2015-16-undergraduate-guide/2015-16-academic-departments-and-programs/2015-16-bioengineering/",
+      "fetchedAt": "2026-10-07T06:30:34.219Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee9d885b548ee14ffd3b379320365d80f086109511fa94bfbfb6ad2239e2d809",
+      "title": "2015-16 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0060-ee9d885b548e.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2016-17-undergraduate-guide/2016-17-academic-departments-and-programs/2016-17-bioengineering/",
+      "fetchedAt": "2026-10-07T06:30:36.205Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1b9f6c850a60aa80b5b4418c14bf0e0385ee5737aafb6a6d1adb514e77aeebb4",
+      "title": "2016-17 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0061-1b9f6c850a60.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2017-18-undergraduate-guide/2017-18-degree-requirements/2017-18-major-programs/2017-18-bioengineering/",
+      "fetchedAt": "2026-10-07T06:30:38.223Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5974f1cfd8f1079cf93568e0768a3b61376c5aaaa61f0051661455c7c8579397",
+      "title": "2017-18 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0062-5974f1cfd8f1.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2018-19-undergraduate-guide/2018-19-degree-requirements/2018-19-major-programs/2018-19-bioengineering/",
+      "fetchedAt": "2026-10-07T06:30:40.595Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5685856ef8cef3ac777b06ea188bcbb5ea3712ac6eddd81f495b67605aa913ab",
+      "title": "2018-19 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0063-5685856ef8ce.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2019-20-undergraduate-guide/2019-20-degree-requirements/2019-20-major-programs/2019-20-bioengineering/",
+      "fetchedAt": "2026-10-07T06:30:42.262Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "907215b4f5ccdc0f11b66013a6a0c5160f8d92eff3510129e0814b051c299161",
+      "title": "2019-20 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0064-907215b4f5cc.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2020-21-undergraduate-guide/2020-21-degree-requirements/2020-21-major-programs/2020-21-bioengineering/",
+      "fetchedAt": "2026-10-07T06:30:44.278Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "434a4f40ace170500084394dc979d27ec691278f39e1952c8d719d5c0e67db43",
+      "title": "2020-21 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0065-434a4f40ace1.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2021-22-undergraduate-guide/2021-22-degree-requirements/2021-22-major-programs/2021-22-bioengineering/",
+      "fetchedAt": "2026-10-07T06:30:46.243Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d6d514de979f1d2b00b5fdec85d4cb74d4a35e980b4bf8ef36bdbdbb85a7e700",
+      "title": "2021-22 Bioengineering - Berkeley Engineering",
+      "snapshotFile": "raw/0066-d6d514de979f.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2013-14-undergraduate-guide/2013-14-academic-departments-and-programs/2013-14-civil-environmental-engineering/",
+      "fetchedAt": "2026-10-07T06:30:48.733Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4c5865972e46de4fec9992df8f68cf1240e7212689d4af1c4fb6ba350f2ed5b6",
+      "title": "2013-14 Civil & Environmental Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0067-4c5865972e46.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2014-15-undergraduate-guide/2014-15-academic-departments-and-programs/2014-15-civil-environmental-engineering/",
+      "fetchedAt": "2026-10-07T06:30:50.697Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "70cf1939d69bd8cd5d99958074290353caefb7bf20249fbd3814782f04569cf5",
+      "title": "2014-15 Civil & Environmental Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0068-70cf1939d69b.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2015-16-undergraduate-guide/2015-16-academic-departments-and-programs/2015-16-civil-environmental-engineering/",
+      "fetchedAt": "2026-10-07T06:30:52.369Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4ab5bb8ce667130a4bb27eb1ab12b334fef515ccf70514ba90114b597f071325",
+      "title": "2015-16 Civil & Environmental Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0069-4ab5bb8ce667.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2016-17-undergraduate-guide/2016-17-academic-departments-and-programs/2016-17-civil-environmental-engineering/",
+      "fetchedAt": "2026-10-07T06:30:54.731Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e3ba1ff2f92dda343403c5576c123f56adf564e1d20d54d1f573d47c72ab1a8a",
+      "title": "2016-17 Civil & Environmental Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0070-e3ba1ff2f92d.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2017-18-undergraduate-guide/2017-18-degree-requirements/2017-18-major-programs/2017-18-civil-engineering/",
+      "fetchedAt": "2026-10-07T06:30:56.805Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "80f1334345e947f8681d42e079a8ddf26714c6629bee634bd9a3f7dd224c18ca",
+      "title": "2017-18 Civil Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0071-80f1334345e9.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2018-19-undergraduate-guide/2018-19-degree-requirements/2018-19-major-programs/2018-19-civil-engineering/",
+      "fetchedAt": "2026-10-07T06:30:58.750Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6b93d01c5ae558d4da19fc18b0c164c9b35a9c6951640eabfc9f2b47aa1d0cc2",
+      "title": "2018-19 Civil Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0072-6b93d01c5ae5.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2019-20-undergraduate-guide/2019-20-degree-requirements/2019-20-major-programs/2019-20-civil-engineering/",
+      "fetchedAt": "2026-10-07T06:31:00.344Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2c8e73ad24de1779c05d272fba09518cd6148a7d32b71d1ace6a6589428afb10",
+      "title": "2019-20 Civil Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0073-2c8e73ad24de.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2020-21-undergraduate-guide/2020-21-degree-requirements/2020-21-major-programs/2020-21-civil-engineering/",
+      "fetchedAt": "2026-10-07T06:31:02.353Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9ab3a9109722e13d9ca9a1363c75f3bf44f66c01b6efc116cdb7c117f3a85ee1",
+      "title": "2020-21 Civil Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0074-9ab3a9109722.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2021-22-undergraduate-guide/2021-22-degree-requirements/2021-22-major-programs/2021-22-civil-engineering/",
+      "fetchedAt": "2026-10-07T06:31:04.320Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a4856c62b7b8fdd005012d2add644758852f3cf4dfcaa0bee2272a593c8051da",
+      "title": "2021-22 Civil Engineering - Berkeley Engineering",
+      "snapshotFile": "raw/0075-a4856c62b7b8.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2013-14-undergraduate-guide/2013-14-academic-departments-and-programs/2013-14-electrical-engineering-computer-science/",
+      "fetchedAt": "2026-10-07T06:31:06.881Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "078d295543cec4100ed2d5db0ded47aa947170f59b55b6809a54e75afc352e3d",
+      "title": "2013-14 Electrical Engineering & Computer Science - Berkeley Engineering",
+      "snapshotFile": "raw/0076-078d295543ce.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2014-15-undergraduate-guide/2014-15-academic-departments-and-programs/2014-15-electrical-engineering-computer-sciences/",
+      "fetchedAt": "2026-10-07T06:31:08.832Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "103379ca76ae3d373a9bec3ddb4a01a19651ae77b6a08ee02d107128b7a17529",
+      "title": "2014-15 Electrical Engineering & Computer Sciences - Berkeley Engineering",
+      "snapshotFile": "raw/0077-103379ca76ae.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2015-16-undergraduate-guide/2015-16-academic-departments-and-programs/2015-16-electrical-engineering-computer-sciences/",
+      "fetchedAt": "2026-10-07T06:31:10.755Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "698ed9e7c29b3ae93e04ea5da226198e9f7720a76f074ae42a7ad7ee53d8ac19",
+      "title": "2015-16 Electrical Engineering & Computer Sciences - Berkeley Engineering",
+      "snapshotFile": "raw/0078-698ed9e7c29b.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2016-17-undergraduate-guide/2016-17-academic-departments-and-programs/2016-17-electrical-engineering-computer-sciences/",
+      "fetchedAt": "2026-10-07T06:31:12.781Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "66252d84a6f9e736febb256b2dd3aa8fcc9f78e5f85fc763ebbba4a53bce433e",
+      "title": "2016-17 Electrical Engineering & Computer Sciences - Berkeley Engineering",
+      "snapshotFile": "raw/0079-66252d84a6f9.html"
+    },
+    {
+      "url": "https://engineering.berkeley.edu/2017-18-undergraduate-guide/2017-18-degree-requirements/2017-18-major-programs/2017-18-electrical-engineering-computer-sciences/",
+      "fetchedAt": "2026-10-07T06:31:14.792Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c512149e6788d47ba6058d68c2604847da9c5d0a0cf5c25aa835dd79e67866f7",
+      "title": "2017-18 Electrical Engineering & Computer Sciences - Berkeley Engineering",
+      "snapshotFile": "raw/0080-c512149e6788.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:31:14.839Z",
+    "seedUrls": [
+      "http://guide.berkeley.edu/undergraduate/degree-programs/",
+      "https://engineering.berkeley.edu/academics/undergraduate-programs/aerospace-engineering/",
+      "https://www.law.berkeley.edu/academics/doctoral-programs/jsp/",
+      "https://ourenvironment.berkeley.edu/undergraduate-programshttps://nature.berkeley.edu/advising/majors/molecular-environmental-biology",
+      "https://ourenvironment.berkeley.edu/graduate-programs/degrees/ms-range-management",
+      "https://guide.berkeley.edu/undergraduate/degree-programs/",
+      "https://grad.berkeley.edu/programs/list/",
+      "http://scet.berkeley.edu/programs/elpp/",
+      "https://publichealth.berkeley.edu/academics/programs/health-policy-phd",
+      "http://bulletin.berkeley.edu/undergraduate/degree-programs/",
+      "http://ourenvironment.berkeley.edu/graduate-programs/degrees/ms-range-management",
+      "https://undergraduate.catalog.berkeley.edu/programs?page=1&pq=",
+      "https://gspp.berkeley.edu/programs/masters-of-public-affairs-mpa",
+      "http://teaching.berkeley.edu/programs/distinguished-teaching-award",
+      "https://www.berkeley.edu/academics/schools-colleges/",
+      "https://www.berkeley.edu/academics/advising-tutoring/",
+      "https://ced.berkeley.edu/academics/architecture/",
+      "https://publichealth.berkeley.edu/academics/biostatistics/",
+      "https://ced.berkeley.edu/academics/city-regional-planning/",
+      "https://nature.berkeley.edu/advising/majors/conservation-and-resource-studies",
+      "https://www.law.berkeley.edu/academics/areas-of-study/law-and-economics/",
+      "https://nature.berkeley.edu/advising/majors/environmental-economics-and-policy",
+      "https://publichealth.berkeley.edu/academics/environmental-health-sciences/",
+      "https://ced.berkeley.edu/academics/landscape-architecture-environmental-planning/",
+      "https://nature.berkeley.edu/advising/majors/environmental-sciences",
+      "https://nature.berkeley.edu/advising/majors/genetics-and-plant-biology",
+      "https://publichealth.berkeley.edu/academics/infectious-diseases-and-vaccinology/infectious-diseases-and-immunity-phd/",
+      "https://nature.berkeley.edu/advising/majors/society-and-environment",
+      "https://cltc.berkeley.edu/program/ai-policy-hub/",
+      "http://ccb.berkeley.edu/academics/designated-emphasis/",
+      "http://nature.berkeley.edu/site/majors/crs.php",
+      "http://nature.berkeley.edu/site/majors/meb.php",
+      "http://nature.berkeley.edu/site/majors/mt.php",
+      "https://www.berkeley.edu/academics/",
+      "https://www.berkeley.edu/academics/schools-colleges",
+      "https://asianstudies.berkeley.edu/program/admissions",
+      "https://www.berkeley.edu/academics/sked.shtml",
+      "https://publichealth.berkeley.edu/academics/environmental-health-sciences"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:28.262Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  }
+}

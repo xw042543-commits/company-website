@@ -1,0 +1,28 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "new-york-university",
+    "displayName": "New York University",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://www.nyu.edu/"
+    ],
+    "allowedHosts": [
+      "www.nyu.edu",
+      "nyu.edu"
+    ],
+    "discoveredUrls": 1,
+    "parsedProgrammes": 0,
+    "pagesRead": 34,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "new-york-university",
+      "url": "https://www.nyu.edu/academics/interdisciplinary-initiatives/arts-and-impact.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

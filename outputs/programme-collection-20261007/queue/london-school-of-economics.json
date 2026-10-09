@@ -1,0 +1,1062 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "london-school-of-economics",
+    "displayName": "The London School of Economics and Political Science",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.lse.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.lse.ac.uk",
+      "lse.ac.uk"
+    ],
+    "discoveredUrls": 148,
+    "parsedProgrammes": 33,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 404：https://www.lse.ac.uk/study-at-lse/Undergraduate/one",
+      "robots.txt 禁止抓取：https://www.lse.ac.uk/resources/calendar/programmeRegulations/undergraduate/2026/LLBLaws.htm",
+      "robots.txt 禁止抓取：http://www.lse.ac.uk/resources/calendar/courseGuides/undergraduate.htm",
+      "HTTP 404：http://www.lse.ac.uk/intranet/students/registrationTimetablesAssessment/Registration/Course/Undergraduate/ugcoursechoice.aspx"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/our-departments-and-degree-programmes/our-departments-and-degree-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/our-departments-and-degree-programmes/one",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/programmes/search-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/programmes/search-courses?studyType=0%2F1%2F26%2F85%2F86",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "http://www.lse.ac.uk/Programmes/Search-courses?query&f.Study+Type%7Ctype=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/Programmes/Search-Courses?collection=lse-programmes&query&=query,query&f.Study%20Type%7Ctype=undergraduate&=query&start_rank=1",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "http://www.lse.ac.uk/Programmes/Search-Courses?query&f.Study+Type%7Ctype=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/Programmes/Search-Courses?query&f.Study+Type%7Ctype=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/programmes/search-courses?f.Study%20Type%7Ctype=undergraduate&studyType=0%2F1%2F26%2F85%2F86",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/Programmes/Search-courses?query&f.Study+Type%7Ctype=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/programmes/search-courses?studyType=b6732bf8-36e3-4461-b325-c925ad870cb4",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/programmes/search-courses?f.Study%20Type%7Ctype=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/widening-participation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Teachers-schools-parents",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Applicants",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Offer-Holder",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/virtual-undergraduate-open-day",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/OfS-Transparency-Return",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Applicants/Secure/Contact-UG-Admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/one",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/LSE-Bursaries",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/LSE-scholarships-Home-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/Care-Experienced-and-Estranged-Student-Bursary",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/LSE-financial-support-Overseas-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/access-to-education-undergraduate-scholarships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/uggla-family-scholarships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/tailored-support",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/teachers-and-schools",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/lse-students-and-staff",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/about",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/safeguarding-policy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/lse-springboard-years-12-13",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/lse-thrive-years-12-13",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/pathways-to-law-london-years-12-13",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/pathways-to-banking-and-finance-london-years-12-13",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/lse-explore-year-12",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/lse-empower-year-12",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/lse-insight-year-11",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/tailored-support/lse-navigate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/prospective-students/how-to-apply/contextual-admissions-and-offers",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/tailored-support/care-experienced-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/tailored-support/estranged-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/tailored-support/caring-responsibilities",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/lse-students-and-staff/lse-school-governor-scheme",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/lse-students-and-staff/student-staff-roles",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/lse-students-and-staff/visit-for-young-people-checklist",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/about/widening-participation-team",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/about/lse-access-and-participation-plan",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/teachers-schools-parents/information-for-parents-and-guardians",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/teachers-schools-parents/information-for-teachers-and-schools",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/information-for-parents-and-carers",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/Entry-Requirements",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/Completing-the-UCAS-form/Personal-Statement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/Admissions-Information",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/Completing-the-UCAS-form",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/English-language-requirements",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/UK-students/information-for-prospective-UK-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/An-LSE-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Teaching-and-assessment",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Applicants/Secure/Contact-UG-Admissions.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Applicants/After-you-have-applied",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Applicants/The-outcome-of-your-application",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/UGAA",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Offer-Holder/virtual-undergraduate-offer-holder-day/virtual-undergraduate-offer-holder-day",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Offer-Holder/Information-for-Offer-Holders",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Offer-Holder/Information-for-Offer-Holders/Frequently-Asked-Questions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Assets/PDF/offer-holders/2026-LSE-Undergraduate-Offer-Guide.pdf",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Offer-Holder/Information-for-parents-and-carers/Information-for-parents-and-carers",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/applying-to-LSE/applying-to-lse",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/explore-LSE/explore-LSE",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/meet-our-students/meet-our-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/student-life/student-life",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/student-support/student-support",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Virtual-undergraduate-open-day/international-students/International-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "http://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/Teaching-and-assessment",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/ba-social-anthropology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:31.019Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/ba-anthropology-and-law",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-relations-and-chinese",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:31.019Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-language-culture-and-society",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:31.019Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/ba-geography",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/ba-history",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-relations",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:31.019Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-philosophy-logic-and-scientific-method",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:31.019Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-sociology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/widening-participation/about/lse-access-and-participation-plan",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Assets/Includes/10004063-transparency-information-2026.xlsx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/one",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/How-to-apply-for-funding",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/Assets/Forms/LSE-Bursary-2023-24-evaluation-2.pdf",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/widening-participation/About/care-experienced-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/beacon-scholarship",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/The-Bluemoon-Foundation-Scholarship-Fund",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/fees-and-funding/Global-School-of-Sustainability-at-LSE-GSoS",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/LSE-Mauritius-Scholarship",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/undergraduate-support-scheme",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/pestalozzi-international-foundation-scholarship",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/Singapore-LSE-Trust-Undergraduate-Scholarship",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/Zygmunt-gasiorowski-scholarship-fund",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/future-maths-year-8",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/code-of-behaviour",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/activities/absence-guidance",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/fees-and-funding/uggla-family-scholarships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/teachers-schools-parents/information-for-teachers-and-schools/visit-lse",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/teachers-schools-parents/information-for-teachers-and-schools/lse-visits-you",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/about/data-protection",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/widening-participation/about/wp-data-sharing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/prospective-students/how-to-apply/test-of-mathematics-for-university-admission-tmua",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/offer-holder",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/fees-and-funding",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Offer-Holder/Information-for-Offer-Holders/Offer-Holders-Day",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/fees-and-funding/uggla-family-scholarships/Uggla-Family-Scholarship-details",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Applicants/Secure/Undergraduate-Admissions-Extenuating-Circumstances",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/teachers-schools-parents",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Offer-Holder/Information-for-Offer-Holders/Offer-Holder-Day",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-accounting-and-finance",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-social-anthropology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-econometrics-and-mathematical-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economic-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economic-history-and-geography",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics-and-economic-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-geography-with-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-environment-and-sustainable-development",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-environment-and-sustainable-development-with-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-relations-and-history",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-financial-mathematics-and-statistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-mathematics-with-data-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-mathematics-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-mathematics-with-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-philosophy-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-philosophy-politics-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-politics-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-history-and-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-politics-and-philosophy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-politics-and-international-relations",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-psychological-and-behavioural-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-social-and-public-policy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-social-and-public-policy-with-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-social-and-public-policy-with-politics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-actuarial-science-with-a-placement-year",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-mathematics-statistics-and-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics-and-data-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:01.236Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "london-school-of-economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/llb-bachelor-of-laws",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:03.258Z",
+      "error": null
+    }
+  ]
+}

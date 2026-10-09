@@ -1,0 +1,98 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-leeds",
+    "displayName": "University of Leeds",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.leeds.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.leeds.ac.uk",
+      "leeds.ac.uk"
+    ],
+    "discoveredUrls": 11,
+    "parsedProgrammes": 1,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate/doc/enrichment-study-abroad",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate/doc/contact-us",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15413/ellie-sleightholm",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15400/rohan-cheerala",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15431/george-hobley",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15161/jefferson-sanchez",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/15293/robert-bruce",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate/doc/video-transcript-study-abroad-university-leeds-ben-barrett",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate/dir-record/profiles/18540/isla-loness",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-leeds",
+      "url": "https://www.leeds.ac.uk/online-courses/doc/phd-distance-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:07:59.854Z",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,709 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-cambridge",
+    "displayName": "University of Cambridge",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.cam.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.cam.ac.uk",
+      "cam.ac.uk"
+    ],
+    "discoveredUrls": 97,
+    "parsedProgrammes": 31,
+    "pagesRead": 160,
+    "warnings": [
+      "https://www.cam.ac.uk/for-staff?ucam-ref=global-quick-links：跳转超出允许域名: www.staff.admin.cam.ac.uk",
+      "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.mikehulme.org",
+      "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.mcbridesguides.com",
+      "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.letterstomygodson.com",
+      "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.ssrn.com",
+      "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.maths.cam.ac.uk",
+      "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/adm@pem.cam.ac.uk",
+      "HTTP 404：https://www.classics.cam.ac.uk/prospective/undergraduate/summer-schools"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.jbs.cam.ac.uk/programmes/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.trinhall.cam.ac.uk/study-with-us/undergraduate-study/courses/medicine/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.dow.cam.ac.uk/undergraduate-admissions/courses/medicine",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.pem.cam.ac.uk/study-here/undergraduate/courses/medicine",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.pem.cam.ac.uk/study-here/undergraduate/courses/classics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.mmll.cam.ac.uk/applying/courses/mml",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://www.mmll.cam.ac.uk/applying/courses/mml",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.pem.cam.ac.uk/study-here/undergraduate/courses/chemical-engineering-and-biotechnology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.trinhall.cam.ac.uk/study-with-us/undergraduate-study/courses/chemical-engineering-and-biotechnology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.educ.cam.ac.uk/courses/undergrad/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://www.educ.cam.ac.uk/courses/undergrad/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.pem.cam.ac.uk/study-here/undergraduate/courses/economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.trinhall.cam.ac.uk/study-with-us/undergraduate-study/courses/economics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.mml.cam.ac.uk/applying/courses/linguistics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.trinhall.cam.ac.uk/study-with-us/undergraduate-study/courses/natural-sciences/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/search",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses?ucam-ref=global-header",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.postgraduate.study.cam.ac.uk/courses?ucam-ref=global-header",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/choosing-degree-course",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/teaching-supervisions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/graduate-prospects-careers",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://www.undergraduate.study.cam.ac.uk/courses/search",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/engineering-ba-hons-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:41.506Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/archaeology-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:43.550Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/medicine-graduate-course-mb-bchir",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:45.577Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/medicine-mb-bchir",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:47.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/classics-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:49.524Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/modern-medieval-languages-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:51.597Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/theology-religion-philosophy-of-religion-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:53.580Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/asian-middle-eastern-studies-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:55.540Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/foundation-year",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/english-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:59.734Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/anglo-saxon-norse-celtic-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:01.619Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/human-social-political-sciences-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:03.603Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/architecture-ba-hons-march",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:05.624Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/design-ba-hons-mdes",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:07.597Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/history-of-art-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:09.630Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/natural-sciences-ba-hons-msci",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:11.611Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/veterinary-medicine-vetmb",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/chemical-engineering-biotechnology-ba-hons-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:15.621Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/computer-science-ba-hons-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:17.639Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/law-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:19.471Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/education-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:21.658Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/economics-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:23.665Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/environment-law-economics-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:25.688Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/linguistics-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:27.811Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/geography-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:29.750Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/history-modern-languages-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:31.736Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/linguistics-modern-languages-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:33.749Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/history-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:35.815Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/history-politics-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:37.709Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/mathematics-ba-hons-mmath",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:39.842Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/music-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:41.713Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/philosophy-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:43.754Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/psychological-behavioural-sciences-ba-hons",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:45.733Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/how-will-i-be-taught",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/classics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/human-social-and-political-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/psychological-and-behavioural-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://robinson.cam.ac.uk/courses/medicine",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/medicine-graduate-course",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.cai.cam.ac.uk/courses/classics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/college-requirements-natural-sciences-biological-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/college-requirements-natural-sciences-physical-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.cai.cam.ac.uk/courses/economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.robinson.cam.ac.uk/courses/economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.cai.cam.ac.uk/courses/geography",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.mmll.cam.ac.uk/applying/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses?ucam-ref=homepage-signpost",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.postgraduate.study.cam.ac.uk/courses?ucam-ref=homepage-signpost",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.postgraduate.study.cam.ac.uk/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.postgraduate.study.cam.ac.uk/courses/part-time-study",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.educ.cam.ac.uk/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://staging.undergraduate.study.internal.admin.cam.ac.uk/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://staging.undergraduate.study.internal.admin.cam.ac.uk/courses/search",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.kings.cam.ac.uk/study/undergraduate/subjects/medicine",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.st-edmunds.cam.ac.uk/course/medicine/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.classics.cam.ac.uk/prospective/undergraduate/summer-schools",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.english.cam.ac.uk/admissions/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://www.asnc.cam.ac.uk/admissions/undergraduate/index.htm",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.st-edmunds.cam.ac.uk/course/veterinary-medicine/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.kings.cam.ac.uk/study/undergraduate/subjects/history-and-modern-languages",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.kings.cam.ac.uk/study/undergraduate/subjects/history",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.kings.cam.ac.uk/study/undergraduate/subjects/history-and-politics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.kings.cam.ac.uk/study/undergraduate/subjects/natural-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.classics.cam.ac.uk/prospective/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.divinity.cam.ac.uk/study-here/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.ceb.cam.ac.uk/study/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.cst.cam.ac.uk/admissions/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.geog.cam.ac.uk/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://www.geog.cam.ac.uk/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.hist.cam.ac.uk/course/history-ba-tripos",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://www.hist.cam.ac.uk/course/history-ba-tripos",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.hist.cam.ac.uk/course/history-and-politics-ba-tripos",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "https://www.mus.cam.ac.uk/applicants/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-cambridge",
+      "url": "http://www.mus.cam.ac.uk/applicants/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

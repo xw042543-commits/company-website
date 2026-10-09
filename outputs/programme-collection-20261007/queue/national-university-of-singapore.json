@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "national-university-of-singapore",
+    "displayName": "National University of Singapore",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.nus.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.nus.edu.sg",
+      "nus.edu.sg"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.nus.edu.sg/：无法确认 robots.txt（HTTP 406），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

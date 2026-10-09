@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "griffith-university",
+    "displayName": "Griffith University",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.griffith.edu.au/study"
+    ],
+    "allowedHosts": [
+      "www.griffith.edu.au",
+      "griffith.edu.au"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.griffith.edu.au/study：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

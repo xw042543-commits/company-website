@@ -1,0 +1,724 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "carnegie-mellon-university",
+    "displayName": "Carnegie Mellon University",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.cmu.edu/"
+    ],
+    "allowedHosts": [
+      "www.cmu.edu",
+      "cmu.edu"
+    ],
+    "discoveredUrls": 98,
+    "parsedProgrammes": 1,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 404：https://www.cmu.edu/cfa/music/programs/undergraduate-programs/coursecatalog.web.cmu.edu/schools-colleges/collegeoffinearts/schoolofmusic/",
+      "HTTP 404：https://www.cmu.edu/index.php/tepper/programs/undergraduate-programs",
+      "https://www.cmu.edu/faculty-senate/faculty-handbook/：跳转超出允许域名: login.cmu.edu",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/undergraduateeconomicsprogram.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduatebusinessadministrationprogram/undergraduatebusinessadministrationprogram.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/aboutcmu/undergraduate-options/accelerated-masters-programs/accelerated-masters-programs.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/aboutcmu/undergraduate-options/student-taught-courses/student-taught-courses.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduatebusinessadministrationprogram/business-administration-bs/business-administration-bs.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduatebusinessadministrationprogram/business-administration-additional-major/business-administration-additional-major.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduatebusinessadministrationprogram/courses/courses.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/economics-ba/economics-ba.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/economics-bs/economics-bs.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/economics-mathematical-sciences-bs/economics-mathematical-sciences-bs.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/economics-additional-major/economics-additional-major.pdf",
+      "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/courses/courses.pdf",
+      "https://cbd.cmu.edu/education/undergraduate/index.html：跳转超出允许域名: www.cbd.cmu.edu"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/programs/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/programs/bcsa.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/undergrad-music-technology.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/economics.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "http://www.ini.cmu.edu/degrees/msin/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "http://www.ini.cmu.edu/degrees/msis/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.heinz.cmu.edu/programs/information-systems-management-master/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.heinz.cmu.edu/programs/information-technology-master/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.heinz.cmu.edu/programs/arts-management-master/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.heinz.cmu.edu/programs/entertainment-industry-management-master/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/graduate-programs/grad-music-technology.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/undergrad-instrumental-performance.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/undergrad-piano-performance.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/undergrad-vocal-program.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/undergrad-composition.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/undergrad-electronic-music.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/undergrad-interdisciplinary-degrees.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/undergrad-music-minors.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/undergrad-double-major.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/bfa-music-performance.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:25:29.223Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/graduate-programs/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/graduate-programs/master-of-music.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/graduate-programs/grad-music-education.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/graduate-programs/collaborative-piano.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/certificate-programs/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/certificate-programs/music-education-certification.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/certificate-programs/advanced-music-studies.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/artist-diploma/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/non-majors/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/non-majors/non-major-additional-info.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/non-majors/non-major-registration.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/music-entrepreneurship.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/music-technology/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/mba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/master-business-analytics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/master-science-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/mba/online-hybrid",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/careers",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/current-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/curriculum",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/curriculum/study-abroad",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/advising",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/student-clubs-and-organizations",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/experiential-learning",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "http://www.cmu.edu/interdisciplinary/programs/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/coursecatalog.web.cmu.edu/schools-colleges/collegeoffinearts/schoolofmusic/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/index.php/tepper/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/index.php/tepper/programs/undergraduate-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/advising/meet-team/jennifer-frick",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/advising/meet-team/kate-ickles",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/advising/meet-team/tiffany-primrose",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/advising/ivy-norman",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/advising/erin-mosher-obrien",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/advising/stephen-pajewski",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/advising/james-samuels",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/undergraduate-programs/advising/meet-team/kayla-wright",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/masters-admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs/graduate-services",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/programs/bha.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/programs/bsa.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/programs/ea.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/programs/besa.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/courses.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "http://coursecatalog.web.cmu.edu/schools-colleges/melloncollegeofscience/departmentofbiologicalsciences/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/academics/interdisciplinary-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "http://www.ini.cmu.edu/degrees/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/tepper/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://canvas.cmu.edu/courses/sis_course_id:syllabus-registry",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://cbd.cmu.edu/education/undergraduate/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.hcii.cmu.edu/academics/hci-undergrad/additional-major-hci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/ini/academics/bicoastal/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/pdf-documents/academic-documents/checklists/undergraduate/MinorinConducting.pdf",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/pdf-documents/academic-documents/checklists/undergraduate/MinorinMusicTechnology2011.pdf",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/cfa/music/pdf-documents/academic-documents/checklists/undergraduate/MinorinMusic2011.pdf",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/forms.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/index.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/bcsa-curriculum.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/besa-curriculum.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/bha-curriculum.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/bsa-curriculum.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/ea-curriculum.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/accomplishments.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/award.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/capstone.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/internships.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/research.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/interdisciplinary/academics/study-abroad.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/academics/continuing-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cmu.edu/academics/learning-for-a-lifetime",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "carnegie-mellon-university",
+      "url": "https://www.cs.cmu.edu/academics/graduate-admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

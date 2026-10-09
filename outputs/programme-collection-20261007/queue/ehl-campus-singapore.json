@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "ehl-campus-singapore",
+    "displayName": "EHL Campus Singapore",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://www.ehl.edu/en/campuses/singapore-campus"
+    ],
+    "allowedHosts": [
+      "www.ehl.edu",
+      "ehl.edu"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "HTTP 404：https://www.ehl.edu/en/campuses/singapore-campus"
+    ]
+  },
+  "queue": []
+}
