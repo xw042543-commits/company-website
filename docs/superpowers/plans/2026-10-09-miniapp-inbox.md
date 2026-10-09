@@ -18,7 +18,7 @@
 
 ## Task 1: Durable inbox API and community producers
 
-Files: create backend notification package, V19 migration, relevant tests; modify community write/reaction/moderation only as necessary for published comment/reply/like events. Follow Controller → Service → Repository.
+Files: create backend notification package, V20 migration (V19 is now reserved by main's wallet feature), relevant tests; modify community write/reaction/moderation only as necessary for published comment/reply/like events. Follow Controller → Service → Repository.
 
 Interfaces:
 - GET /api/v1/miniapp/me/messages?category=ALL|COMMUNITY|SYSTEM|APPLICATION&page=1&size=20 → {items:[{id:string,category,title,body,createdAt:ISO,readAt:ISO|null,targetType:COMMUNITY_POST|NONE,targetId:string|null}],page,pageSize,totalItems,totalPages,unreadCount:number}.
@@ -52,3 +52,4 @@ Files: app.json, pages/messages/*, services/messages.ts, message store if requir
 - `backend: ./mvnw '-Dtest=InboxIntegrationTest,Community*Test,Miniapp*Test' test`: 222 tests passed, no failures/errors/skips. V19 applied only in disposable test containers.
 - Corrected the inbox test to use actual miniapp bearer authentication and isolated its Redis rate-limit address from other fixtures; production authentication and limits remain unchanged.
 - Independent final review found no blocking defects. Native-device rendering and production deployment remain unverified; SYSTEM/APPLICATION event producers remain unconnected.
+- Subsequent integration: main PR #83 introduced wallet migration V19 while this PR was open. Inbox migration was renumbered to V20 before release; wallet migration is unchanged. Removed a duplicate local programme image field introduced by the combined branches. Earlier V19 inbox verification above describes the pre-wallet test baseline, not a production migration.

@@ -221,7 +221,6 @@ function toProgramme(record: LocalProgrammeRecord, index: number) {
   return {
     id: index + 1,
     programmeCode: code.toUpperCase(),
-    imageUrl: null,
     slug: code,
     nameZh: splitProgrammeName(record.nameZh).name || null,
     nameEn: splitProgrammeName(record.nameEn).name || null,
