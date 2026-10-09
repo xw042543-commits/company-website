@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFile } from 'node:fs/promises';
+import type { ProgrammeDocumentSection } from '../miniprogram/utils/discovery-view.ts';
+import type { ProgrammeDetail } from '../miniprogram/services/miniapp-data.ts';
 
 interface CardContext {
   data: { university: Record<string, unknown>; imageFailed: boolean; [key: string]: unknown };
@@ -35,6 +37,173 @@ async function loadUniversityCard(): Promise<CardDefinition> {
 }
 
 const definition = await loadUniversityCard();
+
+interface ProgrammePageContext {
+  data: {
+    universitySlug: string; programmeId: string; state: string;
+    programme: ProgrammeDetail | null; documentSections: ProgrammeDocumentSection[];
+    basicFacts: Array<{ label: string; value: string }>;
+    universityLogoUrl: string | null; imageFailed: boolean; logoLetter: string;
+    favorite: boolean; saving: boolean; [key: string]: unknown;
+  };
+  favoriteRevision: number;
+  setData(update: Record<string, unknown>): void;
+}
+
+interface ProgrammePageDefinition {
+  data: ProgrammePageContext['data'];
+  loadPage(this: ProgrammePageContext): Promise<void>;
+  setupNavigation(this: ProgrammePageContext): void;
+  imageError(this: ProgrammePageContext): void;
+  toggleFavorite(this: ProgrammePageContext): Promise<void>;
+  back(this: ProgrammePageContext): void;
+  consult(this: ProgrammePageContext): void;
+}
+
+let programmePage: ProgrammePageDefinition | undefined;
+async function loadProgrammePage(): Promise<ProgrammePageDefinition> {
+  if (programmePage) return programmePage;
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'Page');
+  Object.defineProperty(globalThis, 'Page', { configurable: true, value(page: ProgrammePageDefinition) { programmePage = page; } });
+  try { await import(new URL('../miniprogram/pages/programme-detail/index.ts', import.meta.url).href); }
+  finally {
+    if (original) Object.defineProperty(globalThis, 'Page', original);
+    else Reflect.deleteProperty(globalThis, 'Page');
+  }
+  assert.ok(programmePage);
+  return programmePage;
+}
+
+test('programme document template clears custom navigation and renders semantic facts and safe locked previews', async () => {
+  const base = '../miniprogram/pages/programme-detail/';
+  const [markup, styles, configText] = await Promise.all(['index.wxml', 'index.wxss', 'index.json'].map((file) => readFile(new URL(base + file, import.meta.url), 'utf8')));
+  const config = JSON.parse(configText!);
+  assert.equal(config.navigationStyle, 'custom');
+  assert.match(markup!, /class="custom-header"/);
+  assert.match(markup!, /statusBarHeight/);
+  assert.match(markup!, /navigationRight/);
+  assert.match(markup!, /bindtap="back"[^>]+aria-label="返回"/);
+  assert.match(markup!, /专业详情/);
+  assert.match(styles!, /\.custom-header[^}]+background:#f5d66f/);
+  assert.match(markup!, /class="identity-row"/);
+  assert.match(markup!, /universityLogoUrl && !imageFailed/);
+  assert.match(markup!, /mode="aspectFit"[^>]+binderror="imageError"/);
+  assert.match(markup!, /logoLetter/);
+  assert.match(markup!, /wx:for="\{\{documentSections\}\}"/);
+  assert.match(markup!, /专业描述/);
+  assert.match(markup!, /基本信息/);
+  assert.match(markup!, /role="table"/);
+  assert.match(markup!, /wx:for="\{\{basicFacts\}\}"[^>]+role="row"/);
+  assert.match(markup!, /role="rowheader"/);
+  assert.match(markup!, /role="cell"/);
+  const locked = markup!.match(/<view wx:elif="\{\{section.locked\}\}"[\s\S]*?(?=<view wx:else)/)?.[0];
+  assert.ok(locked, 'locked branches must be distinct from public body rendering');
+  assert.match(locked, /aria-hidden="true"/);
+  assert.match(locked, /本节内容暂未开放/);
+  assert.doesNotMatch(locked, /section\.body|<button|积分|支付|购买|解锁|价格|¥|RM|MYR/);
+  assert.doesNotMatch(markup!, /aria-label="[^"]*(?:section|item)\.body/);
+  assert.match(styles!, /filter:blur\(/);
+  assert.match(styles!, /env\(safe-area-inset-bottom\)/);
+  assert.match(styles!, /word-break:break-word/);
+  assert.match(styles!, /\.fact-row:nth-child\(even\)/);
+  assert.match(markup!, /bindtap="toggleFavorite"/);
+  assert.match(markup!, /disabled="\{\{saving\}\}"/);
+  assert.match(markup!, /bindtap="consult"/);
+  assert.doesNotMatch(markup!, /activeTab|selectTab/);
+});
+
+test('programme page builds ordered document and meaningful facts with logo and audited missing-value fallbacks', async () => {
+  const page = await loadProgrammePage();
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  try {
+    for (const scenario of ['complete', 'empty', 'pace'] as const) {
+      const complete = scenario !== 'empty';
+      const universitySlug = complete ? 'asia-pacific-university' : 'contract-programme-empty';
+      const programmeId = scenario === 'pace' ? '805' : '804';
+      const payload = {
+        id: 804, slug: 'computer-science', nameZh: '计算机科学学士', nameEn: 'Bachelor of Computer Science',
+        universitySlug, universityNameZh: '亚太科技大学', universityNameEn: complete ? 'APU' : '',
+        descriptionZh: '专业描述正文', cityZh: complete ? '吉隆坡' : '',
+        studyLevelCode: complete ? 'BACHELOR' : '', durationDisplay: complete ? '3年' : '',
+        courseModeCode: scenario === 'complete' ? 'ON_CAMPUS' : '', studyPaceDisplay: complete ? '全日制' : '',
+        languageCodes: complete ? [' EN ', '', 'ZH'] : [], intakeDisplayTexts: complete ? ['9月', ' ', '1月'] : [],
+        tuitionDisplay: complete ? 'RM 90,000' : '', sections: [
+          { type: 'CAREER_OUTLOOK', titleZh: '职业方向', bodyZh: '公开就业信息', sortOrder: 30 },
+          { type: 'INTRODUCTION', titleZh: '介绍', bodyZh: '重复介绍', sortOrder: 0 },
+          { type: 'ADMISSIONS', titleZh: '录取要求', bodyZh: '隐藏录取内容', sortOrder: 10 },
+        ],
+      };
+      Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+        getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }), setNavigationBarTitle() {},
+        request(options: { success(response: unknown): void }) {
+          options.success({ statusCode: 200, data: payload, header: {}, cookies: [] });
+          return { abort() {} };
+        },
+      } });
+      const context: ProgrammePageContext = {
+        favoriteRevision: 0, data: { ...page.data, universitySlug, programmeId, imageFailed: true },
+        setData(update) { Object.assign(this.data, update); },
+      };
+      await page.loadPage.call(context);
+      assert.equal(context.data.state, 'ready');
+      assert.ok(Array.isArray(context.data.documentSections), 'the programme page must expose ordered document sections');
+      assert.ok(Array.isArray(context.data.basicFacts), 'the programme page must expose fact rows');
+      assert.deepEqual(context.data.documentSections.map((section) => section.type), ['INTRODUCTION', 'BASIC_INFORMATION', 'ADMISSIONS', 'CAREER_OUTLOOK']);
+      assert.equal(context.data.documentSections[0]?.body, '专业描述正文');
+      assert.deepEqual(context.data.basicFacts, complete ? [
+        { label: '学历', value: 'BACHELOR' }, { label: '学制', value: '3年' },
+        { label: '模式／方式', value: scenario === 'pace' ? '全日制' : 'ON_CAMPUS' }, { label: '授课语言', value: 'EN · ZH' },
+        { label: '开学日期', value: '9月 · 1月' }, { label: '学习地点', value: '吉隆坡' },
+        { label: '学费', value: 'RM 90,000' },
+      ] : [
+        { label: '学历', value: '待确认' }, { label: '学制', value: '待确认' },
+        { label: '模式／方式', value: '待确认' }, { label: '授课语言', value: '待确认' },
+        { label: '开学日期', value: '请咨询院校' }, { label: '学费', value: '请咨询最新费用' },
+      ]);
+      assert.equal(context.data.imageFailed, false);
+      assert.equal(context.data.logoLetter, complete ? 'A' : 'U');
+      assert.equal(context.data.universityLogoUrl, complete ? 'https://yangdoujiao.com/universities/asia-pacific-university.png' : null);
+      page.imageError.call(context);
+      assert.equal(context.data.imageFailed, true);
+    }
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
+
+test('programme navigation clears capsule and keeps back and consultation actions reachable', async () => {
+  const page = await loadProgrammePage();
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  let backs = 0;
+  const toasts: string[] = [];
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+    getWindowInfo: () => ({ statusBarHeight: 44, windowWidth: 320 }),
+    getMenuButtonBoundingClientRect: () => ({ top: 52, left: 220, width: 88, height: 32 }),
+    navigateBack() { backs++; }, showToast({ title }: { title: string }) { toasts.push(title); },
+  } });
+  try {
+    const context: ProgrammePageContext = { favoriteRevision: 0, data: { ...page.data }, setData(update) { Object.assign(this.data, update); } };
+    assert.equal(typeof page.setupNavigation, 'function', 'programme detail must measure safe custom navigation');
+    page.setupNavigation.call(context);
+    assert.equal(context.data.statusBarHeight, 44);
+    assert.equal(context.data.navigationHeight, 48);
+    assert.equal(context.data.navigationRight, 112);
+    page.back.call(context);
+    page.consult.call(context);
+    assert.equal(backs, 1);
+    assert.deepEqual(toasts, ['顾问咨询正在接入']);
+    Object.defineProperty(globalThis, 'wx', { configurable: true, value: {} });
+    const legacy: ProgrammePageContext = { ...context, data: { ...page.data } };
+    page.setupNavigation.call(legacy);
+    assert.equal(legacy.data.statusBarHeight, 20);
+    assert.equal(legacy.data.navigationHeight, 44);
+    assert.equal(legacy.data.navigationRight, 96);
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
 
 function card(university: Record<string, unknown>, imageFailed = false) {
   const events: Array<{ name: string; detail: { slug: unknown } }> = [];
@@ -553,6 +722,69 @@ test('university profile fetches every programme page sequentially before exposi
   } finally {
     resetFilterOptionsCache();
     if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
+
+test('programme favourite preserves authentication, duplicate-save guard, add/remove and failed-write rollback', async () => {
+  const page = await loadProgrammePage();
+  const { sessionStore } = await import('../miniprogram/stores/session.ts');
+  const { setAccessTokenReader } = await import('../miniprogram/services/http.ts');
+  const { mapProgrammeDetail } = await import('../miniprogram/services/miniapp-data.ts');
+  const mapped = mapProgrammeDetail({ id: 902, slug: 'favourite-contract', nameZh: '测试专业', nameEn: 'Test Programme', universitySlug: 'segi-university', universityNameZh: '世纪大学', sections: [] });
+  assert.ok(mapped.ok);
+  const originalWx = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  const originalAuth = sessionStore.ensureAuthenticated;
+  const paths: Array<{ path: string; method: string }> = [];
+  const toasts: string[] = [];
+  let outcome: 'success' | 'offline' = 'success';
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+    getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }),
+    showToast({ title }: { title: string }) { toasts.push(title); },
+    request(options: { url: string; method: string; success(response: unknown): void; fail(response: unknown): void }) {
+      paths.push({ path: new URL(options.url).pathname, method: options.method });
+      if (outcome === 'offline') options.fail({ errMsg: 'offline' });
+      else options.success({ statusCode: options.method === 'DELETE' ? 204 : 200,
+        data: { id: 902, universitySlug: 'segi-university', name: '测试专业', universityName: '世纪大学' }, header: {}, cookies: [] });
+      return { abort() {} };
+    },
+  } });
+  try {
+    setAccessTokenReader(() => 'contract-token');
+    const context: ProgrammePageContext = { favoriteRevision: 0, data: { ...page.data, programme: mapped.value }, setData(update) { Object.assign(this.data, update); } };
+    let finishAuth: ((value: Awaited<ReturnType<typeof originalAuth>>) => void) | undefined;
+    sessionStore.ensureAuthenticated = () => new Promise((resolve) => { finishAuth = resolve; });
+    const pending = page.toggleFavorite.call(context);
+    assert.equal(context.data.saving, true);
+    await page.toggleFavorite.call(context);
+    assert.equal(context.favoriteRevision, 1);
+    assert.deepEqual(paths, []);
+    assert.ok(finishAuth);
+    finishAuth({ ok: false, error: { kind: 'unauthorized', code: 'AUTHENTICATION_REQUIRED' } });
+    await pending;
+    assert.equal(context.data.saving, false);
+    assert.equal(context.data.favorite, false);
+    assert.deepEqual(toasts, ['请先完成微信登录']);
+    sessionStore.ensureAuthenticated = async () => ({ ok: true, value: { id: 1, displayName: 'Student', avatarUrl: null, bindingStatus: 'LINKED' } });
+    await page.toggleFavorite.call(context);
+    assert.equal(context.data.favorite, true);
+    assert.equal(context.data.saving, false);
+    await page.toggleFavorite.call(context);
+    assert.equal(context.data.favorite, false);
+    outcome = 'offline';
+    await page.toggleFavorite.call(context);
+    assert.equal(context.data.favorite, false);
+    assert.equal(context.data.saving, false);
+    assert.deepEqual(paths, [
+      { path: '/api/v1/miniapp/me/favorites/902', method: 'POST' },
+      { path: '/api/v1/miniapp/me/favorites/902', method: 'DELETE' },
+      { path: '/api/v1/miniapp/me/favorites/902', method: 'POST' },
+    ]);
+    assert.deepEqual(toasts, ['请先完成微信登录', '已收藏专业', '已取消收藏', '操作失败，请重试']);
+  } finally {
+    sessionStore.ensureAuthenticated = originalAuth;
+    setAccessTokenReader(() => null);
+    if (originalWx) Object.defineProperty(globalThis, 'wx', originalWx);
     else Reflect.deleteProperty(globalThis, 'wx');
   }
 });

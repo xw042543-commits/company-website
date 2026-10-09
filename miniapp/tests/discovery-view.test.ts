@@ -85,6 +85,7 @@ function detail(overrides: Partial<ProgrammeDetail> = {}): ProgrammeDetail {
   return {
     ...programme(1, 'COMPUTING'), programmeCode: 'CS', universitySlug: 'apu',
     universityNameZh: '亚太科技大学', universityNameEn: 'APU', cityZh: '吉隆坡',
+    universityLogoUrl: null,
     descriptionZh: '专业描述正文', courseModeCode: 'ON_CAMPUS', languageCodes: ['EN'],
     studyPaceDisplay: '全日制', sections: [], imageUrl: null, ...overrides,
   };
@@ -170,4 +171,20 @@ test('temporary lock applies only to the four admission and curriculum aliases',
   ]) {
     assert.equal(isTemporarilyLockedSection(type), false, type);
   }
+});
+
+test('document keeps public English fallback readable while locking only admissions and curriculum', () => {
+  const document = buildProgrammeDocument(detail({ descriptionZh: '', sections: [
+    section('INTRODUCTION', 0, { bodyZh: ' ', bodyEn: 'Programme introduction' }),
+    section('LEARNING_OUTCOMES', 30, { titleZh: ' ', titleEn: 'Learning outcomes', bodyZh: ' ', bodyEn: 'Public outcomes' }),
+    section('COURSE_STRUCTURE', 20), section('ADMISSION_REQUIREMENTS', 10),
+  ] }));
+  assert.deepEqual(document.map(({ type, locked }) => ({ type, locked })), [
+    { type: 'INTRODUCTION', locked: false }, { type: 'BASIC_INFORMATION', locked: false },
+    { type: 'ADMISSION_REQUIREMENTS', locked: true }, { type: 'COURSE_STRUCTURE', locked: true },
+    { type: 'LEARNING_OUTCOMES', locked: false },
+  ]);
+  assert.equal(document[0]?.body, 'Programme introduction');
+  assert.equal(document[4]?.title, 'Learning outcomes');
+  assert.equal(document[4]?.body, 'Public outcomes');
 });

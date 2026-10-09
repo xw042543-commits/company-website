@@ -4,28 +4,25 @@ import {
   getProgrammeFavorites,
   removeProgrammeFavorite,
   type ProgrammeDetail,
-  type ProgrammeDetailSection,
 } from '../../services/miniapp-data';
 import { sessionStore } from '../../stores/session';
+import { buildProgrammeDocument, type ProgrammeDocumentSection } from '../../utils/discovery-view';
 
 type ViewState = 'loading' | 'ready' | 'offline' | 'failed';
-type DetailTab = { key: string; label: string; sections: ProgrammeDetailSection[] };
-
-const TAB_LABELS: Record<string, string> = {
-  INTRODUCTION: '介绍', BASIC_INFORMATION: '基本信息', ADMISSION_REQUIREMENTS: '录取要求',
-  ADMISSIONS: '录取要求', COURSE_STRUCTURE: '课程安排', CURRICULUM: '课程安排',
-  LEARNING_OUTCOMES: '学习成果', CAREER_OUTLOOK: '未来职业', CAREER_OPPORTUNITIES: '未来职业',
-  IDEAL_STUDENT: '适合人群', OTHER: '更多资料',
-};
+type BasicFact = { label: string; value: string };
 
 Page({
   favoriteRevision: 0,
   data: {
     universitySlug: '', programmeId: '', state: 'loading' as ViewState,
-    programme: null as ProgrammeDetail | null, tabs: [] as DetailTab[], activeTab: '',
-    favorite: false, saving: false, imageFailed: false, languageText: '', intakeText: '',
+    programme: null as ProgrammeDetail | null,
+    documentSections: [] as ProgrammeDocumentSection[], basicFacts: [] as BasicFact[],
+    universityLogoUrl: null as string | null, logoLetter: 'U',
+    statusBarHeight: 20, navigationHeight: 44, navigationRight: 96,
+    favorite: false, saving: false, imageFailed: false,
   },
   onLoad(options: Record<string, string | undefined>) {
+    this.setupNavigation();
     this.setData({
       universitySlug: decodeURIComponent(options.universitySlug ?? ''),
       programmeId: decodeURIComponent(options.programmeId ?? ''),
@@ -35,8 +32,18 @@ Page({
   back() { wx.navigateBack(); },
   retry() { void this.loadPage(); },
   imageError() { this.setData({ imageFailed: true }); },
-  selectTab(event: WechatMiniprogram.BaseEvent) {
-    this.setData({ activeTab: String(event.currentTarget.dataset.key ?? '') });
+  setupNavigation() {
+    try {
+      const windowInfo = wx.getWindowInfo();
+      const capsule = wx.getMenuButtonBoundingClientRect();
+      const statusBarHeight = windowInfo.statusBarHeight || 20;
+      const validCapsule = capsule.width > 0 && capsule.height > 0 && capsule.top >= statusBarHeight;
+      this.setData({
+        statusBarHeight,
+        navigationHeight: validCapsule ? Math.max(44, capsule.height + (capsule.top - statusBarHeight) * 2) : 44,
+        navigationRight: validCapsule ? Math.max(96, windowInfo.windowWidth - capsule.left + 12) : 96,
+      });
+    } catch { /* Keep safe navigation defaults on older clients. */ }
   },
   consult() { wx.showToast({ title: '顾问咨询正在接入', icon: 'none' }); },
   async toggleFavorite() {
@@ -62,8 +69,15 @@ Page({
       this.setData({ state: result.error.kind === 'unavailable' ? 'offline' as ViewState : 'failed' as ViewState });
       return;
     }
-    const tabs = buildTabs(result.value);
-    this.setData({ programme: result.value, languageText: result.value.languageCodes.join(' · ') || '待确认', intakeText: result.value.intakeDisplayTexts.join(' · ') || '请咨询院校', tabs, activeTab: tabs[0]?.key ?? '', state: 'ready' as ViewState });
+    const programme = result.value;
+    this.setData({
+      programme,
+      documentSections: buildProgrammeDocument(programme),
+      basicFacts: buildBasicFacts(programme),
+      universityLogoUrl: programme.universityLogoUrl,
+      logoLetter: programme.universityNameEn.charAt(0).toUpperCase() || 'U',
+      state: 'ready' as ViewState,
+    });
     wx.setNavigationBarTitle({ title: result.value.nameZh });
     if (sessionStore.getSnapshot().status === 'authenticated') {
       const revision = this.favoriteRevision;
@@ -73,12 +87,14 @@ Page({
   },
 });
 
-export function buildTabs(programme: ProgrammeDetail): DetailTab[] {
-  const grouped = new Map<string, ProgrammeDetailSection[]>();
-  programme.sections.forEach((section) => grouped.set(section.type, [...(grouped.get(section.type) ?? []), section]));
-  if (programme.descriptionZh && !grouped.has('INTRODUCTION')) {
-    grouped.set('INTRODUCTION', [{ type: 'INTRODUCTION', titleZh: '专业介绍', titleEn: '',
-      bodyZh: programme.descriptionZh, bodyEn: '', sortOrder: -1 }]);
-  }
-  return [...grouped.entries()].map(([key, sections]) => ({ key, label: TAB_LABELS[key] ?? '详细资料', sections }));
+function buildBasicFacts(programme: ProgrammeDetail): BasicFact[] {
+  return [
+    { label: '学历', value: programme.studyLevelCode || '待确认' },
+    { label: '学制', value: programme.durationDisplay || '待确认' },
+    { label: '模式／方式', value: programme.courseModeCode || programme.studyPaceDisplay || '待确认' },
+    { label: '授课语言', value: programme.languageCodes.join(' · ') || '待确认' },
+    { label: '开学日期', value: programme.intakeDisplayTexts.join(' · ') || '请咨询院校' },
+    { label: '学习地点', value: programme.cityZh },
+    { label: '学费', value: programme.tuitionDisplay || '请咨询最新费用' },
+  ].filter((fact) => fact.value.trim());
 }
