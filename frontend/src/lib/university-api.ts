@@ -18,6 +18,7 @@ export type MatchedProgramme = {
   durationDisplay: string | null;
   intakeDisplayTexts: string[];
   tuitionDisplay: string | null;
+  imageUrl: string | null;
 };
 
 export type UniversitySearchItem = {
@@ -33,6 +34,7 @@ export type UniversitySearchItem = {
   popular: boolean;
   matchedProgrammeCount: number;
   matchedProgrammes: MatchedProgramme[];
+  imageUrl: string | null;
 };
 
 export type UniversitySearchPage = {
@@ -56,6 +58,7 @@ export type UniversityDetail = {
   descriptionZh: string | null;
   descriptionEn: string | null;
   popular: boolean;
+  imageUrl: string | null;
 };
 
 export type UniversityProgramme = {
@@ -85,6 +88,7 @@ export type UniversityProgramme = {
   intakeDisplayTexts: string[];
   categoryDisplayZh?: string;
   categoryDisplayEn?: string;
+  imageUrl: string | null;
 };
 
 export type UniversityProgrammePage = {
@@ -120,11 +124,13 @@ export type SchoolSummaryData = {
   nameZh?: string;
   nameEn?: string;
   country: string;
+  countryCode?: string;
   countryZh?: string;
   countryEn?: string;
   city?: string;
   cityZh?: string;
   cityEn?: string;
+  logoSrc?: string;
   matchedProgrammeCount: number;
   matchedCourses: Array<{
     id: string;
@@ -152,6 +158,7 @@ export type UniversityDetailView = {
     duration: string;
     tuition: string;
     intakes: string;
+    imageUrl?: string;
   }>;
 };
 
@@ -192,7 +199,8 @@ function isMatchedProgramme(value: unknown): value is MatchedProgramme {
     && isNullableNumber(value.tuitionTotalRmbMax)
     && isNullableString(value.durationDisplay)
     && isStringArray(value.intakeDisplayTexts)
-    && isNullableString(value.tuitionDisplay);
+    && isNullableString(value.tuitionDisplay)
+    && isNullableString(value.imageUrl);
 }
 
 function isUniversitySearchItem(value: unknown): value is UniversitySearchItem {
@@ -211,7 +219,8 @@ function isUniversitySearchItem(value: unknown): value is UniversitySearchItem {
     && typeof value.popular === "boolean"
     && isInteger(value.matchedProgrammeCount)
     && Array.isArray(value.matchedProgrammes)
-    && value.matchedProgrammes.every(isMatchedProgramme);
+    && value.matchedProgrammes.every(isMatchedProgramme)
+    && isNullableString(value.imageUrl);
 }
 
 function isUniversityProgramme(value: unknown): value is UniversityProgramme {
@@ -240,7 +249,8 @@ function isUniversityProgramme(value: unknown): value is UniversityProgramme {
     && isNullableString(value.exchangeRateDate)
     && isNullableString(value.tuitionDisplay)
     && isStringArray(value.intakeMonths)
-    && isStringArray(value.intakeDisplayTexts);
+    && isStringArray(value.intakeDisplayTexts)
+    && isNullableString(value.imageUrl);
 }
 
 export function parseUniversityProgramme(payload: unknown): UniversityProgramme | null {
@@ -280,7 +290,8 @@ export function parseUniversityDetail(payload: unknown): UniversityDetail | null
     || !isNullableString(payload.cityEn)
     || !isNullableString(payload.descriptionZh)
     || !isNullableString(payload.descriptionEn)
-    || typeof payload.popular !== "boolean") {
+    || typeof payload.popular !== "boolean"
+    || !isNullableString(payload.imageUrl)) {
     return null;
   }
 
@@ -416,6 +427,7 @@ function preferredText(
 export function toSchoolSummary(
   item: UniversitySearchItem,
   locale: "zh" | "en",
+  options?: FilterOptions,
 ): SchoolSummaryData {
   const name = preferredText(locale, item.nameZh, item.nameEn, item.slug);
   const country = preferredText(
@@ -433,11 +445,13 @@ export function toSchoolSummary(
     ...(item.nameZh ? { nameZh: item.nameZh } : {}),
     ...(item.nameEn ? { nameEn: item.nameEn } : {}),
     country,
+    ...(item.countryCode ? { countryCode: item.countryCode } : {}),
     ...(item.countryNameZh ? { countryZh: item.countryNameZh } : {}),
     ...(item.countryNameEn ? { countryEn: item.countryNameEn } : {}),
     ...(city ? { city } : {}),
     ...(item.cityZh ? { cityZh: item.cityZh } : {}),
     ...(item.cityEn ? { cityEn: item.cityEn } : {}),
+    ...(item.imageUrl ? { logoSrc: item.imageUrl } : {}),
     matchedProgrammeCount: item.matchedProgrammeCount,
     matchedCourses: item.matchedProgrammes.slice(0, 3).map((programme) => ({
       id: String(programme.id),
@@ -447,9 +461,15 @@ export function toSchoolSummary(
         programme.nameEn,
         programme.programmeCode,
       ),
-      ...(programme.studyLevelCode ? { level: programme.studyLevelCode } : {}),
+      ...(programme.studyLevelCode
+        ? { level: localizedOption(options?.studyLevels, programme.studyLevelCode, locale) }
+        : {}),
       ...(programme.languageCodes.length
-        ? { language: programme.languageCodes.join(", ") }
+        ? {
+          language: programme.languageCodes
+            .map((code) => localizedOption(options?.languages, code, locale))
+            .join(", "),
+        }
         : {}),
     })),
   };
@@ -515,6 +535,7 @@ export function toUniversityDetailView(
         duration: programme.durationDisplay ?? "",
         tuition: programme.tuitionDisplay ?? "",
         intakes: programme.intakeDisplayTexts.join(", "),
+        ...(programme.imageUrl ? { imageUrl: programme.imageUrl } : {}),
       };
     }),
   };
