@@ -38,7 +38,12 @@ Page({
   },
 
   onLoad(options: Record<string, string | undefined>) {
-    if (options.q) this.setData({ query: decodeURIComponent(options.q) });
+    if (options.q) {
+      let query: string;
+      try { query = decodeURIComponent(options.q); }
+      catch { query = options.q; }
+      this.setData({ query });
+    }
     void Promise.all([this.loadFilters(), this.loadUniversities(true)]);
   },
   onShow() { this.syncFavorites(); },

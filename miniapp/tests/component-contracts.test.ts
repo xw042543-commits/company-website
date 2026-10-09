@@ -52,6 +52,7 @@ interface ProgrammePageContext {
 
 interface ProgrammePageDefinition {
   data: ProgrammePageContext['data'];
+  onLoad(this: ProgrammePageContext, options: Record<string, string | undefined>): void;
   loadPage(this: ProgrammePageContext): Promise<void>;
   setupNavigation(this: ProgrammePageContext): void;
   imageError(this: ProgrammePageContext): void;
@@ -84,7 +85,7 @@ test('programme document template clears custom navigation and renders semantic 
   assert.match(markup!, /navigationRight/);
   assert.match(markup!, /bindtap="back"[^>]+aria-label="返回"/);
   assert.match(markup!, /专业详情/);
-  assert.match(styles!, /\.custom-header[^}]+background:#f5d66f/);
+  assert.match(styles!, /\.custom-header[^}]+background:var\(--color-mint\)/);
   assert.match(markup!, /class="identity-row"/);
   assert.match(markup!, /universityLogoUrl && !imageFailed/);
   assert.match(markup!, /mode="aspectFit"[^>]+binderror="imageError"/);
@@ -169,6 +170,66 @@ test('programme page builds ordered document and meaningful facts with logo and 
       page.imageError.call(context);
       assert.equal(context.data.imageFailed, true);
     }
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
+
+test('malformed encoded detail routes show a failed state without throwing or issuing requests', async () => {
+  const programme = await loadProgrammePage();
+  const university = await loadUniversityDetailPage();
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  let requests = 0;
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+    request() { requests++; return { abort() {} }; },
+  } });
+  try {
+    for (const options of [{ universitySlug: '%', programmeId: '7' }, { universitySlug: 'apu', programmeId: '%E0%A4%A' }]) {
+      const context = { ...programme, favoriteRevision: 0, data: { ...programme.data },
+        setData(update: Record<string, unknown>) { Object.assign(this.data, update); } };
+      assert.doesNotThrow(() => programme.onLoad.call(context, options));
+      assert.equal(context.data.state, 'failed');
+    }
+    const context = { ...university, data: { ...university.data },
+      setData(update: Record<string, unknown>) { Object.assign(this.data, update); } };
+    assert.doesNotThrow(() => university.onLoad.call(context, { slug: '%' }));
+    assert.equal(context.data.state, 'failed');
+    assert.equal(requests, 0);
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
+
+test('programme detail superseded loads stay silent while replacement loads and retry recovers offline or failed reads', async () => {
+  const page = await loadProgrammePage();
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  const requests: Array<{ success(response: unknown): void; fail(response: unknown): void }> = [];
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+    getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }), setNavigationBarTitle() {},
+    request(options: typeof requests[number]) { requests.push(options); return { abort() {} }; },
+  } });
+  try {
+    const context: ProgrammePageContext = { favoriteRevision: 0, data: { ...page.data, universitySlug: 'contract-retry', programmeId: '999' },
+      setData(update) { Object.assign(this.data, update); } };
+    const first = page.loadPage.call(context);
+    const second = page.loadPage.call(context);
+    await first;
+    assert.equal(context.data.state, 'loading', 'superseding a detail request must not show a failure');
+    requests[1]!.fail({ errMsg: 'offline' });
+    await second;
+    assert.equal(context.data.state, 'offline');
+    const retry = page.loadPage.call(context);
+    requests[2]!.success({ statusCode: 200, data: {}, header: {}, cookies: [] });
+    await retry;
+    assert.equal(context.data.state, 'failed');
+    const recovered = page.loadPage.call(context);
+    requests[3]!.success({ statusCode: 200, data: { id: 999, slug: 'real-course', nameZh: '真实专业', nameEn: null,
+      universitySlug: 'contract-retry', universityNameZh: '真实大学', sections: [] }, header: {}, cookies: [] });
+    await recovered;
+    assert.equal(context.data.state, 'ready');
+    assert.equal(context.data.programme?.nameZh, '真实专业');
   } finally {
     if (original) Object.defineProperty(globalThis, 'wx', original);
     else Reflect.deleteProperty(globalThis, 'wx');
@@ -445,7 +506,11 @@ test('university profile has safe custom navigation, independent media fallbacks
   assert.match(markup, /statusBarHeight/);
   assert.match(markup, /navigationRight/);
   assert.match(markup, /bindtap="back"[^>]+aria-label="返回"/);
-  assert.match(styles, /\.custom-header[^}]+background:#f5d66f/);
+  assert.doesNotMatch(markup, /\srole\s*=/, 'university tabs must use native aria-role attributes');
+  assert.match(markup, /aria-role="tablist"/);
+  assert.match(markup, /aria-role="tab"/);
+  assert.match(markup, /aria-role="tabpanel"/);
+  assert.match(styles, /\.custom-header[^}]+background:var\(--color-wash\)/);
   assert.match(markup, /binderror="imageError"/);
   assert.match(markup, /detail-cover--fallback/);
   assert.match(markup, /logoFailed/);
@@ -455,8 +520,9 @@ test('university profile has safe custom navigation, independent media fallbacks
   assert.match(markup, /院校简介/);
   assert.match(markup, /专业查询/);
   assert.match(markup, /正在审核整理中，可在专业查询中查看已发布专业/);
-  assert.match(markup, /wx:if="\{\{programmeIntakeDisplays\[item.id\]\}\}"/);
-  assert.match(markup, /入学时间：\{\{programmeIntakeDisplays\[item.id\]\}\}/);
+  assert.doesNotMatch(markup, /programmeIntakeDisplays|item\.tuitionDisplay|item\.durationDisplay/);
+  assert.match(markup, /class="programme-detail-link"[^>]*>详情/);
+  assert.match(styles, /\.category-options[^}]+flex-wrap:wrap/);
   assert.match(markup, /wx:for="\{\{programmeCategories\}\}"/);
   assert.match(markup, /bindtap="selectCategory"/);
   assert.match(markup, /wx:for="\{\{visibleProgrammes\}\}"/);
@@ -482,6 +548,7 @@ interface UniversityDetailPageContext {
 
 interface UniversityDetailPageDefinition {
   data: UniversityDetailPageContext['data'];
+  onLoad(this: UniversityDetailPageContext, options: Record<string, string | undefined>): void;
   loadPage(this: UniversityDetailPageContext): Promise<void>;
   setupNavigation(this: UniversityDetailPageContext): void;
   toggleFavorite(this: UniversityDetailPageContext): void;
@@ -514,11 +581,11 @@ async function loadUniversityDetailPage(): Promise<UniversityDetailPageDefinitio
 test('university profile defaults to introduction and filters locally without losing tab or category state', async () => {
   const page = await loadUniversityDetailPage();
   assert.equal(page.data.activeSection, 'introduction');
-  assert.equal(page.data.activeCategory, 'ALL');
+  assert.equal(page.data.activeCategory, '');
   const programmes = [{ id: 1, categoryCode: 'BUSINESS' }, { id: 2, categoryCode: 'UNLISTED' }];
   const context: UniversityDetailPageContext = {
     data: { ...page.data, programmes, visibleProgrammes: [...programmes], programmeCategories: [
-      { code: 'ALL', label: '全部学院' }, { code: 'BUSINESS', label: '商科' }, { code: 'UNLISTED', label: 'UNLISTED' },
+      { code: 'BUSINESS', label: '商科' }, { code: 'UNLISTED', label: 'UNLISTED' },
     ] },
     setData(update) { Object.assign(this.data, update); },
   };
@@ -536,7 +603,9 @@ test('university profile defaults to introduction and filters locally without lo
   assert.equal(context.data.activeCategory, 'UNLISTED');
   assert.equal(context.data.activeSection, 'programmes');
   page.selectCategory.call(context, event({ code: 'ALL' }));
-  assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [1, 2]);
+  assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [2]);
+  page.selectCategory.call(context, event({ code: 'BUSINESS' }));
+  assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [1]);
   assert.deepEqual(context.data.programmes, programmes);
   page.imageError.call(context);
   assert.equal(context.data.imageFailed, true);
@@ -582,7 +651,6 @@ test('university profile loads real catalogue labels and remains ready when cata
       await page.loadPage.call(context);
       assert.equal(context.data.state, 'ready');
       assert.deepEqual(context.data.programmeCategories, [
-        { code: 'ALL', label: '全部学院' },
         { code: 'COMPUTING', label: catalogueAvailable ? '计算机科学' : 'COMPUTING' },
       ]);
       assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [1]);
@@ -660,7 +728,7 @@ test('university profile fetches every programme page sequentially before exposi
           const url = new URL(options.url);
           if (url.pathname.endsWith('/programmes')) {
             const pageNumber = Number(url.searchParams.get('page'));
-            assert.equal(url.searchParams.get('size'), '50');
+            assert.equal(url.searchParams.get('size'), '48', 'published API caps programme pages at 48');
             requestedPages.push(pageNumber);
             inFlight++;
             maximumInFlight = Math.max(maximumInFlight, inFlight);
@@ -670,15 +738,15 @@ test('university profile fetches every programme page sequentially before exposi
                 options.fail({ errMsg: 'offline' });
                 return;
               }
-              const length = pageNumber === 3 ? (outcome === 'incomplete' ? 0 : 1) : 50;
+              const length = pageNumber === 3 ? (outcome === 'incomplete' ? 0 : 5) : 48;
               const items = Array.from({ length }, (_, index) => {
-                const id = (pageNumber - 1) * 50 + index + 1;
+                const id = (pageNumber - 1) * 48 + index + 1;
                 return { id, slug: `programme-${id}`, nameZh: `专业 ${id}`, nameEn: `Programme ${id}`,
                   categoryCode: pageNumber === 1 ? 'BUSINESS' : 'NEW_CATEGORY', studyLevelCode: 'BACHELOR',
                   durationDisplay: '3年', tuitionDisplay: '', intakeDisplayTexts: id === 51 ? ['一月', '九月'] : [],
                 };
               });
-              options.success({ statusCode: 200, data: { items, page: pageNumber, pageSize: 50, totalItems: 101, totalPages: 3 }, header: {}, cookies: [] });
+              options.success({ statusCode: 200, data: { items, page: pageNumber, pageSize: 48, totalItems: 101, totalPages: 3 }, header: {}, cookies: [] });
             });
           } else {
             const data = url.pathname.endsWith('/filter-options') ? {
@@ -708,19 +776,20 @@ test('university profile fetches every programme page sequentially before exposi
         continue;
       }
       assert.equal(context.data.state, 'ready');
-      assert.deepEqual(readySnapshots, [{ count: 101, rows: 101 }]);
+      assert.deepEqual(readySnapshots, [{ count: 101, rows: 48 }]);
       assert.equal(context.data.programmes.length, 101);
       assert.deepEqual(context.data.programmes.map((item) => item.id), Array.from({ length: 101 }, (_, index) => index + 1));
       assert.deepEqual(context.data.programmeCategories, [
-        { code: 'ALL', label: '全部学院' }, { code: 'BUSINESS', label: '商科' }, { code: 'NEW_CATEGORY', label: 'NEW_CATEGORY' },
+        { code: 'BUSINESS', label: '商科' }, { code: 'NEW_CATEGORY', label: 'NEW_CATEGORY' },
       ]);
-      assert.equal((context.data.programmeIntakeDisplays as Record<number, string>)[51], '一月、九月');
-      assert.equal((context.data.programmeIntakeDisplays as Record<number, string>)[1], '');
+      assert.equal(context.data.activeCategory, 'BUSINESS');
       page.selectCategory.call(context, { currentTarget: { dataset: { code: 'NEW_CATEGORY' } } });
-      assert.equal(context.data.visibleProgrammes.length, 51);
-      assert.equal(context.data.visibleProgrammes[0]?.id, 51);
+      assert.equal(context.data.visibleProgrammes.length, 53);
+      assert.equal(context.data.visibleProgrammes[0]?.id, 49);
       page.selectCategory.call(context, { currentTarget: { dataset: { code: 'ALL' } } });
-      assert.equal(context.data.visibleProgrammes.length, 101);
+      assert.equal(context.data.visibleProgrammes.length, 53);
+      page.selectCategory.call(context, { currentTarget: { dataset: { code: 'BUSINESS' } } });
+      assert.equal(context.data.visibleProgrammes.length, 48);
     }
   } finally {
     resetFilterOptionsCache();

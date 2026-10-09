@@ -23,10 +23,15 @@ Page({
   },
   onLoad(options: Record<string, string | undefined>) {
     this.setupNavigation();
-    this.setData({
-      universitySlug: decodeURIComponent(options.universitySlug ?? ''),
-      programmeId: decodeURIComponent(options.programmeId ?? ''),
-    });
+    try {
+      this.setData({
+        universitySlug: decodeURIComponent(options.universitySlug ?? ''),
+        programmeId: decodeURIComponent(options.programmeId ?? ''),
+      });
+    } catch {
+      this.setData({ state: 'failed' as ViewState });
+      return;
+    }
     void this.loadPage();
   },
   back() { wx.navigateBack(); },
@@ -66,6 +71,7 @@ Page({
     this.setData({ state: 'loading' as ViewState, imageFailed: false });
     const result = await getProgrammeDetail(this.data.universitySlug, this.data.programmeId);
     if (!result.ok) {
+      if (result.error.code === 'REQUEST_SUPERSEDED') return;
       this.setData({ state: result.error.kind === 'unavailable' ? 'offline' as ViewState : 'failed' as ViewState });
       return;
     }

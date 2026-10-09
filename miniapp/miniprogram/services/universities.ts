@@ -232,12 +232,12 @@ export function mapUniversityProgrammePage(raw: unknown): Result<UniversityProgr
   const items: UniversityProgramme[] = [];
   for (const item of raw.items) {
     if (!isObject(item) || !positiveInteger(item.id) || !text(item.slug)
-      || !text(item.nameZh) || !text(item.nameEn)) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
+      || !text(item.nameZh) || (item.nameEn != null && typeof item.nameEn !== 'string')) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
     items.push({
       id: item.id,
       slug: item.slug,
       nameZh: item.nameZh,
-      nameEn: item.nameEn,
+      nameEn: optionalText(item.nameEn),
       categoryCode: optionalText(item.categoryCode),
       studyLevelCode: optionalText(item.studyLevelCode),
       durationDisplay: optionalText(item.durationDisplay),

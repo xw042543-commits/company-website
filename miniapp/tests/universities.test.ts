@@ -172,6 +172,12 @@ test('combines keyword, country, qualification and subject using the existing AP
 
 interface DirectoryHarness {
   data: Record<string, unknown>;
+  onLoad(options: Record<string, string | undefined>): void;
+  onShow(): void;
+  openUniversity(event: { detail: { slug: string } }): void;
+  toggleFavorite(event: { detail: { slug: string } }): void;
+  retry(): void;
+  loadUniversities(reset: boolean): Promise<void>;
   setData(patch: Record<string, unknown>, callback?: () => void): void;
   openFilter(event: { currentTarget: { dataset: { key: string } } }): void;
   selectFilter(event: { currentTarget: { dataset: { code: string } } }): void;
@@ -227,6 +233,79 @@ test('inline filters open one menu and current or invalid selections close witho
     page.closeFilters();
     assert.equal(page.data.openFilterKey, '');
     assert.equal(requests.length, 0);
+  });
+});
+
+test('a literal percent in the directory route keyword loads without a decode exception', async () => {
+  await withDirectory(async (page, requests) => {
+    assert.doesNotThrow(() => page.onLoad({ q: '100%' }));
+    assert.equal(page.data.query, '100%');
+    assert.equal(new URL(requests[1]!.url).searchParams.get('q'), '100%');
+    requests[0]!.success({ statusCode: 503, data: {}, header: {}, cookies: [] });
+    requests[1]!.success({ statusCode: 200, data: { items: [], page: 1, pageSize: 12, totalItems: 0, totalPages: 0 }, header: {}, cookies: [] });
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(page.data.state, 'empty');
+  });
+});
+
+test('directory pagination deduplicates schools and returning from a detail synchronizes favourites without reloading browsing state', async () => {
+  await withDirectory(async (page, requests) => {
+    const wxDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'wx')!;
+    let saved: unknown = [];
+    const navigations: string[] = [];
+    Object.defineProperty(globalThis, 'wx', { configurable: true, value: { ...wxDescriptor.value,
+      getStorageSync: () => saved, setStorageSync: (_key: string, value: unknown) => { saved = value; },
+      showToast() {}, navigateTo({ url }: { url: string }) { navigations.push(url); },
+    } });
+    Object.assign(page.data, { query: 'science', country: 'MY', level: 'BACHELOR', category: 'COMPUTING' });
+    const first = page.loadUniversities(true);
+    const items = Array.from({ length: 12 }, (_, index) => ({ ...fixture.items[0], id: index + 1, slug: `school-${index + 1}` }));
+    requests[0]!.success({ statusCode: 200, data: { items, page: 1, pageSize: 12, totalItems: 24, totalPages: 2 }, header: {}, cookies: [] });
+    await first;
+    page.onReachBottom();
+    page.onReachBottom();
+    assert.equal(requests.length, 2, 'load-more must issue only one request while already pending');
+    const next = Array.from({ length: 12 }, (_, index) => ({ ...fixture.items[0], id: index + 12, slug: `school-${index + 12}` }));
+    requests[1]!.success({ statusCode: 200, data: { items: next, page: 2, pageSize: 12, totalItems: 24, totalPages: 2 }, header: {}, cookies: [] });
+    await new Promise((resolve) => setImmediate(resolve));
+    const universities = page.data.universities as Array<{ slug: string; favorite: boolean }>;
+    assert.equal(universities.length, 23);
+    assert.equal(new Set(universities.map((school) => school.slug)).size, 23);
+    page.openUniversity({ detail: { slug: 'school-12' } });
+    page.openUniversity({ detail: { slug: '../invalid' } });
+    assert.deepEqual(navigations, ['/pages/university-detail/index?slug=school-12']);
+    page.toggleFavorite({ detail: { slug: 'school-12' } });
+    assert.deepEqual(saved, ['school-12']);
+    saved = ['school-23'];
+    page.onShow();
+    assert.equal((page.data.universities as typeof universities).find((school) => school.slug === 'school-12')?.favorite, false);
+    assert.equal((page.data.universities as typeof universities).find((school) => school.slug === 'school-23')?.favorite, true);
+    assert.deepEqual([page.data.query, page.data.country, page.data.level, page.data.category, page.data.page], ['science', 'MY', 'BACHELOR', 'COMPUTING', 2]);
+    page.onReachBottom();
+    assert.equal(requests.length, 2, 'onShow and end-of-results must preserve results without refetching');
+  });
+});
+
+test('directory retries offline and malformed API reads and supports resetting an empty result', async () => {
+  await withDirectory(async (page, requests) => {
+    const initial = page.loadUniversities(true);
+    requests[0]!.fail({ errMsg: 'offline' });
+    await initial;
+    assert.equal(page.data.state, 'offline');
+    page.retry();
+    requests[1]!.success({ statusCode: 200, data: {}, header: {}, cookies: [] });
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(page.data.state, 'failed');
+    page.retry();
+    requests[2]!.success({ statusCode: 200, data: { items: [], page: 1, pageSize: 12, totalItems: 0, totalPages: 0 }, header: {}, cookies: [] });
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(page.data.state, 'empty');
+    page.data.query = 'unmatched';
+    page.clearFilters();
+    requests[3]!.success({ statusCode: 200, data: fixture, header: {}, cookies: [] });
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(page.data.state, 'ready');
+    assert.equal(page.data.query, '');
   });
 });
 
@@ -366,6 +445,18 @@ test('maps university detail without inventing optional content', () => {
     imageUrl: null,
     logoUrl: 'https://yangdoujiao.com/universities/segi-university.jpg',
   } });
+});
+
+test('published university programme rows accept absent English names but reject malformed supplied names', () => {
+  const item = { id: 2272, slug: 'apu-bachelor-pdf-026', nameZh: '互动媒体与沉浸式技术荣誉学士学位' };
+  for (const nameEn of [null, undefined, '', '  ']) {
+    const result = mapUniversityProgrammePage({ items: [{ ...item, nameEn }], page: 1, pageSize: 48, totalItems: 1, totalPages: 1 });
+    assert.equal(result.ok, true);
+    if (result.ok) assert.equal(result.value.items[0]?.nameEn, '');
+  }
+  for (const nameEn of [1, [], {}]) {
+    assert.equal(mapUniversityProgrammePage({ items: [{ ...item, nameEn }], page: 1, pageSize: 48, totalItems: 1, totalPages: 1 }).ok, false);
+  }
 });
 
 test('maps the published programme list used by university details', () => {

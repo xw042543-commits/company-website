@@ -20,10 +20,9 @@ Page({
     programmes: [] as UniversityProgramme[],
     programmeCount: 0,
     activeSection: 'introduction' as DetailSection,
-    activeCategory: 'ALL',
-    programmeCategories: [{ code: 'ALL', label: '全部学院' }] as ProgrammeCategory[],
+    activeCategory: '',
+    programmeCategories: [] as ProgrammeCategory[],
     visibleProgrammes: [] as UniversityProgramme[],
-    programmeIntakeDisplays: {} as Record<number, string>,
     descriptionParagraphs: [] as string[],
     location: '',
     statusBarHeight: 20,
@@ -37,7 +36,12 @@ Page({
 
   onLoad(options: Record<string, string | undefined>) {
     this.setupNavigation();
-    const slug = options.slug ? decodeURIComponent(options.slug) : '';
+    let slug: string;
+    try { slug = options.slug ? decodeURIComponent(options.slug) : ''; }
+    catch {
+      this.setData({ state: 'failed' as ViewState });
+      return;
+    }
     this.setData({ slug, favorite: favoriteUniversities.has(slug) });
     void this.loadPage();
   },
@@ -99,7 +103,7 @@ Page({
     this.setData({ state: 'loading' as ViewState, imageFailed: false, logoFailed: false });
     const [detail, programmes, catalogue] = await Promise.all([
       getUniversityDetail(this.data.slug),
-      getUniversityProgrammes(this.data.slug, 1, 50),
+      getUniversityProgrammes(this.data.slug, 1, 48),
       loadFilterOptions(),
     ]);
     if (!detail.ok || !programmes.ok) {
@@ -111,7 +115,7 @@ Page({
     const allProgrammes = [...programmes.value.items];
     // The service shares one request key, so later pages must complete in order.
     for (let page = 2; page <= programmes.value.totalPages; page++) {
-      const next = await getUniversityProgrammes(this.data.slug, page, 50);
+      const next = await getUniversityProgrammes(this.data.slug, page, 48);
       if (!next.ok) {
         if (next.error.code === 'REQUEST_SUPERSEDED') return;
         this.setData({ state: next.error.kind === 'unavailable' ? 'offline' as ViewState : 'failed' as ViewState });
@@ -125,9 +129,10 @@ Page({
     }
     const labels = new Map(catalogue.ok
       ? catalogue.value.subjectCategories.map((category) => [category.code, category.nameZh]) : []);
-    const programmeCategories = deriveProgrammeCategories(allProgrammes, labels);
+    const programmeCategories = deriveProgrammeCategories(allProgrammes, labels)
+      .filter((category) => category.code !== 'ALL');
     const activeCategory = programmeCategories.some((category) => category.code === this.data.activeCategory)
-      ? this.data.activeCategory : 'ALL';
+      ? this.data.activeCategory : programmeCategories[0]?.code ?? '';
     this.setData({
       university: detail.value,
       programmes: allProgrammes,
@@ -135,7 +140,6 @@ Page({
       programmeCategories,
       activeCategory,
       visibleProgrammes: filterProgrammes(allProgrammes, activeCategory),
-      programmeIntakeDisplays: Object.fromEntries(allProgrammes.map((programme) => [programme.id, programme.intakeDisplayTexts.join('、')])),
       location: [detail.value.cityZh, detail.value.countryNameZh].filter(Boolean).join('，'),
       descriptionParagraphs: detail.value.descriptionZh.split(/\r?\n/).map((paragraph) => paragraph.trim()).filter(Boolean),
       logoLetter: detail.value.nameEn.charAt(0).toUpperCase() || 'U',

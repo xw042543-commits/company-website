@@ -270,3 +270,16 @@ Visual verification will cover narrow phone widths, long bilingual names, missin
 - Admissions and curriculum appear as honest locked previews with no payment claims.
 - Existing favourites, pagination, caching, loading, empty, offline, failed, and retry behaviours continue to work.
 - Tests, type checking, and linting pass.
+
+## Approved refinement — 9 October 2026
+
+The user's subsequent corrections supersede the original yellow palette and all-programmes default:
+
+- Apply UDAJO green actions, navy type, mint selections, and light backgrounds.
+- Derive category choices from each school's complete published programme data; never copy another school's faculties or invent categories.
+- Keep introduction and programme discovery in separate tabs. Select the first available category initially, preserve valid selection, and display only that category's courses.
+- Use compact programme names (English only when provided) with a details action. Fees, duration, intake and other available facts belong to the selected programme's detail page.
+- Distinguish campus photographs from logo assets. Keep logo cards light without shading, use a gentler navy shade for photos, and provide light image-failure states.
+- Paid unlocking remains deferred. Missing descriptions, pictures, rankings and other business fields are not fabricated.
+
+Validation: 221 automated checks passed, TypeScript and lint passed. Browser checks covered 14 screens at 320px/375px with no horizontal overflow or broken images. Native WeChat rendering and authentication still require DevTools/device verification. The local AppID is stored only in the ignored private project configuration; no AppSecret is included in this change.

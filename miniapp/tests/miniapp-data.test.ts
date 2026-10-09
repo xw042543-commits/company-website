@@ -23,6 +23,17 @@ const programmePayload = {
   universitySlug: 'asia-pacific-university', universityNameZh: '亚太科技大学',
 };
 
+test('published programme detail accepts absent English names but rejects malformed supplied names', () => {
+  for (const nameEn of [null, undefined, '', '  ']) {
+    const result = mapProgrammeDetail({ ...programmePayload, nameEn, sections: [] });
+    assert.equal(result.ok, true);
+    if (result.ok) assert.equal(result.value.nameEn, '');
+  }
+  for (const nameEn of [1, [], {}]) {
+    assert.equal(mapProgrammeDetail({ ...programmePayload, nameEn, sections: [] }).ok, false);
+  }
+});
+
 test('programme identity resolves known logos and falls back for unknown universities', () => {
   for (const [universitySlug, expected] of [
     ['asia-pacific-university', 'https://yangdoujiao.com/universities/asia-pacific-university.png'],

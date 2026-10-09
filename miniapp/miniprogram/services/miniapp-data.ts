@@ -154,7 +154,8 @@ function authenticated<T>(method: 'GET' | 'POST' | 'DELETE', path: `/api/${strin
 }
 
 export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
-  if (!object(raw) || !integer(raw.id) || !text(raw.slug) || !text(raw.nameZh) || !text(raw.nameEn)
+  if (!object(raw) || !integer(raw.id) || !text(raw.slug) || !text(raw.nameZh)
+    || (raw.nameEn != null && typeof raw.nameEn !== 'string')
     || !text(raw.universitySlug) || !text(raw.universityNameZh) || !Array.isArray(raw.sections)) {
     return invalid('INVALID_PROGRAMME_DETAIL_RESPONSE');
   }
@@ -168,7 +169,7 @@ export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
       bodyZh: optional(section.bodyZh), bodyEn: optional(section.bodyEn), sortOrder: section.sortOrder });
   }
   return { ok: true, value: {
-    id: raw.id, programmeCode: optional(raw.programmeCode), slug: raw.slug, nameZh: raw.nameZh, nameEn: raw.nameEn,
+    id: raw.id, programmeCode: optional(raw.programmeCode), slug: raw.slug, nameZh: raw.nameZh, nameEn: optional(raw.nameEn),
     universitySlug: raw.universitySlug, universityNameZh: raw.universityNameZh,
     universityNameEn: optional(raw.universityNameEn), cityZh: optional(raw.cityZh),
     universityLogoUrl: universityLogoUrl(raw.universitySlug),
