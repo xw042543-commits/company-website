@@ -1,0 +1,756 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "university-of-western-australia",
+    "displayName": "The University of Western Australia",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.uwa.edu.au/study"
+    ],
+    "allowedHosts": [
+      "www.uwa.edu.au",
+      "uwa.edu.au"
+    ],
+    "discoveredUrls": 104,
+    "parsedProgrammes": 42,
+    "pagesRead": 120,
+    "warnings": [
+      "https://www.uwa.edu.au/study/explore-courses/find-a-course：跳转超出允许域名: www.search.uwa.edu.au",
+      "robots.txt 禁止抓取：https://www.ask.uwa.edu.au/app/answers/detail/a_id/2250/kw/undergraduate%20course%20model",
+      "https://handbooks.uwa.edu.au/undergraduate：跳转超出允许域名: www.handbooks.uwa.edu.au",
+      "robots.txt 禁止抓取：https://www.ask.uwa.edu.au/app/answers/detail/a_id/2250/kw/courses",
+      "robots.txt 禁止抓取：https://lms.uwa.edu.au/ultra/courses/_121470_1/outline",
+      "https://handbooks.uwa.edu.au/undergraduate/honoursdetails?code=HON-FNART：跳转超出允许域名: www.handbooks.uwa.edu.au"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/explore-courses/undergraduate/combined-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/explore-courses/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/explore-courses/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/explore-courses/postgraduate/employer-assistance",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/combined-bachelors-of-engineering-and-commerce",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/combined-bachelors-of-economics-and-commerce",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/combined-bachelors-of-psychology-and-arts",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/explore-courses/undergraduate/integrated-professional-degrees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.ask.uwa.edu.au/app/answers/detail/a_id/2250/kw/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/explore-courses/postgraduate/pathways-to-mba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/doctor-of-philosophy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:57:50.173Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-philosophy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:57:52.190Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://lms.uwa.edu.au/ultra/courses/_121470_1/outline",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/doctor-of-dental-medicine",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:57:54.318Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/doctor-of-MEDICINE",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:57:56.341Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/doctor-of-podiatric-medicine",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:57:58.400Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-architecture",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:00.319Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-landscape-architecture",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:02.276Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-public-health",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:04.298Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-public-health-specialisation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:06.277Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-translation-studies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:08.385Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/architecture",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:10.337Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-environmental-design",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-commerce",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-business-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:16.311Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-advanced-computer-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-information-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:20.421Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/cybersecurity",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:22.277Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-education-primary-honours",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/secondary-school-teaching",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-teaching-secondary",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:28.297Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-engineering-honours",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/combined-bachelors-of-engineering-and-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-offshore-and-coastal-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:34.347Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-biomedical-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-sport-and-exercise-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/doctor-of-medicine",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:40.473Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-nursing-honours",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-international-relations",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-strategic-communication",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:46.450Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-arts",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-media-and-communication",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/seek-wisdom/seekers-space/study/Undergraduate/2022/11/New-courses-to-help-you-make-a-global-impact",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-business",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/Bachelor-of-Criminology-and-Criminal-Justice",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/Bachelor-of-Human-Rights",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/Business-Analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:00.535Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-criminology-and-criminal-justice",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-mining-and-energy-law",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:04.489Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/juris-doctor",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:06.555Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-music",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-fine-arts",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:10.425Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/Physics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:12.519Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/Fine-Arts",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:14.574Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/bachelor-of-philosophy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-marine-science-and-master-of-environmental-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:24.383Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/combined-bachelors-of-agribusiness-and-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/marine-science-extended-major",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:28.119Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/Chemistry",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:30.144Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/graduate-certificate-in-business-psychology-online",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:32.211Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/psychological-and-behavioural-sciences",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:34.323Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/combined-bachelors-of-psychology-and-commerce",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/master-of-professional-psychology-coursework",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:40.379Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/automation-and-robotics-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:42.241Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/biomedical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:44.249Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/chemical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:46.451Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/civil-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:48.292Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/electrical-and-electronic-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:50.298Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/environmental-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:52.470Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/mechanical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:54.402Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/mining-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:56.270Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/software-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:58.349Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/accounting",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:00.526Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/business-law",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:02.431Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/business-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:04.547Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/finance",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/bachelor-of-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/bachelor-of-commerce",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/financial-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/Courses/Professional-Economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/business-analytics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/human-resource-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/marketing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-psychology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses/psychology-extended-major",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://researchdegrees.uwa.edu.au/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/how-to-apply/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/how-to-apply/undergraduate/honours",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/how-to-apply/undergraduate/hms-pre-enrolment",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/how-to-apply/undergraduate/psychology-honours-application",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/how-to-apply/undergraduate/music-auditions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/study/how-to-apply/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/seek-wisdom/seekers-space/study/postgraduate/2023/05/What-its-like-studying-postgrad-Law-as-a-mature-age-student",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/seek-wisdom/seekers-space/study/postgraduate/2025/08/Why-Choose-the-Doctor-of-Optometry-at-UWA",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/seek-wisdom/seekers-space/study/Undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/seek-wisdom/seekers-space/study/undergraduate/2020/09/a-day-in-the-life-of-a-bphil-student---zoe---physics-and-fine-arts",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/seek-wisdom/seekers-space/study/Undergraduate/2020/09/A-day-in-the-life-of-a-BPhil-student---Zoe---Physics-and-Fine-Arts",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/seek-wisdom/seekers-space/study/undergraduate/2022/06/the-future-of-chemistry-is-green",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://www.uwa.edu.au/seek-wisdom/seekers-space/study/Undergraduate/2022/06/The-future-of-chemistry-is-green",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://handbooks.uwa.edu.au/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-western-australia",
+      "url": "https://seek.uwa.edu.au/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

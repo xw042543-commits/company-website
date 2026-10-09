@@ -1,0 +1,23 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "university-of-melbourne",
+    "displayName": "The University of Melbourne",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://study.unimelb.edu.au/study-with-us/undergraduate-courses"
+    ],
+    "allowedHosts": [
+      "www.unimelb.edu.au",
+      "unimelb.edu.au",
+      "study.unimelb.edu.au"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://study.unimelb.edu.au/study-with-us/undergraduate-courses：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

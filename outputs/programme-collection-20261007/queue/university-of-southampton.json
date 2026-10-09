@@ -1,0 +1,871 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-southampton",
+    "displayName": "University of Southampton",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.southampton.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.southampton.ac.uk",
+      "southampton.ac.uk"
+    ],
+    "discoveredUrls": 120,
+    "parsedProgrammes": 2,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 404：https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bitem.link%7D",
+      "HTTP 404：https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bchild.link%7D",
+      "HTTP 404：https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bitem.link%7D",
+      "HTTP 404：https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bchild.link%7D",
+      "HTTP 404：https://www.southampton.ac.uk/courses/fees/$%7Bitem.link%7D",
+      "HTTP 404：https://www.southampton.ac.uk/courses/fees/$%7Bchild.link%7D",
+      "HTTP 404：https://www.southampton.ac.uk/my/undergraduate/$%7Bitem.link%7D",
+      "HTTP 404：https://www.southampton.ac.uk/my/undergraduate/$%7Bchild.link%7D",
+      "https://www.southampton.ac.uk/my/undergraduate/index.page?：跳转超出允许域名: www.southamptonmalaysia.edu.my"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/postgraduate.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/postgraduate.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/undergraduate.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/undergraduate.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/$%7Bitem.link%7D",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/$%7Bchild.link%7D",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/undergraduate/2024-2025.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/status.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/pay.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/where-your-tuition-fees-go.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/undergraduate/finance.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/undergraduate/bursaries.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/scholarships-awards.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/undergraduate/tuition-fees.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bitem.link%7D",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bchild.link%7D",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/fees/international.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bitem.link%7D",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bchild.link%7D",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/how-to-apply/undergraduate-applications.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/foundation-programmes/international",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/foundation-years/engineering-physics-maths.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/foundation-years/science.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/postgraduate/finance.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/postgraduate/subject-area.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/engineering/postgraduate/research_degrees/courses/engd.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/exchanges/going-abroad.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/exchanges/come-to-southampton.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2004.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2043",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2017.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2022",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2026.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2029",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2031",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2045",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2049",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2047",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2048",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/modules/uosm2041",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/engineering/postgraduate/taught_courses/audiology/hearing_aid_aptitude_distance_learning.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/funding/international.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1014",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1044",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1019",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1046",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/econ1009",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1003",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1015",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1045",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2017",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2098",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2003",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2015",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2005",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2004",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2066",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2097",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2092",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2011",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2076",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2041",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3119",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3003",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3006",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3076",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3107",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3093",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3015",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3021",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3029",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3030",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3020",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3065",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3009",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3054",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3034",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3032",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3008",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6031",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6027",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6029",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6607",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6322",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6026",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6028",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6548",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6593",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6562",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6606",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6604",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6025",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6319",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6592",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang6521",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/pre-masters-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/exchanges.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/customise-your-degree.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/undergraduate.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/prospectuses.page",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:08:04.531Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:08:07.240Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/accounting-finance-with-placement-year-degree-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/accounting-finance-with-study-abroad-year-degree-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/accounting-management-masters-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/accounting-taxation-degree-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/accounting-taxation-with-placement-year-degree-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/acoustical-engineering-degree-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/acoustical-engineering-degree-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/acoustical-vibration-engineering-masters-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/actuarial-science-masters-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/advanced-audiology-masters-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/advanced-biological-sciences-masters-mres",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/advanced-chemical-engineering-masters-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/advanced-clinical-practice-advanced-allied-health-practitioner-masters-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/advanced-clinical-practice-advanced-critical-care-practitioner-masters-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/advanced-clinical-practice-advanced-neonatal-nurse-practitioner-masters-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-southampton",
+      "url": "https://www.southampton.ac.uk/courses/advanced-clinical-practice-advanced-nurse-practitioner-masters-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,1450 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.510Z",
+  "sourceKey": "university-of-california-los-angeles",
+  "sourceName": "University of California, Los Angeles",
+  "warnings": [
+    "HTTP 404：https://www.ucla.edu/$%7Bfield_link%20?%20field_link%20:%20`/events/detail/${slug}`}",
+    "https://www.ucla.edu/external-affairs：跳转超出允许域名: externalaffairs.ucla.edu",
+    "https://www.registrar.ucla.edu/Academics/Academic-Counseling：跳转超出允许域名: registrar.ucla.edu"
+  ],
+  "university": {
+    "candidateId": "university_c8e19ab265be0eb6",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "University of California, Los Angeles",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Los Angeles, California",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.ucla.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:23:51.584Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.ucla.edu/",
+        "sourcePageTitle": "A World Leader in Education and Research Excellence | UCLA",
+        "sourceHash": "ab2594b7166d5052ef829d8ba152cc97863526474fd73d0d9bd561f80ee10064",
+        "fetchedAt": "2026-10-07T04:23:51.584Z",
+        "field": "name",
+        "rawText": "University of California, Los Angeles"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 14,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": []
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_dc8e4b659895ece1",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "应用地理空间信息系统技术硕士(1974年)",
+      "nameEn": "Master of Applied Geospatial Information Systems & Technologies",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://grad.ucla.edu/programs/social-sciences/geography-department/master-of-applied-geospatial-information-systems-technologies/",
+      "sourceCheckedAt": "2026-10-07T06:34:36.399Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "name",
+          "rawText": "Master of Applied Geospatial Information Systems & Technologies"
+        },
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "detailUrl",
+          "rawText": "https://grad.ucla.edu/programs/social-sciences/geography-department/master-of-applied-geospatial-information-systems-technologies/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_8877766c48d962b5",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "法学硕士",
+      "nameEn": "Master of Legal Studies",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://grad.ucla.edu/programs/school-of-law/master-of-legal-studies/",
+      "sourceCheckedAt": "2026-10-07T06:34:36.399Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "name",
+          "rawText": "Master of Legal Studies"
+        },
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "detailUrl",
+          "rawText": "https://grad.ucla.edu/programs/school-of-law/master-of-legal-studies/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_676803b6ba44b2ab",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "社区卫生、健康促进和教育等公共卫生硕士",
+      "nameEn": "Master of Public Health in Community Health, Health Promotion and Education",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://grad.ucla.edu/programs/school-of-public-health/community-health-sciences-department/master-of-public-health-in-community-health-health-promotion-and-education/",
+      "sourceCheckedAt": "2026-10-07T06:34:36.399Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "name",
+          "rawText": "Master of Public Health in Community Health, Health Promotion and Education"
+        },
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "detailUrl",
+          "rawText": "https://grad.ucla.edu/programs/school-of-public-health/community-health-sciences-department/master-of-public-health-in-community-health-health-promotion-and-education/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_6acfc2c7d3d35659",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "武天科学技术硕士",
+      "nameEn": "Master of Quantum Science and Technology",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/master-of-quantum-science-and-technology/",
+      "sourceCheckedAt": "2026-10-07T06:34:36.399Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "name",
+          "rawText": "Master of Quantum Science and Technology"
+        },
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "detailUrl",
+          "rawText": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/master-of-quantum-science-and-technology/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_50ded0800ba9396d",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "房地产开发硕士",
+      "nameEn": "Master of Real Estate Development",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/master-of-real-estate-development/",
+      "sourceCheckedAt": "2026-10-07T06:34:36.399Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "name",
+          "rawText": "Master of Real Estate Development"
+        },
+        {
+          "sourceUrl": "https://grad.ucla.edu/",
+          "sourcePageTitle": "UCLA Graduate Programs",
+          "sourceHash": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+          "fetchedAt": "2026-10-07T06:34:36.399Z",
+          "field": "detailUrl",
+          "rawText": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/master-of-real-estate-development/"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.ucla.edu/",
+      "fetchedAt": "2026-10-07T04:23:51.584Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ab2594b7166d5052ef829d8ba152cc97863526474fd73d0d9bd561f80ee10064",
+      "title": "A World Leader in Education and Research Excellence | UCLA",
+      "snapshotFile": "raw/0001-ab2594b7166d.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/undergraduate-education",
+      "fetchedAt": "2026-10-07T04:23:53.393Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "226b6c16ece9169066e76aa74b1945d27a784b22129dd18900545e02f1f302b6",
+      "title": "Begin your Undergraduate Education at UCLA | UCLA",
+      "snapshotFile": "raw/0002-226b6c16ece9.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/programs-and-majors",
+      "fetchedAt": "2026-10-07T04:23:55.404Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7419c28f8049c8d42bf4055b752fc948d6380db66458601e1f859532e21ef704",
+      "title": "Academics | Degree Programs & Majors | UCLA | UCLA",
+      "snapshotFile": "raw/0003-7419c28f8049.html"
+    },
+    {
+      "url": "https://www.ucla.edu/events",
+      "fetchedAt": "2026-10-07T04:23:57.427Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3ac50934433e0cd0a8d102d597b07c10ff97fb00f68e81803d610df91e26da4",
+      "title": "Events | UCLA",
+      "snapshotFile": "raw/0004-b3ac50934433.html"
+    },
+    {
+      "url": "https://www.ucla.edu/careers",
+      "fetchedAt": "2026-10-07T04:23:59.417Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "64e9ac078c2279bc3ebd287a4cedcd018afdaf8f80527a9f973afce86dacfac9",
+      "title": "Current Job & Career Openings and Opportunities | UCLA",
+      "snapshotFile": "raw/0005-64e9ac078c22.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about",
+      "fetchedAt": "2026-10-07T04:24:01.436Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9afa6cf939a9cb746915a7c18de9f3ec86dc696528ad88135682bded340b1e61",
+      "title": "Explore UCLA: Los Angeles' Top-Ranked University | UCLA",
+      "snapshotFile": "raw/0006-9afa6cf939a9.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/facts-and-figures",
+      "fetchedAt": "2026-10-07T04:24:03.461Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d521790cf849c325a30b77fc0ae5a9d93c52860c7c2f30dc0ea2de9c30d0dd34",
+      "title": "Our University’s Facts and Figures at a Glance | UCLA | UCLA",
+      "snapshotFile": "raw/0007-d521790cf849.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/leadership",
+      "fetchedAt": "2026-10-07T04:24:05.489Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "46ff1bfd34c26d5e3912fc3303e65ab6b2d9a200a81b06c3af3af61820977d84",
+      "title": "Meet Our Esteemed Leadership Team at UCLA | UCLA",
+      "snapshotFile": "raw/0008-46ff1bfd34c2.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/rankings",
+      "fetchedAt": "2026-10-07T04:24:07.488Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a892bd7fd58671df90a77c47247db00c00d8a29661b52ac8f368671b6892e954",
+      "title": "UCLA Rankings: National & Global Achievements | UCLA",
+      "snapshotFile": "raw/0009-a892bd7fd586.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/mission-and-values",
+      "fetchedAt": "2026-10-07T04:24:09.490Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "421c91922d24d6b96a3a8f8302fbb7775e270bc17fee2d8871b9c1787566172c",
+      "title": "UCLA's Vision, Mission, Principles, and Values | UCLA",
+      "snapshotFile": "raw/0010-421c91922d24.html"
+    },
+    {
+      "url": "https://www.ucla.edu/economic-impact",
+      "fetchedAt": "2026-10-07T04:24:11.502Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "92f268892ce2bf8eaf8882e6a8ccd7d021313056ddfccace5cc9694b4f425a81",
+      "title": "Economic Impact Report | UCLA | UCLA",
+      "snapshotFile": "raw/0011-92f268892ce2.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors",
+      "fetchedAt": "2026-10-07T04:24:13.511Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5dc729c8dc53a61e187fba61d08655899d6869f4e30d0dc78e64a193e6e5010",
+      "title": "Learn More About UCLA Awards and Honors Recipients | UCLA | UCLA",
+      "snapshotFile": "raw/0012-e5dc729c8dc5.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty",
+      "fetchedAt": "2026-10-07T04:24:15.565Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d397550c3b876d80c7bbc6f0fa1ef6941b32782e3f059f332a24a53aec53549a",
+      "title": "Recipients of UCLA's Faculty Awards & Honors | UCLA | UCLA",
+      "snapshotFile": "raw/0013-d397550c3b87.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/american-academy-of-arts-and-sciences",
+      "fetchedAt": "2026-10-07T04:24:17.557Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7587d083d65aa8da56861d7cbb890524f4083dfb07929f1e453f373445b8bacf",
+      "title": "UCLA Members of the American Academy of Arts and Sciences | UCLA",
+      "snapshotFile": "raw/0014-7587d083d65a.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/american-association-for-the-advancement-of-science",
+      "fetchedAt": "2026-10-07T04:24:19.597Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "59cd0b5ac2336bb104a25a78f4d1c571456b2be257644088dab5522b4d5756e4",
+      "title": "American Association for the Advancement of Science | UCLA",
+      "snapshotFile": "raw/0015-59cd0b5ac233.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/american-philosophical-society",
+      "fetchedAt": "2026-10-07T04:24:21.573Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ef3a6001f8c06fe1f5d547c372d98179ee5cea1aa4afd782eba077d9d9905c21",
+      "title": "Members of the American Philosophical Society | UCLA | UCLA",
+      "snapshotFile": "raw/0016-ef3a6001f8c0.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-education",
+      "fetchedAt": "2026-10-07T04:24:23.577Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "99babdfa661465f7577e2f12359ee895af9dcefafcc0c80fc45c2d9477985581",
+      "title": "Members of the National Academy of Education | UCLA | UCLA",
+      "snapshotFile": "raw/0017-99babdfa6614.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-engineering",
+      "fetchedAt": "2026-10-07T04:24:25.590Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3e385976f2ae3bee2dc51d0ee94822556a396504f34e02c1eccebe3db498321b",
+      "title": "National Academy of Engineering | UCLA",
+      "snapshotFile": "raw/0018-3e385976f2ae.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-inventors",
+      "fetchedAt": "2026-10-07T04:24:27.574Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "008eed055d374d3981b4badf40e24adfb9cd99e1f9ced2d62fdf5a990aa7a090",
+      "title": "Members of the National Academy of Inventors | UCLA | UCLA",
+      "snapshotFile": "raw/0019-008eed055d37.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-medicine",
+      "fetchedAt": "2026-10-07T04:24:29.604Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d33aac7b3d7350b02ecb70c0a297f0a4c7481a4fc77bc5abcf6f0edc81b553e8",
+      "title": "Members of the National Academy of Medicine | UCLA | UCLA",
+      "snapshotFile": "raw/0020-d33aac7b3d73.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-sciences",
+      "fetchedAt": "2026-10-07T04:24:31.618Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "68b24a9a2b1ef80e4a87b1f5ccdd70110742a778d744a02abb13c47b5f3304e9",
+      "title": "Members of the National Academy of Sciences | UCLA | UCLA",
+      "snapshotFile": "raw/0021-68b24a9a2b1e.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/athletics-championships-and-medals",
+      "fetchedAt": "2026-10-07T04:24:33.596Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c023704e6ed2f45543ea661ef30dbba1bb07cff95f74ab87d7cf3c77c9d5cb6c",
+      "title": "UCLA Athletics: Championships & Medals Overview | UCLA",
+      "snapshotFile": "raw/0022-c023704e6ed2.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/notable-bruins",
+      "fetchedAt": "2026-10-07T04:24:35.646Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "46ab892c373a7ee28406397231f995e9b74185671f8dca4d5ef04e3055c7fdeb",
+      "title": "Notable Bruins | UCLA",
+      "snapshotFile": "raw/0023-46ab892c373a.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics",
+      "fetchedAt": "2026-10-07T04:24:37.613Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3c33fd11c52e818c34d381c66bc5c9c964b16558a21afb11717482ee9c2322c",
+      "title": "Discover UCLA’s World-Class Academic Programs and Research | UCLA",
+      "snapshotFile": "raw/0024-b3c33fd11c52.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/college-and-schools",
+      "fetchedAt": "2026-10-07T04:24:39.640Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "62d74e68cf425809707687d1cfa44ae3b0f01d4d22e89d68e5e664939f3747f9",
+      "title": "Learn More About the University’s 12 Schools | UCLA | UCLA",
+      "snapshotFile": "raw/0025-62d74e68cf42.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/graduate-and-professional-education",
+      "fetchedAt": "2026-10-07T04:24:41.623Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0f166c5bf9e84634d9761458246f3c4f4b3a837a539c051e3e2694ab0a58ad1d",
+      "title": "UCLA Graduate Programs | Master's & Doctoral Degrees | UCLA",
+      "snapshotFile": "raw/0026-0f166c5bf9e8.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/continuing-education",
+      "fetchedAt": "2026-10-07T04:24:43.634Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "909926c631cbdda1c84602e9995773cef71c6ea24c061cb0a39498ffff8998b0",
+      "title": "Continuing Education Opportunities | UCLA Extension | UCLA",
+      "snapshotFile": "raw/0027-909926c631cb.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/support/entrepreneurship",
+      "fetchedAt": "2026-10-07T04:24:45.635Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ea1be5db495f2ba99f4a521eff74aff1286c2293ca07784f9dc63d5ae5e55a27",
+      "title": "Entrepreneurship Hub | UCLA | UCLA",
+      "snapshotFile": "raw/0028-ea1be5db495f.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/libraries",
+      "fetchedAt": "2026-10-07T04:24:47.641Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "04d4b67223c3301856f51907728d936f6d0bbe485f9ce49e1bea6a4e545cb4cb",
+      "title": "Explore One of the Top Ranked University Libraries | UCLA",
+      "snapshotFile": "raw/0029-04d4b67223c3.html"
+    },
+    {
+      "url": "https://www.ucla.edu/research",
+      "fetchedAt": "2026-10-07T04:24:49.686Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "42b1853eceb8636f241f6ac98dd9165851568d2bd8cfc7034cdcb79604259d7d",
+      "title": "UCLA Research | Real-World Breakthroughs Start Here | UCLA",
+      "snapshotFile": "raw/0030-42b1853eceb8.html"
+    },
+    {
+      "url": "https://www.ucla.edu/campus-life",
+      "fetchedAt": "2026-10-07T04:24:51.707Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7e8d1f626453f3f35d810863845bfae08624bed9dabd3c71cbe291efc36bb088",
+      "title": "Exploring Campus Life at UCLA | UCLA",
+      "snapshotFile": "raw/0031-7e8d1f626453.html"
+    },
+    {
+      "url": "https://www.ucla.edu/campus-life/clubs-organizations-and-recreation",
+      "fetchedAt": "2026-10-07T04:24:53.658Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6632f4f39303ee73b1abe503bd426bae9b7b9575a4b20c981c0d6cccc3f8ac5e",
+      "title": "Clubs, Organizations and Recreation | UCLA",
+      "snapshotFile": "raw/0032-6632f4f39303.html"
+    },
+    {
+      "url": "https://www.ucla.edu/campus-life/arts-and-performance",
+      "fetchedAt": "2026-10-07T04:24:55.680Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e2e62ca69f902b1e6e8788defbf06600010ed50264c06d435e98d64a19723fc9",
+      "title": "Student Arts & Performance Opportunities | UCLA",
+      "snapshotFile": "raw/0033-e2e62ca69f90.html"
+    },
+    {
+      "url": "https://www.ucla.edu/accessibility",
+      "fetchedAt": "2026-10-07T04:24:57.691Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2c2c6576e19489308601881144f1d27346bbf24ccebec6b007e63719cd473705",
+      "title": "Accessibility Information, Accomodations and Resources | UCLA",
+      "snapshotFile": "raw/0034-2c2c6576e194.html"
+    },
+    {
+      "url": "https://www.ucla.edu/terms-of-use",
+      "fetchedAt": "2026-10-07T04:24:59.716Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2c6b3f954e9a63a1fd6d2efbf5577841b92d07a88c6d3825085fd3f306c51699",
+      "title": "Official University Privacy Policy & Terms of Use | UCLA",
+      "snapshotFile": "raw/0035-2c6b3f954e9a.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors",
+      "fetchedAt": "2026-10-07T04:25:04.634Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5dc729c8dc53a61e187fba61d08655899d6869f4e30d0dc78e64a193e6e5010",
+      "title": "Learn More About UCLA Awards and Honors Recipients | UCLA | UCLA",
+      "snapshotFile": "raw/0036-e5dc729c8dc5.html"
+    },
+    {
+      "url": "https://www.ucla.edu/economic-impact",
+      "fetchedAt": "2026-10-07T04:25:06.357Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "92f268892ce2bf8eaf8882e6a8ccd7d021313056ddfccace5cc9694b4f425a81",
+      "title": "Economic Impact Report | UCLA | UCLA",
+      "snapshotFile": "raw/0037-92f268892ce2.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/alumni-and-student-honors",
+      "fetchedAt": "2026-10-07T04:25:14.960Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a3191ccaa033ceddc25d48ee7988148e201009303e736b350d1037c715e15e86",
+      "title": "UCLA Student and Alumni Awards & Honors Recipients | UCLA | UCLA",
+      "snapshotFile": "raw/0038-a3191ccaa033.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/notable-bruins/02-vladimir-chernov",
+      "fetchedAt": "2026-10-07T04:25:16.842Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5577822600195c774c9656c2011332305b8f36a8c786a76955061140caa2a806",
+      "title": "Vladimir Chernov | UCLA",
+      "snapshotFile": "raw/0039-557782260019.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/notable-bruins/03-bhagwan-chowdhry",
+      "fetchedAt": "2026-10-07T04:25:18.849Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cd391ab0a4ea3906e24f860770651012957a95af2ae312f1c41466299f69f3c9",
+      "title": "Bhagwan Chowdhry | UCLA",
+      "snapshotFile": "raw/0040-cd391ab0a4ea.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/programs-and-majors",
+      "fetchedAt": "2026-10-07T06:33:08.421Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7419c28f8049c8d42bf4055b752fc948d6380db66458601e1f859532e21ef704",
+      "title": "Academics | Degree Programs & Majors | UCLA | UCLA",
+      "snapshotFile": "raw/0001-7419c28f8049.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/undergraduate-education",
+      "fetchedAt": "2026-10-07T06:33:10.317Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "226b6c16ece9169066e76aa74b1945d27a784b22129dd18900545e02f1f302b6",
+      "title": "Begin your Undergraduate Education at UCLA | UCLA",
+      "snapshotFile": "raw/0002-226b6c16ece9.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/support/entrepreneurship",
+      "fetchedAt": "2026-10-07T06:33:12.334Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ea1be5db495f2ba99f4a521eff74aff1286c2293ca07784f9dc63d5ae5e55a27",
+      "title": "Entrepreneurship Hub | UCLA | UCLA",
+      "snapshotFile": "raw/0003-ea1be5db495f.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/academics/research/",
+      "fetchedAt": "2026-10-07T06:33:15.119Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bf799cefa44d79d29b8c58002a665abb362c5c3aa71ab103401c0d032f512b48",
+      "title": "Research | UCLA Graduate Programs",
+      "snapshotFile": "raw/0004-bf799cefa44d.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/",
+      "fetchedAt": "2026-10-07T06:33:16.966Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b26da3dfe393a5ad0ad424cf044b78a807bca69209300e53b6f132f41dbfaa08",
+      "title": "Graduate Program Statistics | UCLA Graduate Programs",
+      "snapshotFile": "raw/0005-b26da3dfe393.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/enrollment/?t=Annualsnapshot",
+      "fetchedAt": "2026-10-07T06:33:18.980Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "07dfbb2a0d6437c60bbbd5862b335d738702210f31a2e21bff22737f0a20c5d8",
+      "title": "Enrollment | UCLA Graduate Programs",
+      "snapshotFile": "raw/0006-07dfbb2a0d64.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/enrollment/?t=Top10largestprograms",
+      "fetchedAt": "2026-10-07T06:33:20.967Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "54141b156d715498e2350a01c9027441542aeace618c49e3753223ca925f5646",
+      "title": "Enrollment | UCLA Graduate Programs",
+      "snapshotFile": "raw/0007-54141b156d71.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/enrollment/?t=Historicaltrends",
+      "fetchedAt": "2026-10-07T06:33:23.000Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "691b907f7d17b07c5f1bf08ed9fccaf4bd3ae7c96747a3941a052df81b0f87f4",
+      "title": "Enrollment | UCLA Graduate Programs",
+      "snapshotFile": "raw/0008-691b907f7d17.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/enrollment/?t=Programtrendswithinafield",
+      "fetchedAt": "2026-10-07T06:33:25.021Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9d445a26dcb3e62cc1127a9a4a906adf2bb1acd2b1fe53e086acec62c8e0ba0c",
+      "title": "Enrollment | UCLA Graduate Programs",
+      "snapshotFile": "raw/0009-9d445a26dcb3.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/outcomes/?t=TTDDash",
+      "fetchedAt": "2026-10-07T06:33:27.015Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8cfce1537eed755ab79d739ee1b126f566ea474cabb604ada8b32af80cc2df11",
+      "title": "Outcomes | UCLA Graduate Programs",
+      "snapshotFile": "raw/0010-8cfce1537eed.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/outcomes/?t=Outcomes",
+      "fetchedAt": "2026-10-07T06:33:29.021Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3e85dff01d54cc5f993e0582541b5f0d8bb1168d5dcf3518ac48400dd1ff0946",
+      "title": "Outcomes | UCLA Graduate Programs",
+      "snapshotFile": "raw/0011-3e85dff01d54.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/outcomes/?t=TableBiomedLifeSciDoctoralCareerOutcomes",
+      "fetchedAt": "2026-10-07T06:33:31.218Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b2f81117b31e95e8cd0f7f1daf156c32368a083c6f1005446e36feaeee3f4f8b",
+      "title": "Outcomes | UCLA Graduate Programs",
+      "snapshotFile": "raw/0012-b2f81117b31e.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/postdocs/?t=AnnualSnapshot",
+      "fetchedAt": "2026-10-07T06:33:33.101Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ce3bcee372db5a14f7764ec70fffffb83db6c078d123422b65c033744fe85ce1",
+      "title": "Postdocs | UCLA Graduate Programs",
+      "snapshotFile": "raw/0013-ce3bcee372db.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/graduate-program-statistics/postdocs/?t=MedianYearsinTraining",
+      "fetchedAt": "2026-10-07T06:33:35.041Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2b1fa6e3997dfaf4a2db02d57efa0622bffbc9b3758c08d0ead7734b57a23183",
+      "title": "Postdocs | UCLA Graduate Programs",
+      "snapshotFile": "raw/0014-2b1fa6e3997d.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics",
+      "fetchedAt": "2026-10-07T06:33:36.945Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3c33fd11c52e818c34d381c66bc5c9c964b16558a21afb11717482ee9c2322c",
+      "title": "Discover UCLA’s World-Class Academic Programs and Research | UCLA",
+      "snapshotFile": "raw/0015-b3c33fd11c52.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/college-and-schools",
+      "fetchedAt": "2026-10-07T06:33:38.492Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "62d74e68cf425809707687d1cfa44ae3b0f01d4d22e89d68e5e664939f3747f9",
+      "title": "Learn More About the University’s 12 Schools | UCLA | UCLA",
+      "snapshotFile": "raw/0016-62d74e68cf42.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/graduate-and-professional-education",
+      "fetchedAt": "2026-10-07T06:33:40.505Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0f166c5bf9e84634d9761458246f3c4f4b3a837a539c051e3e2694ab0a58ad1d",
+      "title": "UCLA Graduate Programs | Master's & Doctoral Degrees | UCLA",
+      "snapshotFile": "raw/0017-0f166c5bf9e8.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/continuing-education",
+      "fetchedAt": "2026-10-07T06:33:42.481Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "909926c631cbdda1c84602e9995773cef71c6ea24c061cb0a39498ffff8998b0",
+      "title": "Continuing Education Opportunities | UCLA Extension | UCLA",
+      "snapshotFile": "raw/0018-909926c631cb.html"
+    },
+    {
+      "url": "https://www.ucla.edu/academics/libraries",
+      "fetchedAt": "2026-10-07T06:33:49.445Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "04d4b67223c3301856f51907728d936f6d0bbe485f9ce49e1bea6a4e545cb4cb",
+      "title": "Explore One of the Top Ranked University Libraries | UCLA",
+      "snapshotFile": "raw/0019-04d4b67223c3.html"
+    },
+    {
+      "url": "https://www.ucla.edu/",
+      "fetchedAt": "2026-10-07T06:33:51.204Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ab2594b7166d5052ef829d8ba152cc97863526474fd73d0d9bd561f80ee10064",
+      "title": "A World Leader in Education and Research Excellence | UCLA",
+      "snapshotFile": "raw/0020-ab2594b7166d.html"
+    },
+    {
+      "url": "https://www.ucla.edu/events",
+      "fetchedAt": "2026-10-07T06:33:53.062Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3ac50934433e0cd0a8d102d597b07c10ff97fb00f68e81803d610df91e26da4",
+      "title": "Events | UCLA",
+      "snapshotFile": "raw/0021-b3ac50934433.html"
+    },
+    {
+      "url": "https://www.ucla.edu/careers",
+      "fetchedAt": "2026-10-07T06:33:55.039Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "64e9ac078c2279bc3ebd287a4cedcd018afdaf8f80527a9f973afce86dacfac9",
+      "title": "Current Job & Career Openings and Opportunities | UCLA",
+      "snapshotFile": "raw/0022-64e9ac078c22.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about",
+      "fetchedAt": "2026-10-07T06:33:57.045Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9afa6cf939a9cb746915a7c18de9f3ec86dc696528ad88135682bded340b1e61",
+      "title": "Explore UCLA: Los Angeles' Top-Ranked University | UCLA",
+      "snapshotFile": "raw/0023-9afa6cf939a9.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/facts-and-figures",
+      "fetchedAt": "2026-10-07T06:33:59.065Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d521790cf849c325a30b77fc0ae5a9d93c52860c7c2f30dc0ea2de9c30d0dd34",
+      "title": "Our University’s Facts and Figures at a Glance | UCLA | UCLA",
+      "snapshotFile": "raw/0024-d521790cf849.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/leadership",
+      "fetchedAt": "2026-10-07T06:34:01.090Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "46ff1bfd34c26d5e3912fc3303e65ab6b2d9a200a81b06c3af3af61820977d84",
+      "title": "Meet Our Esteemed Leadership Team at UCLA | UCLA",
+      "snapshotFile": "raw/0025-46ff1bfd34c2.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/rankings",
+      "fetchedAt": "2026-10-07T06:34:03.138Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a892bd7fd58671df90a77c47247db00c00d8a29661b52ac8f368671b6892e954",
+      "title": "UCLA Rankings: National & Global Achievements | UCLA",
+      "snapshotFile": "raw/0026-a892bd7fd586.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/mission-and-values",
+      "fetchedAt": "2026-10-07T06:34:05.090Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "421c91922d24d6b96a3a8f8302fbb7775e270bc17fee2d8871b9c1787566172c",
+      "title": "UCLA's Vision, Mission, Principles, and Values | UCLA",
+      "snapshotFile": "raw/0027-421c91922d24.html"
+    },
+    {
+      "url": "https://www.ucla.edu/economic-impact",
+      "fetchedAt": "2026-10-07T06:34:07.104Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "92f268892ce2bf8eaf8882e6a8ccd7d021313056ddfccace5cc9694b4f425a81",
+      "title": "Economic Impact Report | UCLA | UCLA",
+      "snapshotFile": "raw/0028-92f268892ce2.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors",
+      "fetchedAt": "2026-10-07T06:34:09.347Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5dc729c8dc53a61e187fba61d08655899d6869f4e30d0dc78e64a193e6e5010",
+      "title": "Learn More About UCLA Awards and Honors Recipients | UCLA | UCLA",
+      "snapshotFile": "raw/0029-e5dc729c8dc5.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty",
+      "fetchedAt": "2026-10-07T06:34:11.145Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d397550c3b876d80c7bbc6f0fa1ef6941b32782e3f059f332a24a53aec53549a",
+      "title": "Recipients of UCLA's Faculty Awards & Honors | UCLA | UCLA",
+      "snapshotFile": "raw/0030-d397550c3b87.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/american-academy-of-arts-and-sciences",
+      "fetchedAt": "2026-10-07T06:34:13.145Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7587d083d65aa8da56861d7cbb890524f4083dfb07929f1e453f373445b8bacf",
+      "title": "UCLA Members of the American Academy of Arts and Sciences | UCLA",
+      "snapshotFile": "raw/0031-7587d083d65a.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/american-association-for-the-advancement-of-science",
+      "fetchedAt": "2026-10-07T06:34:15.159Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "59cd0b5ac2336bb104a25a78f4d1c571456b2be257644088dab5522b4d5756e4",
+      "title": "American Association for the Advancement of Science | UCLA",
+      "snapshotFile": "raw/0032-59cd0b5ac233.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/american-philosophical-society",
+      "fetchedAt": "2026-10-07T06:34:17.147Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ef3a6001f8c06fe1f5d547c372d98179ee5cea1aa4afd782eba077d9d9905c21",
+      "title": "Members of the American Philosophical Society | UCLA | UCLA",
+      "snapshotFile": "raw/0033-ef3a6001f8c0.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-education",
+      "fetchedAt": "2026-10-07T06:34:19.149Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "99babdfa661465f7577e2f12359ee895af9dcefafcc0c80fc45c2d9477985581",
+      "title": "Members of the National Academy of Education | UCLA | UCLA",
+      "snapshotFile": "raw/0034-99babdfa6614.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-engineering",
+      "fetchedAt": "2026-10-07T06:34:21.157Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3e385976f2ae3bee2dc51d0ee94822556a396504f34e02c1eccebe3db498321b",
+      "title": "National Academy of Engineering | UCLA",
+      "snapshotFile": "raw/0035-3e385976f2ae.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-inventors",
+      "fetchedAt": "2026-10-07T06:34:23.165Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "008eed055d374d3981b4badf40e24adfb9cd99e1f9ced2d62fdf5a990aa7a090",
+      "title": "Members of the National Academy of Inventors | UCLA | UCLA",
+      "snapshotFile": "raw/0036-008eed055d37.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-medicine",
+      "fetchedAt": "2026-10-07T06:34:25.174Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d33aac7b3d7350b02ecb70c0a297f0a4c7481a4fc77bc5abcf6f0edc81b553e8",
+      "title": "Members of the National Academy of Medicine | UCLA | UCLA",
+      "snapshotFile": "raw/0037-d33aac7b3d73.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/awards-and-honors/faculty/national-academy-of-sciences",
+      "fetchedAt": "2026-10-07T06:34:27.190Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "68b24a9a2b1ef80e4a87b1f5ccdd70110742a778d744a02abb13c47b5f3304e9",
+      "title": "Members of the National Academy of Sciences | UCLA | UCLA",
+      "snapshotFile": "raw/0038-68b24a9a2b1e.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/athletics-championships-and-medals",
+      "fetchedAt": "2026-10-07T06:34:29.183Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c023704e6ed2f45543ea661ef30dbba1bb07cff95f74ab87d7cf3c77c9d5cb6c",
+      "title": "UCLA Athletics: Championships & Medals Overview | UCLA",
+      "snapshotFile": "raw/0039-c023704e6ed2.html"
+    },
+    {
+      "url": "https://www.ucla.edu/about/notable-bruins",
+      "fetchedAt": "2026-10-07T06:34:31.220Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "46ab892c373a7ee28406397231f995e9b74185671f8dca4d5ef04e3055c7fdeb",
+      "title": "Notable Bruins | UCLA",
+      "snapshotFile": "raw/0040-46ab892c373a.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/funding/tuition/",
+      "fetchedAt": "2026-10-07T06:34:34.985Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "974e8c7da0dcb3d60a76886d397796bba228db75aeeab593e5c644c819400bbd",
+      "title": "Tuition & Student Fees | UCLA Graduate Programs",
+      "snapshotFile": "raw/0041-974e8c7da0dc.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/",
+      "fetchedAt": "2026-10-07T06:34:36.399Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "154ec4034cb1d4750f966782932249f92a9504ef738818cb0768d40bf52e8708",
+      "title": "UCLA Graduate Programs",
+      "snapshotFile": "raw/0042-154ec4034cb1.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/mechanical-aerospace-engineering-department/aerospace-engineering/",
+      "fetchedAt": "2026-10-07T06:34:37.620Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c0900e2d5e46caae0a972a497a57409ef470ba0919a13fa9ed4fa52983a5f178",
+      "title": "Aerospace Engineering | UCLA Graduate Programs",
+      "snapshotFile": "raw/0043-c0900e2d5e46.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/social-sciences/african-american-studies/",
+      "fetchedAt": "2026-10-07T06:34:39.706Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "509cfd0e04b9ca647a9dec7890d1283ebf957bcc2bcc4db92a27e972297e1672",
+      "title": "African American Studies | UCLA Graduate Programs",
+      "snapshotFile": "raw/0044-509cfd0e04b9.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/international-institute/african-studies/",
+      "fetchedAt": "2026-10-07T06:34:41.632Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3468af65939fd1f404d0f381d487281ca15e251070aee0fc85aba9d22282790c",
+      "title": "African Studies | UCLA Graduate Programs",
+      "snapshotFile": "raw/0045-3468af65939f.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/social-sciences/american-indian-studies/",
+      "fetchedAt": "2026-10-07T06:34:43.648Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "95bb38c7b39ef94afe99ad5f65e9e7f4ac54b208ddccb015dc67463bb5edd87a",
+      "title": "American Indian Studies | UCLA Graduate Programs",
+      "snapshotFile": "raw/0046-95bb38c7b39e.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/anderson-school-of-management/",
+      "fetchedAt": "2026-10-07T06:34:45.897Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0e6bd992531d2212fc9ce2793dbe1a66a4a8738765c1f1771bf96f8becdad9bb",
+      "title": "Anderson School of Management | UCLA Graduate Programs",
+      "snapshotFile": "raw/0047-0e6bd992531d.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/social-sciences/anthropology/",
+      "fetchedAt": "2026-10-07T06:34:47.639Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "23cfa30f495b24cbf9e74796948f5ba0997feb62682aa2c3850dbe5b70caf567",
+      "title": "Anthropology | UCLA Graduate Programs",
+      "snapshotFile": "raw/0048-23cfa30f495b.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/social-sciences/archaeology/",
+      "fetchedAt": "2026-10-07T06:34:49.670Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "eb9bbfa0b8f45c7ba874f5d48118598320766647b89b53d6bf8ad791ad508d82",
+      "title": "Archaeology | UCLA Graduate Programs",
+      "snapshotFile": "raw/0049-eb9bbfa0b8f4.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/architecture/",
+      "fetchedAt": "2026-10-07T06:34:51.692Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9705a33e0a7019b7d17fed315ab3947a7ce77281112bc91f3f84dd4cd119afc0",
+      "title": "Architecture | UCLA Graduate Programs",
+      "snapshotFile": "raw/0050-9705a33e0a70.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/architecture-m-arch-i/",
+      "fetchedAt": "2026-10-07T06:34:53.693Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "844b79845938c86a2e04fd1cdf4dd47c91696d4ffd5ab5476dc1a62e87ddd416",
+      "title": "Architecture – M.Arch. | UCLA Graduate Programs",
+      "snapshotFile": "raw/0051-844b79845938.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/architecture-m-s/",
+      "fetchedAt": "2026-10-07T06:34:55.715Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "82e67825d0a6ae85d215a2fa0db571227db23ac61067b61c2aab9029128632a4",
+      "title": "Architecture – M.S. in Architecture and Urban Design | UCLA Graduate Programs",
+      "snapshotFile": "raw/0052-82e67825d0a6.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/architecture-and-urban-design-department/",
+      "fetchedAt": "2026-10-07T06:34:57.878Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "eea4ba560d2d17f7154098a05172a1a10b6b03123175ded4f63154308be64f25",
+      "title": "Architecture and Urban Design Department | UCLA Graduate Programs",
+      "snapshotFile": "raw/0053-eea4ba560d2d.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/art/",
+      "fetchedAt": "2026-10-07T06:34:59.710Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f2e622e14bf86796061f044988365316f4f3671db52fcf642c2d09be89937ef",
+      "title": "Art | UCLA Graduate Programs",
+      "snapshotFile": "raw/0054-5f2e622e14bf.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/humanities/art-history/",
+      "fetchedAt": "2026-10-07T06:35:01.718Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "644f8bbf8a54a0202a7b3ef8fd8a8cf2eff4d41ffdcc5e96fe31409c1c90921f",
+      "title": "Art History | UCLA Graduate Programs",
+      "snapshotFile": "raw/0055-644f8bbf8a54.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/social-sciences/asian-american-studies/",
+      "fetchedAt": "2026-10-07T06:35:03.722Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c6ce248d020b4b217685c9c09323b9250eee20bdb3a4259b9e322968f0df9236",
+      "title": "Asian American Studies | UCLA Graduate Programs",
+      "snapshotFile": "raw/0056-c6ce248d020b.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/humanities/asian-languages-and-cultures-department/asian-languages-and-cultures/",
+      "fetchedAt": "2026-10-07T06:35:05.704Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "48f75921d4acee882595c6a20f2c1f267cccb328463a748997ac1050585a5bcc",
+      "title": "Asian Languages and Cultures | UCLA Graduate Programs",
+      "snapshotFile": "raw/0057-48f75921d4ac.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/humanities/asian-languages-and-cultures-department/",
+      "fetchedAt": "2026-10-07T06:35:07.838Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f4ba522fe550dd5e90ce050dd0915c92413efabcdd248fcd1bf277637d8f9615",
+      "title": "Asian Languages and Cultures Department | UCLA Graduate Programs",
+      "snapshotFile": "raw/0058-f4ba522fe550.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/astronomy-and-astrophysics/",
+      "fetchedAt": "2026-10-07T06:35:09.788Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6705aa24a1404e964fe9de4e22619a84af2c9ad806dbdbbd6fde8edaa204f218",
+      "title": "Astronomy and Astrophysics | UCLA Graduate Programs",
+      "snapshotFile": "raw/0059-6705aa24a140.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/astronomy-and-astrophysics-mat/",
+      "fetchedAt": "2026-10-07T06:35:11.741Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "872284154d89902ed6d802840d348e3289dbb0b0a3dea15a32883a7d274ff01d",
+      "title": "Astronomy and Astrophysics-MAT | UCLA Graduate Programs",
+      "snapshotFile": "raw/0060-872284154d89.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/physical-sciences/atmospheric-and-oceanic-sciences/",
+      "fetchedAt": "2026-10-07T06:35:13.810Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5458556bde7c8886d9f60d79fe6013800315837c4fed7e2acf2504166db6647c",
+      "title": "Atmospheric and Oceanic Sciences | UCLA Graduate Programs",
+      "snapshotFile": "raw/0061-5458556bde7c.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/biochemistry-molecular-and-structural-biology/",
+      "fetchedAt": "2026-10-07T06:35:15.781Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "76964b0b1b519e15aa662f4754e09654ff1254f6347faefe2256038d64ee2db8",
+      "title": "Biochemistry, Molecular and Structural Biology | UCLA Graduate Programs",
+      "snapshotFile": "raw/0062-76964b0b1b51.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/bioengineering/",
+      "fetchedAt": "2026-10-07T06:35:17.735Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "77b8dcff6d57ca5f2ab3653655755fa8d0218b147f5a6f9a51b98d276e5ba8a9",
+      "title": "Bioengineering | UCLA Graduate Programs",
+      "snapshotFile": "raw/0063-77b8dcff6d57.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/life-sciences/bioinformatics-department/bioinformatics/",
+      "fetchedAt": "2026-10-07T06:35:19.780Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cd4995fc52569ae58e98c176e38e3901a2a650859c4cf0202dcdf27b2f84c2b6",
+      "title": "Bioinformatics | UCLA Graduate Programs",
+      "snapshotFile": "raw/0064-cd4995fc5256.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/life-sciences/bioinformatics-department/",
+      "fetchedAt": "2026-10-07T06:35:21.947Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2cd3f6116f3877ad9698ef493f3799d6c9a1c390189bacc5face8ce25f5fa728",
+      "title": "Bioinformatics Department | UCLA Graduate Programs",
+      "snapshotFile": "raw/0065-2cd3f6116f38.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/life-sciences/ecology-and-evolutionary-biology-department/biology/",
+      "fetchedAt": "2026-10-07T06:35:23.745Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "debb49f8de84cf844996e2622bf8675f9af77d6f0d30964d636db72e772ae7a2",
+      "title": "Biology | UCLA Graduate Programs",
+      "snapshotFile": "raw/0066-debb49f8de84.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/david-geffen-school-of-medicine/computational-medicine-department/biomathematics/",
+      "fetchedAt": "2026-10-07T06:35:25.750Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3bd683ecb9669824621bdb7519bb6e04dd48e4e49f97e744cb97acd814ce9cb1",
+      "title": "Biomathematics | UCLA Graduate Programs",
+      "snapshotFile": "raw/0067-3bd683ecb966.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/bioscience-programs/",
+      "fetchedAt": "2026-10-07T06:35:27.789Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f90a88dce5ba52b7de418f41fb3432101eada37a7545ae163e20525f8a588432",
+      "title": "Bioscience Programs | UCLA Graduate Programs",
+      "snapshotFile": "raw/0068-f90a88dce5ba.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-public-health/biostatistics-department/biostatistics/",
+      "fetchedAt": "2026-10-07T06:35:29.807Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c8ab9f89894c73981f69630c7a3c9baad0736e86b91ea434dd98743197d1405b",
+      "title": "Biostatistics | UCLA Graduate Programs",
+      "snapshotFile": "raw/0069-c8ab9f89894c.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-public-health/biostatistics-department/",
+      "fetchedAt": "2026-10-07T06:35:31.944Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "789ea2c2c8c116b205993a7f7d823beb4ddc37440d2053976443a5f99c572fed",
+      "title": "Biostatistics Department | UCLA Graduate Programs",
+      "snapshotFile": "raw/0070-789ea2c2c8c1.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-public-health/biostatistics-department/biostatistics-mph/",
+      "fetchedAt": "2026-10-07T06:35:33.914Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "460186dc913aa6482ee6ea4f3f42e45b304bfc6095674f7b6c37024938c9bb3b",
+      "title": "Biostatistics MPH | UCLA Graduate Programs",
+      "snapshotFile": "raw/0071-460186dc913a.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/chemical-biomolecular-engineering-department/",
+      "fetchedAt": "2026-10-07T06:35:36.351Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5608866075c6550faf69763fa93685a6173fba90e6be3951cfaa141978bf4fa9",
+      "title": "Chemical & Biomolecular Engineering Department | UCLA Graduate Programs",
+      "snapshotFile": "raw/0072-5608866075c6.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/chemical-biomolecular-engineering-department/chemical-engineering/",
+      "fetchedAt": "2026-10-07T06:35:37.850Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "90db1f0e698044a0199bafd7d49a1d18586dbe72a4561dfbb77e8652c54bd3df",
+      "title": "Chemical Engineering | UCLA Graduate Programs",
+      "snapshotFile": "raw/0073-90db1f0e6980.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/chemistry/",
+      "fetchedAt": "2026-10-07T06:35:39.937Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "96edf8ecc759066c8b0488466999b531f43689d01b234280eb1e8a116daad39c",
+      "title": "Chemistry | UCLA Graduate Programs",
+      "snapshotFile": "raw/0074-96edf8ecc759.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/chemistry-master-of-applied-chemical-sciences/",
+      "fetchedAt": "2026-10-07T06:35:41.860Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cc7b804b4fc79b8c9d361806a16560b4fd461d44f7edee6332a0aa81d9292121",
+      "title": "Chemistry – Master of Applied Chemical Sciences | UCLA Graduate Programs",
+      "snapshotFile": "raw/0075-cc7b804b4fc7.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/physical-sciences/chemistry-and-biochemistry-department/",
+      "fetchedAt": "2026-10-07T06:35:44.110Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2c2aaaf8370919088f26e21ce7ea0fa63e1d2b7cf9fb4ec8b07acdc35c86954c",
+      "title": "Chemistry and Biochemistry Department | UCLA Graduate Programs",
+      "snapshotFile": "raw/0076-2c2aaaf83709.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/social-sciences/chicana-o-and-central-american-studies-department/chicana-and-chicano-studies/",
+      "fetchedAt": "2026-10-07T06:35:45.865Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ca7fa59bdf009552ce1b4724f104c080cb78453a5514973a5be0c90c37f547f3",
+      "title": "Chicana & Chicano Studies | UCLA Graduate Programs",
+      "snapshotFile": "raw/0077-ca7fa59bdf00.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/social-sciences/chicana-o-and-central-american-studies-department/",
+      "fetchedAt": "2026-10-07T06:35:48.001Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "45c136b8d4c6f8a6fb54f3884624e85eac22a9d1bfb62915c257dc23983b384d",
+      "title": "Chicana/o and Central American Studies Department | UCLA Graduate Programs",
+      "snapshotFile": "raw/0078-45c136b8d4c6.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-arts-and-architecture/world-arts-and-culturesdance-department/choreographic-inquiry/",
+      "fetchedAt": "2026-10-07T06:35:49.897Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9cd7a7ef71555ebd620098971e598acfdf7adc65baec91313691451154e2c539",
+      "title": "Choreographic Inquiry | UCLA Graduate Programs",
+      "snapshotFile": "raw/0079-9cd7a7ef7155.html"
+    },
+    {
+      "url": "https://grad.ucla.edu/programs/school-of-engineering-and-applied-science/civil-environmental-engineering-department/",
+      "fetchedAt": "2026-10-07T06:35:52.036Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "61b6a627c699c3d6f18cf82671069aacfd6c054510bc4b71492c41a013d33304",
+      "title": "Civil & Environmental Engineering Department | UCLA Graduate Programs",
+      "snapshotFile": "raw/0080-61b6a627c699.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:35:52.107Z",
+    "seedUrls": [
+      "https://www.ucla.edu/academics/programs-and-majors",
+      "https://www.ucla.edu/academics/support/entrepreneurship",
+      "https://grad.ucla.edu/academics/research/",
+      "https://www.ucla.edu/academics",
+      "https://www.ucla.edu/academics/college-and-schools",
+      "https://www.ucla.edu/academics/undergraduate-education",
+      "https://www.ucla.edu/academics/graduate-and-professional-education",
+      "https://www.ucla.edu/academics/continuing-education",
+      "https://www.registrar.ucla.edu/Academics/Academic-Counseling",
+      "https://www.ucla.edu/academics/libraries"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:30.791Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.510Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

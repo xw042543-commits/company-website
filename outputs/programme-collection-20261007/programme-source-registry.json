@@ -1,0 +1,2253 @@
+{
+  "generatedAt": "2026-10-09T06:31:05.110Z",
+  "schoolsInScope": 80,
+  "partial": 44,
+  "blocked": 25,
+  "needsAdapter": 11,
+  "pending": 0,
+  "schools": [
+    {
+      "region": "australia",
+      "sourceKey": "unsw-sydney",
+      "displayName": "UNSW Sydney",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.unsw.edu.au/study/undergraduate"
+      ],
+      "allowedHosts": [
+        "www.unsw.edu.au",
+        "unsw.edu.au"
+      ],
+      "discoveredUrls": 49,
+      "parsedProgrammes": 6,
+      "pagesRead": 120,
+      "warnings": [
+        "https://www.experience.futurestudents.unsw.edu.au/undergraduate：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "university-of-melbourne",
+      "displayName": "The University of Melbourne",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://study.unimelb.edu.au/study-with-us/undergraduate-courses"
+      ],
+      "allowedHosts": [
+        "www.unimelb.edu.au",
+        "unimelb.edu.au",
+        "study.unimelb.edu.au"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://study.unimelb.edu.au/study-with-us/undergraduate-courses：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "university-of-sydney",
+      "displayName": "The University of Sydney",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html"
+      ],
+      "allowedHosts": [
+        "www.sydney.edu.au",
+        "sydney.edu.au"
+      ],
+      "discoveredUrls": 24,
+      "parsedProgrammes": 6,
+      "pagesRead": 120,
+      "warnings": [
+        "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/corporate/documents/study/guides/usyd-undergraduate-guide.pdf.coredownload.pdf",
+        "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/corporate/documents/study/guides/usyd-undergraduate-guide.pdf",
+        "HTTP 404：https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite/The%20MOOC%20is%20currently%20available%20here.",
+        "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/students/documents/enrolment/course-planning/course-planner.xlsx",
+        "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/students/documents/enrolment/course-planning/course-planner.docx"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "australian-national-university",
+      "displayName": "The Australian National University",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://study.anu.edu.au/"
+      ],
+      "allowedHosts": [
+        "www.anu.edu.au",
+        "anu.edu.au",
+        "study.anu.edu.au"
+      ],
+      "discoveredUrls": 4,
+      "parsedProgrammes": 0,
+      "pagesRead": 160,
+      "warnings": [
+        "https://www.anu.edu.au/students/program-administration/fees-payments/undergraduate-commonwealth-supported-places：重定向次数超过 5 次",
+        "https://www.anu.edu.au/students/program-administration/fees-payments/sa-help：重定向次数超过 5 次",
+        "https://www.anu.edu.au/students/program-administration/fees-payments/help-loans-for-new-zealand-citizens：重定向次数超过 5 次",
+        "HTTP 404：https://www.anu.edu.au/current-students/program-administration/calendar/month",
+        "HTTP 404：https://www.anu.edu.au/study/accept/international-undergraduate-and-postgraduate-coursework-defer-or-decline"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "monash-university",
+      "displayName": "Monash University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.monash.edu/study"
+      ],
+      "allowedHosts": [
+        "www.monash.edu",
+        "monash.edu"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.monash.edu/study：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "university-of-queensland",
+      "displayName": "The University of Queensland",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://study.uq.edu.au/"
+      ],
+      "allowedHosts": [
+        "www.uq.edu.au",
+        "uq.edu.au",
+        "study.uq.edu.au"
+      ],
+      "discoveredUrls": 120,
+      "parsedProgrammes": 63,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "australia",
+      "sourceKey": "university-of-western-australia",
+      "displayName": "The University of Western Australia",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.uwa.edu.au/study"
+      ],
+      "allowedHosts": [
+        "www.uwa.edu.au",
+        "uwa.edu.au"
+      ],
+      "discoveredUrls": 104,
+      "parsedProgrammes": 42,
+      "pagesRead": 120,
+      "warnings": [
+        "https://www.uwa.edu.au/study/explore-courses/find-a-course：跳转超出允许域名: www.search.uwa.edu.au",
+        "robots.txt 禁止抓取：https://www.ask.uwa.edu.au/app/answers/detail/a_id/2250/kw/undergraduate%20course%20model",
+        "https://handbooks.uwa.edu.au/undergraduate：跳转超出允许域名: www.handbooks.uwa.edu.au",
+        "robots.txt 禁止抓取：https://www.ask.uwa.edu.au/app/answers/detail/a_id/2250/kw/courses",
+        "robots.txt 禁止抓取：https://lms.uwa.edu.au/ultra/courses/_121470_1/outline",
+        "https://handbooks.uwa.edu.au/undergraduate/honoursdetails?code=HON-FNART：跳转超出允许域名: www.handbooks.uwa.edu.au"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "adelaide-university",
+      "displayName": "Adelaide University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://adelaide.edu.au/study/"
+      ],
+      "allowedHosts": [
+        "adelaide.edu.au",
+        "www.adelaide.edu.au"
+      ],
+      "discoveredUrls": 73,
+      "parsedProgrammes": 26,
+      "pagesRead": 120,
+      "warnings": [
+        "跳过非 HTML 内容：https://adelaide.edu.au/content/dam/adelaideuniversity/documents/study/learning-futures/pdfs/short-courses-brochure.pdf",
+        "跳过非 HTML 内容：https://adelaide.edu.au/content/dam/adelaideuniversity/documents/study/learning-futures/pdfs/short-courses-brochure.pdf.coredownload.pdf",
+        "https://catalog.adelaide.edu.au/courses/10956/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/11875/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9888/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9889/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9893/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9894/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9895/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9896/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9897/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9903/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9902/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9900/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9901/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9898/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9899/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9887/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/4653/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/4654/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/10750/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9851/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/7006/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/6127/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/6128/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/8617/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/9275/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/4650/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/6126/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/11338/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+        "https://catalog.adelaide.edu.au/courses/11339/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "university-of-technology-sydney",
+      "displayName": "University of Technology Sydney",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.uts.edu.au/study"
+      ],
+      "allowedHosts": [
+        "www.uts.edu.au",
+        "uts.edu.au"
+      ],
+      "discoveredUrls": 80,
+      "parsedProgrammes": 33,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 404：https://www.uts.edu.au/for-students/experience-uts/undergraduate/~/link/ebcddf01964644f9a59d8c899fc1df19.aspx",
+        "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10359",
+        "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/2025/C10359",
+        "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c09057",
+        "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10228",
+        "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10143",
+        "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10122",
+        "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c20061",
+        "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10026"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "rmit-university",
+      "displayName": "RMIT University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.rmit.edu.au/study-with-us"
+      ],
+      "allowedHosts": [
+        "www.rmit.edu.au",
+        "rmit.edu.au"
+      ],
+      "discoveredUrls": 143,
+      "parsedProgrammes": 141,
+      "pagesRead": 120,
+      "warnings": [
+        "跳过非 HTML 内容：https://www.rmit.edu.au/assets/au/en/docs/study/level-of-study/courses/bp201-inton-selection-task.pdf"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "macquarie-university",
+      "displayName": "Macquarie University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.mq.edu.au/study/find-a-course"
+      ],
+      "allowedHosts": [
+        "www.mq.edu.au",
+        "mq.edu.au"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.mq.edu.au/study/find-a-course：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "curtin-university",
+      "displayName": "Curtin University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.curtin.edu.au/study/"
+      ],
+      "allowedHosts": [
+        "www.curtin.edu.au",
+        "curtin.edu.au"
+      ],
+      "discoveredUrls": 95,
+      "parsedProgrammes": 50,
+      "pagesRead": 120,
+      "warnings": [
+        "https://search.curtin.edu.au/results/courses/：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?q=：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=agriculture-environment-and-sustainability：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=architecture-and-construction：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=arts-and-creative-industries：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=business-innovation-management-and-law：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=culture-society-and-indigenous：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=education：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=health：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=physical-sciences-geoscience-and-mathematics：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=engineering-mining-and-surveying：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=information-technology：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-innovation--b-innovv1",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-commerce--b-comrcev5",
+        "https://search.curtin.edu.au/results/courses?q=graduate%20certificate：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?q=Graduate%20diploma：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses?q=Master：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://search.curtin.edu.au/results/courses：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-commerce--b-comrcev8",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-innovation--b-innovv3",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-education-primary-education--b-edprv5",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-arts--b-artsv8",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-health-sciences--b-hthsciv1",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-psychology--b-psychv3",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-engineering-honours--bh-engrv5",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-science-science--b-scncev8",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-chinese-major-ba--mjru-chnsev2",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-creative-writing-major-ba--mjru-crwr1v1",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-digital-and-social-media-major-ba--mjru-netcmv3",
+        "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-advertising-and-design-major--mjru-advds/",
+        "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-design-and-fabrication-major--mjru-dinfb/",
+        "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-fashion-design-major--mjru-fashn/",
+        "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-graphic-design-major--mjru-grpds/",
+        "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-photography-major--mjru-photo/",
+        "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-design-innovation-and-fabrication-major--mjru-dinfb/",
+        "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-business-administration--b-busadmv3",
+        "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-international-business-major-bcom--mjru-intbu/"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "university-of-wollongong",
+      "displayName": "University of Wollongong",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.uow.edu.au/study/"
+      ],
+      "allowedHosts": [
+        "www.uow.edu.au",
+        "uow.edu.au"
+      ],
+      "discoveredUrls": 120,
+      "parsedProgrammes": 47,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 500：https://www.uow.edu.au/study/courses/courses/"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "deakin-university",
+      "displayName": "Deakin University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.deakin.edu.au/courses"
+      ],
+      "allowedHosts": [
+        "www.deakin.edu.au",
+        "deakin.edu.au"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.deakin.edu.au/courses：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "griffith-university",
+      "displayName": "Griffith University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.griffith.edu.au/study"
+      ],
+      "allowedHosts": [
+        "www.griffith.edu.au",
+        "griffith.edu.au"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.griffith.edu.au/study：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "queensland-university-of-technology",
+      "displayName": "Queensland University of Technology",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.qut.edu.au/courses"
+      ],
+      "allowedHosts": [
+        "www.qut.edu.au",
+        "qut.edu.au"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.qut.edu.au/courses：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "la-trobe-university",
+      "displayName": "La Trobe University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.latrobe.edu.au/courses"
+      ],
+      "allowedHosts": [
+        "www.latrobe.edu.au",
+        "latrobe.edu.au"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.latrobe.edu.au/courses：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "university-of-newcastle",
+      "displayName": "The University of Newcastle",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.newcastle.edu.au/degrees"
+      ],
+      "allowedHosts": [
+        "www.newcastle.edu.au",
+        "newcastle.edu.au"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.newcastle.edu.au/degrees：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "swinburne-university-of-technology",
+      "displayName": "Swinburne University of Technology",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.swinburne.edu.au/courses/find-a-course/"
+      ],
+      "allowedHosts": [
+        "www.swinburne.edu.au",
+        "swinburne.edu.au"
+      ],
+      "discoveredUrls": 193,
+      "parsedProgrammes": 73,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 404：https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/politics,-power-and-technology",
+        "HTTP 404：https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/criminology-and-social-change"
+      ]
+    },
+    {
+      "region": "australia",
+      "sourceKey": "university-of-tasmania",
+      "displayName": "University of Tasmania",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.utas.edu.au/"
+      ],
+      "allowedHosts": [
+        "www.utas.edu.au",
+        "utas.edu.au"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.utas.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "imperial-college-london",
+      "displayName": "Imperial College London",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.imperial.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.imperial.ac.uk",
+        "imperial.ac.uk"
+      ],
+      "discoveredUrls": 120,
+      "parsedProgrammes": 70,
+      "pagesRead": 160,
+      "warnings": []
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-oxford",
+      "displayName": "University of Oxford",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.ox.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.ox.ac.uk",
+        "ox.ac.uk"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.ox.ac.uk/admissions/undergraduate/courses/undergraduate-course-listing-a-z：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-cambridge",
+      "displayName": "University of Cambridge",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.cam.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.cam.ac.uk",
+        "cam.ac.uk"
+      ],
+      "discoveredUrls": 97,
+      "parsedProgrammes": 31,
+      "pagesRead": 160,
+      "warnings": [
+        "https://www.cam.ac.uk/for-staff?ucam-ref=global-quick-links：跳转超出允许域名: www.staff.admin.cam.ac.uk",
+        "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.mikehulme.org",
+        "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.mcbridesguides.com",
+        "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.letterstomygodson.com",
+        "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.ssrn.com",
+        "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/www.maths.cam.ac.uk",
+        "HTTP 404：https://www.pem.cam.ac.uk/study-here/undergraduate/courses/adm@pem.cam.ac.uk",
+        "HTTP 404：https://www.classics.cam.ac.uk/prospective/undergraduate/summer-schools"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-college-london",
+      "displayName": "UCL",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.ucl.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.ucl.ac.uk",
+        "ucl.ac.uk"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.ucl.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-edinburgh",
+      "displayName": "The University of Edinburgh",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.ed.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.ed.ac.uk",
+        "ed.ac.uk"
+      ],
+      "discoveredUrls": 279,
+      "parsedProgrammes": 270,
+      "pagesRead": 120,
+      "warnings": [
+        "https://www.ed.ac.uk/studying：跳转超出允许域名: study.ed.ac.uk",
+        "https://www.ed.ac.uk/studying/undergraduate/open-days-events-visits/open-day：跳转超出允许域名: study.ed.ac.uk",
+        "https://www.ed.ac.uk/studying/undergraduate/student-life/academic/degree-structure/degree-structure：跳转超出允许域名: study.ed.ac.uk",
+        "https://www.ed.ac.uk/studying/undergraduate/student-life/student-chat：跳转超出允许域名: study.ed.ac.uk",
+        "https://www.ed.ac.uk/studying/undergraduate/contact：跳转超出允许域名: study.ed.ac.uk",
+        "https://www.ed.ac.uk/university-secretary-group/complaint-handling-procedure：跳转超出允许域名: usg.ed.ac.uk",
+        "https://www.ed.ac.uk/sustainability/what-we-do/supply-chains/initiatives/modern-slavery/statement：跳转超出允许域名: sustainability.ed.ac.uk",
+        "https://www.ed.ac.uk/data-protection：跳转超出允许域名: data-protection.ed.ac.uk",
+        "https://www.ed.ac.uk/studying/postgraduate/open-days-events-visits/open-days：跳转超出允许域名: study.ed.ac.uk",
+        "https://www.ed.ac.uk/studying/undergraduate/open-days-events-visits/online-information-sessions：跳转超出允许域名: study.ed.ac.uk",
+        "https://study.ed.ac.uk/undergraduate/open-days-events-visits/open-day/programme/medicine：跳转超出允许域名: idp.ed.ac.uk",
+        "https://study.ed.ac.uk/undergraduate/open-days-events-visits/open-day/programme/veterinary-medicine：跳转超出允许域名: idp.ed.ac.uk"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "kings-college-london",
+      "displayName": "King's College London",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.kcl.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.kcl.ac.uk",
+        "kcl.ac.uk"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 40,
+      "warnings": [
+        "HTTP 429：https://www.kcl.ac.uk/accommodation/undergraduate/courtauld-students.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/accommodation/undergraduate/social-activities.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/clearing/confirmation",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/fees-and-funding/student-loans-grants/maintenance",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/fees-and-funding/student-funding/loans-and-grants/previous-study",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/fees-and-funding/student-funding/hardship-funds/assessment-guidelines",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/fees-and-funding/student-funding/hardship-funds/supporting-documents",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/fees-and-funding/student-loans-grants",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/cmci",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/digital-media-culture",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/film",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/liberal-arts",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/music",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/bioscience-subjects-common-year-one",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/chemistry",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/computer-science",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/artificial-intelligence-and-philosophy-bsc",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/dentistry",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/biomedical-engineering",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/engineering",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/classics",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/history",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/intercalated",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/modern-languages",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/law",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/english-australian-law",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/law-dual-degrees",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/politics-philosophy-law",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/comp-lit",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/english",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/kbs",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/mathematics",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/medicine",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/graduate-entry-medicine-portsmouth-campus-offer-holders",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/natural-sciences",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/adult-nursing",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/childrens-nursing",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/mental-health-nursing",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/midwifery",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/nutritional-sciences",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/pharmacy",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/philosophy",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/trs",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/physics",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/physiotherapy",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/psychology",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/psychology-criminology",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/neuroscience-psychology",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/offer-holders/subjects/sems",
+        "HTTP 429：https://www.kcl.ac.uk/faculties-departments.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/faculties-departments",
+        "robots.txt 禁止抓取：https://www.kcl.ac.uk/search/courses?level=undergraduate&term=",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/how-to-apply/post-application",
+        "HTTP 429：https://www.kcl.ac.uk/events/series/undergraduate-info-session-applying-to-kings",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/how-to-apply",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/fees-and-funding/contact-us",
+        "HTTP 429：https://www.kcl.ac.uk/study/undergraduate/how-to-apply/policies-and-guidance",
+        "HTTP 429：https://www.kcl.ac.uk/accommodation/undergraduate/how-to-apply",
+        "HTTP 429：https://www.kcl.ac.uk/accommodation/undergraduate/how-to-apply.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/study",
+        "HTTP 429：https://www.kcl.ac.uk/study/abroad-opportunities",
+        "HTTP 429：https://www.kcl.ac.uk/study/postgraduate-taught",
+        "HTTP 429：https://www.kcl.ac.uk/study/postgraduate-research",
+        "HTTP 429：https://www.kcl.ac.uk/study/international",
+        "HTTP 429：https://www.kcl.ac.uk/international-foundation",
+        "HTTP 429：https://www.kcl.ac.uk/professional-education",
+        "HTTP 429：https://www.kcl.ac.uk/study/ciel",
+        "HTTP 429：https://www.kcl.ac.uk/language-centre",
+        "HTTP 429：https://www.kcl.ac.uk/accommodation/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/study/social-mobility",
+        "HTTP 429：https://www.kcl.ac.uk/summer/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/visit/",
+        "HTTP 429：https://www.kcl.ac.uk/study/funding",
+        "HTTP 429：https://www.kcl.ac.uk/student-life",
+        "HTTP 429：https://www.kcl.ac.uk/smhw",
+        "HTTP 429：https://www.kcl.ac.uk/sport",
+        "HTTP 429：https://www.kcl.ac.uk/library/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/careers",
+        "HTTP 429：https://www.kcl.ac.uk/it/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/research",
+        "HTTP 429：https://www.kcl.ac.uk/research/explore",
+        "HTTP 429：https://www.kcl.ac.uk/research/impact",
+        "HTTP 429：https://www.kcl.ac.uk/research/research-environment",
+        "HTTP 429：https://www.kcl.ac.uk/research/funding",
+        "HTTP 429：https://www.kcl.ac.uk/research/facilities",
+        "HTTP 429：https://www.kcl.ac.uk/research/partnerships",
+        "HTTP 429：https://www.kcl.ac.uk/doctoralcollege",
+        "HTTP 429：https://www.kcl.ac.uk/artshums/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/business/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/dentistry/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/law/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/lsm/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/nmes/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/nmpc/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/ioppn/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/sspp/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/about",
+        "HTTP 429：https://www.kcl.ac.uk/about/history.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/about/strategy",
+        "HTTP 429：https://www.kcl.ac.uk/about/strategy/learning-and-teaching",
+        "HTTP 429：https://www.kcl.ac.uk/about/our-people",
+        "HTTP 429：https://www.kcl.ac.uk/jobs",
+        "HTTP 429：https://www.kcl.ac.uk/about/partnerships",
+        "HTTP 429：https://www.kcl.ac.uk/about/governance-policies-and-procedures",
+        "HTTP 429：https://www.kcl.ac.uk/professional-services",
+        "HTTP 429：https://www.kcl.ac.uk/about/governance-policies-and-procedures/diversity-inclusivity.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/about/governance-policies-and-procedures/financial-information",
+        "HTTP 429：https://www.kcl.ac.uk/impact",
+        "HTTP 429：https://www.kcl.ac.uk/kingsvenues",
+        "HTTP 429：https://www.kcl.ac.uk/about/sustainability",
+        "HTTP 429：https://www.kcl.ac.uk/search",
+        "HTTP 429：https://www.kcl.ac.uk/alumni/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/study/postgraduate-taught/",
+        "HTTP 429：https://www.kcl.ac.uk/study/postgraduate-research/",
+        "HTTP 429：https://www.kcl.ac.uk/study/international/",
+        "HTTP 429：https://www.kcl.ac.uk/entrepreneurship/scale-your-venture/start-ups.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/volunteering/index.aspx",
+        "HTTP 429：https://www.kcl.ac.uk/about/strategy/research-and-education-excellence",
+        "HTTP 429：https://www.kcl.ac.uk/events/",
+        "HTTP 429：https://www.kcl.ac.uk/events/age-of-deception-cybersecurity-as-secret-statecraft",
+        "HTTP 429：https://www.kcl.ac.uk/events/love-race-family",
+        "HTTP 429：https://www.kcl.ac.uk/visit",
+        "HTTP 429：https://www.kcl.ac.uk/london/index",
+        "HTTP 429：https://www.kcl.ac.uk/student-experience",
+        "HTTP 429：https://www.kcl.ac.uk/new-students",
+        "HTTP 429：https://www.kcl.ac.uk/events",
+        "HTTP 429：https://www.kcl.ac.uk/terms",
+        "HTTP 429：https://www.kcl.ac.uk/policyhub/modern-slavery-act-transparency-statement",
+        "HTTP 429：https://www.kcl.ac.uk/sitehelp/accessibility",
+        "HTTP 429：https://www.kcl.ac.uk/sitehelp/cookie",
+        "HTTP 429：https://www.kcl.ac.uk/study/home",
+        "HTTP 429：https://www.kcl.ac.uk/study-legacy/abroad",
+        "HTTP 429：https://www.kcl.ac.uk/summer",
+        "HTTP 429：https://www.kcl.ac.uk/accommodation",
+        "HTTP 429：https://www.kcl.ac.uk/campuslife",
+        "https://kcl.ac.uk/sport：无法确认 robots.txt（HTTP 429），本来源停止抓取",
+        "HTTP 429：https://www.kcl.ac.uk/library",
+        "HTTP 429：https://www.kcl.ac.uk/it",
+        "HTTP 429：https://www.kcl.ac.uk/student-life/wellbeing",
+        "HTTP 429：https://www.kcl.ac.uk/research/work-with-kings",
+        "HTTP 429：https://www.kcl.ac.uk/artshums",
+        "HTTP 429：https://www.kcl.ac.uk/law",
+        "HTTP 429：https://www.kcl.ac.uk/nmpc",
+        "HTTP 429：https://www.kcl.ac.uk/business",
+        "HTTP 429：https://www.kcl.ac.uk/lsm",
+        "HTTP 429：https://www.kcl.ac.uk/ioppn",
+        "HTTP 429：https://www.kcl.ac.uk/nmes",
+        "HTTP 429：https://www.kcl.ac.uk/dentistry",
+        "HTTP 429：https://www.kcl.ac.uk/sspp",
+        "HTTP 429：https://www.kcl.ac.uk/about/history",
+        "HTTP 429：https://www.kcl.ac.uk/about/governance-policies-and-procedures/diversity-inclusivity",
+        "HTTP 429：https://www.kcl.ac.uk/students",
+        "HTTP 429：https://www.kcl.ac.uk/alumni",
+        "HTTP 429：https://www.kcl.ac.uk/study/register-your-interest",
+        "HTTP 429：https://www.kcl.ac.uk/study/schools-and-colleges",
+        "HTTP 429：https://www.kcl.ac.uk/study/unibuddy",
+        "HTTP 429：https://www.kcl.ac.uk/policyhub/modern-slavery-act-transparency-statement/modern-slavery-act-transparency-statement",
+        "HTTP 429：https://www.kcl.ac.uk/sitehelp",
+        "HTTP 429：https://www.kcl.ac.uk/study/campus-tours"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-manchester",
+      "displayName": "The University of Manchester",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.manchester.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.manchester.ac.uk",
+        "manchester.ac.uk"
+      ],
+      "discoveredUrls": 254,
+      "parsedProgrammes": 228,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-bristol",
+      "displayName": "University of Bristol",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.bristol.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.bristol.ac.uk",
+        "bristol.ac.uk"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.bristol.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "london-school-of-economics",
+      "displayName": "The London School of Economics and Political Science",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.lse.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.lse.ac.uk",
+        "lse.ac.uk"
+      ],
+      "discoveredUrls": 148,
+      "parsedProgrammes": 33,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 404：https://www.lse.ac.uk/study-at-lse/Undergraduate/one",
+        "robots.txt 禁止抓取：https://www.lse.ac.uk/resources/calendar/programmeRegulations/undergraduate/2026/LLBLaws.htm",
+        "robots.txt 禁止抓取：http://www.lse.ac.uk/resources/calendar/courseGuides/undergraduate.htm",
+        "HTTP 404：http://www.lse.ac.uk/intranet/students/registrationTimetablesAssessment/Registration/Course/Undergraduate/ugcoursechoice.aspx"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-warwick",
+      "displayName": "University of Warwick",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://warwick.ac.uk/"
+      ],
+      "allowedHosts": [
+        "warwick.ac.uk",
+        "www.warwick.ac.uk"
+      ],
+      "discoveredUrls": 121,
+      "parsedProgrammes": 4,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-birmingham",
+      "displayName": "University of Birmingham",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.birmingham.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.birmingham.ac.uk",
+        "birmingham.ac.uk"
+      ],
+      "discoveredUrls": 127,
+      "parsedProgrammes": 42,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-glasgow",
+      "displayName": "University of Glasgow",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.gla.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.gla.ac.uk",
+        "gla.ac.uk"
+      ],
+      "discoveredUrls": 121,
+      "parsedProgrammes": 1,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-southampton",
+      "displayName": "University of Southampton",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.southampton.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.southampton.ac.uk",
+        "southampton.ac.uk"
+      ],
+      "discoveredUrls": 120,
+      "parsedProgrammes": 2,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 404：https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bitem.link%7D",
+        "HTTP 404：https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bchild.link%7D",
+        "HTTP 404：https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bitem.link%7D",
+        "HTTP 404：https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bchild.link%7D",
+        "HTTP 404：https://www.southampton.ac.uk/courses/fees/$%7Bitem.link%7D",
+        "HTTP 404：https://www.southampton.ac.uk/courses/fees/$%7Bchild.link%7D",
+        "HTTP 404：https://www.southampton.ac.uk/my/undergraduate/$%7Bitem.link%7D",
+        "HTTP 404：https://www.southampton.ac.uk/my/undergraduate/$%7Bchild.link%7D",
+        "https://www.southampton.ac.uk/my/undergraduate/index.page?：跳转超出允许域名: www.southamptonmalaysia.edu.my"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-leeds",
+      "displayName": "University of Leeds",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.leeds.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.leeds.ac.uk",
+        "leeds.ac.uk"
+      ],
+      "discoveredUrls": 11,
+      "parsedProgrammes": 1,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-sheffield",
+      "displayName": "The University of Sheffield",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.sheffield.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.sheffield.ac.uk",
+        "sheffield.ac.uk"
+      ],
+      "discoveredUrls": 125,
+      "parsedProgrammes": 78,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-foundation-year-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemical-engineering-foundation-year-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-mchem",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-biological-and-medicinal-chemistry-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/chemistry-biological-and-medicinal-chemistry-mchem",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/civil-and-structural-engineering-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/civil-and-structural-engineering-foundation-year-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/civil-engineering-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/civil-engineering-foundation-year-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-mcomp",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-mcomp",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-foundation-year-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-artificial-intelligence-foundation-year-mcomp",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-foundation-year-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-software-engineering-foundation-year-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-foundation-year-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-science-foundation-year-mcomp",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-foundation-year-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/computer-systems-engineering-foundation-year-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/criminology-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/data-science-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/dental-hygiene-and-dental-therapy-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/dental-surgery-bds",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/digital-media-and-society-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/east-asian-studies-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-and-mathematics-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-and-politics-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/economics-finance-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/education-and-psychology-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-foundation-year-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/electrical-and-electronic-engineering-foundation-year-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-and-history-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-and-modern-languages-cultures-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-and-music-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-and-philosophy-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-language-and-linguistics-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-language-and-literature-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/english-literature-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/environmental-science-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/financial-mathematics-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-beng-hons",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-meng-hons",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-foundation-year-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/general-engineering-foundation-year-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/geography-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/geography-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/geography-and-planning-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/global-sustainable-development-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/graduate-entry-medicine-mbchb",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/history-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/history-and-modern-languages-cultures-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/history-and-philosophy-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/history-and-politics-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/journalism-studies-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/landscape-architecture-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/landscape-architecture-mla",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/law-llb",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/law-european-and-international-llb",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/law-and-criminology-llb",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/linguistics-and-modern-languages-cultures-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-foundation-year-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/materials-science-and-engineering-foundation-year-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mathematics-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mathematics-mmath",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mathematics-and-philosophy-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-foundation-year-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechanical-engineering-foundation-year-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-foundation-year-beng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/mechatronic-and-robotic-engineering-foundation-year-meng",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/medicine-mbchb",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/modern-languages-and-cultures-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/music-bmus",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/music-and-east-asian-studies-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/music-and-modern-languages-cultures-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/nursing-adult-bmedsci",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/orthoptics-bmedsci",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/pharmacy-mpharm",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/philosophy-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/philosophy-politics-and-economics-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/philosophy-religion-and-ethics-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-mphys",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-and-astrophysics-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-and-astrophysics-mphys",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-foundation-year-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/physics-foundation-year-mphys",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/politics-and-international-relations-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/politics-and-modern-languages-cultures-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/politics-and-philosophy-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/politics-and-sociology-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/psychology-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/social-sciences-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/sociology-ba",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/speech-and-language-therapy-bmedsci",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/theoretical-physics-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/theoretical-physics-mphys",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/urban-planning-mplanug",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/zoology-bsc",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/2027/zoology-mbiolsci",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/a/dual-honours",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/b/dual-honours",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/e/dual-honours",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/g/dual-honours",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/h/dual-honours",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/l/dual-honours",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/m/dual-honours",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/courses/p/dual-honours",
+        "HTTP 429：https://www.sheffield.ac.uk/undergraduate/courses/dual-combined-honours-degrees",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/open-days",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/online-information-sessions",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/subject-tasters",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/fees-funding",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/visit",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/campus-tours",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/offer-holder",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/visit/subject-tasters/online",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/tuition-fees-2026",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/loans",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/bursaries",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/additional",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/money-tools",
+        "HTTP 429：https://sheffield.ac.uk/careers/prospective/undergraduate",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/register-your-interest",
+        "HTTP 429：https://sheffield.ac.uk/management/undergraduate/our-careers-and-employability-support/meet-our-alumni",
+        "HTTP 429：https://sheffield.ac.uk/management/undergraduate/our-careers-and-employability-support",
+        "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/velicia",
+        "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/jack-whiteman",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/fees-costs",
+        "HTTP 429：https://sheffield.ac.uk/management/undergraduate/our-careers-and-employability-support/placements-and-internships/work-placements",
+        "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/denisse",
+        "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/brandon",
+        "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/hannah",
+        "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/siung",
+        "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/ethan",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/sefy",
+        "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/jay",
+        "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/hasan",
+        "HTTP 429：https://sheffield.ac.uk/mac/undergraduate/profiles/lawrence",
+        "HTTP 429：https://sheffield.ac.uk/architecture-landscape/undergraduate/profiles/holly-barber",
+        "HTTP 429：https://sheffield.ac.uk/architecture-landscape/undergraduate/profiles/ella-macleod",
+        "HTTP 429：https://sheffield.ac.uk/architecture-landscape/undergraduate/profiles/emma-koch",
+        "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/career",
+        "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/all-profiles/flo-brand",
+        "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/teaching/field",
+        "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/all-profiles/phoebe-gardner-smith",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/ashlin",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/dimitris",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/harriet",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/evelyn",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/katerina",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/yukta",
+        "HTTP 429：https://sheffield.ac.uk/biosciences/undergraduate/all-profiles/hannah-hinchliffe",
+        "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/hamza",
+        "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/josephine",
+        "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/luke",
+        "HTTP 429：https://sheffield.ac.uk/management/undergraduate/meet-our-students/sanjana-dange",
+        "HTTP 429：https://sheffield.ac.uk/las/undergraduate/student-profiles/charlotte",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/daniel",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/thomas",
+        "HTTP 429：https://sheffield.ac.uk/cmbe/undergraduate/profiles/anish",
+        "HTTP 429：https://sheffield.ac.uk/courses",
+        "HTTP 429：https://sheffield.ac.uk/research/centres/cross-faculty",
+        "HTTP 429：https://sheffield.ac.uk/schools/programmes",
+        "HTTP 429：https://sheffield.ac.uk/departments/faculties",
+        "HTTP 429：https://sheffield.ac.uk/courses/home",
+        "HTTP 429：https://sheffield.ac.uk/courses/subjects",
+        "HTTP 429：https://sheffield.ac.uk/education/lifelong-learning/courses",
+        "HTTP 429：https://sheffield.ac.uk/courses/subjects/management-business-administration",
+        "HTTP 429：https://sheffield.ac.uk/courses/aerospace-engineering",
+        "HTTP 429：https://sheffield.ac.uk/courses/subjects/civil-structural-engineering",
+        "HTTP 429：https://sheffield.ac.uk/courses/subjects/architecture-landscape",
+        "HTTP 429：https://sheffield.ac.uk/courses/subjects/biological-life-sciences",
+        "HTTP 429：https://sheffield.ac.uk/courses/subjects/chemical-engineering",
+        "HTTP 429：https://sheffield.ac.uk/courses/subjects/languages-cultures",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/apply",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/requirements",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/application",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/assess",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/results",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/scholarships",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/english-language",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/uk-qualifications",
+        "HTTP 429：https://sheffield.ac.uk/undergraduate/apply/international-qualifications",
+        "HTTP 429：https://sheffield.ac.uk/international/fees-and-funding/scholarships/undergraduate/international-undergraduate-scholarship",
+        "HTTP 429：https://sheffield.ac.uk/?home",
+        "HTTP 429：https://sheffield.ac.uk/postgraduate/taught",
+        "HTTP 429：https://sheffield.ac.uk/postgraduate/phd",
+        "HTTP 429：https://sheffield.ac.uk/apprenticeships",
+        "HTTP 429：https://sheffield.ac.uk/mature/home",
+        "HTTP 429：https://sheffield.ac.uk/online-learning/home",
+        "HTTP 429：https://sheffield.ac.uk/eltc",
+        "HTTP 429：https://sheffield.ac.uk/study/home",
+        "HTTP 429：https://sheffield.ac.uk/study/teaching",
+        "HTTP 429：https://sheffield.ac.uk/study/facilities",
+        "HTTP 429：https://sheffield.ac.uk/study/ranking",
+        "HTTP 429：https://sheffield.ac.uk/study/career",
+        "HTTP 429：https://sheffield.ac.uk/study/su",
+        "HTTP 429：https://sheffield.ac.uk/study/clubs-societies-sport",
+        "HTTP 429：https://sheffield.ac.uk/sheffield-guide/home",
+        "HTTP 429：https://sheffield.ac.uk/study/support",
+        "HTTP 429：https://sheffield.ac.uk/inclusion/race/bame-students",
+        "HTTP 429：https://sheffield.ac.uk/accommodation/home",
+        "HTTP 429：https://sheffield.ac.uk/accommodation/rents",
+        "HTTP 429：https://sheffield.ac.uk/visit-us/home",
+        "HTTP 429：https://sheffield.ac.uk/postgraduate/visit",
+        "HTTP 429：https://sheffield.ac.uk/international/visits",
+        "HTTP 429：https://sheffield.ac.uk/student-visas-immigration/home",
+        "HTTP 429：https://sheffield.ac.uk/international/home",
+        "HTTP 429：https://sheffield.ac.uk/new-students/international-students",
+        "HTTP 429：https://sheffield.ac.uk/international-summer-school/home",
+        "HTTP 429：https://sheffield.ac.uk/postgraduate/taught/fees",
+        "HTTP 429：https://sheffield.ac.uk/postgraduate/taught/funding",
+        "HTTP 429：https://sheffield.ac.uk/postgraduate/phd/fees",
+        "HTTP 429：https://sheffield.ac.uk/money-matters/home",
+        "HTTP 429：https://sheffield.ac.uk/research/home",
+        "HTTP 429：https://sheffield.ac.uk/vision/our-pillars/research",
+        "HTTP 429：https://sheffield.ac.uk/research/people",
+        "HTTP 429：https://sheffield.ac.uk/research/ref-2021",
+        "HTTP 429：https://sheffield.ac.uk/rpi/home",
+        "HTTP 429：https://sheffield.ac.uk/research/culture",
+        "HTTP 429：https://sheffield.ac.uk/openresearch/home",
+        "HTTP 429：https://sheffield.ac.uk/postgraduate/phd/search",
+        "HTTP 429：https://sheffield.ac.uk/postgraduate/phd/projects",
+        "HTTP 429：https://sheffield.ac.uk/research/centres",
+        "HTTP 429：https://sheffield.ac.uk/collaborate/support-industry/access-facilities",
+        "HTTP 429：https://sheffield.ac.uk/library/research",
+        "HTTP 429：https://sheffield.ac.uk/about/impact",
+        "HTTP 429：https://sheffield.ac.uk/research/features",
+        "HTTP 429：https://sheffield.ac.uk/research/features/sdg",
+        "HTTP 429：https://sheffield.ac.uk/research/people/nobel-laureates",
+        "HTTP 429：https://sheffield.ac.uk/about/queens-prize",
+        "HTTP 429：https://sheffield.ac.uk/collaborate/home",
+        "HTTP 429：https://sheffield.ac.uk/collaborate/support-industry",
+        "HTTP 429：https://sheffield.ac.uk/collaborate/partners",
+        "HTTP 429：https://sheffield.ac.uk/city-region/home",
+        "HTTP 429：https://sheffield.ac.uk/internationalpartnerships/home",
+        "HTTP 429：https://sheffield.ac.uk/internationalpartnerships/global-networks",
+        "HTTP 429：https://sheffield.ac.uk/global/we-are-international",
+        "HTTP 429：https://sheffield.ac.uk/globalopps/home",
+        "HTTP 429：https://sheffield.ac.uk/alumni",
+        "HTTP 429：https://sheffield.ac.uk/alumni/update",
+        "HTTP 429：https://sheffield.ac.uk/giving",
+        "HTTP 429：https://sheffield.ac.uk/alumni/our-alumni",
+        "HTTP 429：https://sheffield.ac.uk/alumni/volunteer",
+        "HTTP 429：https://sheffield.ac.uk/giving/home",
+        "HTTP 429：https://sheffield.ac.uk/forged/home",
+        "HTTP 429：https://sheffield.ac.uk/forged/get-involved",
+        "HTTP 429：https://sheffield.ac.uk/giving/donate/online",
+        "HTTP 429：https://sheffield.ac.uk/giving/causes/mnd",
+        "HTTP 429：https://sheffield.ac.uk/schools/home",
+        "HTTP 429：https://sheffield.ac.uk/schools/teachers-advisors",
+        "HTTP 429：https://sheffield.ac.uk/schools/activities",
+        "HTTP 429：https://sheffield.ac.uk/schools/partnerships",
+        "HTTP 429：https://sheffield.ac.uk/cafesandbars/home",
+        "HTTP 429：https://sheffield.ac.uk/about/home",
+        "HTTP 429：https://sheffield.ac.uk/whatson/home",
+        "HTTP 429：https://sheffield.ac.uk/jobs/home",
+        "HTTP 429：https://sheffield.ac.uk/ambition/home",
+        "HTTP 429：https://sheffield.ac.uk/our-education/home",
+        "HTTP 429：https://sheffield.ac.uk/sustainability/home",
+        "HTTP 429：https://sheffield.ac.uk/inclusion/home",
+        "HTTP 429：https://sheffield.ac.uk/about/supporting-sanctuary",
+        "HTTP 429：https://sheffield.ac.uk/vision/home",
+        "HTTP 429：https://sheffield.ac.uk/govern",
+        "HTTP 429：https://sheffield.ac.uk/about/rankings",
+        "HTTP 429：https://sheffield.ac.uk/about/world-top-100",
+        "HTTP 429：https://sheffield.ac.uk/departments",
+        "HTTP 429：https://sheffield.ac.uk/departments/academic",
+        "HTTP 429：https://sheffield.ac.uk/departments/professional-services",
+        "HTTP 429：https://www.sheffield.ac.uk/postgraduate/visit/masters-study-discovery-afternoon",
+        "HTTP 429：https://sheffield.ac.uk/postgraduate/visit/masters-study-discovery-afternoon",
+        "HTTP 429：https://sheffield.ac.uk/education/lifelong-learning",
+        "HTTP 429：https://sheffield.ac.uk/apprenticeships/home",
+        "HTTP 429：https://www.sheffield.ac.uk/postgraduate/taught",
+        "HTTP 429：https://sheffield.ac.uk/research/features/helping-stroke-survivors-regain-independence",
+        "HTTP 429：https://sheffield.ac.uk/whatson/current",
+        "HTTP 429：https://sheffield.ac.uk/accommodation",
+        "HTTP 429：https://sheffield.ac.uk/international",
+        "HTTP 404：https://www.sheffield.ac.uk/undergraduate/courses/index"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "durham-university",
+      "displayName": "Durham University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.durham.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.durham.ac.uk",
+        "durham.ac.uk"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.durham.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-nottingham",
+      "displayName": "University of Nottingham",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.nottingham.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.nottingham.ac.uk",
+        "nottingham.ac.uk"
+      ],
+      "discoveredUrls": 126,
+      "parsedProgrammes": 13,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-st-andrews",
+      "displayName": "University of St Andrews",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.st-andrews.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.st-andrews.ac.uk",
+        "st-andrews.ac.uk"
+      ],
+      "discoveredUrls": 98,
+      "parsedProgrammes": 22,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "queen-mary-university-of-london",
+      "displayName": "Queen Mary University of London",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.qmul.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.qmul.ac.uk",
+        "qmul.ac.uk"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.qmul.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "united-kingdom",
+      "sourceKey": "university-of-bath",
+      "displayName": "University of Bath",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.bath.ac.uk/"
+      ],
+      "allowedHosts": [
+        "www.bath.ac.uk",
+        "bath.ac.uk"
+      ],
+      "discoveredUrls": 149,
+      "parsedProgrammes": 29,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "massachusetts-institute-of-technology",
+      "displayName": "Massachusetts Institute of Technology",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.mit.edu/"
+      ],
+      "allowedHosts": [
+        "www.mit.edu",
+        "mit.edu"
+      ],
+      "discoveredUrls": 12,
+      "parsedProgrammes": 8,
+      "pagesRead": 106,
+      "warnings": [
+        "http://mit.edu/：跳转超出允许域名: web.mit.edu",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_text.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_africanafricandiasporastudiestext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_americanstudiestext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_ancientmedievalstudiestext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_asianasiandiasporastudiestext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_latinamericanlatinostudiestext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_newitemtext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_womensgenderstudiestext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/undergraduate-programs.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/degrees.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/degrees_text.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/degrees_degtext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/academic-programs.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_text.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_concoursetext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_designplustext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_esgtext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_terrascopetext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_freshmangradingtext.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/majors/majors.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/minors/minors.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/undergraduate-research-opportunities-program/undergraduate-research-opportunities-program.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/chemistry-biology/chemistry-biology.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/climate-system-science-engineering/climate-system-science-engineering.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computation-cognition/computation-cognition.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-molecular-biology/computer-science-molecular-biology.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-economics-data-science/computer-science-economics-data-science.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities-engineering/humanities-engineering.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities-science/humanities-science.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/urban-science-planning-computer-science/urban-science-planning-computer-science.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minors.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minor-african-studies/minor-african-studies.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minor-american-studies/minor-american-studies.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/ancient-medieval-studies/ancient-medieval-studies.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/applied-international-studies/applied-international-studies.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/asian-studies/asian-studies.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/astronomy/astronomy.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/biomedical-engineering/biomedical-engineering.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/energy-studies/energy-studies.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/environment-sustainability/environment-sustainability.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/latin-american-latino-studies/latin-american-latino-studies.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/middle-eastern-studies/middle-eastern-studies.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/polymers-soft-matter/polymers-soft-matter.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/public-policy/public-policy.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/russian-eurasian-studies/russian-eurasian-studies.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/statistics-data-science/statistics-data-science.pdf",
+        "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/womens-gender-studies/womens-gender-studies.pdf",
+        "HTTP 404：http://shass.mit.edu/undergraduate/minors/"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "stanford-university",
+      "displayName": "Stanford University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.stanford.edu/"
+      ],
+      "allowedHosts": [
+        "www.stanford.edu",
+        "stanford.edu"
+      ],
+      "discoveredUrls": 18,
+      "parsedProgrammes": 0,
+      "pagesRead": 105,
+      "warnings": [
+        "robots.txt 禁止抓取：https://www.stanford.edu/search",
+        "https://undergrad.stanford.edu/programs/bosp：跳转超出允许域名: bosp.stanford.edu",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_PHOTO-209",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-144",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-126",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-276",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-307",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_LIN-16",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_CLS-141",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_DAN-33",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_WELL-11",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_FRN-01",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_LIT-91",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_MUS-202",
+        "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_FICT-118"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "harvard-university",
+      "displayName": "Harvard University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.harvard.edu/"
+      ],
+      "allowedHosts": [
+        "www.harvard.edu",
+        "harvard.edu"
+      ],
+      "discoveredUrls": 32,
+      "parsedProgrammes": 5,
+      "pagesRead": 120,
+      "warnings": [
+        "https://www.seas.harvard.edu/academics/courses/applied-computation：跳转超出允许域名: seas.harvard.edu",
+        "https://www.hsph.harvard.edu/ecpe/programs/：跳转超出允许域名: hsph.harvard.edu",
+        "HTTP 403：https://www.hks.harvard.edu/centers/mrcbg/programs/education-policy-program/forum",
+        "HTTP 403：https://www.hks.harvard.edu/centers/mrcbg/programs/education-policy-program/higheredforum",
+        "HTTP 403：https://www.hks.harvard.edu/courses/courses-related-climate",
+        "robots.txt 禁止抓取：https://www.hks.harvard.edu/centers/mrcbg/programs/growthpolicy/search?keyword=trade+policy&f%5B0%5D=&op=Search"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "california-institute-of-technology",
+      "displayName": "California Institute of Technology",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://www.caltech.edu/"
+      ],
+      "allowedHosts": [
+        "www.caltech.edu",
+        "caltech.edu"
+      ],
+      "discoveredUrls": 7,
+      "parsedProgrammes": 0,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "university-of-pennsylvania",
+      "displayName": "University of Pennsylvania",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.upenn.edu/"
+      ],
+      "allowedHosts": [
+        "www.upenn.edu",
+        "upenn.edu"
+      ],
+      "discoveredUrls": 27,
+      "parsedProgrammes": 2,
+      "pagesRead": 120,
+      "warnings": [
+        "http://www.upenn.edu/faculty_senate/：跳转超出允许域名: provost.upenn.edu",
+        "https://ugrad.seas.upenn.edu/student-handbook/programs-options/majors/：跳转超出允许域名: academics.seas.upenn.edu",
+        "https://www.bio.upenn.edu/undergraduate/submatriculation/accelerated-dental-program：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "cornell-university",
+      "displayName": "Cornell University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.cornell.edu/"
+      ],
+      "allowedHosts": [
+        "www.cornell.edu",
+        "cornell.edu"
+      ],
+      "discoveredUrls": 121,
+      "parsedProgrammes": 1,
+      "pagesRead": 120,
+      "warnings": [
+        "https://www.cornell.edu/academics/calendar/：跳转超出允许域名: registrar.cornell.edu",
+        "robots.txt 禁止抓取：https://www.cornell.edu/search/people.cfm",
+        "http://www.cornell.edu/leadership/：跳转超出允许域名: leadership.cornell.edu",
+        "HTTP 404：https://www.cornell.edu/about/timeline/item-list",
+        "https://www.cornell.edu/video/dedication-of-the-robert-w-holley-center-for-agriculture-and-health：跳转超出允许域名: vod.video.cornell.edu",
+        "https://www.cornell.edu/cuinfo/specialconditions/：跳转超出允许域名: cuinfo.cornell.edu",
+        "https://sce.cornell.edu/courses/programs/summer：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://sce.cornell.edu/courses/programs/winter：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "https://sce.cornell.edu/courses/programs/part-time：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "yale-university",
+      "displayName": "Yale University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.yale.edu/"
+      ],
+      "allowedHosts": [
+        "www.yale.edu",
+        "yale.edu"
+      ],
+      "discoveredUrls": 11,
+      "parsedProgrammes": 1,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 404：https://jackson.yale.edu/grand-strategy-program/(.*?)",
+        "HTTP 404：https://jackson.yale.edu/grand-strategy-program/.*?",
+        "HTTP 404：https://jackson.yale.edu/schmidt-program-artificial-intelligence/(.*?)",
+        "HTTP 404：https://jackson.yale.edu/schmidt-program-artificial-intelligence/.*?"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "johns-hopkins-university",
+      "displayName": "Johns Hopkins University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.jhu.edu/"
+      ],
+      "allowedHosts": [
+        "www.jhu.edu",
+        "jhu.edu"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.jhu.edu/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "university-of-california-berkeley",
+      "displayName": "University of California, Berkeley",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://www.berkeley.edu/"
+      ],
+      "allowedHosts": [
+        "www.berkeley.edu",
+        "berkeley.edu"
+      ],
+      "discoveredUrls": 38,
+      "parsedProgrammes": 0,
+      "pagesRead": 120,
+      "warnings": [
+        "http://guide.berkeley.edu/undergraduate/degree-programs/：跳转超出允许域名: registrar.berkeley.edu",
+        "HTTP 404：https://ourenvironment.berkeley.edu/undergraduate-programshttps://nature.berkeley.edu/advising/majors/molecular-environmental-biology",
+        "https://guide.berkeley.edu/undergraduate/degree-programs/：跳转超出允许域名: registrar.berkeley.edu",
+        "http://bulletin.berkeley.edu/undergraduate/degree-programs/：getaddrinfo ENOTFOUND bulletin.berkeley.edu"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "university-of-chicago",
+      "displayName": "University of Chicago",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.uchicago.edu/"
+      ],
+      "allowedHosts": [
+        "www.uchicago.edu",
+        "uchicago.edu"
+      ],
+      "discoveredUrls": 40,
+      "parsedProgrammes": 6,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 500：https://www.uchicago.edu/academics/graduate-programs/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+        "HTTP 403：https://www.uchicago.edu/life-at-uchicago/student-life",
+        "HTTP 403：https://www.uchicago.edu/features/teaching_and_inspiring_undergraduates/",
+        "HTTP 500：https://www.uchicago.edu/faculty/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+        "HTTP 500：https://www.uchicago.edu/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+        "HTTP 500：https://www.uchicago.edu/academics/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+        "HTTP 500：https://www.uchicago.edu/who-we-are/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+        "HTTP 404：https://harris.uchicago.edu/academics/undergraduate/uchicagoPBPL@uchicago.edu"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "princeton-university",
+      "displayName": "Princeton University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.princeton.edu/"
+      ],
+      "allowedHosts": [
+        "www.princeton.edu",
+        "princeton.edu"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "HTTP 403：https://www.princeton.edu/"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "columbia-university",
+      "displayName": "Columbia University",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.columbia.edu/"
+      ],
+      "allowedHosts": [
+        "www.columbia.edu",
+        "columbia.edu"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "HTTP 403：https://www.columbia.edu/"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "northwestern-university",
+      "displayName": "Northwestern University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.northwestern.edu/"
+      ],
+      "allowedHosts": [
+        "www.northwestern.edu",
+        "northwestern.edu"
+      ],
+      "discoveredUrls": 29,
+      "parsedProgrammes": 9,
+      "pagesRead": 120,
+      "warnings": [
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/referral-protocol-students-with-academic-behavioral-concerns.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/academic-support.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/inter-school-transfer-advice.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/remote-advising/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/advising-and-academics/schools-advising-leadership.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/connectnu/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/helping-students-financial-challenges/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/promoting-social-emotional-wellness/index.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/lunch-and-learn-sessions.html：跳转超出允许域名: prd-nusso.it.northwestern.edu",
+        "https://www.northwestern.edu/undergraduate-advising/for-faculty-and-advisers/connectnu/adviser-faqs.html：跳转超出允许域名: prd-nusso.it.northwestern.edu"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "university-of-california-los-angeles",
+      "displayName": "University of California, Los Angeles",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.ucla.edu/"
+      ],
+      "allowedHosts": [
+        "www.ucla.edu",
+        "ucla.edu"
+      ],
+      "discoveredUrls": 15,
+      "parsedProgrammes": 5,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 404：https://www.ucla.edu/$%7Bfield_link%20?%20field_link%20:%20`/events/detail/${slug}`}",
+        "https://www.ucla.edu/external-affairs：跳转超出允许域名: externalaffairs.ucla.edu",
+        "https://www.registrar.ucla.edu/Academics/Academic-Counseling：跳转超出允许域名: registrar.ucla.edu"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "university-of-michigan-ann-arbor",
+      "displayName": "University of Michigan-Ann Arbor",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://umich.edu/"
+      ],
+      "allowedHosts": [
+        "umich.edu",
+        "www.umich.edu"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "HTTP 403：https://umich.edu/"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "carnegie-mellon-university",
+      "displayName": "Carnegie Mellon University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.cmu.edu/"
+      ],
+      "allowedHosts": [
+        "www.cmu.edu",
+        "cmu.edu"
+      ],
+      "discoveredUrls": 98,
+      "parsedProgrammes": 1,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 404：https://www.cmu.edu/cfa/music/programs/undergraduate-programs/coursecatalog.web.cmu.edu/schools-colleges/collegeoffinearts/schoolofmusic/",
+        "HTTP 404：https://www.cmu.edu/index.php/tepper/programs/undergraduate-programs",
+        "https://www.cmu.edu/faculty-senate/faculty-handbook/：跳转超出允许域名: login.cmu.edu",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/undergraduateeconomicsprogram.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduatebusinessadministrationprogram/undergraduatebusinessadministrationprogram.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/aboutcmu/undergraduate-options/accelerated-masters-programs/accelerated-masters-programs.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/aboutcmu/undergraduate-options/student-taught-courses/student-taught-courses.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduatebusinessadministrationprogram/business-administration-bs/business-administration-bs.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduatebusinessadministrationprogram/business-administration-additional-major/business-administration-additional-major.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduatebusinessadministrationprogram/courses/courses.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/economics-ba/economics-ba.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/economics-bs/economics-bs.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/economics-mathematical-sciences-bs/economics-mathematical-sciences-bs.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/economics-additional-major/economics-additional-major.pdf",
+        "跳过非 HTML 内容：https://coursecatalog.web.cmu.edu/schools-colleges/tepper/undergraduateeconomicsprogram/courses/courses.pdf",
+        "https://cbd.cmu.edu/education/undergraduate/index.html：跳转超出允许域名: www.cbd.cmu.edu"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "new-york-university",
+      "displayName": "New York University",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://www.nyu.edu/"
+      ],
+      "allowedHosts": [
+        "www.nyu.edu",
+        "nyu.edu"
+      ],
+      "discoveredUrls": 1,
+      "parsedProgrammes": 0,
+      "pagesRead": 34,
+      "warnings": []
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "brown-university",
+      "displayName": "Brown University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.brown.edu/"
+      ],
+      "allowedHosts": [
+        "www.brown.edu",
+        "brown.edu"
+      ],
+      "discoveredUrls": 112,
+      "parsedProgrammes": 60,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "duke-university",
+      "displayName": "Duke University",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.duke.edu/"
+      ],
+      "allowedHosts": [
+        "www.duke.edu",
+        "duke.edu"
+      ],
+      "discoveredUrls": 24,
+      "parsedProgrammes": 11,
+      "pagesRead": 93,
+      "warnings": [
+        "HTTP 403：https://nicholas.duke.edu/marinelab/academics/undergraduate/research-experience-undergraduates",
+        "HTTP 404：https://nicholas.duke.edu/marinelab/academics/undergraduate/martin.brooke@duke.edu",
+        "跳过非 HTML 内容：https://nicholas.duke.edu/sites/default/files/documents/IS-Record-of-Faculty-Mentor-Meetings.xlsx"
+      ]
+    },
+    {
+      "region": "united-states",
+      "sourceKey": "university-of-texas-at-austin",
+      "displayName": "The University of Texas at Austin",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.utexas.edu/"
+      ],
+      "allowedHosts": [
+        "www.utexas.edu",
+        "utexas.edu"
+      ],
+      "discoveredUrls": 15,
+      "parsedProgrammes": 1,
+      "pagesRead": 120,
+      "warnings": [
+        "https://www.utexas.edu/cola/depts/sociology/undergraduate/sociological-insight/Overview.php：跳转超出允许域名: liberalarts.utexas.edu",
+        "https://undergraduates.utexas.edu/academics/facultystaff-awards/cale-mcdowell-award-innovation-undergraduate-studies：跳转超出允许域名: provost.utexas.edu"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "national-university-of-singapore",
+      "displayName": "National University of Singapore",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.nus.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.nus.edu.sg",
+        "nus.edu.sg"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.nus.edu.sg/：无法确认 robots.txt（HTTP 406），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "nanyang-technological-university",
+      "displayName": "Nanyang Technological University, Singapore",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.ntu.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.ntu.edu.sg",
+        "ntu.edu.sg"
+      ],
+      "discoveredUrls": 229,
+      "parsedProgrammes": 148,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/30a0d6cf-ee5e-4d4c-8a90-e2b020aac53f%20'30a0d6cf-ee5e-4d4c-8a90-e2b020aac53f&",
+        "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/7e760edc-7798-4772-97d1-0e1c480f815c%20'7e760edc-7798-4772-97d1-0e1c480f815c&",
+        "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/1c77ad83-4a90-41f1-8172-8edec3caf93e%20'1c77ad83-4a90-41f1-8172-8edec3caf93e&",
+        "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/f7cfc941-a969-404f-931a-729a0abf3ef8%20'f7cfc941-a969-404f-931a-729a0abf3ef8&",
+        "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/101b8796-be55-4428-bb39-2d30e4e83917%20'101b8796-be55-4428-bb39-2d30e4e83917&",
+        "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/c71dad24-10d2-4dd3-89b3-8e22eeb9231b%20'c71dad24-10d2-4dd3-89b3-8e22eeb9231b&"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "singapore-university-of-technology-and-design",
+      "displayName": "Singapore University of Technology and Design",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.sutd.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.sutd.edu.sg",
+        "sutd.edu.sg"
+      ],
+      "discoveredUrls": 121,
+      "parsedProgrammes": 1,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "singapore-management-university",
+      "displayName": "Singapore Management University",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://www.smu.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.smu.edu.sg",
+        "smu.edu.sg"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 1,
+      "warnings": []
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "singapore-institute-of-technology",
+      "displayName": "Singapore Institute of Technology",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://www.singaporetech.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.singaporetech.edu.sg",
+        "singaporetech.edu.sg"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 1,
+      "warnings": []
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "singapore-university-of-social-sciences",
+      "displayName": "Singapore University of Social Sciences",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.suss.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.suss.edu.sg",
+        "suss.edu.sg"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.suss.edu.sg/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "university-of-the-arts-singapore",
+      "displayName": "University of the Arts Singapore",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://uas.edu.sg/"
+      ],
+      "allowedHosts": [
+        "uas.edu.sg",
+        "www.uas.edu.sg"
+      ],
+      "discoveredUrls": 5,
+      "parsedProgrammes": 0,
+      "pagesRead": 101,
+      "warnings": [
+        "HTTP 404：https://uas.edu.sg/programmes/res.UseExternalLink%20?%20res.LearnMoreUrl%20:%20res.DetailPageUrl",
+        "HTTP 404：https://uas.edu.sg/the-uas-experience/in-depth-programme",
+        "HTTP 404：https://uas.edu.sg/res.UseExternalLink%20?%20res.LearnMoreUrl%20:%20res.DetailPageUrl",
+        "https://mailto:industry@uas.edu.sg/：网址不得包含账号信息",
+        "HTTP 404：https://uas.edu.sg/cdn-cgi/l/email-protection",
+        "HTTP 404：https://uas.edu.sg/eBook/Year-In-Review/2024/files/basic-html/index.html",
+        "HTTP 404：https://uas.edu.sg/eBook/Year-In-Review/2023/files/basic-html/index.html",
+        "HTTP 404：https://uas.edu.sg/programmes/res.ApplyUrl",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/about-us/year-in-review/uas-year-in-review-2024-2025.pdf?sfvrsn=e1917ef5_2",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/about-us/year-in-review/uas-year-in-review-2023-2024.pdf?sfvrsn=10f00f8e_2",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/about-us/year-in-review/uas-year-in-review-2022-2023.pdf?sfvrsn=b10fc7cf_1",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Full.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-About-us.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Message-Chairman.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Message-Vice-Chancellor.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Our-leadership.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Org-structure.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Financials.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-ESR.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-ERM.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Achievements-collaborations.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Highlights-LASALLE.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Highlights-NAFA.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Gifts.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Corp-gov-framework.pdf",
+        "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Audited-FS.pdf",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/events/2025/uas-arts-education-symposium-2025-speakers-profiles.pdf?sfvrsn=915ff732_2",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/events/2026/uas-cf26-event-calendar.pdf",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/forms/venue-hire-application-form.pdf?sfvrsn=fba0b26b_7",
+        "HTTP 404：https://uas.edu.sg/res.ApplyUrl",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/forms/uas-harassment-complaint-form.pdf?sfvrsn=7a614e30_1",
+        "HTTP 404：https://uas.edu.sg/news-and-events/newsdetails?title=UAS+Career+Fair+2025",
+        "HTTP 404：https://uas.edu.sg/news-and-events/newsdetails?title=The+University+of+the+Arts+Singapore+unveils+its+logo+%0dat+the+Inaugural+UAS+Arts+Symposium+%0d%E2%80%9CTransforming+Arts+Education%3a+Our+Collective+Mission%E2%80%9D+-+Media+coverage",
+        "HTTP 404：https://uas.edu.sg/news-and-events/newsdetails?title=%27Why+a+university+of+the+arts+now?%27+-+Professor+Chan+Heng+Chee,+for+The+Straits+Times",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/uas-symposium-10-may-2023-vc's-keynote.pdf",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/zb31may2026page4.pdf?sfvrsn=4a73418b_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/st3aug2026.pdf?sfvrsn=9d618975_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/zb8aug2026page6.pdf?sfvrsn=ec78e014_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/sm7aug2026page4.pdf?sfvrsn=52a588d6_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2024/st12aug2024-combined.pdf?sfvrsn=d1776f59_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2024/zb11aug2024page5.pdf?sfvrsn=44e57035_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/bh17aug2026pages16-17---crop.pdf?sfvrsn=8ec27ae1_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/admissions/scholarships-and-financial-aids/nac-uas-arts-scholarship-terms-and-conditions.pdf?sfvrsn=7b37dd4f_4",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2025/uas-lasalle-postgraduate-convocation-2025-annex-a.pdf?sfvrsn=53e16b5e_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2025/tm10nov2025page4.pdf?sfvrsn=121c2481_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2025/mapletree-uas-conclude-sg60-annex-a.pdf?sfvrsn=222fa2fe_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/mapletree-young-composers-initiative-performance-award-ceremony-annex-a.pdf?sfvrsn=8b859717_1",
+        "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/uas-marks-first-overseas-residency-collaboration-annex-a.pdf?sfvrsn=57f16165_1"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "insead-asia-campus",
+      "displayName": "INSEAD Asia Campus",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.insead.edu/about-insead/asia-campus"
+      ],
+      "allowedHosts": [
+        "www.insead.edu",
+        "insead.edu"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.insead.edu/about-insead/asia-campus：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "essec-asia-pacific",
+      "displayName": "ESSEC Asia-Pacific",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://www.essec.edu/en/pages/asia-pacific/"
+      ],
+      "allowedHosts": [
+        "www.essec.edu",
+        "essec.edu"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "HTTP 404：https://www.essec.edu/en/pages/asia-pacific/"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "tum-asia",
+      "displayName": "TUM Asia",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://tum-asia.edu.sg/"
+      ],
+      "allowedHosts": [
+        "tum-asia.edu.sg",
+        "www.tum-asia.edu.sg"
+      ],
+      "discoveredUrls": 8,
+      "parsedProgrammes": 4,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "sp-jain-singapore",
+      "displayName": "SP Jain School of Global Management Singapore",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.spjain.sg/"
+      ],
+      "allowedHosts": [
+        "www.spjain.sg",
+        "spjain.sg"
+      ],
+      "discoveredUrls": 81,
+      "parsedProgrammes": 19,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 404：https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-1-aspirant",
+        "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/message-from-the-dean",
+        "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/careers",
+        "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/learning-outcomes",
+        "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/specialisations",
+        "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/projects",
+        "HTTP 404：https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options",
+        "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics",
+        "HTTP 404：https://www.spjain.sg/programs/undergraduate/bec/academics",
+        "HTTP 404：https://www.spjain.sg/programs/postgraduate/executive-mba",
+        "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business.",
+        "HTTP 404：https://www.spjain.sg/programs/postgraduate/emba/fees",
+        "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-management/message-from-program-director",
+        "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-management/brochure",
+        "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-managementhttps://appforms.spjain.org/index.aspx"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "digipen-singapore",
+      "displayName": "DigiPen Institute of Technology Singapore",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.digipen.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.digipen.edu.sg",
+        "digipen.edu.sg"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "robots.txt 禁止抓取：https://www.digipen.edu.sg/"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "sorbonne-assas-asia",
+      "displayName": "Sorbonne-Assas International Law School – Asia",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://www.assas-international.com/en/campuses/singapore"
+      ],
+      "allowedHosts": [
+        "www.assas-international.com",
+        "assas-international.com"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "HTTP 404：https://www.assas-international.com/en/campuses/singapore"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "ehl-campus-singapore",
+      "displayName": "EHL Campus Singapore",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://www.ehl.edu/en/campuses/singapore-campus"
+      ],
+      "allowedHosts": [
+        "www.ehl.edu",
+        "ehl.edu"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "HTTP 404：https://www.ehl.edu/en/campuses/singapore-campus"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "duke-nus-medical-school",
+      "displayName": "Duke-NUS Medical School",
+      "status": "NEEDS_ADAPTER",
+      "officialEntryUrls": [
+        "https://www.duke-nus.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.duke-nus.edu.sg",
+        "duke-nus.edu.sg"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 1,
+      "warnings": []
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "james-cook-university-singapore",
+      "displayName": "James Cook University Singapore",
+      "status": "BLOCKED",
+      "officialEntryUrls": [
+        "https://www.jcu.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.jcu.edu.sg",
+        "jcu.edu.sg"
+      ],
+      "discoveredUrls": 0,
+      "parsedProgrammes": 0,
+      "pagesRead": 0,
+      "warnings": [
+        "https://www.jcu.edu.sg/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "curtin-singapore",
+      "displayName": "Curtin Singapore",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://curtin.edu.sg/"
+      ],
+      "allowedHosts": [
+        "curtin.edu.sg",
+        "www.curtin.edu.sg"
+      ],
+      "discoveredUrls": 55,
+      "parsedProgrammes": 27,
+      "pagesRead": 120,
+      "warnings": []
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "sim-global-education",
+      "displayName": "SIM Global Education",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.sim.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.sim.edu.sg",
+        "sim.edu.sg"
+      ],
+      "discoveredUrls": 120,
+      "parsedProgrammes": 11,
+      "pagesRead": 120,
+      "warnings": [
+        "HTTP 404：https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/.showmore--0",
+        "HTTP 404：https://www.sim.edu.sg/degrees-diplomas/programmes/disciplines/.showmore--0"
+      ]
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "kaplan-singapore",
+      "displayName": "Kaplan Singapore",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.kaplan.com.sg/"
+      ],
+      "allowedHosts": [
+        "www.kaplan.com.sg",
+        "kaplan.com.sg"
+      ],
+      "discoveredUrls": 8,
+      "parsedProgrammes": 8,
+      "pagesRead": 40,
+      "warnings": []
+    },
+    {
+      "region": "singapore",
+      "sourceKey": "psb-academy",
+      "displayName": "PSB Academy",
+      "status": "PARTIAL",
+      "officialEntryUrls": [
+        "https://www.psb-academy.edu.sg/"
+      ],
+      "allowedHosts": [
+        "www.psb-academy.edu.sg",
+        "psb-academy.edu.sg"
+      ],
+      "discoveredUrls": 78,
+      "parsedProgrammes": 76,
+      "pagesRead": 120,
+      "warnings": []
+    }
+  ]
+}

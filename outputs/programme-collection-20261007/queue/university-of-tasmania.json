@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "university-of-tasmania",
+    "displayName": "University of Tasmania",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.utas.edu.au/"
+    ],
+    "allowedHosts": [
+      "www.utas.edu.au",
+      "utas.edu.au"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.utas.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

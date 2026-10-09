@@ -1,0 +1,4085 @@
+{
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:39:28.305Z",
+  "recordCount": 80,
+  "records": [
+    {
+      "region": "英国",
+      "sourceKey": "imperial-college-london",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "帝国理工学院",
+      "nameEn": "Imperial College London",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.imperial.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 1,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": "2026-10-05T06:59:42.028Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.imperial.ac.uk/T4Assets/favicon-196x196.png",
+          "sourceUrl": "https://www.imperial.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T06:59:42.028Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.imperial.ac.uk/",
+          "sourcePageTitle": "Imperial College London",
+          "sourceHash": "14c3e8bef191c11373342a843dcadc32543363bf2e9bb46a8292d9081e77ea66",
+          "fetchedAt": "2026-10-05T06:59:42.028Z",
+          "field": "name",
+          "rawText": "Imperial College London"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-oxford",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "牛津大学",
+      "nameEn": "University of Oxford",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Oxford",
+      "descriptionZh": null,
+      "descriptionEn": "The University of Oxford is a collegiate research university in Oxford, England. There is evidence of teaching as early as 1096, making it the oldest university in the English-speaking world and the world’s second-oldest university in continuous operation. It grew rapidly from 1167, when Henry II prohibited English students from attending the University of Paris. After escalating conflict between students and the Oxford townspeople, some Oxford academics fled northeast to Cambridge, where they established the University of Cambridge in 1209. The two universities share many common features and are jointly referred to as Oxbridge.",
+      "officialWebsite": "https://www.ox.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 2,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Arms_of_University_of_Oxford.svg/500px-Arms_of_University_of_Oxford.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Oxford",
+          "sourceCheckedAt": "2026-10-06T01:41:13.203Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/University%20of%20Oxford.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:University_of_Oxford.svg",
+          "sourceCheckedAt": "2026-10-06T01:41:13.203Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20oxford%20aerial%20panorama%202016.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:1_oxford_aerial_panorama_2016.jpg",
+          "sourceCheckedAt": "2026-10-06T01:41:13.203Z",
+          "licenceRaw": "CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "CREST",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arms%20of%20University%20of%20Oxford.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arms_of_University_of_Oxford.svg",
+          "sourceCheckedAt": "2026-10-06T01:48:23.391Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Oxford",
+          "sourcePageTitle": "University of Oxford",
+          "sourceHash": "1245686a1fcb2fa2a50995c70e09078e769627688f45f072a2ccee81e179324b",
+          "fetchedAt": "2026-10-06T01:41:13.203Z",
+          "field": "description",
+          "rawText": "The University of Oxford is a collegiate research university in Oxford, England. There is evidence of teaching as early as 1096, making it the oldest university in the English-speaking world and the world’s second-oldest university in continuous operation. It grew rapidly from 1167, when Henry II prohibited English students from attending the University of Paris. After escalating conflict between students and the Oxford townspeople, some Oxford academics fled northeast to Cambridge, where they established the University of Cambridge in 1209. The two universities share many common features and are jointly referred to as Oxbridge."
+        }
+      ],
+      "warnings": [
+        "https://www.ox.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q34433",
+          "sourcePageTitle": "University of Oxford",
+          "retrievedAt": "2026-10-06T01:41:13.203Z",
+          "sourceHash": "a27212f7b4dee3fddf859381b8cbd2d8bcc6f5b23a8557185fc0e340c8145253",
+          "entityId": "Q34433"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Oxford",
+          "sourcePageTitle": "University of Oxford",
+          "retrievedAt": "2026-10-06T01:41:13.203Z",
+          "sourceHash": "1245686a1fcb2fa2a50995c70e09078e769627688f45f072a2ccee81e179324b"
+        }
+      ]
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-cambridge",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "剑桥大学",
+      "nameEn": "University of Cambridge",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Cambridge",
+      "descriptionZh": null,
+      "descriptionEn": "The University of Cambridge is one of the world’s leading universities, with a rich history of radical thinking dating back to 1209.",
+      "officialWebsite": "https://www.cam.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 3,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": "2026-10-05T06:59:48.842Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.cam.ac.uk/sites/default/files/about-the-university/senate-house-5717258098-0cb6542b9b-b.jpg",
+          "sourceUrl": "https://www.cam.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T06:59:48.842Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.cam.ac.uk/",
+          "sourcePageTitle": "University of Cambridge",
+          "sourceHash": "9a9fd4b44e94db121c7aa11402ec566d0da92d506e495a0cfb0fd7001eaeb727",
+          "fetchedAt": "2026-10-05T06:59:48.842Z",
+          "field": "name",
+          "rawText": "University of Cambridge"
+        },
+        {
+          "sourceUrl": "https://www.cam.ac.uk/",
+          "sourcePageTitle": "University of Cambridge",
+          "sourceHash": "9a9fd4b44e94db121c7aa11402ec566d0da92d506e495a0cfb0fd7001eaeb727",
+          "fetchedAt": "2026-10-05T06:59:48.842Z",
+          "field": "description",
+          "rawText": "The University of Cambridge is one of the world’s leading universities, with a rich history of radical thinking dating back to 1209."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-college-london",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "伦敦大学学院（UCL）",
+      "nameEn": "UCL",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "descriptionZh": null,
+      "descriptionEn": "University College London, which operates as UCL, is a public research university in London, England. It is a member institution of the federal University of London, and is the second-largest university in the United Kingdom by total enrolment and the largest by postgraduate enrolment.",
+      "officialWebsite": "https://www.ucl.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 4,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/UCL%20Crest.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:UCL_Crest.svg",
+          "sourceCheckedAt": "2026-10-06T01:41:16.354Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wilkins%20Building%201%2C%20UCL%2C%20London%20-%20Diliff.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wilkins_Building_1%2C_UCL%2C_London_-_Diliff.jpg",
+          "sourceCheckedAt": "2026-10-06T01:41:16.354Z",
+          "licenceRaw": "CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_College_London",
+          "sourcePageTitle": "University College London",
+          "sourceHash": "166dcc94a779c708d9d91e374a748cd74950280d2e18985d655fd56a3bff0635",
+          "fetchedAt": "2026-10-06T01:41:16.354Z",
+          "field": "description",
+          "rawText": "University College London, which operates as UCL, is a public research university in London, England. It is a member institution of the federal University of London, and is the second-largest university in the United Kingdom by total enrolment and the largest by postgraduate enrolment."
+        }
+      ],
+      "warnings": [
+        "https://www.ucl.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q193196",
+          "sourcePageTitle": "University College London",
+          "retrievedAt": "2026-10-06T01:41:16.354Z",
+          "sourceHash": "66f67a2fc225b20f506e6413c87cd7645d00c800bb9dcd21dc2a006072a6c828",
+          "entityId": "Q193196"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_College_London",
+          "sourcePageTitle": "University College London",
+          "retrievedAt": "2026-10-06T01:41:16.354Z",
+          "sourceHash": "166dcc94a779c708d9d91e374a748cd74950280d2e18985d655fd56a3bff0635"
+        }
+      ]
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-edinburgh",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "爱丁堡大学",
+      "nameEn": "The University of Edinburgh",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Edinburgh",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.ed.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 5,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": "2026-10-05T06:59:55.612Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.ed.ac.uk/themes/upstream/wpp_theme/images/uoe-logo-centred-black.png",
+          "sourceUrl": "https://www.ed.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T06:59:55.612Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.ed.ac.uk/",
+          "sourcePageTitle": "The University of Edinburgh",
+          "sourceHash": "3811d821782c694151539a47bd12981223fe1f2c816c198f0061d05db270f08e",
+          "fetchedAt": "2026-10-05T06:59:55.612Z",
+          "field": "name",
+          "rawText": "The University of Edinburgh"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "kings-college-london",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "伦敦国王学院",
+      "nameEn": "King’s College London",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.kcl.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 6,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": "2026-10-05T06:59:57.322Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://kcl.ac.uk/SiteElements/2017/images/kcl-logo.jpg",
+          "sourceUrl": "https://www.kcl.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T06:59:57.322Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kcl.ac.uk/",
+          "sourcePageTitle": "King's College London",
+          "sourceHash": "3f32d7568b52cd2a89ff109d4a9d9d555efafb9052097671f28138d7972a2055",
+          "fetchedAt": "2026-10-05T06:59:57.322Z",
+          "field": "name",
+          "rawText": "King’s College London"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-manchester",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "曼彻斯特大学",
+      "nameEn": "The University of Manchester",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Manchester",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.manchester.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 7,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": "2026-10-05T06:59:58.295Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.manchester.ac.uk/Museum-1200x630.jpg",
+          "sourceUrl": "https://www.manchester.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T06:59:58.295Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.manchester.ac.uk/",
+          "sourcePageTitle": "The University of Manchester",
+          "sourceHash": "fef8f6c0964c5d9763be55d31b61694677cd28968eed8686c0ba3d00988ebf2d",
+          "fetchedAt": "2026-10-05T06:59:58.295Z",
+          "field": "name",
+          "rawText": "The University of Manchester"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-bristol",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "布里斯托大学",
+      "nameEn": "University of Bristol",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Bristol",
+      "descriptionZh": null,
+      "descriptionEn": "The University of Bristol is a public research university in Bristol, England. It received its royal charter in 1909, although it can trace its roots to University College, Bristol, established in 1876. Bristol Medical School, founded in 1833, was merged with the university college in 1893, and later became the university's school of medicine.",
+      "officialWebsite": "https://www.bristol.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 8,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Shield_of_the_University_of_Bristol.svg/3840px-Shield_of_the_University_of_Bristol.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Bristol",
+          "sourceCheckedAt": "2026-10-06T01:41:19.145Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/University%20of%20Bristol.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:University_of_Bristol.jpg",
+          "sourceCheckedAt": "2026-10-06T01:41:19.145Z",
+          "licenceRaw": "CC0 | http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "CREST",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/University%20of%20Bristol%20shield.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:University_of_Bristol_shield.svg",
+          "sourceCheckedAt": "2026-10-06T01:48:23.392Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Bristol",
+          "sourcePageTitle": "University of Bristol",
+          "sourceHash": "c31c412caaed190df229d2a375aae7ada6d0cfcd3673ad4992dd4874f87fb410",
+          "fetchedAt": "2026-10-06T01:41:19.145Z",
+          "field": "description",
+          "rawText": "The University of Bristol is a public research university in Bristol, England. It received its royal charter in 1909, although it can trace its roots to University College, Bristol, established in 1876. Bristol Medical School, founded in 1833, was merged with the university college in 1893, and later became the university's school of medicine."
+        }
+      ],
+      "warnings": [
+        "https://www.bristol.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q459506",
+          "sourcePageTitle": "University of Bristol",
+          "retrievedAt": "2026-10-06T01:41:19.145Z",
+          "sourceHash": "d27119b306aed23aba7f93a5a0234ffdfbafa48d47b55a1d9f951216d91b2df4",
+          "entityId": "Q459506"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Bristol",
+          "sourcePageTitle": "University of Bristol",
+          "retrievedAt": "2026-10-06T01:41:19.145Z",
+          "sourceHash": "c31c412caaed190df229d2a375aae7ada6d0cfcd3673ad4992dd4874f87fb410"
+        }
+      ]
+    },
+    {
+      "region": "英国",
+      "sourceKey": "london-school-of-economics",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "伦敦政治经济学院（LSE）",
+      "nameEn": "The London School of Economics and Political Science",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.lse.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 9,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": "2026-10-05T07:00:08.465Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.lse.ac.uk/all-images/london-westminster-june-24-0012.x26beb190.jpg",
+          "sourceUrl": "https://www.lse.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T07:00:08.465Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.lse.ac.uk/",
+          "sourcePageTitle": "The London School of Economics and Political Science - LSE",
+          "sourceHash": "e473e8a9ebb728239ff0684e4c90b7f8aeb042ddbd9d0f24f8efde1e128c3755",
+          "fetchedAt": "2026-10-05T07:00:08.465Z",
+          "field": "name",
+          "rawText": "The London School of Economics and Political Science"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-warwick",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "华威大学",
+      "nameEn": "University of Warwick",
+      "countryRaw": "GB",
+      "cityRaw": "Coventry",
+      "descriptionZh": null,
+      "descriptionEn": "A leading UK university offering undergraduate and postgraduate programmes across arts, sciences, engineering and social sciences.",
+      "officialWebsite": "https://warwick.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 10,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+      "sourceCheckedAt": "2026-10-05T07:00:09.451Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://warwick.ac.uk/static_war/render/id7/images/wordmark.svg.136055278947",
+          "sourceUrl": "https://warwick.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T07:00:09.451Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://warwick.ac.uk/250188_og-image_creation_-_lavender.jpg",
+          "sourceUrl": "https://warwick.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T07:00:09.451Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://warwick.ac.uk/",
+          "sourcePageTitle": "University of Warwick - Study at a top 10 UK University",
+          "sourceHash": "e8c204d95c7a9ff7a6a0a19c7f7ffc63746a520c977bb04958bcac19694f078e",
+          "fetchedAt": "2026-10-05T07:00:09.451Z",
+          "field": "name",
+          "rawText": "University of Warwick"
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/",
+          "sourcePageTitle": "University of Warwick - Study at a top 10 UK University",
+          "sourceHash": "e8c204d95c7a9ff7a6a0a19c7f7ffc63746a520c977bb04958bcac19694f078e",
+          "fetchedAt": "2026-10-05T07:00:09.451Z",
+          "field": "description",
+          "rawText": "A leading UK university offering undergraduate and postgraduate programmes across arts, sciences, engineering and social sciences."
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/",
+          "sourcePageTitle": "University of Warwick - Study at a top 10 UK University",
+          "sourceHash": "e8c204d95c7a9ff7a6a0a19c7f7ffc63746a520c977bb04958bcac19694f078e",
+          "fetchedAt": "2026-10-05T07:00:09.451Z",
+          "field": "city",
+          "rawText": "Coventry"
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/",
+          "sourcePageTitle": "University of Warwick - Study at a top 10 UK University",
+          "sourceHash": "e8c204d95c7a9ff7a6a0a19c7f7ffc63746a520c977bb04958bcac19694f078e",
+          "fetchedAt": "2026-10-05T07:00:09.451Z",
+          "field": "countryRaw",
+          "rawText": "GB"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-birmingham",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "伯明翰大学",
+      "nameEn": "University of Birmingham",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Birmingham",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.birmingham.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 11,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": "2026-10-05T07:00:11.116Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.birmingham.ac.uk/media-library/study/campus-aston-webb.x3eed4ed1.jpg?w=1200&h=630&q=80&fit=crop",
+          "sourceUrl": "https://www.birmingham.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T07:00:11.116Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.birmingham.ac.uk/",
+          "sourcePageTitle": "A leading global university - University of Birmingham",
+          "sourceHash": "3976956cc4c1952e1055ff70f36bab3718ea06dab05520729924f675ae81ecc9",
+          "fetchedAt": "2026-10-05T07:00:11.116Z",
+          "field": "name",
+          "rawText": "University of Birmingham"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-glasgow",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "格拉斯哥大学",
+      "nameEn": "University of Glasgow",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Glasgow",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.gla.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 12,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": "2026-10-05T07:00:12.384Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.gla.ac.uk/",
+          "sourcePageTitle": "The University of Glasgow, Scotland, UK. A world top 100 university",
+          "sourceHash": "1cc131b90a6d8dc05f7879de2a8d377f76802d8bad66b028043ce3fb6e3df6f9",
+          "fetchedAt": "2026-10-05T07:00:12.384Z",
+          "field": "name",
+          "rawText": "University of Glasgow"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-southampton",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "南安普顿大学",
+      "nameEn": "University of Southampton",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Southampton",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.southampton.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 13,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": "2026-10-05T07:00:14.508Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/",
+          "sourcePageTitle": "Changing the world starts with how we see it | University of Southampton",
+          "sourceHash": "924a8084b9d523bb409831f627b60dc2d0ebd2ae77396b27de7415cf0a10127b",
+          "fetchedAt": "2026-10-05T07:00:14.508Z",
+          "field": "name",
+          "rawText": "University of Southampton"
+        },
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/",
+          "sourcePageTitle": "Changing the world starts with how we see it | University of Southampton",
+          "sourceHash": "924a8084b9d523bb409831f627b60dc2d0ebd2ae77396b27de7415cf0a10127b",
+          "fetchedAt": "2026-10-05T07:00:14.508Z",
+          "field": "city",
+          "rawText": "Southampton"
+        },
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/",
+          "sourcePageTitle": "Changing the world starts with how we see it | University of Southampton",
+          "sourceHash": "924a8084b9d523bb409831f627b60dc2d0ebd2ae77396b27de7415cf0a10127b",
+          "fetchedAt": "2026-10-05T07:00:14.508Z",
+          "field": "countryRaw",
+          "rawText": "United Kingdom"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-leeds",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "利兹大学",
+      "nameEn": "University of Leeds",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Leeds",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.leeds.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 14,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": "2026-10-05T07:00:16.341Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.leeds.ac.uk/",
+          "sourcePageTitle": "University of Leeds",
+          "sourceHash": "78096277c083d2abe0114983ccf39c603c01f0ab7793ed4777b9ff0cf9fcba42",
+          "fetchedAt": "2026-10-05T07:00:16.341Z",
+          "field": "name",
+          "rawText": "University of Leeds"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-sheffield",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "谢菲尔德大学",
+      "nameEn": "The University of Sheffield",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Sheffield",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://sheffield.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 15,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": "2026-10-05T07:00:17.726Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://sheffield.ac.uk/sites/default/files/styles/two_thirds_2x/public/2026-03/Cover_v03_large%20%281%29.jpg?h=647c1a54&itok=KoMY2ZRi",
+          "sourceUrl": "https://sheffield.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T07:00:17.726Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://sheffield.ac.uk/",
+          "sourcePageTitle": "Home | The University of Sheffield",
+          "sourceHash": "21dd9477451dc21fe7f1304eff053ff0c678a708168fc48f5d07a95d910b2b86",
+          "fetchedAt": "2026-10-05T07:00:17.726Z",
+          "field": "name",
+          "rawText": "The University of Sheffield"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "durham-university",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "杜伦大学",
+      "nameEn": "Durham University",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Durham",
+      "descriptionZh": null,
+      "descriptionEn": "The University of Durham, which operates under the trading name of Durham University, is a collegiate public research university in Durham, England, founded by an Act of Parliament in 1832 and incorporated by royal charter in 1837. It was the first recognised university to open in England for more than 600 years, after Oxford and Cambridge, and is thus identified by historians as the third-oldest university in England. As a collegiate university, its main functions are divided between the academic departments of the university and its 17 colleges. In general, the departments perform research and provide teaching to students, while the colleges are responsible for their domestic arrangements and welfare.",
+      "officialWebsite": "https://www.durham.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 16,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/University_of_Durham_arms.svg/3840px-University_of_Durham_arms.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Durham_University",
+          "sourceCheckedAt": "2026-10-06T01:41:23.431Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Durham%20-%20Castle%20-%2002.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Durham_-_Castle_-_02.jpg",
+          "sourceCheckedAt": "2026-10-06T01:41:23.431Z",
+          "licenceRaw": "CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "CREST",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/University%20of%20Durham%20arms.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:University_of_Durham_arms.svg",
+          "sourceCheckedAt": "2026-10-06T01:48:23.392Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Durham_University",
+          "sourcePageTitle": "Durham University",
+          "sourceHash": "81d4a6ba802360dc9599362bd50c76c1d901316d59037aa0adb1d46a0b4522fc",
+          "fetchedAt": "2026-10-06T01:41:23.431Z",
+          "field": "description",
+          "rawText": "The University of Durham, which operates under the trading name of Durham University, is a collegiate public research university in Durham, England, founded by an Act of Parliament in 1832 and incorporated by royal charter in 1837. It was the first recognised university to open in England for more than 600 years, after Oxford and Cambridge, and is thus identified by historians as the third-oldest university in England. As a collegiate university, its main functions are divided between the academic departments of the university and its 17 colleges. In general, the departments perform research and provide teaching to students, while the colleges are responsible for their domestic arrangements and welfare."
+        }
+      ],
+      "warnings": [
+        "https://www.durham.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q458393",
+          "sourcePageTitle": "Durham University",
+          "retrievedAt": "2026-10-06T01:41:23.431Z",
+          "sourceHash": "c58d50c4520d508f6f1bf46d157b034f00d839ded4ac4e93c55689dc20636cb9",
+          "entityId": "Q458393"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Durham_University",
+          "sourcePageTitle": "Durham University",
+          "retrievedAt": "2026-10-06T01:41:23.431Z",
+          "sourceHash": "81d4a6ba802360dc9599362bd50c76c1d901316d59037aa0adb1d46a0b4522fc"
+        }
+      ]
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-nottingham",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "诺丁汉大学",
+      "nameEn": "University of Nottingham",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Nottingham",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.nottingham.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 17,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": "2026-10-05T07:00:25.864Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.nottingham.ac.uk/",
+          "sourcePageTitle": "University of Nottingham",
+          "sourceHash": "e2df9eae85e2a527937e598c5314647f8d694b67dd0fe17cfe75f2ddd4b5ac11",
+          "fetchedAt": "2026-10-05T07:00:25.864Z",
+          "field": "name",
+          "rawText": "University of Nottingham"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-st-andrews",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "圣安德鲁斯大学",
+      "nameEn": "University of St Andrews",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "St Andrews",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.st-andrews.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 18,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": "2026-10-05T07:00:26.939Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://www.st-andrews.ac.uk/php/meta/university-of-st-andrews-logo.png",
+          "sourceUrl": "https://www.st-andrews.ac.uk/",
+          "sourceCheckedAt": "2026-10-05T07:00:26.939Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.st-andrews.ac.uk/",
+          "sourcePageTitle": null,
+          "sourceHash": "d5b71d1edb3a713f968433f691c84ab969eab45d72688be7230de3e47e4c3df8",
+          "fetchedAt": "2026-10-05T07:00:26.939Z",
+          "field": "name",
+          "rawText": "University of St Andrews"
+        },
+        {
+          "sourceUrl": "https://www.st-andrews.ac.uk/",
+          "sourcePageTitle": null,
+          "sourceHash": "d5b71d1edb3a713f968433f691c84ab969eab45d72688be7230de3e47e4c3df8",
+          "fetchedAt": "2026-10-05T07:00:26.939Z",
+          "field": "city",
+          "rawText": "St Andrews"
+        },
+        {
+          "sourceUrl": "https://www.st-andrews.ac.uk/",
+          "sourcePageTitle": null,
+          "sourceHash": "d5b71d1edb3a713f968433f691c84ab969eab45d72688be7230de3e47e4c3df8",
+          "fetchedAt": "2026-10-05T07:00:26.939Z",
+          "field": "countryRaw",
+          "rawText": "United Kingdom"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "英国",
+      "sourceKey": "queen-mary-university-of-london",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "伦敦玛丽女王大学",
+      "nameEn": "Queen Mary University of London",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "London",
+      "descriptionZh": null,
+      "descriptionEn": "Queen Mary University of London is a public research university in Mile End, East London, England. It is a member institution of the federal University of London. Queen Mary is a member of the Russell Group of research-intensive British universities, the Association of Commonwealth Universities and Universities UK.",
+      "officialWebsite": "https://www.qmul.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 19,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://upload.wikimedia.org/wikipedia/en/1/17/Arms_of_Queen_Mary_University_of_London.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Queen_Mary_University_of_London",
+          "sourceCheckedAt": "2026-10-06T01:42:03.896Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Queen%20Mary%20University%20of%20London%20coat%20of%20arms.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queen_Mary_University_of_London_coat_of_arms.svg",
+          "sourceCheckedAt": "2026-10-06T01:42:03.896Z",
+          "licenceRaw": "CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Queens'%20Building%20(2899476115).jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queens'_Building_(2899476115).jpg",
+          "sourceCheckedAt": "2026-10-06T01:42:03.896Z",
+          "licenceRaw": "CC BY-SA 2.0 | https://creativecommons.org/licenses/by-sa/2.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Queen_Mary_University_of_London",
+          "sourcePageTitle": "Queen Mary University of London",
+          "sourceHash": "d4a3c14020d0bd528e928a0c847e8cd5916df68b57ba95489c52234b5bc9c5df",
+          "fetchedAt": "2026-10-06T01:42:03.896Z",
+          "field": "description",
+          "rawText": "Queen Mary University of London is a public research university in Mile End, East London, England. It is a member institution of the federal University of London. Queen Mary is a member of the Russell Group of research-intensive British universities, the Association of Commonwealth Universities and Universities UK."
+        }
+      ],
+      "warnings": [
+        "https://www.qmul.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q195668",
+          "sourcePageTitle": "Queen Mary University of London",
+          "retrievedAt": "2026-10-06T01:42:03.896Z",
+          "sourceHash": "bf664f7d7b7267a1d1e1a82e7933ebf672e755fd07a8e300613592cf100622a3",
+          "entityId": "Q195668"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Queen_Mary_University_of_London",
+          "sourcePageTitle": "Queen Mary University of London",
+          "retrievedAt": "2026-10-06T01:42:03.896Z",
+          "sourceHash": "d4a3c14020d0bd528e928a0c847e8cd5916df68b57ba95489c52234b5bc9c5df"
+        }
+      ]
+    },
+    {
+      "region": "英国",
+      "sourceKey": "university-of-bath",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "巴斯大学",
+      "nameEn": "University of Bath",
+      "countryRaw": "United Kingdom",
+      "cityRaw": "Bath",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.bath.ac.uk",
+      "institutionTypeRaw": null,
+      "selectionRank": 20,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+      "sourceCheckedAt": "2026-10-05T07:00:35.028Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.bath.ac.uk/",
+          "sourcePageTitle": "University of Bath",
+          "sourceHash": "1588dea5d8ab2d8874393270de1b98f9e498a31ba568e0633a4b21a4e56fbe8c",
+          "fetchedAt": "2026-10-05T07:00:35.028Z",
+          "field": "name",
+          "rawText": "University of Bath"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "massachusetts-institute-of-technology",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "麻省理工学院（MIT）",
+      "nameEn": "Massachusetts Institute of Technology",
+      "countryRaw": "United States",
+      "cityRaw": "Cambridge, Massachusetts",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.mit.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 1,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T06:59:41.783Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.mit.edu/",
+          "sourcePageTitle": "MIT - Massachusetts Institute of Technology",
+          "sourceHash": "2e608012e97b356211bdb60db5565604e94f0a7d66f4af41796b329986e8ef15",
+          "fetchedAt": "2026-10-05T06:59:41.783Z",
+          "field": "name",
+          "rawText": "Massachusetts Institute of Technology"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "stanford-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "斯坦福大学",
+      "nameEn": "Stanford University",
+      "countryRaw": "United States",
+      "cityRaw": "Stanford, California",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.stanford.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 2,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T06:59:41.948Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://a-us.storyblok.com/f/1023936/1500x1000/edd739951b/20260613_commencement_n6a1207-1.jpg/m/1200x630/smart/filters:quality(60)",
+          "sourceUrl": "https://www.stanford.edu/",
+          "sourceCheckedAt": "2026-10-05T06:59:41.948Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.stanford.edu/",
+          "sourcePageTitle": "Stanford University",
+          "sourceHash": "1a9987181e8b2533211eb3cdf3d7d17f2bd98287ed5e551c03f38c7d21698ae6",
+          "fetchedAt": "2026-10-05T06:59:41.948Z",
+          "field": "name",
+          "rawText": "Stanford University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "harvard-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "哈佛大学",
+      "nameEn": "Harvard University",
+      "countryRaw": "United States",
+      "cityRaw": "Cambridge, Massachusetts",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.harvard.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 3,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T06:59:42.047Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.harvard.edu/wp-content/uploads/2021/03/100408_Yard_045-1200x630.jpg",
+          "sourceUrl": "https://www.harvard.edu/",
+          "sourceCheckedAt": "2026-10-05T06:59:42.047Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.harvard.edu/",
+          "sourcePageTitle": "Harvard University",
+          "sourceHash": "af4c493a03b5cfe5df5df05e9aa13c9cc0070d0b775347472e689a9d8383c38d",
+          "fetchedAt": "2026-10-05T06:59:42.047Z",
+          "field": "name",
+          "rawText": "Harvard University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "california-institute-of-technology",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "加州理工学院（Caltech）",
+      "nameEn": "California Institute of Technology",
+      "countryRaw": "United States",
+      "cityRaw": "Pasadena, California",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.caltech.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 4,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T06:59:42.819Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://main.oscweb.caltech.edu/static/core/img/caltech-logo-400x400.png",
+          "sourceUrl": "https://www.caltech.edu/",
+          "sourceCheckedAt": "2026-10-05T06:59:42.819Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.caltech.edu/",
+          "sourcePageTitle": "Home - www.caltech.edu",
+          "sourceHash": "cb29c893d463a5e8708b1ecf058e79304615fcda032693155759065ae5686cbe",
+          "fetchedAt": "2026-10-05T06:59:42.819Z",
+          "field": "name",
+          "rawText": "California Institute of Technology"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "university-of-pennsylvania",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "宾夕法尼亚大学",
+      "nameEn": "University of Pennsylvania",
+      "countryRaw": "United States",
+      "cityRaw": "Philadelphia, Pennsylvania",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.upenn.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 5,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T06:59:43.148Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.upenn.edu/themes/custom/penn_global/assets/img/penn-graphic.jpg",
+          "sourceUrl": "https://www.upenn.edu/",
+          "sourceCheckedAt": "2026-10-05T06:59:43.148Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.upenn.edu/",
+          "sourcePageTitle": "University of Pennsylvania",
+          "sourceHash": "67851d60501a5bf0535f3baad290ebea46e501b7c964e424dbaf9598c26b2974",
+          "fetchedAt": "2026-10-05T06:59:43.148Z",
+          "field": "name",
+          "rawText": "University of Pennsylvania"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "cornell-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "康奈尔大学",
+      "nameEn": "Cornell University",
+      "countryRaw": "United States",
+      "cityRaw": "Ithaca, New York",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.cornell.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 6,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T06:59:44.200Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.cornell.edu/",
+          "sourcePageTitle": "Cornell University",
+          "sourceHash": "abc59afdc3c404161882e56d4057baa2fcdb34dd5938bea12ecf34943b2aad94",
+          "fetchedAt": "2026-10-05T06:59:44.200Z",
+          "field": "name",
+          "rawText": "Cornell University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "yale-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "耶鲁大学",
+      "nameEn": "Yale University",
+      "countryRaw": "United States",
+      "cityRaw": "New Haven, Connecticut",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.yale.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 7,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T06:59:44.513Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.yale.edu/",
+          "sourcePageTitle": "Yale University",
+          "sourceHash": "f71fddc4bb7e76c6c581490c4ab372f2619bcd603b250c6925eee9058448cc33",
+          "fetchedAt": "2026-10-05T06:59:44.513Z",
+          "field": "name",
+          "rawText": "Yale University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "johns-hopkins-university",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "约翰斯·霍普金斯大学",
+      "nameEn": "Johns Hopkins University",
+      "countryRaw": "United States",
+      "cityRaw": "Baltimore, Maryland",
+      "descriptionZh": null,
+      "descriptionEn": "Johns Hopkins University (JHU), often abbreviated as Hopkins, is a private research university in Baltimore, Maryland, United States. Incorporated in 1867 and opened in 1876 based on the European research institution model, Johns Hopkins is considered to be the first research university in the U.S.",
+      "officialWebsite": "https://www.jhu.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 8,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/0/09/Johns_Hopkins_University%27s_Academic_Seal.svg/250px-Johns_Hopkins_University%27s_Academic_Seal.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Johns_Hopkins_University",
+          "sourceCheckedAt": "2026-10-06T01:42:08.001Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Johns%20Hopkins%20University%20logo.png",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Johns_Hopkins_University_logo.png",
+          "sourceCheckedAt": "2026-10-06T01:42:08.001Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Johns%20Hopkins'%20Historic%20Dome%20-%20panoramio.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Johns_Hopkins'_Historic_Dome_-_panoramio.jpg",
+          "sourceCheckedAt": "2026-10-06T01:42:08.001Z",
+          "licenceRaw": "CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Johns_Hopkins_University",
+          "sourcePageTitle": "Johns Hopkins University",
+          "sourceHash": "90af95b0634d39ad907fd5908cd18152b6dcc742b4cb2566b309382448ff0c29",
+          "fetchedAt": "2026-10-06T01:42:08.001Z",
+          "field": "description",
+          "rawText": "Johns Hopkins University (JHU), often abbreviated as Hopkins, is a private research university in Baltimore, Maryland, United States. Incorporated in 1867 and opened in 1876 based on the European research institution model, Johns Hopkins is considered to be the first research university in the U.S."
+        }
+      ],
+      "warnings": [
+        "https://www.jhu.edu/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q193727",
+          "sourcePageTitle": "Johns Hopkins University",
+          "retrievedAt": "2026-10-06T01:42:08.001Z",
+          "sourceHash": "6d5d22d11899a08706ce4ef1b7411408b2bd646c081c4143812bc3e1c972d13c",
+          "entityId": "Q193727"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Johns_Hopkins_University",
+          "sourcePageTitle": "Johns Hopkins University",
+          "retrievedAt": "2026-10-06T01:42:08.001Z",
+          "sourceHash": "90af95b0634d39ad907fd5908cd18152b6dcc742b4cb2566b309382448ff0c29"
+        }
+      ]
+    },
+    {
+      "region": "美国",
+      "sourceKey": "university-of-california-berkeley",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "加州大学伯克利分校（UC Berkeley）",
+      "nameEn": "University of California, Berkeley",
+      "countryRaw": "United States",
+      "cityRaw": "Berkeley, California",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.berkeley.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 9,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T06:59:51.455Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.berkeley.edu/",
+          "sourcePageTitle": "University of California, Berkeley: Home",
+          "sourceHash": "520c8b6fcfb1cb2f85fc5d47e322abf63521de432973d2c28552b967ed759b06",
+          "fetchedAt": "2026-10-05T06:59:51.455Z",
+          "field": "name",
+          "rawText": "University of California, Berkeley"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "university-of-chicago",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "芝加哥大学",
+      "nameEn": "University of Chicago",
+      "countryRaw": "United States",
+      "cityRaw": "Chicago, Illinois",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.uchicago.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 10,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T06:59:53.143Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.uchicago.edu/-/media/images/logo-background/campus_aerial_2-min.png?h=627&iar=0&w=1200&hash=4B634222CA6B6F6F5AD375708EC6AA65",
+          "sourceUrl": "https://www.uchicago.edu/",
+          "sourceCheckedAt": "2026-10-05T06:59:53.143Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.uchicago.edu/",
+          "sourcePageTitle": "The University of Chicago",
+          "sourceHash": "9a34c0f347094996c4fbd41bd3a4a9c5e84e40db914a10cb7bd3504fb474d2d8",
+          "fetchedAt": "2026-10-05T06:59:53.143Z",
+          "field": "name",
+          "rawText": "University of Chicago"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "princeton-university",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "普林斯顿大学",
+      "nameEn": "Princeton University",
+      "countryRaw": "United States",
+      "cityRaw": "Princeton, New Jersey",
+      "descriptionZh": null,
+      "descriptionEn": "Princeton University is a private Ivy League research university in Princeton, New Jersey, United States. Founded in 1746 in Elizabeth as the College of New Jersey, Princeton is the fourth-oldest institution of higher education in the United States and one of the nine colonial colleges chartered before the American Revolution. The institution moved to Newark in 1747 and then to its Mercer County campus in Princeton nine years later. It officially became a university in 1896 and was subsequently renamed Princeton University.",
+      "officialWebsite": "https://www.princeton.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 11,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Princeton_seal.svg/330px-Princeton_seal.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Princeton_University",
+          "sourceCheckedAt": "2026-10-06T01:42:14.900Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Princeton%20text%20logo.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Princeton_text_logo.svg",
+          "sourceCheckedAt": "2026-10-06T01:42:14.900Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/ClevelandTowerWatercolor20060829.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:ClevelandTowerWatercolor20060829.jpg",
+          "sourceCheckedAt": "2026-10-06T01:42:14.900Z",
+          "licenceRaw": "CC BY-SA 3.0 | http://creativecommons.org/licenses/by-sa/3.0/",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Princeton_University",
+          "sourcePageTitle": "Princeton University",
+          "sourceHash": "3f8d75a7d95d45c30354fb87e2a99d31a5fef33d1e47e8b0d21f89e0e6631d29",
+          "fetchedAt": "2026-10-06T01:42:14.900Z",
+          "field": "description",
+          "rawText": "Princeton University is a private Ivy League research university in Princeton, New Jersey, United States. Founded in 1746 in Elizabeth as the College of New Jersey, Princeton is the fourth-oldest institution of higher education in the United States and one of the nine colonial colleges chartered before the American Revolution. The institution moved to Newark in 1747 and then to its Mercer County campus in Princeton nine years later. It officially became a university in 1896 and was subsequently renamed Princeton University."
+        }
+      ],
+      "warnings": [
+        "HTTP 403：https://www.princeton.edu/"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q21578",
+          "sourcePageTitle": "Princeton University",
+          "retrievedAt": "2026-10-06T01:42:14.900Z",
+          "sourceHash": "a666f2026361876e2ca3ac466d2d7c3ef5277c3fce689e795141361242db5d46",
+          "entityId": "Q21578"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Princeton_University",
+          "sourcePageTitle": "Princeton University",
+          "retrievedAt": "2026-10-06T01:42:14.900Z",
+          "sourceHash": "3f8d75a7d95d45c30354fb87e2a99d31a5fef33d1e47e8b0d21f89e0e6631d29"
+        }
+      ]
+    },
+    {
+      "region": "美国",
+      "sourceKey": "columbia-university",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "哥伦比亚大学",
+      "nameEn": "Columbia University",
+      "countryRaw": "United States",
+      "cityRaw": "New York City, New York",
+      "descriptionZh": null,
+      "descriptionEn": "Columbia University in the City of New York, commonly referred to as Columbia University, is a private Ivy League research university in New York City, United States. Established in 1754 as King's College by royal charter under George II of Great Britain on the grounds of Trinity Church in Manhattan, it is the oldest institution of higher education in New York and the fifth-oldest in the United States.",
+      "officialWebsite": "https://www.columbia.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 12,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Coat_of_Arms_of_Columbia_University.svg/330px-Coat_of_Arms_of_Columbia_University.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Columbia_University",
+          "sourceCheckedAt": "2026-10-06T01:42:18.009Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Coat%20of%20Arms%20of%20Columbia%20University.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_Columbia_University.svg",
+          "sourceCheckedAt": "2026-10-06T01:42:18.009Z",
+          "licenceRaw": "CC0 | http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Columbia%20University%20-%20Low%20Memorial%20Library%20(48170370506).jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Columbia_University_-_Low_Memorial_Library_(48170370506).jpg",
+          "sourceCheckedAt": "2026-10-06T01:42:18.009Z",
+          "licenceRaw": "CC BY 2.0 | https://creativecommons.org/licenses/by/2.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Columbia_University",
+          "sourcePageTitle": "Columbia University",
+          "sourceHash": "8fc5880816755fc617d48c27822f7184b0b19aee4280f6873a0be6f47f83b343",
+          "fetchedAt": "2026-10-06T01:42:18.009Z",
+          "field": "description",
+          "rawText": "Columbia University in the City of New York, commonly referred to as Columbia University, is a private Ivy League research university in New York City, United States. Established in 1754 as King's College by royal charter under George II of Great Britain on the grounds of Trinity Church in Manhattan, it is the oldest institution of higher education in New York and the fifth-oldest in the United States."
+        }
+      ],
+      "warnings": [
+        "HTTP 403：https://www.columbia.edu/"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q49088",
+          "sourcePageTitle": "Columbia University",
+          "retrievedAt": "2026-10-06T01:42:18.009Z",
+          "sourceHash": "a8b96002aaf2c9d685328c236fcfb6b0ded0ccdaa6ab0c9aed6aad466c316f84",
+          "entityId": "Q49088"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Columbia_University",
+          "sourcePageTitle": "Columbia University",
+          "retrievedAt": "2026-10-06T01:42:18.009Z",
+          "sourceHash": "8fc5880816755fc617d48c27822f7184b0b19aee4280f6873a0be6f47f83b343"
+        }
+      ]
+    },
+    {
+      "region": "美国",
+      "sourceKey": "northwestern-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "西北大学",
+      "nameEn": "Northwestern University",
+      "countryRaw": "United States",
+      "cityRaw": "Evanston, Illinois",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.northwestern.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 13,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T07:00:10.498Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://common.northwestern.edu/v8/images/northwestern-thumbnail.jpg",
+          "sourceUrl": "https://www.northwestern.edu/",
+          "sourceCheckedAt": "2026-10-05T07:00:10.498Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.northwestern.edu/",
+          "sourcePageTitle": "Northwestern University",
+          "sourceHash": "3ff670d303c15201e5fb50ab8e1aee0b66ea1ff601aea2e8bc81df0abec508b1",
+          "fetchedAt": "2026-10-05T07:00:10.498Z",
+          "field": "name",
+          "rawText": "Northwestern University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "university-of-california-los-angeles",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "加州大学洛杉矶分校（UCLA）",
+      "nameEn": "University of California, Los Angeles",
+      "countryRaw": "United States",
+      "cityRaw": "Los Angeles, California",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.ucla.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 14,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T07:00:11.716Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.ucla.edu/",
+          "sourcePageTitle": "A World Leader in Education and Research Excellence | UCLA",
+          "sourceHash": "3612c74d84a632115c1e2c06c3c0925bb5cb2dfd0540a9ebcd1de1fe76151599",
+          "fetchedAt": "2026-10-05T07:00:11.716Z",
+          "field": "name",
+          "rawText": "University of California, Los Angeles"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "university-of-michigan-ann-arbor",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "密歇根大学安娜堡分校",
+      "nameEn": "University of Michigan-Ann Arbor",
+      "countryRaw": "United States",
+      "cityRaw": "Ann Arbor, Michigan",
+      "descriptionZh": null,
+      "descriptionEn": "The University of Michigan is a public research university in Ann Arbor, Michigan, United States. It was founded in 1817 and is the oldest institution of higher education in the state. It is also one of the earliest American research universities and is a founding member of the Association of American Universities.",
+      "officialWebsite": "https://umich.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 15,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Seal_of_the_University_of_Michigan.svg/250px-Seal_of_the_University_of_Michigan.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Michigan",
+          "sourceCheckedAt": "2026-10-06T01:43:04.582Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/University%20of%20Michigan%20logo.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:University_of_Michigan_logo.svg",
+          "sourceCheckedAt": "2026-10-06T01:43:04.582Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AngellHall2010.JPG",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:AngellHall2010.JPG",
+          "sourceCheckedAt": "2026-10-06T01:43:04.582Z",
+          "licenceRaw": "CC BY 3.0 | https://creativecommons.org/licenses/by/3.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Michigan",
+          "sourcePageTitle": "University of Michigan",
+          "sourceHash": "110eeb6cf98f24e0b4678e4f2242754e1348f799da05ad202278eb2cbc459620",
+          "fetchedAt": "2026-10-06T01:43:04.582Z",
+          "field": "description",
+          "rawText": "The University of Michigan is a public research university in Ann Arbor, Michigan, United States. It was founded in 1817 and is the oldest institution of higher education in the state. It is also one of the earliest American research universities and is a founding member of the Association of American Universities."
+        }
+      ],
+      "warnings": [
+        "HTTP 403：https://umich.edu/"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q230492",
+          "sourcePageTitle": "University of Michigan",
+          "retrievedAt": "2026-10-06T01:43:04.582Z",
+          "sourceHash": "d9387515a7899707b34839c6e1c4a55f86926ca6f137014d5f32bc173f3b931f",
+          "entityId": "Q230492"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Michigan",
+          "sourcePageTitle": "University of Michigan",
+          "retrievedAt": "2026-10-06T01:43:04.582Z",
+          "sourceHash": "110eeb6cf98f24e0b4678e4f2242754e1348f799da05ad202278eb2cbc459620"
+        }
+      ]
+    },
+    {
+      "region": "美国",
+      "sourceKey": "carnegie-mellon-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "卡内基梅隆大学",
+      "nameEn": "Carnegie Mellon University",
+      "countryRaw": "United States",
+      "cityRaw": "Pittsburgh, Pennsylvania",
+      "descriptionZh": null,
+      "descriptionEn": "Carnegie Mellon University",
+      "officialWebsite": "https://www.cmu.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 16,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T07:00:20.344Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://www.cmu.edu/themes/custom/cmu_base/images/wordmarksquare-red-600x600.png",
+          "sourceUrl": "https://www.cmu.edu/",
+          "sourceCheckedAt": "2026-10-05T07:00:20.344Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.cmu.edu/",
+          "sourcePageTitle": "Carnegie Mellon University | CMU",
+          "sourceHash": "a1bcf43df8649fd02856dbfa36b560044fa8fb01a40c0e7f3daf5674e1d580ff",
+          "fetchedAt": "2026-10-05T07:00:20.344Z",
+          "field": "name",
+          "rawText": "Carnegie Mellon University"
+        },
+        {
+          "sourceUrl": "https://www.cmu.edu/",
+          "sourcePageTitle": "Carnegie Mellon University | CMU",
+          "sourceHash": "a1bcf43df8649fd02856dbfa36b560044fa8fb01a40c0e7f3daf5674e1d580ff",
+          "fetchedAt": "2026-10-05T07:00:20.344Z",
+          "field": "description",
+          "rawText": "Carnegie Mellon University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "new-york-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "纽约大学（NYU）",
+      "nameEn": "New York University",
+      "countryRaw": "United States",
+      "cityRaw": "New York City, New York",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.nyu.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 17,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T07:00:22.071Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.nyu.edu/jcr:content/cq:featuredimage.coreimg.82.1280.jpeg",
+          "sourceUrl": "https://www.nyu.edu/",
+          "sourceCheckedAt": "2026-10-05T07:00:22.071Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.nyu.edu/",
+          "sourcePageTitle": "New York University",
+          "sourceHash": "6c730918ecb26652c6681a8e6788b07ced8b24fddcb29c177c13f63e7efc9c62",
+          "fetchedAt": "2026-10-05T07:00:22.071Z",
+          "field": "name",
+          "rawText": "New York University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "brown-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "布朗大学",
+      "nameEn": "Brown University",
+      "countryRaw": "United States",
+      "cityRaw": "Providence, Rhode Island",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.brown.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 18,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T07:00:22.494Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.brown.edu/sites/default/files/2026-01/20211110-ADV-campusphotos-035-1_0.jpg",
+          "sourceUrl": "https://www.brown.edu/",
+          "sourceCheckedAt": "2026-10-05T07:00:22.494Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.brown.edu/",
+          "sourcePageTitle": "Brown University",
+          "sourceHash": "3e1a1744f5927d84dd5b85f2260db37db0ec98ec5dbe07ed9f1eb52bd5f599b1",
+          "fetchedAt": "2026-10-05T07:00:22.494Z",
+          "field": "name",
+          "rawText": "Brown University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "duke-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "杜克大学",
+      "nameEn": "Duke University",
+      "countryRaw": "United States",
+      "cityRaw": "Durham, North Carolina",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.duke.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 19,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T07:00:25.362Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://www.duke.edu/wp-content/uploads/2026/02/duke-logo.png",
+          "sourceUrl": "https://www.duke.edu/",
+          "sourceCheckedAt": "2026-10-05T07:00:25.362Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.duke.edu/wp-content/uploads/2026/08/america-250-og.jpg",
+          "sourceUrl": "https://www.duke.edu/",
+          "sourceCheckedAt": "2026-10-05T07:00:25.362Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.duke.edu/",
+          "sourcePageTitle": "Duke University - Fueled by creativity, informed by scholarship",
+          "sourceHash": "dc3a3f84d6d2ab9b0f88ca2435c89eafc3db99489202c353b81c32dbe0ae4b98",
+          "fetchedAt": "2026-10-05T07:00:25.362Z",
+          "field": "name",
+          "rawText": "Duke University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "美国",
+      "sourceKey": "university-of-texas-at-austin",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "得克萨斯大学奥斯汀分校",
+      "nameEn": "The University of Texas at Austin",
+      "countryRaw": "United States",
+      "cityRaw": "Austin, Texas",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.utexas.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 20,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+      "sourceCheckedAt": "2026-10-05T07:00:25.955Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.utexas.edu/sites/default/files/2026-07/homepage-parallax-background-image.jpg",
+          "sourceUrl": "https://www.utexas.edu/",
+          "sourceCheckedAt": "2026-10-05T07:00:25.955Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.utexas.edu/",
+          "sourcePageTitle": "The University of Texas at Austin",
+          "sourceHash": "a8ddbad12c773bba06f618c53996b412bf34748dafda91521b1449ae9fe075ec",
+          "fetchedAt": "2026-10-05T07:00:25.955Z",
+          "field": "name",
+          "rawText": "The University of Texas at Austin"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "unsw-sydney",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "新南威尔士大学（UNSW Sydney）",
+      "nameEn": "UNSW Sydney",
+      "countryRaw": "Australia",
+      "cityRaw": "Sydney",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.unsw.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 1,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T06:59:42.826Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.unsw.edu.au/content/dam/images/unsw-wide/general/branding/2026-05-front-door/2026-05-symphony-homepage-yellow-banner.cropimg.width=700.crop=landscape.jpeg",
+          "sourceUrl": "https://www.unsw.edu.au/",
+          "sourceCheckedAt": "2026-10-05T06:59:42.826Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.unsw.edu.au/",
+          "sourcePageTitle": "UNSW Sydney | Australia's #1 university",
+          "sourceHash": "3ceba17663a5cd9cedd8bcae6551bddb7be022240c2170bbe0d66dc3fbd95396",
+          "fetchedAt": "2026-10-05T06:59:42.826Z",
+          "field": "name",
+          "rawText": "UNSW Sydney"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "university-of-melbourne",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "墨尔本大学",
+      "nameEn": "The University of Melbourne",
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "descriptionZh": null,
+      "descriptionEn": "The University of Melbourne is a public research university located in Melbourne, Australia. Founded in 1853, it is Australia's second oldest university and the oldest in the state of Victoria. Its main campus is located in Parkville, an inner suburb north of Melbourne's central business district, with several other campuses located across the state of Victoria.",
+      "officialWebsite": "https://www.unimelb.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 2,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/b/b4/The_University_of_Melbourne_Coat_of_Arms.svg/500px-The_University_of_Melbourne_Coat_of_Arms.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Melbourne",
+          "sourceCheckedAt": "2026-10-06T01:43:08.923Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Trinity%20college%20university%20of%20melbourne.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trinity_college_university_of_melbourne.jpg",
+          "sourceCheckedAt": "2026-10-06T01:43:08.923Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "CREST",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arms%20of%20the%20University%20of%20Melbourne.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arms_of_the_University_of_Melbourne.svg",
+          "sourceCheckedAt": "2026-10-06T01:48:23.392Z",
+          "licenceRaw": "CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Melbourne",
+          "sourcePageTitle": "University of Melbourne",
+          "sourceHash": "8ac76c5495816f8fa45771809f89e52c92233bcf8e1ea3e541d9c9c2525837b1",
+          "fetchedAt": "2026-10-06T01:43:08.923Z",
+          "field": "description",
+          "rawText": "The University of Melbourne is a public research university located in Melbourne, Australia. Founded in 1853, it is Australia's second oldest university and the oldest in the state of Victoria. Its main campus is located in Parkville, an inner suburb north of Melbourne's central business district, with several other campuses located across the state of Victoria."
+        }
+      ],
+      "warnings": [
+        "https://www.unimelb.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q319078",
+          "sourcePageTitle": "University of Melbourne",
+          "retrievedAt": "2026-10-06T01:43:08.923Z",
+          "sourceHash": "37540c60301cd62ba2a7480c2ead6bd75ddba1401ab285d6ffc9707714a8e6a4",
+          "entityId": "Q319078"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Melbourne",
+          "sourcePageTitle": "University of Melbourne",
+          "retrievedAt": "2026-10-06T01:43:08.923Z",
+          "sourceHash": "8ac76c5495816f8fa45771809f89e52c92233bcf8e1ea3e541d9c9c2525837b1"
+        }
+      ]
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "university-of-sydney",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "悉尼大学",
+      "nameEn": "The University of Sydney",
+      "countryRaw": "Australia",
+      "cityRaw": "Sydney",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.sydney.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 3,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T06:59:49.483Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://sydney.edu.au/content/dam/icons/logos/logo-usyd-dark.svg",
+          "sourceUrl": "https://www.sydney.edu.au/",
+          "sourceCheckedAt": "2026-10-05T06:59:49.483Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.sydney.edu.au/content/dam/homepage-hero-2026/cs6259_cropv2_highres_heromage001.jpg",
+          "sourceUrl": "https://www.sydney.edu.au/",
+          "sourceCheckedAt": "2026-10-05T06:59:49.483Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sydney.edu.au/",
+          "sourcePageTitle": "One of Australia’s top universities - The University of Sydney",
+          "sourceHash": "69a29fa69f20f1c102814d50babfe7ae992948326e37e8a82b17f0d1d167c360",
+          "fetchedAt": "2026-10-05T06:59:49.483Z",
+          "field": "name",
+          "rawText": "The University of Sydney"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "australian-national-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "澳大利亚国立大学（ANU）",
+      "nameEn": "The Australian National University",
+      "countryRaw": "Australia",
+      "cityRaw": "Canberra",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.anu.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 4,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T06:59:51.133Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.anu.edu.au/",
+          "sourcePageTitle": "The Australian National University",
+          "sourceHash": "c6ede439b200a67d3eb02bafc00157b3845798f126f07d4506d9e13bd595b53d",
+          "fetchedAt": "2026-10-05T06:59:51.133Z",
+          "field": "name",
+          "rawText": "The Australian National University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "monash-university",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "蒙纳士大学",
+      "nameEn": "Monash University",
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "descriptionZh": null,
+      "descriptionEn": "Monash University is a public research university based in Melbourne, Victoria, Australia. Named after World War I general Sir John Monash, it was founded in 1958. The university has a number of campuses, four of which are in Victoria, one in Malaysia and another one in Indonesia. Monash has a research and teaching centre in Prato, Italy, a graduate research school in Mumbai, India, and graduate schools in Suzhou, China, and Tangerang, Indonesia.",
+      "officialWebsite": "https://www.monash.edu",
+      "institutionTypeRaw": null,
+      "selectionRank": 5,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Arms_of_Monash_University.svg/3840px-Arms_of_Monash_University.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Monash_University",
+          "sourceCheckedAt": "2026-10-06T01:43:11.666Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Monashcaulfield2.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monashcaulfield2.jpg",
+          "sourceCheckedAt": "2026-10-06T01:43:11.666Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "CREST",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arms%20of%20Monash%20University.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arms_of_Monash_University.svg",
+          "sourceCheckedAt": "2026-10-06T01:48:23.392Z",
+          "licenceRaw": "CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Monash_University",
+          "sourcePageTitle": "Monash University",
+          "sourceHash": "d3c7268555b6e88b5019f9ff79f18ec53ccdf46826757abce0747b69fd7487bf",
+          "fetchedAt": "2026-10-06T01:43:11.666Z",
+          "field": "description",
+          "rawText": "Monash University is a public research university based in Melbourne, Victoria, Australia. Named after World War I general Sir John Monash, it was founded in 1958. The university has a number of campuses, four of which are in Victoria, one in Malaysia and another one in Indonesia. Monash has a research and teaching centre in Prato, Italy, a graduate research school in Mumbai, India, and graduate schools in Suzhou, China, and Tangerang, Indonesia."
+        }
+      ],
+      "warnings": [
+        "https://www.monash.edu/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q598841",
+          "sourcePageTitle": "Monash University",
+          "retrievedAt": "2026-10-06T01:43:11.666Z",
+          "sourceHash": "4fa6da58a313fb65599b333848ba314d564226fff497ecba1693c475d1486531",
+          "entityId": "Q598841"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Monash_University",
+          "sourcePageTitle": "Monash University",
+          "retrievedAt": "2026-10-06T01:43:11.666Z",
+          "sourceHash": "d3c7268555b6e88b5019f9ff79f18ec53ccdf46826757abce0747b69fd7487bf"
+        }
+      ]
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "university-of-queensland",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "昆士兰大学",
+      "nameEn": "The University of Queensland",
+      "countryRaw": "Australia",
+      "cityRaw": "Brisbane",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.uq.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 6,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T06:59:58.630Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.uq.edu.au/",
+          "sourcePageTitle": "The University of Queensland",
+          "sourceHash": "b3c639d51d2197df7291b34c018e94d35b162f7add5c9dac5e749ad67b9aeb5b",
+          "fetchedAt": "2026-10-05T06:59:58.630Z",
+          "field": "name",
+          "rawText": "The University of Queensland"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "university-of-western-australia",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "西澳大学",
+      "nameEn": "The University of Western Australia",
+      "countryRaw": "Australia",
+      "cityRaw": "Perth",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.uwa.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 7,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T07:00:01.766Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.uwa.edu.au/_assets/opengraph.png",
+          "sourceUrl": "https://www.uwa.edu.au/home",
+          "sourceCheckedAt": "2026-10-05T07:00:01.766Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.uwa.edu.au/home",
+          "sourcePageTitle": "The University of Western Australia | UWA",
+          "sourceHash": "c14108eea5fa45292f1252bfe15690b2fcb5a90f438996149a1071b56121f870",
+          "fetchedAt": "2026-10-05T07:00:01.766Z",
+          "field": "name",
+          "rawText": "The University of Western Australia"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "adelaide-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "阿德莱德大学",
+      "nameEn": "Adelaide University",
+      "countryRaw": "AU",
+      "cityRaw": "Adelaide",
+      "descriptionZh": null,
+      "descriptionEn": "Adelaide University is a public Australian university established in 2026 through the merger of the University of Adelaide and the University of South Australia.",
+      "officialWebsite": "https://adelaide.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 8,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T07:00:02.608Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://adelaide.edu.au/content/dam/adelaideuniversity/images/global/logos/au-logo-dark-blue-horizontal.svg",
+          "sourceUrl": "https://adelaide.edu.au/",
+          "sourceCheckedAt": "2026-10-05T07:00:02.608Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://adelaide.edu.au/",
+          "sourcePageTitle": "Adelaide University – South Australia's university for the future",
+          "sourceHash": "2c385767d7d631232576fa897f0e6a64abb4daf7308bda4a8f45580883fd986a",
+          "fetchedAt": "2026-10-05T07:00:02.608Z",
+          "field": "name",
+          "rawText": "Adelaide University"
+        },
+        {
+          "sourceUrl": "https://adelaide.edu.au/",
+          "sourcePageTitle": "Adelaide University – South Australia's university for the future",
+          "sourceHash": "2c385767d7d631232576fa897f0e6a64abb4daf7308bda4a8f45580883fd986a",
+          "fetchedAt": "2026-10-05T07:00:02.608Z",
+          "field": "description",
+          "rawText": "Adelaide University is a public Australian university established in 2026 through the merger of the University of Adelaide and the University of South Australia."
+        },
+        {
+          "sourceUrl": "https://adelaide.edu.au/",
+          "sourcePageTitle": "Adelaide University – South Australia's university for the future",
+          "sourceHash": "2c385767d7d631232576fa897f0e6a64abb4daf7308bda4a8f45580883fd986a",
+          "fetchedAt": "2026-10-05T07:00:02.608Z",
+          "field": "city",
+          "rawText": "Adelaide"
+        },
+        {
+          "sourceUrl": "https://adelaide.edu.au/",
+          "sourcePageTitle": "Adelaide University – South Australia's university for the future",
+          "sourceHash": "2c385767d7d631232576fa897f0e6a64abb4daf7308bda4a8f45580883fd986a",
+          "fetchedAt": "2026-10-05T07:00:02.608Z",
+          "field": "countryRaw",
+          "rawText": "AU"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "university-of-technology-sydney",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "悉尼科技大学（UTS）",
+      "nameEn": "University of Technology Sydney",
+      "countryRaw": "Australia",
+      "cityRaw": "Sydney",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.uts.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 9,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T07:00:03.163Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.uts.edu.au/AdaptiveImages/optimizely/635a5213-c94c-49f3-944b-d2430e3eff8e/original-image-uts-campus-building-8-hr-0022.jpg?stamp=f6fa06485846bf0359a5597e98b16a6a423583a1",
+          "sourceUrl": "https://www.uts.edu.au/",
+          "sourceCheckedAt": "2026-10-05T07:00:03.163Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.uts.edu.au/",
+          "sourcePageTitle": "UTS | University of Technology Sydney | #7 in Australia | Top 100 globally",
+          "sourceHash": "4de54a3db597391200e2dcad59f700bc6edfa3e6a21be75183d2f88974c66efb",
+          "fetchedAt": "2026-10-05T07:00:03.163Z",
+          "field": "name",
+          "rawText": "University of Technology Sydney"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "rmit-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "皇家墨尔本理工大学（RMIT）",
+      "nameEn": "RMIT University",
+      "countryRaw": "AU",
+      "cityRaw": "Melbourne",
+      "descriptionZh": null,
+      "descriptionEn": "RMIT University is an international university of technology, design and enterprise.",
+      "officialWebsite": "https://www.rmit.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 10,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T07:00:05.371Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://www.rmit.edu.au/content/dam/rmit/common-assets/logo/rmit-logo.png",
+          "sourceUrl": "https://www.rmit.edu.au/",
+          "sourceCheckedAt": "2026-10-05T07:00:05.371Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.rmit.edu.au/assets/smart-crop/homepage-banner/homepage-mob-banner-bowen-st-particles-a-1440x1200.jpg",
+          "sourceUrl": "https://www.rmit.edu.au/",
+          "sourceCheckedAt": "2026-10-05T07:00:05.371Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.rmit.edu.au/",
+          "sourcePageTitle": "RMIT University: A world leader in technology, design & enterprise",
+          "sourceHash": "5c5eee16ea357be6f2543ada91b89c6c4fa09f73cc39b59a5110aa3bc686db6a",
+          "fetchedAt": "2026-10-05T07:00:05.371Z",
+          "field": "name",
+          "rawText": "RMIT University"
+        },
+        {
+          "sourceUrl": "https://www.rmit.edu.au/",
+          "sourcePageTitle": "RMIT University: A world leader in technology, design & enterprise",
+          "sourceHash": "5c5eee16ea357be6f2543ada91b89c6c4fa09f73cc39b59a5110aa3bc686db6a",
+          "fetchedAt": "2026-10-05T07:00:05.371Z",
+          "field": "description",
+          "rawText": "RMIT University is an international university of technology, design and enterprise."
+        },
+        {
+          "sourceUrl": "https://www.rmit.edu.au/",
+          "sourcePageTitle": "RMIT University: A world leader in technology, design & enterprise",
+          "sourceHash": "5c5eee16ea357be6f2543ada91b89c6c4fa09f73cc39b59a5110aa3bc686db6a",
+          "fetchedAt": "2026-10-05T07:00:05.371Z",
+          "field": "city",
+          "rawText": "Melbourne"
+        },
+        {
+          "sourceUrl": "https://www.rmit.edu.au/",
+          "sourcePageTitle": "RMIT University: A world leader in technology, design & enterprise",
+          "sourceHash": "5c5eee16ea357be6f2543ada91b89c6c4fa09f73cc39b59a5110aa3bc686db6a",
+          "fetchedAt": "2026-10-05T07:00:05.371Z",
+          "field": "countryRaw",
+          "rawText": "AU"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "macquarie-university",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "麦考瑞大学",
+      "nameEn": "Macquarie University",
+      "countryRaw": "Australia",
+      "cityRaw": "Sydney",
+      "descriptionZh": null,
+      "descriptionEn": "Macquarie University is a public research university in Sydney, New South Wales, Australia. Founded in 1964 by the New South Wales Government, it was the third university to be established in the Sydney metropolitan area.",
+      "officialWebsite": "https://www.mq.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 11,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Macquarie%20University%20International%20brandmark%20%E2%80%93%20Horizontal%20configuration.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macquarie_University_International_brandmark_%E2%80%93_Horizontal_configuration.svg",
+          "sourceCheckedAt": "2026-10-06T01:44:04.004Z",
+          "licenceRaw": "CC0 | http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Macquarie%20University%20New%20Library%202011.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macquarie_University_New_Library_2011.jpg",
+          "sourceCheckedAt": "2026-10-06T01:44:04.004Z",
+          "licenceRaw": "CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Macquarie_University",
+          "sourcePageTitle": "Macquarie University",
+          "sourceHash": "303131c53fb0b3c86b37918ab07d23dd90e62ce82d2fcdcaab79464bcc071c7a",
+          "fetchedAt": "2026-10-06T01:44:04.004Z",
+          "field": "description",
+          "rawText": "Macquarie University is a public research university in Sydney, New South Wales, Australia. Founded in 1964 by the New South Wales Government, it was the third university to be established in the Sydney metropolitan area."
+        }
+      ],
+      "warnings": [
+        "https://www.mq.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q741082",
+          "sourcePageTitle": "Macquarie University",
+          "retrievedAt": "2026-10-06T01:44:04.004Z",
+          "sourceHash": "bd3f12fa7de27bbbf4d3eb25abecc76a2272af9adf2254f46cea949011b5c871",
+          "entityId": "Q741082"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Macquarie_University",
+          "sourcePageTitle": "Macquarie University",
+          "retrievedAt": "2026-10-06T01:44:04.004Z",
+          "sourceHash": "303131c53fb0b3c86b37918ab07d23dd90e62ce82d2fcdcaab79464bcc071c7a"
+        }
+      ]
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "curtin-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "科廷大学",
+      "nameEn": "Curtin University",
+      "countryRaw": "Australia",
+      "cityRaw": "Perth",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.curtin.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 12,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T07:00:13.367Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://www.curtin.edu.au/wp-content/uploads/sites/4/2023/10/Logo.png",
+          "sourceUrl": "https://www.curtin.edu.au/",
+          "sourceCheckedAt": "2026-10-05T07:00:13.367Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.au/",
+          "sourcePageTitle": "Curtin University | Make tomorrow better",
+          "sourceHash": "17fd80ba080ce2b8d9393aabb1e5c3543fe89d82ae086bd6dcf5134fff13373a",
+          "fetchedAt": "2026-10-05T07:00:13.367Z",
+          "field": "name",
+          "rawText": "Curtin University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "university-of-wollongong",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "伍伦贡大学",
+      "nameEn": "University of Wollongong",
+      "countryRaw": "Australia",
+      "cityRaw": "Wollongong",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.uow.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 13,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T07:00:15.202Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.uow.edu.au/assets/logos/999x562.jpg",
+          "sourceUrl": "https://www.uow.edu.au/",
+          "sourceCheckedAt": "2026-10-05T07:00:15.202Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.uow.edu.au/",
+          "sourcePageTitle": "University of Wollongong &ndash; UOW - A world-class University",
+          "sourceHash": "1dcab4eb83c8b3d7930d33f75b600c63050df55e10035a8ea055f34b50344903",
+          "fetchedAt": "2026-10-05T07:00:15.202Z",
+          "field": "name",
+          "rawText": "University of Wollongong"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "deakin-university",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "迪肯大学",
+      "nameEn": "Deakin University",
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "descriptionZh": null,
+      "descriptionEn": "Deakin University is a public research university in the state of Victoria, Australia. Its largest campus is in Victoria's state capital Melbourne, with regional campuses in Geelong and Warrnambool. The university was named after Alfred Deakin, the early Prime Minister of Australia and a founding father of Australian Federation.",
+      "officialWebsite": "https://www.deakin.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 14,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/74/Deakin_University_Logo_2017.svg/1280px-Deakin_University_Logo_2017.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Deakin_University",
+          "sourceCheckedAt": "2026-10-06T01:44:06.784Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Deakin%20Worldly%20Strip%20Logo.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Deakin_Worldly_Strip_Logo.jpg",
+          "sourceCheckedAt": "2026-10-06T01:44:06.784Z",
+          "licenceRaw": "CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Deakin%20University%20Burwood%20Campus.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Deakin_University_Burwood_Campus.jpg",
+          "sourceCheckedAt": "2026-10-06T01:44:06.784Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Deakin_University",
+          "sourcePageTitle": "Deakin University",
+          "sourceHash": "28dbadd26480ca2893f2655b6dd4ea3fd47338ead17dc6561ec0d4c0c948bc23",
+          "fetchedAt": "2026-10-06T01:44:06.784Z",
+          "field": "description",
+          "rawText": "Deakin University is a public research university in the state of Victoria, Australia. Its largest campus is in Victoria's state capital Melbourne, with regional campuses in Geelong and Warrnambool. The university was named after Alfred Deakin, the early Prime Minister of Australia and a founding father of Australian Federation."
+        }
+      ],
+      "warnings": [
+        "https://www.deakin.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q1180978",
+          "sourcePageTitle": "Deakin University",
+          "retrievedAt": "2026-10-06T01:44:06.784Z",
+          "sourceHash": "50656ee941f17da6487b6de99cf618ecda389c17ba1d9ebb3c9e6087597af776",
+          "entityId": "Q1180978"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Deakin_University",
+          "sourcePageTitle": "Deakin University",
+          "retrievedAt": "2026-10-06T01:44:06.784Z",
+          "sourceHash": "28dbadd26480ca2893f2655b6dd4ea3fd47338ead17dc6561ec0d4c0c948bc23"
+        }
+      ]
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "griffith-university",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "格里菲斯大学",
+      "nameEn": "Griffith University",
+      "countryRaw": "Australia",
+      "cityRaw": "Brisbane",
+      "descriptionZh": null,
+      "descriptionEn": "Griffith University is a public research university in South East Queensland, Australia. The university was founded in 1971 and officially opened in 1975. The university has five campuses, at Gold Coast, Nathan, Logan, South Bank, and Mount Gravatt. A sixth campus, to be located at the Treasury Building in the Brisbane CBD, will open in 2027. The university was named in honour of Sir Samuel Walker Griffith, who was twice Premier of Queensland and the first Chief Justice of the High Court of Australia.",
+      "officialWebsite": "https://www.griffith.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 15,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a9/Griffith_University_Logo_Variant_2022.svg/330px-Griffith_University_Logo_Variant_2022.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Griffith_University",
+          "sourceCheckedAt": "2026-10-06T01:44:09.631Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Griffith%20University.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Griffith_University.jpg",
+          "sourceCheckedAt": "2026-10-06T01:44:09.631Z",
+          "licenceRaw": "CC BY-SA 2.0 | https://creativecommons.org/licenses/by-sa/2.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Griffith_University",
+          "sourcePageTitle": "Griffith University",
+          "sourceHash": "818e771e2f3ee662b604076a87e6af59c77cb448bdd7510083e66e15901c6a06",
+          "fetchedAt": "2026-10-06T01:44:09.631Z",
+          "field": "description",
+          "rawText": "Griffith University is a public research university in South East Queensland, Australia. The university was founded in 1971 and officially opened in 1975. The university has five campuses, at Gold Coast, Nathan, Logan, South Bank, and Mount Gravatt. A sixth campus, to be located at the Treasury Building in the Brisbane CBD, will open in 2027. The university was named in honour of Sir Samuel Walker Griffith, who was twice Premier of Queensland and the first Chief Justice of the High Court of Australia."
+        }
+      ],
+      "warnings": [
+        "https://www.griffith.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "未找到可核验的官方 Logo 或校徽资源，品牌媒体保持为空"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q1202292",
+          "sourcePageTitle": "Griffith University",
+          "retrievedAt": "2026-10-06T01:44:09.631Z",
+          "sourceHash": "59103a2128b1023d79b7a3073124d1b335611efeb692be528425ecf46de78182",
+          "entityId": "Q1202292"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Griffith_University",
+          "sourcePageTitle": "Griffith University",
+          "retrievedAt": "2026-10-06T01:44:09.631Z",
+          "sourceHash": "818e771e2f3ee662b604076a87e6af59c77cb448bdd7510083e66e15901c6a06"
+        }
+      ]
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "queensland-university-of-technology",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "昆士兰科技大学（QUT）",
+      "nameEn": "Queensland University of Technology",
+      "countryRaw": "Australia",
+      "cityRaw": "Brisbane",
+      "descriptionZh": null,
+      "descriptionEn": "The Queensland University of Technology (QUT) is a public research university located in the city of Brisbane in Queensland, Australia. It has two major campuses, a city campus in Gardens Point and a campus in Kelvin Grove. The university offers courses in fields including architecture, engineering, information technology, healthcare, teaching, law, arts and design, science and mathematics.",
+      "officialWebsite": "https://www.qut.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 16,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Queensland_University_of_Technology%2C_Gardens_Point_campus.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Queensland_University_of_Technology",
+          "sourceCheckedAt": "2026-10-06T01:44:12.248Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/QUT%20KG%20CtoA.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:QUT_KG_CtoA.jpg",
+          "sourceCheckedAt": "2026-10-06T01:44:12.248Z",
+          "licenceRaw": "CC BY-SA 3.0 | http://creativecommons.org/licenses/by-sa/3.0/",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Queensland_University_of_Technology",
+          "sourcePageTitle": "Queensland University of Technology",
+          "sourceHash": "55689b33a587b01e10702d7bbebcd658e80da1da88da2abedd13f41507376c06",
+          "fetchedAt": "2026-10-06T01:44:12.248Z",
+          "field": "description",
+          "rawText": "The Queensland University of Technology (QUT) is a public research university located in the city of Brisbane in Queensland, Australia. It has two major campuses, a city campus in Gardens Point and a campus in Kelvin Grove. The university offers courses in fields including architecture, engineering, information technology, healthcare, teaching, law, arts and design, science and mathematics."
+        }
+      ],
+      "warnings": [
+        "https://www.qut.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "未找到可核验的官方 Logo 或校徽资源，品牌媒体保持为空"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q1144750",
+          "sourcePageTitle": "Queensland University of Technology",
+          "retrievedAt": "2026-10-06T01:44:12.248Z",
+          "sourceHash": "bf8b7c4153fde83b8c2ce80e36a72097cbe94237bf60dc618a61eeb1309bd4d0",
+          "entityId": "Q1144750"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Queensland_University_of_Technology",
+          "sourcePageTitle": "Queensland University of Technology",
+          "retrievedAt": "2026-10-06T01:44:12.248Z",
+          "sourceHash": "55689b33a587b01e10702d7bbebcd658e80da1da88da2abedd13f41507376c06"
+        }
+      ]
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "la-trobe-university",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "拉筹伯大学",
+      "nameEn": "La Trobe University",
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "descriptionZh": null,
+      "descriptionEn": "La Trobe University is a public research university based in Melbourne, Victoria, Australia. Its main campus is located in the suburb of Bundoora. The university was established in 1964, becoming the third university in the state of Victoria and the twelfth university in Australia. La Trobe is one of the Australian verdant universities and also part of the Innovative Research Universities group.",
+      "officialWebsite": "https://www.latrobe.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 17,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://upload.wikimedia.org/wikipedia/en/e/ed/LTU_Armorial_CMYK_small.PNG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+          "sourceUrl": "https://en.wikipedia.org/wiki/La_Trobe_University",
+          "sourceCheckedAt": "2026-10-06T01:45:05.895Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/La%20Trobe%20University.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Trobe_University.jpg",
+          "sourceCheckedAt": "2026-10-06T01:45:05.895Z",
+          "licenceRaw": "CC BY-SA 2.0 | https://creativecommons.org/licenses/by-sa/2.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/La_Trobe_University",
+          "sourcePageTitle": "La Trobe University",
+          "sourceHash": "6b3489fc58f744d545665d3ecaf2bff484de25d44a7680930ee6b944bd729d05",
+          "fetchedAt": "2026-10-06T01:45:05.895Z",
+          "field": "description",
+          "rawText": "La Trobe University is a public research university based in Melbourne, Victoria, Australia. Its main campus is located in the suburb of Bundoora. The university was established in 1964, becoming the third university in the state of Victoria and the twelfth university in Australia. La Trobe is one of the Australian verdant universities and also part of the Innovative Research Universities group."
+        }
+      ],
+      "warnings": [
+        "https://www.latrobe.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "未找到可核验的官方 Logo 或校徽资源，品牌媒体保持为空"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q1478723",
+          "sourcePageTitle": "La Trobe University",
+          "retrievedAt": "2026-10-06T01:45:05.895Z",
+          "sourceHash": "c31f51dec1d10ab4fbf756d265de87807ef5b50290456da030c4a04d5976aed8",
+          "entityId": "Q1478723"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/La_Trobe_University",
+          "sourcePageTitle": "La Trobe University",
+          "retrievedAt": "2026-10-06T01:45:05.895Z",
+          "sourceHash": "6b3489fc58f744d545665d3ecaf2bff484de25d44a7680930ee6b944bd729d05"
+        }
+      ]
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "university-of-newcastle",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "纽卡斯尔大学",
+      "nameEn": "The University of Newcastle",
+      "countryRaw": "Australia",
+      "cityRaw": "Newcastle",
+      "descriptionZh": null,
+      "descriptionEn": "The University of Newcastle is a public university in Newcastle, New South Wales, Australia. Established in 1965, it has a primary campus in the Newcastle suburb of Callaghan. The university also operates campuses in Central Coast, Singapore, the Newcastle CBD and Sydney.",
+      "officialWebsite": "https://www.newcastle.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 18,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/6/6b/The_University_of_Newcastle_Coat_of_Arms.svg/330px-The_University_of_Newcastle_Coat_of_Arms.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Newcastle_(Australia)",
+          "sourceCheckedAt": "2026-10-06T01:45:08.688Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Newcastle_(Australia)",
+          "sourcePageTitle": "University of Newcastle (Australia)",
+          "sourceHash": "41dae70345e24024cbdd1cb3a368f33383ba657f8268d8ae65a6a4d03dddec69",
+          "fetchedAt": "2026-10-06T01:45:08.688Z",
+          "field": "description",
+          "rawText": "The University of Newcastle is a public university in Newcastle, New South Wales, Australia. Established in 1965, it has a primary campus in the Newcastle suburb of Callaghan. The university also operates campuses in Central Coast, Singapore, the Newcastle CBD and Sydney."
+        }
+      ],
+      "warnings": [
+        "https://www.newcastle.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "未找到可核验的官方 Logo 或校徽资源，品牌媒体保持为空"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q531285",
+          "sourcePageTitle": "University of Newcastle",
+          "retrievedAt": "2026-10-06T01:45:08.688Z",
+          "sourceHash": "ab6440b7f0c9ce8f38a6e61acdee093db9199ed969643835788666f1467b71d7",
+          "entityId": "Q531285"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Newcastle_(Australia)",
+          "sourcePageTitle": "University of Newcastle (Australia)",
+          "retrievedAt": "2026-10-06T01:45:08.688Z",
+          "sourceHash": "41dae70345e24024cbdd1cb3a368f33383ba657f8268d8ae65a6a4d03dddec69"
+        }
+      ]
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "swinburne-university-of-technology",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "斯威本科技大学",
+      "nameEn": "Swinburne University of Technology",
+      "countryRaw": "Australia",
+      "cityRaw": "Melbourne",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.swinburne.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 19,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": "2026-10-05T07:00:47.706Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/timely-reign-media-comms.jpeg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+          "sourceUrl": "https://www.swinburne.edu.au/",
+          "sourceCheckedAt": "2026-10-05T07:00:47.706Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.swinburne.edu.au/",
+          "sourcePageTitle": "Swinburne University of Technology | Melbourne | Australia",
+          "sourceHash": "3bdab49d1d88ced71a9db70777b15f8c6f316b4343e405a136edd809f1fb17bd",
+          "fetchedAt": "2026-10-05T07:00:47.706Z",
+          "field": "name",
+          "rawText": "Swinburne University of Technology"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "澳大利亚",
+      "sourceKey": "university-of-tasmania",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "塔斯马尼亚大学",
+      "nameEn": "University of Tasmania",
+      "countryRaw": "Australia",
+      "cityRaw": "Hobart",
+      "descriptionZh": null,
+      "descriptionEn": "The University of Tasmania (UTAS) is a public research university, primarily located in Tasmania, Australia. Founded in 1890, it is Australia's fourth oldest university. Christ College, one of the university's residential colleges, first proposed in 1840 in Lieutenant-Governor Sir John Franklin's Legislative Council, was modelled on the Oxford and Cambridge colleges, and was founded in 1846, making it the oldest tertiary institution in the country. The university is a sandstone university, a member of the international Association of Commonwealth Universities, and the Association of Southeast Asian Institutions of Higher Learning.",
+      "officialWebsite": "https://www.utas.edu.au",
+      "institutionTypeRaw": null,
+      "selectionRank": 20,
+      "rankingAuthority": "QS World University Rankings",
+      "rankingYear": 2027,
+      "rankingUrl": "https://www.topuniversities.com/where-to-study/oceania/australia/guide",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://upload.wikimedia.org/wikipedia/en/6/60/UTasLogo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Tasmania",
+          "sourceCheckedAt": "2026-10-06T01:45:11.511Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/UniTas-Centenary%20Building.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:UniTas-Centenary_Building.jpg",
+          "sourceCheckedAt": "2026-10-06T01:45:11.511Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Tasmania",
+          "sourcePageTitle": "University of Tasmania",
+          "sourceHash": "0f46aa781700e7fdaa0dd687ff109a7a3ec1d39f05f88762f28c011280aed2de",
+          "fetchedAt": "2026-10-06T01:45:11.511Z",
+          "field": "description",
+          "rawText": "The University of Tasmania (UTAS) is a public research university, primarily located in Tasmania, Australia. Founded in 1890, it is Australia's fourth oldest university. Christ College, one of the university's residential colleges, first proposed in 1840 in Lieutenant-Governor Sir John Franklin's Legislative Council, was modelled on the Oxford and Cambridge colleges, and was founded in 1846, making it the oldest tertiary institution in the country. The university is a sandstone university, a member of the international Association of Commonwealth Universities, and the Association of Southeast Asian Institutions of Higher Learning."
+        }
+      ],
+      "warnings": [
+        "https://www.utas.edu.au/：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "未找到可核验的官方 Logo 或校徽资源，品牌媒体保持为空"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q962011",
+          "sourcePageTitle": "University of Tasmania",
+          "retrievedAt": "2026-10-06T01:45:11.511Z",
+          "sourceHash": "d8a63c5b2f37ffb3011231f0d66219016044e26bae43b83ef9aefc03dc83687b",
+          "entityId": "Q962011"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/University_of_Tasmania",
+          "sourcePageTitle": "University of Tasmania",
+          "retrievedAt": "2026-10-06T01:45:11.511Z",
+          "sourceHash": "0f46aa781700e7fdaa0dd687ff109a7a3ec1d39f05f88762f28c011280aed2de"
+        }
+      ]
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "national-university-of-singapore",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "新加坡国立大学（NUS）",
+      "nameEn": "National University of Singapore",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": "The National University of Singapore (NUS) is a national public research university in Singapore. It was officially established in 1980 through the government-directed merger of the public University of Singapore and the private Nanyang University.",
+      "officialWebsite": "https://www.nus.edu.sg",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 1,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/b/b9/NUS_coat_of_arms.svg/250px-NUS_coat_of_arms.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/National_University_of_Singapore",
+          "sourceCheckedAt": "2026-10-06T01:46:05.291Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NUS%2C%20University%20Cultural%20Centre%203%2C%20Nov%2006.JPG",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:NUS%2C_University_Cultural_Centre_3%2C_Nov_06.JPG",
+          "sourceCheckedAt": "2026-10-06T01:46:05.291Z",
+          "licenceRaw": "Copyrighted free use",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/National_University_of_Singapore",
+          "sourcePageTitle": "National University of Singapore",
+          "sourceHash": "2598978ce306c67a65aff819ae04fdb18c95416ab574e1662488a8e53a8f56a3",
+          "fetchedAt": "2026-10-06T01:46:05.291Z",
+          "field": "description",
+          "rawText": "The National University of Singapore (NUS) is a national public research university in Singapore. It was officially established in 1980 through the government-directed merger of the public University of Singapore and the private Nanyang University."
+        }
+      ],
+      "warnings": [
+        "https://www.nus.edu.sg/：无法确认 robots.txt（HTTP 406），本来源停止抓取",
+        "未找到可核验的官方 Logo 或校徽资源，品牌媒体保持为空"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q738236",
+          "sourcePageTitle": "National University of Singapore",
+          "retrievedAt": "2026-10-06T01:46:05.291Z",
+          "sourceHash": "d44f6579b1d8426cb1b4d4bfc1b2d30582be7b90592dca9868115e555bdcb79b",
+          "entityId": "Q738236"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/National_University_of_Singapore",
+          "sourcePageTitle": "National University of Singapore",
+          "retrievedAt": "2026-10-06T01:46:05.291Z",
+          "sourceHash": "2598978ce306c67a65aff819ae04fdb18c95416ab574e1662488a8e53a8f56a3"
+        }
+      ]
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "nanyang-technological-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "南洋理工大学（NTU）",
+      "nameEn": "Nanyang Technological University, Singapore",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.ntu.edu.sg",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 2,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T06:59:41.405Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.ntu.edu.sg/media/images/default-source/from-figma/ntu-placeholder-d.jpg?sfvrsn=d4050a9e_2",
+          "sourceUrl": "https://www.ntu.edu.sg/",
+          "sourceCheckedAt": "2026-10-05T06:59:41.405Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.ntu.edu.sg/",
+          "sourcePageTitle": "Nanyang Technological University - NTU Singapore",
+          "sourceHash": "c95337de88b48bd1a7a3266bcf34f99d476180b35db84ea1a1cb542fcd07edaa",
+          "fetchedAt": "2026-10-05T06:59:41.405Z",
+          "field": "name",
+          "rawText": "Nanyang Technological University, Singapore"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "singapore-university-of-technology-and-design",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "新加坡科技设计大学（SUTD）",
+      "nameEn": "Singapore University of Technology and Design",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.sutd.edu.sg",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 3,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T06:59:43.132Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sutd.edu.sg/",
+          "sourcePageTitle": "Singapore University of Technology and Design (SUTD)",
+          "sourceHash": "aeb597ae7eef11d9b45d75ad7252d571e0a017ed4d0e84361675634cfee6b5f2",
+          "fetchedAt": "2026-10-05T06:59:43.132Z",
+          "field": "name",
+          "rawText": "Singapore University of Technology and Design"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "singapore-management-university",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "新加坡管理大学（SMU）",
+      "nameEn": "Singapore Management University",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.smu.edu.sg",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 4,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T06:59:43.514Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.smu.edu.sg/",
+          "sourcePageTitle": null,
+          "sourceHash": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+          "fetchedAt": "2026-10-05T06:59:43.514Z",
+          "field": "name",
+          "rawText": "Singapore Management University"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "singapore-institute-of-technology",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "新加坡理工大学（SIT）",
+      "nameEn": "Singapore Institute of Technology",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.singaporetech.edu.sg",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 5,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T06:59:43.607Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.singaporetech.edu.sg/",
+          "sourcePageTitle": null,
+          "sourceHash": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+          "fetchedAt": "2026-10-05T06:59:43.607Z",
+          "field": "name",
+          "rawText": "Singapore Institute of Technology"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "singapore-university-of-social-sciences",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "新加坡社科大学（SUSS）",
+      "nameEn": "Singapore University of Social Sciences",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": "The Singapore University of Social Sciences (SUSS) is a public autonomous university in Singapore. Established in 2017 through the restructuring of SIM University, SUSS focuses on applied degree programmes primarily in the social sciences.",
+      "officialWebsite": "https://www.suss.edu.sg",
+      "institutionTypeRaw": "Autonomous university",
+      "selectionRank": 6,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/5/50/SUSS_logo.svg/500px-SUSS_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Singapore_University_of_Social_Sciences",
+          "sourceCheckedAt": "2026-10-06T01:46:07.672Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/SUSS%20new%20logo.png",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:SUSS_new_logo.png",
+          "sourceCheckedAt": "2026-10-06T01:46:07.672Z",
+          "licenceRaw": "CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/SUSS%20Building.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:SUSS_Building.jpg",
+          "sourceCheckedAt": "2026-10-06T01:46:07.672Z",
+          "licenceRaw": "CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Singapore_University_of_Social_Sciences",
+          "sourcePageTitle": "Singapore University of Social Sciences",
+          "sourceHash": "59e2b951803701c61010e9bfa03790405b4e34b7f3beee90c4e2d5a874093eac",
+          "fetchedAt": "2026-10-06T01:46:07.672Z",
+          "field": "description",
+          "rawText": "The Singapore University of Social Sciences (SUSS) is a public autonomous university in Singapore. Established in 2017 through the restructuring of SIM University, SUSS focuses on applied degree programmes primarily in the social sciences."
+        }
+      ],
+      "warnings": [
+        "https://www.suss.edu.sg/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q494179",
+          "sourcePageTitle": "Singapore University of Social Sciences",
+          "retrievedAt": "2026-10-06T01:46:07.672Z",
+          "sourceHash": "277bcd1663921261e4c408220d22a0497a1d07b4a05db4f751f16b9bf928b2d5",
+          "entityId": "Q494179"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Singapore_University_of_Social_Sciences",
+          "sourcePageTitle": "Singapore University of Social Sciences",
+          "retrievedAt": "2026-10-06T01:46:07.672Z",
+          "sourceHash": "59e2b951803701c61010e9bfa03790405b4e34b7f3beee90c4e2d5a874093eac"
+        }
+      ]
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "university-of-the-arts-singapore",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "新加坡艺术大学（UAS）",
+      "nameEn": "University of the Arts Singapore",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://uas.edu.sg",
+      "institutionTypeRaw": "Government-supported arts university",
+      "selectionRank": 7,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T06:59:49.960Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://uas.edu.sg/",
+          "sourcePageTitle": "University of the Arts Singapore (UAS)",
+          "sourceHash": "4605905b216f35060785aede084765e4d8fc50e62a40e4c7f79bf01492c25e51",
+          "fetchedAt": "2026-10-05T06:59:49.960Z",
+          "field": "name",
+          "rawText": "University of the Arts Singapore"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "insead-asia-campus",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "欧洲工商管理学院亚洲校区（INSEAD）",
+      "nameEn": "INSEAD Asia Campus",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": "INSEAD is a non-profit business school with locations in France (Fontainebleau), Singapore, the United Arab Emirates, and the United States.",
+      "officialWebsite": "https://www.insead.edu",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 8,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/46/INSEAD_Strapline_Logo.svg/500px-INSEAD_Strapline_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/INSEAD",
+          "sourceCheckedAt": "2026-10-06T01:46:10.496Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Inseadlogo.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inseadlogo.jpg",
+          "sourceCheckedAt": "2026-10-06T01:46:10.496Z",
+          "licenceRaw": "Attribution",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Insead%20-%20Blue%20Ocean%20Institute.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Insead_-_Blue_Ocean_Institute.jpg",
+          "sourceCheckedAt": "2026-10-06T01:46:10.496Z",
+          "licenceRaw": "CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/INSEAD",
+          "sourcePageTitle": "INSEAD",
+          "sourceHash": "83f0d52e4f02501d90908e8332bbe341b0e365b5cb9bd780f36057db50c057a9",
+          "fetchedAt": "2026-10-06T01:46:10.496Z",
+          "field": "description",
+          "rawText": "INSEAD is a non-profit business school with locations in France (Fontainebleau), Singapore, the United Arab Emirates, and the United States."
+        }
+      ],
+      "warnings": [
+        "https://www.insead.edu/about-insead/asia-campus：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q1136829",
+          "sourcePageTitle": "INSEAD",
+          "retrievedAt": "2026-10-06T01:46:10.496Z",
+          "sourceHash": "c2c7a9b36da409e0bc84285b487a70e57553be4cab7b00a3a211f97499a4a7b2",
+          "entityId": "Q1136829"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/INSEAD",
+          "sourcePageTitle": "INSEAD",
+          "retrievedAt": "2026-10-06T01:46:10.496Z",
+          "sourceHash": "83f0d52e4f02501d90908e8332bbe341b0e365b5cb9bd780f36057db50c057a9"
+        }
+      ]
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "essec-asia-pacific",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "埃塞克商学院亚太校区（ESSEC）",
+      "nameEn": "ESSEC Asia-Pacific",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": "ESSEC Business School is a French business school and Grande école. Its main campus is located in Cergy, with additional campuses in Paris, Rabat, and Singapore.",
+      "officialWebsite": "https://www.essec.edu",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 9,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Logo_essec2.svg/960px-Logo_essec2.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/ESSEC_Business_School",
+          "sourceCheckedAt": "2026-10-06T01:46:13.423Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/ESSEC%20Logo.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:ESSEC_Logo.svg",
+          "sourceCheckedAt": "2026-10-06T01:46:13.423Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/ESSEC%20campus%20cergy.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:ESSEC_campus_cergy.jpg",
+          "sourceCheckedAt": "2026-10-06T01:46:13.423Z",
+          "licenceRaw": "CC BY-SA 2.5 | https://creativecommons.org/licenses/by-sa/2.5",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/ESSEC_Business_School",
+          "sourcePageTitle": "ESSEC Business School",
+          "sourceHash": "9016ae46fddf0c82d2661032dfd8e5bc89b4c8d5b778280a66269226b6965011",
+          "fetchedAt": "2026-10-06T01:46:13.423Z",
+          "field": "description",
+          "rawText": "ESSEC Business School is a French business school and Grande école. Its main campus is located in Cergy, with additional campuses in Paris, Rabat, and Singapore."
+        }
+      ],
+      "warnings": [
+        "HTTP 404：https://www.essec.edu/en/pages/asia-pacific/"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q273642",
+          "sourcePageTitle": "ESSEC Business School",
+          "retrievedAt": "2026-10-06T01:46:13.423Z",
+          "sourceHash": "390e93c1a85dfab930e1873273ea22fbe05d065bdd18e7346fe8172da31b4235",
+          "entityId": "Q273642"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/ESSEC_Business_School",
+          "sourcePageTitle": "ESSEC Business School",
+          "retrievedAt": "2026-10-06T01:46:13.423Z",
+          "sourceHash": "9016ae46fddf0c82d2661032dfd8e5bc89b4c8d5b778280a66269226b6965011"
+        }
+      ]
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "tum-asia",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "慕尼黑工业大学亚洲校区（TUM Asia）",
+      "nameEn": "Technical University of Munich",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://tum-asia.edu.sg",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 10,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T06:59:58.951Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://tum-asia.edu.sg/wp-content/uploads/2024/12/tum-main-logo.png",
+          "sourceUrl": "https://tum-asia.edu.sg/",
+          "sourceCheckedAt": "2026-10-05T06:59:58.951Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://tum-asia.edu.sg/",
+          "sourcePageTitle": "TUM Asia – Technical University of Munich Asia",
+          "sourceHash": "682e7bea3c868448289fa00283a46f8330bb14437c2e22ceb446ee8a351d2099",
+          "fetchedAt": "2026-10-05T06:59:58.951Z",
+          "field": "name",
+          "rawText": "Technical University of Munich"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "sp-jain-singapore",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "SP Jain全球管理学院新加坡校区",
+      "nameEn": "SP Jain School of Global Management Singapore",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.spjain.sg",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 11,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T06:59:59.542Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://www.spjain.sg/hubfs/home2017/sp-jain-mobile-logo.jpg",
+          "sourceUrl": "https://www.spjain.sg/",
+          "sourceCheckedAt": "2026-10-05T06:59:59.542Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.spjain.sg/hubfs/LOGO/SP%20Jain%20Logo%20suare.png",
+          "sourceUrl": "https://www.spjain.sg/",
+          "sourceCheckedAt": "2026-10-05T06:59:59.542Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.spjain.sg/",
+          "sourcePageTitle": "World's leading B-School | SP Jain School of Global Management",
+          "sourceHash": "51d3b14cf438b9202277084212358b62c14d7d5e26d350339a9c28cdd48f20fb",
+          "fetchedAt": "2026-10-05T06:59:59.542Z",
+          "field": "name",
+          "rawText": "SP Jain School of Global Management Singapore"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "digipen-singapore",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "迪吉彭理工学院新加坡校区（DigiPen）",
+      "nameEn": "DigiPen Institute of Technology Singapore",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.digipen.edu.sg",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 12,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T06:59:59.691Z",
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.digipen.edu.sg/sites/default/files/public/img/about/about-the-campus/04-social/digipen-institute-of-technology-singapore-punggol-campus-og.webp",
+          "sourceUrl": "https://www.digipen.edu.sg/",
+          "sourceCheckedAt": "2026-10-05T06:59:59.691Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.digipen.edu.sg/",
+          "sourcePageTitle": "DigiPen (Singapore) | Education for the Digital Economy",
+          "sourceHash": "e4783e63ed11655e39e349af8138b538161d31053f71fd1d6bf4a020f0f0ff7b",
+          "fetchedAt": "2026-10-05T06:59:59.691Z",
+          "field": "name",
+          "rawText": "DigiPen Institute of Technology Singapore"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "sorbonne-assas-asia",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "索邦—阿萨斯国际法学院亚洲校区",
+      "nameEn": "Sorbonne-Assas International Law School – Asia",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": "Paris-Panthéon-Assas University, abbreviated as Assas University and commonly known as Assas or Paris 2, is a public research university in Paris, France.",
+      "officialWebsite": "https://www.assas-international.com",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 13,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Logo_Panth%C3%A9on-Assas.svg/960px-Logo_Panth%C3%A9on-Assas.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Paris-Panth%C3%A9on-Assas_University",
+          "sourceCheckedAt": "2026-10-06T01:47:03.919Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Logo%20Panth%C3%A9on-Assas.svg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Logo_Panth%C3%A9on-Assas.svg",
+          "sourceCheckedAt": "2026-10-06T01:47:03.919Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pantheon-Assas%20University%20-%20Panth%C3%A9on.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pantheon-Assas_University_-_Panth%C3%A9on.jpg",
+          "sourceCheckedAt": "2026-10-06T01:47:03.919Z",
+          "licenceRaw": "CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/Paris-Panth%C3%A9on-Assas_University",
+          "sourcePageTitle": "Paris-Panthéon-Assas University",
+          "sourceHash": "0d73d6a3a7a742a184f6b203b503df772f1715cde8e702f87fb6c476cf917d6e",
+          "fetchedAt": "2026-10-06T01:47:03.919Z",
+          "field": "description",
+          "rawText": "Paris-Panthéon-Assas University, abbreviated as Assas University and commonly known as Assas or Paris 2, is a public research university in Paris, France."
+        }
+      ],
+      "warnings": [
+        "HTTP 404：https://www.assas-international.com/en/campuses/singapore"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q662976",
+          "sourcePageTitle": "Panthéon-Assas University Paris",
+          "retrievedAt": "2026-10-06T01:47:03.919Z",
+          "sourceHash": "e22a3290f74082dbd815aacb1478cb358da5a62b165488ee9c5066f3536b5d93",
+          "entityId": "Q662976"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/Paris-Panth%C3%A9on-Assas_University",
+          "sourcePageTitle": "Paris-Panthéon-Assas University",
+          "retrievedAt": "2026-10-06T01:47:03.919Z",
+          "sourceHash": "0d73d6a3a7a742a184f6b203b503df772f1715cde8e702f87fb6c476cf917d6e"
+        }
+      ]
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "ehl-campus-singapore",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "洛桑酒店管理学院新加坡校区（EHL）",
+      "nameEn": "EHL Campus Singapore",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": "EHL Hospitality Business School, formerly known as École hôtelière de Lausanne, is a hospitality management school in Switzerland. The school is often seen as one of the best of its kind in the world, training its students to obtain managerial careers in the hotel and hospitality industries.",
+      "officialWebsite": "https://www.ehl.edu",
+      "institutionTypeRaw": "Offshore institution with local campus",
+      "selectionRank": 14,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/EHL_Logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+          "sourceUrl": "https://en.wikipedia.org/wiki/%C3%89cole_h%C3%B4teli%C3%A8re_de_Lausanne",
+          "sourceCheckedAt": "2026-10-06T01:47:06.030Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/EHL%20Logo.png",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:EHL_Logo.png",
+          "sourceCheckedAt": "2026-10-06T01:47:06.030Z",
+          "licenceRaw": "Public domain",
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ecole-hoteliere-de-Lausanne%20-Lausanne-hospitality-management-school%20campus-aerial-view%20web.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ecole-hoteliere-de-Lausanne_-Lausanne-hospitality-management-school_campus-aerial-view_web.jpg",
+          "sourceCheckedAt": "2026-10-06T01:47:06.030Z",
+          "licenceRaw": "CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0",
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/%C3%89cole_h%C3%B4teli%C3%A8re_de_Lausanne",
+          "sourcePageTitle": "École hôtelière de Lausanne",
+          "sourceHash": "f8806eeb79770fd2daaf3e9b9eafb447cce18ae8f0ce72cd4ffbf4adacd24fe4",
+          "fetchedAt": "2026-10-06T01:47:06.030Z",
+          "field": "description",
+          "rawText": "EHL Hospitality Business School, formerly known as École hôtelière de Lausanne, is a hospitality management school in Switzerland. The school is often seen as one of the best of its kind in the world, training its students to obtain managerial careers in the hotel and hospitality industries."
+        }
+      ],
+      "warnings": [
+        "HTTP 404：https://www.ehl.edu/en/campuses/singapore-campus"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q273551",
+          "sourcePageTitle": "École hôtelière de Lausanne",
+          "retrievedAt": "2026-10-06T01:47:06.030Z",
+          "sourceHash": "189158ac6391f23f4cc503f9b5e762a463182ed1668aa2d4de1d3fc74ea593e2",
+          "entityId": "Q273551"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/%C3%89cole_h%C3%B4teli%C3%A8re_de_Lausanne",
+          "sourcePageTitle": "École hôtelière de Lausanne",
+          "retrievedAt": "2026-10-06T01:47:06.030Z",
+          "sourceHash": "f8806eeb79770fd2daaf3e9b9eafb447cce18ae8f0ce72cd4ffbf4adacd24fe4"
+        }
+      ]
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "duke-nus-medical-school",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "杜克—新加坡国立大学医学院（Duke-NUS）",
+      "nameEn": "Duke-NUS Medical School",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.duke-nus.edu.sg",
+      "institutionTypeRaw": "Graduate medical school",
+      "selectionRank": 15,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T07:00:04.863Z",
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.duke-nus.edu.sg/",
+          "sourcePageTitle": null,
+          "sourceHash": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+          "fetchedAt": "2026-10-05T07:00:04.863Z",
+          "field": "name",
+          "rawText": "Duke-NUS Medical School"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "james-cook-university-singapore",
+      "status": "DRAFT",
+      "crawlStatus": "THIRD_PARTY_ENRICHED",
+      "nameZh": "詹姆斯库克大学新加坡校区（JCU）",
+      "nameEn": "James Cook University Singapore",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": "James Cook University in Singapore is a branch campus of James Cook University, a public research university based in Australia. Established in 2003, it is currently the only overseas institution with university status in Singapore. It is located between Kallang and Geylang in the Central Region on the former site of the Manjusri Secondary School.",
+      "officialWebsite": "https://www.jcu.edu.sg",
+      "institutionTypeRaw": "Private education institution / branch campus",
+      "selectionRank": 16,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": null,
+      "media": [
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://upload.wikimedia.org/wikipedia/en/9/96/James_Cook_University_Armorial_Ensigns.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+          "sourceUrl": "https://en.wikipedia.org/wiki/James_Cook_University_Singapore",
+          "sourceCheckedAt": "2026-10-06T01:47:09.156Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://en.wikipedia.org/wiki/James_Cook_University_Singapore",
+          "sourcePageTitle": "James Cook University Singapore",
+          "sourceHash": "483077ad9c65ba1bc04d502923ac83b3aa4f41961a1f970c728935819f642ed4",
+          "fetchedAt": "2026-10-06T01:47:09.156Z",
+          "field": "description",
+          "rawText": "James Cook University in Singapore is a branch campus of James Cook University, a public research university based in Australia. Established in 2003, it is currently the only overseas institution with university status in Singapore. It is located between Kallang and Geylang in the Central Region on the former site of the Manjusri Secondary School."
+        }
+      ],
+      "warnings": [
+        "https://www.jcu.edu.sg/：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+        "未找到可核验的官方 Logo 或校徽资源，品牌媒体保持为空"
+      ],
+      "thirdPartySources": [
+        {
+          "provider": "Wikidata",
+          "sourceUrl": "https://www.wikidata.org/wiki/Q720304",
+          "sourcePageTitle": "James Cook University Singapore",
+          "retrievedAt": "2026-10-06T01:47:09.156Z",
+          "sourceHash": "095844b943527e20477a4e31aef6585fc24fbd3d75ba00b747941913f5823e2a",
+          "entityId": "Q720304"
+        },
+        {
+          "provider": "Wikipedia",
+          "sourceUrl": "https://en.wikipedia.org/wiki/James_Cook_University_Singapore",
+          "sourcePageTitle": "James Cook University Singapore",
+          "retrievedAt": "2026-10-06T01:47:09.156Z",
+          "sourceHash": "483077ad9c65ba1bc04d502923ac83b3aa4f41961a1f970c728935819f642ed4"
+        }
+      ]
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "curtin-singapore",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "科廷大学新加坡校区",
+      "nameEn": "Curtin Singapore",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.curtin.edu.sg",
+      "institutionTypeRaw": "Private education institution / branch campus",
+      "selectionRank": 17,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T07:00:13.873Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-logo-696x696-1.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/",
+          "sourceCheckedAt": "2026-10-05T07:00:13.873Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/",
+          "sourceCheckedAt": "2026-10-05T07:00:13.873Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/",
+          "sourcePageTitle": "Home - Curtin Singapore",
+          "sourceHash": "e4bba6952a9116f74804e24bcc97647b8a1e2b737c956c28062acc55f8447abb",
+          "fetchedAt": "2026-10-05T07:00:13.873Z",
+          "field": "name",
+          "rawText": "Curtin Singapore"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "sim-global-education",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "新加坡管理学院（SIM）",
+      "nameEn": "Singapore Institute of Management",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialWebsite": "https://www.sim.edu.sg",
+      "institutionTypeRaw": "Private education institution",
+      "selectionRank": 18,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T07:00:17.623Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/sim-homepage/header%20logos/sim-logo-2023.svg?ext=.svg",
+          "sourceUrl": "https://www.sim.edu.sg/",
+          "sourceCheckedAt": "2026-10-05T07:00:17.623Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/sim-homepage/og%20image/sim-ge-og.jpg?ext=.jpg",
+          "sourceUrl": "https://www.sim.edu.sg/",
+          "sourceCheckedAt": "2026-10-05T07:00:17.623Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sim.edu.sg/",
+          "sourcePageTitle": "Singapore Institute of Management | Degree & Diploma Programmes | Professional Short Courses",
+          "sourceHash": "b99620e7a0e8f5b8504eacc175998465623f7496377faa7d0191488a57d1fc98",
+          "fetchedAt": "2026-10-05T07:00:17.623Z",
+          "field": "name",
+          "rawText": "Singapore Institute of Management"
+        },
+        {
+          "sourceUrl": "https://www.sim.edu.sg/",
+          "sourcePageTitle": "Singapore Institute of Management | Degree & Diploma Programmes | Professional Short Courses",
+          "sourceHash": "b99620e7a0e8f5b8504eacc175998465623f7496377faa7d0191488a57d1fc98",
+          "fetchedAt": "2026-10-05T07:00:17.623Z",
+          "field": "city",
+          "rawText": "Singapore"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "kaplan-singapore",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "新加坡楷博高等教育学院（Kaplan）",
+      "nameEn": "Kaplan Singapore",
+      "countryRaw": "Singapore",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": "Kaplan provides a future-ready curriculum, giving students access to renowned universities around the world. From on-campus to online degrees in Singapore, we help you become the best version of yourself.",
+      "officialWebsite": "https://www.kaplan.com.sg",
+      "institutionTypeRaw": "Private education institution",
+      "selectionRank": 19,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T07:00:18.236Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://www.kaplan.com.sg/themes/custom/ksg_theme/kaplan-logo.png",
+          "sourceUrl": "https://www.kaplan.com.sg/",
+          "sourceCheckedAt": "2026-10-05T07:00:18.236Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/",
+          "sourcePageTitle": "From Diploma to Degree (Online & Onsite) - Kaplan (Singapore)",
+          "sourceHash": "e27ccd62df689534d9c5985b74e71b8e543672ac01005f46bec4222df71b777e",
+          "fetchedAt": "2026-10-05T07:00:18.236Z",
+          "field": "name",
+          "rawText": "Kaplan Singapore"
+        },
+        {
+          "sourceUrl": "https://www.kaplan.com.sg/",
+          "sourcePageTitle": "From Diploma to Degree (Online & Onsite) - Kaplan (Singapore)",
+          "sourceHash": "e27ccd62df689534d9c5985b74e71b8e543672ac01005f46bec4222df71b777e",
+          "fetchedAt": "2026-10-05T07:00:18.236Z",
+          "field": "description",
+          "rawText": "Kaplan provides a future-ready curriculum, giving students access to renowned universities around the world. From on-campus to online degrees in Singapore, we help you become the best version of yourself."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "region": "新加坡",
+      "sourceKey": "psb-academy",
+      "status": "DRAFT",
+      "crawlStatus": "SUCCESS",
+      "nameZh": "新加坡PSB学院（PSB Academy）",
+      "nameEn": "PSB Academy Singapore",
+      "countryRaw": "SG",
+      "cityRaw": "Singapore",
+      "descriptionZh": null,
+      "descriptionEn": "PSB Academy is a leading private education institution in Singapore, offering a wide range of diploma, degree, and postgraduate programmes in disciplines such as business, engineering, IT, and life sciences. With modern facilities, industry-relevant curricula, and experienced faculty, we provide quality education that prepares students for global careers. As one of Singapore’s trusted learning institutions, PSB Academy is committed to shaping future-ready graduates through innovative teaching and holistic learning experiences.",
+      "officialWebsite": "https://www.psb-academy.edu.sg",
+      "institutionTypeRaw": "Private education institution",
+      "selectionRank": 20,
+      "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+      "rankingYear": 2026,
+      "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+      "sourceCheckedAt": "2026-10-05T07:00:20.026Z",
+      "media": [
+        {
+          "kind": "LOGO",
+          "assetUrl": "https://www.psb-academy.edu.sg/resources/others/common/logo-psb-academy.svg",
+          "sourceUrl": "https://www.psb-academy.edu.sg/",
+          "sourceCheckedAt": "2026-10-05T07:00:20.026Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "UNIVERSITY_IMAGE",
+          "assetUrl": "https://www.psb-academy.edu.sg/resources/others/common/psb-academy-elearning-month-sep2026-promotion-1080x1920.jpg",
+          "sourceUrl": "https://www.psb-academy.edu.sg/",
+          "sourceCheckedAt": "2026-10-05T07:00:20.026Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.psb-academy.edu.sg/",
+          "sourcePageTitle": "Apply for Diploma, Degree and More Programmes | PSB Academy",
+          "sourceHash": "083febdd6cd7ca979659b26ad7443768fe8bd6737a5c79f31e995cac5f72cf39",
+          "fetchedAt": "2026-10-05T07:00:20.026Z",
+          "field": "name",
+          "rawText": "PSB Academy Singapore"
+        },
+        {
+          "sourceUrl": "https://www.psb-academy.edu.sg/",
+          "sourcePageTitle": "Apply for Diploma, Degree and More Programmes | PSB Academy",
+          "sourceHash": "083febdd6cd7ca979659b26ad7443768fe8bd6737a5c79f31e995cac5f72cf39",
+          "fetchedAt": "2026-10-05T07:00:20.026Z",
+          "field": "description",
+          "rawText": "PSB Academy is a leading private education institution in Singapore, offering a wide range of diploma, degree, and postgraduate programmes in disciplines such as business, engineering, IT, and life sciences. With modern facilities, industry-relevant curricula, and experienced faculty, we provide quality education that prepares students for global careers. As one of Singapore’s trusted learning institutions, PSB Academy is committed to shaping future-ready graduates through innovative teaching and holistic learning experiences."
+        },
+        {
+          "sourceUrl": "https://www.psb-academy.edu.sg/",
+          "sourcePageTitle": "Apply for Diploma, Degree and More Programmes | PSB Academy",
+          "sourceHash": "083febdd6cd7ca979659b26ad7443768fe8bd6737a5c79f31e995cac5f72cf39",
+          "fetchedAt": "2026-10-05T07:00:20.026Z",
+          "field": "city",
+          "rawText": "Singapore"
+        },
+        {
+          "sourceUrl": "https://www.psb-academy.edu.sg/",
+          "sourcePageTitle": "Apply for Diploma, Degree and More Programmes | PSB Academy",
+          "sourceHash": "083febdd6cd7ca979659b26ad7443768fe8bd6737a5c79f31e995cac5f72cf39",
+          "fetchedAt": "2026-10-05T07:00:20.026Z",
+          "field": "countryRaw",
+          "rawText": "SG"
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:39:28.305Z",
+    "method": "curated Chinese institution name mapping",
+    "reviewStatus": "DRAFT"
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "harvard-university",
+    "displayName": "Harvard University",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.harvard.edu/"
+    ],
+    "allowedHosts": [
+      "www.harvard.edu",
+      "harvard.edu"
+    ],
+    "discoveredUrls": 32,
+    "parsedProgrammes": 5,
+    "pagesRead": 120,
+    "warnings": [
+      "https://www.seas.harvard.edu/academics/courses/applied-computation：跳转超出允许域名: seas.harvard.edu",
+      "https://www.hsph.harvard.edu/ecpe/programs/：跳转超出允许域名: hsph.harvard.edu",
+      "HTTP 403：https://www.hks.harvard.edu/centers/mrcbg/programs/education-policy-program/forum",
+      "HTTP 403：https://www.hks.harvard.edu/centers/mrcbg/programs/education-policy-program/higheredforum",
+      "HTTP 403：https://www.hks.harvard.edu/courses/courses-related-climate",
+      "robots.txt 禁止抓取：https://www.hks.harvard.edu/centers/mrcbg/programs/growthpolicy/search?keyword=trade+policy&f%5B0%5D=&op=Search"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.harvard.edu//programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.harvard.edu//programs/?degree_levels=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.harvard.edu//programs/?degree_levels=graduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.seas.harvard.edu/academics/courses/applied-computation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/cri",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/centers/wiener/programs/criminaljustice",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/education-policy-program",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/health",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://college.harvard.edu/academics/enrichment-programs/independent-study",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/sustsci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/trade-and-negotiations-program",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://hls.harvard.edu/executive-education/programs/online-programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hsph.harvard.edu/ecpe/programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.harvard.edu/programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.harvard.edu/programs/?degree_levels=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.harvard.edu/programs/?degree_levels=graduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://execed.gsd.harvard.edu/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.harvard.edu/academics/professional-and-lifelong-learning/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://college.harvard.edu/academics/fields-study/special-concentrations",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.harvard.edu/academics/schools/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.harvard.edu/academics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://gsas.harvard.edu/program/biological-and-biomedical-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://gsas.harvard.edu/program/biophysics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://gsas.harvard.edu/program/health-policy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://gsas.harvard.edu/program/regional-studies-russia-eastern-europe-and-central-asia",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://gsas.harvard.edu/program/social-policy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://hds.harvard.edu/academics/professional-lifelong-learning",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/educational-programs/doctoral-programs/phd-social-policy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:18:31.207Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/presumptive-declination-and-diversion-suffolk-county-ma",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:19:17.996Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/educational-programs/masters-programs/master-public-policy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:20:37.489Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/educational-programs/masters-programs/master-public-administration-international-development",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:20:37.489Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "harvard-university",
+      "url": "https://www.hks.harvard.edu/educational-programs/masters-programs/master-public-administration",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:20:37.489Z",
+      "error": null
+    }
+  ]
+}

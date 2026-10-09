@@ -5,6 +5,7 @@ import type { SchoolSummary } from "@/lib/universities";
 import { LocationLabel } from "@/components/location-label";
 import { SchoolComparisonToggle } from "@/components/school-comparison-toggle";
 import { SaveToggle } from "@/components/save-toggle";
+import { RemoteImage } from "@/components/remote-image";
 import { findUniversityBySlug } from "@/data/university-catalog";
 import { programmeDetailPath } from "@/lib/programme-routes";
 import { Locale, words } from "@/lib/site";
@@ -32,7 +33,9 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
     <div className="school-logo-block">
       <div className="school-image">
         {school?.logoSrc
-          ? <Image src={school.logoSrc} width={320} height={180} sizes="(max-width: 520px) 100vw, 150px" alt={words(locale, `${name} 标志`, `${name} logo`)} />
+          ? school.logoSrc.startsWith("http")
+            ? <RemoteImage src={school.logoSrc} label={name} alt={words(locale, `${name} 校园或标志`, `${name} campus or logo`)} />
+            : <Image src={school.logoSrc} width={320} height={180} sizes="(max-width: 520px) 100vw, 150px" alt={words(locale, `${name} 标志`, `${name} logo`)} />
           : <span className="school-initials" aria-hidden="true">{initials(name)}</span>}
       </div>
       {school?.logoSrc && <span className="school-logo-caption" aria-hidden="true">{name}</span>}
@@ -41,7 +44,7 @@ export function SchoolCard({ locale, school }: { locale: Locale; school?: School
       {!school && <p className="section-label">{words(locale, "展示格式，不代表真实院校资料", "Example format, not a university record")}</p>}
       <h3>{name}</h3>
       {secondaryName && secondaryName !== name && <p className="school-secondary-name">{secondaryName}</p>}
-      <p className="muted"><LocationLabel city={city || (school ? missing : words(locale, "城市", "City"))} country={country} locale={locale} /></p>
+      <p className="muted"><LocationLabel city={city || (school ? missing : words(locale, "城市", "City"))} country={country} countryCode={school?.countryCode} locale={locale} /></p>
       {courses.length ? <details className="school-programme-disclosure">
         <summary><span>{courseCountLabel}</span><span className="school-programme-chevron" aria-hidden="true" /></summary>
         <ul className="course-list">{courses.map(course => <li key={course.id}><Link className="course-list-link" href={programmeDetailPath(locale, school?.slug ?? "preview", course.id)}><strong>{course.name}<span className="course-link-arrow" aria-hidden="true">→</span></strong><span>{words(locale, "学历层次", "Qualification")}: {course.level || missing}<br />{words(locale, "授课语言", "Language of instruction")}: {course.language || missing}</span></Link></li>)}</ul>

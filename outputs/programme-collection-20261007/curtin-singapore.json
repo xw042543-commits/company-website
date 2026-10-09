@@ -1,0 +1,3136 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.458Z",
+  "sourceKey": "curtin-singapore",
+  "sourceName": "Curtin Singapore",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_ae166dec07480cca",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Curtin Singapore",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.curtin.edu.sg",
+    "logoSourceUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-logo-696x696-1.jpg",
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:29:55.481Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.curtin.edu.sg/",
+        "sourcePageTitle": "Home - Curtin Singapore",
+        "sourceHash": "5f941040bee140d8931225f388ec129aaa6d2cfece5ef15f607cd6f7ef7fab55",
+        "fetchedAt": "2026-10-07T04:29:55.481Z",
+        "field": "name",
+        "rawText": "Curtin Singapore"
+      }
+    ],
+    "institutionTypeRaw": "Private education institution / branch campus",
+    "selectionRank": 17,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": [
+      {
+        "kind": "LOGO",
+        "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-logo-696x696-1.jpg",
+        "sourceUrl": "https://www.curtin.edu.sg/",
+        "sourceCheckedAt": "2026-10-07T04:29:55.481Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      },
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+        "sourceUrl": "https://www.curtin.edu.sg/",
+        "sourceCheckedAt": "2026-10-07T04:29:55.481Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_5073a1d04532ff5a",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "商业学士",
+      "nameEn": "Bachelor of Commerce",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+      "sourceCheckedAt": "2026-10-07T04:29:59.258Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.webp",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+          "sourceCheckedAt": "2026-10-07T04:29:59.258Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        },
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+          "sourceCheckedAt": "2026-10-07T06:44:04.841Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+          "sourcePageTitle": "Bachelor of Commerce - Curtin Singapore",
+          "sourceHash": "48f3aaa298b7725701751cd37a37b199308395843fe6217940846e6bedbd19ac",
+          "fetchedAt": "2026-10-07T04:29:59.258Z",
+          "field": "name",
+          "rawText": "Bachelor of Commerce"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+          "sourcePageTitle": "Bachelor of Commerce - Curtin Singapore",
+          "sourceHash": "48f3aaa298b7725701751cd37a37b199308395843fe6217940846e6bedbd19ac",
+          "fetchedAt": "2026-10-07T04:29:59.258Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_48ed45e3cbdf7d2f",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "通讯学士(上)",
+      "nameEn": "Bachelor of Communications (Top-Up)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/undergraduate/communications/",
+      "sourceCheckedAt": "2026-10-07T04:30:26.891Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/communications/",
+          "sourceCheckedAt": "2026-10-07T04:30:26.891Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/communications/",
+          "sourcePageTitle": "Bachelor of Communications (Top-Up) - Curtin Singapore",
+          "sourceHash": "d3b85916ddcad028b3803192fc7aa6ff8ba4b0a0bb35db53901091382e22aa4c",
+          "fetchedAt": "2026-10-07T04:30:26.891Z",
+          "field": "name",
+          "rawText": "Bachelor of Communications (Top-Up)"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/communications/",
+          "sourcePageTitle": "Bachelor of Communications (Top-Up) - Curtin Singapore",
+          "sourceHash": "d3b85916ddcad028b3803192fc7aa6ff8ba4b0a0bb35db53901091382e22aa4c",
+          "fetchedAt": "2026-10-07T04:30:26.891Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/undergraduate/communications/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_2f5e1d4e107a3f82",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机学士(网络安全)",
+      "nameEn": "Bachelor of Computing (Cyber Security)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/",
+      "sourceCheckedAt": "2026-10-07T04:30:34.463Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/",
+          "sourceCheckedAt": "2026-10-07T04:30:34.463Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/",
+          "sourcePageTitle": "Bachelor of Computing (Cyber Security) - Curtin Singapore",
+          "sourceHash": "31d12ce99fa38e031c7146598ddbc9f31146d43cf157d142cc25d9d6606ce763",
+          "fetchedAt": "2026-10-07T04:30:34.463Z",
+          "field": "name",
+          "rawText": "Bachelor of Computing (Cyber Security)"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/",
+          "sourcePageTitle": "Bachelor of Computing (Cyber Security) - Curtin Singapore",
+          "sourceHash": "31d12ce99fa38e031c7146598ddbc9f31146d43cf157d142cc25d9d6606ce763",
+          "fetchedAt": "2026-10-07T04:30:34.463Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_6b78cd97631631a8",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "信息技术学士",
+      "nameEn": "Bachelor of Information Technology",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/",
+      "sourceCheckedAt": "2026-10-07T04:30:36.392Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/",
+          "sourceCheckedAt": "2026-10-07T04:30:36.392Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/",
+          "sourcePageTitle": "Bachelor of Information Technology - Curtin Singapore",
+          "sourceHash": "51d256a5ebaff6c68267bd13c76badfd9a88b25f6b71deff590fc55e076382ec",
+          "fetchedAt": "2026-10-07T04:30:36.392Z",
+          "field": "name",
+          "rawText": "Bachelor of Information Technology"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/",
+          "sourcePageTitle": "Bachelor of Information Technology - Curtin Singapore",
+          "sourceHash": "51d256a5ebaff6c68267bd13c76badfd9a88b25f6b71deff590fc55e076382ec",
+          "fetchedAt": "2026-10-07T04:30:36.392Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_8a40b27791df6aaa",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "注册护士科学学士(Nursing)转校方案",
+      "nameEn": "Bachelor of Science (Nursing) Conversion Program for Registered Nurses (Top-Up)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/",
+      "sourceCheckedAt": "2026-10-07T04:30:38.479Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/",
+          "sourceCheckedAt": "2026-10-07T04:30:38.479Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/",
+          "sourcePageTitle": "Bachelor of Science (Nursing) Conversion Program for Registered Nurses (Top-Up) - Curtin Singapore",
+          "sourceHash": "4922a92e0a2c62edba0f0bff6e0c4ff6dea58fd3440b58004fad523783a54324",
+          "fetchedAt": "2026-10-07T04:30:38.479Z",
+          "field": "name",
+          "rawText": "Bachelor of Science (Nursing) Conversion Program for Registered Nurses (Top-Up)"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/",
+          "sourcePageTitle": "Bachelor of Science (Nursing) Conversion Program for Registered Nurses (Top-Up) - Curtin Singapore",
+          "sourceHash": "4922a92e0a2c62edba0f0bff6e0c4ff6dea58fd3440b58004fad523783a54324",
+          "fetchedAt": "2026-10-07T04:30:38.479Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_93866b9e6f4daf27",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "文凭",
+      "nameEn": "Diploma",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/diploma/",
+      "sourceCheckedAt": "2026-10-07T04:30:52.497Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/05/pathway-flowchart-320x258-1.png",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/",
+          "sourceCheckedAt": "2026-10-07T04:30:52.497Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/",
+          "sourcePageTitle": "Diploma - Curtin Singapore",
+          "sourceHash": "f14882fdc86796fd2773b58153a7dcfa552d56938df88c252cfa251a09cea18e",
+          "fetchedAt": "2026-10-07T04:30:52.497Z",
+          "field": "name",
+          "rawText": "Diploma"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/",
+          "sourcePageTitle": "Diploma - Curtin Singapore",
+          "sourceHash": "f14882fdc86796fd2773b58153a7dcfa552d56938df88c252cfa251a09cea18e",
+          "fetchedAt": "2026-10-07T04:30:52.497Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/diploma/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_999b8f77e1a5adb3",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "哲学博士(博士)",
+      "nameEn": "Doctor of Philosophy (PhD)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/phd/",
+      "sourceCheckedAt": "2026-10-07T04:31:00.660Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "Doctoral Degrees require students to undertake a program of independent supervised study and produce significant and original research outcomes culminating in a thesis, dissertation, exegesis or equivalent for independent examination. Demonstrate expert understanding of theoretical knowledge and to reflect critically on that knowledge and their practice Think critically, evaluate existing knowledge and ideas, undertake systematic investigation and reflect on theory and practice to generate original knowledge Apply expert creative, technical and professional skills to the field of work or learning Explain and critique theoretical propositions, methodologies and conclusions Present a complex investigation of originality or original research for external examination against international standards Communicate complex research concepts, plans and outcomes to the general community, peers and the national and international research community Design, implement, analyse, theorise and communicate research that makes a significant and original contribution to knowledge and/or professional practice Admission criteria Applicants for a Doctoral Degree are required to meet University academic and English language entry standards. Applicants require a Master Degree (Research) or Bachelor Honours Degree (first or second class) or a high standard in either a Master Degree (Coursework) or Bachelor Degree with a Graduate Diploma (or equivalent). Fees wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at Tuition fee Fee before 9% GST Fee including 9% GST 1 Local students S$75,000 S$81,750 2 International students S$140,000 S$152,600 Tuition fees are payable over annual instalments. Fees listed are indicative and subject to annual increases. View our fees and charges page for full details.",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.curtin.edu.sg/courses/phd/",
+          "sourceCheckedAt": "2026-10-07T04:31:00.660Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/phd/",
+          "sourceCheckedAt": "2026-10-07T04:31:00.660Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/phd/",
+          "sourcePageTitle": "Doctor of Philosophy (PhD) - Curtin Singapore",
+          "sourceHash": "c1903d22a6af41f908f429c0c1b64293ab123d2d1d34a2a4860a7890ffe5d5fe",
+          "fetchedAt": "2026-10-07T04:31:00.660Z",
+          "field": "name",
+          "rawText": "Doctor of Philosophy (PhD)"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/phd/",
+          "sourcePageTitle": "Doctor of Philosophy (PhD) - Curtin Singapore",
+          "sourceHash": "c1903d22a6af41f908f429c0c1b64293ab123d2d1d34a2a4860a7890ffe5d5fe",
+          "fetchedAt": "2026-10-07T04:31:00.660Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/phd/"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/phd/",
+          "sourcePageTitle": "Doctor of Philosophy (PhD) - Curtin Singapore",
+          "sourceHash": "c1903d22a6af41f908f429c0c1b64293ab123d2d1d34a2a4860a7890ffe5d5fe",
+          "fetchedAt": "2026-10-07T04:31:00.660Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "Doctoral Degrees require students to undertake a program of independent supervised study and produce significant and original research outcomes culminating in a thesis, dissertation, exegesis or equivalent for independent examination. Demonstrate expert understanding of theoretical knowledge and to reflect critically on that knowledge and their practice Think critically, evaluate existing knowledge and ideas, undertake systematic investigation and reflect on theory and practice to generate original knowledge Apply expert creative, technical and professional skills to the field of work or learning Explain and critique theoretical propositions, methodologies and conclusions Present a complex investigation of originality or original research for external examination against international standards Communicate complex research concepts, plans and outcomes to the general community, peers and the national and international research community Design, implement, analyse, theorise and communicate research that makes a significant and original contribution to knowledge and/or professional practice Admission criteria Applicants for a Doctoral Degree are required to meet University academic and English language entry standards. Applicants require a Master Degree (Research) or Bachelor Honours Degree (first or second class) or a high standard in either a Master Degree (Coursework) or Bachelor Degree with a Graduate Diploma (or equivalent). Fees wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at Tuition fee Fee before 9% GST Fee including 9% GST 1 Local students S$75,000 S$81,750 2 International students S$140,000 S$152,600 Tuition fees are payable over annual instalments. Fees listed are indicative and subject to annual increases. View our fees and charges page for full details."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_6da357f6e89eb71a",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "预测分析学硕士 - 数据科学专业",
+      "nameEn": "Master of Predictive Analytics – Data Science major",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/",
+      "sourceCheckedAt": "2026-10-07T04:31:02.546Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/",
+          "sourceCheckedAt": "2026-10-07T04:31:02.546Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/",
+          "sourcePageTitle": "Master of Predictive Analytics – Data Science major - Curtin Singapore",
+          "sourceHash": "0e48afc281bf4447fd125980d8dc55935cc27fd752dc09671c0c7417c72d49c5",
+          "fetchedAt": "2026-10-07T04:31:02.546Z",
+          "field": "name",
+          "rawText": "Master of Predictive Analytics – Data Science major"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/",
+          "sourcePageTitle": "Master of Predictive Analytics – Data Science major - Curtin Singapore",
+          "sourceHash": "0e48afc281bf4447fd125980d8dc55935cc27fd752dc09671c0c7417c72d49c5",
+          "fetchedAt": "2026-10-07T04:31:02.546Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_570ce6d2458aa114",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "艺术和创意产业文凭",
+      "nameEn": "Diploma of Arts and Creative Industries",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/",
+      "sourceCheckedAt": "2026-10-07T04:31:06.807Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/",
+          "sourceCheckedAt": "2026-10-07T04:31:06.807Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/",
+          "sourcePageTitle": "Diploma of Arts and Creative Industries - Curtin Singapore",
+          "sourceHash": "14c2e3dad175ce359191a9b31f1ba309b31fe41e8ff88a560d68fcb8aa68dc40",
+          "fetchedAt": "2026-10-07T04:31:06.807Z",
+          "field": "name",
+          "rawText": "Diploma of Arts and Creative Industries"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/",
+          "sourcePageTitle": "Diploma of Arts and Creative Industries - Curtin Singapore",
+          "sourceHash": "14c2e3dad175ce359191a9b31f1ba309b31fe41e8ff88a560d68fcb8aa68dc40",
+          "fetchedAt": "2026-10-07T04:31:06.807Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_fbe9b9c5344f1ed3",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "商业文凭",
+      "nameEn": "Diploma of Commerce",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/",
+      "sourceCheckedAt": "2026-10-07T04:31:08.660Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/",
+          "sourceCheckedAt": "2026-10-07T04:31:08.660Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/",
+          "sourcePageTitle": "Diploma of Commerce - Curtin Singapore",
+          "sourceHash": "800685257e261801a5a61cd352d30932491767b8fa9ebdc10d0bba2219a2b0dc",
+          "fetchedAt": "2026-10-07T04:31:08.660Z",
+          "field": "name",
+          "rawText": "Diploma of Commerce"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/",
+          "sourcePageTitle": "Diploma of Commerce - Curtin Singapore",
+          "sourceHash": "800685257e261801a5a61cd352d30932491767b8fa9ebdc10d0bba2219a2b0dc",
+          "fetchedAt": "2026-10-07T04:31:08.660Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_93925092abafab4e",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机文凭",
+      "nameEn": "Diploma of Computing",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/",
+      "sourceCheckedAt": "2026-10-07T04:31:11.000Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/",
+          "sourceCheckedAt": "2026-10-07T04:31:11.000Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/",
+          "sourcePageTitle": "Diploma of Computing - Curtin Singapore",
+          "sourceHash": "30a0d500c7fa10d3f0f91a3eabfbc5819fe3f83f730b5b6d12ffe8fed316b573",
+          "fetchedAt": "2026-10-07T04:31:11.000Z",
+          "field": "name",
+          "rawText": "Diploma of Computing"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/",
+          "sourcePageTitle": "Diploma of Computing - Curtin Singapore",
+          "sourceHash": "30a0d500c7fa10d3f0f91a3eabfbc5819fe3f83f730b5b6d12ffe8fed316b573",
+          "fetchedAt": "2026-10-07T04:31:11.000Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_da70a217c0bf3fda",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "商业基础毕业证书",
+      "nameEn": "Graduate Certificate in Business Fundamentals",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/",
+      "sourceCheckedAt": "2026-10-07T04:31:12.690Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/",
+          "sourceCheckedAt": "2026-10-07T04:31:12.690Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/",
+          "sourcePageTitle": "Graduate Certificate in Business Fundamentals - Curtin Singapore",
+          "sourceHash": "ef56f202ff4e8730c393639dc1efc0aae04a9dc645c770f9a8f56b4b13b4df36",
+          "fetchedAt": "2026-10-07T04:31:12.690Z",
+          "field": "name",
+          "rawText": "Graduate Certificate in Business Fundamentals"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/",
+          "sourcePageTitle": "Graduate Certificate in Business Fundamentals - Curtin Singapore",
+          "sourceHash": "ef56f202ff4e8730c393639dc1efc0aae04a9dc645c770f9a8f56b4b13b4df36",
+          "fetchedAt": "2026-10-07T04:31:12.690Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_447298d4297f0527",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "国际商业硕士",
+      "nameEn": "Master of International Business",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/",
+      "sourceCheckedAt": "2026-10-07T04:31:14.041Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/",
+          "sourceCheckedAt": "2026-10-07T04:31:14.041Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/",
+          "sourcePageTitle": "Master of International Business - Curtin Singapore",
+          "sourceHash": "1a085894244242fd4cd676e4ed2b80fde24a56354f7e3cbdca756969131e88a5",
+          "fetchedAt": "2026-10-07T04:31:14.041Z",
+          "field": "name",
+          "rawText": "Master of International Business"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/",
+          "sourcePageTitle": "Master of International Business - Curtin Singapore",
+          "sourceHash": "1a085894244242fd4cd676e4ed2b80fde24a56354f7e3cbdca756969131e88a5",
+          "fetchedAt": "2026-10-07T04:31:14.041Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_2c6e53c5ae4af253",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "供应链管理研究生证书",
+      "nameEn": "Graduate Certificate in Supply Chain Management",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+      "sourceCheckedAt": "2026-10-07T06:45:15.344Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "Evaluate and apply advanced theoretical and technical knowledge in supply chain management to ensure effective, efficient, ethical and seamless supply chain operations and relationships Critically analyse, evaluate, and apply new technologies and collaborative methodologies through design and implementation of supply chain management principles and processes Effectively communicate information, demonstrating digital competency and mastery of logistics and supply chain management knowledge with respect to policy, processes, and procedures to all stakeholders within and external to the organisation Deliver sustainable competitive advantage in relation to business practice through the application of best practice logistics and supply chain management principles, tools, techniques, and strategies Apply 21st century logistics, distribution, procurement, and supply chain management theory to develop, implement and manage ethically, environmentally and socially responsive and integrated supply chain relationships that contribute strategically to achievement of the aims of the organisation Demonstrate best practice professional skills to ensure sustainable accountability, responsibility, inclusivity, ethics and integrity regarding client relationship management, confidentiality, safety, and security for internal and external stakeholders of the organisation and its supply network Admission criteria A bachelor degree (or equivalent) in a field of study other than logistics, or at least five years’ relevant work experience. Minimum English language entry requirements wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at IELTS Academic (International English Language Testing System) Score 1 Writing 6.0 2 Speaking 6.0 3 Reading 6.0 4 Listening 6.0 5 Overall band score 6.5 Other notes View the full list of entry requirements. Fees wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at Tuition fee Fee before 9% GST Fee including 9% GST 1 Total tuition fee S$12,800 S$13,952 Payable over trimester instalments Fees listed are indicative and subject to annual increases. View our fees and charges page for full details. Career opportunities Career information Careers Commodities manager Logistics manager Supply chain planner Strategic sourcing manager Industries Logistics Manufacturing Mining Oil and gas exploration Planning and operations Credit for previous study If you have previously studied in this field, you are encouraged to contact Curtin Singapore to discuss eligibility for Credit for Recognised Learning (credit for unit exemptions). Course structure Credits needed to graduate: 100. Each unit is 25 credits unless stated otherwise. Trimester 1 Global Freight Transport Systems Supply Chain Analytics for Decision-Support Strategic Operations Management Foundations of Supply Chain Management Units are not necessarily shown in the order studied. Units are subject to change.",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+          "sourceCheckedAt": "2026-10-07T06:45:15.344Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+          "sourceCheckedAt": "2026-10-07T06:45:15.344Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+          "sourcePageTitle": "Graduate Certificate in Supply Chain Management - Curtin Singapore",
+          "sourceHash": "020a76c51cfc29a18ebd81bd270cca3cda4a16ba083e522d387fe20fcb41fcd8",
+          "fetchedAt": "2026-10-07T06:45:15.344Z",
+          "field": "name",
+          "rawText": "Graduate Certificate in Supply Chain Management"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+          "sourcePageTitle": "Graduate Certificate in Supply Chain Management - Curtin Singapore",
+          "sourceHash": "020a76c51cfc29a18ebd81bd270cca3cda4a16ba083e522d387fe20fcb41fcd8",
+          "fetchedAt": "2026-10-07T06:45:15.344Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+          "sourcePageTitle": "Graduate Certificate in Supply Chain Management - Curtin Singapore",
+          "sourceHash": "020a76c51cfc29a18ebd81bd270cca3cda4a16ba083e522d387fe20fcb41fcd8",
+          "fetchedAt": "2026-10-07T06:45:15.344Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "Evaluate and apply advanced theoretical and technical knowledge in supply chain management to ensure effective, efficient, ethical and seamless supply chain operations and relationships Critically analyse, evaluate, and apply new technologies and collaborative methodologies through design and implementation of supply chain management principles and processes Effectively communicate information, demonstrating digital competency and mastery of logistics and supply chain management knowledge with respect to policy, processes, and procedures to all stakeholders within and external to the organisation Deliver sustainable competitive advantage in relation to business practice through the application of best practice logistics and supply chain management principles, tools, techniques, and strategies Apply 21st century logistics, distribution, procurement, and supply chain management theory to develop, implement and manage ethically, environmentally and socially responsive and integrated supply chain relationships that contribute strategically to achievement of the aims of the organisation Demonstrate best practice professional skills to ensure sustainable accountability, responsibility, inclusivity, ethics and integrity regarding client relationship management, confidentiality, safety, and security for internal and external stakeholders of the organisation and its supply network Admission criteria A bachelor degree (or equivalent) in a field of study other than logistics, or at least five years’ relevant work experience. Minimum English language entry requirements wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at IELTS Academic (International English Language Testing System) Score 1 Writing 6.0 2 Speaking 6.0 3 Reading 6.0 4 Listening 6.0 5 Overall band score 6.5 Other notes View the full list of entry requirements. Fees wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at Tuition fee Fee before 9% GST Fee including 9% GST 1 Total tuition fee S$12,800 S$13,952 Payable over trimester instalments Fees listed are indicative and subject to annual increases. View our fees and charges page for full details. Career opportunities Career information Careers Commodities manager Logistics manager Supply chain planner Strategic sourcing manager Industries Logistics Manufacturing Mining Oil and gas exploration Planning and operations Credit for previous study If you have previously studied in this field, you are encouraged to contact Curtin Singapore to discuss eligibility for Credit for Recognised Learning (credit for unit exemptions). Course structure Credits needed to graduate: 100. Each unit is 25 credits unless stated otherwise. Trimester 1 Global Freight Transport Systems Supply Chain Analytics for Decision-Support Strategic Operations Management Foundations of Supply Chain Management Units are not necessarily shown in the order studied. Units are subject to change."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_3f939098483992f2",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "供应链管理硕士(专业)",
+      "nameEn": "Master of Supply Chain Management (Professional)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+      "sourceCheckedAt": "2026-10-07T06:45:17.399Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "Evaluate and apply appropriate Logistics, Distribution, Operations, Procurement and Supply Chain Management principles and practices in a private, public, and not for profit sector environment to ensure effective, efficient, ethical and seamless supply chain operations and relationships. Critically analyse, assess, research and apply new technologies and collaborative methodologies through design and implementation of logistics and supply chain management theory. Effectively communicate and demonstrate knowledge and mastery of logistics and supply chain management with respect to policy, processes, relationships, strategies and procedures to all stakeholders within and external to the organisation. Deliver sustainable competitive advantage in relation to business practice through the application of best practice logistics and supply chain management principles, tools, techniques, and strategies. Apply 21st century logistics, distribution, procurement, and supply chain management theory to develop, implement and manage ethically, environmentally and socially responsive and integrated supply chain relationships that contribute strategically to achievement of the aims of the organisation. Demonstrate best practice professional skills to ensure sustainable accountability, responsibility, inclusivity, ethics and integrity regarding client relationship management, confidentiality, safety, and security for internal and external stakeholders of the organisation and its supply network. Admission criteria A bachelor degree in a related discipline from a recognised tertiary institution and 3-5 years’ relevant work experience. A Graduate Certificate in Supply Chain Management is recommended for students without work experience, which will serve as a pathway into the Master of Supply Chain Management (Professional). Minimum English language entry requirements wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at IELTS Academic (International English Language Testing System) Score 1 Writing 6.0 2 Speaking 6.0 3 Reading 6.0 4 Listening 6.0 5 Overall band score 6.5 Other notes View the full list of entry requirements. Fees wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at Tuition fee Fee before 9% GST Fee including 9% GST 1 Total tuition fee S$25,600 S$27,904 Payable over trimester instalments Fees listed are indicative and subject to annual increases. View our fees and charges page for full details. Credit for previous study If you have previously studied in this field, you are encouraged to contact Curtin Singapore to discuss eligibility for Credit for Recognised Learning (credit for unit exemptions). Course structure Credits needed to graduate: 200. Each unit is 25 credits unless stated otherwise. Trimester 1 Supplier Relationships and Stakeholder Management Supply Chain Digitalisation and Innovative Technologies Supply Chain Planning and Design Supply Chain Quality Management Trimester 2 Socially Responsible Supply Chains Strategic Supply Chain Management Complete 50 credits from the following options Consultancy Capstone (50 credits) Advanced Commerce Consultancy/Internship (50 credits) – only available to Singaporean/PR students Units are not necessarily shown in the order studied. Units are subject to change.",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+          "sourceCheckedAt": "2026-10-07T06:45:17.399Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+          "sourceCheckedAt": "2026-10-07T06:45:17.399Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+          "sourcePageTitle": "Master of Supply Chain Management (Professional) - Curtin Singapore",
+          "sourceHash": "5e0d1c163114ef7479762dcb43bc425dc7d8d9db69dc9ae773cc68e3bbb2ad06",
+          "fetchedAt": "2026-10-07T06:45:17.399Z",
+          "field": "name",
+          "rawText": "Master of Supply Chain Management (Professional)"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+          "sourcePageTitle": "Master of Supply Chain Management (Professional) - Curtin Singapore",
+          "sourceHash": "5e0d1c163114ef7479762dcb43bc425dc7d8d9db69dc9ae773cc68e3bbb2ad06",
+          "fetchedAt": "2026-10-07T06:45:17.399Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+          "sourcePageTitle": "Master of Supply Chain Management (Professional) - Curtin Singapore",
+          "sourceHash": "5e0d1c163114ef7479762dcb43bc425dc7d8d9db69dc9ae773cc68e3bbb2ad06",
+          "fetchedAt": "2026-10-07T06:45:17.399Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "Evaluate and apply appropriate Logistics, Distribution, Operations, Procurement and Supply Chain Management principles and practices in a private, public, and not for profit sector environment to ensure effective, efficient, ethical and seamless supply chain operations and relationships. Critically analyse, assess, research and apply new technologies and collaborative methodologies through design and implementation of logistics and supply chain management theory. Effectively communicate and demonstrate knowledge and mastery of logistics and supply chain management with respect to policy, processes, relationships, strategies and procedures to all stakeholders within and external to the organisation. Deliver sustainable competitive advantage in relation to business practice through the application of best practice logistics and supply chain management principles, tools, techniques, and strategies. Apply 21st century logistics, distribution, procurement, and supply chain management theory to develop, implement and manage ethically, environmentally and socially responsive and integrated supply chain relationships that contribute strategically to achievement of the aims of the organisation. Demonstrate best practice professional skills to ensure sustainable accountability, responsibility, inclusivity, ethics and integrity regarding client relationship management, confidentiality, safety, and security for internal and external stakeholders of the organisation and its supply network. Admission criteria A bachelor degree in a related discipline from a recognised tertiary institution and 3-5 years’ relevant work experience. A Graduate Certificate in Supply Chain Management is recommended for students without work experience, which will serve as a pathway into the Master of Supply Chain Management (Professional). Minimum English language entry requirements wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at IELTS Academic (International English Language Testing System) Score 1 Writing 6.0 2 Speaking 6.0 3 Reading 6.0 4 Listening 6.0 5 Overall band score 6.5 Other notes View the full list of entry requirements. Fees wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at Tuition fee Fee before 9% GST Fee including 9% GST 1 Total tuition fee S$25,600 S$27,904 Payable over trimester instalments Fees listed are indicative and subject to annual increases. View our fees and charges page for full details. Credit for previous study If you have previously studied in this field, you are encouraged to contact Curtin Singapore to discuss eligibility for Credit for Recognised Learning (credit for unit exemptions). Course structure Credits needed to graduate: 200. Each unit is 25 credits unless stated otherwise. Trimester 1 Supplier Relationships and Stakeholder Management Supply Chain Digitalisation and Innovative Technologies Supply Chain Planning and Design Supply Chain Quality Management Trimester 2 Socially Responsible Supply Chains Strategic Supply Chain Management Complete 50 credits from the following options Consultancy Capstone (50 credits) Advanced Commerce Consultancy/Internship (50 credits) – only available to Singaporean/PR students Units are not necessarily shown in the order studied. Units are subject to change."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_af8f7e4e2e24192d",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "临床领导才能研究生证书",
+      "nameEn": "Graduate Certificate in Clinical Leadership",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+      "sourceCheckedAt": "2026-10-07T06:45:19.339Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "Apply discipline knowledge, principles and concepts in accordance with relevant practice codes, standards and legislation Apply critical thinking and reflective practice to clinical practice to generate innovative solutions Access, evaluate and synthesise information relevant to clinical leadership and the promotion of optimal outcomes for clients Communicate effectively and work collaboratively with clients, carers, families, communities and the interdisciplinary health care team Utilise technology safely and appropriately for the diagnosis and management of clients Participate in research and critically appraise research findings and incorporate evidence based knowledge into clinical practice Relate policy, practices and standards to international trends Demonstrate cultural competence in the care of all clients, families and communities Demonstrate professional, legal and ethical accountability within the scope of practice for safe health care delivery Admission criteria Specifically, prospective students must have a bachelor degree in a relevant clinical based health or allied health field or in a related area, entry to the course is competitive, with a high course weighted average required (indicative 70 or above). Applicants must have a minimum of 12 months postgraduate experience in a specialist area of practice and current health professional registration/accreditation. The program is offered for Singaporean and Permanent Resident applicants, or foreigners holding relevant working visas Minimum English language entry requirements wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at IELTS Academic (International English Language Testing System) Score 1 Writing 7.0 2 Speaking 7.0 3 Reading 7.0 4 Listening 7.0 5 Overall band score 7.0 Other notes View the full list of entry requirements. Fees wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at Tuition fee Fee before 9% GST Fee including 9% GST 1 Total tuition fee S$11,000 S$11,990 Payable over two semester instalments Fees listed are indicative and subject to annual increases. View our fees and charges page for full details. Course structure Credits needed to graduate: 100. Each unit is 25 credits unless stated otherwise. Semester 1 Clinical Workforce Development Clinical Management Semester 2 Leadership for the Clinical Context Clinical Safety and Quality Units are not necessarily shown in the order studied. Units are subject to change.",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+          "sourceCheckedAt": "2026-10-07T06:45:19.339Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+          "sourceCheckedAt": "2026-10-07T06:45:19.339Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+          "sourcePageTitle": "Graduate Certificate in Clinical Leadership - Curtin Singapore",
+          "sourceHash": "ee08bcbc83c4eb994cb0e54751b66c3f5613d500cf524f075770a535c2d69e6a",
+          "fetchedAt": "2026-10-07T06:45:19.339Z",
+          "field": "name",
+          "rawText": "Graduate Certificate in Clinical Leadership"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+          "sourcePageTitle": "Graduate Certificate in Clinical Leadership - Curtin Singapore",
+          "sourceHash": "ee08bcbc83c4eb994cb0e54751b66c3f5613d500cf524f075770a535c2d69e6a",
+          "fetchedAt": "2026-10-07T06:45:19.339Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+          "sourcePageTitle": "Graduate Certificate in Clinical Leadership - Curtin Singapore",
+          "sourceHash": "ee08bcbc83c4eb994cb0e54751b66c3f5613d500cf524f075770a535c2d69e6a",
+          "fetchedAt": "2026-10-07T06:45:19.339Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "Apply discipline knowledge, principles and concepts in accordance with relevant practice codes, standards and legislation Apply critical thinking and reflective practice to clinical practice to generate innovative solutions Access, evaluate and synthesise information relevant to clinical leadership and the promotion of optimal outcomes for clients Communicate effectively and work collaboratively with clients, carers, families, communities and the interdisciplinary health care team Utilise technology safely and appropriately for the diagnosis and management of clients Participate in research and critically appraise research findings and incorporate evidence based knowledge into clinical practice Relate policy, practices and standards to international trends Demonstrate cultural competence in the care of all clients, families and communities Demonstrate professional, legal and ethical accountability within the scope of practice for safe health care delivery Admission criteria Specifically, prospective students must have a bachelor degree in a relevant clinical based health or allied health field or in a related area, entry to the course is competitive, with a high course weighted average required (indicative 70 or above). Applicants must have a minimum of 12 months postgraduate experience in a specialist area of practice and current health professional registration/accreditation. The program is offered for Singaporean and Permanent Resident applicants, or foreigners holding relevant working visas Minimum English language entry requirements wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at IELTS Academic (International English Language Testing System) Score 1 Writing 7.0 2 Speaking 7.0 3 Reading 7.0 4 Listening 7.0 5 Overall band score 7.0 Other notes View the full list of entry requirements. Fees wdt_ID wdt_created_by wdt_created_at wdt_last_edited_by wdt_last_edited_at Tuition fee Fee before 9% GST Fee including 9% GST 1 Total tuition fee S$11,000 S$11,990 Payable over two semester instalments Fees listed are indicative and subject to annual increases. View our fees and charges page for full details. Course structure Credits needed to graduate: 100. Each unit is 25 credits unless stated otherwise. Semester 1 Clinical Workforce Development Clinical Management Semester 2 Leadership for the Clinical Context Clinical Safety and Quality Units are not necessarily shown in the order studied. Units are subject to change."
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_38dfdb0eab52daee",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "伤、骨外科和大面积作业毕业证书",
+      "nameEn": "Graduate Certificate in Wound, Ostomy and Continence Practice",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-wound-ostomy-continence-practice/",
+      "sourceCheckedAt": "2026-10-07T06:45:21.414Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-wound-ostomy-continence-practice/",
+          "sourceCheckedAt": "2026-10-07T06:45:21.414Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-wound-ostomy-continence-practice/",
+          "sourcePageTitle": "Graduate Certificate in Wound, Ostomy and Continence Practice - Curtin Singapore",
+          "sourceHash": "774f871339bd572d3fcb64e1a587f10d582b81336f1a5d5af9dbdb6d32548021",
+          "fetchedAt": "2026-10-07T06:45:21.414Z",
+          "field": "name",
+          "rawText": "Graduate Certificate in Wound, Ostomy and Continence Practice"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-wound-ostomy-continence-practice/",
+          "sourcePageTitle": "Graduate Certificate in Wound, Ostomy and Continence Practice - Curtin Singapore",
+          "sourceHash": "774f871339bd572d3fcb64e1a587f10d582b81336f1a5d5af9dbdb6d32548021",
+          "fetchedAt": "2026-10-07T06:45:21.414Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-wound-ostomy-continence-practice/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_ba7f640733ab2d7e",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "高级硕士",
+      "nameEn": "Master of Advanced Practice",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+      "sourceCheckedAt": "2026-10-07T06:45:24.071Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "LEARNING_OUTCOMES",
+          "titleZh": "学习成果",
+          "titleEn": "Learning outcomes",
+          "bodyZh": null,
+          "bodyEn": "Apply discipline knowledge, principles and concepts in accordance with relevant practice codes, standards and legislation Apply critical thinking and reflective practice to clinical practice to generate innovative solutions Access, evaluate and synthesise information relevant to clinical leadership and the promotion of optimal outcomes for clients Communicate effectively and work collaboratively with clients, carers, families, communities and the interdisciplinary health care team Utilise technology safely and appropriately for the diagnosis and management of clients Participate in research and critically appraise research findings and incorporate evidence based knowledge into clinical practice Relate policy, practices and standards to international trends Demonstrate cultural competence in the care of all clients, families and communities Demonstrate professional, legal and ethical accountability within the scope of practice for safe health care delivery -->",
+          "sortOrder": 30,
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+          "sourceCheckedAt": "2026-10-07T06:45:24.071Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+          "sourceCheckedAt": "2026-10-07T06:45:24.071Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+          "sourcePageTitle": "Master of Advanced Practice - Curtin Singapore",
+          "sourceHash": "ca28324c8af91a342acc3d7989a30433247e166c89f64355f7a8fce9b5b47196",
+          "fetchedAt": "2026-10-07T06:45:24.071Z",
+          "field": "name",
+          "rawText": "Master of Advanced Practice"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+          "sourcePageTitle": "Master of Advanced Practice - Curtin Singapore",
+          "sourceHash": "ca28324c8af91a342acc3d7989a30433247e166c89f64355f7a8fce9b5b47196",
+          "fetchedAt": "2026-10-07T06:45:24.071Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+          "sourcePageTitle": "Master of Advanced Practice - Curtin Singapore",
+          "sourceHash": "ca28324c8af91a342acc3d7989a30433247e166c89f64355f7a8fce9b5b47196",
+          "fetchedAt": "2026-10-07T06:45:24.071Z",
+          "field": "detailSections.LEARNING_OUTCOMES",
+          "rawText": "Apply discipline knowledge, principles and concepts in accordance with relevant practice codes, standards and legislation Apply critical thinking and reflective practice to clinical practice to generate innovative solutions Access, evaluate and synthesise information relevant to clinical leadership and the promotion of optimal outcomes for clients Communicate effectively and work collaboratively with clients, carers, families, communities and the interdisciplinary health care team Utilise technology safely and appropriately for the diagnosis and management of clients Participate in research and critically appraise research findings and incorporate evidence based knowledge into clinical practice Relate policy, practices and standards to international trends Demonstrate cultural competence in the care of all clients, families and communities Demonstrate professional, legal and ethical accountability within the scope of practice for safe health care delivery -->"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_06ed9d1a8cea9e08",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机硕士",
+      "nameEn": "Master of Computing",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/",
+      "sourceCheckedAt": "2026-10-07T06:45:30.052Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/",
+          "sourceCheckedAt": "2026-10-07T06:45:30.052Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/",
+          "sourcePageTitle": "Master of Computing - Curtin Singapore",
+          "sourceHash": "c7201e4803629c051b114d4134eec9eefb28b7d13f8510b9967e02cdf8c2b6eb",
+          "fetchedAt": "2026-10-07T06:45:30.052Z",
+          "field": "name",
+          "rawText": "Master of Computing"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/",
+          "sourcePageTitle": "Master of Computing - Curtin Singapore",
+          "sourceHash": "c7201e4803629c051b114d4134eec9eefb28b7d13f8510b9967e02cdf8c2b6eb",
+          "fetchedAt": "2026-10-07T06:45:30.052Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_5048a91a2a6be60c",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机硕士",
+      "nameEn": "Master of Computing – Artificial Intelligence major",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-artificial-intelligence-major/",
+      "sourceCheckedAt": "2026-10-07T06:45:31.461Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-artificial-intelligence-major/",
+          "sourceCheckedAt": "2026-10-07T06:45:31.461Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-artificial-intelligence-major/",
+          "sourcePageTitle": "Master of Computing – Artificial Intelligence major - Curtin Singapore",
+          "sourceHash": "a202799deb0b4c0e49594661c511c73b5fd3f7098e7790647fc2a296c8684932",
+          "fetchedAt": "2026-10-07T06:45:31.461Z",
+          "field": "name",
+          "rawText": "Master of Computing – Artificial Intelligence major"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-artificial-intelligence-major/",
+          "sourcePageTitle": "Master of Computing – Artificial Intelligence major - Curtin Singapore",
+          "sourceHash": "a202799deb0b4c0e49594661c511c73b5fd3f7098e7790647fc2a296c8684932",
+          "fetchedAt": "2026-10-07T06:45:31.461Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-artificial-intelligence-major/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_3a7e4676773352a1",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机科学硕士",
+      "nameEn": "Master of Computing – Computer Science major",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-computer-science-major/",
+      "sourceCheckedAt": "2026-10-07T06:45:32.919Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-computer-science-major/",
+          "sourceCheckedAt": "2026-10-07T06:45:32.919Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-computer-science-major/",
+          "sourcePageTitle": "Master of Computing – Computer Science major - Curtin Singapore",
+          "sourceHash": "984a68ac0bfb5bbdc41d789a223cdae9b768b1e8ebab84c31b9d27993d5bb8ba",
+          "fetchedAt": "2026-10-07T06:45:32.919Z",
+          "field": "name",
+          "rawText": "Master of Computing – Computer Science major"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-computer-science-major/",
+          "sourcePageTitle": "Master of Computing – Computer Science major - Curtin Singapore",
+          "sourceHash": "984a68ac0bfb5bbdc41d789a223cdae9b768b1e8ebab84c31b9d27993d5bb8ba",
+          "fetchedAt": "2026-10-07T06:45:32.919Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-computer-science-major/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_644509c5a020e1db",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "电子计算机-网络安全硕士",
+      "nameEn": "Master of Computing – Cyber Security major",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-cyber-security-major/",
+      "sourceCheckedAt": "2026-10-07T06:45:35.647Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-cyber-security-major/",
+          "sourceCheckedAt": "2026-10-07T06:45:35.647Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-cyber-security-major/",
+          "sourcePageTitle": "Master of Computing – Cyber Security major - Curtin Singapore",
+          "sourceHash": "85add03edda1b94a424799d7997ebed460fde64ba187a7174b812b32d0693243",
+          "fetchedAt": "2026-10-07T06:45:35.647Z",
+          "field": "name",
+          "rawText": "Master of Computing – Cyber Security major"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-cyber-security-major/",
+          "sourcePageTitle": "Master of Computing – Cyber Security major - Curtin Singapore",
+          "sourceHash": "85add03edda1b94a424799d7997ebed460fde64ba187a7174b812b32d0693243",
+          "fetchedAt": "2026-10-07T06:45:35.647Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-cyber-security-major/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_3bd462f1b0bb13ff",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "人造情报硕士",
+      "nameEn": "Master of Artificial Intelligence",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/",
+      "sourceCheckedAt": "2026-10-07T06:45:37.389Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/",
+          "sourceCheckedAt": "2026-10-07T06:45:37.389Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/",
+          "sourcePageTitle": "Master of Artificial Intelligence - Curtin Singapore",
+          "sourceHash": "d2bdf29118f77387e93270351d59373c96bce90d5a986c41cde424442ef173a0",
+          "fetchedAt": "2026-10-07T06:45:37.389Z",
+          "field": "name",
+          "rawText": "Master of Artificial Intelligence"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/",
+          "sourcePageTitle": "Master of Artificial Intelligence - Curtin Singapore",
+          "sourceHash": "d2bdf29118f77387e93270351d59373c96bce90d5a986c41cde424442ef173a0",
+          "fetchedAt": "2026-10-07T06:45:37.389Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_9ca55db9d9f83a48",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "网络安全硕士",
+      "nameEn": "Master of Cyber Security",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-cyber-security/",
+      "sourceCheckedAt": "2026-10-07T06:45:39.518Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-cyber-security/",
+          "sourceCheckedAt": "2026-10-07T06:45:39.518Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-cyber-security/",
+          "sourcePageTitle": "Master of Cyber Security - Curtin Singapore",
+          "sourceHash": "8f9f8d973640075ca1024b5cc6d161721c993e44232267b06d7349b85aac2cd2",
+          "fetchedAt": "2026-10-07T06:45:39.518Z",
+          "field": "name",
+          "rawText": "Master of Cyber Security"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-cyber-security/",
+          "sourcePageTitle": "Master of Cyber Security - Curtin Singapore",
+          "sourceHash": "8f9f8d973640075ca1024b5cc6d161721c993e44232267b06d7349b85aac2cd2",
+          "fetchedAt": "2026-10-07T06:45:39.518Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/master-of-cyber-security/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_4f975bdea6f0087e",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "预测分析学研究生证书",
+      "nameEn": "Graduate Certificate in Predictive Analytics",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-predictive-analytics/",
+      "sourceCheckedAt": "2026-10-07T06:45:41.598Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-predictive-analytics/",
+          "sourceCheckedAt": "2026-10-07T06:45:41.598Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-predictive-analytics/",
+          "sourcePageTitle": "Graduate Certificate in Predictive Analytics - Curtin Singapore",
+          "sourceHash": "5f86088d3550483c1a35f369554803fbd1a496175a7116b224fe04f8568cc2bc",
+          "fetchedAt": "2026-10-07T06:45:41.598Z",
+          "field": "name",
+          "rawText": "Graduate Certificate in Predictive Analytics"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-predictive-analytics/",
+          "sourcePageTitle": "Graduate Certificate in Predictive Analytics - Curtin Singapore",
+          "sourceHash": "5f86088d3550483c1a35f369554803fbd1a496175a7116b224fe04f8568cc2bc",
+          "fetchedAt": "2026-10-07T06:45:41.598Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-predictive-analytics/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_a4f6b281fedafa96",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "预测分析学研究生文凭",
+      "nameEn": "Graduate Diploma in Predictive Analytics",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-diploma-in-predictive-analytics/",
+      "sourceCheckedAt": "2026-10-07T06:45:43.416Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-diploma-in-predictive-analytics/",
+          "sourceCheckedAt": "2026-10-07T06:45:43.416Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-diploma-in-predictive-analytics/",
+          "sourcePageTitle": "Graduate Diploma in Predictive Analytics - Curtin Singapore",
+          "sourceHash": "798479d384ca21f8e413c353a600e64530b63bcac333346f541d53a053d69902",
+          "fetchedAt": "2026-10-07T06:45:43.416Z",
+          "field": "name",
+          "rawText": "Graduate Diploma in Predictive Analytics"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-diploma-in-predictive-analytics/",
+          "sourcePageTitle": "Graduate Diploma in Predictive Analytics - Curtin Singapore",
+          "sourceHash": "798479d384ca21f8e413c353a600e64530b63bcac333346f541d53a053d69902",
+          "fetchedAt": "2026-10-07T06:45:43.416Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/postgraduate/graduate-diploma-in-predictive-analytics/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_cca84ef7d20356b1",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "学历英语文凭",
+      "nameEn": "Diploma of English for Academic Purposes",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.curtin.edu.sg/courses/english-courses/english-for-academic-purposes/",
+      "sourceCheckedAt": "2026-10-07T06:45:45.424Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [
+        {
+          "kind": "COURSE_IMAGE",
+          "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+          "sourceUrl": "https://www.curtin.edu.sg/courses/english-courses/english-for-academic-purposes/",
+          "sourceCheckedAt": "2026-10-07T06:45:45.424Z",
+          "licenceRaw": null,
+          "status": "DRAFT"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/english-courses/english-for-academic-purposes/",
+          "sourcePageTitle": "Diploma of English for Academic Purposes - Curtin Singapore",
+          "sourceHash": "07386995fa7af1bf31ba1a9e61e958ec8bf130283f27d83bedb3b3415ef205e4",
+          "fetchedAt": "2026-10-07T06:45:45.424Z",
+          "field": "name",
+          "rawText": "Diploma of English for Academic Purposes"
+        },
+        {
+          "sourceUrl": "https://www.curtin.edu.sg/courses/english-courses/english-for-academic-purposes/",
+          "sourcePageTitle": "Diploma of English for Academic Purposes - Curtin Singapore",
+          "sourceHash": "07386995fa7af1bf31ba1a9e61e958ec8bf130283f27d83bedb3b3415ef205e4",
+          "fetchedAt": "2026-10-07T06:45:45.424Z",
+          "field": "detailUrl",
+          "rawText": "https://www.curtin.edu.sg/courses/english-courses/english-for-academic-purposes/"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.curtin.edu.sg/",
+      "fetchedAt": "2026-10-07T04:29:55.481Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f941040bee140d8931225f388ec129aaa6d2cfece5ef15f607cd6f7ef7fab55",
+      "title": "Home - Curtin Singapore",
+      "snapshotFile": "raw/0001-5f941040bee1.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/",
+      "fetchedAt": "2026-10-07T04:29:57.235Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "76389270a197005495db555488c39e5746cfbf6e9bbe1509893d477ff16a4e00",
+      "title": "Undergraduate courses - Curtin Singapore",
+      "snapshotFile": "raw/0002-76389270a197.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+      "fetchedAt": "2026-10-07T04:29:59.258Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "48f3aaa298b7725701751cd37a37b199308395843fe6217940846e6bedbd19ac",
+      "title": "Bachelor of Commerce - Curtin Singapore",
+      "snapshotFile": "raw/0003-48f3aaa298b7.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/accounting/",
+      "fetchedAt": "2026-10-07T04:30:02.846Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f462dc8166b5e7429e914e13744e53c20ce561c42e95a2d28146c2d49cd1dadf",
+      "title": "Accounting - Curtin Singapore",
+      "snapshotFile": "raw/0004-f462dc8166b5.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance/",
+      "fetchedAt": "2026-10-07T04:30:04.453Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d9951f8468e3e1ffa2b71f39e704ca6e56f9df0623fd85ab8b29fddb061c2005",
+      "title": "Finance - Curtin Singapore",
+      "snapshotFile": "raw/0005-d9951f8468e3.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/international-business/",
+      "fetchedAt": "2026-10-07T04:30:07.245Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c1bdc7eb7b59dea8e1ad18fda76de0307fb765453c8bee645aed583ec75f41dc",
+      "title": "International Business - Curtin Singapore",
+      "snapshotFile": "raw/0006-c1bdc7eb7b59.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/logistics-and-supply-chain-management/",
+      "fetchedAt": "2026-10-07T04:30:08.778Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4630bae1a150c0bf6bea3b5ddfe9f09f03968b8c3eba7f5d3c9007746da8eb57",
+      "title": "Logistics and Supply Chain Management - Curtin Singapore",
+      "snapshotFile": "raw/0007-4630bae1a150.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management/",
+      "fetchedAt": "2026-10-07T04:30:11.078Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "48392c5708fb02b4db6122102060e236f8d4a7c9131f9a93089d0d9142277d51",
+      "title": "Management - Curtin Singapore",
+      "snapshotFile": "raw/0008-48392c5708fb.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/marketing/",
+      "fetchedAt": "2026-10-07T04:30:12.498Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b7f4aa7a9d929f12c186ce67b430f0b0ea58ef7081f741b9dac5c7c0beef90ab",
+      "title": "Marketing - Curtin Singapore",
+      "snapshotFile": "raw/0009-b7f4aa7a9d92.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/accounting-and-finance/",
+      "fetchedAt": "2026-10-07T04:30:13.772Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7a5697911e07c040428a7edd2004b64a10e557f802f2e9ac0358242fe7966d75",
+      "title": "Accounting and Finance - Curtin Singapore",
+      "snapshotFile": "raw/0010-7a5697911e07.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance-and-management/",
+      "fetchedAt": "2026-10-07T04:30:16.330Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d4b98d4a3b7eb7982f07a653f3858497811f57e6ee336c0d52297e01e4f83e1c",
+      "title": "Finance and Management - Curtin Singapore",
+      "snapshotFile": "raw/0011-d4b98d4a3b7e.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance-and-marketing/",
+      "fetchedAt": "2026-10-07T04:30:18.434Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d864c27487ce6324cb1dc8f2c7bcb67d1da6bfc57d9ff2d180691859d8d59d99",
+      "title": "Finance and Marketing - Curtin Singapore",
+      "snapshotFile": "raw/0012-d864c27487ce.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/logistics-and-supply-chain-management-and-marketing/",
+      "fetchedAt": "2026-10-07T04:30:20.849Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1be85297564087b83923f0918a06bd9772fbef5f12b0cca6d93fed2aa26d652e",
+      "title": "Logistics and Supply Chain Management and Marketing - Curtin Singapore",
+      "snapshotFile": "raw/0013-1be852975640.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management-and-human-resource-management/",
+      "fetchedAt": "2026-10-07T04:30:23.068Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4164649124715d2a37f9cb8ba6619f4dcf487ba6e367302e22a30875f90b2839",
+      "title": "Management and Human Resource Management - Curtin Singapore",
+      "snapshotFile": "raw/0014-416464912471.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management-and-marketing/",
+      "fetchedAt": "2026-10-07T04:30:25.074Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4dac74d3025c4a1fe073f250e8a0f650d74a88345d2027b44dab1e0d6644b1f2",
+      "title": "Management and Marketing - Curtin Singapore",
+      "snapshotFile": "raw/0015-4dac74d3025c.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/",
+      "fetchedAt": "2026-10-07T04:30:26.891Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d3b85916ddcad028b3803192fc7aa6ff8ba4b0a0bb35db53901091382e22aa4c",
+      "title": "Bachelor of Communications (Top-Up) - Curtin Singapore",
+      "snapshotFile": "raw/0016-d3b85916ddca.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/journalism-and-marketing/",
+      "fetchedAt": "2026-10-07T04:30:28.717Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ce264e22e87dbd8fd7dfb2591526840ee33927c3db25f27f836e87083a1ea3fd",
+      "title": "Journalism and Marketing Communication Specialisation - Curtin Singapore",
+      "snapshotFile": "raw/0017-ce264e22e87d.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/journalism-and-web-media/",
+      "fetchedAt": "2026-10-07T04:30:30.538Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "731f94befcf27a22cb01dab634f0efe7c8a60c841ecb4f85f354da872a1f7ef5",
+      "title": "Journalism and Web Media Specialisation - Curtin Singapore",
+      "snapshotFile": "raw/0018-731f94befcf2.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/web-media-and-marketing/",
+      "fetchedAt": "2026-10-07T04:30:32.388Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a757c41a1b293ef1e3f587188584e085b47736fe03a39d7ef6ed330b34449e72",
+      "title": "Web Media and Marketing Communication Specialisation - Curtin Singapore",
+      "snapshotFile": "raw/0019-a757c41a1b29.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/",
+      "fetchedAt": "2026-10-07T04:30:34.463Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "31d12ce99fa38e031c7146598ddbc9f31146d43cf157d142cc25d9d6606ce763",
+      "title": "Bachelor of Computing (Cyber Security) - Curtin Singapore",
+      "snapshotFile": "raw/0020-31d12ce99fa3.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/",
+      "fetchedAt": "2026-10-07T04:30:36.392Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "51d256a5ebaff6c68267bd13c76badfd9a88b25f6b71deff590fc55e076382ec",
+      "title": "Bachelor of Information Technology - Curtin Singapore",
+      "snapshotFile": "raw/0021-51d256a5ebaf.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/",
+      "fetchedAt": "2026-10-07T04:30:38.479Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4922a92e0a2c62edba0f0bff6e0c4ff6dea58fd3440b58004fad523783a54324",
+      "title": "Bachelor of Science (Nursing) Conversion Program for Registered Nurses (Top-Up) - Curtin Singapore",
+      "snapshotFile": "raw/0022-4922a92e0a2c.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/",
+      "fetchedAt": "2026-10-07T04:30:39.892Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9132bef74af064c72ef3496dbf10bea293483aafbcc3fc4f9c48023e9fb51322",
+      "title": "Courses - Curtin Singapore",
+      "snapshotFile": "raw/0023-9132bef74af0.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/",
+      "fetchedAt": "2026-10-07T04:30:42.394Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9f4158a429227bfd3dea3a5786d0e7af55c9938955e1fe65e64e6ded6c8e8dd0",
+      "title": "Study areas - Curtin Singapore",
+      "snapshotFile": "raw/0024-9f4158a42922.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/business/",
+      "fetchedAt": "2026-10-07T04:30:44.909Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "72c1b74153e8023063a6e6367e7939decaf30caf5192dfdfb48c43667a3f159b",
+      "title": "Business - Curtin Singapore",
+      "snapshotFile": "raw/0025-72c1b74153e8.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/communications/",
+      "fetchedAt": "2026-10-07T04:30:45.922Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "66548b6335923717744583ec95ac466ca6e3990f8172446bdcd34455c2fa2a9e",
+      "title": "Communications - Curtin Singapore",
+      "snapshotFile": "raw/0026-66548b633592.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/information-technology/",
+      "fetchedAt": "2026-10-07T04:30:48.380Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "35f8e4d753823c78fd661effeaca5e3b3b353a363804767dd52fa0399474140f",
+      "title": "Information Technology - Curtin Singapore",
+      "snapshotFile": "raw/0027-35f8e4d75382.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/health-sciences/",
+      "fetchedAt": "2026-10-07T04:30:50.502Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "82292a6ec467c38f13c570c911c969723e6777845177123039d560205263bad6",
+      "title": "Health Sciences - Curtin Singapore",
+      "snapshotFile": "raw/0028-82292a6ec467.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/diploma/",
+      "fetchedAt": "2026-10-07T04:30:52.497Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f14882fdc86796fd2773b58153a7dcfa552d56938df88c252cfa251a09cea18e",
+      "title": "Diploma - Curtin Singapore",
+      "snapshotFile": "raw/0029-f14882fdc867.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/",
+      "fetchedAt": "2026-10-07T04:30:53.973Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ad3b0f940a7af7ec713b8c8394210b0f7e8fe74cbb3dfc0045f5f1f29271f3b0",
+      "title": "Postgraduate courses - Curtin Singapore",
+      "snapshotFile": "raw/0030-ad3b0f940a7a.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/english-courses/",
+      "fetchedAt": "2026-10-07T04:30:56.417Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bb8dd65aef1854140299639c5dd4e2fb7cce2dc3f9c36b60971c331ce42e0869",
+      "title": "English language courses - Curtin Singapore",
+      "snapshotFile": "raw/0031-bb8dd65aef18.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-abroad/",
+      "fetchedAt": "2026-10-07T04:30:58.556Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "adc584d03cecf7450a4cda71a6663af6e25acf82ecc28be2dea6af188c94e056",
+      "title": "Study Abroad Business - Curtin Singapore",
+      "snapshotFile": "raw/0032-adc584d03cec.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/phd/",
+      "fetchedAt": "2026-10-07T04:31:00.660Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c1903d22a6af41f908f429c0c1b64293ab123d2d1d34a2a4860a7890ffe5d5fe",
+      "title": "Doctor of Philosophy (PhD) - Curtin Singapore",
+      "snapshotFile": "raw/0033-c1903d22a6af.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/",
+      "fetchedAt": "2026-10-07T04:31:02.546Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0e48afc281bf4447fd125980d8dc55935cc27fd752dc09671c0c7417c72d49c5",
+      "title": "Master of Predictive Analytics – Data Science major - Curtin Singapore",
+      "snapshotFile": "raw/0034-0e48afc281bf.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/global-scholars-program/",
+      "fetchedAt": "2026-10-07T04:31:04.550Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "126418cb79b6c7d62e6b9c9dc7b9e286307ddf99196006cf940e4ead0844cccb",
+      "title": "Global Scholars Program - Curtin Singapore",
+      "snapshotFile": "raw/0035-126418cb79b6.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/",
+      "fetchedAt": "2026-10-07T04:31:06.807Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "14c2e3dad175ce359191a9b31f1ba309b31fe41e8ff88a560d68fcb8aa68dc40",
+      "title": "Diploma of Arts and Creative Industries - Curtin Singapore",
+      "snapshotFile": "raw/0036-14c2e3dad175.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/",
+      "fetchedAt": "2026-10-07T04:31:08.660Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "800685257e261801a5a61cd352d30932491767b8fa9ebdc10d0bba2219a2b0dc",
+      "title": "Diploma of Commerce - Curtin Singapore",
+      "snapshotFile": "raw/0037-800685257e26.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/",
+      "fetchedAt": "2026-10-07T04:31:11.000Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "30a0d500c7fa10d3f0f91a3eabfbc5819fe3f83f730b5b6d12ffe8fed316b573",
+      "title": "Diploma of Computing - Curtin Singapore",
+      "snapshotFile": "raw/0038-30a0d500c7fa.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/",
+      "fetchedAt": "2026-10-07T04:31:12.690Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ef56f202ff4e8730c393639dc1efc0aae04a9dc645c770f9a8f56b4b13b4df36",
+      "title": "Graduate Certificate in Business Fundamentals - Curtin Singapore",
+      "snapshotFile": "raw/0039-ef56f202ff4e.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/",
+      "fetchedAt": "2026-10-07T04:31:14.041Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1a085894244242fd4cd676e4ed2b80fde24a56354f7e3cbdca756969131e88a5",
+      "title": "Master of International Business - Curtin Singapore",
+      "snapshotFile": "raw/0040-1a0858942442.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/",
+      "fetchedAt": "2026-10-07T06:44:00.888Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9f4158a429227bfd3dea3a5786d0e7af55c9938955e1fe65e64e6ded6c8e8dd0",
+      "title": "Study areas - Curtin Singapore",
+      "snapshotFile": "raw/0001-9f4158a42922.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/",
+      "fetchedAt": "2026-10-07T06:44:02.870Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "76389270a197005495db555488c39e5746cfbf6e9bbe1509893d477ff16a4e00",
+      "title": "Undergraduate courses - Curtin Singapore",
+      "snapshotFile": "raw/0002-76389270a197.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+      "fetchedAt": "2026-10-07T06:44:04.841Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ae52b844d7c55f12edfbb45f1cb746da598085917696e14f372d46675801c664",
+      "title": "Bachelor of Commerce - Curtin Singapore",
+      "snapshotFile": "raw/0003-ae52b844d7c5.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/accounting/",
+      "fetchedAt": "2026-10-07T06:44:06.985Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f462dc8166b5e7429e914e13744e53c20ce561c42e95a2d28146c2d49cd1dadf",
+      "title": "Accounting - Curtin Singapore",
+      "snapshotFile": "raw/0004-f462dc8166b5.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance/",
+      "fetchedAt": "2026-10-07T06:44:09.288Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d9951f8468e3e1ffa2b71f39e704ca6e56f9df0623fd85ab8b29fddb061c2005",
+      "title": "Finance - Curtin Singapore",
+      "snapshotFile": "raw/0005-d9951f8468e3.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/international-business/",
+      "fetchedAt": "2026-10-07T06:44:11.029Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c1bdc7eb7b59dea8e1ad18fda76de0307fb765453c8bee645aed583ec75f41dc",
+      "title": "International Business - Curtin Singapore",
+      "snapshotFile": "raw/0006-c1bdc7eb7b59.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/logistics-and-supply-chain-management/",
+      "fetchedAt": "2026-10-07T06:44:14.130Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4630bae1a150c0bf6bea3b5ddfe9f09f03968b8c3eba7f5d3c9007746da8eb57",
+      "title": "Logistics and Supply Chain Management - Curtin Singapore",
+      "snapshotFile": "raw/0007-4630bae1a150.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management/",
+      "fetchedAt": "2026-10-07T06:44:15.780Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "48392c5708fb02b4db6122102060e236f8d4a7c9131f9a93089d0d9142277d51",
+      "title": "Management - Curtin Singapore",
+      "snapshotFile": "raw/0008-48392c5708fb.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/marketing/",
+      "fetchedAt": "2026-10-07T06:44:17.192Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b7f4aa7a9d929f12c186ce67b430f0b0ea58ef7081f741b9dac5c7c0beef90ab",
+      "title": "Marketing - Curtin Singapore",
+      "snapshotFile": "raw/0009-b7f4aa7a9d92.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/accounting-and-finance/",
+      "fetchedAt": "2026-10-07T06:44:19.168Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7a5697911e07c040428a7edd2004b64a10e557f802f2e9ac0358242fe7966d75",
+      "title": "Accounting and Finance - Curtin Singapore",
+      "snapshotFile": "raw/0010-7a5697911e07.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance-and-management/",
+      "fetchedAt": "2026-10-07T06:44:21.234Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d4b98d4a3b7eb7982f07a653f3858497811f57e6ee336c0d52297e01e4f83e1c",
+      "title": "Finance and Management - Curtin Singapore",
+      "snapshotFile": "raw/0011-d4b98d4a3b7e.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance-and-marketing/",
+      "fetchedAt": "2026-10-07T06:44:23.254Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d864c27487ce6324cb1dc8f2c7bcb67d1da6bfc57d9ff2d180691859d8d59d99",
+      "title": "Finance and Marketing - Curtin Singapore",
+      "snapshotFile": "raw/0012-d864c27487ce.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/logistics-and-supply-chain-management-and-marketing/",
+      "fetchedAt": "2026-10-07T06:44:25.196Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1be85297564087b83923f0918a06bd9772fbef5f12b0cca6d93fed2aa26d652e",
+      "title": "Logistics and Supply Chain Management and Marketing - Curtin Singapore",
+      "snapshotFile": "raw/0013-1be852975640.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management-and-human-resource-management/",
+      "fetchedAt": "2026-10-07T06:44:27.201Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4164649124715d2a37f9cb8ba6619f4dcf487ba6e367302e22a30875f90b2839",
+      "title": "Management and Human Resource Management - Curtin Singapore",
+      "snapshotFile": "raw/0014-416464912471.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management-and-marketing/",
+      "fetchedAt": "2026-10-07T06:44:29.219Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4dac74d3025c4a1fe073f250e8a0f650d74a88345d2027b44dab1e0d6644b1f2",
+      "title": "Management and Marketing - Curtin Singapore",
+      "snapshotFile": "raw/0015-4dac74d3025c.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/",
+      "fetchedAt": "2026-10-07T06:44:31.149Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d3b85916ddcad028b3803192fc7aa6ff8ba4b0a0bb35db53901091382e22aa4c",
+      "title": "Bachelor of Communications (Top-Up) - Curtin Singapore",
+      "snapshotFile": "raw/0016-d3b85916ddca.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/journalism-and-marketing/",
+      "fetchedAt": "2026-10-07T06:44:33.233Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ce264e22e87dbd8fd7dfb2591526840ee33927c3db25f27f836e87083a1ea3fd",
+      "title": "Journalism and Marketing Communication Specialisation - Curtin Singapore",
+      "snapshotFile": "raw/0017-ce264e22e87d.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/journalism-and-web-media/",
+      "fetchedAt": "2026-10-07T06:44:35.258Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "731f94befcf27a22cb01dab634f0efe7c8a60c841ecb4f85f354da872a1f7ef5",
+      "title": "Journalism and Web Media Specialisation - Curtin Singapore",
+      "snapshotFile": "raw/0018-731f94befcf2.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/web-media-and-marketing/",
+      "fetchedAt": "2026-10-07T06:44:37.350Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a757c41a1b293ef1e3f587188584e085b47736fe03a39d7ef6ed330b34449e72",
+      "title": "Web Media and Marketing Communication Specialisation - Curtin Singapore",
+      "snapshotFile": "raw/0019-a757c41a1b29.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/",
+      "fetchedAt": "2026-10-07T06:44:39.379Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "31d12ce99fa38e031c7146598ddbc9f31146d43cf157d142cc25d9d6606ce763",
+      "title": "Bachelor of Computing (Cyber Security) - Curtin Singapore",
+      "snapshotFile": "raw/0020-31d12ce99fa3.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/",
+      "fetchedAt": "2026-10-07T06:44:41.363Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "51d256a5ebaff6c68267bd13c76badfd9a88b25f6b71deff590fc55e076382ec",
+      "title": "Bachelor of Information Technology - Curtin Singapore",
+      "snapshotFile": "raw/0021-51d256a5ebaf.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/",
+      "fetchedAt": "2026-10-07T06:44:43.248Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4922a92e0a2c62edba0f0bff6e0c4ff6dea58fd3440b58004fad523783a54324",
+      "title": "Bachelor of Science (Nursing) Conversion Program for Registered Nurses (Top-Up) - Curtin Singapore",
+      "snapshotFile": "raw/0022-4922a92e0a2c.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/business/",
+      "fetchedAt": "2026-10-07T06:44:45.234Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "72c1b74153e8023063a6e6367e7939decaf30caf5192dfdfb48c43667a3f159b",
+      "title": "Business - Curtin Singapore",
+      "snapshotFile": "raw/0023-72c1b74153e8.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/communications/",
+      "fetchedAt": "2026-10-07T06:44:47.201Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "66548b6335923717744583ec95ac466ca6e3990f8172446bdcd34455c2fa2a9e",
+      "title": "Communications - Curtin Singapore",
+      "snapshotFile": "raw/0024-66548b633592.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/information-technology/",
+      "fetchedAt": "2026-10-07T06:44:49.241Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "35f8e4d753823c78fd661effeaca5e3b3b353a363804767dd52fa0399474140f",
+      "title": "Information Technology - Curtin Singapore",
+      "snapshotFile": "raw/0025-35f8e4d75382.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-areas/health-sciences/",
+      "fetchedAt": "2026-10-07T06:44:50.787Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "82292a6ec467c38f13c570c911c969723e6777845177123039d560205263bad6",
+      "title": "Health Sciences - Curtin Singapore",
+      "snapshotFile": "raw/0026-82292a6ec467.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/diploma/",
+      "fetchedAt": "2026-10-07T06:44:53.298Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f14882fdc86796fd2773b58153a7dcfa552d56938df88c252cfa251a09cea18e",
+      "title": "Diploma - Curtin Singapore",
+      "snapshotFile": "raw/0027-f14882fdc867.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/",
+      "fetchedAt": "2026-10-07T06:44:54.791Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ad3b0f940a7af7ec713b8c8394210b0f7e8fe74cbb3dfc0045f5f1f29271f3b0",
+      "title": "Postgraduate courses - Curtin Singapore",
+      "snapshotFile": "raw/0028-ad3b0f940a7a.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/english-courses/",
+      "fetchedAt": "2026-10-07T06:44:57.440Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bb8dd65aef1854140299639c5dd4e2fb7cce2dc3f9c36b60971c331ce42e0869",
+      "title": "English language courses - Curtin Singapore",
+      "snapshotFile": "raw/0029-bb8dd65aef18.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/study-abroad/",
+      "fetchedAt": "2026-10-07T06:44:59.424Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "adc584d03cecf7450a4cda71a6663af6e25acf82ecc28be2dea6af188c94e056",
+      "title": "Study Abroad Business - Curtin Singapore",
+      "snapshotFile": "raw/0030-adc584d03cec.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/phd/",
+      "fetchedAt": "2026-10-07T06:45:01.299Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c1903d22a6af41f908f429c0c1b64293ab123d2d1d34a2a4860a7890ffe5d5fe",
+      "title": "Doctor of Philosophy (PhD) - Curtin Singapore",
+      "snapshotFile": "raw/0031-c1903d22a6af.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/",
+      "fetchedAt": "2026-10-07T06:45:02.884Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0e48afc281bf4447fd125980d8dc55935cc27fd752dc09671c0c7417c72d49c5",
+      "title": "Master of Predictive Analytics – Data Science major - Curtin Singapore",
+      "snapshotFile": "raw/0032-0e48afc281bf.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/",
+      "fetchedAt": "2026-10-07T06:45:05.329Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "14c2e3dad175ce359191a9b31f1ba309b31fe41e8ff88a560d68fcb8aa68dc40",
+      "title": "Diploma of Arts and Creative Industries - Curtin Singapore",
+      "snapshotFile": "raw/0033-14c2e3dad175.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/",
+      "fetchedAt": "2026-10-07T06:45:07.375Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "800685257e261801a5a61cd352d30932491767b8fa9ebdc10d0bba2219a2b0dc",
+      "title": "Diploma of Commerce - Curtin Singapore",
+      "snapshotFile": "raw/0034-800685257e26.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/",
+      "fetchedAt": "2026-10-07T06:45:09.480Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "30a0d500c7fa10d3f0f91a3eabfbc5819fe3f83f730b5b6d12ffe8fed316b573",
+      "title": "Diploma of Computing - Curtin Singapore",
+      "snapshotFile": "raw/0035-30a0d500c7fa.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/",
+      "fetchedAt": "2026-10-07T06:45:11.342Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ef56f202ff4e8730c393639dc1efc0aae04a9dc645c770f9a8f56b4b13b4df36",
+      "title": "Graduate Certificate in Business Fundamentals - Curtin Singapore",
+      "snapshotFile": "raw/0036-ef56f202ff4e.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/",
+      "fetchedAt": "2026-10-07T06:45:13.373Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a06faba2adab45b1f65eab1316e718f871b84b6601f314d51ebff48d954a55d0",
+      "title": "Master of International Business - Curtin Singapore",
+      "snapshotFile": "raw/0037-a06faba2adab.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+      "fetchedAt": "2026-10-07T06:45:15.344Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "020a76c51cfc29a18ebd81bd270cca3cda4a16ba083e522d387fe20fcb41fcd8",
+      "title": "Graduate Certificate in Supply Chain Management - Curtin Singapore",
+      "snapshotFile": "raw/0038-020a76c51cfc.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+      "fetchedAt": "2026-10-07T06:45:17.399Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5e0d1c163114ef7479762dcb43bc425dc7d8d9db69dc9ae773cc68e3bbb2ad06",
+      "title": "Master of Supply Chain Management (Professional) - Curtin Singapore",
+      "snapshotFile": "raw/0039-5e0d1c163114.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+      "fetchedAt": "2026-10-07T06:45:19.339Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee08bcbc83c4eb994cb0e54751b66c3f5613d500cf524f075770a535c2d69e6a",
+      "title": "Graduate Certificate in Clinical Leadership - Curtin Singapore",
+      "snapshotFile": "raw/0040-ee08bcbc83c4.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-wound-ostomy-continence-practice/",
+      "fetchedAt": "2026-10-07T06:45:21.414Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "774f871339bd572d3fcb64e1a587f10d582b81336f1a5d5af9dbdb6d32548021",
+      "title": "Graduate Certificate in Wound, Ostomy and Continence Practice - Curtin Singapore",
+      "snapshotFile": "raw/0041-774f871339bd.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+      "fetchedAt": "2026-10-07T06:45:24.071Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ca28324c8af91a342acc3d7989a30433247e166c89f64355f7a8fce9b5b47196",
+      "title": "Master of Advanced Practice - Curtin Singapore",
+      "snapshotFile": "raw/0042-ca28324c8af9.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/clinical-leadership-specialisation/",
+      "fetchedAt": "2026-10-07T06:45:25.648Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4bf19985dc57578b62937526b34a83774bf0c2ddc13070480af96165adcb8fdd",
+      "title": "Clinical Leadership Specialisation - Curtin Singapore",
+      "snapshotFile": "raw/0043-4bf19985dc57.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/wound-ostomy-and-continence-practice-specialisation/",
+      "fetchedAt": "2026-10-07T06:45:27.404Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "41807023bbe98c9e724a0d1b150e64a9f3bdf901bb97dc1585afa99d69ed2c6c",
+      "title": "Wound, Ostomy and Continence Nursing Practice Specialisation - Curtin Singapore",
+      "snapshotFile": "raw/0044-41807023bbe9.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/",
+      "fetchedAt": "2026-10-07T06:45:30.052Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c7201e4803629c051b114d4134eec9eefb28b7d13f8510b9967e02cdf8c2b6eb",
+      "title": "Master of Computing - Curtin Singapore",
+      "snapshotFile": "raw/0045-c7201e480362.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-artificial-intelligence-major/",
+      "fetchedAt": "2026-10-07T06:45:31.461Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a202799deb0b4c0e49594661c511c73b5fd3f7098e7790647fc2a296c8684932",
+      "title": "Master of Computing – Artificial Intelligence major - Curtin Singapore",
+      "snapshotFile": "raw/0046-a202799deb0b.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-computer-science-major/",
+      "fetchedAt": "2026-10-07T06:45:32.919Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "984a68ac0bfb5bbdc41d789a223cdae9b768b1e8ebab84c31b9d27993d5bb8ba",
+      "title": "Master of Computing – Computer Science major - Curtin Singapore",
+      "snapshotFile": "raw/0047-984a68ac0bfb.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-cyber-security-major/",
+      "fetchedAt": "2026-10-07T06:45:35.647Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "85add03edda1b94a424799d7997ebed460fde64ba187a7174b812b32d0693243",
+      "title": "Master of Computing – Cyber Security major - Curtin Singapore",
+      "snapshotFile": "raw/0048-85add03edda1.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/",
+      "fetchedAt": "2026-10-07T06:45:37.389Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d2bdf29118f77387e93270351d59373c96bce90d5a986c41cde424442ef173a0",
+      "title": "Master of Artificial Intelligence - Curtin Singapore",
+      "snapshotFile": "raw/0049-d2bdf29118f7.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-cyber-security/",
+      "fetchedAt": "2026-10-07T06:45:39.518Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8f9f8d973640075ca1024b5cc6d161721c993e44232267b06d7349b85aac2cd2",
+      "title": "Master of Cyber Security - Curtin Singapore",
+      "snapshotFile": "raw/0050-8f9f8d973640.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-predictive-analytics/",
+      "fetchedAt": "2026-10-07T06:45:41.598Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f86088d3550483c1a35f369554803fbd1a496175a7116b224fe04f8568cc2bc",
+      "title": "Graduate Certificate in Predictive Analytics - Curtin Singapore",
+      "snapshotFile": "raw/0051-5f86088d3550.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-diploma-in-predictive-analytics/",
+      "fetchedAt": "2026-10-07T06:45:43.416Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "798479d384ca21f8e413c353a600e64530b63bcac333346f541d53a053d69902",
+      "title": "Graduate Diploma in Predictive Analytics - Curtin Singapore",
+      "snapshotFile": "raw/0052-798479d384ca.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/english-courses/english-for-academic-purposes/",
+      "fetchedAt": "2026-10-07T06:45:45.424Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "07386995fa7af1bf31ba1a9e61e958ec8bf130283f27d83bedb3b3415ef205e4",
+      "title": "Diploma of English for Academic Purposes - Curtin Singapore",
+      "snapshotFile": "raw/0053-07386995fa7a.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/english-courses/academic-english-4/",
+      "fetchedAt": "2026-10-07T06:45:47.460Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "86a3ebb8b1cf02d2dd7914e59a97d0374091e11f336da2c90900590d7852bae7",
+      "title": "Academic English 4 - Curtin Singapore",
+      "snapshotFile": "raw/0054-86a3ebb8b1cf.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/courses/",
+      "fetchedAt": "2026-10-07T06:45:49.458Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9132bef74af064c72ef3496dbf10bea293483aafbcc3fc4f9c48023e9fb51322",
+      "title": "Courses - Curtin Singapore",
+      "snapshotFile": "raw/0055-9132bef74af0.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/",
+      "fetchedAt": "2026-10-07T06:45:50.953Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f941040bee140d8931225f388ec129aaa6d2cfece5ef15f607cd6f7ef7fab55",
+      "title": "Home - Curtin Singapore",
+      "snapshotFile": "raw/0056-5f941040bee1.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/global-scholars-program/",
+      "fetchedAt": "2026-10-07T06:45:52.946Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "126418cb79b6c7d62e6b9c9dc7b9e286307ddf99196006cf940e4ead0844cccb",
+      "title": "Global Scholars Program - Curtin Singapore",
+      "snapshotFile": "raw/0057-126418cb79b6.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/about/",
+      "fetchedAt": "2026-10-07T06:45:54.941Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "42810484d8269092527a91134fec2487a413c2803613e85f7a026a3e2fe68165",
+      "title": "About - Curtin Singapore",
+      "snapshotFile": "raw/0058-42810484d826.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/about/welcome-to-curtin-singapore/",
+      "fetchedAt": "2026-10-07T06:45:56.956Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "67d9eb203c1165e88d285123d5e09d7e08a80db6180ad4555ecb52c958ae1f38",
+      "title": "Welcome to Curtin Singapore - Curtin Singapore",
+      "snapshotFile": "raw/0059-67d9eb203c11.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/about/vision/",
+      "fetchedAt": "2026-10-07T06:45:59.671Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3aba40bed878a96db24ba757d5bada221ea43f763a017971c883eb762877a341",
+      "title": "Vision, strategic positioning and values - Curtin Singapore",
+      "snapshotFile": "raw/0060-3aba40bed878.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/about/university-learning/",
+      "fetchedAt": "2026-10-07T06:46:02.343Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8c9d8cafc737940f07860b8e50aa471d31ecfcc52efdfc2f6c40f7580c0bdbb7",
+      "title": "University learning - Curtin Singapore",
+      "snapshotFile": "raw/0061-8c9d8cafc737.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/about/campus-facilities/",
+      "fetchedAt": "2026-10-07T06:46:03.510Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cd02b7ec36678417aec24a62ab511880c3fd607f6dbe43bedb3180f3e13ea9d1",
+      "title": "Campus and facilities - Curtin Singapore",
+      "snapshotFile": "raw/0062-cd02b7ec3667.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/about/campus-facilities/getting-to-curtin/",
+      "fetchedAt": "2026-10-07T06:46:05.401Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4b63b433336be3d3cf34aa681350e27c0ff6a9c4233f7145261ece5073a05496",
+      "title": "Getting to Curtin Singapore - Curtin Singapore",
+      "snapshotFile": "raw/0063-4b63b433336b.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/about/policy-governance/",
+      "fetchedAt": "2026-10-07T06:46:07.464Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5c7a25c2c9e07411977dbdd5256d645ea6347a5c0d11eb732bf10a2b817c3670",
+      "title": "Policy and Governance - Curtin Singapore",
+      "snapshotFile": "raw/0064-5c7a25c2c9e0.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/about/facts-and-figures/",
+      "fetchedAt": "2026-10-07T06:46:09.481Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "897f299b134d154ec1a034cf8580de548027a89172e3967482c218a541e607ba",
+      "title": "Facts and figures - Curtin Singapore",
+      "snapshotFile": "raw/0065-897f299b134d.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/about/jobs/",
+      "fetchedAt": "2026-10-07T06:46:11.427Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ba314157d5dfb26ff1e76ab8dc771e6311f89887a163d6e8630639ea34fca2c3",
+      "title": "Jobs at Curtin Singapore - Curtin Singapore",
+      "snapshotFile": "raw/0066-ba314157d5df.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/future-students/",
+      "fetchedAt": "2026-10-07T06:46:13.499Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3a282b44bb6f8228af1a2399c6dd24f674cf91105f0ecb16c29dad774da5a4f2",
+      "title": "Future students - Curtin Singapore",
+      "snapshotFile": "raw/0067-3a282b44bb6f.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/future-students/curtin-singapore/",
+      "fetchedAt": "2026-10-07T06:46:15.876Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d78ef898688b1170eecc31808cd7083183a11db10e86ea984829d6bcd948c62b",
+      "title": "Curtin Singapore - Curtin Singapore",
+      "snapshotFile": "raw/0068-d78ef898688b.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/future-students/international-students/",
+      "fetchedAt": "2026-10-07T06:46:17.019Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "66306b92af40554d1dceb019a28ce6a9b91c031a615d56ab0cd46e01c7ea9ecb",
+      "title": "International applicants - Curtin Singapore",
+      "snapshotFile": "raw/0069-66306b92af40.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/future-students/international-students/about-singapore/",
+      "fetchedAt": "2026-10-07T06:46:19.665Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "684cac882b615d65c8711a73e23d0d4c8ac71130b48151219de064f24acd739d",
+      "title": "About Singapore - Curtin Singapore",
+      "snapshotFile": "raw/0070-684cac882b61.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/future-students/international-students/accommodation/",
+      "fetchedAt": "2026-10-07T06:46:21.049Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4422b7a00cc4653d112d9427e436178504f37aee93e8fad58876178d6f853a10",
+      "title": "Accommodation - Curtin Singapore",
+      "snapshotFile": "raw/0071-4422b7a00cc4.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/future-students/international-students/arriving-in-singapore/",
+      "fetchedAt": "2026-10-07T06:46:23.045Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d362bf9d0e90acc171222827c430afc6ab58564dba9389361f083b38be414eae",
+      "title": "Arriving in Singapore - Curtin Singapore",
+      "snapshotFile": "raw/0072-d362bf9d0e90.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/future-students/international-students/students-pass/",
+      "fetchedAt": "2026-10-07T06:46:25.513Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "33b9ebe2770c8e895fc0c8baae6a5fa927385d5d7de7e750f4f61ed00474d80a",
+      "title": "Student's Pass - Curtin Singapore",
+      "snapshotFile": "raw/0073-33b9ebe2770c.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/research/",
+      "fetchedAt": "2026-10-07T06:46:27.543Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8995c3279ed3796e4009d6d09f4c17e178dd5ae1f0093d1e9b2fa74adf8272cd",
+      "title": "Research - Curtin Singapore",
+      "snapshotFile": "raw/0074-8995c3279ed3.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/research/research-ecosystem/",
+      "fetchedAt": "2026-10-07T06:46:29.664Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3b5ced87dc74e5b8b18deba149d0ef233c7f93bbe1ab4aa8e653fa21ca5f9048",
+      "title": "Curtin Singapore research ecosystem - Curtin Singapore",
+      "snapshotFile": "raw/0075-3b5ced87dc74.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/research/research-awards/",
+      "fetchedAt": "2026-10-07T06:46:31.511Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "964991b60b80740ea19a3db2a093abf9ad8c6bf42c603618e441731cfd99b4a9",
+      "title": "Research awards - Curtin Singapore",
+      "snapshotFile": "raw/0076-964991b60b80.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/research/research-supervisors/",
+      "fetchedAt": "2026-10-07T06:46:33.082Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "866845845e2bfbc1a9448f189f455fd1bd4b7e26af71f9c3276bbc9e64bfe398",
+      "title": "Research supervisors - Curtin Singapore",
+      "snapshotFile": "raw/0077-866845845e2b.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/research/phd-candidates/",
+      "fetchedAt": "2026-10-07T06:46:35.595Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5af813fca204aa112192fd62a12ad3c1ef724fae885b82fee5c0d639aa0cc020",
+      "title": "Curtin Singapore PhD candidates - Curtin Singapore",
+      "snapshotFile": "raw/0078-5af813fca204.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/",
+      "fetchedAt": "2026-10-07T06:46:37.655Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f941040bee140d8931225f388ec129aaa6d2cfece5ef15f607cd6f7ef7fab55",
+      "title": "Home - Curtin Singapore",
+      "snapshotFile": "raw/0079-5f941040bee1.html"
+    },
+    {
+      "url": "https://www.curtin.edu.sg/copyright/",
+      "fetchedAt": "2026-10-07T06:46:39.813Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e8b4420a3cc4e16d5a88ce0846b01e00430ce94fe571b31983506c270f623b49",
+      "title": "Copyright - Curtin Singapore",
+      "snapshotFile": "raw/0080-e8b4420a3cc4.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:46:39.911Z",
+    "seedUrls": [
+      "https://www.curtin.edu.sg/courses/study-areas/",
+      "https://www.curtin.edu.sg/courses/study-areas/business/",
+      "https://www.curtin.edu.sg/courses/study-areas/communications/",
+      "https://www.curtin.edu.sg/courses/study-areas/information-technology/",
+      "https://www.curtin.edu.sg/courses/study-areas/health-sciences/",
+      "https://www.curtin.edu.sg/courses/diploma/",
+      "https://www.curtin.edu.sg/courses/undergraduate/",
+      "https://www.curtin.edu.sg/courses/postgraduate/",
+      "https://www.curtin.edu.sg/courses/english-courses/",
+      "https://www.curtin.edu.sg/courses/study-abroad/",
+      "https://www.curtin.edu.sg/courses/phd/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/accounting/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/international-business/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/logistics-and-supply-chain-management/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/marketing/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/accounting-and-finance/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance-and-management/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance-and-marketing/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/logistics-and-supply-chain-management-and-marketing/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management-and-human-resource-management/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management-and-marketing/",
+      "https://www.curtin.edu.sg/courses/undergraduate/communications/",
+      "https://www.curtin.edu.sg/courses/undergraduate/communications/journalism-and-marketing/",
+      "https://www.curtin.edu.sg/courses/undergraduate/communications/journalism-and-web-media/",
+      "https://www.curtin.edu.sg/courses/undergraduate/communications/web-media-and-marketing/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/",
+      "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/",
+      "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/",
+      "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/",
+      "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/",
+      "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/",
+      "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/",
+      "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+      "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+      "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-wound-ostomy-continence-practice/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/clinical-leadership-specialisation/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/wound-ostomy-and-continence-practice-specialisation/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-artificial-intelligence-major/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-computer-science-major/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-cyber-security-major/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/",
+      "https://www.curtin.edu.sg/courses/postgraduate/master-of-cyber-security/",
+      "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-predictive-analytics/",
+      "https://www.curtin.edu.sg/courses/postgraduate/graduate-diploma-in-predictive-analytics/",
+      "https://www.curtin.edu.sg/courses/english-courses/english-for-academic-purposes/",
+      "https://www.curtin.edu.sg/courses/english-courses/academic-english-4/",
+      "https://www.curtin.edu.sg/courses/"
+    ],
+    "pages": 80
+  },
+  "detailEnrichment": {
+    "enrichedAt": "2026-10-09T01:54:01.209Z",
+    "source": "saved official programme-page snapshots",
+    "rule": "Only visible source text is copied; missing fields remain null; status remains DRAFT."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.458Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

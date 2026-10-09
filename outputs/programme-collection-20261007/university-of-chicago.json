@@ -1,0 +1,1548 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.513Z",
+  "sourceKey": "university-of-chicago",
+  "sourceName": "University of Chicago",
+  "warnings": [
+    "HTTP 500：https://www.uchicago.edu/academics/graduate-programs/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+    "HTTP 403：https://www.uchicago.edu/life-at-uchicago/student-life",
+    "HTTP 403：https://www.uchicago.edu/features/teaching_and_inspiring_undergraduates/",
+    "HTTP 500：https://www.uchicago.edu/faculty/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+    "HTTP 500：https://www.uchicago.edu/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+    "HTTP 500：https://www.uchicago.edu/academics/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+    "HTTP 500：https://www.uchicago.edu/who-we-are/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+    "HTTP 404：https://harris.uchicago.edu/academics/undergraduate/uchicagoPBPL@uchicago.edu"
+  ],
+  "university": {
+    "candidateId": "university_926584ee385b527c",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "University of Chicago",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Chicago, Illinois",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.uchicago.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:20:45.743Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.uchicago.edu/",
+        "sourcePageTitle": "The University of Chicago",
+        "sourceHash": "3a502954111cc1327fdef7d8121c54aa078441384c7a209c2280f1a99b5bbd94",
+        "fetchedAt": "2026-10-07T04:20:45.743Z",
+        "field": "name",
+        "rawText": "University of Chicago"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 10,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": [
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://www.uchicago.edu/-/media/images/logo-background/campus_aerial_2-min.png?h=627&iar=0&w=1200&hash=4B634222CA6B6F6F5AD375708EC6AA65",
+        "sourceUrl": "https://www.uchicago.edu/",
+        "sourceCheckedAt": "2026-10-07T04:20:45.743Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_8fa18a4c002059db",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "公共政策硕士(MPP)",
+      "nameEn": "Master of Public Policy (MPP)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://harris.uchicago.edu/academics/degrees/master-public-policy-mpp",
+      "sourceCheckedAt": "2026-10-07T06:31:42.823Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma",
+          "sourcePageTitle": "Part-Time Evening Master's Degree Program | Harris School of Public Policy",
+          "sourceHash": "7a029eaa98d74a8a430740d3e0cb164ac3056ac2ae965964f43873c76b206cd5",
+          "fetchedAt": "2026-10-07T06:31:42.823Z",
+          "field": "name",
+          "rawText": "Master of Public Policy (MPP)"
+        },
+        {
+          "sourceUrl": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma",
+          "sourcePageTitle": "Part-Time Evening Master's Degree Program | Harris School of Public Policy",
+          "sourceHash": "7a029eaa98d74a8a430740d3e0cb164ac3056ac2ae965964f43873c76b206cd5",
+          "fetchedAt": "2026-10-07T06:31:42.823Z",
+          "field": "detailUrl",
+          "rawText": "https://harris.uchicago.edu/academics/degrees/master-public-policy-mpp"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_b540b9036879ab14",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "数据分析政策科学硕士",
+      "nameEn": "Master of Science in Data Analytics & Policy",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://harris.uchicago.edu/academics/degrees/master-science-data-analytics-policy-msdap",
+      "sourceCheckedAt": "2026-10-07T06:31:42.823Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma",
+          "sourcePageTitle": "Part-Time Evening Master's Degree Program | Harris School of Public Policy",
+          "sourceHash": "7a029eaa98d74a8a430740d3e0cb164ac3056ac2ae965964f43873c76b206cd5",
+          "fetchedAt": "2026-10-07T06:31:42.823Z",
+          "field": "name",
+          "rawText": "Master of Science in Data Analytics & Policy"
+        },
+        {
+          "sourceUrl": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma",
+          "sourcePageTitle": "Part-Time Evening Master's Degree Program | Harris School of Public Policy",
+          "sourceHash": "7a029eaa98d74a8a430740d3e0cb164ac3056ac2ae965964f43873c76b206cd5",
+          "fetchedAt": "2026-10-07T06:31:42.823Z",
+          "field": "detailUrl",
+          "rawText": "https://harris.uchicago.edu/academics/degrees/master-science-data-analytics-policy-msdap"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_9d9f40eaca67c491",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "分子工程博士学位",
+      "nameEn": "PhD in Molecular Engineering",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Doctoral",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://pme.uchicago.edu/academics/phd-programs/phd-molecular-engineering",
+      "sourceCheckedAt": "2026-10-07T06:37:02.340Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://pme.uchicago.edu/academics/phd-programs",
+          "sourcePageTitle": "PhD Programs | PME | The University of Chicago",
+          "sourceHash": "ceac875875221c827cbab764dfa524af552a1d49a641d36292054a5682766584",
+          "fetchedAt": "2026-10-07T06:37:02.340Z",
+          "field": "name",
+          "rawText": "PhD in Molecular Engineering"
+        },
+        {
+          "sourceUrl": "https://pme.uchicago.edu/academics/phd-programs",
+          "sourcePageTitle": "PhD Programs | PME | The University of Chicago",
+          "sourceHash": "ceac875875221c827cbab764dfa524af552a1d49a641d36292054a5682766584",
+          "fetchedAt": "2026-10-07T06:37:02.340Z",
+          "field": "detailUrl",
+          "rawText": "https://pme.uchicago.edu/academics/phd-programs/phd-molecular-engineering"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_12240f55f3052a09",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "占图姆科学博士(1974年)",
+      "nameEn": "PhD in Quantum Science & Engineering",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Doctoral",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://pme.uchicago.edu/academics/phd-programs/phd-quantum-science-engineering",
+      "sourceCheckedAt": "2026-10-07T06:37:02.340Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://pme.uchicago.edu/academics/phd-programs",
+          "sourcePageTitle": "PhD Programs | PME | The University of Chicago",
+          "sourceHash": "ceac875875221c827cbab764dfa524af552a1d49a641d36292054a5682766584",
+          "fetchedAt": "2026-10-07T06:37:02.340Z",
+          "field": "name",
+          "rawText": "PhD in Quantum Science & Engineering"
+        },
+        {
+          "sourceUrl": "https://pme.uchicago.edu/academics/phd-programs",
+          "sourcePageTitle": "PhD Programs | PME | The University of Chicago",
+          "sourceHash": "ceac875875221c827cbab764dfa524af552a1d49a641d36292054a5682766584",
+          "fetchedAt": "2026-10-07T06:37:02.340Z",
+          "field": "detailUrl",
+          "rawText": "https://pme.uchicago.edu/academics/phd-programs/phd-quantum-science-engineering"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_b33258977b5cc3f6",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "博士课程**",
+      "nameEn": "PhD Courses & Core Competencies",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Doctoral",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://pme.uchicago.edu/academics/phd-programs/phd-courses-core-competencies",
+      "sourceCheckedAt": "2026-10-07T06:37:02.340Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://pme.uchicago.edu/academics/phd-programs",
+          "sourcePageTitle": "PhD Programs | PME | The University of Chicago",
+          "sourceHash": "ceac875875221c827cbab764dfa524af552a1d49a641d36292054a5682766584",
+          "fetchedAt": "2026-10-07T06:37:02.340Z",
+          "field": "name",
+          "rawText": "PhD Courses & Core Competencies"
+        },
+        {
+          "sourceUrl": "https://pme.uchicago.edu/academics/phd-programs",
+          "sourcePageTitle": "PhD Programs | PME | The University of Chicago",
+          "sourceHash": "ceac875875221c827cbab764dfa524af552a1d49a641d36292054a5682766584",
+          "fetchedAt": "2026-10-07T06:37:02.340Z",
+          "field": "detailUrl",
+          "rawText": "https://pme.uchicago.edu/academics/phd-programs/phd-courses-core-competencies"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_51622a7606ca7615",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "探索公共政策和国际关系文学硕士",
+      "nameEn": "Explore the Public Policy and International Relations MA/MA",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://harris.uchicago.edu/academics/degrees/ma-ma-public-policy-international-relations",
+      "sourceCheckedAt": "2026-10-07T06:38:55.880Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://harris.uchicago.edu/academics/degrees/joint-dual-degree-programs",
+          "sourcePageTitle": "Joint & Dual Degree Programs | Harris School of Public Policy | The University of Chicago",
+          "sourceHash": "b99eec103f1c9c7172faa4673e4b01f07fab6c1fc1e3bbe0d451a6c2f1c762b7",
+          "fetchedAt": "2026-10-07T06:38:55.880Z",
+          "field": "name",
+          "rawText": "Explore the Public Policy and International Relations MA/MA"
+        },
+        {
+          "sourceUrl": "https://harris.uchicago.edu/academics/degrees/joint-dual-degree-programs",
+          "sourcePageTitle": "Joint & Dual Degree Programs | Harris School of Public Policy | The University of Chicago",
+          "sourceHash": "b99eec103f1c9c7172faa4673e4b01f07fab6c1fc1e3bbe0d451a6c2f1c762b7",
+          "fetchedAt": "2026-10-07T06:38:55.880Z",
+          "field": "detailUrl",
+          "rawText": "https://harris.uchicago.edu/academics/degrees/ma-ma-public-policy-international-relations"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.uchicago.edu/",
+      "fetchedAt": "2026-10-07T04:20:45.743Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3a502954111cc1327fdef7d8121c54aa078441384c7a209c2280f1a99b5bbd94",
+      "title": "The University of Chicago",
+      "snapshotFile": "raw/0001-3a502954111c.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/undergraduate-programs",
+      "fetchedAt": "2026-10-07T04:20:47.774Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b315cdde7ad4828e379864f87bac1b0d19dd7229ac65cf04e3da5c88d368e123",
+      "title": "Undergraduate Programs | University of Chicago",
+      "snapshotFile": "raw/0002-b315cdde7ad4.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/graduate-programs",
+      "fetchedAt": "2026-10-07T04:20:49.943Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6098b9442cc23a4f15b7f5ffeb4278a616027ff99a521e3826aec5225c7a5a33",
+      "title": "Graduate Programs | University of Chicago",
+      "snapshotFile": "raw/0003-6098b9442cc2.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/graduate-programs/masters-programs",
+      "fetchedAt": "2026-10-07T04:20:51.801Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d0e0a163c25a5b80231d92aa57d66effcc8452bb0cbf21dc4fdf8ed638f4cb20",
+      "title": "Master's Programs | University of Chicago",
+      "snapshotFile": "raw/0004-d0e0a163c25a.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/graduate-programs/phd-programs",
+      "fetchedAt": "2026-10-07T04:20:56.165Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0911acbe87e692287c9e2934c267932c3383fa13f66bbd9f4d8d8516bf74861d",
+      "title": "Doctoral Programs | University of Chicago",
+      "snapshotFile": "raw/0005-0911acbe87e6.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are",
+      "fetchedAt": "2026-10-07T04:21:04.502Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1e4154849359f81665731eb2c49b0cc2cc5e300a8bd05a22cc1fbfbcf6da7127",
+      "title": "Who We Are | University of Chicago",
+      "snapshotFile": "raw/0006-1e4154849359.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/community-impact",
+      "fetchedAt": "2026-10-07T04:21:06.474Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c7c3cc1e54a85d1689ef29520dd81a557fbad958fd3e4d8a734e0bfaee01b5a3",
+      "title": "Community Impact | University of Chicago",
+      "snapshotFile": "raw/0007-c7c3cc1e54a8.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/global-impact",
+      "fetchedAt": "2026-10-07T04:21:08.578Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a5865a5551df585571918e528ca5dadc7546659b793029218292c97a35778ae2",
+      "title": "Global Impact | University of Chicago",
+      "snapshotFile": "raw/0008-a5865a5551df.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/history-and-traditions",
+      "fetchedAt": "2026-10-07T04:21:10.917Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d9f4298bf3fbf70af8b0826b5889710d43481a8aa61d1fa172d0d00fe15ab819",
+      "title": "History and Traditions | University of Chicago",
+      "snapshotFile": "raw/0009-d9f4298bf3fb.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/facts-and-figures",
+      "fetchedAt": "2026-10-07T04:21:15.045Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9a50009d17414069f3ee4539655afe53374cc1dbf68b6b8ca8d218bdd5846e95",
+      "title": "Facts and figures | University of Chicago",
+      "snapshotFile": "raw/0010-9a50009d1741.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/leadership",
+      "fetchedAt": "2026-10-07T04:21:17.792Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8cd0276a0ff009730b9ce21f0523d34a21260f4b8166c8fa4da8e1975d1c8a3f",
+      "title": "UChicago Leadership | University of Chicago",
+      "snapshotFile": "raw/0011-8cd0276a0ff0.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/university-administration",
+      "fetchedAt": "2026-10-07T04:21:21.000Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6aeec98e0835deff3ecffb9fd8c9a8836c8871ecb2e0273aa42e6a07d222009e",
+      "title": "University Administration | University of Chicago",
+      "snapshotFile": "raw/0012-6aeec98e0835.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics",
+      "fetchedAt": "2026-10-07T04:21:28.144Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "56fc4253a391cde9153623766e0957f98c93e4851cd4cd561538484525b23ddc",
+      "title": "Academics | University of Chicago",
+      "snapshotFile": "raw/0013-56fc4253a391.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/schools-and-divisions",
+      "fetchedAt": "2026-10-07T04:21:35.363Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b932ad6c9e71b8e204da4bc9aa1dfc262ed342befe89442ff44a722a15f321c1",
+      "title": "Schools and Division | University of Chicago",
+      "snapshotFile": "raw/0014-b932ad6c9e71.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/academic-departments",
+      "fetchedAt": "2026-10-07T04:21:38.671Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "78176917638583d85253e233d22a79bcd5c12b3268e01fd551fa047c5f5c0995",
+      "title": "Academic Departments | University of Chicago",
+      "snapshotFile": "raw/0015-781769176385.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/n-12-education",
+      "fetchedAt": "2026-10-07T04:21:42.215Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "98bdea34d5618f8fcf1c1809275ce73ccd6b8fee9b1b7e4e2c16d00390e29faf",
+      "title": "N–12 education | University of Chicago",
+      "snapshotFile": "raw/0016-98bdea34d561.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/academic-calendar",
+      "fetchedAt": "2026-10-07T04:21:45.335Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e8960b8159962da67acf8148a1f89dd6170a5bba76965859a7218dc511225895",
+      "title": "Academic Calendar | University of Chicago",
+      "snapshotFile": "raw/0017-e8960b815996.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/life-at-uchicago",
+      "fetchedAt": "2026-10-07T04:21:48.348Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "65ed6ca208e4efcfaf9927227fe1360ecb3945b346d18dc107461f1eb35e4fdd",
+      "title": "Life At UChicago | University of Chicago",
+      "snapshotFile": "raw/0018-65ed6ca208e4.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/life-at-uchicago/hyde-park",
+      "fetchedAt": "2026-10-07T04:21:51.079Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3768dafd999db97b006c34488522c037cea2cbc69e30f79062810a0d6e06b45a",
+      "title": "Hyde Park | University of Chicago",
+      "snapshotFile": "raw/0019-3768dafd999d.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/life-at-uchicago/campus-resources",
+      "fetchedAt": "2026-10-07T04:22:04.454Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "025f2b42f0de7a806e2d28c31070416f13f57be418104f595a5536362dcd675e",
+      "title": "Campus resources | University of Chicago",
+      "snapshotFile": "raw/0020-025f2b42f0de.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/life-at-uchicago/arts",
+      "fetchedAt": "2026-10-07T04:22:04.737Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "22148e491854e1d3f1274c21cb93b3a98e3b51f541042f4a17cf4299783aace3",
+      "title": "Arts Institutions & Programs | University of Chicago",
+      "snapshotFile": "raw/0021-22148e491854.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/life-at-uchicago/diversity",
+      "fetchedAt": "2026-10-07T04:22:06.995Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7acde4536187b75159373c83bacec8b5caf1e2a0fe72345e9c3fd2dc8b82ce26",
+      "title": "Diversity and Inclusion | University of Chicago",
+      "snapshotFile": "raw/0022-7acde4536187.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/life-at-uchicago/health-and-wellness",
+      "fetchedAt": "2026-10-07T04:22:08.949Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b73343e7a7457d4fb9439db284052d054b170ffb0271844ab29deeac5728f63a",
+      "title": "Health and Wellness | University of Chicago",
+      "snapshotFile": "raw/0023-b73343e7a745.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/life-at-uchicago/safety-and-security",
+      "fetchedAt": "2026-10-07T04:22:11.073Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9c1293709d76757dea65bc8950301e8dd35676c68dace660cd0d46f4a65bcc9b",
+      "title": "Safety and Security | University of Chicago",
+      "snapshotFile": "raw/0024-9c1293709d76.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/medicine",
+      "fetchedAt": "2026-10-07T04:22:15.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8569170b09c1281c9084eddab81f6e814f6227ed3d67e6d095357f5f1e80bcf1",
+      "title": "UChicago Medicine | University of Chicago",
+      "snapshotFile": "raw/0025-8569170b09c1.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/students",
+      "fetchedAt": "2026-10-07T04:22:18.257Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "405ce36c0959ed408d86957a7910e3ea8a03b0adc97209579b2f297b0dd6d2ef",
+      "title": "Students | University of Chicago",
+      "snapshotFile": "raw/0026-405ce36c0959.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/careers",
+      "fetchedAt": "2026-10-07T04:22:21.387Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "525507a3f2212c55dbbf248c10e6b85d0edee759c8edfaa9f1ca11b52bdca068",
+      "title": "Career Opportunities | University of Chicago",
+      "snapshotFile": "raw/0027-525507a3f221.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/visit",
+      "fetchedAt": "2026-10-07T04:22:28.632Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1c8b615950459eb77d2af7241b37c2646d806bad5d44abc2fdc4345ed1706ff5",
+      "title": "Visit | University of Chicago",
+      "snapshotFile": "raw/0028-1c8b61595045.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/non-discrimination",
+      "fetchedAt": "2026-10-07T04:22:35.760Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "973a98fc20a4fb65f7e14ba1a1cad9a714b2a336b304f9f61f2c04cb9659085e",
+      "title": "Non-discrimination statement | University of Chicago",
+      "snapshotFile": "raw/0029-973a98fc20a4.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/accreditation",
+      "fetchedAt": "2026-10-07T04:22:42.946Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "554b4aacd18693536129f1a6b982532898cd344b7d42235ce7b2ab2de8ead9a3",
+      "title": "Accreditation | University of Chicago",
+      "snapshotFile": "raw/0030-554b4aacd186.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/a2z",
+      "fetchedAt": "2026-10-07T04:22:46.324Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c4f3da2677952ea09609ed5f95589339718ab6f55b32af0939e7d07ca090dc87",
+      "title": "A-Z Listing | University of Chicago",
+      "snapshotFile": "raw/0031-c4f3da267795.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/global-impact/accolades/llewellyn-john-and-harriet-manchester-quantrell-awards-for-excellence-in-undergraduate-teaching",
+      "fetchedAt": "2026-10-07T04:22:49.113Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "934231f58c7b0c85bf9f6d6e0b4eb5f8f6fe53bde1185b221d811d16921a58cf",
+      "title": "Llewellyn John and Harriet Manchester Quantrell Awards for Excellence in Undergraduate Teaching | University of Chicago",
+      "snapshotFile": "raw/0032-934231f58c7b.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/faculty/",
+      "fetchedAt": "2026-10-07T04:22:59.792Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "48c0191db70eb7702caa275e52e040b3f3074805a6739f8860829e68ea6b8998",
+      "title": "Faculty | University of Chicago",
+      "snapshotFile": "raw/0033-48c0191db70e.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/faculty_research",
+      "fetchedAt": "2026-10-07T04:23:02.716Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7df848edffd91ac56f30a009c3f07f4f01d7141adf41c49aa109ce4a503fed19",
+      "title": "Faculty research | University of Chicago",
+      "snapshotFile": "raw/0034-7df848edffd9.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/global-impact/accolades",
+      "fetchedAt": "2026-10-07T04:23:34.668Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "318c118d240275861aa8f869d67e2c3446d60a74053c2b28087e7840ecfafe4a",
+      "title": "Accolades | University of Chicago",
+      "snapshotFile": "raw/0035-318c118d2402.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/global-impact/accolades/faculty-awards-for-excellence-in-phd-teaching-and-mentoring",
+      "fetchedAt": "2026-10-07T04:23:38.389Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1a417aa40561b8a266295fa99e2b8de8930f1fbadf7abe3e9191168d11f4dfe4",
+      "title": "Faculty Awards for Excellence in PhD Teaching and Mentoring | University of Chicago",
+      "snapshotFile": "raw/0036-1a417aa40561.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/history-and-traditions/the-nora-and-edward-ryerson-lecture",
+      "fetchedAt": "2026-10-07T04:23:41.166Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "48a99adc8f8c0fcdfb694137912c0aa1bb6051a00d4e6b6ab4658ee60a2ef0e8",
+      "title": "The Nora and Edward Ryerson Lecture | University of Chicago",
+      "snapshotFile": "raw/0037-48a99adc8f8c.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/who-we-are/boards-committees-and-councils",
+      "fetchedAt": "2026-10-07T04:23:44.699Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "041ded53c3ea26b8a1f76a73d6e501c1c1b0fe12537f53a8d97aa79ad4cd44f4",
+      "title": "Boards, Committees, and Councils | University of Chicago",
+      "snapshotFile": "raw/0038-041ded53c3ea.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/university-reports",
+      "fetchedAt": "2026-10-07T04:23:47.451Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "374b461cb36c4ebc6ec1962211b24fc8d0853890a2eec0a088bdcec3294b428a",
+      "title": "University Reports | University of Chicago",
+      "snapshotFile": "raw/0039-374b461cb36c.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/students/bookstores",
+      "fetchedAt": "2026-10-07T04:23:50.434Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e877abca7ab2d89e05614e8f125f48cb692cd488a58c08262f6d7842a5dc165c",
+      "title": "Bookstores | University of Chicago",
+      "snapshotFile": "raw/0040-e877abca7ab2.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/graduate-programs/masters-programs",
+      "fetchedAt": "2026-10-07T06:31:16.888Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c072784f00bfa2225f5db3d7511ef455aea88497a2cf84f23d0679ef59712d4f",
+      "title": "Master's Programs | University of Chicago",
+      "snapshotFile": "raw/0001-c072784f00bf.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/undergraduate-programs",
+      "fetchedAt": "2026-10-07T06:31:18.506Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9fddc5b5ad6731adb7d9a014ec6c690bcd157107ab9a96b8a92871102651bf63",
+      "title": "Undergraduate Programs | University of Chicago",
+      "snapshotFile": "raw/0002-9fddc5b5ad67.html"
+    },
+    {
+      "url": "https://financialaid.uchicago.edu/undergraduate/",
+      "fetchedAt": "2026-10-07T06:31:21.404Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f6b4353552f3191c48078013f9a235ac3cdc4f2fc1b28df4c8d6445e1db8f59",
+      "title": "Undergraduate Aid | Financial Aid",
+      "snapshotFile": "raw/0003-5f6b4353552f.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/graduate-programs/phd-programs",
+      "fetchedAt": "2026-10-07T06:31:23.438Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2fb5e3be925afb037ed755f8476c4e194455928bfee5ce5504405ef1750225ad",
+      "title": "Doctoral Programs | University of Chicago",
+      "snapshotFile": "raw/0004-2fb5e3be925a.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma",
+      "fetchedAt": "2026-10-07T06:31:42.823Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7a029eaa98d74a8a430740d3e0cb164ac3056ac2ae965964f43873c76b206cd5",
+      "title": "Part-Time Evening Master's Degree Program | Harris School of Public Policy",
+      "snapshotFile": "raw/0005-7a029eaa98d7.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate",
+      "fetchedAt": "2026-10-07T06:32:03.305Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "434a737c376592c58698f21cccdf32e9a8c0f645bc1edc97b5d665daf851f2a6",
+      "title": "Undergraduate Program | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0006-434a737c3765.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/overview",
+      "fetchedAt": "2026-10-07T06:32:23.334Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "56b65a447289c6f47f16d8cc7c1f89f77ed717f4e1bdf7aad5fc2fa9402cd334",
+      "title": "Curriculum Overview | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0007-56b65a447289.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/thesis",
+      "fetchedAt": "2026-10-07T06:32:43.319Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4fae78760d684472a693b6df6a2aada9463c98e7ae2d9d873ad9e47f99199a4b",
+      "title": "BA Thesis Process | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0008-4fae78760d68.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/capstone-projects",
+      "fetchedAt": "2026-10-07T06:33:03.412Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6718939ed7a25ba63c6bb4c4e9ddaea3981f3328c3119cc51e1eb569e67f8a99",
+      "title": "Capstone Projects | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0009-6718939ed7a2.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/community-highlights",
+      "fetchedAt": "2026-10-07T06:33:23.289Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d8d7d7ceaa0d40e062bc334cc0a638db271e99e1e11b63fbc29c29418aa8ae13",
+      "title": "Community Highlights | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0010-d8d7d7ceaa0d.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/team",
+      "fetchedAt": "2026-10-07T06:33:43.613Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8ec58e7928b6881b66c6be5a83b3055804c1a088fb0da57e238f723a4dab39f3",
+      "title": "Team | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0011-8ec58e7928b6.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/thesis",
+      "fetchedAt": "2026-10-07T06:34:03.476Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4fae78760d684472a693b6df6a2aada9463c98e7ae2d9d873ad9e47f99199a4b",
+      "title": "BA Thesis Process | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0012-4fae78760d68.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/overview/declare-major",
+      "fetchedAt": "2026-10-07T06:34:23.348Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f09143e5398c64f26d898890c8faa5f6b13846ded2331ade635dad008ded83de",
+      "title": "Declare Major | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0013-f09143e5398c.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/overview/practicum",
+      "fetchedAt": "2026-10-07T06:34:43.422Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f8902ca3fa2e09dc87a896bd281466d2161d9af1bafc5a051e925a471f7d3804",
+      "title": "Practicum | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0014-f8902ca3fa2e.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/overview/specialization",
+      "fetchedAt": "2026-10-07T06:35:03.345Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3def5f680b7d38396d39c8876cd829d36875a907a5203449d3bca1104fbbc9cc",
+      "title": "Specializations | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0015-3def5f680b7d.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/requirements/internship-public-policy",
+      "fetchedAt": "2026-10-07T06:35:23.339Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fb17f866e0e3ac6e0b848613dc429ee9c68fa6009e6274534f86b271b3bc5ca8",
+      "title": "Internship in Public Policy | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0016-fb17f866e0e3.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/capstone-projects/archive-2022-2023",
+      "fetchedAt": "2026-10-07T06:35:42.660Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5c2693ecdda9f65be02dd55100ad0959e0d933e031c83e31c5e24ec90fbb34fe",
+      "title": "Capstone Projects Archive | 2022 - 2023 | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0017-5c2693ecdda9.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/undergraduate/capstone-projects/archive-2023-2024",
+      "fetchedAt": "2026-10-07T06:36:03.168Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b6e1081ec9d2283f99773a45d7860326d2685754a11cb32213c63786a81818e6",
+      "title": "Capstone Projects Archive | 2023 - 2024 | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0018-b6e1081ec9d2.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/user/login?destination=/academics/undergraduate/capstone",
+      "fetchedAt": "2026-10-07T06:36:24.478Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1417507a1899816bcdf579d1cefb238125b10fdac8ac2d67d260f7c54b03baac",
+      "title": "Log in | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0019-1417507a1899.html"
+    },
+    {
+      "url": "https://researchsafety.uchicago.edu/programs/radiation-safety/",
+      "fetchedAt": "2026-10-07T06:36:55.891Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "07baba0e8ecdaa1c55c10ffd2e039b69fac4cff692cabec90d97483ede1a770e",
+      "title": "Radiation Safety | Office of Research Safety | The University of Chicago",
+      "snapshotFile": "raw/0020-07baba0e8ecd.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/graduate-programs",
+      "fetchedAt": "2026-10-07T06:36:59.080Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e14d8245c4596626334ffdfbd13c1c33a8001c8652be77c0d2baaa601ba47061",
+      "title": "Graduate Programs | University of Chicago",
+      "snapshotFile": "raw/0021-e14d8245c459.html"
+    },
+    {
+      "url": "https://biosciences.uchicago.edu/programs/biochemistry-and-molecular-biophysics",
+      "fetchedAt": "2026-10-07T06:37:00.309Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5819b17bd4df29b0c30ec9606ffabc30c89b6b45355b2255589d7a03e0ca0e86",
+      "title": "Biochemistry and Molecular Biophysics | UChicago Biosciences | The University of Chicago",
+      "snapshotFile": "raw/0022-5819b17bd4df.html"
+    },
+    {
+      "url": "https://pme.uchicago.edu/academics/phd-programs",
+      "fetchedAt": "2026-10-07T06:37:02.340Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ceac875875221c827cbab764dfa524af552a1d49a641d36292054a5682766584",
+      "title": "PhD Programs | PME | The University of Chicago",
+      "snapshotFile": "raw/0023-ceac87587522.html"
+    },
+    {
+      "url": "https://pme.uchicago.edu/academics/undergraduate-programs",
+      "fetchedAt": "2026-10-07T06:37:04.320Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0f3d31cc4880b719bcc8558e71c2838a4ebba347a61f843df0e06141175f61d3",
+      "title": "Undergraduate Programs | PME | The University of Chicago",
+      "snapshotFile": "raw/0024-0f3d31cc4880.html"
+    },
+    {
+      "url": "https://pme.uchicago.edu/academics/undergraduate-programs/major-molecular-engineering",
+      "fetchedAt": "2026-10-07T06:37:06.324Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9d129b71310c48c8143d0d2a5715f581c9ef9a7dcc33b4f2fa024a0b8d1b426e",
+      "title": "Major in Molecular Engineering | PME | The University of Chicago",
+      "snapshotFile": "raw/0025-9d129b71310c.html"
+    },
+    {
+      "url": "https://pme.uchicago.edu/academics/undergraduate-programs/minor-molecular-engineering",
+      "fetchedAt": "2026-10-07T06:37:08.320Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "26abe6df149f0e100f37efe3ed088d236bc76ee5dc22ff06c3cfd9667bc00b47",
+      "title": "Minor in Molecular Engineering | PME | The University of Chicago",
+      "snapshotFile": "raw/0026-26abe6df149f.html"
+    },
+    {
+      "url": "https://pme.uchicago.edu/academics/undergraduate-programs/faqs",
+      "fetchedAt": "2026-10-07T06:37:10.334Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5aca7b3c58f135be6179c60d2aa63655d9abcc5899889ec7f8e16bda48f2f4de",
+      "title": "Frequently Asked Questions | PME | The University of Chicago",
+      "snapshotFile": "raw/0027-5aca7b3c58f1.html"
+    },
+    {
+      "url": "https://biosciences.uchicago.edu/programs/genetics-genomics-and-system-biology",
+      "fetchedAt": "2026-10-07T06:37:13.218Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a6bb71bc0567242854c001bef55043fc425982ba140c12b33de32721788db454",
+      "title": "Genetics, Genomics and Systems Biology | UChicago Biosciences | The University of Chicago",
+      "snapshotFile": "raw/0028-a6bb71bc0567.html"
+    },
+    {
+      "url": "https://biosciences.uchicago.edu/programs/microbiology",
+      "fetchedAt": "2026-10-07T06:37:14.342Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "94ece828137507ba9d90fc80e640a218ad6bb6c536f71273cf9f82b975d2e248",
+      "title": "Microbiology | UChicago Biosciences | The University of Chicago",
+      "snapshotFile": "raw/0029-94ece8281375.html"
+    },
+    {
+      "url": "https://biosciences.uchicago.edu/programs",
+      "fetchedAt": "2026-10-07T06:37:16.351Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1c481ff42088018d2531c11bbbf88f43646c1d669812d31276e432f9dd9f8ddf",
+      "title": "PhD Graduate Programs | UChicago Biosciences | The University of Chicago",
+      "snapshotFile": "raw/0030-1c481ff42088.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/phd/phd-program-overview/",
+      "fetchedAt": "2026-10-07T06:37:18.975Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "80f2fddd6b2b436e9c8fa32549d95ed4d01aa8317bc8067e68ccbaee7039cbd5",
+      "title": "PhD Program Overview – Department of Computer Science",
+      "snapshotFile": "raw/0031-80f2fddd6b2b.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/program-overview/",
+      "fetchedAt": "2026-10-07T06:37:20.984Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4f2e9f43c582d63e56e56d0790946401dd39333dfdfb870b2e430f6dcd59cd32",
+      "title": "Undergraduate Program Overview – Department of Computer Science",
+      "snapshotFile": "raw/0032-4f2e9f43c582.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/joint-bx-ms-programs/",
+      "fetchedAt": "2026-10-07T06:37:23.054Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dc8a2ae7c64a4144662810591175caf057e1e4bf314339111a589fe7bf2b0c51",
+      "title": "Joint Bx/MS Programs – Department of Computer Science",
+      "snapshotFile": "raw/0033-dc8a2ae7c64a.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/",
+      "fetchedAt": "2026-10-07T06:37:24.973Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "23600aa952df20545925ee857cd06afad2aeea898fdcbc78209688cc5bf9f335",
+      "title": "Undergraduate – Department of Computer Science",
+      "snapshotFile": "raw/0034-23600aa952df.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/career-resources/",
+      "fetchedAt": "2026-10-07T06:37:26.980Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c150d6a21e815a319205832011b12e2043d2c8c6ecef4a427502a990789144a9",
+      "title": "Jobs & Career Resources – Department of Computer Science",
+      "snapshotFile": "raw/0035-c150d6a21e81.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/summer-research/",
+      "fetchedAt": "2026-10-07T06:37:28.995Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1954cbbb39a28dcf668637ce22ef82c1aca003095456e4aa2bcbd0e73e237ef8",
+      "title": "Summer Research – Department of Computer Science",
+      "snapshotFile": "raw/0036-1954cbbb39a2.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/summer-research/student-summer-research-fellowship-program/",
+      "fetchedAt": "2026-10-07T06:37:31.026Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "77a2628c7ce1afe2872ce16ced029239c82c6313f157b763d1e82df1df22fff4",
+      "title": "Student Summer Research Fellowship Program – Department of Computer Science",
+      "snapshotFile": "raw/0037-77a2628c7ce1.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/student-organizations/",
+      "fetchedAt": "2026-10-07T06:37:33.038Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a04a494fb9270d525b8f26dc7ce8c52a0eb17f02b8d3f8c71a9fdbbcabfc4914",
+      "title": "Student Organizations – Department of Computer Science",
+      "snapshotFile": "raw/0038-a04a494fb927.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/revised-policy-for-honors-in-the-cs-major/",
+      "fetchedAt": "2026-10-07T06:37:35.061Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6a316caee2e59281e0acc160bb4912864b841374c3a4d05c703169a0e88803cc",
+      "title": "Revised Policy for Honors in the CS Major – Department of Computer Science",
+      "snapshotFile": "raw/0039-6a316caee2e5.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/discrete-math-placement-exam/",
+      "fetchedAt": "2026-10-07T06:37:37.056Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fb999f031b1c8fe265dbfd95d5abaf77a1395eddcc1ac09bae9f2124f2d2d199",
+      "title": "Discrete Math Placement Exam – Department of Computer Science",
+      "snapshotFile": "raw/0040-fb999f031b1c.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/new-cs-major-requirements-in-ay-2024-25/",
+      "fetchedAt": "2026-10-07T06:37:39.086Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dbad0cdf3f391ada12015f9973816d14e9c12ddecb7f341167e1e4961e845c4a",
+      "title": "New CS Major Requirements in AY 2024-25 – Department of Computer Science",
+      "snapshotFile": "raw/0041-dbad0cdf3f39.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/bx-thesis-program/",
+      "fetchedAt": "2026-10-07T06:37:41.127Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "292d0554f933bd5f063bc0bf7c7babead6dded5b5c1ebca6131cf0a0239239a3",
+      "title": "Bx Thesis Program – Department of Computer Science",
+      "snapshotFile": "raw/0042-292d0554f933.html"
+    },
+    {
+      "url": "https://cs.uchicago.edu/academics/undergraduate/new-introductory-computer-science-sequence/",
+      "fetchedAt": "2026-10-07T06:37:43.224Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f0dc0dba6c2d42912837fb1e5a61495c8ef797a695074715276b9adafbf10ba8",
+      "title": "New Introductory Computer Science Sequence – Department of Computer Science",
+      "snapshotFile": "raw/0043-f0dc0dba6c2d.html"
+    },
+    {
+      "url": "https://www.uchicago.edu/academics/faculty_research",
+      "fetchedAt": "2026-10-07T06:37:45.359Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "82754c0f1413e5170cfa7df7d095e08fbcc68359b28c8ad663e53bce3611cf9b",
+      "title": "Faculty research | University of Chicago",
+      "snapshotFile": "raw/0044-82754c0f1413.html"
+    },
+    {
+      "url": "https://divinity.uchicago.edu/MA-AMRS-programs",
+      "fetchedAt": "2026-10-07T06:37:46.767Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ab41cf75d660007e8262656c8324398caaba8c595c6019788cbfe63794d1ac3b",
+      "title": "MA and AMRS Programs | The University of Chicago Divinity School",
+      "snapshotFile": "raw/0045-ab41cf75d660.html"
+    },
+    {
+      "url": "https://divinity.uchicago.edu/PhDprogram",
+      "fetchedAt": "2026-10-07T06:37:48.484Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "eb2939ec58778f8700ed7a079fe46858c231d0b9258a18ccdc74fdaa0d4ccb14",
+      "title": "PhD Program | The University of Chicago Divinity School",
+      "snapshotFile": "raw/0046-eb2939ec5877.html"
+    },
+    {
+      "url": "https://pritzker.uchicago.edu/mstp/mstp-program-overview",
+      "fetchedAt": "2026-10-07T06:37:54.599Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cac91471408021332693151cc01af33e0f9cddfc5b0ed4128ca1ad02a24303b1",
+      "title": "Program & Curriculum Overview | Pritzker School of Medicine | The University of Chicago",
+      "snapshotFile": "raw/0047-cac914714080.html"
+    },
+    {
+      "url": "https://pme.uchicago.edu/academics/phd-programs/phd-quantum-science-engineering",
+      "fetchedAt": "2026-10-07T06:37:55.119Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d6330ebf347e0ef0c4bbdc87e187349ece8dba01fbf522406914e7a3a1c809c0",
+      "title": "PhD in Quantum Science & Engineering | PME | The University of Chicago",
+      "snapshotFile": "raw/0048-d6330ebf347e.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma/admitted-students",
+      "fetchedAt": "2026-10-07T06:38:16.131Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8e751ac401b6d363e5333d889f01244c0388a6b560b0bfc2ff9ddfb277ed3d2f",
+      "title": "Admitted Students | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0049-8e751ac401b6.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/user/login?destination=/gateways/faculty-staff",
+      "fetchedAt": "2026-10-07T06:38:37.127Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1593bfc768c5f31317697863003fe624a62148d353c95ce9ad28b59cbe27ee10",
+      "title": "Log in | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0050-1593bfc768c5.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/joint-dual-degree-programs",
+      "fetchedAt": "2026-10-07T06:38:55.880Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b99eec103f1c9c7172faa4673e4b01f07fab6c1fc1e3bbe0d451a6c2f1c762b7",
+      "title": "Joint & Dual Degree Programs | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0051-b99eec103f1c.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/academic-opportunities-experiences/emerging-leaders-program",
+      "fetchedAt": "2026-10-07T06:39:15.922Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7eeb33dcd3893463bbbd1ad35fb1c2fd5fe51b3205c5a21510b8f32419bad74e",
+      "title": "Emerging Leaders Program | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0052-7eeb33dcd389.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/programs-degrees/courses",
+      "fetchedAt": "2026-10-07T06:39:36.192Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f64486d56466ce0aab2abd969bb8d7f81a99d7abc2cde6bf27d6e0989dca2323",
+      "title": "Courses | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0053-f64486d56466.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/programs-degrees/courses/non-harris-student-registration",
+      "fetchedAt": "2026-10-07T06:39:55.901Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec1a9ee08f4abbe150b17e545dcea52fef90fe72e910a356cfe05f5ab63fe598",
+      "title": "Non-Harris Student Registration | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0054-ec1a9ee08f4a.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/student-life/student-engagement-belonging/mentor-program",
+      "fetchedAt": "2026-10-07T06:40:15.929Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "19bb940b0bbbeddf5de0e151a21b765cba89442d01351f12ddc3dc85487e63ef",
+      "title": "Mentor Program | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0055-19bb940b0bbb.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/student-life/dean-of-students-office/academic-support-programs",
+      "fetchedAt": "2026-10-07T06:40:36.326Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "62ab364a21cfa54a1b348a5c5bfabb8199b7a0056af5ff52756142663e8dcbe7",
+      "title": "Academic Support Programs | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0056-62ab364a21cf.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/career-development/careers-courses",
+      "fetchedAt": "2026-10-07T06:40:55.945Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "71ed22830d3ba361206911545e0dc4100b4e55cec01bedb1c3437ac292eab97a",
+      "title": "Careers in Courses | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0057-71ed22830d3b.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/career-development/careers-courses/finance",
+      "fetchedAt": "2026-10-07T06:41:15.963Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6fcba6d26289da0d171fcab771d68d80ed44a5f5ab4c5e938197ae51c3c6a335",
+      "title": "Finance | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0058-6fcba6d26289.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/career-development/careers-courses/international-development",
+      "fetchedAt": "2026-10-07T06:41:37.750Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f79bf1bdba5a3fee893a341be872c605eb76cc2c07519d5566dbcf8d39e49ea4",
+      "title": "International Development | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0059-f79bf1bdba5a.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/career-development/careers-courses/municipal-finance",
+      "fetchedAt": "2026-10-07T06:41:55.973Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1188a4170f05eaacf63da7ca34622207450cdcdd74b04a5ac988e7e99063b98a",
+      "title": "Municipal Finance | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0060-1188a4170f05.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/career-development/signature-programs",
+      "fetchedAt": "2026-10-07T06:42:15.975Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5eeccf3f6f5382618c851fce31b335f844c79f5b536d6dcbdaa5ebb6638d2e69",
+      "title": "Signature Programs | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0061-5eeccf3f6f53.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/career-development/internship-program",
+      "fetchedAt": "2026-10-07T06:42:36.058Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a15864434a686ea6a34c38b485e048535198f7eb0a9a9657d55924d96c603117",
+      "title": "Internship Program | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0062-a15864434a68.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/research-impact/faculty",
+      "fetchedAt": "2026-10-07T06:42:55.997Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d4da06b10a4fcafdf82cda6890a68a40c806ab062359e699bd838e2d299d4e57",
+      "title": "Faculty Impact | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0063-d4da06b10a4f.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/research-impact/faculty/nobel-prize-winning-faculty",
+      "fetchedAt": "2026-10-07T06:43:16.227Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0fafb2c698e528613c6691ccf164c904a425a0e85e9794b3bf7b13e496e04bfe",
+      "title": "Nobel Prize Winning Faculty | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0064-0fafb2c698e5.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/research-impact/faculty/expert-guide",
+      "fetchedAt": "2026-10-07T06:43:36.134Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "08dc7800874c2afda9157640db1590fb2bf066b62d930bfa0714cb387f890470",
+      "title": "Expert Guide | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0065-08dc7800874c.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma/overview",
+      "fetchedAt": "2026-10-07T06:43:56.060Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a498e7d469de1a7e89367f23587475ba8827186f99e156b982d6499e6cb6628e",
+      "title": "Program Overview | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0066-a498e7d469de.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma/overview/curriculum",
+      "fetchedAt": "2026-10-07T06:44:16.030Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3fb2ac2d95fb5ef0e12a45f1b14c8051665417b6c39719cce1314ad2c0aa34cd",
+      "title": "Curriculum, Course Sequence, & Degree Requirements | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0067-3fb2ac2d95fb.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma/uchicago-employees",
+      "fetchedAt": "2026-10-07T06:44:36.110Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "374b231a9a5b4f3c8488495e5202e50964b119cc4f529fd47e95c703d82d19de",
+      "title": "UChicago Employees | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0068-374b231a9a5b.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma/why-harris",
+      "fetchedAt": "2026-10-07T06:44:56.049Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5259264b9ec1b8e36798dad287417b503c2df5def5aa844e401872b7a01c78e2",
+      "title": "Why Harris? | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0069-5259264b9ec1.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma/admitted-students/next-steps",
+      "fetchedAt": "2026-10-07T06:45:16.097Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ef6a31bcd350c3492bb542e1f7da773796b8195a5e14e0668f1def84992a3294",
+      "title": "Next Steps for Evening Master’s Students | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0070-ef6a31bcd350.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma/admitted-students/pre-enrollment-checklist",
+      "fetchedAt": "2026-10-07T06:45:35.819Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1ad6d75a1a979c2c8122563103ff3e5feb9632d1f152f768d47fb848fc9db42f",
+      "title": "Pre-Enrollment Checklist and Timeline | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0071-1ad6d75a1a97.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma/admitted-students/orientation",
+      "fetchedAt": "2026-10-07T06:45:55.829Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0e5bd1f67488894ec2ea421c25cf32a12e5706a2bba9adc1c71195894d63c72e",
+      "title": "Evening Master’s Program Orientation | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0072-0e5bd1f67488.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma/admitted-students/student-life",
+      "fetchedAt": "2026-10-07T06:46:16.084Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a5ac517def5f92546c59c2d276800af569cdd686dd75ed9691ace0258511ce2c",
+      "title": "Academic and Student Life | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0073-a5ac517def5f.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/ma-public-policy-certificate-research-methods-macrm/program-overview",
+      "fetchedAt": "2026-10-07T06:46:36.080Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cbad3982a932db1003b566b4726dcd30acd8d7b21606a2e6e37dd3241e3e51a0",
+      "title": "Program Overview | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0074-cbad3982a932.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/phd/program-details",
+      "fetchedAt": "2026-10-07T06:46:56.113Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ea481c4e9df79e925e060332018dee88785133f9e20491c043efbe0423ff3fb4",
+      "title": "Ph.D. Program Requirements | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0075-ea481c4e9df7.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/user/login?destination=/academics/degrees/evening-masters-program-part-time-ma/request-info",
+      "fetchedAt": "2026-10-07T06:47:16.653Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "286489b874bdfba24a436397d977a6c91d5e2f2206ded7310208d78a4c0152d9",
+      "title": "Log in | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0076-286489b874bd.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/user/login?destination=/gateways/faculty-staff/instructor-resources",
+      "fetchedAt": "2026-10-07T06:47:37.397Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "13af307f8bac78e72a6e974f924a6ca4a23500e85606bf242b99cceffc029e1f",
+      "title": "Log in | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0077-13af307f8bac.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/user/login?destination=/gateways/faculty-staff/human-resources",
+      "fetchedAt": "2026-10-07T06:47:58.152Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "407548462c55d702b01e6c8902812fb731b7daa8b9d951989cf04167cd40aee6",
+      "title": "Log in | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0078-407548462c55.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/referral-program",
+      "fetchedAt": "2026-10-07T06:48:16.161Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d3df91203d8f72b64eb1bb49034c9da59ebc2ea9f3fa7aa62131735178c99e3c",
+      "title": "Harris Referral Program | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0079-d3df91203d8f.html"
+    },
+    {
+      "url": "https://harris.uchicago.edu/academics/degrees/five-year-ms-computational-analysis-public-policy-college",
+      "fetchedAt": "2026-10-07T06:48:36.866Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b737726cf72eda90d84d557b38b6392cff8fa51d3d00943d2e531d0c38ff517c",
+      "title": "Five Year MS in Computational Analysis and Public Policy with the College (BA/MSCAPP) | Harris School of Public Policy | The University of Chicago",
+      "snapshotFile": "raw/0080-b737726cf72e.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:48:36.940Z",
+    "seedUrls": [
+      "https://www.uchicago.edu/academics/graduate-programs/masters-programs",
+      "https://www.uchicago.edu/academics/graduate-programs/phd-programs",
+      "https://harris.uchicago.edu/academics/degrees/ms-computational-analysis-public-policy-mscapp",
+      "https://harris.uchicago.edu/academics/degrees/master-science-data-analytics-policy-msdap",
+      "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma",
+      "https://harris.uchicago.edu/academics/degrees/ma-public-policy-certificate-research-methods-macrm",
+      "https://www.uchicago.edu/academics/graduate-programs/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+      "https://harris.uchicago.edu/academics/degrees/phd",
+      "https://grad.uchicago.edu/admissions/programs/",
+      "https://harris.uchicago.edu/academics/degrees/master-public-policy-mpp",
+      "https://researchsafety.uchicago.edu/programs/radiation-safety/",
+      "https://www.uchicago.edu/academics/undergraduate-programs",
+      "https://www.uchicago.edu/academics/graduate-programs",
+      "https://harris.uchicago.edu/academics/degrees",
+      "https://biosciences.uchicago.edu/programs/biochemistry-and-molecular-biophysics",
+      "https://pme.uchicago.edu/academics/phd-programs",
+      "https://biosciences.uchicago.edu/programs/genetics-genomics-and-system-biology",
+      "https://biosciences.uchicago.edu/programs/microbiology",
+      "https://biosciences.uchicago.edu/programs",
+      "https://cam.uchicago.edu/academics/ms-in-computational-and-applied-mathematics/",
+      "https://codas.uchicago.edu/academics/ms-data-science/",
+      "https://geosci.uchicago.edu/academics/ms-in-environmental-sciences/",
+      "https://cs.uchicago.edu/academics/phd/phd-program-overview/",
+      "https://codas.uchicago.edu/academics/phd-in-data-science/",
+      "https://stat.uchicago.edu/academics/phd-in-statistics/",
+      "https://www.uchicago.edu/academics",
+      "https://www.uchicago.edu/academics/schools-and-divisions",
+      "https://www.uchicago.edu/academics/academic-departments",
+      "https://www.uchicago.edu/academics/n-12-education",
+      "https://www.uchicago.edu/academics/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+      "https://pme.uchicago.edu/academics/masters-of-engineering",
+      "https://pritzker.uchicago.edu/academics/mesh",
+      "https://financialaid.uchicago.edu/undergraduate",
+      "https://divinity.uchicago.edu/academics/",
+      "http://college.uchicago.edu/academics/arley-d-cathey-learning-center",
+      "https://www.uchicago.edu/academics/faculty_research"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:29.112Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.513Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

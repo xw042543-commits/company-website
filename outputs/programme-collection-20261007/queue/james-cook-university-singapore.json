@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "james-cook-university-singapore",
+    "displayName": "James Cook University Singapore",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.jcu.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.jcu.edu.sg",
+      "jcu.edu.sg"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.jcu.edu.sg/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

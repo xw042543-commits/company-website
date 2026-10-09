@@ -1,0 +1,163 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "stanford-university",
+    "displayName": "Stanford University",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.stanford.edu/"
+    ],
+    "allowedHosts": [
+      "www.stanford.edu",
+      "stanford.edu"
+    ],
+    "discoveredUrls": 18,
+    "parsedProgrammes": 0,
+    "pagesRead": 105,
+    "warnings": [
+      "robots.txt 禁止抓取：https://www.stanford.edu/search",
+      "https://undergrad.stanford.edu/programs/bosp：跳转超出允许域名: bosp.stanford.edu",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_PHOTO-209",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-144",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-126",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-276",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-307",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_LIN-16",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_CLS-141",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_DAN-33",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_WELL-11",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_FRN-01",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_LIT-91",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_MUS-202",
+      "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_FICT-118"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/digital-photography-basics/20261_PHOTO-07",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://continuingstudies.stanford.edu/courses/detail/20261_PSY-104",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-format/show-on-campus",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://continuingstudies.stanford.edu/courses/detail/20261_SPT-15-H",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/auteur-cinema-six-directors-and-their-signature-styles/20261_FLM-172",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://continuingstudies.stanford.edu/courses/creative-writing/beyond-scene-the-secrets-to-writing-page-turning-summary/20261_CW-80",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/dialogue-and-the-art-of-impossible-conversations/20261_COM-107",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://bulletin.stanford.edu/programs?KhCQH=Graduate&page=1&pq=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://undergrad.stanford.edu/programs/bosp",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://bulletin.stanford.edu/programs?KhCQH=Graduate&degreeDesignation=PHD%20-%20Doctor%20of%20Philosophy&page=1&pq=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://applygrad.stanford.edu/portal/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://online.stanford.edu/courses/soe-ymls-machine-learning-specialization",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://online.stanford.edu/courses/sohs-ystatslearningp-statistical-learning-python",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://facts.stanford.edu/academics/undergraduate-education/class-2029-profile",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://www.stanford.edu/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://www.stanford.edu/academics/schools",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://www.stanford.edu/academics/everyone",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "stanford-university",
+      "url": "https://majors.stanford.edu/majors",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

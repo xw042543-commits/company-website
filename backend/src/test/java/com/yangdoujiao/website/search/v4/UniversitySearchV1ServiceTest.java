@@ -18,6 +18,7 @@ import org.springframework.data.elasticsearch.RestStatusException;
 import org.springframework.data.elasticsearch.UncategorizedElasticsearchException;
 
 import com.yangdoujiao.website.common.api.PageResponse;
+import com.yangdoujiao.website.media.MediaLookupRepository;
 import com.yangdoujiao.website.search.v4.alias.SearchAliasResolver;
 import com.yangdoujiao.website.search.v4.alias.SearchAliasTargetType;
 import com.yangdoujiao.website.search.v4.api.UniversitySearchQuery;
@@ -33,12 +34,15 @@ class UniversitySearchV1ServiceTest {
     private final SubjectCategoryFilterExpander categoryFilterExpander = mock(SubjectCategoryFilterExpander.class);
     private final SearchAliasResolver aliasResolver = mock(SearchAliasResolver.class);
     private final UniversitySearchGateway gateway = mock(UniversitySearchGateway.class);
+    private final MediaLookupRepository media = mock(MediaLookupRepository.class);
     private final UniversitySearchV1Service service;
 
     UniversitySearchV1ServiceTest() {
         when(categoryFilterExpander.expand(any())).thenAnswer(invocation -> invocation.getArgument(0));
+        when(media.findUniversityImageUrls(any())).thenReturn(java.util.Map.of());
+        when(media.findProgrammeImageUrls(any())).thenReturn(java.util.Map.of());
         service = new UniversitySearchV1Service(
-                criteriaFactory, validator, categoryFilterExpander, aliasResolver, gateway);
+                criteriaFactory, validator, categoryFilterExpander, aliasResolver, gateway, media);
     }
 
     @Test
