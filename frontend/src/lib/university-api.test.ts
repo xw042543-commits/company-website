@@ -236,6 +236,21 @@ const validUniversityProgrammePage = {
   totalPages: 1,
 };
 
+test("optional media accepts legacy, null and image values but rejects malformed values", () => {
+  for (const imageUrl of [undefined, null, "https://example.test/campus.jpg", 42, {}, []]) {
+    const valid = imageUrl === undefined || imageUrl === null || typeof imageUrl === "string";
+    const item = validSearchPage.items[0];
+    const search = { ...validSearchPage, items: [{ ...item, imageUrl }] };
+    const matched = { ...validSearchPage, items: [{ ...item, matchedProgrammes: [{ ...item.matchedProgrammes[0], imageUrl }] }] };
+    const detail = { ...validUniversityDetail, imageUrl };
+    const programme = { ...validUniversityProgrammePage.items[0], imageUrl };
+    assert.deepEqual(parseSearchPage(search), valid ? search : null);
+    assert.deepEqual(parseSearchPage(matched), valid ? matched : null);
+    assert.deepEqual(parseUniversityDetail(detail), valid ? detail : null);
+    assert.deepEqual(parseUniversityProgramme(programme), valid ? programme : null);
+  }
+});
+
 test("builds the V1 university search path from every supported filter", () => {
   assert.equal(
     buildSearchPath({

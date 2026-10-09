@@ -1,5 +1,18 @@
 const WEBSITE_ORIGIN = 'https://yangdoujiao.com';
 
+// API identifiers from the website university catalog; media aliases never alter routes.
+const API_SLUGS: Readonly<Record<string, string>> = {
+  um: 'university-of-malaya', ukm: 'universiti-kebangsaan-malaysia',
+  utm: 'universiti-teknologi-malaysia', upm: 'universiti-putra-malaysia',
+  usm: 'universiti-sains-malaysia', uum: 'universiti-utara-malaysia',
+  taylor: 'taylors-university', ucsi: 'ucsi-university', inti: 'inti-international-university',
+  sunway: 'sunway-university', apu: 'asia-pacific-university', segi: 'segi-university',
+  utar: 'universiti-tunku-abdul-rahman', city: 'city-university-malaysia',
+  monash: 'monash-university-malaysia', nottingham: 'university-of-nottingham-malaysia',
+  southampton: 'university-of-southampton-malaysia', help: 'help-university',
+  mahsa: 'mahsa-university', nilai: 'nilai-university',
+};
+
 const LOGOS: Readonly<Record<string, string>> = {
   'university-of-malaya': 'university-of-malaya.jpg',
   'universiti-kebangsaan-malaysia': 'universiti-kebangsaan-malaysia.jpg',
@@ -30,11 +43,11 @@ const CAMPUS_IMAGES: Readonly<Record<string, string>> = {
 };
 
 export function universityLogoUrl(slug: string): string | null {
-  const filename = LOGOS[slug];
+  const filename = LOGOS[API_SLUGS[slug] ?? slug];
   return filename ? `${WEBSITE_ORIGIN}/universities/${filename}` : null;
 }
 
 export function universityCampusUrl(slug: string): string | null {
-  const filename = CAMPUS_IMAGES[slug];
+  const filename = CAMPUS_IMAGES[API_SLUGS[slug] ?? slug];
   return filename ? `${WEBSITE_ORIGIN}/universities/campuses/${filename}` : null;
 }
