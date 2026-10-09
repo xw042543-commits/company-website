@@ -110,9 +110,29 @@ class CommunityReadHttpIntegrationTest {
                 .andExpect(jsonPath("$.body").value("body"))
                 .andExpect(jsonPath("$.authorName").value("Public nickname"))
                 .andExpect(jsonPath("$.authorAvatarUrl").value("https://example.test/avatar.png"))
+                .andExpect(jsonPath("$.ownedByMe").value(false))
                 .andReturn().getResponse().getContentAsString();
         assertThat(body).doesNotContain("Private real full name", "private-openid", "authorAccountId", "riskReasonCode", "version");
         mvc.perform(head("/api/v1/community/posts/" + id)).andExpect(status().isOk());
+    }
+
+    @Test
+    void ownershipFlagsComeFromTheAuthenticatedViewerWithoutExposingIdentity() throws Exception {
+        var post = seedPost(CommunityContentStatus.PUBLISHED, TIME);
+        var own = comments.saveAndFlush(CommunityComment.create(post.getId(), author.getId(), null, null,
+                "own", CommunityContentStatus.PUBLISHED, TIME));
+        var other = accounts.saveAndFlush(UserAccount.external("Other", "terms", "privacy"));
+        comments.saveAndFlush(CommunityComment.create(post.getId(), other.getId(), own.getId(), author.getId(),
+                "other", CommunityContentStatus.PUBLISHED, TIME.plusSeconds(1)));
+
+        mvc.perform(get("/api/v1/community/posts/" + post.getId()))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.ownedByMe").value(false));
+        mvc.perform(get("/api/v1/community/posts/" + post.getId()).with(user(UserPrincipal.from(author))))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.ownedByMe").value(true));
+        mvc.perform(get("/api/v1/community/posts/" + post.getId() + "/comments").with(user(UserPrincipal.from(author))))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].ownedByMe").value(true))
+                .andExpect(jsonPath("$.items[0].replies[0].ownedByMe").value(false))
+                .andExpect(jsonPath("$.items[0].authorAccountId").doesNotExist());
     }
 
     @Test

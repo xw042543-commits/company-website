@@ -519,6 +519,8 @@ git commit -m "feat: add community moderation workflow"
 
 Preflight correction (2026-10-08): include authenticated personal read APIs omitted by Tasks 2–5. Use author-scoped signed keyset cursors and exact `CommunityMyPost` / `CommunityMyComment` DTOs documented in spec §6.1, retaining all statuses and own replies regardless of public ancestors. Also add a shared safe restriction denial contract for post/comment/like/report with `details:{restrictionKind:"MUTE"|"BAN",endsAt:ISO|null}` and strict miniapp error parsing. Backend HTTP privacy/expiry tests and all relevant regressions are required. Task 7 consumes `listMyCommunityPosts`, `listMyCommunityComments`, deletion services, `error.details`, and Result-returning circle route builders; it must unwrap route results before navigation and handle absent/malformed restriction details generically.
 
+Task 7 review correction (2026-10-09): post detail and every comment/reply read DTO also include server-computed `ownedByMe:boolean`. Anonymous reads return false; authenticated reads compare the viewer to the stored author. The client must use this flag for delete affordances and must not infer ownership from nickname or scan a truncated personal list.
+
 **Files:**
 - Create: `miniapp/miniprogram/services/community.ts`
 - Modify: `miniapp/miniprogram/utils/routes.ts`

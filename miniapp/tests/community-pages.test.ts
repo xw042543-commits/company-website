@@ -64,6 +64,19 @@ test('submission key survives uncertain and authentication retries and resets on
   assert.equal(editSubmission(state, '修改后').key, null);
 });
 
+test('a changed request fingerprint always receives a new key after an uncertain attempt', () => {
+  let state = prepareSubmission(editSubmission(createSubmissionState(), 'post:one'), () => 'first-key');
+  state = finishSubmission(state, 'uncertain');
+  assert.equal(prepareSubmission(editSubmission(state, 'post:one'), () => 'unused').key, 'first-key');
+  state = editSubmission(state, 'post:two');
+  assert.equal(prepareSubmission(state, () => 'second-key').key, 'second-key');
+
+  let report = prepareSubmission(editSubmission(createSubmissionState(), 'POST:7:SPAM:'), () => 'report-one');
+  report = finishSubmission(report, 'uncertain');
+  report = editSubmission(report, 'POST:7:SCAM:');
+  assert.equal(prepareSubmission(report, () => 'report-two').key, 'report-two');
+});
+
 test('community text limits count Unicode code points rather than UTF-16 units', () => {
   assert.equal(codePointLength('A😀B'), 3);
   assert.equal(codePointLength('😀'.repeat(2000)), 2000);
@@ -113,7 +126,7 @@ test('community pages expose required state, reply continuation and safe report 
   for (const state of ['loading', 'empty', 'offline', 'failed']) assert.match(feedView, new RegExp(`state === '${state}'`));
   assert.match(detail, /listCommunityReplies/);
   assert.match(detailView, /加载更多回复/);
-  assert.match(detail, /listMyCommunityComments/);
+  assert.doesNotMatch(detail, /listMyCommunityComments|listMyCommunityPosts/);
   assert.match(compose, /communityPostRoute\(result\.value\.id\)/);
   assert.match(personal, /deleteCommunityPost/);
   assert.match(personal, /deleteCommunityComment/);

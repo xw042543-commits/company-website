@@ -78,7 +78,7 @@ public class CommunityReadService {
         Profile profile = profiles(List.of(post.getAuthorAccountId())).getOrDefault(post.getAuthorAccountId(), Profile.DEFAULT);
         return new CommunityPostDetail(post.getId().toString(), profile.name(), profile.avatarUrl(), post.getBody(),
                 post.getCommentCount(), post.getLikeCount(), post.getPublishedAt(),
-                likes(viewer, CommunityTargetType.POST, List.of(id)).contains(id));
+                likes(viewer, CommunityTargetType.POST, List.of(id)).contains(id), ownedBy(viewer, post.getAuthorAccountId()));
     }
 
     public CommunityCursorPage<CommunityCommentView> comments(Long postId, String cursor, int requestedSize, UserPrincipal viewer) {
@@ -104,8 +104,8 @@ public class CommunityReadService {
             var visibleReplies = foundReplies.subList(0, Math.min(REPLY_PREVIEW_SIZE, foundReplies.size()));
             String repliesNext = foundReplies.size() <= REPLY_PREVIEW_SIZE ? null
                     : cursors.encode(visibleReplies.getLast().getCreatedAt(), visibleReplies.getLast().getId(), replyScope(postId, root.getId()));
-            return commentView(root, profiles, likes,
-                    visibleReplies.stream().map(reply -> commentView(reply, profiles, likes, List.of(), null)).toList(), repliesNext);
+            return commentView(root, profiles, likes, viewer,
+                    visibleReplies.stream().map(reply -> commentView(reply, profiles, likes, viewer, List.of(), null)).toList(), repliesNext);
         }).toList(), nextCursor);
     }
 
@@ -124,16 +124,21 @@ public class CommunityReadService {
         var profiles = profiles(rows.stream().map(CommunityComment::getAuthorAccountId).toList());
         var likes = likes(viewer, CommunityTargetType.COMMENT, rows.stream().map(CommunityComment::getId).toList());
         String next = found.size() <= size ? null : cursors.encode(rows.getLast().getCreatedAt(), rows.getLast().getId(), scope);
-        return new CommunityCursorPage<>(rows.stream().map(row -> commentView(row, profiles, likes, List.of(), null)).toList(), next);
+        return new CommunityCursorPage<>(rows.stream().map(row -> commentView(row, profiles, likes, viewer, List.of(), null)).toList(), next);
     }
 
     private static String replyScope(Long postId, Long parentId) { return "replies:" + postId + ":" + parentId; }
 
     private CommunityCommentView commentView(CommunityComment comment, Map<Long, Profile> profiles,
-            Set<Long> likes, List<CommunityCommentView> replies, String repliesNextCursor) {
+            Set<Long> likes, UserPrincipal viewer, List<CommunityCommentView> replies, String repliesNextCursor) {
         Profile profile = profiles.getOrDefault(comment.getAuthorAccountId(), Profile.DEFAULT);
         return new CommunityCommentView(comment.getId().toString(), profile.name(), profile.avatarUrl(), comment.getBody(),
-                comment.getCreatedAt(), comment.getLikeCount(), likes.contains(comment.getId()), replies, repliesNextCursor);
+                comment.getCreatedAt(), comment.getLikeCount(), likes.contains(comment.getId()),
+                ownedBy(viewer, comment.getAuthorAccountId()), replies, repliesNextCursor);
+    }
+
+    private static boolean ownedBy(UserPrincipal viewer, Long authorId) {
+        return viewer != null && viewer.userId() == authorId.longValue();
     }
 
     private CommunityPost publishedPost(Long id) {

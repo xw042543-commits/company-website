@@ -8,12 +8,14 @@ Component({
       value: {},
       observer() {
         const post = this.data.post as CommunityPostSummary | null;
-        this.setData({ imageFailed: false, displayTime: post ? formatCommunityTime(post.publishedAt) : '' });
+        const imageUrl = post?.authorAvatarUrl ?? null;
+        this.setData({ imageFailed: imageUrl === this.data.observedImageUrl ? this.data.imageFailed : false,
+          observedImageUrl: imageUrl, displayTime: post ? formatCommunityTime(post.publishedAt) : '' });
       },
     },
     reacting: { type: Boolean, value: false },
   },
-  data: { imageFailed: false, displayTime: '' },
+  data: { imageFailed: false, observedImageUrl: null as string | null, displayTime: '' },
   methods: {
     imageError() { this.setData({ imageFailed: true }); },
     open() { this.triggerEvent('open', { id: (this.data.post as CommunityPostSummary | null)?.id }); },

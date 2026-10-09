@@ -15,11 +15,11 @@ export interface CommunityPostSummary extends Author {
 }
 export interface CommunityPostDetail extends Author {
   readonly id: string; readonly body: string; readonly commentCount: number; readonly likeCount: number;
-  readonly publishedAt: string; readonly likedByMe: boolean;
+  readonly publishedAt: string; readonly likedByMe: boolean; readonly ownedByMe: boolean;
 }
 export interface CommunityComment extends Author {
   readonly id: string; readonly body: string; readonly createdAt: string; readonly likeCount: number;
-  readonly likedByMe: boolean; readonly replies: readonly CommunityComment[]; readonly repliesNextCursor: string | null;
+  readonly likedByMe: boolean; readonly ownedByMe: boolean; readonly replies: readonly CommunityComment[]; readonly repliesNextCursor: string | null;
 }
 export interface CommunityCreationResponse {
   readonly id: string; readonly postId: string | null; readonly parentCommentId: string | null; readonly body: string;
@@ -94,14 +94,17 @@ function avatar(value: unknown): boolean {
 function author(v: RecordValue): boolean { return text(v.authorName, 100) && avatar(v.authorAvatarUrl); }
 function post(v: unknown, full: boolean): boolean {
   const body = full ? 'body' : 'bodyPreview';
-  return exact(v, ['id', 'authorName', 'authorAvatarUrl', body, 'commentCount', 'likeCount', 'publishedAt', 'likedByMe'])
+  const keys = ['id', 'authorName', 'authorAvatarUrl', body, 'commentCount', 'likeCount', 'publishedAt', 'likedByMe'];
+  if (full) keys.push('ownedByMe');
+  return exact(v, keys)
     && isCommunityId(v.id) && author(v) && text(v[body], full ? 2000 : 200) && count(v.commentCount)
-    && count(v.likeCount) && timestamp(v.publishedAt) && typeof v.likedByMe === 'boolean';
+    && count(v.likeCount) && timestamp(v.publishedAt) && typeof v.likedByMe === 'boolean'
+    && (!full || typeof v.ownedByMe === 'boolean');
 }
 function comment(v: unknown, root: boolean): boolean {
-  return exact(v, ['id', 'authorName', 'authorAvatarUrl', 'body', 'createdAt', 'likeCount', 'likedByMe', 'replies', 'repliesNextCursor'])
+  return exact(v, ['id', 'authorName', 'authorAvatarUrl', 'body', 'createdAt', 'likeCount', 'likedByMe', 'ownedByMe', 'replies', 'repliesNextCursor'])
     && isCommunityId(v.id) && author(v) && text(v.body, 1000) && timestamp(v.createdAt) && count(v.likeCount)
-    && typeof v.likedByMe === 'boolean' && Array.isArray(v.replies) && v.replies.length <= (root ? 3 : 0)
+    && typeof v.likedByMe === 'boolean' && typeof v.ownedByMe === 'boolean' && Array.isArray(v.replies) && v.replies.length <= (root ? 3 : 0)
     && v.replies.every((reply) => comment(reply, false)) && nullableCursor(v.repliesNextCursor)
     && (root ? v.repliesNextCursor === null || v.replies.length === 3 : v.repliesNextCursor === null);
 }

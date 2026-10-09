@@ -122,14 +122,14 @@ test('selection emits only the validated slug in either image state', () => {
 });
 
 interface CommunityCardContext {
-  data: { post: Record<string, unknown>; reacting: boolean; imageFailed: boolean; displayTime: string };
+  data: { post: Record<string, unknown>; reacting: boolean; imageFailed: boolean; observedImageUrl: string | null; displayTime: string };
   setData(update: Partial<CommunityCardContext['data']>): void;
   triggerEvent(name: string, detail: unknown): void;
 }
 
 interface CommunityCardDefinition {
   properties: { post: { observer: (this: CommunityCardContext) => void } };
-  data: { imageFailed: boolean; displayTime: string };
+  data: { imageFailed: boolean; observedImageUrl: string | null; displayTime: string };
   methods: {
     imageError(this: CommunityCardContext): void;
     open(this: CommunityCardContext): void;
@@ -138,11 +138,12 @@ interface CommunityCardDefinition {
   };
 }
 
+let communityImport = 0;
 async function loadCommunityCard(): Promise<CommunityCardDefinition> {
   let registered: CommunityCardDefinition | undefined;
   const original = Object.getOwnPropertyDescriptor(globalThis, 'Component');
   Object.defineProperty(globalThis, 'Component', { configurable: true, value(definition: CommunityCardDefinition) { registered = definition; } });
-  try { await import(new URL('../miniprogram/components/community-post-card/index.ts?contract', import.meta.url).href); }
+  try { await import(new URL(`../miniprogram/components/community-post-card/index.ts?contract=${++communityImport}`, import.meta.url).href); }
   finally {
     if (original) Object.defineProperty(globalThis, 'Component', original);
     else Reflect.deleteProperty(globalThis, 'Component');
@@ -171,4 +172,20 @@ test('community card has safe image fallback and emits only explicit actions', a
     { name: 'react', detail: { post: context.data.post } },
     { name: 'report', detail: { id: '9' } },
   ]);
+});
+
+test('community card only clears a failed avatar when its URL changes', async () => {
+  const communityCard = await loadCommunityCard();
+  const context: CommunityCardContext = {
+    data: { post: { id: '9', authorAvatarUrl: 'https://example.test/a.png', publishedAt: '2026-10-08T08:00:00Z' }, reacting: false, ...communityCard.data },
+    setData(update) { Object.assign(this.data, update); }, triggerEvent() {},
+  };
+  communityCard.properties.post.observer.call(context);
+  communityCard.methods.imageError.call(context);
+  context.data.post = { ...context.data.post, likeCount: 4 };
+  communityCard.properties.post.observer.call(context);
+  assert.equal(context.data.imageFailed, true);
+  context.data.post = { ...context.data.post, authorAvatarUrl: 'https://example.test/b.png' };
+  communityCard.properties.post.observer.call(context);
+  assert.equal(context.data.imageFailed, false);
 });

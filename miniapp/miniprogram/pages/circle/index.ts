@@ -6,22 +6,36 @@ import { communityComposeRoute, communityMeRoute, communityPostRoute } from '../
 type FeedState = 'loading' | 'ready' | 'empty' | 'offline' | 'failed';
 interface PostEvent extends WechatMiniprogram.BaseEvent { detail: { id?: string; post?: CommunityPostSummary } }
 
-let requestGeneration = 0;
-let unsubscribeSession: (() => void) | null = null;
+interface FeedRuntime { generation: number; active: boolean; sessionStatus: string; unsubscribe: (() => void) | null }
+type CircleDeps = { listPosts: typeof listCommunityPosts; session: typeof sessionStore };
+const circleDefaults: CircleDeps = { listPosts: listCommunityPosts, session: sessionStore };
+type FeedPage = WechatMiniprogram.Page.TrivialInstance & { _communityRuntime: FeedRuntime };
+function runtime(page: WechatMiniprogram.Page.TrivialInstance): FeedRuntime { return (page as FeedPage)._communityRuntime; }
 
-Page({
+export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> {
+  const deps = { ...circleDefaults, ...overrides };
+  const definition: WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> = {
   data: {
     session: sessionStore.getSnapshot(), sort: 'latest' as 'latest' | 'hot', state: 'loading' as FeedState,
     posts: [] as CommunityPostSummary[], nextCursor: null as string | null, loadingMore: false,
     reactingId: null as string | null, skeletonRows: [1, 2, 3],
   },
   onLoad() {
-    requestGeneration = 0;
-    unsubscribeSession = sessionStore.subscribe((session) => this.setData({ session }));
+    const initial = deps.session.getSnapshot();
+    const state: FeedRuntime = { generation: 0, active: true, sessionStatus: initial.status, unsubscribe: null };
+    (this as FeedPage)._communityRuntime = state;
+    this.setData({ session: initial });
+    state.unsubscribe = deps.session.subscribe((session) => {
+      if (!state.active) return;
+      const becameAuthenticated = state.sessionStatus !== 'authenticated' && session.status === 'authenticated';
+      state.sessionStatus = session.status;
+      this.setData({ session });
+      if (becameAuthenticated) void this.loadFeed(true);
+    });
     void this.loadFeed(true);
   },
-  onShow() { this.setData({ session: sessionStore.getSnapshot() }); },
-  onUnload() { unsubscribeSession?.(); unsubscribeSession = null; requestGeneration++; },
+  onShow() { this.setData({ session: deps.session.getSnapshot() }); },
+  onUnload() { const state = runtime(this); state.active = false; state.unsubscribe?.(); state.unsubscribe = null; state.generation++; },
   onPullDownRefresh() { void this.loadFeed(true).finally(() => wx.stopPullDownRefresh()); },
   onReachBottom() {
     if (this.data.state === 'ready' && this.data.nextCursor && !this.data.loadingMore) void this.loadFeed(false);
@@ -59,7 +73,7 @@ Page({
     const liked = !post.likedByMe;
     const result = await setCommunityReaction({ targetType: 'POST', targetId: post.id, liked });
     if (result.ok) {
-      this.setData({ posts: this.data.posts.map((item) => item.id === post.id ? {
+      this.setData({ posts: this.data.posts.map((item: CommunityPostSummary) => item.id === post.id ? {
         ...item, likedByMe: liked, likeCount: Math.max(0, item.likeCount + (liked ? 1 : -1)),
       } : item) });
     } else if (result.error.code !== 'REQUEST_SUPERSEDED') wx.showToast({ title: errorCopy(result.error), icon: 'none' });
@@ -69,13 +83,16 @@ Page({
     if (!reset && this.data.loadingMore) return;
     const cursor = reset ? null : this.data.nextCursor;
     if (!reset && !cursor) return;
-    const generation = ++requestGeneration;
+    const state = runtime(this);
+    const generation = ++state.generation;
     if (reset) this.setData({ state: 'loading' as FeedState, nextCursor: null });
     else this.setData({ loadingMore: true });
-    const result = await listCommunityPosts({ sort: this.data.sort, cursor, size: 20 });
-    if (generation !== requestGeneration) return;
+    const result = await deps.listPosts({ sort: this.data.sort, cursor, size: 20 });
+    if (!state.active || generation !== state.generation) return;
     if (!result.ok) {
-      if (result.error.code === 'REQUEST_SUPERSEDED') return;
+      if (result.error.code === 'REQUEST_SUPERSEDED') {
+        this.setData({ loadingMore: false, state: this.data.posts.length ? 'ready' : 'empty' }); return;
+      }
       if (!restarted && shouldRestartHotFeed(this.data.sort, cursor, result.error)) {
         this.setData({ posts: [], nextCursor: null, loadingMore: false });
         await this.loadFeed(true, true); return;
@@ -83,18 +100,22 @@ Page({
       this.setData({ state: result.error.kind === 'unavailable' ? 'offline' : 'failed', loadingMore: false });
       return;
     }
-    const merged = new Map((reset ? [] : this.data.posts).map((post) => [post.id, post]));
+    const merged = new Map((reset ? [] : this.data.posts).map((post: CommunityPostSummary) => [post.id, post]));
     result.value.items.forEach((post) => merged.set(post.id, post));
     const posts = [...merged.values()];
     this.setData({ posts, nextCursor: result.value.nextCursor, loadingMore: false,
       state: posts.length === 0 ? 'empty' as FeedState : 'ready' as FeedState });
   },
   async ensureLogin(): Promise<boolean> {
-    if (canUseCommunityWrite(sessionStore.getSnapshot().status)) return true;
+    if (canUseCommunityWrite(deps.session.getSnapshot().status)) return true;
     wx.showLoading({ title: '登录中', mask: true });
-    const result = await sessionStore.ensureAuthenticated();
+    const result = await deps.session.ensureAuthenticated();
     wx.hideLoading();
     if (!result.ok) wx.showToast({ title: '登录未完成，请重试', icon: 'none' });
     return result.ok;
   },
-});
+  };
+  return definition;
+}
+
+if (typeof Page !== 'undefined') Page(createCirclePage());

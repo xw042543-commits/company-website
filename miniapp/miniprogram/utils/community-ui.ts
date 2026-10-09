@@ -13,7 +13,7 @@ export interface FeedPageInput<T extends Identified> {
 }
 
 export interface SubmissionState {
-  readonly body: string;
+  readonly body: string; // Exact request fingerprint, not necessarily visible body text.
   readonly key: string | null;
   readonly completed: boolean;
 }
@@ -76,7 +76,7 @@ export function finishSubmission(state: SubmissionState, result: SubmissionFinis
 
 export function editSubmission(state: SubmissionState, body: string): SubmissionState {
   if (body === state.body) return state;
-  return { body, key: state.completed ? null : state.key, completed: false };
+  return { body, key: null, completed: false };
 }
 
 export function statusCopy(status: string): string {
