@@ -36,6 +36,26 @@ test("queue retains decimal IDs and serializes only validated moderation filters
   assert.equal(calls[0].init?.cache, "no-store");
 });
 
+test("queue accepts the unchanged whitespace-only preview of a valid full body", async () => {
+  // PostgreSQL substring(body from 1 for 160) preserves the body's leading spaces.
+  const body = " ".repeat(160) + "review me";
+  const previewItem = { ...item, bodyPreview: body.slice(0, 160) };
+  const page = { items: [previewItem], nextCursor: null };
+  assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([page]).request), { status: "ready", value: page });
+  const fullDetail = { ...detail, body };
+  assert.deepEqual(await loadCommunityModerationDetail(origin, "POST", "42", {}, transport([fullDetail]).request), { status: "ready", value: fullDetail });
+  const blankDetail = { ...detail, body: " ".repeat(160) };
+  assert.deepEqual(await loadCommunityModerationDetail(origin, "POST", "42", {}, transport([blankDetail]).request), { status: "error" });
+});
+
+test("queue preview maximum counts Unicode code points and still rejects nonstrings and overflow", async () => {
+  const page = { items: [{ ...item, bodyPreview: "😀".repeat(160) }], nextCursor: null };
+  assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([page]).request), { status: "ready", value: page });
+  for (const bodyPreview of ["😀".repeat(161), null, 160]) {
+    assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([{ ...page, items: [{ ...item, bodyPreview }] }]).request), { status: "error" });
+  }
+});
+
 test("queue rejects contact/private fields, missing keys, bad enums, IDs, timestamps and versions", async () => {
   for (const bad of [{ ...item, email: "hidden@example.com" }, { ...item, contact: "private" },
     { ...item, authorId: "5" }, { ...item, version: "3" }, { ...item, version: -1 }, { ...item, version: 0.5 },

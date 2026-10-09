@@ -38,6 +38,7 @@ const cursor = (value: unknown): value is string => typeof value === "string" &&
   && value.length <= 4096 && !/[\x00-\x20\x7f]/.test(value);
 const nullableCursor = (value: unknown) => value === null || cursor(value);
 const bodyText = (value: unknown, max: number) => typeof value === "string" && value.trim().length > 0 && [...value].length <= max;
+const previewText = (value: unknown) => typeof value === "string" && [...value].length <= 160;
 
 function targetFields(value: Record<string, unknown>) {
   return targetType(value.targetType) && decimalId(value.targetId) && token(value.status, contentStatuses)
@@ -45,7 +46,7 @@ function targetFields(value: Record<string, unknown>) {
 }
 function parseItem(value: unknown): ModerationQueueItem | null {
   return record(value) && exact(value, ["targetType", "targetId", "status", "bodyPreview", "version", "openReportCount", "createdAt"])
-    && targetFields(value) && bodyText(value.bodyPreview, 160) && timestamp(value.createdAt) ? value as ModerationQueueItem : null;
+    && targetFields(value) && previewText(value.bodyPreview) && timestamp(value.createdAt) ? value as ModerationQueueItem : null;
 }
 function parseQueue(value: unknown): ModerationQueue | null {
   return record(value) && exact(value, ["items", "nextCursor"]) && Array.isArray(value.items) && value.items.length <= 50

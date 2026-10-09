@@ -38,3 +38,12 @@ Status: DONE
 - No backend changes, UI implementation, runtime dependencies or unrelated work are included. No outstanding implementation concerns.
 
 Commit message: `feat: add adviser community moderation client`.
+
+## Review fix round 1: preserve whitespace-only queue previews
+
+- Reviewer identified a backend-valid body (`160 spaces + review me`) whose unchanged PostgreSQL substring preview contains only spaces. The queue parser incorrectly reused the full-body nonblank check and returned error.
+- Added a focused regression with that exact body and preview. Before implementation, `node --test src/lib/adviser-community-api.test.ts` failed only the new whitespace-preview test: actual error versus expected ready (12 passed, 1 failed).
+- Added a dedicated preview validator: string type and maximum 160 Unicode code points, with no trim/nonblank requirement. Full detail body validation retains its nonblank and post/comment maximum checks; the regression verifies the leading-space full body is accepted and an entirely blank full body remains rejected.
+- Added a supplementary-character boundary fixture proving a 160-emoji preview is accepted and 161 code points, null, and number values are rejected.
+- Final verification: `node --test src/lib/adviser-community-api.test.ts src/lib/adviser-consultation-api.test.ts src/lib/adviser-consultations-ui.test.ts` passed **32/32**; `npx tsc --noEmit` and targeted ESLint on all five client/navigation TypeScript files exited 0; `git diff --check` exited 0.
+- Self-review: the production change is confined to preview validation. Exact DTO keys, IDs, versions, authentication, CSRF, transport and full detail body checks are unchanged. No outstanding concerns for this review finding.
