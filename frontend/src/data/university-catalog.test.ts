@@ -153,6 +153,25 @@ test("University of Malaya uses the supplied modern campus photo", () => {
   assert.equal(universityProfile("um")?.imageCredit, undefined);
 });
 
+test("supplied university campus photos are assigned to their matching profiles", () => {
+  const expected = {
+    ucsi: "/universities/campuses/ucsi-campus.webp",
+    inti: "/universities/campuses/inti-campus.webp",
+    sunway: "/universities/campuses/sunway-campus.webp",
+    segi: "/universities/campuses/segi-campus.webp",
+    utar: "/universities/campuses/utar-campus.webp",
+    monash: "/universities/campuses/monash-campus.webp",
+    nottingham: "/universities/campuses/nottingham-campus.webp",
+    southampton: "/universities/campuses/southampton-campus.webp",
+    help: "/universities/campuses/help-campus.webp",
+    nilai: "/universities/campuses/nilai-campus.webp",
+  } as const;
+
+  for (const [id, photo] of Object.entries(expected)) {
+    assert.equal(universityProfile(id)?.campusImageSrc, photo, `${id} uses the wrong campus photo`);
+  }
+});
+
 test("catalogue marks universities with supplied programme records as available", () => {
   for (const university of UNIVERSITY_CATALOG) {
     if (!localProgrammeLevels(university.slug).length) continue;

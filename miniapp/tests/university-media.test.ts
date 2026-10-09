@@ -42,3 +42,15 @@ test('published API school slugs reuse reviewed website logo and campus assets',
   assert.equal(universityLogoUrl('constructor'), null);
   assert.equal(universityCampusUrl('__proto__'), null);
 });
+
+test('uses the supplied campus photos for their matching published schools', () => {
+  const expected = {
+    segi: 'segi-campus.webp', southampton: 'southampton-campus.webp',
+    sunway: 'sunway-campus.webp', ucsi: 'ucsi-campus.webp', utar: 'utar-campus.webp',
+    nilai: 'nilai-campus.webp', help: 'help-campus.webp', inti: 'inti-campus.webp',
+    monash: 'monash-campus.webp', nottingham: 'nottingham-campus.webp',
+  };
+  for (const [slug, filename] of Object.entries(expected)) {
+    assert.equal(universityCampusUrl(slug), `https://yangdoujiao.com/universities/campuses/${filename}`);
+  }
+});

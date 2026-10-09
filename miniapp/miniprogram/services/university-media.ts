@@ -40,6 +40,16 @@ const CAMPUS_IMAGES: Readonly<Record<string, string>> = {
   'university-of-malaya': 'um-modern-campus.webp',
   'taylors-university': 'taylors-campus.webp',
   'asia-pacific-university': 'apu-campus.webp',
+  'segi-university': 'segi-campus.webp',
+  'university-of-southampton-malaysia': 'southampton-campus.webp',
+  'sunway-university': 'sunway-campus.webp',
+  'ucsi-university': 'ucsi-campus.webp',
+  'universiti-tunku-abdul-rahman': 'utar-campus.webp',
+  'nilai-university': 'nilai-campus.webp',
+  'help-university': 'help-campus.webp',
+  'inti-international-university': 'inti-campus.webp',
+  'monash-university-malaysia': 'monash-campus.webp',
+  'university-of-nottingham-malaysia': 'nottingham-campus.webp',
 };
 
 export function universityLogoUrl(slug: string): string | null {

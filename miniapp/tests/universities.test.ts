@@ -122,7 +122,7 @@ test('the university page silently ignores superseded searches while the newest 
   }
 });
 
-test('maps the real university search response without inventing missing images', () => {
+test('maps the real university search response with reviewed logo and campus assets', () => {
   const result = mapUniversityPage(fixture);
 
   assert.equal(result.ok, true);
@@ -136,7 +136,7 @@ test('maps the real university search response without inventing missing images'
     programmeCount: 2,
     subjectTags: ['BUSINESS', 'COMPUTER_SCIENCE'],
     imageUrl: 'https://yangdoujiao.com/universities/segi-university.jpg',
-    coverImageUrl: null,
+    coverImageUrl: 'https://yangdoujiao.com/universities/campuses/segi-campus.webp',
     imageMode: 'aspectFit',
     popular: true,
   });
@@ -421,7 +421,7 @@ for (const initialState of ['ready', 'loading']) {
   }
 }
 
-test('maps university detail without inventing optional content', () => {
+test('maps university detail with reviewed media without inventing optional content', () => {
   assert.deepEqual(mapUniversityDetail({
     id: 12,
     slug: 'segi-university',
@@ -442,7 +442,7 @@ test('maps university detail without inventing optional content', () => {
     cityZh: '哥打白沙罗',
     descriptionZh: '院校简介',
     popular: true,
-    imageUrl: null,
+    imageUrl: 'https://yangdoujiao.com/universities/campuses/segi-campus.webp',
     logoUrl: 'https://yangdoujiao.com/universities/segi-university.jpg',
   } });
 });
