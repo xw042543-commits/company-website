@@ -23,6 +23,7 @@ export function createCircleComposePage(overrides: Partial<ComposeDeps> = {}): W
     if (this.data.submitting) return;
     if (!canUseCommunityWrite(deps.session.getSnapshot().status)) {
       const auth = await deps.session.ensureAuthenticated();
+      if (!composeRuntime(this).active) return;
       if (!auth.ok) { this.setData({ notice: '请先完成微信登录后再发布。' }); return; }
     }
     const body = this.data.body.trim();

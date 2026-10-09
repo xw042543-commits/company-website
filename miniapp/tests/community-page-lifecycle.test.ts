@@ -42,6 +42,22 @@ test('feed lifecycle refreshes once after authentication and invalidates unloade
   assert.deepEqual(page.data.posts, []);
 });
 
+test('two feed pages own distinct request scopes while one page keeps its scope across refreshes', async () => {
+  const module = await import('../miniprogram/pages/circle/index.ts');
+  const inputs: any[] = []; let scope = 0;
+  const definition: any = module.createCirclePage({
+    listPosts: async (input: any) => { inputs.push(input); return ok({ items: [], nextCursor: null }); },
+    session: { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) },
+    createScope: () => `feed-${++scope}`,
+  } as any);
+  const first = context(definition); const second = context(definition);
+  definition.onLoad.call(first); definition.onLoad.call(second);
+  await Promise.resolve(); await Promise.resolve();
+  await definition.loadFeed.call(first, true);
+  assert.notEqual(inputs[0].requestScope, inputs[1].requestScope);
+  assert.equal(inputs[0].requestScope, inputs[2].requestScope);
+});
+
 test('detail instances isolate ids, refresh state, ownership and idempotency fingerprints', async () => {
   const module = await import('../miniprogram/pages/circle-detail/index.ts');
   const postIds: string[] = [];
@@ -101,6 +117,23 @@ test('detail refreshes personalized ownership once when the session becomes auth
   assert.equal(unsubscribed, true);
 });
 
+test('two detail pages for the same post own distinct request scopes and retain them on refresh', async () => {
+  const module = await import('../miniprogram/pages/circle-detail/index.ts');
+  const postScopes: string[] = []; const commentScopes: string[] = []; let scope = 0;
+  const definition: any = module.createCircleDetailPage({
+    loadPost: async (id: string, requestScope: string) => { postScopes.push(requestScope); return ok({ id, authorName: '用户', authorAvatarUrl: null, body: '正文', commentCount: 0, likeCount: 0, publishedAt: '2026-10-08T00:00:00Z', likedByMe: false, ownedByMe: false }); },
+    listComments: async (input: any) => { commentScopes.push(input.requestScope); return ok({ items: [], nextCursor: null }); },
+    session: { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) },
+    createScope: () => `detail-${++scope}`,
+  } as any);
+  const first = context(definition); const second = context(definition);
+  definition.onLoad.call(first, { id: '1' }); definition.onLoad.call(second, { id: '1' });
+  await Promise.resolve(); await Promise.resolve();
+  await Promise.all([definition.loadPost.call(first), definition.loadComments.call(first, true)]);
+  assert.notEqual(postScopes[0], postScopes[1]); assert.notEqual(commentScopes[0], commentScopes[1]);
+  assert.equal(postScopes[0], postScopes[2]); assert.equal(commentScopes[0], commentScopes[2]);
+});
+
 test('reply continuation preserves DTO ownership and ignores a response after unload', async () => {
   const module = await import('../miniprogram/pages/circle-detail/index.ts');
   const pending = deferred<Result<any>>();
@@ -118,6 +151,89 @@ test('reply continuation preserves DTO ownership and ignores a response after un
   pending.resolve(ok({ items: [{ ...root, id: '11', body: '回复', ownedByMe: true, replies: [], repliesNextCursor: null }], nextCursor: null }));
   await pending.promise; await Promise.resolve();
   assert.deepEqual(page.data.comments[0].replies, []);
+});
+
+test('top-level comment pagination does not invalidate an in-flight reply continuation', async () => {
+  const module = await import('../miniprogram/pages/circle-detail/index.ts');
+  const replyRequest = deferred<Result<any>>(); let commentCall = 0;
+  const root = { id: '10', authorName: '用户', authorAvatarUrl: null, body: '根评论', createdAt: '2026-10-08T00:00:00Z', likeCount: 0, likedByMe: false, ownedByMe: false, replies: [], repliesNextCursor: 'reply.cursor' };
+  const definition: any = module.createCircleDetailPage({
+    loadPost: async (id: string) => ok({ id, authorName: '用户', authorAvatarUrl: null, body: '正文', commentCount: 1, likeCount: 0, publishedAt: '2026-10-08T00:00:00Z', likedByMe: false, ownedByMe: false }),
+    listComments: async () => { commentCall++; return commentCall === 1 ? ok({ items: [root], nextCursor: 'comment.cursor' }) : ok({ items: [], nextCursor: null }); },
+    listReplies: () => replyRequest.promise,
+    session: { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) },
+  } as any);
+  const page = context(definition); definition.onLoad.call(page, { id: '1' });
+  await Promise.resolve(); await Promise.resolve();
+  void definition.loadMoreReplies.call(page, { currentTarget: { dataset: { parent: '10' } } });
+  await definition.loadComments.call(page, false);
+  replyRequest.resolve(ok({ items: [{ ...root, id: '11', body: '回复', ownedByMe: true, replies: [], repliesNextCursor: null }], nextCursor: null }));
+  await replyRequest.promise; await Promise.resolve();
+  assert.equal(page.data.comments[0].replies[0].id, '11');
+  assert.equal(page.data.comments[0].loadingReplies, false);
+});
+
+test('refresh invalidates an old same-root reply request without suppressing the newer continuation', async () => {
+  const module = await import('../miniprogram/pages/circle-detail/index.ts');
+  const replies = [deferred<Result<any>>(), deferred<Result<any>>()]; let replyCall = 0;
+  const root = { id: '10', authorName: '用户', authorAvatarUrl: null, body: '根评论', createdAt: '2026-10-08T00:00:00Z', likeCount: 0, likedByMe: false, ownedByMe: false, replies: [], repliesNextCursor: 'reply.cursor' };
+  const definition: any = module.createCircleDetailPage({
+    loadPost: async (id: string) => ok({ id, authorName: '用户', authorAvatarUrl: null, body: '正文', commentCount: 1, likeCount: 0, publishedAt: '2026-10-08T00:00:00Z', likedByMe: false, ownedByMe: false }),
+    listComments: async () => ok({ items: [root], nextCursor: null }),
+    listReplies: () => replies[replyCall++]!.promise,
+    session: { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) },
+  } as any);
+  const page = context(definition); definition.onLoad.call(page, { id: '1' });
+  await Promise.resolve(); await Promise.resolve();
+  void definition.loadMoreReplies.call(page, { currentTarget: { dataset: { parent: '10' } } });
+  await definition.loadComments.call(page, true);
+  void definition.loadMoreReplies.call(page, { currentTarget: { dataset: { parent: '10' } } });
+  replies[1]!.resolve(ok({ items: [{ ...root, id: '12', body: '新回复', replies: [], repliesNextCursor: null }], nextCursor: null }));
+  await replies[1]!.promise; await Promise.resolve();
+  replies[0]!.resolve(ok({ items: [{ ...root, id: '11', body: '旧回复', replies: [], repliesNextCursor: null }], nextCursor: null }));
+  await replies[0]!.promise; await Promise.resolve();
+  assert.deepEqual(page.data.comments[0].replies.map((item: any) => item.id), ['12']);
+  assert.equal(page.data.comments[0].loadingReplies, false);
+});
+
+test('same-avatar post refresh preserves fallback while a changed avatar resets it', async () => {
+  const module = await import('../miniprogram/pages/circle-detail/index.ts');
+  let avatar = 'https://example.test/one.png';
+  const definition: any = module.createCircleDetailPage({
+    loadPost: async (id: string) => ok({ id, authorName: '用户', authorAvatarUrl: avatar, body: '正文', commentCount: 0, likeCount: 0, publishedAt: '2026-10-08T00:00:00Z', likedByMe: false, ownedByMe: false }),
+    listComments: async () => ok({ items: [], nextCursor: null }),
+    session: { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) },
+  } as any);
+  const page = context(definition); definition.onLoad.call(page, { id: '1' });
+  await Promise.resolve(); await Promise.resolve();
+  definition.postAvatarError.call(page); await definition.loadPost.call(page);
+  assert.equal(page.data.postAvatarFailed, true);
+  avatar = 'https://example.test/two.png'; await definition.loadPost.call(page);
+  assert.equal(page.data.postAvatarFailed, false);
+});
+
+test('a write that completes after detail unload performs no toast, state update or follow-up read', async () => {
+  const module = await import('../miniprogram/pages/circle-detail/index.ts');
+  const creation = deferred<Result<any>>(); let postReads = 0; let commentReads = 0; let toasts = 0;
+  const previousToast = (globalThis as any).wx.showToast;
+  (globalThis as any).wx.showToast = () => { toasts++; };
+  try {
+    const definition: any = module.createCircleDetailPage({
+      loadPost: async (id: string) => { postReads++; return ok({ id, authorName: '用户', authorAvatarUrl: null, body: '正文', commentCount: 0, likeCount: 0, publishedAt: '2026-10-08T00:00:00Z', likedByMe: false, ownedByMe: false }); },
+      listComments: async () => { commentReads++; return ok({ items: [], nextCursor: null }); },
+      createComment: () => creation.promise,
+      session: { getSnapshot: () => ({ status: 'authenticated', account: {} }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) },
+    } as any);
+    const page = context(definition); definition.onLoad.call(page, { id: '1' });
+    await Promise.resolve(); await Promise.resolve();
+    page.data.commentBody = '已提交的评论';
+    const submission = definition.submitComment.call(page);
+    definition.onUnload.call(page);
+    creation.resolve(ok({ id: '20', postId: '1', parentCommentId: null, body: '已提交的评论', status: 'PUBLISHED', createdAt: '2026-10-08T00:00:00Z', publishedAt: null }));
+    await submission;
+    assert.equal(toasts, 0); assert.equal(postReads, 1); assert.equal(commentReads, 1);
+    assert.equal(page.data.commentBody, '已提交的评论');
+  } finally { (globalThis as any).wx.showToast = previousToast; }
 });
 
 test('hot expiry restarts from page one and applies only the restarted result', async () => {

@@ -1,5 +1,5 @@
 import {
-  createCommunityComment, createSubmissionKey, deleteCommunityComment, deleteCommunityPost,
+  createCommunityComment, createCommunityRequestScope, createSubmissionKey, deleteCommunityComment, deleteCommunityPost,
   listCommunityComments, listCommunityReplies,
   loadCommunityPost, reportCommunityTarget, setCommunityReaction,
   type CommunityComment, type CommunityPostDetail, type CommunityReportReason,
@@ -23,16 +23,19 @@ const REPORT_REASONS: ReadonlyArray<{ code: CommunityReportReason; label: string
 ];
 interface DetailRuntime {
   postId: string; commentSubmission: SubmissionState; reportSubmission: SubmissionState;
-  generation: number; postGeneration: number; active: boolean; sessionStatus: string; unsubscribe: (() => void) | null;
+  requestScope: string; commentsGeneration: number; postGeneration: number; repliesEpoch: number;
+  replyGenerations: Map<string, number>; active: boolean; sessionStatus: string; unsubscribe: (() => void) | null;
 }
 type DetailDeps = {
   loadPost: typeof loadCommunityPost; listComments: typeof listCommunityComments; listReplies: typeof listCommunityReplies;
   createComment: typeof createCommunityComment; deleteComment: typeof deleteCommunityComment; deletePost: typeof deleteCommunityPost;
-  report: typeof reportCommunityTarget; react: typeof setCommunityReaction; session: typeof sessionStore; createKey: typeof createSubmissionKey;
+  report: typeof reportCommunityTarget; react: typeof setCommunityReaction; session: typeof sessionStore;
+  createKey: typeof createSubmissionKey; createScope: typeof createCommunityRequestScope;
 };
 const detailDefaults: DetailDeps = { loadPost: loadCommunityPost, listComments: listCommunityComments, listReplies: listCommunityReplies,
   createComment: createCommunityComment, deleteComment: deleteCommunityComment, deletePost: deleteCommunityPost,
-  report: reportCommunityTarget, react: setCommunityReaction, session: sessionStore, createKey: createSubmissionKey };
+  report: reportCommunityTarget, react: setCommunityReaction, session: sessionStore,
+  createKey: createSubmissionKey, createScope: createCommunityRequestScope };
 type DetailPage = WechatMiniprogram.Page.TrivialInstance & { _communityRuntime: DetailRuntime };
 function detailRuntime(page: WechatMiniprogram.Page.TrivialInstance): DetailRuntime { return (page as DetailPage)._communityRuntime; }
 function detailError(error: { kind: string; code: string }): ViewState {
@@ -57,7 +60,8 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
   onLoad(options: Record<string, string | undefined>) {
     const initial = deps.session.getSnapshot();
     const state: DetailRuntime = { postId: options.id ?? '', commentSubmission: createSubmissionState(), reportSubmission: createSubmissionState(),
-      generation: 0, postGeneration: 0, active: true, sessionStatus: initial.status, unsubscribe: null };
+      requestScope: deps.createScope(), commentsGeneration: 0, postGeneration: 0, repliesEpoch: 0,
+      replyGenerations: new Map(), active: true, sessionStatus: initial.status, unsubscribe: null };
     (this as DetailPage)._communityRuntime = state;
     state.unsubscribe = deps.session.subscribe((session) => {
       if (!state.active) return;
@@ -69,17 +73,19 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     void this.loadPost(); void this.loadComments(true);
     if (options.report === 'post') this.setData({ reportOpen: true, reportTargetType: 'POST', reportTargetId: state.postId });
   },
-  onUnload() { const state = detailRuntime(this); state.active = false; state.unsubscribe?.(); state.unsubscribe = null; state.generation++; state.postGeneration++; },
+  onUnload() { const state = detailRuntime(this); state.active = false; state.unsubscribe?.(); state.unsubscribe = null;
+    state.commentsGeneration++; state.postGeneration++; state.repliesEpoch++; state.replyGenerations.clear(); },
   onPullDownRefresh() { void Promise.all([this.loadPost(), this.loadComments(true)]).finally(() => wx.stopPullDownRefresh()); },
   onReachBottom() { if (this.data.commentsState === 'ready' && this.data.commentsCursor && !this.data.loadingMoreComments) void this.loadComments(false); },
   retryPost() { void this.loadPost(); }, retryComments() { void this.loadComments(true); },
   async loadPost() {
     const state = detailRuntime(this); const generation = ++state.postGeneration;
     this.setData({ postState: 'loading' as ViewState });
-    const result = await deps.loadPost(state.postId);
+    const result = await deps.loadPost(state.postId, state.requestScope);
     if (!state.active || generation !== state.postGeneration) return;
     if (!result.ok) { this.setData({ postState: detailError(result.error) }); return; }
-    this.setData({ post: result.value, ownerPost: result.value.ownedByMe, postAvatarFailed: false,
+    const postAvatarFailed = this.data.post?.authorAvatarUrl === result.value.authorAvatarUrl ? this.data.postAvatarFailed : false;
+    this.setData({ post: result.value, ownerPost: result.value.ownedByMe, postAvatarFailed,
       postTime: formatCommunityTime(result.value.publishedAt), postState: 'ready' as ViewState });
   },
   async loadComments(reset: boolean) {
@@ -87,11 +93,15 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     const state = detailRuntime(this);
     const cursor = reset ? null : this.data.commentsCursor;
     if (!reset && !cursor) return;
-    const generation = ++state.generation;
-    if (reset) this.setData({ commentsState: 'loading' as ViewState, commentsCursor: null, loadingMoreComments: false });
+    const generation = ++state.commentsGeneration;
+    if (reset) {
+      state.repliesEpoch++; state.replyGenerations.clear();
+      this.setData({ commentsState: 'loading' as ViewState, commentsCursor: null, loadingMoreComments: false,
+        comments: this.data.comments.map((comment: CommentItem) => ({ ...comment, loadingReplies: false })) });
+    }
     else this.setData({ loadingMoreComments: true });
-    const result = await deps.listComments({ postId: state.postId, cursor, size: 20 });
-    if (!state.active || generation !== state.generation) return;
+    const result = await deps.listComments({ postId: state.postId, cursor, size: 20, requestScope: state.requestScope });
+    if (!state.active || generation !== state.commentsGeneration) return;
     if (!result.ok) {
       if (result.error.code === 'REQUEST_SUPERSEDED') {
         this.setData({ loadingMoreComments: false, commentsState: this.data.comments.length ? 'ready' : 'empty' }); return;
@@ -127,6 +137,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     state.commentSubmission = prepareSubmission(editSubmission(state.commentSubmission, fingerprint), deps.createKey);
     this.setData({ submittingComment: true });
     const result = await deps.createComment({ body, postId: state.postId, parentCommentId: this.data.replyParentId, idempotencyKey: state.commentSubmission.key ?? '' });
+    if (!state.active) return;
     if (result.ok) {
       state.commentSubmission = finishSubmission(state.commentSubmission, 'completed');
       this.setData({ commentBody: '', commentCount: 0, replyParentId: null, replyAuthor: '', submittingComment: false });
@@ -141,10 +152,13 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     const parentId = event.currentTarget.dataset.parent; if (!parentId) return;
     const root = this.data.comments.find((comment: CommentItem) => comment.id === parentId);
     if (!root?.repliesNextCursor || root.loadingReplies) return;
-    const state = detailRuntime(this); const generation = state.generation;
+    const state = detailRuntime(this); const epoch = state.repliesEpoch;
+    const generation = (state.replyGenerations.get(parentId) ?? 0) + 1;
+    state.replyGenerations.set(parentId, generation);
     this.setData({ comments: this.data.comments.map((comment: CommentItem) => comment.id === parentId ? { ...comment, loadingReplies: true } : comment) });
-    const result = await deps.listReplies({ postId: state.postId, parentCommentId: parentId, cursor: root.repliesNextCursor, size: 20 });
-    if (!state.active || generation !== state.generation) return;
+    const result = await deps.listReplies({ postId: state.postId, parentCommentId: parentId,
+      cursor: root.repliesNextCursor, size: 20, requestScope: state.requestScope });
+    if (!state.active || epoch !== state.repliesEpoch || generation !== state.replyGenerations.get(parentId)) return;
     if (!result.ok) { this.setData({ comments: this.data.comments.map((comment: CommentItem) => comment.id === parentId ? { ...comment, loadingReplies: false } : comment) }); wx.showToast({ title: errorCopy(result.error), icon: 'none' }); return; }
     const replies = mergeCommunityItems(root.replies, result.value.items);
     this.setData({ comments: this.data.comments.map((comment: CommentItem) => comment.id === parentId ? this.decorateComment({ ...comment, replies, repliesNextCursor: result.value.nextCursor }) : comment) });
@@ -153,6 +167,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     if (!this.data.post || this.data.reactingTarget || !(await this.ensureLogin())) return;
     const post = this.data.post; const liked = !post.likedByMe; this.setData({ reactingTarget: post.id });
     const result = await deps.react({ targetType: 'POST', targetId: post.id, liked });
+    if (!detailRuntime(this).active) return;
     if (result.ok) this.setData({ post: { ...post, likedByMe: liked, likeCount: Math.max(0, post.likeCount + (liked ? 1 : -1)) } });
     else wx.showToast({ title: errorCopy(result.error), icon: 'none' }); this.setData({ reactingTarget: null });
   },
@@ -162,6 +177,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     const reply = this.data.comments.flatMap((comment: CommentItem) => comment.replies).find((comment: CommunityComment) => comment.id === id);
     const target = root ?? reply; if (!target) return; const liked = !target.likedByMe; this.setData({ reactingTarget: id });
     const result = await deps.react({ targetType: 'COMMENT', targetId: id, liked });
+    if (!detailRuntime(this).active) return;
     if (result.ok) this.setData({ comments: this.data.comments.map((comment: CommentItem) => this.updateCommentReaction(comment, id, liked)) });
     else wx.showToast({ title: errorCopy(result.error), icon: 'none' }); this.setData({ reactingTarget: null });
   },
@@ -185,14 +201,20 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     state.reportSubmission = prepareSubmission(editSubmission(state.reportSubmission, fingerprint), deps.createKey); this.setData({ reporting: true });
     const result = await deps.report({ targetType: this.data.reportTargetType, targetId: this.data.reportTargetId,
       reasonCode: this.data.reportReason, note: this.data.reportNote, idempotencyKey: state.reportSubmission.key ?? '' });
+    if (!state.active) return;
     if (result.ok) { state.reportSubmission = finishSubmission(state.reportSubmission, 'completed'); this.setData({ reportOpen: false, reporting: false }); wx.showToast({ title: '举报已提交', icon: 'success' }); }
     else { state.reportSubmission = finishSubmission(state.reportSubmission, result.error.kind === 'unavailable' ? 'uncertain' : result.error.kind === 'unauthorized' ? 'authentication' : 'completed'); this.setData({ reporting: false }); wx.showToast({ title: errorCopy(result.error), icon: 'none' }); }
   },
-  async deletePost() { if (!this.data.post?.ownedByMe || !(await confirmDelete('删除这条帖子？'))) return; const result = await deps.deletePost(detailRuntime(this).postId); if (!result.ok) { wx.showToast({ title: errorCopy(result.error), icon: 'none' }); return; } const route = unwrapCommunityRoute(communityFeedRoute()); if (route) wx.reLaunch({ url: route }); },
-  async deleteComment(event: DataEvent) { const id = event.currentTarget.dataset.id; const owned = this.data.comments.some((comment: CommentItem) => comment.id === id ? comment.ownedByMe : comment.replies.some((reply: CommunityComment) => reply.id === id && reply.ownedByMe)); if (!id || !owned || !(await confirmDelete('删除这条评论？'))) return; const result = await deps.deleteComment(id); if (!result.ok) wx.showToast({ title: errorCopy(result.error), icon: 'none' }); else await Promise.all([this.loadPost(), this.loadComments(true)]); },
+  async deletePost() { if (!this.data.post?.ownedByMe || !(await confirmDelete('删除这条帖子？'))) return; const state = detailRuntime(this); if (!state.active) return;
+    const result = await deps.deletePost(state.postId); if (!state.active) return;
+    if (!result.ok) { wx.showToast({ title: errorCopy(result.error), icon: 'none' }); return; } const route = unwrapCommunityRoute(communityFeedRoute()); if (route) wx.reLaunch({ url: route }); },
+  async deleteComment(event: DataEvent) { const id = event.currentTarget.dataset.id; const owned = this.data.comments.some((comment: CommentItem) => comment.id === id ? comment.ownedByMe : comment.replies.some((reply: CommunityComment) => reply.id === id && reply.ownedByMe)); if (!id || !owned || !(await confirmDelete('删除这条评论？'))) return;
+    const state = detailRuntime(this); if (!state.active) return; const result = await deps.deleteComment(id); if (!state.active) return;
+    if (!result.ok) wx.showToast({ title: errorCopy(result.error), icon: 'none' }); else await Promise.all([this.loadPost(), this.loadComments(true)]); },
   postAvatarError() { this.setData({ postAvatarFailed: true }); },
   commentAvatarError(event: DataEvent) { const id = event.currentTarget.dataset.id; this.setData({ comments: this.data.comments.map((comment: CommentItem) => comment.id === id ? { ...comment, avatarFailed: true } : { ...comment, replies: comment.replies.map((reply: CommunityComment) => reply.id === id ? { ...reply, avatarFailed: true } : reply) }) }); },
-  async ensureLogin(): Promise<boolean> { if (canUseCommunityWrite(deps.session.getSnapshot().status)) return true; const result = await deps.session.ensureAuthenticated(); if (!result.ok) wx.showToast({ title: '请先完成微信登录', icon: 'none' }); return result.ok; },
+  async ensureLogin(): Promise<boolean> { if (canUseCommunityWrite(deps.session.getSnapshot().status)) return true; const result = await deps.session.ensureAuthenticated();
+    if (!detailRuntime(this).active) return false; if (!result.ok) wx.showToast({ title: '请先完成微信登录', icon: 'none' }); return result.ok; },
   };
   return definition;
 }

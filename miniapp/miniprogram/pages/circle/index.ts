@@ -1,4 +1,4 @@
-import { listCommunityPosts, setCommunityReaction, type CommunityPostSummary } from '../../services/community';
+import { createCommunityRequestScope, listCommunityPosts, setCommunityReaction, type CommunityPostSummary } from '../../services/community';
 import { sessionStore } from '../../stores/session';
 import { canUseCommunityWrite, errorCopy, shouldRestartHotFeed, unwrapCommunityRoute } from '../../utils/community-ui';
 import { communityComposeRoute, communityMeRoute, communityPostRoute } from '../../utils/routes';
@@ -6,9 +6,9 @@ import { communityComposeRoute, communityMeRoute, communityPostRoute } from '../
 type FeedState = 'loading' | 'ready' | 'empty' | 'offline' | 'failed';
 interface PostEvent extends WechatMiniprogram.BaseEvent { detail: { id?: string; post?: CommunityPostSummary } }
 
-interface FeedRuntime { generation: number; active: boolean; sessionStatus: string; unsubscribe: (() => void) | null }
-type CircleDeps = { listPosts: typeof listCommunityPosts; session: typeof sessionStore };
-const circleDefaults: CircleDeps = { listPosts: listCommunityPosts, session: sessionStore };
+interface FeedRuntime { generation: number; active: boolean; requestScope: string; sessionStatus: string; unsubscribe: (() => void) | null }
+type CircleDeps = { listPosts: typeof listCommunityPosts; react: typeof setCommunityReaction; session: typeof sessionStore; createScope: typeof createCommunityRequestScope };
+const circleDefaults: CircleDeps = { listPosts: listCommunityPosts, react: setCommunityReaction, session: sessionStore, createScope: createCommunityRequestScope };
 type FeedPage = WechatMiniprogram.Page.TrivialInstance & { _communityRuntime: FeedRuntime };
 function runtime(page: WechatMiniprogram.Page.TrivialInstance): FeedRuntime { return (page as FeedPage)._communityRuntime; }
 
@@ -22,7 +22,7 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
   },
   onLoad() {
     const initial = deps.session.getSnapshot();
-    const state: FeedRuntime = { generation: 0, active: true, sessionStatus: initial.status, unsubscribe: null };
+    const state: FeedRuntime = { generation: 0, active: true, requestScope: deps.createScope(), sessionStatus: initial.status, unsubscribe: null };
     (this as FeedPage)._communityRuntime = state;
     this.setData({ session: initial });
     state.unsubscribe = deps.session.subscribe((session) => {
@@ -48,11 +48,13 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
   retry() { void this.loadFeed(true); },
   async openCompose() {
     if (!(await this.ensureLogin())) return;
+    if (!runtime(this).active) return;
     const route = unwrapCommunityRoute(communityComposeRoute());
     if (route) wx.navigateTo({ url: route });
   },
   async openMine() {
     if (!(await this.ensureLogin())) return;
+    if (!runtime(this).active) return;
     const route = unwrapCommunityRoute(communityMeRoute());
     if (route) wx.navigateTo({ url: route });
   },
@@ -71,7 +73,8 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
     if (!post || this.data.reactingId || !(await this.ensureLogin())) return;
     this.setData({ reactingId: post.id });
     const liked = !post.likedByMe;
-    const result = await setCommunityReaction({ targetType: 'POST', targetId: post.id, liked });
+    const result = await deps.react({ targetType: 'POST', targetId: post.id, liked });
+    if (!runtime(this).active) return;
     if (result.ok) {
       this.setData({ posts: this.data.posts.map((item: CommunityPostSummary) => item.id === post.id ? {
         ...item, likedByMe: liked, likeCount: Math.max(0, item.likeCount + (liked ? 1 : -1)),
@@ -87,7 +90,7 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
     const generation = ++state.generation;
     if (reset) this.setData({ state: 'loading' as FeedState, nextCursor: null });
     else this.setData({ loadingMore: true });
-    const result = await deps.listPosts({ sort: this.data.sort, cursor, size: 20 });
+    const result = await deps.listPosts({ sort: this.data.sort, cursor, size: 20, requestScope: state.requestScope });
     if (!state.active || generation !== state.generation) return;
     if (!result.ok) {
       if (result.error.code === 'REQUEST_SUPERSEDED') {
@@ -111,6 +114,7 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
     wx.showLoading({ title: '登录中', mask: true });
     const result = await deps.session.ensureAuthenticated();
     wx.hideLoading();
+    if (!runtime(this).active) return false;
     if (!result.ok) wx.showToast({ title: '登录未完成，请重试', icon: 'none' });
     return result.ok;
   },

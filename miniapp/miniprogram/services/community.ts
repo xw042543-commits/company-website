@@ -37,7 +37,7 @@ export interface CommunityMyComment {
   readonly id: string; readonly postId: string; readonly parentCommentId: string | null; readonly body: string;
   readonly status: CommunityContentStatus; readonly statusMessage: string; readonly createdAt: string; readonly likeCount: number;
 }
-export interface PageInput { readonly cursor?: string | null; readonly size?: number }
+export interface PageInput { readonly cursor?: string | null; readonly size?: number; readonly requestScope: string }
 export interface FeedInput extends PageInput { readonly sort: 'latest' | 'hot' }
 export interface CommentPageInput extends PageInput { readonly postId: string }
 export interface ReplyPageInput extends CommentPageInput { readonly parentCommentId: string }
@@ -152,6 +152,9 @@ function query(input: PageInput): string | null {
   if (!Number.isInteger(size) || size < 1 || size > 50 || (input.cursor !== undefined && input.cursor !== null && !opaqueCursor(input.cursor))) return null;
   return `size=${encodeURIComponent(String(size))}${input.cursor == null ? '' : `&cursor=${encodeURIComponent(input.cursor)}`}`;
 }
+function requestScope(value: unknown): value is string {
+  return typeof value === 'string' && /^[A-Za-z0-9_-]{1,64}$/.test(value);
+}
 
 /** Call once when starting a new submission; retain this UUID through every retry. Not an authentication credential. */
 export function createSubmissionKey(): string {
@@ -160,6 +163,9 @@ export function createSubmissionKey(): string {
     return (char === 'x' ? random : (random & 3) | 8).toString(16);
   });
 }
+
+/** Creates a non-secret, process-local coordinate used only to isolate one Page instance's cancellable reads. */
+export function createCommunityRequestScope(): string { return createSubmissionKey(); }
 
 export function createCommunityService(
   send: (options: RequestOptions) => Promise<Result<unknown>> = request,
@@ -175,33 +181,33 @@ export function createCommunityService(
   return {
     async listPosts(input: FeedInput): Promise<Result<CursorPage<CommunityPostSummary>>> {
       const q = query(input);
-      if (q === null || (input.sort !== 'latest' && input.sort !== 'hot')) return invalidInput();
-      return publicRead(`/api/v1/community/posts?sort=${encodeURIComponent(input.sort)}&${q}`, `community-feed:${input.sort}`, (v) => parsePostPage(v, input.size ?? 20));
+      if (q === null || !requestScope(input.requestScope) || (input.sort !== 'latest' && input.sort !== 'hot')) return invalidInput();
+      return publicRead(`/api/v1/community/posts?sort=${encodeURIComponent(input.sort)}&${q}`, `community-feed:${input.requestScope}:${input.sort}`, (v) => parsePostPage(v, input.size ?? 20));
     },
-    async loadPost(id: string): Promise<Result<CommunityPostDetail>> {
-      if (!isCommunityId(id)) return invalidInput();
-      return publicRead(`/api/v1/community/posts/${encodeURIComponent(id)}`, `community-detail:${id}`, (v) => {
+    async loadPost(id: string, scope: string): Promise<Result<CommunityPostDetail>> {
+      if (!isCommunityId(id) || !requestScope(scope)) return invalidInput();
+      return publicRead(`/api/v1/community/posts/${encodeURIComponent(id)}`, `community-detail:${scope}:${id}`, (v) => {
         const parsed = parsePostDetail(v);
         return parsed.ok && parsed.value.id !== id ? invalidResponse() : parsed;
       });
     },
     async listComments(input: CommentPageInput): Promise<Result<CursorPage<CommunityComment>>> {
       const q = query(input);
-      if (q === null || !isCommunityId(input.postId)) return invalidInput();
-      return publicRead(`/api/v1/community/posts/${encodeURIComponent(input.postId)}/comments?${q}`, `community-comments:${input.postId}:${input.cursor ?? 'first'}:${input.size ?? 20}`, (v) => parseCommentPage(v, input.size ?? 20));
+      if (q === null || !requestScope(input.requestScope) || !isCommunityId(input.postId)) return invalidInput();
+      return publicRead(`/api/v1/community/posts/${encodeURIComponent(input.postId)}/comments?${q}`, `community-comments:${input.requestScope}:${input.postId}`, (v) => parseCommentPage(v, input.size ?? 20));
     },
     async listReplies(input: ReplyPageInput): Promise<Result<CursorPage<CommunityComment>>> {
       const q = query(input);
-      if (q === null || !isCommunityId(input.postId) || !isCommunityId(input.parentCommentId)) return invalidInput();
-      return publicRead(`/api/v1/community/posts/${encodeURIComponent(input.postId)}/comments/${encodeURIComponent(input.parentCommentId)}/replies?${q}`, `community-replies:${input.postId}:${input.parentCommentId}:${input.cursor ?? 'first'}:${input.size ?? 20}`, (v) => parseReplyPage(v, input.size ?? 20));
+      if (q === null || !requestScope(input.requestScope) || !isCommunityId(input.postId) || !isCommunityId(input.parentCommentId)) return invalidInput();
+      return publicRead(`/api/v1/community/posts/${encodeURIComponent(input.postId)}/comments/${encodeURIComponent(input.parentCommentId)}/replies?${q}`, `community-replies:${input.requestScope}:${input.postId}:${input.parentCommentId}`, (v) => parseReplyPage(v, input.size ?? 20));
     },
-    async listMyPosts(input: PageInput = {}): Promise<Result<CursorPage<CommunityMyPost>>> {
-      const q = query(input); if (q === null) return invalidInput();
-      return call({ method: 'GET', path: `/api/v1/community/me/posts?${q}`, authenticated: true, requestKey: `community-me-posts:${input.cursor ?? 'first'}:${input.size ?? 20}` }, (v) => parseMyPostPage(v, input.size ?? 20));
+    async listMyPosts(input: PageInput): Promise<Result<CursorPage<CommunityMyPost>>> {
+      const q = query(input); if (q === null || !requestScope(input.requestScope)) return invalidInput();
+      return call({ method: 'GET', path: `/api/v1/community/me/posts?${q}`, authenticated: true, requestKey: `community-me-posts:${input.requestScope}` }, (v) => parseMyPostPage(v, input.size ?? 20));
     },
-    async listMyComments(input: PageInput = {}): Promise<Result<CursorPage<CommunityMyComment>>> {
-      const q = query(input); if (q === null) return invalidInput();
-      return call({ method: 'GET', path: `/api/v1/community/me/comments?${q}`, authenticated: true, requestKey: `community-me-comments:${input.cursor ?? 'first'}:${input.size ?? 20}` }, (v) => parseMyCommentPage(v, input.size ?? 20));
+    async listMyComments(input: PageInput): Promise<Result<CursorPage<CommunityMyComment>>> {
+      const q = query(input); if (q === null || !requestScope(input.requestScope)) return invalidInput();
+      return call({ method: 'GET', path: `/api/v1/community/me/comments?${q}`, authenticated: true, requestKey: `community-me-comments:${input.requestScope}` }, (v) => parseMyCommentPage(v, input.size ?? 20));
     },
     async createPost(input: PostSubmission): Promise<Result<CommunityCreationResponse>> {
       if (!submissionKey(input.idempotencyKey) || !text(input.body, 2000) || !input.body.trim()) return invalidInput();

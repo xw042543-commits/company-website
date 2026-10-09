@@ -12,6 +12,7 @@ import type { Result } from '../miniprogram/utils/result.ts';
 const id = '9007199254740993';
 const time = '2026-10-08T00:00:00.123456Z';
 const cursor = `eyJhIjoxfQ.${'A'.repeat(43)}`;
+const scope = 'test-scope';
 const summary = { id, authorName: '微信用户', authorAvatarUrl: null, bodyPreview: '😀', commentCount: 0, likeCount: 1, publishedAt: time, likedByMe: false };
 const detail = { id, authorName: '微信用户', authorAvatarUrl: 'https://example.test/avatar.png', body: '正文', commentCount: 0, likeCount: 1, publishedAt: time, likedByMe: false, ownedByMe: false };
 const reply = { id: '2', authorName: '昵称', authorAvatarUrl: null, body: '回复', createdAt: time, likeCount: 0, likedByMe: true, ownedByMe: false, replies: [], repliesNextCursor: null };
@@ -47,14 +48,14 @@ test('community cursors reject nonzero payload pad bits in every page and reply 
     const bad = `${payload}.${signature}`;
     for (const parse of parsers) assert.deepEqual(parse({ items: [], nextCursor: bad }), invalid);
     assert.deepEqual(parseCommentPage(page({ ...comment, repliesNextCursor: bad })), invalid);
-    assert.deepEqual(await service.listPosts({ sort: 'latest', cursor: bad }), { ok: false, error: { kind: 'validation', code: 'INVALID_COMMUNITY_INPUT' } });
+    assert.deepEqual(await service.listPosts({ sort: 'latest', cursor: bad, requestScope: scope }), { ok: false, error: { kind: 'validation', code: 'INVALID_COMMUNITY_INPUT' } });
   }
   // Backend keyset fields and HMAC-SHA256 with the integration-test secret; contents remain opaque here.
   const backendCursor = 'eyJ0aW1lc3RhbXAiOiIyMDI2LTEwLTA4VDAwOjAwWiIsImlkIjoiMSIsInNvcnQiOiJsYXRlc3QiLCJleHBpcmVzQXQiOiIyMDI2LTEwLTA5VDAwOjAwWiJ9.hkbc3FEw7GCuPU3VgnskHne3Gom21gJTuLx7aecYKL8';
   for (const good of [cursor, backendCursor, ...['AA', 'AAA', 'AAAA', '_w', '__8'].map((payload) => `${payload}.${signature}`)]) {
     const value = { items: [], nextCursor: good };
     for (const parse of parsers) assert.deepEqual(parse(value), { ok: true, value });
-    assert.equal((await service.listPosts({ sort: 'latest', cursor: good })).ok, true);
+    assert.equal((await service.listPosts({ sort: 'latest', cursor: good, requestScope: scope })).ok, true);
   }
   for (const badSignature of [signature.slice(1), signature + 'A', 'A'.repeat(42) + 'B'])
     assert.deepEqual(parsePostPage({ items: [], nextCursor: `AA.${badSignature}` }), invalid);
@@ -75,8 +76,8 @@ for (const finalStatus of [200, 401] as const) {
         return { abort() {} };
       }, () => token, async () => { refreshes++; token = 'refreshed'; return true; });
       const service = createCommunityService(client.request, () => true);
-      const result = route === 'feed' ? await service.listPosts({ sort: 'latest' }) : route === 'detail' ? await service.loadPost(id)
-        : route === 'comments' ? await service.listComments({ postId: id }) : await service.listReplies({ postId: id, parentCommentId: '1' });
+      const result = route === 'feed' ? await service.listPosts({ sort: 'latest', requestScope: scope }) : route === 'detail' ? await service.loadPost(id, scope)
+        : route === 'comments' ? await service.listComments({ postId: id, requestScope: scope }) : await service.listReplies({ postId: id, parentCommentId: '1', requestScope: scope });
       assert.deepEqual(result, finalStatus === 200 ? { ok: true, value } : { ok: false, error: { kind: 'unauthorized', code: 'AUTHENTICATION_REQUIRED' } });
       assert.equal(refreshes, 1, route);
       assert.equal(requests.length, 2, route);
@@ -202,26 +203,58 @@ test('community service uses real paths, stable per-sort keys and independent de
     options.push(input);
     return { ok: true, value: input.path.endsWith(`/${id}`) ? detail : { items: [], nextCursor: null } };
   }, () => true);
-  await service.listPosts({ sort: 'latest', cursor: null, size: 20 });
-  await service.listPosts({ sort: 'latest', cursor, size: 20 });
-  await service.listPosts({ sort: 'hot', cursor: null, size: 20 });
-  await service.loadPost(id);
-  await service.loadPost('2');
-  await service.listComments({ postId: id, cursor, size: 20 });
-  await service.listReplies({ postId: id, parentCommentId: '2', cursor: null, size: 50 });
-  await service.listMyPosts({ cursor: null, size: 20 });
-  await service.listMyComments({ cursor: null, size: 20 });
+  await service.listPosts({ sort: 'latest', cursor: null, size: 20, requestScope: scope });
+  await service.listPosts({ sort: 'latest', cursor, size: 20, requestScope: scope });
+  await service.listPosts({ sort: 'hot', cursor: null, size: 20, requestScope: scope });
+  await service.loadPost(id, scope);
+  await service.loadPost('2', scope);
+  await service.listComments({ postId: id, cursor, size: 20, requestScope: scope });
+  await service.listReplies({ postId: id, parentCommentId: '2', cursor: null, size: 50, requestScope: scope });
+  await service.listMyPosts({ cursor: null, size: 20, requestScope: scope });
+  await service.listMyComments({ cursor: null, size: 20, requestScope: scope });
   assert.deepEqual(options.map((o) => o.path), [
     '/api/v1/community/posts?sort=latest&size=20', `/api/v1/community/posts?sort=latest&size=20&cursor=${encodeURIComponent(cursor)}`,
     '/api/v1/community/posts?sort=hot&size=20', `/api/v1/community/posts/${id}`, '/api/v1/community/posts/2',
     `/api/v1/community/posts/${id}/comments?size=20&cursor=${encodeURIComponent(cursor)}`,
     `/api/v1/community/posts/${id}/comments/2/replies?size=50`, '/api/v1/community/me/posts?size=20', '/api/v1/community/me/comments?size=20',
   ]);
-  assert.equal(options[0]?.requestKey, 'community-feed:latest');
-  assert.equal(options[1]?.requestKey, 'community-feed:latest');
-  assert.equal(options[2]?.requestKey, 'community-feed:hot');
+  assert.equal(options[0]?.requestKey, `community-feed:${scope}:latest`);
+  assert.equal(options[1]?.requestKey, `community-feed:${scope}:latest`);
+  assert.equal(options[2]?.requestKey, `community-feed:${scope}:hot`);
   assert.equal(new Set(options.slice(3).map((o) => o.requestKey)).size, 6);
   assert.ok(options.every((o) => o.authenticated === true)); // optional reads use shared login refresh for likedByMe
+});
+
+test('community read request keys isolate page scopes while remaining stable within one page', async () => {
+  const options: RequestOptions[] = [];
+  const service = createCommunityService(async (input) => {
+    options.push(input);
+    return { ok: true, value: input.path.endsWith(`/${id}`) ? detail : { items: [], nextCursor: null } };
+  });
+  await service.listPosts({ sort: 'latest', requestScope: 'feed-a' });
+  await service.listPosts({ sort: 'latest', requestScope: 'feed-b' });
+  await service.listPosts({ sort: 'latest', requestScope: 'feed-a', cursor });
+  await service.loadPost(id, 'detail-a');
+  await service.loadPost(id, 'detail-b');
+  await service.listComments({ postId: id, requestScope: 'detail-a' });
+  await service.listReplies({ postId: id, parentCommentId: '1', requestScope: 'detail-a' });
+  assert.deepEqual(options.map((value) => value.requestKey), [
+    'community-feed:feed-a:latest', 'community-feed:feed-b:latest', 'community-feed:feed-a:latest',
+    `community-detail:detail-a:${id}`, `community-detail:detail-b:${id}`,
+    `community-comments:detail-a:${id}`, `community-replies:detail-a:${id}:1`,
+  ]);
+});
+
+test('community read inputs reject missing or unsafe page scopes before transport', async () => {
+  let sent = 0;
+  const service = createCommunityService(async () => { sent++; return { ok: true, value: { items: [], nextCursor: null } }; });
+  for (const bad of [undefined, '', 'contains:colon', 'has space', '../escape', 'x'.repeat(65)]) {
+    assert.equal((await service.listPosts({ sort: 'latest', requestScope: bad as string })).ok, false);
+    assert.equal((await service.loadPost(id, bad as string)).ok, false);
+    assert.equal((await service.listComments({ postId: id, requestScope: bad as string })).ok, false);
+    assert.equal((await service.listReplies({ postId: id, parentCommentId: '1', requestScope: bad as string })).ok, false);
+  }
+  assert.equal(sent, 0);
 });
 
 test('community writes retain caller submission key across network and auth retry; reactions and deletes need none', async () => {
@@ -258,16 +291,16 @@ test('community rejects malformed request inputs before transport and never crea
   const service = createCommunityService(async () => { sent++; return { ok: true, value: creation }; });
   const key = createSubmissionKey();
   for (const bad of ['01', '1/like', '9223372036854775808', 1]) {
-    assert.equal((await service.loadPost(bad as string)).ok, false);
+    assert.equal((await service.loadPost(bad as string, scope)).ok, false);
     assert.equal((await service.deletePost(bad as string)).ok, false);
-    assert.equal((await service.listComments({ postId: bad as string })).ok, false);
+    assert.equal((await service.listComments({ postId: bad as string, requestScope: scope })).ok, false);
     assert.equal((await service.setReaction({ targetType: 'POST', targetId: bad as string, liked: true })).ok, false);
   }
   for (const bad of ['', 'a'.repeat(65), 'key\r\nX:yes', undefined])
     assert.equal((await service.createPost({ body: '正文', idempotencyKey: bad as string })).ok, false);
-  for (const bad of [0, 51, 1.5, NaN]) assert.equal((await service.listPosts({ sort: 'latest', size: bad })).ok, false);
-  assert.equal((await service.listPosts({ sort: 'latest', cursor: 'x&size=50' })).ok, false);
-  assert.equal((await service.listPosts({ sort: 'unknown' as 'latest' })).ok, false);
+  for (const bad of [0, 51, 1.5, NaN]) assert.equal((await service.listPosts({ sort: 'latest', size: bad, requestScope: scope })).ok, false);
+  assert.equal((await service.listPosts({ sort: 'latest', cursor: 'x&size=50', requestScope: scope })).ok, false);
+  assert.equal((await service.listPosts({ sort: 'unknown' as 'latest', requestScope: scope })).ok, false);
   assert.equal((await service.createPost({ body: '', idempotencyKey: key })).ok, false);
   assert.equal((await service.createComment({ body: 'a'.repeat(1001), postId: id, idempotencyKey: key })).ok, false);
   assert.equal((await service.reportTarget({ targetType: 'POST', targetId: id, reasonCode: 'bad' as 'SPAM', idempotencyKey: key })).ok, false);
@@ -278,11 +311,11 @@ test('community rejects malformed request inputs before transport and never crea
 test('community maps safe backend errors including hot expiry while hiding raw messages and propagating superseded', async () => {
   for (const [statusCode, code, kind] of [[409, 'COMMUNITY_HOT_SNAPSHOT_EXPIRED', 'unexpected'], [409, 'IDEMPOTENCY_CONFLICT', 'unexpected'], [404, 'COMMUNITY_POST_NOT_FOUND', 'unexpected'], [403, 'COMMUNITY_USER_RESTRICTED', 'forbidden'], [503, 'COMMUNITY_WRITE_UNAVAILABLE', 'unavailable'], [400, 'INVALID_COMMUNITY_CURSOR', 'validation'], [400, 'COMMUNITY_CONTENT_REJECTED', 'validation'], [429, 'COMMUNITY_RATE_LIMITED', 'rate-limited']] as const) {
     const client = createHttpClient(resolveRuntimeConfig('production'), (o) => { o.success({ statusCode, data: { code, message: 'private internal reason', fieldErrors: {}, traceId: 'private' }, header: {}, cookies: [] }); return { abort() {} }; }, () => 'token');
-    assert.deepEqual(await createCommunityService(client.request, () => true).listPosts({ sort: 'hot' }), { ok: false, error: { kind, code } });
+    assert.deepEqual(await createCommunityService(client.request, () => true).listPosts({ sort: 'hot', requestScope: scope }), { ok: false, error: { kind, code } });
   }
   const superseded: Result<unknown> = { ok: false, error: { kind: 'unexpected', code: 'REQUEST_SUPERSEDED' } };
-  assert.deepEqual(await createCommunityService(async () => superseded).loadPost(id), superseded);
-  assert.deepEqual(await createCommunityService(async () => ({ ok: true, value: { items: [], nextCursor: 3 } })).listPosts({ sort: 'latest' }), invalid);
+  assert.deepEqual(await createCommunityService(async () => superseded).loadPost(id, scope), superseded);
+  assert.deepEqual(await createCommunityService(async () => ({ ok: true, value: { items: [], nextCursor: 3 } })).listPosts({ sort: 'latest', requestScope: scope }), invalid);
 });
 
 test('community error mapping only accepts public code/status pairs and never leaks server text', async () => {
@@ -290,37 +323,48 @@ test('community error mapping only accepts public code/status pairs and never le
     const client = createHttpClient(resolveRuntimeConfig('production'), (o) => {
       o.success({ statusCode: 400, data, header: {}, cookies: [] }); return { abort() {} };
     }, () => 'token');
-    assert.deepEqual(await createCommunityService(client.request, () => true).listPosts({ sort: 'hot' }), { ok: false, error: { kind: 'validation', code: 'REQUEST_REJECTED' } });
+    assert.deepEqual(await createCommunityService(client.request, () => true).listPosts({ sort: 'hot', requestScope: scope }), { ok: false, error: { kind: 'validation', code: 'REQUEST_REJECTED' } });
   }
 });
 
-test('community feed cancellation supersedes same sort only and other reads remain independent', async () => {
+test('community feed cancellation is isolated per page scope and supersedes only the same page and sort', async () => {
   const pending: TransportOptions[] = [];
   const client = createHttpClient(resolveRuntimeConfig('production'), (o) => { pending.push(o); return { abort() {} }; }, () => 'token');
   const service = createCommunityService(client.request, () => true);
-  const first = service.listPosts({ sort: 'latest' });
-  const hot = service.listPosts({ sort: 'hot' });
-  const second = service.listPosts({ sort: 'latest' });
+  const first = service.listPosts({ sort: 'latest', requestScope: `${scope}-one` });
+  const otherPage = service.listPosts({ sort: 'latest', requestScope: `${scope}-two` });
+  const hot = service.listPosts({ sort: 'hot', requestScope: `${scope}-one` });
+  const second = service.listPosts({ sort: 'latest', requestScope: `${scope}-one` });
   assert.deepEqual(await first, { ok: false, error: { kind: 'unexpected', code: 'REQUEST_SUPERSEDED' } });
   for (const o of pending) o.success({ statusCode: 200, data: { items: [], nextCursor: null }, header: {}, cookies: [] });
-  assert.equal((await hot).ok, true); assert.equal((await second).ok, true);
+  assert.equal((await otherPage).ok, true); assert.equal((await hot).ok, true); assert.equal((await second).ok, true);
+});
+
+test('same post detail reads in different page scopes do not cancel each other', async () => {
+  const pending: TransportOptions[] = [];
+  const client = createHttpClient(resolveRuntimeConfig('production'), (o) => { pending.push(o); return { abort() {} }; }, () => 'token');
+  const service = createCommunityService(client.request, () => true);
+  const first = service.loadPost(id, `${scope}-one`);
+  const second = service.loadPost(id, `${scope}-two`);
+  pending.forEach((o) => o.success({ statusCode: 200, data: detail, header: {}, cookies: [] }));
+  assert.ok((await first).ok); assert.ok((await second).ok);
 });
 
 test('community detail, comment pages and reply roots never cancel unrelated in-flight reads', async () => {
   const pending: TransportOptions[] = [];
   const client = createHttpClient(resolveRuntimeConfig('production'), (o) => { pending.push(o); return { abort() {} }; }, () => 'token');
   const service = createCommunityService(client.request, () => true);
-  const requests = [service.loadPost(id), service.loadPost('2'),
-    service.listComments({ postId: id, cursor: null }), service.listComments({ postId: id, cursor }),
-    service.listReplies({ postId: id, parentCommentId: '1' }), service.listReplies({ postId: id, parentCommentId: '2' })];
+  const requests = [service.loadPost(id, `${scope}-one`), service.loadPost('2', `${scope}-two`),
+    service.listComments({ postId: id, cursor: null, requestScope: `${scope}-comments-one` }), service.listComments({ postId: id, cursor, requestScope: `${scope}-comments-two` }),
+    service.listReplies({ postId: id, parentCommentId: '1', requestScope: `${scope}-reply-one` }), service.listReplies({ postId: id, parentCommentId: '2', requestScope: `${scope}-reply-two` })];
   pending.forEach((o, i) => o.success({ statusCode: 200, data: i < 2 ? { ...detail, id: i === 0 ? id : '2' } : { items: [], nextCursor: null }, header: {}, cookies: [] }));
   assert.ok((await Promise.all(requests)).every((r) => r.ok));
 });
 
 test('community rejects a valid DTO for the wrong requested target and pages larger than requested', async () => {
   const service = createCommunityService(async (o) => ({ ok: true, value: o.path.includes('?') ? { items: [summary, summary], nextCursor: null } : detail }));
-  assert.deepEqual(await service.loadPost('2'), invalid);
-  assert.deepEqual(await service.listPosts({ sort: 'latest', size: 1 }), invalid);
+  assert.deepEqual(await service.loadPost('2', scope), invalid);
+  assert.deepEqual(await service.listPosts({ sort: 'latest', size: 1, requestScope: scope }), invalid);
 });
 
 test('community public reads work anonymously and attach bearer only for shared authenticated session', async () => {
@@ -330,10 +374,10 @@ test('community public reads work anonymously and attach bearer only for shared 
   }, () => 'token');
   let loggedIn = false;
   const service = createCommunityService(client.request, () => loggedIn);
-  assert.equal((await service.listPosts({ sort: 'latest' })).ok, true);
+  assert.equal((await service.listPosts({ sort: 'latest', requestScope: scope })).ok, true);
   assert.equal(headers[0]?.Authorization, undefined);
   loggedIn = true;
-  assert.equal((await service.listPosts({ sort: 'latest' })).ok, true);
+  assert.equal((await service.listPosts({ sort: 'latest', requestScope: scope })).ok, true);
   assert.equal(headers[1]?.Authorization, 'Bearer token');
 });
 

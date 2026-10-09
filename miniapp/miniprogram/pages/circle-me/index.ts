@@ -1,5 +1,5 @@
 import {
-  deleteCommunityComment, deleteCommunityPost, listMyCommunityComments, listMyCommunityPosts,
+  createCommunityRequestScope, deleteCommunityComment, deleteCommunityPost, listMyCommunityComments, listMyCommunityPosts,
   type CommunityMyComment, type CommunityMyPost,
 } from '../../services/community';
 import { sessionStore } from '../../stores/session';
@@ -12,11 +12,11 @@ type PersonalPostItem = CommunityMyPost & { displayTime: string; statusLabel: st
 type PersonalCommentItem = CommunityMyComment & { displayTime: string; statusLabel: string };
 interface ItemEvent extends WechatMiniprogram.BaseEvent { currentTarget: WechatMiniprogram.BaseEvent['currentTarget'] & { dataset: { id?: string; post?: string; status?: string } } }
 
-interface PersonalRuntime { generation: number; active: boolean }
+interface PersonalRuntime { generation: number; active: boolean; requestScope: string }
 type PersonalDeps = { navigate: (url: string) => void; listPosts: typeof listMyCommunityPosts; listComments: typeof listMyCommunityComments;
-  deletePost: typeof deleteCommunityPost; deleteComment: typeof deleteCommunityComment; session: typeof sessionStore };
+  deletePost: typeof deleteCommunityPost; deleteComment: typeof deleteCommunityComment; session: typeof sessionStore; createScope: typeof createCommunityRequestScope };
 const personalDefaults: PersonalDeps = { navigate: (url) => wx.navigateTo({ url }), listPosts: listMyCommunityPosts,
-  listComments: listMyCommunityComments, deletePost: deleteCommunityPost, deleteComment: deleteCommunityComment, session: sessionStore };
+  listComments: listMyCommunityComments, deletePost: deleteCommunityPost, deleteComment: deleteCommunityComment, session: sessionStore, createScope: createCommunityRequestScope };
 type PersonalPage = WechatMiniprogram.Page.TrivialInstance & { _communityRuntime: PersonalRuntime };
 function personalRuntime(page: WechatMiniprogram.Page.TrivialInstance): PersonalRuntime { return (page as PersonalPage)._communityRuntime; }
 
@@ -28,7 +28,7 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
     posts: [] as PersonalPostItem[], comments: [] as PersonalCommentItem[],
     nextCursor: null as string | null, loadingMore: false, deletingId: null as string | null,
   },
-  onLoad() { (this as PersonalPage)._communityRuntime = { generation: 0, active: true }; void this.requireLoginAndLoad(); },
+  onLoad() { (this as PersonalPage)._communityRuntime = { generation: 0, active: true, requestScope: deps.createScope() }; void this.requireLoginAndLoad(); },
   onUnload() { const state = personalRuntime(this); state.active = false; state.generation++; },
   onPullDownRefresh() { void this.load(true).finally(() => wx.stopPullDownRefresh()); },
   onReachBottom() { if (this.data.state === 'ready' && this.data.nextCursor && !this.data.loadingMore) void this.load(false); },
@@ -41,6 +41,7 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
   async requireLoginAndLoad() {
     if (deps.session.getSnapshot().status !== 'authenticated') {
       const result = await deps.session.ensureAuthenticated();
+      if (!personalRuntime(this).active) return;
       if (!result.ok) { this.setData({ state: 'failed' as PersonalState }); return; }
     }
     await this.load(true);
@@ -50,7 +51,8 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
     const cursor = reset ? null : this.data.nextCursor; if (!reset && !cursor) return;
     const state = personalRuntime(this); const request = ++state.generation;
     if (reset) this.setData({ state: 'loading' as PersonalState }); else this.setData({ loadingMore: true });
-    const result = this.data.tab === 'posts' ? await deps.listPosts({ cursor, size: 20 }) : await deps.listComments({ cursor, size: 20 });
+    const input = { cursor, size: 20, requestScope: state.requestScope };
+    const result = this.data.tab === 'posts' ? await deps.listPosts(input) : await deps.listComments(input);
     if (!state.active || request !== state.generation) return;
     if (!result.ok) {
       if (result.error.code === 'REQUEST_SUPERSEDED') {
@@ -78,11 +80,13 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
   },
   async deleteItem(event: ItemEvent) {
     const id = event.currentTarget.dataset.id; if (!id || this.data.deletingId) return;
-    const confirmed = await confirmDelete(); if (!confirmed) return;
+    const confirmed = await confirmDelete(); if (!confirmed || !personalRuntime(this).active) return;
     this.setData({ deletingId: id });
     const result = this.data.tab === 'posts' ? await deps.deletePost(id) : await deps.deleteComment(id);
+    if (!personalRuntime(this).active) return;
     if (!result.ok) wx.showToast({ title: errorCopy(result.error), icon: 'none' });
     else await this.load(true);
+    if (!personalRuntime(this).active) return;
     this.setData({ deletingId: null });
   },
   };
