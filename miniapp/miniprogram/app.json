@@ -10,6 +10,7 @@
     "pages/consultations/index",
     "pages/orders/index",
     "pages/order-detail/index",
+    "pages/wallet/index",
     "pages/circle/index",
     "pages/circle-detail/index",
     "pages/circle-compose/index",

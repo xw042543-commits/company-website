@@ -1,0 +1,1 @@
+Page({data:{tab:'balance',balance:'0.00',points:0,tabs:[{key:'balance',label:'余额明细'},{key:'points',label:'积分明细'},{key:'usage',label:'使用记录'}]},switchTab(e:WechatMiniprogram.BaseEvent){this.setData({tab:e.currentTarget.dataset.key});}});
