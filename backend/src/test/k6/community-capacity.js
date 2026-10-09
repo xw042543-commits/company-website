@@ -2,6 +2,7 @@ import http from 'k6/http';
 import { check, fail } from 'k6';
 import exec from 'k6/execution';
 import { SharedArray } from 'k6/data';
+import { randomBytes } from 'k6/crypto';
 
 // Deliberately pinned: no remote hostname, alternate port, credentials, path, or redirect is accepted.
 const baseUrl = __ENV.COMMUNITY_LOAD_BASE_URL || 'http://127.0.0.1:18080';
@@ -51,23 +52,29 @@ export function setup() {
   if (response.status !== 200 || response.json().body !== fixture.sentinelBody) {
     fail('Isolated database sentinel did not match; no writes were started');
   }
+  // setup runs once per execution; its returned data is supplied unchanged to every VU.
+  return { nonce: Array.from(new Uint8Array(randomBytes(16)), byte => byte.toString(16).padStart(2, '0')).join('') };
 }
 
-export default function () {
+export default function (setupData) {
+  if (!setupData || !/^[0-9a-f]{32}$/.test(setupData.nonce)) fail('Execution setup nonce is required');
   const iteration = exec.scenario.iterationInTest;
-  const id = fixture.postIds[iteration % fixture.postIds.length];
-  const bucket = iteration % 10;
+  const block = Math.floor(iteration / 10);
+  // Each ten-request block retains the exact mix, while account laps rotate commands.
+  const bucket = (iteration % 10 + block % 10 + Math.floor(iteration / 5000) * 3) % 10;
+  // Independent per-operation ordinals visit every seeded thread, not only a bucket's residue.
+  const target = ordinal => fixture.postIds[(ordinal * 37) % fixture.postIds.length];
   let response;
   if (exec.scenario.name === 'reads') {
     if (bucket < 4) response = http.get(`${baseUrl}/api/v1/community/posts?sort=latest&size=20`, params(iteration, '/api/v1/community/posts?sort=latest'));
     else if (bucket < 7) response = http.get(`${baseUrl}/api/v1/community/posts?sort=hot&size=20`, params(iteration, '/api/v1/community/posts?sort=hot'));
-    else if (bucket < 9) response = http.get(`${baseUrl}/api/v1/community/posts/${id}`, params(iteration, '/api/v1/community/posts/:id'));
-    else response = http.get(`${baseUrl}/api/v1/community/posts/${id}/comments?size=20`, params(iteration, '/api/v1/community/posts/:id/comments'));
+    else if (bucket < 9) response = http.get(`${baseUrl}/api/v1/community/posts/${target(block * 2 + bucket - 7)}`, params(iteration, '/api/v1/community/posts/:id'));
+    else response = http.get(`${baseUrl}/api/v1/community/posts/${target(block)}/comments?size=20`, params(iteration, '/api/v1/community/posts/:id/comments'));
   } else {
-    const key = `${fixture.runId}:${exec.vu.idInTest}:${iteration}`;
-    if (bucket < 4) response = http.post(`${baseUrl}/api/v1/community/posts/${id}/comments`, JSON.stringify({ body: 'Synthetic capacity comment' }),
+    const key = `${setupData.nonce}:${iteration.toString(36)}`;
+    if (bucket < 4) response = http.post(`${baseUrl}/api/v1/community/posts/${target(block * 4 + bucket)}/comments`, JSON.stringify({ body: 'Synthetic capacity comment' }),
       params(iteration, '/api/v1/community/posts/:id/comments', key));
-    else if (bucket < 8) response = http.put(`${baseUrl}/api/v1/community/posts/${id}/like`, null, params(iteration, '/api/v1/community/posts/:id/like'));
+    else if (bucket < 8) response = http.put(`${baseUrl}/api/v1/community/posts/${target(block * 4 + bucket - 4)}/like`, null, params(iteration, '/api/v1/community/posts/:id/like'));
     else response = http.post(`${baseUrl}/api/v1/community/posts`, JSON.stringify({ body: 'Synthetic capacity post' }),
       params(iteration, '/api/v1/community/posts', key));
   }

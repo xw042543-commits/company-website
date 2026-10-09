@@ -67,14 +67,15 @@ docker compose -p community-load-test -f backend/src/test/k6/compose.load-test.y
 chmod 600 /private/tmp/community-load-fixture.json
 node --check backend/src/test/k6/community-capacity.js
 node --test backend/src/test/k6/community-capacity.test.mjs
+node --test backend/src/test/k6/community-seed.test.mjs
 COMMUNITY_LOAD_ISOLATED=yes COMMUNITY_LOAD_BASE_URL=http://127.0.0.1:18080 \
 COMMUNITY_LOAD_FIXTURE=/private/tmp/community-load-fixture.json \
 k6 run --summary-export=/private/tmp/community-capacity-summary.json backend/src/test/k6/community-capacity.js
 ```
 
-SQL 拒绝非 `community_load_test` 数据库/用户或非空业务数据库，在同一事务生成 5,000 个纯合成 ACTIVE 账号、2 小时访问令牌、1,000 个帖子和 1,000 个评论。令牌只保存在本机临时凭据文件，勿提交、分享或写入容量报告；报告只附汇总结果。脚本固定目标为 `http://127.0.0.1:18080`，拒绝其他主机/端口/路径、缺少隔离确认、错误标记、非 5,000 个独立凭据；写入前 GET 核对种子数据库唯一哨兵，所有请求禁用重定向，URL 指标使用固定路径模板。
+SQL 拒绝非 `community_load_test` 数据库/用户。V1–V15 的全部 28 张业务表必须存在且为空，包括目录、内容、咨询、认证/会话、搜索和社区表；只有 `flyway_schema_history` 迁移元数据允许非空。未知 public 表即使为空也拒绝，未来迁移必须更新脚本中的显式分类；咨询单独有数据也会拒绝，不能把现有业务库当作负载库。检查通过后同一事务生成 5,000 个纯合成 ACTIVE 账号、2 小时访问令牌、1,000 个帖子和 1,000 个评论。种子契约测试自行创建无端口的临时 PostgreSQL 17.11 容器、执行真实迁移及拒绝用例，再清理自己的容器；不使用外部数据库。令牌只保存在本机临时凭据文件，勿提交、分享或写入容量报告；报告只附汇总结果。脚本固定目标为 `http://127.0.0.1:18080`，拒绝其他主机/端口/路径、缺少隔离确认、错误标记、非 5,000 个独立凭据；写入前 GET 核对种子数据库唯一哨兵，所有请求禁用重定向，URL 指标使用固定路径模板。
 
-模型严格为两个 constant-arrival-rate 场景：读取 100/s、10m、预分配 400 VU/最多 500；写入 20/s、10m、预分配 100 VU/最多 200。总预分配 500，弹性上限总计 700，并不等于已证明 500 个请求同时在途。读取按 40%最新/30%热门/20%详情/10%评论列表；写入按 40%评论/40%点赞/20%发帖轮换全部 5,000 账号，每次 POST 使用唯一、最长 64 字符以内幂等键。阈值原样为 `http_req_failed rate<0.01`、`http_req_duration p(95)<500`、`p(99)<1000`。检查 dropped_iterations、实际吞吐、连接池/锁/队列和数据完整性后才能签容量通过。
+模型严格为两个 constant-arrival-rate 场景：读取 100/s、10m、预分配 400 VU/最多 500；写入 20/s、10m、预分配 100 VU/最多 200。总预分配 500，弹性上限总计 700，并不等于已证明 500 个请求同时在途。读取按 40%最新/30%热门/20%详情/10%评论列表；写入按 40%评论/40%点赞/20%发帖轮换全部 5,000 账号，十次请求块保持比例、账号轮次改变操作、独立操作序号轮换目标，评论读取覆盖评论写入增长的线程。完整 12,000 次写入契约要求 4,800 个不同账号/帖子点赞组合，避免重复点赞空操作。每次执行的 setup 生成新的 128 位随机 nonce，统一传给所有 VU，与场景全局写入迭代序号组成最长 64 字符以内的 POST 幂等键；同一凭据文件重复执行也不会复用旧回执键。再次执行仍会遇到前次留下的点赞状态，完整容量复验应使用新的隔离库与合成数据，不要清空或改动现有业务库。阈值原样为 `http_req_failed rate<0.01`、`http_req_duration p(95)<500`、`p(99)<1000`。检查 dropped_iterations、实际吞吐、连接池/锁/队列和数据完整性后才能签容量通过。
 
 容量验收还需在隔离环境单独记录 Redis 故障与恢复、慢查询、原键重复写、两个 Adviser 并发版本冲突，以及恢复后无重复/丢失的证据。自动化回归覆盖不等于容量故障注入已执行。缺少 k6 或隔离依赖时只运行脚本语法及离线契约检查，明确填写容量“未执行”；不得据此宣称 5,000 用户容量通过。
 
