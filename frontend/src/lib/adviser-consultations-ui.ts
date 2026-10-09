@@ -1,6 +1,13 @@
 import type { ConsultationStatus } from "./adviser-consultation-api.ts";
 import { words, type Locale } from "./site.ts";
 
+export function adviserNavigation(locale: Locale) {
+  return [
+    { href: `/${locale}/adviser/consultations`, label: words(locale, "咨询管理", "Consultations") },
+    { href: `/${locale}/adviser/community`, label: words(locale, "U圈审核", "Community moderation") },
+  ];
+}
+
 export function consultationConflictMessage(locale: Locale, pending: boolean, failed: boolean): string {
   const conflict = words(locale, "其他顾问已更新此记录，当前修改未保存。", "This record was updated by another adviser. Your change was not saved. ");
   if (pending) return conflict + words(locale, "正在重新载入最新记录，请核对后再次更新。", "Reloading the latest record; review it before updating again.");

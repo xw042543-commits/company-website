@@ -2,6 +2,17 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
+test("adviser navigation preserves consultations and exposes exactly one localized moderation item", async () => {
+  const { adviserNavigation } = await import("./adviser-consultations-ui.ts");
+  for (const locale of ["zh", "en"] as const) {
+    const entries = adviserNavigation(locale);
+    assert.deepEqual(entries, [
+      { href: `/${locale}/adviser/consultations`, label: locale === "zh" ? "咨询管理" : "Consultations" },
+      { href: `/${locale}/adviser/community`, label: locale === "zh" ? "U圈审核" : "Community moderation" },
+    ]);
+  }
+});
+
 const source = (path: string) => {
   const url = new URL(path, import.meta.url);
   assert.ok(existsSync(url), `${path} must exist`);

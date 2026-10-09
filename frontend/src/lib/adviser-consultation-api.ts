@@ -162,6 +162,13 @@ async function read<T>(url: URL, parse: (value: unknown) => T | null, request: t
   } catch { return { status: "unavailable" }; }
 }
 
+// Shared protected-client primitives keep moderation and consultation transport identical.
+export const adviserClient = { record, exact, integer, timestamp, endpoint, failure, readJson, read,
+  csrf: (url: URL, request: typeof fetch) => read(url, (value) => record(value) && exact(value, ["headerName", "token"])
+    && value.headerName === "X-XSRF-TOKEN" && typeof value.token === "string" && value.token.trim()
+    && !/[\x00-\x20\x7f]/.test(value.token) ? { headerName: value.headerName, token: value.token } : null, request),
+};
+
 export async function loadAdviserConsultations(baseUrl: string | undefined, filters: AdviserConsultationFilters | URLSearchParams = {},
   request: typeof fetch = fetch): Promise<AdviserListResult> {
   const url = endpoint(baseUrl, ROOT);
@@ -191,9 +198,7 @@ export async function updateAdviserConsultationStatus(baseUrl: string | undefine
   if (!url || !csrfUrl || typeof request !== "function") return { status: "error" };
   if (!uuid(referenceCode) || !status(nextStatus) || !integer(version) || version === Number.MAX_SAFE_INTEGER) return { status: "validation-error" };
   // Keep CSRF failures distinct (the generic auth client combines 401 and 403).
-  const csrf = await read(csrfUrl, (value) => record(value) && exact(value, ["headerName", "token"])
-    && value.headerName === "X-XSRF-TOKEN" && typeof value.token === "string" && value.token.trim()
-    && !/[\x00-\x20\x7f]/.test(value.token) ? { headerName: value.headerName, token: value.token } : null, request);
+  const csrf = await adviserClient.csrf(csrfUrl, request);
   if (csrf.status !== "ready") return csrf;
   url.pathname += `/${referenceCode}/status`;
   try {
