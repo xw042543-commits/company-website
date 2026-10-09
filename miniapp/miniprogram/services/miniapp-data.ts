@@ -36,7 +36,7 @@ export interface ProgrammeDetail {
   readonly imageUrl: string | null;
 }
 
-export interface UserOverview { readonly favorites: number; readonly plans: number; readonly consultations: number }
+export interface UserOverview { readonly favorites: number; readonly plans: number; readonly consultations: number; readonly orders: number }
 export interface ProgrammeFavorite {
   readonly id: number; readonly universitySlug: string; readonly name: string;
   readonly universityName: string; readonly level: string; readonly savedAt: string;
@@ -53,6 +53,25 @@ export interface StudyPlan {
 export interface ConsultationRecord {
   readonly referenceCode: string; readonly intendedSchool: string; readonly intendedCourse: string;
   readonly qualification: string; readonly status: string; readonly submittedAt: string;
+}
+export type ApplicationOrderStatus = 'IN_PROGRESS' | 'NEEDS_DOCUMENTS' | 'COMPLETED' | 'CANCELLED';
+export interface ApplicationOrderSummary {
+  readonly referenceCode: string; readonly universityName: string; readonly programmeName: string;
+  readonly qualification: string; readonly status: ApplicationOrderStatus; readonly statusLabel: string;
+  readonly submittedAt: string; readonly submittedDate: string;
+}
+export interface ApplicationStage {
+  readonly number: number; readonly title: string; readonly description: string;
+  readonly state: 'COMPLETED' | 'ACTIVE' | 'PENDING';
+}
+export interface ApplicationMaterial {
+  readonly name: string; readonly description: string; readonly state: 'RECORDED' | 'PENDING';
+}
+export interface ApplicationHistory { readonly title: string; readonly occurredAt: string; readonly occurredDate: string }
+export interface ApplicationOrderDetail {
+  readonly order: ApplicationOrderSummary; readonly activeStage: number; readonly stages: ApplicationStage[];
+  readonly materials: ApplicationMaterial[]; readonly payment: { readonly paymentRequired: boolean; readonly message: string };
+  readonly history: ApplicationHistory[]; readonly currentMessage: string;
 }
 
 export async function getProgrammeDetail(universitySlug: string, programmeId: string): Promise<Result<ProgrammeDetail>> {
@@ -117,6 +136,17 @@ export async function getConsultations(): Promise<Result<ConsultationRecord[]>> 
   return result.ok ? mapList(result.value, mapConsultation, 'INVALID_CONSULTATIONS_RESPONSE') : result;
 }
 
+export async function getApplicationOrders(): Promise<Result<ApplicationOrderSummary[]>> {
+  const result = await authenticated<unknown>('GET', '/api/v1/miniapp/me/orders');
+  return result.ok ? mapList(result.value, mapApplicationOrder, 'INVALID_ORDERS_RESPONSE') : result;
+}
+
+export async function getApplicationOrder(referenceCode: string): Promise<Result<ApplicationOrderDetail>> {
+  if (!UUID.test(referenceCode)) return invalid('INVALID_ORDER_REFERENCE');
+  const result = await authenticated<unknown>('GET', `/api/v1/miniapp/me/orders/${encodeURIComponent(referenceCode)}`);
+  return result.ok ? mapApplicationOrderDetail(result.value) : result;
+}
+
 function authenticated<T>(method: 'GET' | 'POST' | 'DELETE', path: `/api/${string}`): Promise<Result<T>> {
   return request<T>({ method, path, authenticated: true });
 }
@@ -148,10 +178,11 @@ export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
 }
 
 function mapOverview(raw: unknown): Result<UserOverview> {
-  if (!object(raw) || !integerOrZero(raw.favorites) || !integerOrZero(raw.plans) || !integerOrZero(raw.consultations)) {
+  if (!object(raw) || !integerOrZero(raw.favorites) || !integerOrZero(raw.plans) || !integerOrZero(raw.consultations)
+    || !integerOrZero(raw.orders)) {
     return invalid('INVALID_OVERVIEW_RESPONSE');
   }
-  return { ok: true, value: { favorites: raw.favorites, plans: raw.plans, consultations: raw.consultations } };
+  return { ok: true, value: { favorites: raw.favorites, plans: raw.plans, consultations: raw.consultations, orders: raw.orders } };
 }
 
 function mapFavorite(raw: unknown): ProgrammeFavorite | null {
@@ -176,6 +207,44 @@ function mapConsultation(raw: unknown): ConsultationRecord | null {
     status: raw.status, submittedAt: optional(raw.submittedAt) };
 }
 
+export function mapApplicationOrder(raw: unknown): ApplicationOrderSummary | null {
+  if (!object(raw) || !text(raw.referenceCode) || !UUID.test(raw.referenceCode) || !orderStatus(raw.status)
+    || !text(raw.statusLabel)) return null;
+  const submittedAt = optional(raw.submittedAt);
+  return { referenceCode: raw.referenceCode, universityName: optional(raw.universityName),
+    programmeName: optional(raw.programmeName), qualification: optional(raw.qualification), status: raw.status,
+    statusLabel: raw.statusLabel, submittedAt, submittedDate: dateLabel(submittedAt) };
+}
+
+export function mapApplicationOrderDetail(raw: unknown): Result<ApplicationOrderDetail> {
+  if (!object(raw)) return invalid('INVALID_ORDER_RESPONSE');
+  const order = mapApplicationOrder(raw.order);
+  if (!order || !integer(raw.activeStage) || !Array.isArray(raw.stages) || !Array.isArray(raw.materials)
+    || !Array.isArray(raw.history) || !object(raw.payment) || typeof raw.payment.paymentRequired !== 'boolean'
+    || !text(raw.payment.message)) return invalid('INVALID_ORDER_RESPONSE');
+  const stages = raw.stages.map(mapStage);
+  const materials = raw.materials.map(mapMaterial);
+  const history = raw.history.map(mapHistory);
+  if (stages.some(nullValue) || materials.some(nullValue) || history.some(nullValue)) return invalid('INVALID_ORDER_RESPONSE');
+  return { ok: true, value: { order, activeStage: raw.activeStage, stages: stages as ApplicationStage[],
+    materials: materials as ApplicationMaterial[], payment: { paymentRequired: raw.payment.paymentRequired,
+      message: raw.payment.message }, history: history as ApplicationHistory[], currentMessage: optional(raw.currentMessage) } };
+}
+
+function mapStage(raw: unknown): ApplicationStage | null {
+  if (!object(raw) || !integer(raw.number) || !text(raw.title) || !text(raw.description)
+    || (raw.state !== 'COMPLETED' && raw.state !== 'ACTIVE' && raw.state !== 'PENDING')) return null;
+  return { number: raw.number, title: raw.title, description: raw.description, state: raw.state };
+}
+function mapMaterial(raw: unknown): ApplicationMaterial | null {
+  if (!object(raw) || !text(raw.name) || !text(raw.description) || (raw.state !== 'RECORDED' && raw.state !== 'PENDING')) return null;
+  return { name: raw.name, description: raw.description, state: raw.state };
+}
+function mapHistory(raw: unknown): ApplicationHistory | null {
+  if (!object(raw) || !text(raw.title) || !text(raw.occurredAt)) return null;
+  return { title: raw.title, occurredAt: raw.occurredAt, occurredDate: dateLabel(raw.occurredAt) };
+}
+
 function mapList<T>(raw: unknown, mapper: (item: unknown) => T | null, code: string): Result<T[]> {
   if (!Array.isArray(raw)) return invalid(code);
   const items = raw.map(mapper);
@@ -193,4 +262,10 @@ function stringList(value: unknown): string[] { return Array.isArray(value) ? va
 function secureUrl(value: unknown): string | null { return typeof value === 'string' && value.startsWith('https://') ? value : null; }
 function slug(value: string): boolean { return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value); }
 function positiveId(value: string): boolean { return /^[1-9]\d*$/.test(value); }
+function orderStatus(value: unknown): value is ApplicationOrderStatus {
+  return value === 'IN_PROGRESS' || value === 'NEEDS_DOCUMENTS' || value === 'COMPLETED' || value === 'CANCELLED';
+}
+function dateLabel(value: string): string { return /^\d{4}-\d{2}-\d{2}/.test(value) ? value.slice(0, 10) : ''; }
+function nullValue<T>(value: T | null): value is null { return value === null; }
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 function invalid(code: string): Result<never> { return { ok: false, error: { kind: 'unexpected', code } }; }

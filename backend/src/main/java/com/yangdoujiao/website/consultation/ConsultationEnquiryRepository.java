@@ -20,6 +20,8 @@ public interface ConsultationEnquiryRepository extends JpaRepository<Consultatio
 
     Optional<ConsultationEnquiry> findByReferenceCode(UUID referenceCode);
 
+    Optional<ConsultationEnquiry> findByReferenceCodeAndUserAccountId(UUID referenceCode, Long userAccountId);
+
     long countByStatus(ConsultationStatus status);
 
     @Modifying(clearAutomatically = true, flushAutomatically = true)

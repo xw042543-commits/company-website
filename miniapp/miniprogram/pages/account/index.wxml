@@ -34,6 +34,7 @@
         <view class="menu-label">{{item.label}}</view>
         <view class="menu-caption">{{item.caption}}</view>
       </view>
+      <view wx:if="{{item.key === 'orders' && overview.orders > 0}}" class="menu-count">{{overview.orders}}</view>
       <view class="menu-arrow">›</view>
     </view>
   </view>

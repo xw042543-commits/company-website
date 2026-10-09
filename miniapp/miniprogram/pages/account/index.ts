@@ -5,9 +5,9 @@ import { communityMeRoute } from '../../utils/routes';
 Page({
   data: {
     session: sessionStore.getSnapshot(),
-    overview: { favorites: 0, plans: 0, consultations: 0 } as UserOverview,
+    overview: { favorites: 0, plans: 0, consultations: 0, orders: 0 } as UserOverview,
     menuItems: [
-      { key: 'applications', label: '我的订单', caption: '查看申请进度、管理材料与申请费用' },
+      { key: 'orders', label: '我的订单', caption: '查看申请进度、材料与费用' },
       { key: 'plans', label: '我的规划', caption: '管理留学目标、背景和预算' },
       { key: 'favorites', label: '专业收藏', caption: '查看已保存的专业' },
       { key: 'consultations', label: '咨询记录', caption: '查看已提交的咨询' },
@@ -49,7 +49,8 @@ Page({
       return;
     }
     const routes: Record<string, string> = {
-      applications: '/pages/applications/index', plans: '/pages/plans/index', favorites: '/pages/favorites/index', consultations: '/pages/consultations/index',
+      orders: '/pages/orders/index', plans: '/pages/plans/index', favorites: '/pages/favorites/index',
+      consultations: '/pages/consultations/index',
     };
     const route = key ? routes[key] : undefined;
     if (route) { wx.navigateTo({ url: route }); return; }

@@ -1,6 +1,6 @@
 # Mini program application tracking
 
-Entry: 我的 → 我的订单. Native pages: `pages/applications/index` and `pages/application-detail/index`.
+Entry: 我的 → 我的订单. Native pages: `pages/orders/index` and `pages/application-detail/index`.
 
 The list and detail use authenticated student APIs, not the design fixture records. An account without applications sees an empty state. Status filters paginate 20 rows at a time; “进行中” includes submitted applications. Detail has progress, documents, fees, and event history. The eight progress stages follow the supplied concept. Dates, document results and fees are never inferred from the screenshot.
 
@@ -32,3 +32,5 @@ From `miniapp`, run `npx tsx scripts/preview-applications.ts` and open `.preview
 Run `npm run check` in `miniapp`. Backend tests: `ApplicationServiceTest`, `ApplicationHttpTest`, and Docker-backed `ApplicationPersistenceIntegrationTest`.
 
 Production use requires deploying the backend/migration, creating real application records through the adviser API, and native WeChat testing with the registered AppID. Creating these files does not deploy them.
+
+Compatibility: the pre-existing consultation-derived `/orders` API and `order-detail` route remain available for older links. The main 我的订单 list now uses actual student application records; consultation completion does not imply admission completion. Account order totals count actual applications.
