@@ -140,6 +140,9 @@ export async function getApplicationOrders(): Promise<Result<ApplicationOrderSum
   const result = await authenticated<unknown>('GET', '/api/v1/miniapp/me/orders');
   return result.ok ? mapList(result.value, mapApplicationOrder, 'INVALID_ORDERS_RESPONSE') : result;
 }
+export interface WalletEntry { readonly id:number; readonly type:'BALANCE'|'POINTS'; readonly direction:'CREDIT'|'DEBIT'; readonly amount:number; readonly description:string; readonly occurredAt:string }
+export interface WalletData { readonly balance:number; readonly points:number; readonly entries:WalletEntry[] }
+export async function getWallet():Promise<Result<WalletData>> { const result=await authenticated<unknown>('GET','/api/v1/miniapp/me/wallet'); if(!result.ok)return result; const raw=result.value; if(!object(raw)||typeof raw.balance!=='number'||!integerOrZero(raw.points)||!Array.isArray(raw.entries))return invalid('INVALID_WALLET_RESPONSE'); const entries=raw.entries.map((item):WalletEntry|null=>object(item)&&integer(item.id)&&(item.type==='BALANCE'||item.type==='POINTS')&&(item.direction==='CREDIT'||item.direction==='DEBIT')&&typeof item.amount==='number'&&text(item.description)&&text(item.occurredAt)?{id:item.id,type:item.type,direction:item.direction,amount:item.amount,description:item.description,occurredAt:item.occurredAt}:null); if(entries.some(nullValue))return invalid('INVALID_WALLET_RESPONSE'); return {ok:true,value:{balance:raw.balance,points:raw.points,entries:entries as WalletEntry[]}}; }
 
 export async function getApplicationOrder(referenceCode: string): Promise<Result<ApplicationOrderDetail>> {
   if (!UUID.test(referenceCode)) return invalid('INVALID_ORDER_REFERENCE');

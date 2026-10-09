@@ -25,7 +25,7 @@ class MiniappUserDataServiceTest {
         MiniappStudyPlanRepository plans = mock(MiniappStudyPlanRepository.class);
         ConsultationEnquiryRepository consultations = mock(ConsultationEnquiryRepository.class);
         ProgrammeRepository programmes = mock(ProgrammeRepository.class);
-        MiniappUserDataService service = new MiniappUserDataService(favorites, plans, consultations, programmes);
+        MiniappUserDataService service = new MiniappUserDataService(favorites, plans, consultations, programmes, mock(MiniappWalletRepository.class));
         when(plans.findByIdAndUserAccountId(9L, 41L)).thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> service.removePlan(41L, 9L))
@@ -39,7 +39,7 @@ class MiniappUserDataServiceTest {
         MiniappStudyPlanRepository plans = mock(MiniappStudyPlanRepository.class);
         ConsultationEnquiryRepository consultations = mock(ConsultationEnquiryRepository.class);
         MiniappUserDataService service = new MiniappUserDataService(favorites, plans, consultations,
-                mock(ProgrammeRepository.class));
+                mock(ProgrammeRepository.class), mock(MiniappWalletRepository.class));
         when(favorites.countByUserAccountId(7L)).thenReturn(2L);
         when(plans.countByUserAccountId(7L)).thenReturn(3L);
         when(consultations.countByUserAccountId(7L)).thenReturn(4L);
@@ -56,7 +56,7 @@ class MiniappUserDataServiceTest {
     void exposesOwnedConsultationsAsApplicationOrders() {
         ConsultationEnquiryRepository consultations = mock(ConsultationEnquiryRepository.class);
         MiniappUserDataService service = new MiniappUserDataService(mock(MiniappProgrammeFavoriteRepository.class),
-                mock(MiniappStudyPlanRepository.class), consultations, mock(ProgrammeRepository.class));
+                mock(MiniappStudyPlanRepository.class), consultations, mock(ProgrammeRepository.class), mock(MiniappWalletRepository.class));
         UUID reference = UUID.randomUUID();
         OffsetDateTime submittedAt = OffsetDateTime.parse("2026-10-09T09:30:00+08:00");
         ConsultationEnquiry enquiry = mock(ConsultationEnquiry.class);
@@ -82,7 +82,7 @@ class MiniappUserDataServiceTest {
     void orderDetailUsesAnOwnershipScopedLookup() {
         ConsultationEnquiryRepository consultations = mock(ConsultationEnquiryRepository.class);
         MiniappUserDataService service = new MiniappUserDataService(mock(MiniappProgrammeFavoriteRepository.class),
-                mock(MiniappStudyPlanRepository.class), consultations, mock(ProgrammeRepository.class));
+                mock(MiniappStudyPlanRepository.class), consultations, mock(ProgrammeRepository.class), mock(MiniappWalletRepository.class));
         UUID reference = UUID.randomUUID();
         when(consultations.findByReferenceCodeAndUserAccountId(reference, 41L)).thenReturn(Optional.empty());
 
