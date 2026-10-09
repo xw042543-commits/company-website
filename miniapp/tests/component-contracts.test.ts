@@ -120,3 +120,55 @@ test('selection emits only the validated slug in either image state', () => {
     }
   }
 });
+
+interface CommunityCardContext {
+  data: { post: Record<string, unknown>; reacting: boolean; imageFailed: boolean; displayTime: string };
+  setData(update: Partial<CommunityCardContext['data']>): void;
+  triggerEvent(name: string, detail: unknown): void;
+}
+
+interface CommunityCardDefinition {
+  properties: { post: { observer: (this: CommunityCardContext) => void } };
+  data: { imageFailed: boolean; displayTime: string };
+  methods: {
+    imageError(this: CommunityCardContext): void;
+    open(this: CommunityCardContext): void;
+    react(this: CommunityCardContext): void;
+    report(this: CommunityCardContext): void;
+  };
+}
+
+async function loadCommunityCard(): Promise<CommunityCardDefinition> {
+  let registered: CommunityCardDefinition | undefined;
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'Component');
+  Object.defineProperty(globalThis, 'Component', { configurable: true, value(definition: CommunityCardDefinition) { registered = definition; } });
+  try { await import(new URL('../miniprogram/components/community-post-card/index.ts?contract', import.meta.url).href); }
+  finally {
+    if (original) Object.defineProperty(globalThis, 'Component', original);
+    else Reflect.deleteProperty(globalThis, 'Component');
+  }
+  assert.ok(registered);
+  return registered;
+}
+
+test('community card has safe image fallback and emits only explicit actions', async () => {
+  const communityCard = await loadCommunityCard();
+  const events: Array<{ name: string; detail: unknown }> = [];
+  const context: CommunityCardContext = {
+    data: { post: { id: '9', publishedAt: '2026-10-08T08:00:00Z' }, reacting: false, ...communityCard.data },
+    setData(update) { Object.assign(this.data, update); },
+    triggerEvent(name, detail) { events.push({ name, detail }); },
+  };
+  communityCard.properties.post.observer.call(context);
+  communityCard.methods.imageError.call(context);
+  communityCard.methods.open.call(context);
+  communityCard.methods.react.call(context);
+  communityCard.methods.report.call(context);
+  assert.equal(context.data.imageFailed, true);
+  assert.match(context.data.displayTime, /^2026-10-08/);
+  assert.deepEqual(events, [
+    { name: 'open', detail: { id: '9' } },
+    { name: 'react', detail: { post: context.data.post } },
+    { name: 'report', detail: { id: '9' } },
+  ]);
+});

@@ -4,6 +4,9 @@
     "pages/universities/index",
     "pages/planning/index",
     "pages/circle/index",
+    "pages/circle-detail/index",
+    "pages/circle-compose/index",
+    "pages/circle-me/index",
     "pages/account/index"
   ],
   "window": {
