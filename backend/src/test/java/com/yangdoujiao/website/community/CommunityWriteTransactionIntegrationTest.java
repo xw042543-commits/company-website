@@ -124,18 +124,21 @@ class CommunityWriteTransactionIntegrationTest {
             assertThat(jdbc.queryForObject("SELECT count(*) FROM community_comments WHERE post_id=? AND status='PUBLISHED'", Integer.class, post.getId())).isEqualTo(8);
         } finally { executor.shutdownNow(); }
     }
-    @Test void deletingPostInvalidatesCurrentPointerButKeepsIssuedSnapshotAndAuditEvidence() throws Exception {
+    @Test void deletingPostRetainsRankingButImmediatelyFiltersPublicContentAndKeepsAuditEvidence() throws Exception {
         var author = account(); var now = OffsetDateTime.now(clock).minusHours(1);
         var second = posts.saveAndFlush(CommunityPost.create(author.getId(), "second", CommunityContentStatus.PUBLISHED, null, now));
         var first = posts.saveAndFlush(CommunityPost.create(author.getId(), "first", CommunityContentStatus.PUBLISHED, null, now));
         var initial = snapshots.page(null, 1); String oldVersion = cursors.decodeHot(initial.nextCursor()).snapshotVersion();
         mvc.perform(delete("/api/v1/community/posts/" + first.getId()).with(user(UserPrincipal.from(author))).with(csrf()))
                 .andExpect(status().isNoContent());
-        assertThat(redis.hasKey("community:hot:v1:current")).isFalse();
-        assertThat(redis.hasKey("community:hot:v1:" + oldVersion + ":ids")).isTrue();
+        assertThat(redis.hasKey("community:hot:v2:ALL:ALL:current")).isTrue();
+        assertThat(redis.hasKey("community:hot:v2:ALL:ALL:" + oldVersion + ":ids")).isTrue();
         assertThat(snapshots.page(initial.nextCursor(), 1).ids()).containsExactly(second.getId());
         var fresh = snapshots.page(null, 20);
-        assertThat(fresh.ids()).containsExactly(second.getId());
+        assertThat(fresh.ids()).containsExactly(first.getId(), second.getId());
+        mvc.perform(get("/api/v1/community/posts").param("sort", "hot"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items.length()").value(1))
+                .andExpect(jsonPath("$.items[0].id").value(second.getId().toString()));
         assertThat(posts.findById(first.getId()).orElseThrow().getBody()).isEqualTo("first");
         assertThat(posts.findById(first.getId()).orElseThrow().getStatus()).isEqualTo(CommunityContentStatus.DELETED);
     }

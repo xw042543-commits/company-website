@@ -9,5 +9,9 @@
   "openReportCount": 5,
   "reports": [{ "reasonCode": "SPAM", "status": "OPEN", "count": 5 }],
   "actions": [{ "id": "10", "command": "AUTO_HIDE", "reasonCode": "REPORT_THRESHOLD", "previousStatus": "PUBLISHED", "nextStatus": "HIDDEN", "createdAt": "2026-10-08T12:00:00Z" }],
-  "actionsNextCursor": null
+  "actionsNextCursor": null,
+  "title": null,
+  "category": "GENERAL",
+  "universityId": null,
+  "universityName": null
 }

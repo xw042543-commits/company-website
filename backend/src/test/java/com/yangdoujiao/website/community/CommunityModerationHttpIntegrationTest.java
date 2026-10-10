@@ -52,6 +52,17 @@ abstract class CommunityModerationIntegrationFixture extends CommunityReactionIn
 
 class CommunityModerationHttpIntegrationTest extends CommunityModerationIntegrationFixture {
 
+    @Test void moderationShowsPostMetadataInQueueAndDetail() throws Exception {
+        long id = post(CommunityContentStatus.PENDING_REVIEW);
+        jdbc.update("UPDATE community_posts SET title='Study help',category='STUDY' WHERE id=?", id);
+        mvc.perform(get(path("POST", id)).with(user(UserPrincipal.from(adviser))))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.title").value("Study help"))
+                .andExpect(jsonPath("$.category").value("STUDY"));
+        mvc.perform(get("/api/v1/adviser/community/moderation").with(user(UserPrincipal.from(adviser))))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].title").value("Study help"))
+                .andExpect(jsonPath("$.items[0].category").value("STUDY"));
+    }
+
     @Test void adviserBoundaryRequiresCookieRoleAndCsrfAndMiniappCannotEscalate() throws Exception {
         long id=post(CommunityContentStatus.PUBLISHED);
         mvc.perform(get(path("POST",id))).andExpect(status().isUnauthorized());
@@ -111,7 +122,7 @@ class CommunityModerationHttpIntegrationTest extends CommunityModerationIntegrat
     @Test void thresholdRaceHidesOnceAndKeepsReportsAndSnapshots() throws Exception {
         long id=post(CommunityContentStatus.PUBLISHED);
         mvc.perform(get("/api/v1/community/posts").param("sort","hot")).andExpect(status().isOk());
-        String snapshot=redis.opsForValue().get("community:hot:v1:current");
+        String snapshot=redis.opsForValue().get("community:hot:v2:ALL:ALL:current");
         var reporters=new ArrayList<UserAccount>();for(int i=0;i<5;i++)reporters.add(account());
         try(var pool=Executors.newVirtualThreadPerTaskExecutor()) {
             var go=new CountDownLatch(1); List<Future<Integer>> results=new ArrayList<>();
@@ -119,7 +130,9 @@ class CommunityModerationHttpIntegrationTest extends CommunityModerationIntegrat
             go.countDown();for(var r:results)assertThat(r.get(15,TimeUnit.SECONDS)).isEqualTo(201);
         }
         assertThat(jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,id)).isEqualTo("HIDDEN");
-        assertThat(redis.opsForValue().get("community:hot:v1:current")).isNull();
+        assertThat(redis.opsForValue().get("community:hot:v2:ALL:ALL:current")).isEqualTo(snapshot);
+        mvc.perform(get("/api/v1/community/posts").param("sort", "hot"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items").isEmpty());
         assertThat(redis.keys("community:hot:*"+snapshot+"*")).isNotEmpty();
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_reports WHERE target_id=?",Long.class,id)).isEqualTo(5);
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_moderation_actions WHERE target_type='POST' AND target_id=? AND action='AUTO_HIDE'",Long.class,id)).isEqualTo(1);

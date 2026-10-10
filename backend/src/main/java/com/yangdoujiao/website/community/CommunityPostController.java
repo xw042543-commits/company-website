@@ -34,8 +34,9 @@ public class CommunityPostController {
     @GetMapping
     public CommunityCursorPage<CommunityPostSummary> list(@RequestParam(defaultValue = "latest") String sort,
             @RequestParam(required = false) String cursor, @RequestParam(defaultValue = "20") int size,
+            @RequestParam(required = false) String category, @RequestParam(required = false) String universityId,
             @AuthenticationPrincipal UserPrincipal viewer) {
-        return service.list(sort, cursor, size, viewer);
+        return service.list(sort, cursor, size, viewer, category, universityId);
     }
 
     @GetMapping("/{id}")

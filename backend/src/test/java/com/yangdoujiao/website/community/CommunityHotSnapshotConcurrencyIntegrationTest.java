@@ -27,7 +27,7 @@ import tools.jackson.databind.ObjectMapper;
 @ActiveProfiles("test")
 @Import(TestContainersConfiguration.class)
 class CommunityHotSnapshotConcurrencyIntegrationTest {
-    private static final String PREFIX = "community:hot:v1:";
+    private static final String PREFIX = "community:hot:v2:ALL:ALL:";
     @Autowired private StringRedisTemplate redis;
     @Autowired private ObjectMapper json;
     @Autowired private Clock clock;
@@ -92,6 +92,23 @@ class CommunityHotSnapshotConcurrencyIntegrationTest {
         assertThatThrownBy(() -> cache.page(null, 1)).isInstanceOfSatisfying(ApiException.class,
                 error -> assertThat(error.getCode()).isEqualTo("COMMUNITY_HOT_SNAPSHOT_UNAVAILABLE"));
         assertThat(redis.keys(PREFIX + "*")).isEmpty();
+    }
+
+    @Test
+    void anotherScopeCanBuildWhileTheFirstScopeLeaseIsHeld() {
+        redis.opsForValue().set("community:hot:v2:STUDY:1:building", "other-owner", java.time.Duration.ofSeconds(10));
+        var repository = mock(CommunityPostRepository.class);
+        when(repository.findScopedHotRanking(any(), org.mockito.ArgumentMatchers.eq("STUDY"), org.mockito.ArgumentMatchers.eq(2L), any())).thenReturn(ids(21L, 22L));
+        var cache = new CommunityHotSnapshotCache(redis, repository, codec, json, clock, mock(CommunityMetrics.class));
+        var result = cache.page(null, 1, new CommunityFeedScope(CommunityCategory.STUDY, 2L));
+        assertThat(result.ids()).containsExactly(21L);
+        assertThat(codec.decodeHot(result.nextCursor(), "STUDY:2").nextOffset()).isEqualTo(1);
+        assertThat(redis.opsForValue().get("community:hot:v2:STUDY:1:building")).isEqualTo("other-owner");
+        assertThatThrownBy(() -> cache.page(result.nextCursor(), 1, new CommunityFeedScope(CommunityCategory.STUDY, 1L)))
+                .isInstanceOfSatisfying(ApiException.class, error -> assertThat(error.getCode()).isEqualTo("INVALID_COMMUNITY_CURSOR"));
+        redis.delete("community:hot:v2:STUDY:1:building");
+        var keys = redis.keys("community:hot:v2:STUDY:2:*");
+        if (!keys.isEmpty()) redis.delete(keys);
     }
 
     private static List<CommunityPostRepository.HotPosition> ids(Long... ids) {

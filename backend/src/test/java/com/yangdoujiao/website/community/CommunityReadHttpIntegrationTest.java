@@ -59,9 +59,66 @@ class CommunityReadHttpIntegrationTest {
     @Autowired private java.time.Clock clock;
     private UserAccount author;
 
+    @Test
+    void scopedFeedsFilterBeforePagingAndRejectOtherCampusCursors() throws Exception {
+        Long a = jdbc.queryForObject("INSERT INTO universities(name,slug,country,status,popular,updated_at) VALUES ('Campus A','scope-a','Malaysia','PUBLISHED',false,now()) RETURNING id", Long.class);
+        Long b = jdbc.queryForObject("INSERT INTO universities(name,slug,country,status,popular,updated_at) VALUES ('Campus B','scope-b','Malaysia','PUBLISHED',false,now()) RETURNING id", Long.class);
+        for (Long campus : new Long[] {a, b}) for (String category : new String[] {"STUDY", "GENERAL"}) {
+            for (int i = 0; i < 2; i++) jdbc.update("INSERT INTO community_posts(author_account_id,title,body,category,university_id,status,published_at) VALUES (?,'Study title','body',?,?,'PUBLISHED',?)", author.getId(), category, campus, TIME);
+            jdbc.update("INSERT INTO community_posts(author_account_id,body,category,university_id,status,published_at) VALUES (?,'hidden',?,?,'HIDDEN',?)", author.getId(), category, campus, TIME);
+        }
+        for (String sort : new String[] {"latest", "hot"}) {
+            mvc.perform(get("/api/v1/community/posts").param("sort", sort).param("category", "STUDY"))
+                    .andExpect(status().isOk()).andExpect(jsonPath("$.items.length()").value(4));
+            mvc.perform(get("/api/v1/community/posts").param("sort", sort).param("universityId", a.toString()))
+                    .andExpect(status().isOk()).andExpect(jsonPath("$.items.length()").value(4));
+            String cursor = null;
+            java.util.Set<String> seen = new java.util.HashSet<>();
+            do {
+                var request = get("/api/v1/community/posts").param("sort", sort).param("category", "STUDY").param("universityId", a.toString()).param("size", "1");
+                if (cursor != null) request.param("cursor", cursor);
+                String body = mvc.perform(request).andExpect(status().isOk())
+                        .andExpect(jsonPath("$.items.length()").value(1))
+                        .andExpect(jsonPath("$.items[0].category").value("STUDY"))
+                        .andExpect(jsonPath("$.items[0].title").value("Study title"))
+                        .andExpect(jsonPath("$.items[0].universityId").value(a.toString()))
+                        .andExpect(jsonPath("$.items[0].universityName").value("Campus A"))
+                        .andReturn().getResponse().getContentAsString();
+                assertThat(seen.add(JsonPath.read(body, "$.items[0].id"))).isTrue();
+                cursor = JsonPath.read(body, "$.nextCursor");
+                if (cursor != null) mvc.perform(get("/api/v1/community/posts").param("sort", sort).param("category", "STUDY").param("universityId", b.toString()).param("cursor", cursor)).andExpect(status().isBadRequest());
+            } while (cursor != null);
+            assertThat(seen).hasSize(2);
+        }
+        mvc.perform(get("/api/v1/community/posts").param("universityId", "9223372036854775807")).andExpect(status().isBadRequest());
+        mvc.perform(get("/api/v1/community/posts").param("category", "UNKNOWN")).andExpect(status().isBadRequest());
+        mvc.perform(get("/api/v1/community/me/posts").with(user(UserPrincipal.from(author))))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].category").isNotEmpty())
+                .andExpect(jsonPath("$.items[0].universityName").isNotEmpty());
+    }
+
+    @Test
+    void legacyHotContinuationUsesItsOriginalSnapshotOnlyWithoutFilters() throws Exception {
+        var one = seedPost(CommunityContentStatus.PUBLISHED, TIME);
+        var two = seedPost(CommunityContentStatus.PUBLISHED, TIME);
+        String version = java.util.UUID.randomUUID().toString();
+        var expires = OffsetDateTime.now(clock).plusSeconds(45);
+        redis.opsForList().rightPushAll("community:hot:v1:" + version + ":ids", "999", one.getId().toString(), two.getId().toString());
+        redis.opsForValue().set("community:hot:v1:" + version + ":manifest", "{\"version\":\"" + version + "\",\"count\":3,\"expiresAt\":\"" + expires + "\"}", java.time.Duration.ofSeconds(45));
+        String old = cursors.encodeLegacyHot(version, 1, expires);
+        String body = mvc.perform(get("/api/v1/community/posts").param("sort", "hot").param("cursor", old).param("size", "1"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].id").value(one.getId().toString()))
+                .andReturn().getResponse().getContentAsString();
+        mvc.perform(get("/api/v1/community/posts").param("sort", "hot").param("cursor", JsonPath.<String>read(body, "$.nextCursor")))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].id").value(two.getId().toString()));
+        mvc.perform(get("/api/v1/community/posts").param("sort", "hot").param("cursor", old).param("category", "STUDY"))
+                .andExpect(status().isBadRequest());
+        redis.delete(java.util.List.of("community:hot:v1:" + version + ":ids", "community:hot:v1:" + version + ":manifest"));
+    }
+
     @BeforeEach
     void createAuthor() {
-        var keys = redis.keys("community:hot:v1:*");
+        var keys = redis.keys("community:hot:v2:ALL:ALL:*");
         if (!keys.isEmpty()) redis.delete(keys);
         author = accounts.saveAndFlush(UserAccount.external("Private real full name", "terms", "privacy"));
     }
@@ -231,7 +288,7 @@ class CommunityReadHttpIntegrationTest {
         String body = mvc.perform(get("/api/v1/community/posts").param("sort", "hot").param("size", "1"))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
         String cursor = JsonPath.read(body, "$.nextCursor");
-        var keys = redis.keys("community:hot:v1:*");
+        var keys = redis.keys("community:hot:v2:ALL:ALL:*");
         if (!keys.isEmpty()) redis.delete(keys);
         mvc.perform(get("/api/v1/community/posts").param("sort", "hot").param("cursor", cursor))
                 .andExpect(status().isConflict()).andExpect(jsonPath("$.code").value("COMMUNITY_HOT_SNAPSHOT_EXPIRED"));
@@ -247,7 +304,7 @@ class CommunityReadHttpIntegrationTest {
         var replica = new CommunityHotSnapshotCache(redis, posts, replicaCodec, json, clock, org.mockito.Mockito.mock(CommunityMetrics.class));
         assertThat(replica.page(initial.nextCursor(), 1).ids()).containsExactly(second.getId());
         var position = cursors.decodeHot(initial.nextCursor());
-        Long ttl = redis.getExpire("community:hot:v1:" + position.snapshotVersion() + ":manifest", java.util.concurrent.TimeUnit.MILLISECONDS);
+        Long ttl = redis.getExpire("community:hot:v2:ALL:ALL:" + position.snapshotVersion() + ":manifest", java.util.concurrent.TimeUnit.MILLISECONDS);
         assertThat(ttl).isBetween(30000L, 45000L);
         var laterClock = java.time.Clock.offset(clock, java.time.Duration.ofSeconds(46));
         var laterCodec = new CommunityCursorCodec(json, laterClock, "test-shared-community-cursor-key-32-bytes");
@@ -264,7 +321,7 @@ class CommunityReadHttpIntegrationTest {
         seedPost(CommunityContentStatus.PUBLISHED, time);
         var initial = snapshots.page(null, 1);
         var position = cursors.decodeHot(initial.nextCursor());
-        redis.delete("community:hot:v1:" + position.snapshotVersion() + ":ids");
+        redis.delete("community:hot:v2:ALL:ALL:" + position.snapshotVersion() + ":ids");
         mvc.perform(get("/api/v1/community/posts").param("sort", "hot").param("cursor", initial.nextCursor()))
                 .andExpect(status().isConflict()).andExpect(jsonPath("$.code").value("COMMUNITY_HOT_SNAPSHOT_EXPIRED"));
         mvc.perform(get("/api/v1/community/posts").param("sort", "hot").param("size", "1"))

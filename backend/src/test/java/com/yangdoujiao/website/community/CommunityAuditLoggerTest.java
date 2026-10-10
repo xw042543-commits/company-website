@@ -51,7 +51,7 @@ class CommunityAuditLoggerTest extends CommunityModerationIntegrationFixture {
         long id=post(CommunityContentStatus.PUBLISHED);
         report(id,actor,"outer-rollback","SPAM","").andExpect(status().isCreated());
         mvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get("/api/v1/community/posts").param("sort","hot")).andExpect(status().isOk());
-        String current=redis.opsForValue().get("community:hot:v1:current");
+        String current=redis.opsForValue().get("community:hot:v2:ALL:ALL:current");
         long before=output.getAll().lines().filter(l->l.contains("community_decision")).count();
         new org.springframework.transaction.support.TransactionTemplate(manager).executeWithoutResult(tx->{
             moderation.decide(adviser.getId(),CommunityTargetType.POST,id,new CommunityModerationRequest(CommunityModerationCommand.HIDE,CommunityModerationReason.SPAM,0L,null));
@@ -61,7 +61,7 @@ class CommunityAuditLoggerTest extends CommunityModerationIntegrationFixture {
         assertThat(jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,id)).isEqualTo("PUBLISHED");
         assertThat(jdbc.queryForObject("SELECT status FROM community_reports WHERE target_id=?",String.class,id)).isEqualTo("OPEN");
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_moderation_actions WHERE target_id=?",Long.class,id)).isZero();
-        assertThat(redis.opsForValue().get("community:hot:v1:current")).isEqualTo(current);
+        assertThat(redis.opsForValue().get("community:hot:v2:ALL:ALL:current")).isEqualTo(current);
     }
     @Test void successfulDecisionsLogOnlySafeMetadataAndDatabaseFailureEmitsNoSuccess(CapturedOutput output) throws Exception {
         long id=posts.saveAndFlush(CommunityPost.create(actor.getId(),"私密内容 😀 email@example.invalid phone openid",CommunityContentStatus.PUBLISHED,null,OffsetDateTime.now())).getId();

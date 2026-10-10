@@ -67,7 +67,8 @@ public class CommunityCursorCodec {
                     || !tree.path("timestamp").isString() || !tree.path("sort").isString()
                     || !tree.path("expiresAt").isString()) throw invalid();
             Payload payload = json.readValue(bytes, Payload.class);
-            if (!expectedSort.equals(payload.sort()) || payload.id() == null || !payload.id().matches("[1-9][0-9]{0,18}")) throw invalid();
+            boolean legacyLatest = "latest:ALL:ALL".equals(expectedSort) && "latest".equals(payload.sort());
+            if ((!expectedSort.equals(payload.sort()) && !legacyLatest) || payload.id() == null || !payload.id().matches("[1-9][0-9]{0,18}")) throw invalid();
             long id = Long.parseLong(payload.id());
             OffsetDateTime timestamp = OffsetDateTime.parse(payload.timestamp());
             if (!OffsetDateTime.parse(payload.expiresAt()).isAfter(OffsetDateTime.now(clock))) throw invalid();
@@ -78,18 +79,36 @@ public class CommunityCursorCodec {
     }
 
     public String encodeHot(String version, int nextOffset, OffsetDateTime expiresAt) {
+        return encodeHot(version, nextOffset, expiresAt, "ALL:ALL");
+    }
+
+    public String encodeHot(String version, int nextOffset, OffsetDateTime expiresAt, String scope) {
+        return signed(new HotPayload("hot:" + scope, version, nextOffset, expiresAt.toString()));
+    }
+
+    String encodeLegacyHot(String version, int nextOffset, OffsetDateTime expiresAt) {
         return signed(new HotPayload("hot", version, nextOffset, expiresAt.toString()));
     }
 
     public HotPosition decodeHot(String cursor) {
+        return decodeHot(cursor, "ALL:ALL");
+    }
+
+    public HotPosition decodeHot(String cursor, String scope) {
         try {
-            HotPayload payload = json.readValue(verified(cursor), HotPayload.class);
-            if (!"hot".equals(payload.sort()) || payload.snapshotVersion() == null
+            byte[] bytes = verified(cursor);
+            var tree = json.readTree(bytes);
+            if (!tree.isObject() || tree.size() != 4 || !tree.path("sort").isString()
+                    || !tree.path("snapshotVersion").isString() || !tree.path("nextOffset").isIntegralNumber()
+                    || !tree.path("expiresAt").isString()) throw invalid();
+            HotPayload payload = json.readValue(bytes, HotPayload.class);
+            boolean legacy = "ALL:ALL".equals(scope) && "hot".equals(payload.sort());
+            if ((!legacy && !("hot:" + scope).equals(payload.sort())) || payload.snapshotVersion() == null
                     || !java.util.UUID.fromString(payload.snapshotVersion()).toString().equals(payload.snapshotVersion())
                     || payload.nextOffset() < 1 || payload.nextOffset() > 100000) throw invalid();
             OffsetDateTime expires = OffsetDateTime.parse(payload.expiresAt());
             if (!expires.isAfter(OffsetDateTime.now(clock))) throw expiredHot();
-            return new HotPosition(payload.snapshotVersion(), payload.nextOffset(), expires);
+            return new HotPosition(payload.snapshotVersion(), payload.nextOffset(), expires, legacy);
         } catch (ApiException exception) {
             throw exception;
         } catch (RuntimeException exception) {
@@ -133,5 +152,9 @@ public class CommunityCursorCodec {
     private record Payload(String timestamp, String id, String sort, String expiresAt) {}
     private record HotPayload(String sort, String snapshotVersion, int nextOffset, String expiresAt) {}
     public record Position(OffsetDateTime timestamp, long id) {}
-    public record HotPosition(String snapshotVersion, int nextOffset, OffsetDateTime expiresAt) {}
+    public record HotPosition(String snapshotVersion, int nextOffset, OffsetDateTime expiresAt, boolean legacy) {
+        public HotPosition(String snapshotVersion, int nextOffset, OffsetDateTime expiresAt) {
+            this(snapshotVersion, nextOffset, expiresAt, false);
+        }
+    }
 }
