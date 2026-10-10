@@ -1,16 +1,20 @@
 <view class="account-page">
   <view class="account-hero" bindtap="openIdentity">
-    <image
-      wx:if="{{session.account && session.account.avatarUrl}}"
-      class="avatar-image"
-      src="{{session.account.avatarUrl}}"
-      mode="aspectFill"
-    />
-    <view wx:else class="avatar-placeholder">U</view>
+    <button wx:if="{{session.status === 'authenticated'}}" class="avatar-button {{avatarUploading ? 'avatar-button-disabled' : ''}}"
+      open-type="chooseAvatar" bindchooseavatar="chooseAvatar" catchtap="noop"
+      disabled="{{avatarUploading}}" aria-label="选择微信头像">
+      <image wx:if="{{session.account && session.account.avatarUrl}}" class="avatar-image" src="{{session.account.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="avatar-placeholder">U</view>
+      <view class="avatar-edit">更换</view>
+    </button>
+    <view wx:else class="avatar-shell">
+      <image wx:if="{{session.account && session.account.avatarUrl}}" class="avatar-image" src="{{session.account.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="avatar-placeholder">U</view>
+    </view>
     <view class="identity-copy">
       <view class="identity-name">{{session.account ? session.account.displayName : '微信用户'}}</view>
       <view class="identity-hint">
-        {{session.status === 'authenticated' ? '已登录，开启留学之旅' : '点击登录，开启留学之旅'}}
+        {{session.status === 'authenticated' ? '点击头像可使用微信头像' : '点击登录，开启留学之旅'}}
       </view>
     </view>
     <view class="identity-arrow">›</view>

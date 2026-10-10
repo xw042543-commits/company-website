@@ -33,6 +33,37 @@
   background: #ffffff;
 }
 
+.avatar-button,
+.avatar-shell {
+  position: relative;
+  width: 112rpx;
+  height: 112rpx;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  line-height: normal;
+  overflow: visible;
+}
+
+.avatar-button::after { border: 0; }
+.avatar-button-disabled { opacity: 0.72; }
+
+.avatar-edit {
+  position: absolute;
+  right: -8rpx;
+  bottom: -6rpx;
+  padding: 5rpx 10rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.75);
+  border-radius: 999rpx;
+  background: var(--color-action);
+  color: #ffffff;
+  font-size: 18rpx;
+  font-weight: 700;
+}
+
 .identity-copy {
   min-width: 0;
   margin-left: 24rpx;

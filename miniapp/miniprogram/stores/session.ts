@@ -22,6 +22,7 @@ export interface SessionStore {
   login(): Promise<Result<AccountSummary>>;
   refresh(): Promise<Result<AccountSummary>>;
   ensureAuthenticated(): Promise<Result<AccountSummary>>;
+  updateAccount(account: AccountSummary): void;
   logout(): Promise<void>;
 }
 
@@ -92,6 +93,9 @@ export function createSessionStore(auth: AuthGateway, storage: SessionStorage): 
         return { ok: true, value: snapshot.account };
       }
       return safeGet(storage) ? refresh() : this.login();
+    },
+    updateAccount(account) {
+      if (snapshot.status === 'authenticated') publish({ status: 'authenticated', account });
     },
     async logout() {
       const token = safeGet(storage);

@@ -106,3 +106,21 @@ test('logout clears memory and storage even when network fails', async () => {
   assert.equal(store.getAccessToken(), null);
   assert.equal(saved.values.has(REFRESH_TOKEN_STORAGE_KEY), false);
 });
+
+test('an uploaded avatar replaces the authenticated account without touching credentials', async () => {
+  const saved = storage();
+  const auth: AuthGateway = {
+    async login() { return { ok: true, value: payload('active') }; },
+    async refresh() { throw new Error('not used'); },
+    async logout() {},
+  };
+  const store = createSessionStore(auth, saved);
+  await store.login();
+
+  store.updateAccount({ ...account, avatarUrl: 'https://yangdoujiao.com/api/v1/miniapp/avatars/7?v=1' });
+
+  assert.equal(store.getSnapshot().account?.avatarUrl,
+    'https://yangdoujiao.com/api/v1/miniapp/avatars/7?v=1');
+  assert.equal(store.getAccessToken(), 'access-active');
+  assert.equal(saved.values.get(REFRESH_TOKEN_STORAGE_KEY), 'refresh-active');
+});
