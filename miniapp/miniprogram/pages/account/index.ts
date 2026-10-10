@@ -1,11 +1,13 @@
 import { sessionStore } from '../../stores/session';
 import { getUserOverview, type UserOverview } from '../../services/miniapp-data';
 import { communityMeRoute } from '../../utils/routes';
+import { updateAvatar } from '../../services/avatar';
 
 Page({
   data: {
     session: sessionStore.getSnapshot(),
     overview: { favorites: 0, plans: 0, consultations: 0, orders: 0 } as UserOverview,
+    avatarUploading: false,
     menuItems: [
       { key: 'orders', label: '我的订单', caption: '查看申请进度、材料与费用' },
       { key: 'wallet', label: '会员积分', caption: '管理账户余额、积分与使用记录' },
@@ -40,6 +42,27 @@ Page({
     wx.hideLoading();
     if (!result.ok) wx.showToast({ title: '登录未完成，请重试', icon: 'none' });
     else void this.loadOverview();
+  },
+
+  noop() {},
+
+  async chooseAvatar(event: WechatMiniprogram.CustomEvent<{ avatarUrl?: string }>) {
+    const filePath = event.detail.avatarUrl;
+    if (!filePath || this.data.avatarUploading) return;
+    this.setData({ avatarUploading: true });
+    wx.showLoading({ title: '正在保存头像', mask: true });
+    const result = await updateAvatar(filePath);
+    wx.hideLoading();
+    this.setData({ avatarUploading: false });
+    if (!result.ok) {
+      wx.showToast({
+        title: result.error.code === 'AVATAR_TOO_LARGE' ? '头像不能超过1MB' : '头像保存失败，请重试',
+        icon: 'none',
+      });
+      return;
+    }
+    sessionStore.updateAccount(result.value);
+    wx.showToast({ title: '头像已更新', icon: 'success' });
   },
 
   openMenu(event: WechatMiniprogram.BaseEvent) {

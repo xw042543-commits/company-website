@@ -86,6 +86,7 @@ public class SecurityConfig {
                                 "/api/v1/miniapp/auth/refresh").permitAll()
                         .requestMatchers(HttpMethod.GET,
                                 "/api/v1/miniapp/universities/*/programmes/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/miniapp/avatars/*").permitAll()
                         .requestMatchers("/api/v1/miniapp/**").hasRole("USER")
                         .requestMatchers(HttpMethod.GET, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
                         .requestMatchers(HttpMethod.HEAD, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
