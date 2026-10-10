@@ -65,6 +65,24 @@ test('composer school chooser retries failures, pages real results and cancels l
   page.clearSchool(); assert.equal(page.data.universityId, null);
 });
 
+test('school paging and retry retain committed query until an explicit search starts at page one', async () => {
+  const queries: any[] = [];
+  const page = await composer({ searchUniversities: async (input: any) => {
+    queries.push(input);
+    if (queries.length === 2 || queries.length === 5) return { ok: false, error: { kind: 'unavailable', code: 'OFFLINE' } };
+    return { ok: true, value: { items: [{ id: input.page, nameZh: '真实院校' }], page: input.page, pageSize: 12, totalItems: 13, totalPages: 2 } };
+  } });
+  await page.openSchools();
+  page.updateSchoolQuery({ detail: { value: '清华' } }); await page.nextSchools();
+  page.updateSchoolQuery({ detail: { value: '北大' } }); await page.retrySchools();
+  await page.searchSchools(); await page.nextSchools();
+  page.updateSchoolQuery({ detail: { value: '复旦' } }); await page.retrySchools();
+  assert.deepEqual(queries, [
+    { q: '', page: 1, size: 12 }, { q: '', page: 2, size: 12 }, { q: '', page: 2, size: 12 },
+    { q: '北大', page: 1, size: 12 }, { q: '北大', page: 2, size: 12 }, { q: '北大', page: 2, size: 12 },
+  ]);
+});
+
 test('composer locks duplicate clicks during authentication and fingerprints metadata edits', async () => {
   let authenticate!: (value: any) => void; let authenticated = false; let keys = 0; const inputs: any[] = [];
   const authentication = new Promise((done) => { authenticate = done; });

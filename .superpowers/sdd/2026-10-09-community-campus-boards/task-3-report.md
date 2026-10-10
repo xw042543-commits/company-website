@@ -18,3 +18,16 @@ Real university search uses a per-page-instance request scope and a bounded nati
 `npx tsx --test` initially hit sandbox IPC EPERM; the equivalent Node tsx import runner avoids that IPC. An initial authentication regression double timed out, then was corrected to share the authentication promise and produced the meaningful `2 !== 1` RED assertion above. Focused tests replace full `npm run check` as requested by the controller/user's lean testing constraint. No backend/all-package suite, push, deployment or AppID change.
 
 No WeChat simulator/device visual verification was performed. Capacity is not inferred from these checks. Review base: `2bfee68`.
+
+## Review fix round 1
+
+Fixed the Important finding at composer lines 33–41: pagination and retry now use the committed query associated with the current results/failed page. Editing the input changes only the search draft; explicit Search (or reopening the chooser) commits that draft, clears the previous total-page count and starts at page 1.
+
+Regression exercises empty-query page 1, draft edit to 清华 followed by Next, draft edit to 北大 followed by retry, explicit 北大 search, and another failed-page retry after draft edit to 复旦. It verifies paging and retry preserve committed queries and explicit search restarts page 1.
+
+- RED: `node --import tsx --test tests/community-pages.test.ts` — 15 tests, 14 passed, 1 failed; emitted 清华/北大/复旦 draft values incorrectly replaced committed query values.
+- GREEN: `node --import tsx --test tests/community-pages.test.ts` — 15 passed, 0 failed.
+- `npm run typecheck` — exit 0.
+- `npm run lint` — exit 0.
+
+All commands ran from `miniapp`; only covering page tests and package static checks were rerun. No push, deployment, AppID change or subagents.

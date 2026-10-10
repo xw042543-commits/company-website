@@ -6,7 +6,7 @@ import { COMMUNITY_BOARDS, isCommunityCategory } from '../../utils/community-boa
 import { isCommunityId, isCommunityTitle } from '../../utils/community-validation';
 import { createUniversitySearchService, type UniversitySearchService } from '../../services/universities';
 
-interface ComposeRuntime { submission: SubmissionState; active: boolean; schoolGeneration: number; search: UniversitySearchService['search'] }
+interface ComposeRuntime { submission: SubmissionState; active: boolean; schoolGeneration: number; schoolCommittedQuery: string; search: UniversitySearchService['search'] }
 type ComposeDeps = { createPost: typeof createCommunityPost; createKey: typeof createSubmissionKey; session: typeof sessionStore; searchUniversities?: UniversitySearchService['search'] };
 const composeDefaults: ComposeDeps = { createPost: createCommunityPost, createKey: createSubmissionKey, session: sessionStore };
 type ComposePage = WechatMiniprogram.Page.TrivialInstance & { _communityRuntime: ComposeRuntime };
@@ -19,7 +19,7 @@ export function createCircleComposePage(overrides: Partial<ComposeDeps> = {}): W
     categoryLabels: COMMUNITY_BOARDS.map((board) => board.label), universityId: null, universityName: '',
     schoolOpen: false, schoolQuery: '', schoolState: 'idle', schools: [], schoolPage: 1, schoolTotalPages: 0,
     submitting: false, notice: '' },
-  onLoad() { (this as ComposePage)._communityRuntime = { submission: createSubmissionState(), active: true, schoolGeneration: 0,
+  onLoad() { (this as ComposePage)._communityRuntime = { submission: createSubmissionState(), active: true, schoolGeneration: 0, schoolCommittedQuery: '',
     search: deps.searchUniversities ?? createUniversitySearchService(undefined, `compose-schools:${createCommunityRequestScope()}`).search }; },
   onUnload() { composeRuntime(this).active = false; },
   updateTitle(event: WechatMiniprogram.Input) { this.setData({ title: event.detail.value, titleCount: codePointLength(event.detail.value), notice: '' }); },
@@ -27,18 +27,22 @@ export function createCircleComposePage(overrides: Partial<ComposeDeps> = {}): W
     const index = Number(event.detail.value); const board = COMMUNITY_BOARDS[index];
     if (board) this.setData({ categoryIndex: index, category: board.code, notice: '' });
   },
-  async openSchools() { this.setData({ schoolOpen: true }); await this.loadSchools(1); },
+  async openSchools() { this.setData({ schoolOpen: true }); await this.searchSchools(); },
   cancelSchools() { composeRuntime(this).schoolGeneration++; this.setData({ schoolOpen: false, schoolState: 'idle' }); },
   clearSchool() { this.setData({ universityId: null, universityName: '' }); },
   updateSchoolQuery(event: WechatMiniprogram.Input) { this.setData({ schoolQuery: event.detail.value }); },
-  async searchSchools() { await this.loadSchools(1); },
+  async searchSchools() {
+    composeRuntime(this).schoolCommittedQuery = this.data.schoolQuery.trim();
+    this.setData({ schoolTotalPages: 0 });
+    await this.loadSchools(1);
+  },
   async retrySchools() { await this.loadSchools(this.data.schoolPage); },
   async nextSchools() { if (this.data.schoolPage < this.data.schoolTotalPages && this.data.schoolState !== 'loading') await this.loadSchools(this.data.schoolPage + 1); },
   async previousSchools() { if (this.data.schoolPage > 1 && this.data.schoolState !== 'loading') await this.loadSchools(this.data.schoolPage - 1); },
   async loadSchools(page: number) {
     const runtime = composeRuntime(this); const generation = ++runtime.schoolGeneration;
     this.setData({ schoolState: 'loading', schoolPage: page, schools: [] });
-    const result = await runtime.search({ q: this.data.schoolQuery.trim(), page, size: 12 });
+    const result = await runtime.search({ q: runtime.schoolCommittedQuery, page, size: 12 });
     if (!runtime.active || !this.data.schoolOpen || generation !== runtime.schoolGeneration) return;
     if (!result.ok) { this.setData({ schoolState: 'failed' }); return; }
     const schools = result.value.items.filter((school) => Number.isSafeInteger(school.id) && school.id > 0)
