@@ -53,4 +53,22 @@ class MiniappAvatarServiceTest {
                 new MiniappAvatarRequest(null, Base64.getEncoder().encodeToString(large))))
                 .isInstanceOf(ApiException.class);
     }
+
+    @Test
+    void removesStoredAvatarAndClearsThePublicProfileUrl() {
+        UserAccount account = mock(UserAccount.class);
+        when(account.getId()).thenReturn(42L);
+        when(account.getFullName()).thenReturn("微信用户");
+        UserExternalIdentity identity = UserExternalIdentity.bind(account,
+                ExternalIdentityProvider.WECHAT_MINI_PROGRAM, "app", "subject",
+                "微信用户", "https://yangdoujiao.com/avatar.png", OffsetDateTime.now());
+        when(identities.findByProviderAndUserAccountId(
+                ExternalIdentityProvider.WECHAT_MINI_PROGRAM, 42L)).thenReturn(Optional.of(identity));
+
+        MiniappAccountResponse result = service.remove(42L);
+
+        verify(avatars).delete(42L);
+        verify(identities).save(identity);
+        assertThat(result.avatarUrl()).isNull();
+    }
 }

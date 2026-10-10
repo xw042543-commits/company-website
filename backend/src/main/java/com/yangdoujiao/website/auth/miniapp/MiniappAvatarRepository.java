@@ -34,5 +34,10 @@ public class MiniappAvatarRepository {
                 .stream().findFirst();
     }
 
+    public void delete(long accountId) {
+        jdbc.update("DELETE FROM miniapp_account_avatars WHERE user_account_id=:accountId",
+                Map.of("accountId", accountId));
+    }
+
     public record StoredAvatar(String contentType, byte[] content, OffsetDateTime updatedAt) {}
 }
