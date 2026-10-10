@@ -3,6 +3,21 @@
 .compose-copy, .review-note { margin-top: 16rpx; color: var(--color-muted); font-size: 25rpx; line-height: 1.7; }
 .editor-card { margin-top: 30rpx; padding: 28rpx; }
 .field-label { display: block; color: var(--color-deep); font-size: 27rpx; font-weight: 750; }
+.editor-card input { min-height: 80rpx; font-size: 29rpx; color: var(--color-ink); }
+.title-counter { margin-bottom: 24rpx; text-align: right; font-size: 22rpx; color: var(--color-muted); }
+.selection-field { margin: 16rpx 0 24rpx; padding: 20rpx; background: var(--color-paper); color: var(--color-ink); font-size: 26rpx; text-align: left; line-height: 1.5; }
+.clear-school { margin: -12rpx 0 16rpx; font-size: 24rpx; color: var(--color-action); background: transparent; }
+.school-note { margin-bottom: 28rpx; font-size: 22rpx; color: var(--color-muted); line-height: 1.6; }
+.school-overlay { position: fixed; z-index: 20; inset: 0; display: flex; align-items: center; justify-content: center; padding: 32rpx; background: rgba(0, 0, 0, .35); }
+.school-dialog { box-sizing: border-box; width: 100%; max-width: 620px; padding: 28rpx; border-radius: 20rpx; background: #fff; }
+.school-search { display: flex; gap: 16rpx; margin: 20rpx 0; align-items: center; }
+.school-search input { flex: 1; min-width: 0; font-size: 26rpx; }
+.school-search button, .school-pagination button { margin: 0; font-size: 24rpx; }
+.school-results { height: 40vh; }
+.school-option { margin: 0; padding: 20rpx 12rpx; border-bottom: 1rpx solid var(--color-line); background: #fff; text-align: left; font-size: 26rpx; line-height: 1.6; }
+.school-message { padding: 30rpx 0; color: var(--color-muted); font-size: 26rpx; }
+.school-pagination { display: flex; justify-content: space-between; align-items: center; gap: 12rpx; margin-top: 20rpx; font-size: 22rpx; }
+.school-cancel { margin-top: 20rpx; font-size: 26rpx; color: var(--color-deep); }
 .editor-card textarea { box-sizing: border-box; width: 100%; min-height: 420rpx; margin-top: 16rpx; color: var(--color-ink); font-size: 29rpx; line-height: 1.7; overflow-wrap: anywhere; }
 .editor-meta { display: flex; min-height: 72rpx; align-items: center; justify-content: space-between; border-top: 1rpx solid var(--color-line); color: var(--color-muted); font-size: 22rpx; }
 .counter--danger { color: var(--color-danger); font-weight: 700; }

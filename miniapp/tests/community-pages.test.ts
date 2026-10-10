@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- Exercise native Page lifecycle with dynamic setData. */
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
@@ -19,6 +20,64 @@ import {
 } from '../miniprogram/utils/community-ui.ts';
 
 const root = new URL('../miniprogram/', import.meta.url);
+
+async function composer(overrides: any = {}) {
+  const { createCircleComposePage } = await import('../miniprogram/pages/circle-compose/index.ts');
+  const definition: any = createCircleComposePage({ session: { getSnapshot: () => ({ status: 'authenticated' }) }, ...overrides });
+  const page: any = { ...definition, data: structuredClone(definition.data), setData(update: any) { Object.assign(this.data, update); } };
+  page.onLoad(); return page;
+}
+
+test('composer requires title, guards duplicate submissions and keeps failed draft and key', async () => {
+  const inputs: any[] = []; let resolve!: (value: any) => void;
+  const page = await composer({ createPost: (input: any) => { inputs.push(input); if (!input.title) return Promise.resolve({ ok: false, error: { kind: 'unavailable', code: 'OFFLINE' } }); return new Promise((done) => { resolve = done; }); }, createKey: () => 'draft-key' });
+  page.updateBody({ detail: { value: '正文' } });
+  await page.submit(); assert.equal(inputs.length, 0);
+  page.updateTitle({ detail: { value: '😀'.repeat(61) } });
+  await page.submit(); assert.equal(inputs.length, 0);
+  page.updateTitle({ detail: { value: '😀'.repeat(60) } });
+  page.changeCategory({ detail: { value: '4' } });
+  const pending = page.submit(); await page.submit();
+  assert.equal(inputs.length, 1);
+  assert.equal(inputs[0].category, 'STUDY'); assert.equal(inputs[0].universityId, null);
+  resolve({ ok: false, error: { kind: 'unavailable', code: 'OFFLINE' } }); await pending;
+  assert.equal(page.data.title, '😀'.repeat(60)); assert.equal(page.data.body, '正文'); assert.equal(page.data.submitting, false);
+  const retry = page.submit(); assert.equal(inputs[1].idempotencyKey, 'draft-key');
+  resolve({ ok: false, error: { kind: 'unavailable', code: 'OFFLINE' } }); await retry;
+});
+
+test('composer school chooser retries failures, pages real results and cancels late responses', async () => {
+  const queries: any[] = []; let resolve!: (value: any) => void;
+  const page = await composer({ searchUniversities: async (input: any) => {
+    queries.push(input);
+    if (queries.length === 1) return { ok: false, error: { kind: 'unavailable', code: 'OFFLINE' } };
+    if (queries.length === 4) return new Promise((done) => { resolve = done; });
+    return { ok: true, value: { items: [{ id: input.page, nameZh: `院校${input.page}` }], page: input.page, pageSize: 12, totalItems: 13, totalPages: 2 } };
+  } });
+  await page.openSchools(); assert.equal(page.data.schoolState, 'failed');
+  await page.retrySchools(); assert.equal(page.data.schoolTotalPages, 2);
+  await page.nextSchools(); assert.equal(queries[2].page, 2);
+  assert.equal(page.data.schools[0].id, '2');
+  page.selectSchool({ currentTarget: { dataset: { id: '2' } } }); assert.equal(page.data.universityId, '2');
+  const pending = page.openSchools(); page.cancelSchools();
+  resolve({ ok: true, value: { items: [], page: 1, pageSize: 12, totalItems: 0, totalPages: 0 } }); await pending;
+  assert.equal(page.data.schoolOpen, false); assert.equal(page.data.universityId, '2');
+  page.clearSchool(); assert.equal(page.data.universityId, null);
+});
+
+test('composer locks duplicate clicks during authentication and fingerprints metadata edits', async () => {
+  let authenticate!: (value: any) => void; let authenticated = false; let keys = 0; const inputs: any[] = [];
+  const authentication = new Promise((done) => { authenticate = done; });
+  const page = await composer({ session: { getSnapshot: () => ({ status: authenticated ? 'authenticated' : 'anonymous' }),
+    ensureAuthenticated: () => authentication },
+    createKey: () => `key-${++keys}`, createPost: async (input: any) => { inputs.push(input); return { ok: false, error: { kind: 'unavailable', code: 'OFFLINE' } }; } });
+  page.updateTitle({ detail: { value: '标题' } }); page.updateBody({ detail: { value: '正文' } });
+  const first = page.submit(); const second = page.submit();
+  authenticated = true; authenticate({ ok: true, value: {} }); await first; await second;
+  assert.equal(inputs.length, 1);
+  page.changeCategory({ detail: { value: '4' } }); await page.submit();
+  assert.notEqual(inputs[0].idempotencyKey, inputs[1].idempotencyKey);
+});
 
 test('registers all community pages while keeping U圈 as the second tab', async () => {
   const app = JSON.parse(await readFile(new URL('app.json', root), 'utf8')) as {

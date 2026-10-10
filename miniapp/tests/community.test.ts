@@ -23,6 +23,29 @@ const mine = { id, body: '正文', status: 'HIDDEN', statusMessage: '内容暂�
 const myComment = { id, postId: '1', parentCommentId: null, body: '正文', status: 'DELETED', statusMessage: '已删除', createdAt: time, likeCount: 0 };
 const page = (item: unknown) => ({ items: [item], nextCursor: null });
 const invalid = { ok: false, error: { kind: 'unexpected', code: 'INVALID_COMMUNITY_RESPONSE' } };
+test('campus metadata accepts legacy responses and rejects explicitly malformed metadata', () => {
+  const metadata = { title: '学习求助', category: 'STUDY', universityId: '42', universityName: '真实院校' };
+  assert.equal(parsePostPage(page({ ...summary, ...metadata })).ok, true);
+  assert.equal(parsePostDetail({ ...detail, ...metadata }).ok, true);
+  assert.equal(parseMyPostPage(page({ ...mine, ...metadata })).ok, true);
+  assert.equal(parsePostDetail(detail).ok, true);
+  for (const bad of [{ category: 'FAKE' }, { category: null }, { title: 1 }, { title: '😀'.repeat(61) }, { universityId: 42 }, { universityName: {} }])
+    assert.deepEqual(parsePostDetail({ ...detail, ...metadata, ...bad }), invalid);
+});
+
+test('campus service encodes filters and sends validated metadata without coercing school IDs', async () => {
+  const sent: RequestOptions[] = [];
+  const service = createCommunityService(async (input) => { sent.push(input); return { ok: true, value: input.method === 'POST' ? creation : { items: [], nextCursor: null } }; });
+  await service.listPosts({ sort: 'latest', requestScope: scope, category: 'STUDY', universityId: id });
+  assert.equal(sent[0]?.path, `/api/v1/community/posts?sort=latest&size=20&category=STUDY&universityId=${id}`);
+  const submission = { body: '正文', title: '😀'.repeat(60), category: 'STUDY' as const, universityId: id, idempotencyKey: 'stable' };
+  assert.equal((await service.createPost(submission)).ok, true);
+  assert.deepEqual(sent[1]?.data, { body: '正文', title: submission.title, category: 'STUDY', universityId: id });
+  for (const bad of [{ title: '' }, { title: '😀'.repeat(61) }, { category: 'fake' }, { universityId: 42 }])
+    assert.equal((await service.createPost({ ...submission, ...bad } as typeof submission)).ok, false);
+  assert.equal((await service.listPosts({ sort: 'latest', requestScope: scope, category: 'fake' as 'STUDY' })).ok, false);
+  assert.equal(sent.length, 2);
+});
 type Parser = (value: unknown) => Result<unknown>;
 
 for (const [name, parse, fixture] of [['posts', parseMyPostPage, mine], ['comments', parseMyCommentPage, myComment]] as const) {

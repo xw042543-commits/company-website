@@ -1,4 +1,9 @@
 /** Canonical PostgreSQL BIGINT identifiers, never coerced through a JS number. */
+export function isCommunityTitle(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0 && [...value].length <= 60
+    && !value.includes('\0') && [...value].every((point) => !/^[\uD800-\uDFFF]$/.test(point));
+}
+
 export function isCommunityId(value: unknown): value is string {
   return typeof value === 'string' && /^[1-9][0-9]{0,18}$/.test(value)
     && (value.length < 19 || value <= '9223372036854775807');
