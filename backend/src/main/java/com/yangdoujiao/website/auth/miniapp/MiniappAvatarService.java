@@ -49,6 +49,16 @@ public class MiniappAvatarService {
                 HttpStatus.NOT_FOUND, "AVATAR_NOT_FOUND", "Avatar was not found"));
     }
 
+    @Transactional
+    public MiniappAccountResponse remove(long accountId) {
+        UserExternalIdentity identity = identities.findByProviderAndUserAccountId(
+                ExternalIdentityProvider.WECHAT_MINI_PROGRAM, accountId).orElseThrow(this::unauthorized);
+        avatars.delete(accountId);
+        identity.clearAvatar(OffsetDateTime.now());
+        identities.save(identity);
+        return MiniappAccountResponse.from(identity.getUserAccount(), identity);
+    }
+
     private byte[] decode(String encoded) {
         if (encoded == null || encoded.isBlank() || encoded.length() > 1_398_104) throw invalid();
         try {

@@ -18,6 +18,13 @@ export async function updateAvatar(filePath: string): Promise<Result<AccountSumm
   }
 }
 
+export function removeAvatar(): Promise<Result<AccountSummary>> {
+  return request<AccountSummary>({
+    method: 'DELETE', path: '/api/v1/miniapp/account/avatar',
+    authenticated: true, requestKey: 'account-avatar',
+  });
+}
+
 function fileSize(filePath: string): Promise<number> {
   return new Promise((resolve, reject) => wx.getFileSystemManager().stat({
     path: filePath,

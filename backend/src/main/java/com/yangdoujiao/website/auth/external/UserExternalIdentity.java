@@ -89,4 +89,9 @@ public class UserExternalIdentity {
         if (avatarUrl != null) this.avatarUrl = avatarUrl;
         this.lastLoginAt = now;
     }
+
+    public void clearAvatar(OffsetDateTime now) {
+        this.avatarUrl = null;
+        this.lastLoginAt = now;
+    }
 }

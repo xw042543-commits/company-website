@@ -76,6 +76,8 @@ Page({
       orders: '/pages/orders/index', plans: '/pages/plans/index', favorites: '/pages/favorites/index',
       wallet: '/pages/wallet/index',
       consultations: '/pages/consultations/index',
+      settings: '/pages/settings/index',
+      about: '/pages/about/index',
     };
     const route = key ? routes[key] : undefined;
     if (route) { wx.navigateTo({ url: route }); return; }

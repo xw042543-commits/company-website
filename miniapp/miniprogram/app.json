@@ -17,6 +17,8 @@
     "pages/circle-me/index",
     "pages/messages/index",
     "pages/account/index",
+    "pages/settings/index",
+    "pages/about/index",
     "pages/application-detail/index"
   ],
   "window": {

@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,6 +36,12 @@ public class MiniappAccountController {
             @RequestBody MiniappAvatarRequest request) {
         if (principal == null) throw unauthorized();
         return avatars.update(principal.userId(), request);
+    }
+
+    @DeleteMapping("/avatar")
+    public MiniappAccountResponse removeAvatar(@AuthenticationPrincipal UserPrincipal principal) {
+        if (principal == null) throw unauthorized();
+        return avatars.remove(principal.userId());
     }
 
     @GetMapping
