@@ -26,7 +26,7 @@ class CommunityPostMetadataTest {
                 .isEqualTo("  line\nnext\n  ");
         assertThatThrownBy(() -> metadata(json.writeValueAsString(java.util.Map.of("body", "body", "title", "😀".repeat(61)))))
                 .isInstanceOf(ApiException.class);
-        for (String title : java.util.List.of("", " \u00a0", "\u0000", "\ud800")) {
+        for (String title : java.util.List.of("", " \u00a0", "\ufeff", "\t\n\ufeff\u2007\u202f\u3000", "\u0000", "\ud800")) {
             assertThatThrownBy(() -> metadata(json.writeValueAsString(java.util.Map.of("body", "body", "title", title))))
                     .isInstanceOf(ApiException.class);
         }

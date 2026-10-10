@@ -6,5 +6,7 @@ import java.util.List;
 public record CommunityModerationPage(List<Item> items, String nextCursor) {
     public record Item(CommunityTargetType targetType, String targetId, CommunityContentStatus status,
             String bodyPreview, long version, long openReportCount, OffsetDateTime createdAt,
-            String title, CommunityCategory category, String universityId, String universityName) {}
+            String title, CommunityCategory category, String universityId, String universityName) {
+        public Item { title = CommunityText.readableTitle(title); }
+    }
 }

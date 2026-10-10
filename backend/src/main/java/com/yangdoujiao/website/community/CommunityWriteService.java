@@ -199,14 +199,7 @@ public class CommunityWriteService {
     static String normalize(JsonNode node, int maximum, Supplier<ApiException> invalidText) {
         if (node == null || !node.isString()) throw invalidText.get();
         String body = node.asString().replace("\r\n", "\n").replace('\r', '\n');
-        if (body.codePoints().allMatch(point -> Character.isWhitespace(point) || Character.isSpaceChar(point))
-                || body.codePointCount(0, body.length()) > maximum) throw invalidText.get();
-        for (int offset = 0; offset < body.length();) {
-            int codePoint = body.codePointAt(offset);
-            if ((Character.isISOControl(codePoint) && codePoint != '\n' && codePoint != '\t')
-                    || codePoint >= 0xD800 && codePoint <= 0xDFFF) throw invalidText.get();
-            offset += Character.charCount(codePoint);
-        }
+        if (!CommunityText.valid(body, maximum)) throw invalidText.get();
         return body;
     }
     private static ApiException invalidBody() {

@@ -105,7 +105,8 @@ class CommunityWriteHttpIntegrationTest {
         for (Map<String, ?> metadata : java.util.List.<Map<String, ?>>of(
                 Map.of("category", "UNKNOWN"), Map.of("category", "general"), Map.of("category", 1),
                 java.util.Collections.singletonMap("category", null),
-                Map.of("title", ""), Map.of("title", " \u00a0"), Map.of("title", "a".repeat(61)),
+                Map.of("title", ""), Map.of("title", " \u00a0"), Map.of("title", "\ufeff"),
+                Map.of("title", "\ufeff\u2007\u202f\u3000"), Map.of("title", "a".repeat(61)),
                 Map.of("title", "😀".repeat(61)), Map.of("title", "\u0000"), Map.of("title", 123),
                 Map.of("universityId", Long.toString(Long.MAX_VALUE)), Map.of("universityId", 1),
                 Map.of("universityId", "0"), Map.of("universityId", "01"), Map.of("universityId", "9223372036854775808"))) {

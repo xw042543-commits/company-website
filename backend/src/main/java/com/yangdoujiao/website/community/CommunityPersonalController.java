@@ -9,9 +9,11 @@ public class CommunityPersonalController {
     private final CommunityPersonalService service;
     public CommunityPersonalController(CommunityPersonalService service) { this.service = service; }
     @GetMapping("/posts")
-    public CommunityCursorPage<CommunityMyPost> posts(@AuthenticationPrincipal UserPrincipal actor,
-            @RequestParam(required=false) String cursor, @RequestParam(defaultValue="20") int size) {
-        return service.posts(actor.userId(), cursor, size);
+    public org.springframework.http.ResponseEntity<?> posts(@AuthenticationPrincipal UserPrincipal actor,
+            @RequestParam(required=false) String cursor, @RequestParam(defaultValue="20") int size,
+            @RequestParam(required=false) String representation) {
+        boolean campus = CommunityPostRepresentation.campus(representation);
+        return CommunityPostRepresentation.personal(service.posts(actor.userId(), cursor, size), campus);
     }
     @GetMapping("/comments")
     public CommunityCursorPage<CommunityMyComment> comments(@AuthenticationPrincipal UserPrincipal actor,

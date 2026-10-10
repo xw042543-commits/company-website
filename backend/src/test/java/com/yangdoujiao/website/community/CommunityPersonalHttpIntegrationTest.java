@@ -62,7 +62,7 @@ class CommunityPersonalHttpIntegrationTest {
                 .andReturn().getResponse().getContentAsString();
         var items = json.readTree(body).path("items");
         for (var item : items) {
-            assertThat(item.propertyNames()).containsExactlyInAnyOrderElementsOf(Set.of("id", "body", "status", "statusMessage", "createdAt", "publishedAt", "commentCount", "likeCount", "title", "category", "universityId", "universityName"));
+            assertThat(item.propertyNames()).containsExactlyInAnyOrderElementsOf(Set.of("id", "body", "status", "statusMessage", "createdAt", "publishedAt", "commentCount", "likeCount"));
             assertThat(item.path("statusMessage").asString()).isNotBlank();
         }
         assertThat(body).doesNotContain("INTERNAL_SECRET", "private-name", "authorAccountId", "openid", "handledBy", "riskReason");

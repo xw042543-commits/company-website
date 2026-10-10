@@ -32,16 +32,20 @@ public class CommunityPostController {
     }
 
     @GetMapping
-    public CommunityCursorPage<CommunityPostSummary> list(@RequestParam(defaultValue = "latest") String sort,
+    public org.springframework.http.ResponseEntity<?> list(@RequestParam(defaultValue = "latest") String sort,
             @RequestParam(required = false) String cursor, @RequestParam(defaultValue = "20") int size,
             @RequestParam(required = false) String category, @RequestParam(required = false) String universityId,
+            @RequestParam(required = false) String representation,
             @AuthenticationPrincipal UserPrincipal viewer) {
-        return service.list(sort, cursor, size, viewer, category, universityId);
+        boolean campus = CommunityPostRepresentation.campus(representation);
+        return CommunityPostRepresentation.feed(service.list(sort, cursor, size, viewer, category, universityId), campus);
     }
 
     @GetMapping("/{id}")
-    public CommunityPostDetail detail(@PathVariable Long id, @AuthenticationPrincipal UserPrincipal viewer) {
-        return service.detail(id, viewer);
+    public org.springframework.http.ResponseEntity<?> detail(@PathVariable Long id,
+            @RequestParam(required = false) String representation, @AuthenticationPrincipal UserPrincipal viewer) {
+        boolean campus = CommunityPostRepresentation.campus(representation);
+        return CommunityPostRepresentation.detail(service.detail(id, viewer), campus);
     }
 
     @GetMapping("/{id}/comments")

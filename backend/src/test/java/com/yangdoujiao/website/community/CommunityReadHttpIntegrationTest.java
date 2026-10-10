@@ -60,6 +60,56 @@ class CommunityReadHttpIntegrationTest {
     private UserAccount author;
 
     @Test
+    void historicalBlankTitleCannotPoisonPublicOrPersonalReads() throws Exception {
+        var post = posts.saveAndFlush(CommunityPost.create(author.getId(), "retained body",
+                new CommunityPostMetadata("\ufeff", CommunityCategory.GENERAL, null),
+                CommunityContentStatus.PUBLISHED, null, TIME));
+        for (String path : new String[] {"/api/v1/community/posts", "/api/v1/community/me/posts"}) {
+            mvc.perform(get(path).param("representation", "campus-v1").with(user(UserPrincipal.from(author))))
+                    .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].title").value(org.hamcrest.Matchers.nullValue()))
+                    .andExpect(jsonPath("$.items[0].id").value(post.getId().toString()));
+        }
+        mvc.perform(get("/api/v1/community/posts/" + post.getId()).param("representation", "campus-v1"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.title").value(org.hamcrest.Matchers.nullValue()))
+                .andExpect(jsonPath("$.body").value("retained body"));
+        // Installed clients also keep working for this historical row.
+        mvc.perform(get("/api/v1/community/posts/" + post.getId()))
+                .andExpect(status().isOk()).andExpect(jsonPath("$", org.hamcrest.Matchers.not(org.hamcrest.Matchers.hasKey("title"))));
+    }
+
+    @Test
+    void postRepresentationsKeepTheExactLegacyContractUnlessExplicitlyNegotiated() throws Exception {
+        var post = posts.saveAndFlush(CommunityPost.create(author.getId(), "body",
+                new CommunityPostMetadata("Campus title", CommunityCategory.STUDY, null),
+                CommunityContentStatus.PUBLISHED, null, TIME));
+        String[] paths = {"/api/v1/community/posts", "/api/v1/community/posts/" + post.getId(), "/api/v1/community/me/posts"};
+        String[][] legacyKeys = {
+            {"id", "authorName", "authorAvatarUrl", "bodyPreview", "commentCount", "likeCount", "publishedAt", "likedByMe"},
+            {"id", "authorName", "authorAvatarUrl", "body", "commentCount", "likeCount", "publishedAt", "likedByMe", "ownedByMe"},
+            {"id", "body", "status", "statusMessage", "createdAt", "publishedAt", "commentCount", "likeCount"}
+        };
+        for (int i = 0; i < paths.length; i++) {
+            var response = mvc.perform(get(paths[i]).with(user(UserPrincipal.from(author))))
+                    .andExpect(status().isOk()).andReturn().getResponse();
+            var root = json.readTree(response.getContentAsString());
+            var item = i == 1 ? root : root.get("items").get(0);
+            assertThat(item.properties().stream().map(java.util.Map.Entry::getKey)).containsExactlyInAnyOrder(legacyKeys[i]);
+            assertThat(response.getHeader("Cache-Control")).contains("no-store");
+            var campus = mvc.perform(get(paths[i]).param("representation", "campus-v1").with(user(UserPrincipal.from(author))))
+                    .andExpect(status().isOk()).andExpect(header().string("Cache-Control", org.hamcrest.Matchers.containsString("no-store")))
+                    .andReturn().getResponse();
+            var campusRoot = json.readTree(campus.getContentAsString());
+            var campusItem = i == 1 ? campusRoot : campusRoot.get("items").get(0);
+            assertThat(campusItem.has("title")).isTrue();
+            assertThat(campusItem.get("category").asString()).isEqualTo("STUDY");
+            assertThat(campusItem.has("universityId")).isTrue();
+            assertThat(campusItem.has("universityName")).isTrue();
+            mvc.perform(get(paths[i]).param("representation", "unknown").with(user(UserPrincipal.from(author))))
+                    .andExpect(status().isBadRequest());
+        }
+    }
+
+    @Test
     void scopedFeedsFilterBeforePagingAndRejectOtherCampusCursors() throws Exception {
         Long a = jdbc.queryForObject("INSERT INTO universities(name,slug,country,status,popular,updated_at) VALUES ('Campus A','scope-a','Malaysia','PUBLISHED',false,now()) RETURNING id", Long.class);
         Long b = jdbc.queryForObject("INSERT INTO universities(name,slug,country,status,popular,updated_at) VALUES ('Campus B','scope-b','Malaysia','PUBLISHED',false,now()) RETURNING id", Long.class);
@@ -75,7 +125,7 @@ class CommunityReadHttpIntegrationTest {
             String cursor = null;
             java.util.Set<String> seen = new java.util.HashSet<>();
             do {
-                var request = get("/api/v1/community/posts").param("sort", sort).param("category", "STUDY").param("universityId", a.toString()).param("size", "1");
+                var request = get("/api/v1/community/posts").param("representation", "campus-v1").param("sort", sort).param("category", "STUDY").param("universityId", a.toString()).param("size", "1");
                 if (cursor != null) request.param("cursor", cursor);
                 String body = mvc.perform(request).andExpect(status().isOk())
                         .andExpect(jsonPath("$.items.length()").value(1))
@@ -92,7 +142,7 @@ class CommunityReadHttpIntegrationTest {
         }
         mvc.perform(get("/api/v1/community/posts").param("universityId", "9223372036854775807")).andExpect(status().isBadRequest());
         mvc.perform(get("/api/v1/community/posts").param("category", "UNKNOWN")).andExpect(status().isBadRequest());
-        mvc.perform(get("/api/v1/community/me/posts").with(user(UserPrincipal.from(author))))
+        mvc.perform(get("/api/v1/community/me/posts").param("representation", "campus-v1").with(user(UserPrincipal.from(author))))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].category").isNotEmpty())
                 .andExpect(jsonPath("$.items[0].universityName").isNotEmpty());
     }

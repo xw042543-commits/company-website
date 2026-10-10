@@ -52,6 +52,17 @@ abstract class CommunityModerationIntegrationFixture extends CommunityReactionIn
 
 class CommunityModerationHttpIntegrationTest extends CommunityModerationIntegrationFixture {
 
+    @Test void historicalBlankTitleKeepsModerationQueueAndDetailReadable() throws Exception {
+        long id = post(CommunityContentStatus.PENDING_REVIEW);
+        jdbc.update("UPDATE community_posts SET title=? WHERE id=?", "\ufeff", id);
+        mvc.perform(get(path("POST", id)).with(user(UserPrincipal.from(adviser))))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.title").value(org.hamcrest.Matchers.nullValue()))
+                .andExpect(jsonPath("$.body").isNotEmpty());
+        mvc.perform(get("/api/v1/adviser/community/moderation").with(user(UserPrincipal.from(adviser))))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].title").value(org.hamcrest.Matchers.nullValue()))
+                .andExpect(jsonPath("$.items[0].targetId").value(Long.toString(id)));
+    }
+
     @Test void moderationShowsPostMetadataInQueueAndDetail() throws Exception {
         long id = post(CommunityContentStatus.PENDING_REVIEW);
         jdbc.update("UPDATE community_posts SET title='Study help',category='STUDY' WHERE id=?", id);

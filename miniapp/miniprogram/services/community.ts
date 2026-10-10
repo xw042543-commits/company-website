@@ -203,11 +203,11 @@ export function createCommunityService(
         || (input.category !== undefined && !isCommunityCategory(input.category))
         || (input.universityId !== undefined && !isCommunityId(input.universityId))) return invalidInput();
       const filters = `${input.category === undefined ? '' : `&category=${encodeURIComponent(input.category)}`}${input.universityId === undefined ? '' : `&universityId=${encodeURIComponent(input.universityId)}`}`;
-      return publicRead(`/api/v1/community/posts?sort=${encodeURIComponent(input.sort)}&${q}${filters}`, `community-feed:${input.requestScope}:${input.sort}`, (v) => parsePostPage(v, input.size ?? 20));
+      return publicRead(`/api/v1/community/posts?sort=${encodeURIComponent(input.sort)}&${q}${filters}&representation=campus-v1`, `community-feed:${input.requestScope}:${input.sort}`, (v) => parsePostPage(v, input.size ?? 20));
     },
     async loadPost(id: string, scope: string): Promise<Result<CommunityPostDetail>> {
       if (!isCommunityId(id) || !requestScope(scope)) return invalidInput();
-      return publicRead(`/api/v1/community/posts/${encodeURIComponent(id)}`, `community-detail:${scope}:${id}`, (v) => {
+      return publicRead(`/api/v1/community/posts/${encodeURIComponent(id)}?representation=campus-v1`, `community-detail:${scope}:${id}`, (v) => {
         const parsed = parsePostDetail(v);
         return parsed.ok && parsed.value.id !== id ? invalidResponse() : parsed;
       });
@@ -224,7 +224,7 @@ export function createCommunityService(
     },
     async listMyPosts(input: PageInput): Promise<Result<CursorPage<CommunityMyPost>>> {
       const q = query(input); if (q === null || !requestScope(input.requestScope)) return invalidInput();
-      return call({ method: 'GET', path: `/api/v1/community/me/posts?${q}`, authenticated: true, requestKey: `community-me-posts:${input.requestScope}` }, (v) => parseMyPostPage(v, input.size ?? 20));
+      return call({ method: 'GET', path: `/api/v1/community/me/posts?${q}&representation=campus-v1`, authenticated: true, requestKey: `community-me-posts:${input.requestScope}` }, (v) => parseMyPostPage(v, input.size ?? 20));
     },
     async listMyComments(input: PageInput): Promise<Result<CursorPage<CommunityMyComment>>> {
       const q = query(input); if (q === null || !requestScope(input.requestScope)) return invalidInput();

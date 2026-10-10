@@ -3,7 +3,7 @@
 .compose-copy, .review-note { margin-top: 16rpx; color: var(--color-muted); font-size: 25rpx; line-height: 1.7; }
 .editor-card { margin-top: 24rpx; padding: 24rpx 0; border: 0; border-top: 1rpx solid var(--color-line); border-bottom: 1rpx solid var(--color-line); border-radius: 0; box-shadow: none; }
 .field-label { display: block; color: var(--color-deep); font-size: 27rpx; font-weight: 750; }
-.editor-card input { min-height: 80rpx; font-size: 29rpx; color: var(--color-ink); }
+.editor-card input { min-height: 80rpx; font-size: 28rpx; color: var(--color-ink); }
 .title-counter { margin-bottom: 24rpx; text-align: right; font-size: 22rpx; color: var(--color-muted); }
 .selection-field { box-sizing: border-box; min-height: 44px; margin: 16rpx 0 24rpx; padding: 20rpx; border-radius: 12rpx; background: var(--color-paper); color: var(--color-ink); font-size: 28rpx; text-align: left; line-height: 1.5; overflow-wrap: anywhere; word-break: break-all; }
 .clear-school { margin: -12rpx 0 16rpx; font-size: 24rpx; color: var(--color-action); background: transparent; }
@@ -18,7 +18,7 @@
 .school-message { padding: 30rpx 0; color: var(--color-muted); font-size: 26rpx; }
 .school-pagination { display: flex; justify-content: space-between; align-items: center; gap: 12rpx; margin-top: 20rpx; font-size: 22rpx; }
 .school-cancel { margin-top: 20rpx; font-size: 26rpx; color: var(--color-deep); }
-.editor-card textarea { box-sizing: border-box; width: 100%; min-height: 420rpx; margin-top: 16rpx; color: var(--color-ink); font-size: 29rpx; line-height: 1.7; overflow-wrap: anywhere; }
+.editor-card textarea { box-sizing: border-box; width: 100%; min-height: 420rpx; margin-top: 16rpx; color: var(--color-ink); font-size: 28rpx; line-height: 1.7; overflow-wrap: anywhere; }
 .editor-meta { display: flex; min-height: 72rpx; align-items: center; justify-content: space-between; border-top: 1rpx solid var(--color-line); color: var(--color-muted); font-size: 22rpx; }
 .counter--danger { color: var(--color-danger); font-weight: 700; }
 .notice { margin-top: 20rpx; padding: 22rpx 24rpx; border-radius: 16rpx; background: #fceeee; color: var(--color-danger); font-size: 25rpx; line-height: 1.6; }
