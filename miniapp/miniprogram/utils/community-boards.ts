@@ -7,3 +7,6 @@ export const COMMUNITY_BOARDS: readonly { code: CommunityCategory; label: string
 export function isCommunityCategory(value: unknown): value is CommunityCategory {
   return COMMUNITY_BOARDS.some((board) => board.code === value);
 }
+export function communityCategoryLabel(value: unknown): string {
+  return COMMUNITY_BOARDS.find((board) => board.code === value)?.label ?? '日常交流';
+}

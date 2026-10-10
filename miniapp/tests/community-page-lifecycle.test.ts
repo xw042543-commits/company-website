@@ -16,6 +16,91 @@ function context(definition: any, data = {}) {
   return value;
 }
 
+const tap = (dataset: Record<string, string>) => ({ currentTarget: { dataset } });
+const anonymousSession = { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) };
+
+test('campus B wins when campus A responds late and paging keeps the selected category and school', async () => {
+  const { createCirclePage } = await import('../miniprogram/pages/circle/index.ts');
+  const calls: any[] = []; const pending: Array<ReturnType<typeof deferred<Result<any>>>> = [];
+  const definition: any = createCirclePage({ session: anonymousSession, listPosts: (input: any) => {
+    calls.push(input); const request = deferred<Result<any>>(); pending.push(request); return request.promise;
+  } } as any);
+  const page = context(definition); definition.onLoad.call(page);
+  pending[0]!.resolve(ok({ items: [], nextCursor: null })); await pending[0]!.promise; await Promise.resolve();
+  definition.switchMode.call(page, tap({ mode: 'campus' }));
+  assert.equal(calls.length, 1, 'campus selection must not fetch the unscoped plaza');
+  page.data.schools = [{ id: '1', name: '马来亚大学' }, { id: '2', name: '博特拉大学' }];
+  definition.selectSchool.call(page, tap({ id: '1' }));
+  definition.selectSchool.call(page, tap({ id: '2' }));
+  pending[2]!.resolve(ok({ items: [{ id: 'B' }], nextCursor: 'b.cursor' })); await pending[2]!.promise; await Promise.resolve();
+  pending[1]!.resolve(ok({ items: [{ id: 'A' }], nextCursor: 'a.cursor' })); await pending[1]!.promise; await Promise.resolve();
+  assert.equal(page.data.posts[0].id, 'B'); assert.equal(page.data.universityName, '博特拉大学');
+  definition.switchCategory.call(page, tap({ category: 'HOUSING' }));
+  assert.equal(calls[3].cursor, null); assert.equal(calls[3].universityId, '2'); assert.equal(calls[3].category, 'HOUSING');
+  pending[3]!.resolve(ok({ items: [{ id: 'room' }], nextCursor: 'room.cursor' })); await pending[3]!.promise; await Promise.resolve();
+  const more = definition.loadFeed.call(page, false);
+  assert.equal(calls[4].cursor, 'room.cursor'); assert.equal(calls[4].universityId, '2'); assert.equal(calls[4].category, 'HOUSING');
+  assert.equal(calls[4].requestScope, calls[3].requestScope);
+  pending[4]!.resolve(ok({ items: [{ id: 'room2' }], nextCursor: null })); await more;
+  assert.deepEqual(page.data.posts.map((p: any) => p.id), ['room', 'room2']);
+  definition.switchMode.call(page, tap({ mode: 'plaza' }));
+  assert.equal(calls[5].cursor, null); assert.equal(calls[5].universityId, undefined);
+});
+
+test('school selection reads real search results and ignores cancelled searches', async () => {
+  const { createCirclePage } = await import('../miniprogram/pages/circle/index.ts');
+  const search = deferred<Result<any>>(); const inputs: any[] = [];
+  const definition: any = createCirclePage({ session: anonymousSession, listPosts: async () => ok({ items: [], nextCursor: null }),
+    searchUniversities: (input: any) => { inputs.push(input); return search.promise; } } as any);
+  const page = context(definition); definition.onLoad.call(page);
+  page.data.schoolQuery = '马来亚'; const loading = definition.openSchools.call(page);
+  assert.deepEqual(inputs[0], { q: '马来亚', page: 1, size: 12 });
+  definition.cancelSchools.call(page);
+  search.resolve(ok({ items: [{ id: 1, nameZh: '马来亚大学' }], page: 1, totalPages: 1 })); await loading;
+  assert.deepEqual(page.data.schools, []);
+  await definition.openSchools.call(page);
+  assert.deepEqual(page.data.schools, [{ id: '1', name: '马来亚大学' }]);
+});
+
+test('superseded feed failures remain retryable failures rather than empty feeds', async () => {
+  const { createCirclePage } = await import('../miniprogram/pages/circle/index.ts');
+  const definition: any = createCirclePage({ session: anonymousSession, listPosts: async () => ({ ok: false, error: { kind: 'unexpected', code: 'REQUEST_SUPERSEDED' } }) } as any);
+  const page = context(definition); definition.onLoad.call(page); await Promise.resolve(); await Promise.resolve();
+  assert.equal(page.data.state, 'failed');
+});
+
+test('metadata-less feed posts retain open report and authenticated reaction paths', async () => {
+  const { createCirclePage } = await import('../miniprogram/pages/circle/index.ts');
+  const post = { id: '42', bodyPreview: '旧帖', likeCount: 0, likedByMe: false };
+  const navigated: string[] = []; const reactions: any[] = [];
+  const previous = wx.navigateTo;
+  wx.navigateTo = ((input: any) => { navigated.push(input.url); }) as any;
+  try {
+    const definition: any = createCirclePage({ session: { ...anonymousSession, getSnapshot: () => ({ status: 'authenticated', account: {} }) },
+      listPosts: async () => ok({ items: [post], nextCursor: null }), react: async (input: any) => { reactions.push(input); return ok({}); } } as any);
+    const page = context(definition); definition.onLoad.call(page); await Promise.resolve(); await Promise.resolve();
+    definition.openPost.call(page, { detail: { id: '42' } }); definition.reportPost.call(page, { detail: { id: '42' } });
+    await definition.toggleLike.call(page, { detail: { post } });
+    assert.deepEqual(navigated, ['/pages/circle-detail/index?id=42', '/pages/circle-detail/index?id=42&report=post']);
+    assert.deepEqual(reactions, [{ targetType: 'POST', targetId: '42', liked: true }]);
+    assert.equal(page.data.posts[0].likedByMe, true); assert.equal(page.data.posts[0].title, undefined);
+  } finally { wx.navigateTo = previous; }
+});
+
+test('detail and personal post readers expose category labels without fabricating old titles', async () => {
+  const detail = await import('../miniprogram/pages/circle-detail/index.ts');
+  const personal = await import('../miniprogram/pages/circle-me/index.ts');
+  const post = { id: '42', body: '正文', category: 'STUDY', title: '<b>求助</b>', universityName: '马来亚大学', ownedByMe: true, createdAt: '2026-10-08T00:00:00Z', publishedAt: '2026-10-08T00:00:00Z', status: 'PUBLISHED' };
+  const definition: any = detail.createCircleDetailPage({ session: anonymousSession, loadPost: async () => ok(post), listComments: async () => ok({ items: [], nextCursor: null }) } as any);
+  const page = context(definition); definition.onLoad.call(page, { id: '42' }); await Promise.resolve(); await Promise.resolve();
+  assert.equal(page.data.postCategoryLabel, '学习求助'); assert.equal(page.data.post.title, '<b>求助</b>');
+  const mine: any = personal.createCircleMePage({ session: { ...anonymousSession, getSnapshot: () => ({ status: 'authenticated', account: {} }) },
+    listPosts: async () => ok({ items: [post, { ...post, id: '43', title: undefined, category: undefined }], nextCursor: null }) } as any);
+  const own = context(mine); mine.onLoad.call(own); await Promise.resolve(); await Promise.resolve();
+  assert.equal(own.data.posts[0].categoryLabel, '学习求助'); assert.equal(own.data.posts[1].categoryLabel, '日常交流');
+  assert.equal(own.data.posts[1].title, undefined);
+});
+
 test('feed lifecycle refreshes once after authentication and invalidates unloaded requests', async () => {
   const module = await import('../miniprogram/pages/circle/index.ts');
   const requests: Array<ReturnType<typeof deferred<Result<any>>>> = [];

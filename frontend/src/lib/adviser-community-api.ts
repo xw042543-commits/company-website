@@ -6,7 +6,9 @@ export type ModerationCommand = "HIDE" | "RESTORE" | "REJECT_REPORT" | "MUTE" | 
 export type ModerationHistoryCommand = ModerationCommand | "AUTO_HIDE";
 export type ModerationAction = Readonly<{ command: ModerationCommand; reasonCode: string; version: number; restrictionEndsAt?: string | null }>;
 export type ModerationResult<T> = { status: "ready"; value: T } | AdviserFailure;
-export type ModerationQueueItem = {
+export type ModerationCategory = "GENERAL" | "NEWCOMER" | "HOUSING" | "MARKETPLACE" | "STUDY" | "MEETUP";
+export type ModerationPostMetadata = { title?: string | null; category?: ModerationCategory | null; universityId?: string | null; universityName?: string | null };
+export type ModerationQueueItem = ModerationPostMetadata & {
   targetType: ModerationTargetType; targetId: string; status: ModerationContentStatus; bodyPreview: string;
   version: number; openReportCount: number; createdAt: string;
 };
@@ -14,7 +16,7 @@ export type ModerationQueue = { items: ModerationQueueItem[]; nextCursor: string
 export type ModerationReportSummary = { reasonCode: string; status: "OPEN" | "RESOLVED_ACTIONED" | "RESOLVED_REJECTED"; count: number };
 export type ModerationHistoryAction = { id: string; command: ModerationHistoryCommand; reasonCode: string;
   previousStatus: ModerationContentStatus | null; nextStatus: ModerationContentStatus | null; createdAt: string };
-export type ModerationDetail = {
+export type ModerationDetail = ModerationPostMetadata & {
   targetType: ModerationTargetType; targetId: string; status: ModerationContentStatus; body: string;
   postId: string | null; parentCommentId: string | null; version: number; openReportCount: number;
   reports: ModerationReportSummary[]; actions: ModerationHistoryAction[]; actionsNextCursor: string | null;
@@ -42,13 +44,24 @@ const cursor = (value: unknown): value is string => typeof value === "string" &&
 const nullableCursor = (value: unknown) => value === null || cursor(value);
 const bodyText = (value: unknown, max: number) => typeof value === "string" && value.trim().length > 0 && [...value].length <= max;
 const previewText = (value: unknown) => typeof value === "string" && [...value].length <= 160;
+const categories = ["GENERAL", "NEWCOMER", "HOUSING", "MARKETPLACE", "STUDY", "MEETUP"];
+function metadataFields(value: Record<string, unknown>, keys: string[]) {
+  const metadata = ["title", "category", "universityId", "universityName"];
+  if (!keys.every((key) => Object.hasOwn(value, key)) || !Object.keys(value).every((key) => keys.includes(key) || metadata.includes(key))) return false;
+  if (value.targetType === "COMMENT") return metadata.every((key) => !Object.hasOwn(value, key) || value[key] === null);
+  return (!Object.hasOwn(value, "title") || value.title === null || (bodyText(value.title, 60) && !(value.title as string).includes('\0')
+    && [...value.title as string].every((point) => !/^[\uD800-\uDFFF]$/.test(point))))
+    && (!Object.hasOwn(value, "category") || token(value.category, categories))
+    && (!Object.hasOwn(value, "universityId") || value.universityId === null || decimalId(value.universityId))
+    && (!Object.hasOwn(value, "universityName") || value.universityName === null || bodyText(value.universityName, 255));
+}
 
 function targetFields(value: Record<string, unknown>) {
   return targetType(value.targetType) && decimalId(value.targetId) && token(value.status, contentStatuses)
     && integer(value.version) && integer(value.openReportCount);
 }
 function parseItem(value: unknown): ModerationQueueItem | null {
-  return record(value) && exact(value, ["targetType", "targetId", "status", "bodyPreview", "version", "openReportCount", "createdAt"])
+  return record(value) && metadataFields(value, ["targetType", "targetId", "status", "bodyPreview", "version", "openReportCount", "createdAt"])
     && targetFields(value) && previewText(value.bodyPreview) && timestamp(value.createdAt) ? value as ModerationQueueItem : null;
 }
 function parseQueue(value: unknown): ModerationQueue | null {
@@ -68,7 +81,7 @@ function parseHistory(value: unknown): ModerationHistoryAction | null {
     ? value as ModerationHistoryAction : null;
 }
 function parseDetail(value: unknown): ModerationDetail | null {
-  if (!record(value) || !exact(value, ["targetType", "targetId", "status", "body", "postId", "parentCommentId", "version", "openReportCount", "reports", "actions", "actionsNextCursor"])
+  if (!record(value) || !metadataFields(value, ["targetType", "targetId", "status", "body", "postId", "parentCommentId", "version", "openReportCount", "reports", "actions", "actionsNextCursor"])
     || !targetFields(value) || !bodyText(value.body, value.targetType === "POST" ? 2000 : 1000)
     || (value.targetType === "POST" ? value.postId !== null || value.parentCommentId !== null
       : !decimalId(value.postId) || !(value.parentCommentId === null || decimalId(value.parentCommentId)))

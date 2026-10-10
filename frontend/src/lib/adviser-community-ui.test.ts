@@ -5,6 +5,12 @@ import type { ModerationDetail } from "./adviser-community-api.ts";
 import { loadCommunityModerationDetail } from "./adviser-community-api.ts";
 import * as communityUi from "./adviser-community-ui.ts";
 
+test("post context identifies real school and board while legacy posts have no invented title", () => {
+  assert.equal(communityUi.moderationPostContext("zh", { category: "HOUSING", universityName: "马来亚大学" }), "租房室友 · 马来亚大学");
+  assert.equal(communityUi.moderationPostContext("en", { category: "STUDY", universityName: "Universiti Malaya" }), "Study help · Universiti Malaya");
+  assert.equal(communityUi.moderationPostContext("zh", {}), "日常交流");
+});
+
 test("automatic-hide history displays fixed bilingual event and reason labels and keeps restore available", async () => {
   const payload = JSON.parse(readFileSync(new URL("../../../backend/src/test/resources/community/automatic-hide-detail.json", import.meta.url), "utf8"));
   const result = await loadCommunityModerationDetail("https://udajo.example", "POST", "42", {}, async () => Response.json(payload));

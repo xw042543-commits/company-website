@@ -25,6 +25,29 @@ function transport(values: unknown[], status = 200) {
   return { request, calls };
 }
 
+test("moderation reads new post metadata and keeps legacy DTOs while rejecting invalid metadata", async () => {
+  const metadata = { title: "<b>找室友</b>", category: "HOUSING", universityId: "1", universityName: "马来亚大学" };
+  const page = { items: [{ ...item, ...metadata }], nextCursor: null };
+  assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([page]).request), { status: "ready", value: page });
+  const full = { ...detail, ...metadata };
+  assert.deepEqual(await loadCommunityModerationDetail(origin, "POST", "42", {}, transport([full]).request), { status: "ready", value: full });
+  for (const invalid of [{ category: "OTHER" }, { title: "" }, { title: "x".repeat(61) }, { universityId: "01" }, { universityName: "" }, { universityId: 1 }]) {
+    assert.deepEqual(await loadCommunityModerationDetail(origin, "POST", "42", {}, transport([{ ...full, ...invalid }]).request), { status: "error" });
+  }
+  const comment = { ...detail, targetType: "COMMENT", postId: "1", title: null, category: null, universityId: null, universityName: null };
+  assert.deepEqual(await loadCommunityModerationDetail(origin, "COMMENT", "42", {}, transport([comment]).request), { status: "ready", value: comment });
+});
+
+test("moderation title validation preserves valid Unicode and whitespace and rejects unpaired surrogates", async () => {
+  for (const title of ["问题\t补充", "😀".repeat(60)]) {
+    const full = { ...detail, title, category: "GENERAL", universityId: null, universityName: null };
+    assert.deepEqual(await loadCommunityModerationDetail(origin, "POST", "42", {}, transport([full]).request), { status: "ready", value: full });
+  }
+  for (const title of ["\ud800", "bad\u0000title"]) {
+    assert.deepEqual(await loadCommunityModerationDetail(origin, "POST", "42", {}, transport([{ ...detail, title }]).request), { status: "error" });
+  }
+});
+
 test("queue retains decimal IDs and serializes only validated moderation filters", async () => {
   const page = { items: [item], nextCursor: "opaque+/=" };
   const { request, calls } = transport([page]);

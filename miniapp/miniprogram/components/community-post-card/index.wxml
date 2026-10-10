@@ -15,6 +15,8 @@
     </view>
     <button class="text-action" bindtap="report" aria-label="举报这条帖子">举报</button>
   </view>
+  <view class="post-context"><text>{{categoryLabel}}</text><text wx:if="{{post.universityName}}" class="post-school">{{post.universityName}}</text></view>
+  <view wx:if="{{post.title}}" class="post-title" bindtap="open">{{post.title}}</view>
   <view class="post-body" bindtap="open">{{post.bodyPreview}}</view>
   <view class="post-actions">
     <button class="metric-button" bindtap="open" aria-label="查看{{post.commentCount}}条评论">

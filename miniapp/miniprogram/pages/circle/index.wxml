@@ -1,5 +1,11 @@
 <view class="page-shell circle-page">
-  <view class="circle-header"><view><view class="circle-title">U圈</view><view class="circle-subtitle">真实同学的留学经验与交流</view></view><button class="header-action" bindtap="openMine">我的内容</button></view>
+  <view class="circle-header"><view class="circle-title">U圈</view><button class="header-action" bindtap="openMine">我的内容</button></view>
+  <view class="mode-tabs" role="tablist" aria-label="社区范围">
+    <button class="mode-tab {{mode === 'plaza' ? 'active' : ''}}" aria-selected="{{mode === 'plaza'}}" data-mode="plaza" bindtap="switchMode">广场</button>
+    <button class="mode-tab {{mode === 'campus' ? 'active' : ''}}" aria-selected="{{mode === 'campus'}}" data-mode="campus" bindtap="switchMode">校园圈</button>
+  </view>
+  <button wx:if="{{mode === 'campus'}}" class="campus-selector" bindtap="openSchools" aria-label="选择校园"><view class="campus-copy"><text class="campus-label">校园圈</text><text class="campus-name">{{universityName || '选择你的校园'}}</text></view><text class="campus-change">{{universityName ? '切换' : '选择'}}</text></button>
+  <scroll-view scroll-x="{{true}}" class="category-scroll" aria-label="生活分类"><view class="category-tabs"><button wx:for="{{boards}}" wx:key="code" class="category-tab {{category === item.code ? 'active' : ''}}" aria-pressed="{{category === item.code}}" data-category="{{item.code}}" bindtap="switchCategory">{{item.label}}</button></view></scroll-view>
   <view class="feed-tabs" role="tablist" aria-label="帖子排序">
     <button class="feed-tab {{sort === 'latest' ? 'feed-tab--active' : ''}}" data-sort="latest" bindtap="switchSort">最新</button>
     <button class="feed-tab {{sort === 'hot' ? 'feed-tab--active' : ''}}" data-sort="hot" bindtap="switchSort">热门</button>
@@ -11,8 +17,15 @@
     <community-post-card wx:for="{{posts}}" wx:key="id" post="{{item}}" reacting="{{reactingId === item.id}}" bind:open="openPost" bind:react="toggleLike" bind:report="reportPost" />
     <view wx:if="{{loadingMore}}" class="feed-foot">正在加载更多内容…</view><view wx:elif="{{!nextCursor}}" class="feed-foot">已显示全部内容</view>
   </view>
-  <app-state wx:elif="{{state === 'empty'}}" kind="empty" title="U圈还没有帖子" description="成为第一个分享真实留学经验的人。" />
+  <view wx:elif="{{state === 'select-school'}}" class="feed-state"><view class="state-title">选择校园，看看同校讨论</view><view class="state-copy">从院校列表选择学校后，查看校园内的帖子。</view><button class="state-action" bindtap="openSchools">选择校园</button></view>
+  <view wx:elif="{{state === 'empty'}}" class="feed-state"><view class="state-title">这里还没有帖子</view><view class="state-copy">分享一个问题或一段校园日常。</view><button class="state-action" bindtap="openCompose">发布帖子</button></view>
   <app-state wx:elif="{{state === 'offline'}}" kind="offline" title="网络暂时不可用" description="请检查网络连接后重新加载。" retryable="{{true}}" bind:retry="retry" />
   <app-state wx:elif="{{state === 'failed'}}" kind="failed" title="U圈加载失败" description="暂时无法读取社区内容，请稍后重试。" retryable="{{true}}" bind:retry="retry" />
-  <button class="compose-button" bindtap="openCompose" aria-label="发布U圈帖子"><view class="compose-symbol" aria-hidden="true"></view><text>发布</text></button>
+  <button wx:if="{{!schoolOpen}}" class="compose-button" bindtap="openCompose" aria-label="发布U圈帖子"><view class="compose-symbol" aria-hidden="true"></view><text>发布</text></button>
+  <view wx:if="{{schoolOpen}}" class="school-overlay" bindtap="cancelSchools"><view class="school-dialog" role="dialog" aria-label="选择校园" catchtap="noop">
+    <view class="state-title">选择校园</view>
+    <view class="school-search"><input value="{{schoolQuery}}" placeholder="搜索院校名称" aria-label="搜索院校名称" bindinput="updateSchoolQuery" confirm-type="search" bindconfirm="searchSchools" /><button bindtap="searchSchools">搜索</button></view>
+    <scroll-view scroll-y="{{true}}" class="school-results"><button wx:for="{{schools}}" wx:key="id" class="school-option" data-id="{{item.id}}" bindtap="selectSchool">{{item.name}}</button><view wx:if="{{schoolState === 'loading'}}" class="school-message">正在加载院校…</view><view wx:elif="{{schoolState === 'empty'}}" class="school-message">没有找到院校，请换个名称搜索。</view><view wx:elif="{{schoolState === 'failed'}}" class="school-message">院校加载失败，请重试。<button bindtap="retrySchools">重新加载</button></view></scroll-view>
+    <view wx:if="{{schoolTotalPages > 0}}" class="school-pagination"><button disabled="{{schoolPage <= 1 || schoolState === 'loading'}}" bindtap="previousSchools">上一页</button><text>{{schoolPage}} / {{schoolTotalPages}}</text><button disabled="{{schoolPage >= schoolTotalPages || schoolState === 'loading'}}" bindtap="nextSchools">下一页</button></view><button class="school-cancel" bindtap="cancelSchools">取消</button>
+  </view></view>
 </view>
