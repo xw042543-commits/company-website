@@ -11,8 +11,15 @@ public class CommunityPersonalService {
     private final CommunityPostRepository posts;
     private final CommunityCommentRepository comments;
     private final CommunityCursorCodec cursors;
+    private final com.yangdoujiao.website.university.UniversityRepository universities;
     public CommunityPersonalService(CommunityPostRepository posts, CommunityCommentRepository comments, CommunityCursorCodec cursors) {
+        this(posts, comments, cursors, null);
+    }
+    @org.springframework.beans.factory.annotation.Autowired
+    public CommunityPersonalService(CommunityPostRepository posts, CommunityCommentRepository comments, CommunityCursorCodec cursors,
+            com.yangdoujiao.website.university.UniversityRepository universities) {
         this.posts=posts; this.comments=comments; this.cursors=cursors;
+        this.universities=universities;
     }
     public CommunityCursorPage<CommunityMyPost> posts(long actorId, String cursor, int requestedSize) {
         int size = size(requestedSize);
@@ -23,8 +30,14 @@ public class CommunityPersonalService {
                 : posts.findOwnAfter(actorId, position.timestamp(), position.id(), page);
         var rows = found.subList(0, Math.min(size, found.size()));
         String next = found.size() > size ? cursors.encode(rows.getLast().getCreatedAt(), rows.getLast().getId(), scope) : null;
+        var ids = rows.stream().map(CommunityPost::getUniversityId).filter(java.util.Objects::nonNull).distinct().toList();
+        java.util.Map<Long, String> names = ids.isEmpty() ? java.util.Map.of() : universities.findAllById(ids).stream()
+                .collect(java.util.stream.Collectors.toMap(com.yangdoujiao.website.university.University::getId,
+                        com.yangdoujiao.website.university.University::getName));
         return new CommunityCursorPage<>(rows.stream().map(p -> new CommunityMyPost(p.getId().toString(), p.getBody(),
-                p.getStatus(), message(p.getStatus()), p.getCreatedAt(), p.getPublishedAt(), p.getCommentCount(), p.getLikeCount())).toList(), next);
+                p.getStatus(), message(p.getStatus()), p.getCreatedAt(), p.getPublishedAt(), p.getCommentCount(), p.getLikeCount(),
+                p.getTitle(), p.getCategory(), p.getUniversityId() == null ? null : p.getUniversityId().toString(),
+                p.getUniversityId() == null ? null : names.get(p.getUniversityId()))).toList(), next);
     }
     public CommunityCursorPage<CommunityMyComment> comments(long actorId, String cursor, int requestedSize) {
         int size = size(requestedSize);

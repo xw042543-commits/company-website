@@ -11,7 +11,7 @@ import type { AdviserFailure } from "@/lib/adviser-consultation-api";
 import { abortableRequest, createLatestRequest } from "@/lib/adviser-consultations-ui";
 import {
   afterModerationFailure, canSubmitModeration, moderationErrorText, moderationQueueFilters,
-  muteExpiry, reasonsForCommand, reportReasons, resolveModerationHistoryPage, moderationCommandLabel, moderationReasonLabel, type QueueFilterDraft,
+  muteExpiry, reasonsForCommand, reportReasons, resolveModerationHistoryPage, moderationCommandLabel, moderationReasonLabel, moderationPostContext, type QueueFilterDraft,
 } from "@/lib/adviser-community-ui";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
@@ -187,7 +187,7 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
               setSelected({ targetType: item.targetType, targetId: item.targetId }); setDetail(null); setReasonCode(""); setConfirmed(false); setExpiry(""); setAnnouncement("");
               void loadDetail(item);
             }}>
-            <span className="adviser-record-primary"><strong>{typeLabel(item.targetType)} · {statusLabel(item.status)}</strong><span className="community-preview">{item.bodyPreview.trim() || w("打开查看完整内容", "Open to review full content")}</span></span>
+            <span className="adviser-record-primary"><strong>{typeLabel(item.targetType)} · {statusLabel(item.status)}</strong>{item.targetType === "POST" && <span className="community-post-context">{moderationPostContext(locale, item)}</span>}{item.title && <strong className="community-post-title">{item.title}</strong>}<span className="community-preview">{item.bodyPreview.trim() || w("打开查看完整内容", "Open to review full content")}</span></span>
             <span className="adviser-record-meta"><span>{w(`待处理举报 ${item.openReportCount} 条`, `${item.openReportCount} open reports`)}</span><time dateTime={item.createdAt}>{date(item.createdAt)}</time></span>
           </button></li>)}</ol>}
         {data && <nav className="adviser-pagination" aria-label={w("队列分页", "Queue pagination")}>
@@ -214,7 +214,7 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
               <div><dt>{w("当前版本", "Current version")}</dt><dd>{detail.version}</dd></div>
               {detail.postId && <div><dt>{w("所属帖子编号", "Parent post ID")}</dt><dd>{detail.postId}</dd></div>}
               {detail.parentCommentId && <div><dt>{w("回复评论编号", "Parent comment ID")}</dt><dd>{detail.parentCommentId}</dd></div>}</dl>
-            <section className="community-detail-section" aria-label={w("完整内容", "Full content")}><h3>{w("完整内容", "Full content")}</h3><p className="community-body">{detail.body}</p></section>
+            <section className="community-detail-section" aria-label={w("完整内容", "Full content")}><h3>{w("完整内容", "Full content")}</h3>{detail.targetType === "POST" && <p className="community-post-context">{moderationPostContext(locale, detail)}</p>}{detail.title && <h4 className="community-post-title">{detail.title}</h4>}<p className="community-body">{detail.body}</p></section>
             <section className="community-detail-section" aria-labelledby="community-reports-title"><h3 id="community-reports-title">{w("举报汇总", "Report summary")}</h3>
               <p>{w(`待处理举报 ${detail.openReportCount} 条`, `${detail.openReportCount} open reports`)}</p>
               {detail.reports.length === 0 ? <p>{w("暂无举报。", "No reports.")}</p> : <ul className="community-report-list">{detail.reports.map((report) => <li key={`${report.reasonCode}:${report.status}`}><span>{reasonLabel(report.reasonCode)} · {reportStatus(report.status)}</span><strong>{w(`${report.count} 条`, `${report.count} reports`)}</strong></li>)}</ul>}

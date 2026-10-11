@@ -5,10 +5,11 @@ import {
 import { sessionStore } from '../../stores/session';
 import { errorCopy, formatCommunityTime, statusCopy, unwrapCommunityRoute } from '../../utils/community-ui';
 import { communityPostRoute } from '../../utils/routes';
+import { communityCategoryLabel } from '../../utils/community-boards';
 
 type PersonalTab = 'posts' | 'comments';
 type PersonalState = 'loading' | 'ready' | 'empty' | 'offline' | 'failed';
-type PersonalPostItem = CommunityMyPost & { displayTime: string; statusLabel: string };
+type PersonalPostItem = CommunityMyPost & { displayTime: string; statusLabel: string; categoryLabel: string };
 type PersonalCommentItem = CommunityMyComment & { displayTime: string; statusLabel: string };
 interface ItemEvent extends WechatMiniprogram.BaseEvent { currentTarget: WechatMiniprogram.BaseEvent['currentTarget'] & { dataset: { id?: string; post?: string; status?: string } } }
 
@@ -64,7 +65,7 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
     if (this.data.tab === 'posts') {
       const incoming = result.value.items as readonly CommunityMyPost[];
       const items = new Map((reset ? [] : this.data.posts).map((item: PersonalPostItem) => [item.id, item]));
-      incoming.forEach((item) => items.set(item.id, { ...item, displayTime: formatCommunityTime(item.createdAt), statusLabel: statusCopy(item.status) }));
+      incoming.forEach((item) => items.set(item.id, { ...item, categoryLabel: communityCategoryLabel(item.category), displayTime: formatCommunityTime(item.createdAt), statusLabel: statusCopy(item.status) }));
       const posts = [...items.values()]; this.setData({ posts, nextCursor: result.value.nextCursor, loadingMore: false, state: posts.length ? 'ready' : 'empty' });
     } else {
       const incoming = result.value.items as readonly CommunityMyComment[];

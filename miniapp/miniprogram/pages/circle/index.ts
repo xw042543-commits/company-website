@@ -2,12 +2,16 @@ import { createCommunityRequestScope, listCommunityPosts, setCommunityReaction, 
 import { sessionStore } from '../../stores/session';
 import { canUseCommunityWrite, errorCopy, shouldRestartHotFeed, unwrapCommunityRoute } from '../../utils/community-ui';
 import { communityComposeRoute, communityMeRoute, communityPostRoute } from '../../utils/routes';
+import { COMMUNITY_BOARDS, isCommunityCategory } from '../../utils/community-boards';
+import { isCommunityId } from '../../utils/community-validation';
+import { createUniversitySearchService, type UniversitySearchService } from '../../services/universities';
 
-type FeedState = 'loading' | 'ready' | 'empty' | 'offline' | 'failed';
+type FeedState = 'loading' | 'ready' | 'empty' | 'offline' | 'failed' | 'select-school';
 interface PostEvent extends WechatMiniprogram.BaseEvent { detail: { id?: string; post?: CommunityPostSummary } }
 
-interface FeedRuntime { generation: number; active: boolean; requestScope: string; sessionStatus: string; unsubscribe: (() => void) | null }
-type CircleDeps = { listPosts: typeof listCommunityPosts; react: typeof setCommunityReaction; session: typeof sessionStore; createScope: typeof createCommunityRequestScope };
+interface FeedRuntime { generation: number; active: boolean; requestScope: string; sessionStatus: string; unsubscribe: (() => void) | null;
+  schoolGeneration: number; schoolCommittedQuery: string; search: UniversitySearchService['search'] }
+type CircleDeps = { listPosts: typeof listCommunityPosts; react: typeof setCommunityReaction; session: typeof sessionStore; createScope: typeof createCommunityRequestScope; searchUniversities?: UniversitySearchService['search'] };
 const circleDefaults: CircleDeps = { listPosts: listCommunityPosts, react: setCommunityReaction, session: sessionStore, createScope: createCommunityRequestScope };
 type FeedPage = WechatMiniprogram.Page.TrivialInstance & { _communityRuntime: FeedRuntime };
 function runtime(page: WechatMiniprogram.Page.TrivialInstance): FeedRuntime { return (page as FeedPage)._communityRuntime; }
@@ -19,10 +23,15 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
     session: sessionStore.getSnapshot(), sort: 'latest' as 'latest' | 'hot', state: 'loading' as FeedState,
     posts: [] as CommunityPostSummary[], nextCursor: null as string | null, loadingMore: false,
     reactingId: null as string | null, skeletonRows: [1, 2, 3],
+    mode: 'plaza', category: '', boards: [{ code: '', label: '全部' }, ...COMMUNITY_BOARDS],
+    universityId: null as string | null, universityName: '',
+    schoolOpen: false, schoolQuery: '', schoolState: 'idle', schools: [], schoolPage: 1, schoolTotalPages: 0,
   },
   onLoad() {
     const initial = deps.session.getSnapshot();
-    const state: FeedRuntime = { generation: 0, active: true, requestScope: deps.createScope(), sessionStatus: initial.status, unsubscribe: null };
+    const requestScope = deps.createScope();
+    const state: FeedRuntime = { generation: 0, active: true, requestScope, sessionStatus: initial.status, unsubscribe: null,
+      schoolGeneration: 0, schoolCommittedQuery: '', search: deps.searchUniversities ?? createUniversitySearchService(undefined, `feed-schools:${requestScope}`).search };
     (this as FeedPage)._communityRuntime = state;
     this.setData({ session: initial });
     state.unsubscribe = deps.session.subscribe((session) => {
@@ -43,8 +52,47 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
   switchSort(event: WechatMiniprogram.BaseEvent) {
     const sort = event.currentTarget.dataset.sort;
     if ((sort !== 'latest' && sort !== 'hot') || sort === this.data.sort) return;
-    this.setData({ sort, posts: [], nextCursor: null }, () => void this.loadFeed(true));
+    this.setData({ sort }); this.resetScope();
   },
+  switchMode(event: WechatMiniprogram.BaseEvent) {
+    const mode = event.currentTarget.dataset.mode;
+    if ((mode !== 'plaza' && mode !== 'campus') || mode === this.data.mode) return;
+    this.setData({ mode }); this.resetScope();
+  },
+  switchCategory(event: WechatMiniprogram.BaseEvent) {
+    const category = event.currentTarget.dataset.category;
+    if ((category !== '' && !isCommunityCategory(category)) || category === this.data.category) return;
+    this.setData({ category }); this.resetScope();
+  },
+  resetScope() {
+    runtime(this).generation++;
+    this.setData({ posts: [], nextCursor: null, loadingMore: false }, () => void this.loadFeed(true));
+  },
+  async openSchools() { this.setData({ schoolOpen: true }); await this.searchSchools(); },
+  cancelSchools() { runtime(this).schoolGeneration++; this.setData({ schoolOpen: false, schoolState: 'idle' }); },
+  updateSchoolQuery(event: WechatMiniprogram.Input) { this.setData({ schoolQuery: event.detail.value }); },
+  async searchSchools() { runtime(this).schoolCommittedQuery = this.data.schoolQuery.trim(); this.setData({ schoolTotalPages: 0 }); await this.loadSchools(1); },
+  async retrySchools() { await this.loadSchools(this.data.schoolPage); },
+  async nextSchools() { if (this.data.schoolPage < this.data.schoolTotalPages && this.data.schoolState !== 'loading') await this.loadSchools(this.data.schoolPage + 1); },
+  async previousSchools() { if (this.data.schoolPage > 1 && this.data.schoolState !== 'loading') await this.loadSchools(this.data.schoolPage - 1); },
+  async loadSchools(page: number) {
+    const state = runtime(this); const generation = ++state.schoolGeneration;
+    this.setData({ schoolState: 'loading', schoolPage: page, schools: [] });
+    const result = await state.search({ q: state.schoolCommittedQuery, page, size: 12 });
+    if (!state.active || !this.data.schoolOpen || generation !== state.schoolGeneration) return;
+    if (!result.ok) { this.setData({ schoolState: 'failed' }); return; }
+    const schools = result.value.items.filter((school) => Number.isSafeInteger(school.id) && school.id > 0)
+      .map((school) => ({ id: String(school.id), name: school.nameZh }));
+    this.setData({ schools, schoolPage: result.value.page, schoolTotalPages: result.value.totalPages, schoolState: schools.length ? 'ready' : 'empty' });
+  },
+  selectSchool(event: WechatMiniprogram.TouchEvent) {
+    const id = event.currentTarget.dataset.id;
+    const school = this.data.schools.find((item: { id: string; name: string }) => item.id === id);
+    if (!school || !isCommunityId(id)) return;
+    this.setData({ universityId: id, universityName: school.name, mode: 'campus' });
+    this.cancelSchools(); this.resetScope();
+  },
+  noop() {},
   retry() { void this.loadFeed(true); },
   async openCompose() {
     if (!(await this.ensureLogin())) return;
@@ -83,19 +131,21 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
     this.setData({ reactingId: null });
   },
   async loadFeed(reset: boolean, restarted = false): Promise<void> {
+    if (this.data.mode === 'campus' && !this.data.universityId) {
+      this.setData({ state: 'select-school', nextCursor: null, loadingMore: false }); return;
+    }
     if (!reset && this.data.loadingMore) return;
     const cursor = reset ? null : this.data.nextCursor;
     if (!reset && !cursor) return;
     const state = runtime(this);
     const generation = ++state.generation;
-    if (reset) this.setData({ state: 'loading' as FeedState, nextCursor: null });
+    if (reset) this.setData({ state: 'loading' as FeedState, nextCursor: null, loadingMore: false });
     else this.setData({ loadingMore: true });
-    const result = await deps.listPosts({ sort: this.data.sort, cursor, size: 20, requestScope: state.requestScope });
+    const result = await deps.listPosts({ sort: this.data.sort, cursor, size: 20, requestScope: state.requestScope,
+      ...(this.data.category ? { category: this.data.category } : {}),
+      ...(this.data.mode === 'campus' ? { universityId: this.data.universityId } : {}) });
     if (!state.active || generation !== state.generation) return;
     if (!result.ok) {
-      if (result.error.code === 'REQUEST_SUPERSEDED') {
-        this.setData({ loadingMore: false, state: this.data.posts.length ? 'ready' : 'empty' }); return;
-      }
       if (!restarted && shouldRestartHotFeed(this.data.sort, cursor, result.error)) {
         this.setData({ posts: [], nextCursor: null, loadingMore: false });
         await this.loadFeed(true, true); return;

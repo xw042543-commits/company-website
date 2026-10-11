@@ -1,6 +1,13 @@
-import type { ModerationCommand, ModerationDetail, ModerationQueueFilters, ModerationResult } from "./adviser-community-api.ts";
+import type { ModerationCommand, ModerationDetail, ModerationPostMetadata, ModerationQueueFilters, ModerationResult } from "./adviser-community-api.ts";
 import type { AdviserFailure } from "./adviser-consultation-api.ts";
 import { type Locale, words } from "./site.ts";
+
+export function moderationPostContext(locale: Locale, post: ModerationPostMetadata): string {
+  const labels: Record<string, [string, string]> = { GENERAL: ['日常交流', 'Daily life'], NEWCOMER: ['新生报到', 'New arrivals'],
+    HOUSING: ['租房室友', 'Housing & roommates'], MARKETPLACE: ['二手闲置', 'Secondhand'], STUDY: ['学习求助', 'Study help'], MEETUP: ['周末搭子', 'Weekend meetups'] };
+  const label = labels[post.category ?? 'GENERAL'] ?? labels.GENERAL;
+  return [words(locale, label[0], label[1]), post.universityName].filter(Boolean).join(' · ');
+}
 
 export function moderationReasonLabel(locale: Locale, reason: string): string {
   const w = (zh: string, en: string) => words(locale, zh, en);

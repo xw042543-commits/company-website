@@ -96,17 +96,27 @@ class V3MigrationCompatibilityTest {
                     """, accountId);
             jdbcTemplate.update("UPDATE consultation_enquiries SET user_account_id = ? WHERE id = ?", accountId, enquiryId);
 
+            flywayFor(postgres, "20").migrate();
+            Long legacyPostId = jdbcTemplate.queryForObject("""
+                    INSERT INTO community_posts(author_account_id,body,status,published_at)
+                    VALUES (?, 'Legacy campus conversation', 'PUBLISHED', NOW()) RETURNING id
+                    """, Long.class, accountId);
+
             Flyway latest = Flyway.configure()
                     .dataSource(postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword())
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("22");
-            assertThat(latest.info().applied()).hasSize(22);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("24");
+            assertThat(latest.info().applied()).hasSize(24);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 22)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 24)
                             .mapToObj(Integer::toString).toList());
+            assertThat(jdbcTemplate.queryForMap("""
+                    SELECT body,title,category,university_id FROM community_posts WHERE id = ?
+                    """, legacyPostId)).containsEntry("body", "Legacy campus conversation")
+                    .containsEntry("title", null).containsEntry("category", "GENERAL").containsEntry("university_id", null);
             assertThat(jdbcTemplate.queryForObject(
                     "SELECT official_url FROM programmes WHERE id = ?", String.class, programmeId))
                     .isEqualTo("https://example.test/programme");

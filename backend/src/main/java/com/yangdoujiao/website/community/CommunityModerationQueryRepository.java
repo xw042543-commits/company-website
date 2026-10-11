@@ -11,9 +11,11 @@ class CommunityModerationQueryRepository {
     private final NamedParameterJdbcTemplate jdbc;
     CommunityModerationQueryRepository(NamedParameterJdbcTemplate jdbc){this.jdbc=jdbc;}
     private static final String TARGETS="""
-            (SELECT 'POST' AS type,id,status,body,version,created_at,NULL::bigint AS post_id,NULL::bigint AS parent_id FROM community_posts
+            (SELECT 'POST' AS type,p.id,p.status,p.body,p.version,p.created_at,NULL::bigint AS post_id,NULL::bigint AS parent_id,
+                p.title,p.category,p.university_id,u.name AS university_name FROM community_posts p LEFT JOIN universities u ON u.id=p.university_id
              UNION ALL
-             SELECT 'COMMENT',id,status,body,version,created_at,post_id,parent_comment_id FROM community_comments) t
+             SELECT 'COMMENT',id,status,body,version,created_at,post_id,parent_comment_id,
+                NULL::varchar,NULL::varchar,NULL::bigint,NULL::varchar FROM community_comments) t
             """;
     List<CommunityModerationPage.Item> queue(String status,CommunityTargetType type,String reason,OffsetDateTime from,OffsetDateTime to,
             CommunityCursorCodec.Position after,String afterType,int size) {
@@ -31,11 +33,12 @@ class CommunityModerationQueryRepository {
         if(to!=null){where.append(" AND t.created_at<=:to");parameters.put("to",to);}
         if(after!=null){where.append(" AND (t.created_at<:time OR (t.created_at=:time AND (t.id<:id OR (t.id=:id AND t.type<:afterType))))");
             parameters.put("time",after.timestamp());parameters.put("id",after.id());parameters.put("afterType",afterType);}
-        return jdbc.query("SELECT t.type,t.id,t.status,substring(t.body from 1 for 160) AS preview,t.version,t.created_at,"+
+        return jdbc.query("SELECT t.type,t.id,t.status,substring(t.body from 1 for 160) AS preview,t.version,t.created_at,t.title,t.category,t.university_id,t.university_name,"+
                 "(SELECT count(*) FROM community_reports r WHERE r.target_type=t.type AND r.target_id=t.id AND r.status='OPEN') AS report_count FROM "+TARGETS+
                 " WHERE "+where+" ORDER BY t.created_at DESC,t.id DESC,t.type DESC LIMIT :limit",parameters,(rs,n)->new CommunityModerationPage.Item(
                 CommunityTargetType.valueOf(rs.getString("type")),rs.getString("id"),CommunityContentStatus.valueOf(rs.getString("status")),
-                rs.getString("preview"),rs.getLong("version"),rs.getLong("report_count"),rs.getObject("created_at",OffsetDateTime.class)));
+                rs.getString("preview"),rs.getLong("version"),rs.getLong("report_count"),rs.getObject("created_at",OffsetDateTime.class),
+                rs.getString("title"),category(rs.getString("category")),rs.getString("university_id"),rs.getString("university_name")));
     }
     CommunityModerationDetail detail(CommunityTargetType type,long id,List<CommunityModerationDetail.Action> actions,String next) {
         var parameters=Map.<String,Object>of("type",type.name(),"id",id);
@@ -43,9 +46,11 @@ class CommunityModerationQueryRepository {
                 parameters,(rs,n)->new CommunityModerationDetail.ReportSummary(rs.getString("reason_code"),CommunityReportStatus.valueOf(rs.getString("status")),rs.getLong("total")));
         var results=jdbc.query("SELECT * FROM "+TARGETS+" WHERE t.type=:type AND t.id=:id",parameters,(rs,n)->new CommunityModerationDetail(type,Long.toString(id),
                 CommunityContentStatus.valueOf(rs.getString("status")),rs.getString("body"),rs.getString("post_id"),rs.getString("parent_id"),rs.getLong("version"),
-                summaries.stream().filter(s->s.status()==CommunityReportStatus.OPEN).mapToLong(CommunityModerationDetail.ReportSummary::count).sum(),summaries,actions,next));
+                summaries.stream().filter(s->s.status()==CommunityReportStatus.OPEN).mapToLong(CommunityModerationDetail.ReportSummary::count).sum(),summaries,actions,next,
+                rs.getString("title"),category(rs.getString("category")),rs.getString("university_id"),rs.getString("university_name")));
         return results.stream().findFirst().orElseThrow(()->CommunityModerationTargets.missing(type));
     }
+    private static CommunityCategory category(String value) { return value == null ? null : CommunityCategory.valueOf(value); }
     List<CommunityModerationDetail.Action> actions(CommunityTargetType type,long id,CommunityCursorCodec.Position after) {
         var parameters=new HashMap<String,Object>();parameters.put("type",type.name());parameters.put("id",id);
         String condition="";

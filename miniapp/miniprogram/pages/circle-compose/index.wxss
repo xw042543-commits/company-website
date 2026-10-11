@@ -1,9 +1,24 @@
-.compose-page { background: var(--color-paper); }
-.compose-title { color: var(--color-deep); font-size: 44rpx; font-weight: 800; line-height: 1.25; }
+.compose-page { --color-paper: #F5F7F6; --color-ink: #183C30; --color-deep: #183C30; --color-muted: #65736B; --color-action: #087C49; --color-line: #E1E7E3; background: #FFFFFF; padding-bottom: calc(56rpx + env(safe-area-inset-bottom)); }
+.compose-title { color: var(--color-deep); font-size: 32rpx; font-weight: 600; line-height: 1.5; }
 .compose-copy, .review-note { margin-top: 16rpx; color: var(--color-muted); font-size: 25rpx; line-height: 1.7; }
-.editor-card { margin-top: 30rpx; padding: 28rpx; }
+.editor-card { margin-top: 24rpx; padding: 24rpx 0; border: 0; border-top: 1rpx solid var(--color-line); border-bottom: 1rpx solid var(--color-line); border-radius: 0; box-shadow: none; }
 .field-label { display: block; color: var(--color-deep); font-size: 27rpx; font-weight: 750; }
-.editor-card textarea { box-sizing: border-box; width: 100%; min-height: 420rpx; margin-top: 16rpx; color: var(--color-ink); font-size: 29rpx; line-height: 1.7; overflow-wrap: anywhere; }
+.editor-card input { min-height: 80rpx; font-size: 28rpx; color: var(--color-ink); }
+.title-counter { margin-bottom: 24rpx; text-align: right; font-size: 22rpx; color: var(--color-muted); }
+.selection-field { box-sizing: border-box; min-height: 44px; margin: 16rpx 0 24rpx; padding: 20rpx; border-radius: 12rpx; background: var(--color-paper); color: var(--color-ink); font-size: 28rpx; text-align: left; line-height: 1.5; overflow-wrap: anywhere; word-break: break-all; }
+.clear-school { margin: -12rpx 0 16rpx; font-size: 24rpx; color: var(--color-action); background: transparent; }
+.school-note { margin-bottom: 28rpx; font-size: 22rpx; color: var(--color-muted); line-height: 1.6; }
+.school-overlay { position: fixed; z-index: 20; inset: 0; display: flex; align-items: center; justify-content: center; padding: 32rpx; background: rgba(0, 0, 0, .35); }
+.school-dialog { box-sizing: border-box; width: 100%; max-width: 620px; padding: 28rpx; border-radius: 20rpx; background: #fff; }
+.school-search { display: flex; gap: 16rpx; margin: 20rpx 0; align-items: center; }
+.school-search input { flex: 1; min-width: 0; font-size: 26rpx; }
+.school-search button, .school-pagination button { min-height: 44px; margin: 0; font-size: 24rpx; }
+.school-results { height: 40vh; }
+.school-option { min-height: 44px; margin: 0; padding: 20rpx 12rpx; border-bottom: 1rpx solid var(--color-line); background: #fff; text-align: left; font-size: 26rpx; line-height: 1.6; overflow-wrap: anywhere; word-break: break-all; }
+.school-message { padding: 30rpx 0; color: var(--color-muted); font-size: 26rpx; }
+.school-pagination { display: flex; justify-content: space-between; align-items: center; gap: 12rpx; margin-top: 20rpx; font-size: 22rpx; }
+.school-cancel { margin-top: 20rpx; font-size: 26rpx; color: var(--color-deep); }
+.editor-card textarea { box-sizing: border-box; width: 100%; min-height: 420rpx; margin-top: 16rpx; color: var(--color-ink); font-size: 28rpx; line-height: 1.7; overflow-wrap: anywhere; }
 .editor-meta { display: flex; min-height: 72rpx; align-items: center; justify-content: space-between; border-top: 1rpx solid var(--color-line); color: var(--color-muted); font-size: 22rpx; }
 .counter--danger { color: var(--color-danger); font-weight: 700; }
 .notice { margin-top: 20rpx; padding: 22rpx 24rpx; border-radius: 16rpx; background: #fceeee; color: var(--color-danger); font-size: 25rpx; line-height: 1.6; }

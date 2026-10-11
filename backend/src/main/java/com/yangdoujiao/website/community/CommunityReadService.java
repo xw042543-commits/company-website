@@ -27,50 +27,92 @@ public class CommunityReadService {
     private final UserExternalIdentityRepository identities;
     private final CommunityCursorCodec cursors;
     private final CommunityHotSnapshotCache hotSnapshots;
+    private final com.yangdoujiao.website.university.UniversityRepository universities;
     private static final int REPLY_PREVIEW_SIZE = 3;
 
     public CommunityReadService(CommunityPostRepository posts, CommunityCommentRepository comments,
             CommunityReactionRepository reactions, UserExternalIdentityRepository identities,
             CommunityCursorCodec cursors, CommunityHotSnapshotCache hotSnapshots) {
+        this(posts, comments, reactions, identities, cursors, hotSnapshots, null);
+    }
+
+    @org.springframework.beans.factory.annotation.Autowired
+    public CommunityReadService(CommunityPostRepository posts, CommunityCommentRepository comments,
+            CommunityReactionRepository reactions, UserExternalIdentityRepository identities,
+            CommunityCursorCodec cursors, CommunityHotSnapshotCache hotSnapshots,
+            com.yangdoujiao.website.university.UniversityRepository universities) {
         this.posts = posts;
         this.comments = comments;
         this.reactions = reactions;
         this.identities = identities;
         this.cursors = cursors;
         this.hotSnapshots = hotSnapshots;
+        this.universities = universities;
     }
 
     public CommunityCursorPage<CommunityPostSummary> list(String sort, String cursor, int requestedSize, UserPrincipal viewer) {
+        return list(sort, cursor, requestedSize, viewer, null, null);
+    }
+
+    public CommunityCursorPage<CommunityPostSummary> list(String sort, String cursor, int requestedSize, UserPrincipal viewer,
+            String category, String universityId) {
         if (!"latest".equals(sort) && !"hot".equals(sort)) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "INVALID_COMMUNITY_SORT", "Community sort is invalid");
         }
         int size = pageSize(requestedSize);
+        CommunityFeedScope scope = scope(category, universityId);
         PageRequest page = PageRequest.of(0, size + 1);
         List<CommunityPost> rows;
         String nextCursor = null;
         if ("hot".equals(sort)) {
-            var frozen = hotSnapshots.page(cursor, size);
+            var frozen = scope.unfiltered() ? hotSnapshots.page(cursor, size) : hotSnapshots.page(cursor, size, scope);
             Map<Long, CommunityPost> byId = posts.findAllById(frozen.ids())
-                    .stream().filter(post -> post.getStatus() == PUBLIC).collect(Collectors.toMap(CommunityPost::getId, Function.identity()));
+                    .stream().filter(post -> post.getStatus() == PUBLIC && scope.matches(post)).collect(Collectors.toMap(CommunityPost::getId, Function.identity()));
             rows = frozen.ids().stream().map(byId::get).filter(java.util.Objects::nonNull).toList();
             nextCursor = frozen.nextCursor();
         } else {
-            CommunityCursorCodec.Position position = cursor == null ? null : cursors.decode(cursor, sort);
-            var found = position == null ? posts.findByStatusOrderByPublishedAtDescIdDesc(PUBLIC, page)
-                    : posts.findLatestAfter(PUBLIC, position.timestamp(), position.id(), page);
+            String cursorScope = "latest:" + scope.key();
+            CommunityCursorCodec.Position position = cursor == null ? null : cursors.decode(cursor, cursorScope);
+            var found = scope.unfiltered()
+                    ? (position == null ? posts.findByStatusOrderByPublishedAtDescIdDesc(PUBLIC, page)
+                        : posts.findLatestAfter(PUBLIC, position.timestamp(), position.id(), page))
+                    : (position == null ? posts.findScopedLatest(PUBLIC, scope.category(), scope.universityId(), page)
+                        : posts.findScopedLatestAfter(PUBLIC, scope.category(), scope.universityId(), position.timestamp(), position.id(), page));
             rows = found.subList(0, Math.min(size, found.size()));
             if (found.size() > size) {
                 CommunityPost last = rows.getLast();
-                nextCursor = cursors.encode(last.getPublishedAt(), last.getId(), sort);
+                nextCursor = cursors.encode(last.getPublishedAt(), last.getId(), cursorScope);
             }
         }
         Map<Long, Profile> profiles = profiles(rows.stream().map(CommunityPost::getAuthorAccountId).toList());
         Set<Long> likes = likes(viewer, CommunityTargetType.POST, rows.stream().map(CommunityPost::getId).toList());
+        var universityNames = universityNames(rows);
         return new CommunityCursorPage<>(rows.stream().map(post -> {
             Profile profile = profiles.getOrDefault(post.getAuthorAccountId(), Profile.DEFAULT);
             return new CommunityPostSummary(post.getId().toString(), profile.name(), profile.avatarUrl(),
-                    preview(post.getBody()), post.getCommentCount(), post.getLikeCount(), post.getPublishedAt(), likes.contains(post.getId()));
+                    preview(post.getBody()), post.getCommentCount(), post.getLikeCount(), post.getPublishedAt(), likes.contains(post.getId()),
+                    post.getTitle(), post.getCategory(), universityId(post), post.getUniversityId() == null ? null : universityNames.get(post.getUniversityId()));
         }).toList(), nextCursor);
+    }
+
+    private CommunityFeedScope scope(String category, String universityId) {
+        CommunityCategory parsedCategory = null;
+        if (category != null) {
+            try { parsedCategory = CommunityCategory.valueOf(category); }
+            catch (IllegalArgumentException exception) { throw new ApiException(HttpStatus.BAD_REQUEST,
+                    "INVALID_COMMUNITY_CATEGORY", "Community category is invalid"); }
+        }
+        Long parsedUniversity = null;
+        if (universityId != null) {
+            try { parsedUniversity = CommunityWriteService.decimalId(universityId); }
+            catch (ApiException exception) { throw invalidUniversity(); }
+            if (!universities.existsById(parsedUniversity)) throw invalidUniversity();
+        }
+        return new CommunityFeedScope(parsedCategory, parsedUniversity);
+    }
+
+    private static ApiException invalidUniversity() {
+        return new ApiException(HttpStatus.BAD_REQUEST, "INVALID_COMMUNITY_UNIVERSITY", "Community university is invalid");
     }
 
     public CommunityPostDetail detail(Long id, UserPrincipal viewer) {
@@ -87,7 +129,19 @@ public class CommunityReadService {
         Profile profile = profiles(List.of(post.getAuthorAccountId())).getOrDefault(post.getAuthorAccountId(), Profile.DEFAULT);
         return new CommunityPostDetail(post.getId().toString(), profile.name(), profile.avatarUrl(), post.getBody(),
                 post.getCommentCount(), post.getLikeCount(), post.getPublishedAt(),
-                likes(viewer, CommunityTargetType.POST, List.of(id)).contains(id), ownedBy(viewer, post.getAuthorAccountId()));
+                likes(viewer, CommunityTargetType.POST, List.of(id)).contains(id), ownedBy(viewer, post.getAuthorAccountId()),
+                post.getTitle(), post.getCategory(), universityId(post), post.getUniversityId() == null ? null : universityNames(List.of(post)).get(post.getUniversityId()));
+    }
+
+    private Map<Long, String> universityNames(List<CommunityPost> rows) {
+        var ids = rows.stream().map(CommunityPost::getUniversityId).filter(java.util.Objects::nonNull).distinct().toList();
+        if (ids.isEmpty()) return Map.of();
+        return universities.findAllById(ids).stream().collect(Collectors.toMap(
+                com.yangdoujiao.website.university.University::getId, com.yangdoujiao.website.university.University::getName));
+    }
+
+    private static String universityId(CommunityPost post) {
+        return post.getUniversityId() == null ? null : post.getUniversityId().toString();
     }
 
     public CommunityCursorPage<CommunityCommentView> comments(Long postId, String cursor, int requestedSize, UserPrincipal viewer) {

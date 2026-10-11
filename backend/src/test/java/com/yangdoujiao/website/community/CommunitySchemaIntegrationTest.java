@@ -41,6 +41,27 @@ class CommunitySchemaIntegrationTest {
     }
 
     @Test
+    void defaultsLegacyPostMetadataAndEnforcesCategoryTitleAndCampusForeignKey() {
+        long user = insertActiveUser();
+        long post = insertPost(user, "historic body", "PUBLISHED");
+        assertThat(jdbc.queryForMap("SELECT title,category,university_id FROM community_posts WHERE id=?", post))
+                .containsEntry("title", null).containsEntry("category", "GENERAL").containsEntry("university_id", null);
+        jdbc.update("UPDATE community_posts SET title=?,category='STUDY' WHERE id=?", "😀".repeat(60), post);
+        assertThatThrownBy(() -> jdbc.update("UPDATE community_posts SET title=? WHERE id=?", "😀".repeat(61), post))
+                .isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> jdbc.update("UPDATE community_posts SET title='' WHERE id=?", post))
+                .isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> jdbc.update("UPDATE community_posts SET category='UNKNOWN' WHERE id=?", post))
+                .isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> jdbc.update("UPDATE community_posts SET category=NULL WHERE id=?", post))
+                .isInstanceOf(DataIntegrityViolationException.class);
+        assertThatThrownBy(() -> jdbc.update("UPDATE community_posts SET university_id=? WHERE id=?", Long.MAX_VALUE, post))
+                .isInstanceOf(DataIntegrityViolationException.class);
+        assertThat(jdbc.queryForObject("SELECT data_type FROM information_schema.columns WHERE table_name='community_posts' AND column_name='university_id'", String.class))
+                .isEqualTo("bigint");
+    }
+
+    @Test
     void enforcesCommunityOwnershipUniquenessAndStatusChecks() {
         long user = insertActiveUser();
         long post = insertPost(user, "hello", "PUBLISHED");

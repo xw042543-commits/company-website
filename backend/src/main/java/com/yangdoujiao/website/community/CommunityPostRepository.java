@@ -31,6 +31,36 @@ public interface CommunityPostRepository extends JpaRepository<CommunityPost, Lo
             """)
     List<CommunityPost> findLatestAfter(CommunityContentStatus status, OffsetDateTime timestamp, Long id, Pageable page);
 
+    @Query("""
+            select p from CommunityPost p where p.status = :status
+              and (:category is null or p.category = :category)
+              and (:universityId is null or p.universityId = :universityId)
+            order by p.publishedAt desc, p.id desc
+            """)
+    List<CommunityPost> findScopedLatest(CommunityContentStatus status, CommunityCategory category, Long universityId, Pageable page);
+
+    @Query("""
+            select p from CommunityPost p where p.status = :status
+              and (:category is null or p.category = :category)
+              and (:universityId is null or p.universityId = :universityId)
+              and (p.publishedAt < :timestamp or (p.publishedAt = :timestamp and p.id < :id))
+            order by p.publishedAt desc, p.id desc
+            """)
+    List<CommunityPost> findScopedLatestAfter(CommunityContentStatus status, CommunityCategory category, Long universityId,
+            OffsetDateTime timestamp, Long id, Pageable page);
+
+    @Query(value = """
+            WITH ranked AS (
+              SELECT id, published_at,
+                round((1::numeric + like_count::numeric + 2 * comment_count::numeric)
+                  / power(greatest(extract(epoch FROM (cast(:snapshot AS timestamptz) - published_at)) / 3600, 0) + 2, 1.5), 12) AS score
+              FROM community_posts WHERE status = 'PUBLISHED' AND published_at <= :snapshot
+                AND (cast(:category AS varchar) IS NULL OR category = :category)
+                AND (cast(:universityId AS bigint) IS NULL OR university_id = :universityId)
+            ) SELECT id FROM ranked ORDER BY score DESC, published_at DESC, id DESC
+            """, nativeQuery = true)
+    List<HotPosition> findScopedHotRanking(OffsetDateTime snapshot, String category, Long universityId, Pageable page);
+
     // Freeze the initial ID order from an explainable, 12-decimal time-decay score.
     @Query(value = """
             WITH ranked AS (

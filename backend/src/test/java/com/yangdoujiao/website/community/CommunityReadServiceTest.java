@@ -17,6 +17,23 @@ import tools.jackson.databind.json.JsonMapper;
 
 class CommunityReadServiceTest {
     @Test
+    void detailIncludesPostMetadataWithoutInventingLegacyTitles() {
+        var posts = mock(CommunityPostRepository.class);
+        var profiles = mock(UserExternalIdentityRepository.class);
+        var json = JsonMapper.builder().build();
+        var codec = new CommunityCursorCodec(json, Clock.systemUTC(), "test-community-cursor-secret-32-bytes");
+        var service = new CommunityReadService(posts, mock(CommunityCommentRepository.class), mock(CommunityReactionRepository.class), profiles, codec, mock(CommunityHotSnapshotCache.class));
+        var post = CommunityPost.create(10L, "body", CommunityContentStatus.PUBLISHED, null, OffsetDateTime.now());
+        ReflectionTestUtils.setField(post, "id", 1L);
+        ReflectionTestUtils.setField(post, "title", "Help with study");
+        ReflectionTestUtils.setField(post, "category", CommunityCategory.STUDY);
+        when(posts.findById(1L)).thenReturn(java.util.Optional.of(post));
+        when(profiles.findProfilesByAccountIds(List.of(10L))).thenReturn(List.of());
+        var result = json.readTree(json.writeValueAsString(service.detail(1L, null)));
+        assertThat(result.path("title").asString()).isEqualTo("Help with study");
+        assertThat(result.path("category").asString()).isEqualTo("STUDY");
+    }
+    @Test
     void hotContinuesPastBoundaryHiddenBetweenRankingAndContentQueries() {
         var time = OffsetDateTime.parse("2026-10-07T00:00:00Z");
         Clock clock = Clock.fixed(Instant.parse("2026-10-08T00:00:00Z"), ZoneOffset.UTC);

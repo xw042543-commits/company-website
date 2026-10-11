@@ -31,12 +31,12 @@ class CommunityReportFailureIntegrationTest extends CommunityModerationIntegrati
         var keys=redis.keys("community:limit:*");if(!keys.isEmpty())redis.delete(keys);
         for(int i=0;i<4;i++)report(id,account(),"threshold","SPAM","").andExpect(status().isCreated());
         mvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get("/api/v1/community/posts").param("sort","hot")).andExpect(status().isOk());
-        String current=redis.opsForValue().get("community:hot:v1:current");
+        String current=redis.opsForValue().get("community:hot:v2:ALL:ALL:current");
         doThrow(new org.springframework.dao.DataAccessResourceFailureException("fixture receipt unavailable")).when(receipts).saveAndFlush(any(CommunityIdempotencyRecord.class));
         report(id,account(),"rollback-hide","SPAM","").andExpect(status().isInternalServerError());
         assertThat(jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,id)).isEqualTo("PUBLISHED");
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_reports WHERE target_id=?",Long.class,id)).isEqualTo(4);
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_moderation_actions WHERE target_id=?",Long.class,id)).isZero();
-        assertThat(redis.opsForValue().get("community:hot:v1:current")).isEqualTo(current);
+        assertThat(redis.opsForValue().get("community:hot:v2:ALL:ALL:current")).isEqualTo(current);
     }
 }

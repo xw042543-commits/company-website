@@ -23,6 +23,15 @@ class CommunityCursorCodecTest {
     private final CommunityCursorCodec codec = new CommunityCursorCodec(JsonMapper.builder().build(), CLOCK, SECRET);
 
     @Test
+    void legacyLatestIsAcceptedOnlyForTheUnfilteredFeed() {
+        String old = codec.encode(OffsetDateTime.now(CLOCK), 1, "latest");
+        assertThat(codec.decode(old, "latest:ALL:ALL").id()).isEqualTo(1);
+        invalid(() -> codec.decode(old, "latest:STUDY:1"));
+        String scoped = codec.encode(OffsetDateTime.now(CLOCK), 2, "latest:STUDY:1");
+        invalid(() -> codec.decode(scoped, "latest:STUDY:2"));
+    }
+
+    @Test
     void roundTripsFullLongIdAndTimestampWithoutNumericJsonIdentifier() {
         String encoded = codec.encode(OffsetDateTime.parse("2026-10-07T23:00:00.123456Z"), Long.MAX_VALUE, "latest");
         var decoded = codec.decode(encoded, "latest");

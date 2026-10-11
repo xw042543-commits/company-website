@@ -5,6 +5,7 @@ import {
   type CommunityComment, type CommunityPostDetail, type CommunityReportReason,
 } from '../../services/community';
 import { sessionStore } from '../../stores/session';
+import { communityCategoryLabel } from '../../utils/community-boards';
 import {
   canUseCommunityWrite, codePointLength, createSubmissionState, editSubmission,
   errorCopy, finishSubmission, formatCommunityTime, mergeCommunityItems, prepareSubmission,
@@ -58,7 +59,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
   data: {
     postState: 'loading' as ViewState, commentsState: 'loading' as ViewState,
     ...UNAVAILABLE_POST_COPY['not-found'],
-    post: null as CommunityPostDetail | null, postTime: '', comments: [] as CommentItem[],
+    post: null as CommunityPostDetail | null, postTime: '', postCategoryLabel: '', comments: [] as CommentItem[],
     commentsCursor: null as string | null, loadingMoreComments: false, ownerPost: false,
     commentBody: '', commentCount: 0, replyParentId: null as string | null, replyAuthor: '', submittingComment: false,
     reportOpen: false, reportTargetType: 'POST' as 'POST' | 'COMMENT', reportTargetId: '',
@@ -103,7 +104,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
       return;
     }
     const postAvatarFailed = this.data.post?.authorAvatarUrl === result.value.authorAvatarUrl ? this.data.postAvatarFailed : false;
-    this.setData({ post: result.value, ownerPost: result.value.ownedByMe, postAvatarFailed,
+    this.setData({ post: result.value, postCategoryLabel: communityCategoryLabel(result.value.category), ownerPost: result.value.ownedByMe, postAvatarFailed,
       postTime: formatCommunityTime(result.value.publishedAt), postState: 'ready' as ViewState });
   },
   async loadComments(reset: boolean) {

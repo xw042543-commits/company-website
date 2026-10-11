@@ -15,10 +15,11 @@ import org.springframework.stereotype.Component;
 import com.yangdoujiao.website.common.exception.ApiException;
 import tools.jackson.databind.ObjectMapper;
 
-/** One shared derived ranking per 45-second lifetime. Content/visibility is always re-read from PostgreSQL. */
+/** One derived ranking per scope per 45 seconds. New posts may wait up to 45 seconds;
+ * visibility is always re-read from PostgreSQL, so hiding/deleting is immediate. */
 @Component
 public class CommunityHotSnapshotCache {
-    private static final String PREFIX = "community:hot:v1:";
+    private static final String PREFIX = "community:hot:v2:";
     private static final Duration LIFETIME = Duration.ofSeconds(45);
     private static final int MAX_ROWS = 100000;
     private static final DefaultRedisScript<Long> PUBLISH_IF_OWNER = new DefaultRedisScript<>("""
@@ -53,15 +54,22 @@ public class CommunityHotSnapshotCache {
     }
 
     public SnapshotPage page(String cursor, int size) {
+        return page(cursor, size, CommunityFeedScope.ALL);
+    }
+
+    public SnapshotPage page(String cursor, int size, CommunityFeedScope scope) {
         try {
-            var position = cursor == null ? null : cursors.decodeHot(cursor);
-            Manifest manifest = position == null ? current() : load(position.snapshotVersion());
+            var position = cursor == null ? null : cursors.decodeHot(cursor, scope.key());
+            String prefix = position != null && position.legacy() ? "community:hot:v1:" : PREFIX + scope.key() + ":";
+            Manifest manifest = position == null ? current(prefix, scope) : load(prefix, position.snapshotVersion());
             int offset = position == null ? 0 : position.nextOffset();
             if (offset >= manifest.count() && offset != 0) throw CommunityCursorCodec.expiredHot();
             int end = Math.min(offset + size, manifest.count());
-            List<String> ids = end == offset ? List.of() : redis.opsForList().range(PREFIX + manifest.version() + ":ids", offset, end - 1);
+            List<String> ids = end == offset ? List.of() : redis.opsForList().range(prefix + manifest.version() + ":ids", offset, end - 1);
             if (ids == null || ids.size() != end - offset) throw CommunityCursorCodec.expiredHot();
-            String nextCursor = end < manifest.count() ? cursors.encodeHot(manifest.version(), end, manifest.expiresAt()) : null;
+            String nextCursor = end < manifest.count() ? (position != null && position.legacy()
+                    ? cursors.encodeLegacyHot(manifest.version(), end, manifest.expiresAt())
+                    : cursors.encodeHot(manifest.version(), end, manifest.expiresAt(), scope.key())) : null;
             return new SnapshotPage(ids.stream().map(Long::valueOf).toList(), nextCursor);
         } catch (DataAccessException exception) {
             metrics.redisUnavailable(CommunityMetrics.Command.HOT);
@@ -69,33 +77,35 @@ public class CommunityHotSnapshotCache {
         }
     }
 
-    private Manifest current() {
-        String current = redis.opsForValue().get(PREFIX + "current");
-        Manifest existing = available(current);
+    private Manifest current(String prefix, CommunityFeedScope scope) {
+        String current = redis.opsForValue().get(prefix + "current");
+        Manifest existing = available(prefix, current);
         if (existing != null) return existing;
         String owner = UUID.randomUUID().toString();
-        if (!Boolean.TRUE.equals(redis.opsForValue().setIfAbsent(PREFIX + "building", owner, Duration.ofSeconds(10)))) throw unavailable();
+        if (!Boolean.TRUE.equals(redis.opsForValue().setIfAbsent(prefix + "building", owner, Duration.ofSeconds(10)))) throw unavailable();
         try {
-            existing = available(redis.opsForValue().get(PREFIX + "current"));
+            existing = available(prefix, redis.opsForValue().get(prefix + "current"));
             if (existing != null) return existing;
             OffsetDateTime snapshot = OffsetDateTime.now(clock);
-            var ranked = posts.findHotRanking(snapshot, PageRequest.of(0, MAX_ROWS + 1));
+            var ranked = scope.unfiltered() ? posts.findHotRanking(snapshot, PageRequest.of(0, MAX_ROWS + 1))
+                    : posts.findScopedHotRanking(snapshot, scope.category() == null ? null : scope.category().name(),
+                            scope.universityId(), PageRequest.of(0, MAX_ROWS + 1));
             if (ranked.size() > MAX_ROWS) throw new ApiException(HttpStatus.SERVICE_UNAVAILABLE,
                     "COMMUNITY_HOT_SNAPSHOT_TOO_LARGE", "Hot feed exceeds its snapshot capacity");
             List<String> ids = ranked.stream().map(row -> row.getId().toString()).toList();
             Manifest manifest = new Manifest(owner, ids.size(), OffsetDateTime.now(clock).plus(LIFETIME));
-            if (publish(manifest, ids)) return manifest;
+            if (publish(prefix, manifest, ids)) return manifest;
             // The lease expired while PostgreSQL was ranking. Never publish stale data or reacquire recursively.
             // One bounded lookup may use the winner; if it is still building/missing, the client retries later.
-            Manifest winner = available(redis.opsForValue().get(PREFIX + "current"));
+            Manifest winner = available(prefix, redis.opsForValue().get(prefix + "current"));
             if (winner != null) return winner;
             throw unavailable();
         } finally {
-            redis.execute(RELEASE, List.of(PREFIX + "building"), owner);
+            redis.execute(RELEASE, List.of(prefix + "building"), owner);
         }
     }
 
-    private boolean publish(Manifest manifest, List<String> ids) {
+    private boolean publish(String prefix, Manifest manifest, List<String> ids) {
         java.util.ArrayList<String> arguments = new java.util.ArrayList<>(ids.size() + 3);
         arguments.add(manifest.version());
         arguments.add(json.writeValueAsString(manifest));
@@ -103,27 +113,27 @@ public class CommunityHotSnapshotCache {
         arguments.addAll(ids);
         // Ownership check, complete order, TTLs, metadata and current version are one atomic Redis operation.
         // Chunked RPUSH avoids Lua unpack's argument limit without exposing a partially published list.
-        Long published = redis.execute(PUBLISH_IF_OWNER, List.of(PREFIX + "building",
-                PREFIX + manifest.version() + ":ids", PREFIX + manifest.version() + ":manifest", PREFIX + "current"),
+        Long published = redis.execute(PUBLISH_IF_OWNER, List.of(prefix + "building",
+                prefix + manifest.version() + ":ids", prefix + manifest.version() + ":manifest", prefix + "current"),
                 arguments.toArray());
         return Long.valueOf(1).equals(published);
     }
 
-    private Manifest available(String version) {
+    private Manifest available(String prefix, String version) {
         if (version == null) return null;
-        try { return load(version); }
+        try { return load(prefix, version); }
         catch (ApiException exception) {
             if ("COMMUNITY_HOT_SNAPSHOT_EXPIRED".equals(exception.getCode())) return null;
             throw exception;
         }
     }
 
-    private Manifest load(String version) {
-        String value = redis.opsForValue().get(PREFIX + version + ":manifest");
+    private Manifest load(String prefix, String version) {
+        String value = redis.opsForValue().get(prefix + version + ":manifest");
         if (value == null) throw CommunityCursorCodec.expiredHot();
         Manifest manifest = json.readValue(value, Manifest.class);
         if (!manifest.expiresAt().isAfter(OffsetDateTime.now(clock))) throw CommunityCursorCodec.expiredHot();
-        if (manifest.count() > 0 && !Boolean.TRUE.equals(redis.hasKey(PREFIX + version + ":ids"))) throw CommunityCursorCodec.expiredHot();
+        if (manifest.count() > 0 && !Boolean.TRUE.equals(redis.hasKey(prefix + version + ":ids"))) throw CommunityCursorCodec.expiredHot();
         return manifest;
     }
 

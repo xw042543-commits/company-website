@@ -1,7 +1,9 @@
 import { request, type RequestOptions } from './http';
 import { sessionStore } from '../stores/session';
 import type { Result } from '../utils/result';
-import { isCommunityId, isCommunityTimestamp as timestamp } from '../utils/community-validation';
+import { isCommunityId, isCommunityTitle, isCommunityTimestamp as timestamp } from '../utils/community-validation';
+import { isCommunityCategory, type CommunityCategory } from '../utils/community-boards';
+export type { CommunityCategory } from '../utils/community-boards';
 export { isCommunityId } from '../utils/community-validation';
 
 export type CommunityContentStatus = 'PUBLISHED' | 'PENDING_REVIEW' | 'HIDDEN' | 'DELETED' | 'REJECTED';
@@ -9,11 +11,15 @@ export type CommunityTargetType = 'POST' | 'COMMENT';
 export type CommunityReportReason = 'SPAM' | 'HARASSMENT' | 'SCAM' | 'INAPPROPRIATE_CONTENT' | 'OTHER';
 export interface CursorPage<T> { readonly items: readonly T[]; readonly nextCursor: string | null }
 interface Author { readonly authorName: string; readonly authorAvatarUrl: string | null }
-export interface CommunityPostSummary extends Author {
+export interface CommunityPostMetadata {
+  readonly title?: string | null; readonly category?: CommunityCategory;
+  readonly universityId?: string | null; readonly universityName?: string | null;
+}
+export interface CommunityPostSummary extends Author, CommunityPostMetadata {
   readonly id: string; readonly bodyPreview: string; readonly commentCount: number; readonly likeCount: number;
   readonly publishedAt: string; readonly likedByMe: boolean;
 }
-export interface CommunityPostDetail extends Author {
+export interface CommunityPostDetail extends Author, CommunityPostMetadata {
   readonly id: string; readonly body: string; readonly commentCount: number; readonly likeCount: number;
   readonly publishedAt: string; readonly likedByMe: boolean; readonly ownedByMe: boolean;
 }
@@ -29,7 +35,7 @@ export interface CommunityReportResponse {
   readonly id: string; readonly targetType: CommunityTargetType; readonly targetId: string;
   readonly status: 'OPEN' | 'RESOLVED_ACTIONED' | 'RESOLVED_REJECTED'; readonly createdAt: string;
 }
-export interface CommunityMyPost {
+export interface CommunityMyPost extends CommunityPostMetadata {
   readonly id: string; readonly body: string; readonly status: CommunityContentStatus; readonly statusMessage: string;
   readonly createdAt: string; readonly publishedAt: string | null; readonly commentCount: number; readonly likeCount: number;
 }
@@ -38,11 +44,12 @@ export interface CommunityMyComment {
   readonly status: CommunityContentStatus; readonly statusMessage: string; readonly createdAt: string; readonly likeCount: number;
 }
 export interface PageInput { readonly cursor?: string | null; readonly size?: number; readonly requestScope: string }
-export interface FeedInput extends PageInput { readonly sort: 'latest' | 'hot' }
+export interface FeedInput extends PageInput { readonly sort: 'latest' | 'hot'; readonly category?: CommunityCategory; readonly universityId?: string }
 export interface CommentPageInput extends PageInput { readonly postId: string }
 export interface ReplyPageInput extends CommentPageInput { readonly parentCommentId: string }
-export interface PostSubmission { readonly body: string; readonly idempotencyKey: string }
-export interface CommentSubmission extends PostSubmission { readonly postId: string; readonly parentCommentId?: string | null }
+interface BodySubmission { readonly body: string; readonly idempotencyKey: string }
+export interface PostSubmission extends BodySubmission { readonly title?: string; readonly category?: CommunityCategory; readonly universityId?: string | null }
+export interface CommentSubmission extends BodySubmission { readonly postId: string; readonly parentCommentId?: string | null }
 export interface ReactionInput { readonly targetType: CommunityTargetType; readonly targetId: string; readonly liked: boolean }
 export interface ReportSubmission {
   readonly targetType: CommunityTargetType; readonly targetId: string; readonly reasonCode: CommunityReportReason;
@@ -92,11 +99,21 @@ function avatar(value: unknown): boolean {
   return host[2] === undefined || (Number(host[2]) >= 1 && Number(host[2]) <= 65535);
 }
 function author(v: RecordValue): boolean { return text(v.authorName, 100) && avatar(v.authorAvatarUrl); }
+function metadata(v: unknown, keys: readonly string[]): v is RecordValue {
+  if (v === null || typeof v !== 'object' || Array.isArray(v)) return false;
+  const record = v as RecordValue;
+  const optional = ['title', 'category', 'universityId', 'universityName'];
+  return keys.every((key) => Object.hasOwn(record, key)) && Object.keys(record).every((key) => keys.includes(key) || optional.includes(key))
+    && (!Object.hasOwn(record, 'title') || record.title === null || isCommunityTitle(record.title))
+    && (!Object.hasOwn(record, 'category') || isCommunityCategory(record.category))
+    && (!Object.hasOwn(record, 'universityId') || record.universityId === null || isCommunityId(record.universityId))
+    && (!Object.hasOwn(record, 'universityName') || record.universityName === null || text(record.universityName, 255));
+}
 function post(v: unknown, full: boolean): boolean {
   const body = full ? 'body' : 'bodyPreview';
   const keys = ['id', 'authorName', 'authorAvatarUrl', body, 'commentCount', 'likeCount', 'publishedAt', 'likedByMe'];
   if (full) keys.push('ownedByMe');
-  return exact(v, keys)
+  return metadata(v, keys)
     && isCommunityId(v.id) && author(v) && text(v[body], full ? 2000 : 200) && count(v.commentCount)
     && count(v.likeCount) && timestamp(v.publishedAt) && typeof v.likedByMe === 'boolean'
     && (!full || typeof v.ownedByMe === 'boolean');
@@ -120,12 +137,13 @@ function report(v: unknown): boolean {
     && targetType(v.targetType) && ['OPEN', 'RESOLVED_ACTIONED', 'RESOLVED_REJECTED'].includes(v.status as string) && timestamp(v.createdAt);
 }
 function personal(v: unknown, isPost: boolean): boolean {
-  return exact(v, isPost ? ['id', 'body', 'status', 'statusMessage', 'createdAt', 'publishedAt', 'commentCount', 'likeCount']
-    : ['id', 'postId', 'parentCommentId', 'body', 'status', 'statusMessage', 'createdAt', 'likeCount'])
-    && isCommunityId(v.id) && text(v.body, isPost ? 2000 : 1000) && STATUSES.includes(v.status)
-    && v.statusMessage === STATUS_MESSAGES[v.status as CommunityContentStatus]
-    && timestamp(v.createdAt) && count(v.likeCount) && (isPost ? count(v.commentCount) && (v.publishedAt === null || timestamp(v.publishedAt))
-      : isCommunityId(v.postId) && (v.parentCommentId === null || isCommunityId(v.parentCommentId)));
+  if (!(isPost ? metadata(v, ['id', 'body', 'status', 'statusMessage', 'createdAt', 'publishedAt', 'commentCount', 'likeCount']) : exact(v,
+    ['id', 'postId', 'parentCommentId', 'body', 'status', 'statusMessage', 'createdAt', 'likeCount']))) return false;
+  const item = v as RecordValue;
+  return isCommunityId(item.id) && text(item.body, isPost ? 2000 : 1000) && STATUSES.includes(item.status)
+    && item.statusMessage === STATUS_MESSAGES[item.status as CommunityContentStatus]
+    && timestamp(item.createdAt) && count(item.likeCount) && (isPost ? count(item.commentCount) && (item.publishedAt === null || timestamp(item.publishedAt))
+      : isCommunityId(item.postId) && (item.parentCommentId === null || isCommunityId(item.parentCommentId)));
 }
 function parsed<T>(value: unknown, validate: Validator): Result<T> {
   return validate(value) ? { ok: true, value: value as T } : invalidResponse();
@@ -181,12 +199,15 @@ export function createCommunityService(
   return {
     async listPosts(input: FeedInput): Promise<Result<CursorPage<CommunityPostSummary>>> {
       const q = query(input);
-      if (q === null || !requestScope(input.requestScope) || (input.sort !== 'latest' && input.sort !== 'hot')) return invalidInput();
-      return publicRead(`/api/v1/community/posts?sort=${encodeURIComponent(input.sort)}&${q}`, `community-feed:${input.requestScope}:${input.sort}`, (v) => parsePostPage(v, input.size ?? 20));
+      if (q === null || !requestScope(input.requestScope) || (input.sort !== 'latest' && input.sort !== 'hot')
+        || (input.category !== undefined && !isCommunityCategory(input.category))
+        || (input.universityId !== undefined && !isCommunityId(input.universityId))) return invalidInput();
+      const filters = `${input.category === undefined ? '' : `&category=${encodeURIComponent(input.category)}`}${input.universityId === undefined ? '' : `&universityId=${encodeURIComponent(input.universityId)}`}`;
+      return publicRead(`/api/v1/community/posts?sort=${encodeURIComponent(input.sort)}&${q}${filters}&representation=campus-v1`, `community-feed:${input.requestScope}:${input.sort}`, (v) => parsePostPage(v, input.size ?? 20));
     },
     async loadPost(id: string, scope: string): Promise<Result<CommunityPostDetail>> {
       if (!isCommunityId(id) || !requestScope(scope)) return invalidInput();
-      return publicRead(`/api/v1/community/posts/${encodeURIComponent(id)}`, `community-detail:${scope}:${id}`, (v) => {
+      return publicRead(`/api/v1/community/posts/${encodeURIComponent(id)}?representation=campus-v1`, `community-detail:${scope}:${id}`, (v) => {
         const parsed = parsePostDetail(v);
         return parsed.ok && parsed.value.id !== id ? invalidResponse() : parsed;
       });
@@ -203,15 +224,19 @@ export function createCommunityService(
     },
     async listMyPosts(input: PageInput): Promise<Result<CursorPage<CommunityMyPost>>> {
       const q = query(input); if (q === null || !requestScope(input.requestScope)) return invalidInput();
-      return call({ method: 'GET', path: `/api/v1/community/me/posts?${q}`, authenticated: true, requestKey: `community-me-posts:${input.requestScope}` }, (v) => parseMyPostPage(v, input.size ?? 20));
+      return call({ method: 'GET', path: `/api/v1/community/me/posts?${q}&representation=campus-v1`, authenticated: true, requestKey: `community-me-posts:${input.requestScope}` }, (v) => parseMyPostPage(v, input.size ?? 20));
     },
     async listMyComments(input: PageInput): Promise<Result<CursorPage<CommunityMyComment>>> {
       const q = query(input); if (q === null || !requestScope(input.requestScope)) return invalidInput();
       return call({ method: 'GET', path: `/api/v1/community/me/comments?${q}`, authenticated: true, requestKey: `community-me-comments:${input.requestScope}` }, (v) => parseMyCommentPage(v, input.size ?? 20));
     },
     async createPost(input: PostSubmission): Promise<Result<CommunityCreationResponse>> {
-      if (!submissionKey(input.idempotencyKey) || !text(input.body, 2000) || !input.body.trim()) return invalidInput();
-      return call({ method: 'POST', path: '/api/v1/community/posts', data: { body: input.body }, authenticated: true, idempotencyKey: input.idempotencyKey }, (v) => {
+      if (!submissionKey(input.idempotencyKey) || !text(input.body, 2000) || !input.body.trim()
+        || (input.title !== undefined && !isCommunityTitle(input.title)) || (input.category !== undefined && !isCommunityCategory(input.category))
+        || (input.universityId !== undefined && input.universityId !== null && !isCommunityId(input.universityId))) return invalidInput();
+      return call({ method: 'POST', path: '/api/v1/community/posts', data: { body: input.body,
+        ...(input.title === undefined ? {} : { title: input.title }), ...(input.category === undefined ? {} : { category: input.category }),
+        ...(input.universityId === undefined ? {} : { universityId: input.universityId }) }, authenticated: true, idempotencyKey: input.idempotencyKey }, (v) => {
         const parsed = parseCreationResponse(v);
         return parsed.ok && parsed.value.postId !== null ? invalidResponse() : parsed;
       });

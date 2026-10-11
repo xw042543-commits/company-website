@@ -204,9 +204,9 @@ class CommunityReactionHttpIntegrationTest extends CommunityReactionIntegrationF
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
         assertThat((String) JsonPath.read(initial, "$.items[0].id")).isEqualTo(Long.toString(second));
         String cursor = JsonPath.read(initial, "$.nextCursor");
-        String version = redis.opsForValue().get("community:hot:v1:current");
+        String version = redis.opsForValue().get("community:hot:v2:ALL:ALL:current");
         react(put(postPath(first)), actor).andExpect(status().isNoContent());
-        assertThat(redis.opsForValue().get("community:hot:v1:current")).isEqualTo(version);
+        assertThat(redis.opsForValue().get("community:hot:v2:ALL:ALL:current")).isEqualTo(version);
         mvc.perform(get("/api/v1/community/posts").param("sort", "hot").param("size", "1").param("cursor", cursor))
                 .andExpect(jsonPath("$.items[0].id").value(Long.toString(first))).andExpect(jsonPath("$.items[0].likeCount").value(1));
     }
