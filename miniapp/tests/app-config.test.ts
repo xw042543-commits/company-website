@@ -57,7 +57,7 @@ test('registers the university detail page outside the bottom navigation', () =>
 
 test('registers integrated programme and account data pages outside the bottom navigation', () => {
   const app = readAppConfig();
-  for (const page of ['pages/programme-detail/index', 'pages/plans/index', 'pages/favorites/index', 'pages/consultations/index']) {
+  for (const page of ['pages/programme-detail/index', 'pages/plans/index', 'pages/favorites/index', 'pages/consultations/index', 'pages/consultation/index']) {
     assert.equal(app.pages.includes(page), true);
     assert.equal(app.tabBar.list.some((item) => item.pagePath === page), false);
   }

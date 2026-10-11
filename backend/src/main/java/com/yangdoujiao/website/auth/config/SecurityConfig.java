@@ -62,7 +62,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/api/v1/miniapp/**")
                         .ignoringRequestMatchers(request -> request.getRequestURI().substring(request.getContextPath().length())
-                                .startsWith("/api/v1/community/")
+                                .matches("/api/v1/(?:community/.*|consultations)")
                                 && Boolean.TRUE.equals(request.getAttribute(MiniappBearerFilter.AUTHENTICATED_ATTRIBUTE)))
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler()))

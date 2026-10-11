@@ -7,6 +7,7 @@ import {
 } from '../../services/miniapp-data';
 import { sessionStore } from '../../stores/session';
 import { buildProgrammeDocument, type ProgrammeDocumentSection } from '../../utils/discovery-view';
+import { consultationRoute } from '../../utils/routes';
 
 type ViewState = 'loading' | 'ready' | 'offline' | 'failed';
 type BasicFact = { label: string; value: string };
@@ -50,7 +51,13 @@ Page({
       });
     } catch { /* Keep safe navigation defaults on older clients. */ }
   },
-  consult() { wx.showToast({ title: '顾问咨询正在接入', icon: 'none' }); },
+  consult() {
+    const programme = this.data.programme;
+    if (!programme) return;
+    const route = consultationRoute({ school: programme.universityNameZh, course: programme.nameZh,
+      qualification: normalizeQualification(programme.studyLevelCode) });
+    if (route.ok) wx.navigateTo({ url: route.value });
+  },
   async toggleFavorite() {
     const programme = this.data.programme;
     if (!programme || this.data.saving) return;
@@ -103,4 +110,9 @@ function buildBasicFacts(programme: ProgrammeDetail): BasicFact[] {
     { label: '学习地点', value: programme.cityZh },
     { label: '学费', value: programme.tuitionDisplay || '请咨询最新费用' },
   ].filter((fact) => fact.value.trim());
+}
+
+function normalizeQualification(value: string): string {
+  const normalized = value.trim().toLowerCase();
+  return ['foundation', 'bachelor', 'master', 'doctorate'].includes(normalized) ? normalized : '';
 }

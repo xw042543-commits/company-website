@@ -1,0 +1,24 @@
+<view class="consultation-page">
+  <view wx:if="{{receipt}}" class="success-card">
+    <view class="success-mark">✓</view><view class="success-title">咨询已提交</view>
+    <view class="success-copy">顾问收到资料后会尽快与你联系。</view>
+    <view class="reference-label">咨询编号</view><view class="reference-code">{{receipt}}</view>
+    <button class="primary-button" bindtap="openRecords">查看咨询记录</button>
+    <button class="secondary-button" bindtap="back">返回上一页</button>
+  </view>
+  <view wx:else>
+    <view class="page-intro"><view class="page-title">告诉顾问你的留学方向</view><view class="page-copy">填写必要资料即可提交，其他背景可在后续沟通中补充。</view></view>
+    <view wx:if="{{form.intendedSchool || form.intendedCourse}}" class="context-card">
+      <view wx:if="{{form.intendedSchool}}" class="context-row"><text class="context-label">院校</text><view class="context-value">{{form.intendedSchool}}</view></view>
+      <view wx:if="{{form.intendedCourse}}" class="context-row"><text class="context-label">专业</text><view class="context-value">{{form.intendedCourse}}</view></view>
+    </view>
+    <view class="form-card">
+      <view class="field"><view class="field-label">姓名 <text class="required-star">*</text></view><input class="text-input" value="{{form.name}}" data-field="name" maxlength="100" placeholder="请输入你的姓名" bindinput="updateField" /></view>
+      <view class="field"><view class="field-label">微信号或手机号 <text class="required-star">*</text></view><input class="text-input" value="{{form.contact}}" data-field="contact" maxlength="100" placeholder="方便顾问联系你" bindinput="updateField" /></view>
+      <view class="field"><view class="field-label">申请学历</view><picker range="{{qualifications}}" range-key="label" value="{{qualificationIndex}}" bindchange="selectQualification"><view class="picker-value">{{qualificationLabel}} <text>›</text></view></picker></view>
+      <view class="field"><view class="field-label">补充说明</view><textarea class="notes-input" value="{{form.notes}}" data-field="notes" maxlength="2000" placeholder="例如入学时间、成绩、预算或想了解的问题" bindinput="updateField" /></view>
+    </view>
+    <checkbox-group bindchange="consentChanged" class="consent-row"><label class="consent-label"><checkbox class="consent-checkbox" value="accepted" checked="{{form.privacyConsent}}" color="#087a4e"/><text class="consent-copy">我同意洋豆角为本次留学咨询处理以上资料，并由顾问联系我。</text></label></checkbox-group>
+    <button class="primary-button" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">提交咨询</button>
+  </view>
+</view>

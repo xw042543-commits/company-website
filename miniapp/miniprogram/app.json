@@ -19,6 +19,7 @@
     "pages/account/index",
     "pages/settings/index",
     "pages/about/index",
+    "pages/consultation/index",
     "pages/application-detail/index"
   ],
   "window": {

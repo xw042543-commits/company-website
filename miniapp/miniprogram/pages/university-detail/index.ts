@@ -7,7 +7,7 @@ import {
 import { favoriteUniversities } from '../../stores/favorites';
 import { loadFilterOptions } from '../../services/catalogue';
 import { deriveProgrammeCategories, filterProgrammes, type ProgrammeCategory } from '../../utils/discovery-view';
-import { programmeDetailRoute } from '../../utils/routes';
+import { consultationRoute, programmeDetailRoute } from '../../utils/routes';
 
 type ViewState = 'loading' | 'ready' | 'failed' | 'offline';
 type DetailSection = 'introduction' | 'programmes';
@@ -92,7 +92,8 @@ Page({
     wx.navigateTo({ url: route.value });
   },
   consult() {
-    wx.showToast({ title: '咨询功能正在接入', icon: 'none' });
+    const route = consultationRoute({ school: this.data.university?.nameZh ?? '' });
+    if (route.ok) wx.navigateTo({ url: route.value });
   },
 
   async loadPage() {

@@ -238,16 +238,23 @@ test('programme detail superseded loads stay silent while replacement loads and 
 
 test('programme navigation clears capsule and keeps back and consultation actions reachable', async () => {
   const page = await loadProgrammePage();
+  const { mapProgrammeDetail } = await import('../miniprogram/services/miniapp-data.ts');
+  const mapped = mapProgrammeDetail({ id: 584, slug: 'business', nameZh: '工商管理', nameEn: 'Business',
+    universitySlug: 'segi', universityNameZh: '世纪大学', studyLevelCode: 'bachelor', sections: [] });
+  assert.equal(mapped.ok, true);
+  if (!mapped.ok) return;
   const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
   let backs = 0;
   const toasts: string[] = [];
+  const navigations: string[] = [];
   Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
     getWindowInfo: () => ({ statusBarHeight: 44, windowWidth: 320 }),
     getMenuButtonBoundingClientRect: () => ({ top: 52, left: 220, width: 88, height: 32 }),
     navigateBack() { backs++; }, showToast({ title }: { title: string }) { toasts.push(title); },
+    navigateTo({ url }: { url: string }) { navigations.push(url); },
   } });
   try {
-    const context: ProgrammePageContext = { favoriteRevision: 0, data: { ...page.data }, setData(update) { Object.assign(this.data, update); } };
+    const context: ProgrammePageContext = { favoriteRevision: 0, data: { ...page.data, programme: mapped.value }, setData(update) { Object.assign(this.data, update); } };
     assert.equal(typeof page.setupNavigation, 'function', 'programme detail must measure safe custom navigation');
     page.setupNavigation.call(context);
     assert.equal(context.data.statusBarHeight, 44);
@@ -256,7 +263,8 @@ test('programme navigation clears capsule and keeps back and consultation action
     page.back.call(context);
     page.consult.call(context);
     assert.equal(backs, 1);
-    assert.deepEqual(toasts, ['顾问咨询正在接入']);
+    assert.deepEqual(toasts, []);
+    assert.deepEqual(navigations, ['/pages/consultation/index?school=%E4%B8%96%E7%BA%AA%E5%A4%A7%E5%AD%A6&course=%E5%B7%A5%E5%95%86%E7%AE%A1%E7%90%86&qualification=bachelor']);
     Object.defineProperty(globalThis, 'wx', { configurable: true, value: {} });
     const legacy: ProgrammePageContext = { ...context, data: { ...page.data } };
     page.setupNavigation.call(legacy);
@@ -683,7 +691,7 @@ test('university profile clears the capsule and preserves favourites and validat
   } });
   try {
     const context: UniversityDetailPageContext = {
-      data: { ...page.data, slug: 'apu' },
+      data: { ...page.data, slug: 'apu', university: { nameZh: '亚太科技大学' } },
       setData(update) { Object.assign(this.data, update); },
     };
     page.setupNavigation.call(context);
@@ -702,7 +710,8 @@ test('university profile clears the capsule and preserves favourites and validat
     page.back.call(context);
     assert.equal(backCalls, 1);
     page.consult.call(context);
-    assert.deepEqual(toasts, ['已收藏', '专业资料暂时无法打开', '咨询功能正在接入']);
+    assert.deepEqual(toasts, ['已收藏', '专业资料暂时无法打开']);
+    assert.equal(navigations.at(-1), '/pages/consultation/index?school=%E4%BA%9A%E5%A4%AA%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6');
   } finally {
     if (original) Object.defineProperty(globalThis, 'wx', original);
     else Reflect.deleteProperty(globalThis, 'wx');
