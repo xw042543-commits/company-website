@@ -24,3 +24,14 @@ test('community feed presents the approved campus editorial structure without lo
   assert.match(card, /bindtap="report"/);
 });
 
+
+test('community composer keeps publishing actionable and applies native input limits', () => {
+  const page = readFileSync(new URL('pages/circle-compose/index.wxml', root), 'utf8');
+
+  assert.match(page, /id="post-title"[^>]*maxlength="60"/);
+  assert.match(page, /id="post-body"[^>]*maxlength="2000"/);
+  assert.match(page, /class="publish-button"[^>]*disabled="{{submitting}}"/);
+  assert.doesNotMatch(page, /disabled="{{[^"]*!title/);
+  assert.match(page, /帖子标题（必填）/);
+  assert.match(page, /帖子正文（必填）/);
+});
