@@ -113,7 +113,7 @@ export async function getUniversityDetail(slug: string): Promise<Result<Universi
   const response = await request<unknown>({
     method: 'GET',
     path: `/api/v1/universities/${normalized}`,
-    requestKey: 'university-detail',
+    requestKey: `university-detail:${normalized}`,
   });
   if (!response.ok) return response;
   const mapped = mapUniversityDetail(response.value);

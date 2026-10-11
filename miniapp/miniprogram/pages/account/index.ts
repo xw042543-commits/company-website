@@ -13,6 +13,7 @@ Page({
       { key: 'wallet', label: '会员积分', caption: '管理账户余额、积分与使用记录' },
       { key: 'plans', label: '我的规划', caption: '管理留学目标、背景和预算' },
       { key: 'favorites', label: '专业收藏', caption: '查看已保存的专业' },
+      { key: 'universityFavorites', label: '院校收藏', caption: '比较已保存的院校' },
       { key: 'consultations', label: '咨询记录', caption: '查看已提交的咨询' },
       { key: 'community', label: '我的U圈', caption: '管理发布的帖子和评论' },
       { key: 'settings', label: '设置', caption: '账号与隐私设置' },
@@ -74,6 +75,7 @@ Page({
     }
     const routes: Record<string, string> = {
       orders: '/pages/orders/index', plans: '/pages/plans/index', favorites: '/pages/favorites/index',
+      universityFavorites: '/pages/university-favorites/index',
       wallet: '/pages/wallet/index',
       consultations: '/pages/consultations/index',
       settings: '/pages/settings/index',
