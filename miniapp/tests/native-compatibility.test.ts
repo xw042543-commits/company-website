@@ -50,7 +50,7 @@ test('account exposes registered C data pages and personal community navigation 
   const menu = (definition.data as { menuItems: Array<{ key: string }> }).menuItems;
   const openMenu = definition.openMenu as (event: { currentTarget: { dataset: { key: string } } }) => void;
   const app = JSON.parse(readFileSync(new URL('app.json', root), 'utf8')) as { pages: string[] };
-  for (const [key, page] of [['plans', 'plans'], ['favorites', 'favorites'], ['consultations', 'consultations'], ['community', 'circle-me']] as const) {
+  for (const [key, page] of [['plans', 'plans'], ['favorites', 'favorites'], ['consultations', 'consultations'], ['community', 'circle-me'], ['settings', 'settings'], ['about', 'about']] as const) {
     assert.ok(menu.some((item) => item.key === key));
     openMenu({ currentTarget: { dataset: { key } } });
     assert.equal(navigated.at(-1), `/pages/${page}/index`);
@@ -91,4 +91,33 @@ test('planning locks duplicate saves before authentication and blocks edits whil
   assert.equal((data.form as Record<string, unknown>).country, 'Malaysia');
   await submit.call(context);
   assert.equal(authCalls, 1);
+});
+
+test('consultation locks duplicate submissions before authentication completes', async () => {
+  let definition: Record<string, unknown> = {};
+  let authCalls = 0;
+  let finishAuth: ((value: { ok: false }) => void) | undefined;
+  const source = readFileSync(new URL('pages/consultation/index.ts', root), 'utf8');
+  const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
+  vm.runInNewContext(code, {
+    exports: {}, Page: (value: Record<string, unknown>) => { definition = value; },
+    require: (path: string) => path.includes('session') ? { sessionStore: {
+      getSnapshot: () => ({ status: 'anonymous', account: null }),
+      ensureAuthenticated: () => { authCalls++; return new Promise((resolve) => { finishAuth = resolve; }); },
+    } } : { consultationGateway: { submit: () => assert.fail('submit should not run after failed login') } },
+    wx: { showToast: () => {}, showLoading: () => {}, hideLoading: () => {}, setNavigationBarTitle: () => {} },
+  });
+  const data = structuredClone(definition.data) as Record<string, unknown>;
+  Object.assign(data, { form: { name: '王欣', contact: 'wx-wang', intendedSchool: '世纪大学',
+    intendedCourse: '', qualification: '', notes: '', privacyConsent: true } });
+  const page = { ...definition, data, setData(update: Record<string, unknown>) { Object.assign(data, update); } };
+  const submit = definition.submit as (this: typeof page) => Promise<void>;
+  const first = submit.call(page);
+  await submit.call(page);
+  assert.equal(authCalls, 1);
+  assert.equal(data.submitting, true);
+  assert.ok(finishAuth);
+  finishAuth({ ok: false });
+  await first;
+  assert.equal(data.submitting, false);
 });

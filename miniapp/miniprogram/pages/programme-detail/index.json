@@ -1,5 +1,6 @@
 {
   "navigationStyle": "custom",
+  "navigationBarTitleText": "专业详情",
   "usingComponents": {
     "app-state": "/components/app-state/index"
   }

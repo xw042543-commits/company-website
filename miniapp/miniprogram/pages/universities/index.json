@@ -3,6 +3,6 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "app-state": "/components/app-state/index",
-    "university-card": "/components/university-card/index"
+    "university-result-card": "/components/university-result-card/index"
   }
 }

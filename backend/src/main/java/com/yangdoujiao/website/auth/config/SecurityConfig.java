@@ -62,7 +62,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/api/v1/miniapp/**")
                         .ignoringRequestMatchers(request -> request.getRequestURI().substring(request.getContextPath().length())
-                                .startsWith("/api/v1/community/")
+                                .matches("/api/v1/(?:community/.*|consultations)")
                                 && Boolean.TRUE.equals(request.getAttribute(MiniappBearerFilter.AUTHENTICATED_ATTRIBUTE)))
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler()))
@@ -86,6 +86,7 @@ public class SecurityConfig {
                                 "/api/v1/miniapp/auth/refresh").permitAll()
                         .requestMatchers(HttpMethod.GET,
                                 "/api/v1/miniapp/universities/*/programmes/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/miniapp/avatars/*").permitAll()
                         .requestMatchers("/api/v1/miniapp/**").hasRole("USER")
                         .requestMatchers(HttpMethod.GET, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
                         .requestMatchers(HttpMethod.HEAD, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()

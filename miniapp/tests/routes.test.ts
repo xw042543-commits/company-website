@@ -5,6 +5,7 @@ import {
   programmeDetailRoute,
   universityDetailRoute,
   communityPostRoute, communityComposeRoute, communityMeRoute, communityFeedRoute, applicationOrderRoute,
+  consultationRoute,
 } from '../miniprogram/utils/routes.ts';
 
 test('builds encoded university and programme detail routes', () => {
@@ -44,6 +45,26 @@ test('builds validated application order detail routes', () => {
   for (const bad of ['', '../admin', 'APP202409001', `${reference}?admin=1`]) {
     assert.equal(applicationOrderRoute(bad).ok, false);
   }
+});
+
+test('builds a consultation route with encoded university and programme context', () => {
+  assert.deepEqual(consultationRoute({
+    school: '世纪大学 & Colleges', course: '工商管理 / Business', qualification: 'bachelor',
+  }), {
+    ok: true,
+    value: '/pages/consultation/index?school=%E4%B8%96%E7%BA%AA%E5%A4%A7%E5%AD%A6%20%26%20Colleges&course=%E5%B7%A5%E5%95%86%E7%AE%A1%E7%90%86%20%2F%20Business&qualification=bachelor',
+  });
+  assert.deepEqual(consultationRoute({ school: '  世纪大学  ' }), {
+    ok: true, value: '/pages/consultation/index?school=%E4%B8%96%E7%BA%AA%E5%A4%A7%E5%AD%A6',
+  });
+});
+
+test('consultation routes reject oversized or unsupported context', () => {
+  for (const context of [
+    { school: 'x'.repeat(201) },
+    { course: 'x'.repeat(201) },
+    { qualification: 'diploma' },
+  ]) assert.equal(consultationRoute(context).ok, false);
 });
 
 test('rejects blank and malformed university slugs with the route validation result', () => {

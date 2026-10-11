@@ -28,7 +28,9 @@ import com.yangdoujiao.website.TestContainersConfiguration;
 @SpringBootTest(properties = {
         "app.miniapp.auth.enabled=true",
         "app.miniapp.auth.wechat-app-id=test-miniapp",
-        "app.miniapp.auth.wechat-app-secret=test-miniapp-secret"
+        "app.miniapp.auth.wechat-app-secret=test-miniapp-secret",
+        "app.consultation.submission-enabled=true",
+        "app.consultation.privacy-notice-version=test-v1"
 })
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
@@ -71,6 +73,36 @@ class MiniappAuthHttpIntegrationTest {
         mvc.perform(get("/api/v1/miniapp/account")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer invalid"))
                 .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    void bearerCanSubmitConsultationWithoutBrowserCsrfAndLinksItToTheAccount() throws Exception {
+        String subject = "consultation-subject-" + UUID.randomUUID();
+        String contact = "miniapp-consultation-" + UUID.randomUUID();
+        when(provider.exchange("consultation-code"))
+                .thenReturn(new MiniappProviderIdentity("test-miniapp", subject, null));
+        Session session = login("consultation-code");
+
+        mvc.perform(post("/api/v1/consultations")
+                        .header(HttpHeaders.AUTHORIZATION, "Bearer " + session.accessToken())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                  "name":"微信用户",
+                                  "contact":"%s",
+                                  "intendedSchool":"世纪大学",
+                                  "qualification":"bachelor",
+                                  "locale":"zh",
+                                  "privacyConsent":true
+                                }
+                                """.formatted(contact)))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.referenceCode").isNotEmpty());
+
+        assertThat(jdbc.queryForObject("""
+                SELECT user_account_id FROM consultation_enquiries WHERE contact = ?
+                """, Long.class, contact)).isEqualTo(session.accountId());
+        jdbc.update("DELETE FROM consultation_enquiries WHERE contact = ?", contact);
     }
 
     @Test

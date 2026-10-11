@@ -38,6 +38,7 @@ import com.yangdoujiao.website.auth.account.UserAccount;
 import com.yangdoujiao.website.auth.account.UserAccountRole;
 import com.yangdoujiao.website.auth.config.PasswordEncodingConfig;
 import com.yangdoujiao.website.auth.config.SecurityConfig;
+import com.yangdoujiao.website.auth.miniapp.MiniappBearerFilter;
 import com.yangdoujiao.website.auth.password.PasswordService;
 import com.yangdoujiao.website.auth.session.AuthenticationService;
 import com.yangdoujiao.website.auth.session.UserAccountDetailsService;
@@ -125,6 +126,17 @@ class AdviserAuthorizationHttpIntegrationTest {
                 .andExpect(status().isForbidden())
                 .andExpect(jsonPath("$.code").value("CSRF_REJECTED"));
         mockMvc.perform(post("/api/v1/consultations").with(csrf()))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void authenticatedMiniappConsultationDoesNotRequireBrowserCsrf() throws Exception {
+        mockMvc.perform(post("/api/v1/consultations")
+                        .with(user(principal(UserAccountRole.USER)))
+                        .with(request -> {
+                            request.setAttribute(MiniappBearerFilter.AUTHENTICATED_ATTRIBUTE, true);
+                            return request;
+                        }))
                 .andExpect(status().isNoContent());
     }
 

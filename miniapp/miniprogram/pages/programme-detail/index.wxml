@@ -1,44 +1,52 @@
 <view class="programme-page">
-  <view wx:if="{{state === 'ready'}}">
-    <view class="hero">
-      <image wx:if="{{programme.imageUrl && !imageFailed}}" class="hero-image" src="{{programme.imageUrl}}" mode="aspectFill" binderror="imageError" />
-      <view class="hero-wash"></view>
-      <button class="circle-button back" bindtap="back" aria-label="返回">‹</button>
-      <view class="hero-copy">
-        <view class="eyebrow">{{programme.universityNameZh}}</view>
-        <view class="title">{{programme.nameZh}}</view>
-        <view class="title-en">{{programme.nameEn}}</view>
-        <view class="location">⌖ {{programme.cityZh || '地点资料待补充'}}</view>
+  <view class="custom-header" style="padding-top:{{statusBarHeight}}px;">
+    <view class="navigation-row" style="min-height:{{navigationHeight}}px; padding-right:{{navigationRight}}px;">
+      <button class="back-button" bindtap="back" aria-label="返回" hover-class="control--pressed">‹</button>
+      <text class="navigation-title">专业详情</text>
+    </view>
+  </view>
+
+  <view wx:if="{{state === 'ready'}}" class="programme-document">
+    <view class="identity-row">
+      <view class="university-logo">
+        <image wx:if="{{universityLogoUrl && !imageFailed}}" class="university-logo-image" src="{{universityLogoUrl}}" mode="aspectFit" binderror="imageError" aria-label="{{programme.universityNameZh}}校徽" />
+        <text wx:else aria-hidden="true">{{logoLetter}}</text>
+      </view>
+      <view class="identity-copy">
+        <view class="programme-title" aria-role="heading" aria-level="1">{{programme.nameZh}}</view>
+        <view class="programme-title-en">{{programme.nameEn}}</view>
+        <view class="university-name">{{programme.universityNameZh}}</view>
       </view>
     </view>
 
-    <view class="facts">
-      <view class="fact"><text>学历</text><view class="fact-value">{{programme.studyLevelCode || '待确认'}}</view></view>
-      <view class="fact"><text>学制</text><view class="fact-value">{{programme.durationDisplay || '待确认'}}</view></view>
-      <view class="fact"><text>授课</text><view class="fact-value">{{languageText}}</view></view>
-      <view class="fact"><text>方式</text><view class="fact-value">{{programme.courseModeCode || programme.studyPaceDisplay || '待确认'}}</view></view>
-      <view class="fact fact--wide"><text>参考学费</text><view class="fact-value">{{programme.tuitionDisplay || '请咨询最新费用'}}</view></view>
-      <view class="fact fact--wide"><text>入学时间</text><view class="fact-value">{{intakeText}}</view></view>
-    </view>
-
-    <scroll-view wx:if="{{tabs.length}}" class="tabs" scroll-x enhanced show-scrollbar="{{false}}">
-      <view class="tab-row">
-        <view wx:for="{{tabs}}" wx:key="key" class="tab {{activeTab === item.key ? 'tab--active' : ''}}" data-key="{{item.key}}" bindtap="selectTab">{{item.label}}</view>
-      </view>
-    </scroll-view>
-    <view wx:for="{{tabs}}" wx:key="key">
-      <view wx:if="{{activeTab === item.key}}" class="content">
-        <view wx:for="{{item.sections}}" wx:key="sortOrder" wx:for-item="section" class="content-section">
-          <view class="content-kicker">{{section.titleZh || item.label}}</view>
-          <view class="content-body">{{section.bodyZh || '该部分资料正在整理中。'}}</view>
+    <view wx:for="{{documentSections}}" wx:key="key" wx:for-item="section" class="document-section">
+      <view class="section-title" aria-role="heading" aria-level="2">{{section.key === 'INTRODUCTION' ? '专业描述' : section.key === 'BASIC_INFORMATION' ? '基本信息' : section.title || '详细资料'}}</view>
+      <view wx:if="{{section.key === 'BASIC_INFORMATION'}}" class="facts-table" aria-role="table" aria-label="基本信息">
+        <view wx:for="{{basicFacts}}" wx:key="label" aria-role="row" class="fact-row">
+          <view class="fact-label" aria-role="rowheader">{{item.label}}</view>
+          <view class="fact-value" aria-role="cell">{{item.value}}</view>
         </view>
       </view>
+      <view wx:elif="{{section.locked}}" class="locked-section">
+        <view class="locked-preview" aria-hidden="true">
+          <view class="preview-line"></view>
+          <view class="preview-line preview-line--short"></view>
+          <view class="preview-line"></view>
+          <view class="preview-line preview-line--medium"></view>
+          <view class="preview-line"></view>
+        </view>
+        <view class="lock-panel">
+          <text class="lock-mark" aria-hidden="true">🔒</text>
+          <view class="lock-copy">本节内容暂未开放</view>
+          <view class="lock-note">资料正在整理中，敬请留意后续更新。</view>
+        </view>
+      </view>
+      <view wx:else class="section-body">{{section.body || '该部分资料正在整理中。'}}</view>
     </view>
 
-    <view class="action-space"></view>
     <view class="actions">
-      <button class="primary" bindtap="consult">咨询顾问</button>
-      <button class="secondary {{favorite ? 'secondary--active' : ''}}" loading="{{saving}}" bindtap="toggleFavorite">{{favorite ? '已收藏' : '收藏'}}</button>
+      <button class="secondary {{favorite ? 'secondary--active' : ''}}" loading="{{saving}}" disabled="{{saving}}" bindtap="toggleFavorite" aria-label="{{favorite ? '取消收藏专业' : '收藏专业'}}" hover-class="control--pressed">{{favorite ? '已收藏' : '收藏专业'}}</button>
+      <button class="primary" bindtap="consult" hover-class="control--pressed">咨询顾问</button>
     </view>
   </view>
   <view wx:else class="state-wrap">

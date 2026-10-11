@@ -113,7 +113,7 @@ Both commands must pass before deployment.
 
 The repository owner must create a `production Environment` in GitHub under **Settings → Environments → New environment** and restrict deployment branches to `main`. This private repository's current GitHub plan does not provide an Environment reviewer gate, so production deployment is deliberately **manual-only**: the workflow has no automatic trigger, and clicking **Actions → Deploy production → Run workflow** is the manual approval action. Never add an automatic `workflow_run`, `push`, or scheduled trigger unless the repository first gains an independently enforced deployment approval rule.
 
-Add these five **Environment secrets** to `production` under **Environment secrets** (not repository or organization secrets):
+Add these seven **Environment secrets** to `production` under **Environment secrets** (not repository or organization secrets):
 
 | Secret | Purpose |
 | --- | --- |
@@ -122,8 +122,15 @@ Add these five **Environment secrets** to `production` under **Environment secre
 | `PRODUCTION_SSH_USER` | Dedicated deploy account on the VPS. |
 | `PRODUCTION_SSH_PRIVATE_KEY` | Private half of a dedicated SSH deploy key for this workflow; preserve its multiline format. |
 | `PRODUCTION_SSH_KNOWN_HOSTS` | Verified OpenSSH `known_hosts` entry for that host and port. |
+| `APP_MINIAPP_WECHAT_APP_ID` | Official mini-program AppID. The workflow validates it and stores it only in the protected server environment file. |
+| `APP_MINIAPP_WECHAT_APP_SECRET` | Official mini-program AppSecret. It is streamed over verified SSH and never written to the checkout or logs. |
 
-These are SSH connection credentials only. Keep application passwords, API keys, and all other application configuration in the server-only `/opt/company-website/.env.production`; do not copy `.env.production` or application secrets into GitHub. Keep that file out of Git and readable only by the deploy account. The server's `.env.production` must already pass the preflight and Compose configuration checks above.
+The deployment validates both mini-program credentials as a pair, atomically updates the server's mode-600
+`.env.production`, and enables `APP_MINIAPP_AUTH_ENABLED`. Missing or malformed credentials stop the release
+before build or startup. Rotate the AppSecret in WeChat and replace the GitHub Environment secret immediately
+if it is ever pasted into chat, an issue, a screenshot, or another non-secret channel.
+
+The five `PRODUCTION_SSH_*` values are SSH connection credentials. The two mini-program values are the only application credentials this workflow accepts; the verified deployment script writes them atomically to the server-only `/opt/company-website/.env.production`. Keep all other application passwords and API keys only in that server file. Never copy the complete `.env.production` into GitHub. Keep it out of Git and readable only by the deploy account. The server's `.env.production` must already pass the other preflight and Compose configuration checks above.
 
 Create a new SSH key pair dedicated to this deploy account and workflow. Install **only its public key** in the deploy account's `~/.ssh/authorized_keys` on the VPS; save its private key only as `PRODUCTION_SSH_PRIVATE_KEY` in the GitHub Environment. Do not reuse a personal SSH key. The deploy account must have a clean `main` checkout at `/opt/company-website`, noninteractive read access to its `origin` Git remote, permission to fast-forward that checkout, and permission to run Docker and Compose without `sudo` or interactive prompts. As that account, require empty output from `git -C /opt/company-website status --short`; a successful exit alone does not establish a clean checkout. Also verify `git -C /opt/company-website fetch --dry-run origin main` and `docker info` succeed before the first run. Set up and test the server-only `.env.production` in that checkout separately; a workflow never uploads or creates it.
 

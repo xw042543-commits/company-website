@@ -7,6 +7,33 @@ release_sha="${1:-}"
 cd /opt/company-website
 test -f .env.production || { echo ".env.production is missing" >&2; exit 65; }
 
+update_production_value() {
+  local name="$1" value="$2" temporary found=false
+  temporary="$(mktemp .env.production.XXXXXX)"
+  chmod 600 "$temporary"
+  while IFS= read -r line || [[ -n $line ]]; do
+    if [[ $line == "$name="* ]]; then
+      printf '%s=%s\n' "$name" "$value" >> "$temporary"
+      found=true
+    else
+      printf '%s\n' "$line" >> "$temporary"
+    fi
+  done < .env.production
+  if [[ $found == false ]]; then printf '%s=%s\n' "$name" "$value" >> "$temporary"; fi
+  mv "$temporary" .env.production
+  chmod 600 .env.production
+}
+
+miniapp_id="${APP_MINIAPP_WECHAT_APP_ID:-}"
+miniapp_secret="${APP_MINIAPP_WECHAT_APP_SECRET:-}"
+if [[ -n $miniapp_id || -n $miniapp_secret ]]; then
+  [[ $miniapp_id =~ ^wx[0-9a-f]{16}$ ]] || { echo "A valid mini-program AppID is required" >&2; exit 70; }
+  [[ $miniapp_secret =~ ^[0-9a-f]{32}$ ]] || { echo "A valid mini-program AppSecret is required" >&2; exit 70; }
+  update_production_value APP_MINIAPP_AUTH_ENABLED true
+  update_production_value APP_MINIAPP_WECHAT_APP_ID "$miniapp_id"
+  update_production_value APP_MINIAPP_WECHAT_APP_SECRET "$miniapp_secret"
+fi
+
 show_failure_context() {
   docker compose --env-file .env.production -f compose.production.yaml ps || true
   docker compose --env-file .env.production -f compose.production.yaml logs --no-color --tail=200 caddy frontend backend || true

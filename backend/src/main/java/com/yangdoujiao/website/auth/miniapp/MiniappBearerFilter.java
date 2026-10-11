@@ -34,7 +34,8 @@ public class MiniappBearerFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI().substring(request.getContextPath().length());
-        return !path.startsWith("/api/v1/miniapp/") && !path.startsWith("/api/v1/community/");
+        return !path.startsWith("/api/v1/miniapp/") && !path.startsWith("/api/v1/community/")
+                && !path.equals("/api/v1/consultations");
     }
 
     @Override

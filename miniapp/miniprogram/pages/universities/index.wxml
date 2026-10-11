@@ -1,43 +1,49 @@
-<view class="page-shell universities-page">
-  <view class="directory-head">
-    <view class="eyebrow">院校资料库</view>
-    <view class="page-title">找到适合你的院校</view>
-    <view class="page-copy">组合地区、学历和专业条件，查看真实院校与课程资料。</view>
-  </view>
-
+<view class="page-shell universities-page" bindtap="closeFilters">
   <view class="search-box">
     <view class="search-symbol" aria-hidden="true"></view>
-    <input class="search-input" value="{{query}}" placeholder="搜索院校或专业" confirm-type="search" bindinput="updateQuery" bindconfirm="submitSearch" />
-    <button class="search-button" bindtap="submitSearch">搜索</button>
+    <input class="search-input" value="{{query}}" placeholder="搜索院校或专业" placeholder-class="search-placeholder" aria-label="搜索院校或专业" confirm-type="search" bindinput="updateQuery" bindfocus="closeFilters" bindconfirm="submitSearch" />
+    <button class="search-button" bindtap="submitSearch" disabled="{{state === 'loading'}}" aria-label="搜索院校" hover-class="control--pressed">搜索</button>
   </view>
 
-  <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
-    <view class="filter-row">
-      <picker range="{{countryOptions}}" range-key="nameZh" value="{{countryIndex}}" data-key="country" bindchange="chooseFilter">
-        <view class="filter-chip {{country !== 'ALL' ? 'filter-chip--active' : ''}}">{{countryOptions[countryIndex].nameZh}}⌄</view>
-      </picker>
-      <picker range="{{levelOptions}}" range-key="nameZh" value="{{levelIndex}}" data-key="level" bindchange="chooseFilter">
-        <view class="filter-chip {{level !== 'ALL' ? 'filter-chip--active' : ''}}">{{levelOptions[levelIndex].nameZh}}⌄</view>
-      </picker>
-      <picker range="{{categoryOptions}}" range-key="nameZh" value="{{categoryIndex}}" data-key="category" bindchange="chooseFilter">
-        <view class="filter-chip {{category !== 'ALL' ? 'filter-chip--active' : ''}}">{{categoryOptions[categoryIndex].nameZh}}⌄</view>
-      </picker>
-      <view class="filter-clear" bindtap="clearFilters">重置</view>
+  <view class="filter-row">
+    <button class="filter-trigger {{country !== 'ALL' || openFilterKey === 'country' ? 'filter-trigger--active' : ''}}" data-key="country" catchtap="openFilter" aria-label="地区：{{countryOptions[countryIndex].nameZh || countryOptions[countryIndex].nameEn}}，{{openFilterKey === 'country' ? '收起选项' : '展开选项'}}" hover-class="control--pressed">
+      <text class="filter-label">{{countryOptions[countryIndex].nameZh || countryOptions[countryIndex].nameEn}}</text><text class="filter-arrow" aria-hidden="true">{{openFilterKey === 'country' ? '⌃' : '⌄'}}</text>
+    </button>
+    <button class="filter-trigger {{level !== 'ALL' || openFilterKey === 'level' ? 'filter-trigger--active' : ''}}" data-key="level" catchtap="openFilter" aria-label="学历：{{levelOptions[levelIndex].nameZh || levelOptions[levelIndex].nameEn}}，{{openFilterKey === 'level' ? '收起选项' : '展开选项'}}" hover-class="control--pressed">
+      <text class="filter-label">{{levelOptions[levelIndex].nameZh || levelOptions[levelIndex].nameEn}}</text><text class="filter-arrow" aria-hidden="true">{{openFilterKey === 'level' ? '⌃' : '⌄'}}</text>
+    </button>
+    <button class="filter-trigger {{category !== 'ALL' || openFilterKey === 'category' ? 'filter-trigger--active' : ''}}" data-key="category" catchtap="openFilter" aria-label="专业：{{categoryOptions[categoryIndex].nameZh || categoryOptions[categoryIndex].nameEn}}，{{openFilterKey === 'category' ? '收起选项' : '展开选项'}}" hover-class="control--pressed">
+      <text class="filter-label">{{categoryOptions[categoryIndex].nameZh || categoryOptions[categoryIndex].nameEn}}</text><text class="filter-arrow" aria-hidden="true">{{openFilterKey === 'category' ? '⌃' : '⌄'}}</text>
+    </button>
+  </view>
+  <view class="results-region">
+    <scroll-view wx:if="{{openFilterKey}}" scroll-y class="filter-panel" style="height: {{openFilterOptions.length > 5 ? 560 : openFilterOptions.length * 104 + (filtersLoading ? 72 : 0)}}rpx;" aria-label="{{openFilterKey === 'country' ? '地区选项' : openFilterKey === 'level' ? '学历选项' : '专业选项'}}">
+      <button wx:for="{{openFilterOptions}}" wx:key="code" class="filter-option {{item.code === openFilterValue ? 'filter-option--selected' : ''}}" data-code="{{item.code}}" bindtap="selectFilter" aria-label="{{item.nameZh || item.nameEn}}{{item.code === openFilterValue ? '，已选择' : ''}}" hover-class="control--pressed">
+        <text class="option-label">{{item.nameZh || item.nameEn}}</text><text wx:if="{{item.code === openFilterValue}}" class="option-check" aria-hidden="true">✓</text>
+      </button>
+      <view wx:if="{{filtersLoading}}" class="filter-status">正在读取筛选选项…</view>
+    </scroll-view>
+    <view class="result-content" aria-hidden="{{!!openFilterKey}}">
+      <view class="result-heading">
+        <view wx:if="{{state === 'ready' || state === 'empty'}}"><text class="result-number">{{totalItems}}</text> 所院校</view>
+        <view wx:else class="result-note">{{state === 'loading' ? '正在读取院校资料' : '院校资料库'}}</view>
+        <button class="filter-clear" bindtap="clearFilters" disabled="{{state === 'loading' && !query && country === 'ALL' && level === 'ALL' && category === 'ALL'}}" aria-label="清空关键词和全部筛选条件" hover-class="control--pressed">重置</button>
+      </view>
+      <view wx:if="{{state === 'ready'}}" class="university-list">
+        <university-result-card wx:for="{{universities}}" wx:key="slug" university="{{item}}" favorite="{{item.favorite}}" bind:select="openUniversity" bind:favorite="toggleFavorite" />
+        <view wx:if="{{loadingMore}}" class="load-more">正在加载更多院校…</view>
+        <view wx:elif="{{page >= totalPages}}" class="load-more">已显示全部院校</view>
+      </view>
+      <view wx:elif="{{state === 'loading'}}" class="university-list" aria-label="正在读取院校资料，请稍候">
+        <view wx:for="{{skeletonCards}}" wx:key="*this" class="photo-skeleton" aria-hidden="true">
+          <view class="skeleton-favorite"></view>
+          <view class="skeleton-identity"><view class="skeleton-line skeleton-line--title"></view><view class="skeleton-line"></view><view class="skeleton-line skeleton-line--location"></view></view>
+        </view>
+      </view>
+      <app-state wx:elif="{{state === 'empty'}}" kind="empty" title="没有找到匹配院校" description="请尝试清空关键词或调整筛选条件。" retryable="{{true}}" bind:retry="clearFilters" />
+      <app-state wx:elif="{{state === 'offline'}}" kind="offline" title="网络暂时不可用" description="请检查网络连接后重新加载。" retryable="{{true}}" bind:retry="retry" />
+      <app-state wx:elif="{{state === 'failed'}}" kind="failed" title="院校资料加载失败" description="服务暂时无法返回有效数据，请稍后重试。" retryable="{{true}}" bind:retry="retry" />
     </view>
-  </scroll-view>
-
-  <view wx:if="{{state === 'ready'}}" class="result-heading">
-    <view><text class="result-number">{{totalItems}}</text> 所院校</view>
-    <view class="result-note">可组合筛选</view>
+    <view wx:if="{{openFilterKey}}" class="result-dim" catchtap="closeFilters" aria-role="button" aria-label="关闭筛选选项"></view>
   </view>
-  <view wx:if="{{state === 'ready'}}" class="university-list">
-    <university-card wx:for="{{universities}}" wx:key="slug" university="{{item}}" favorite="{{item.favorite}}" bind:select="openUniversity" bind:favorite="toggleFavorite" />
-    <view wx:if="{{loadingMore}}" class="load-more">正在加载更多院校…</view>
-    <view wx:elif="{{page >= totalPages}}" class="load-more">已显示全部院校</view>
-  </view>
-
-  <app-state wx:if="{{state === 'loading'}}" kind="loading" title="正在读取院校资料" description="请稍候，正在连接洋豆角院校数据库。" />
-  <app-state wx:elif="{{state === 'empty'}}" kind="empty" title="没有找到匹配院校" description="请尝试清空关键词或调整筛选条件。" retryable="{{true}}" bind:retry="clearFilters" />
-  <app-state wx:elif="{{state === 'offline'}}" kind="offline" title="网络暂时不可用" description="请检查网络连接后重新加载。" retryable="{{true}}" bind:retry="retry" />
-  <app-state wx:elif="{{state === 'failed'}}" kind="failed" title="院校资料加载失败" description="服务暂时无法返回有效数据，请稍后重试。" retryable="{{true}}" bind:retry="retry" />
 </view>
