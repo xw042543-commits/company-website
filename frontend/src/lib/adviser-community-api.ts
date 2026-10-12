@@ -3,7 +3,7 @@ import { adviserClient, type AdviserFailure } from "./adviser-consultation-api.t
 export type ModerationTargetType = "POST" | "COMMENT";
 export type ModerationContentStatus = "PENDING_REVIEW" | "PUBLISHED" | "HIDDEN" | "DELETED" | "REJECTED";
 export type ModerationSlaState = "ON_TIME" | "WARNING" | "OVERDUE";
-export type ModerationCommand = "HIDE" | "RESTORE" | "REJECT_REPORT" | "MUTE" | "BAN";
+export type ModerationCommand = "HIDE" | "RESTORE" | "REJECT" | "REJECT_REPORT" | "MUTE" | "BAN";
 export type ModerationHistoryCommand = ModerationCommand | "AUTO_HIDE";
 export type ModerationAction = Readonly<{ command: ModerationCommand; reasonCode: string; version: number; restrictionEndsAt?: string | null }>;
 export type ModerationResult<T> = { status: "ready"; value: T } | AdviserFailure;
@@ -31,7 +31,7 @@ const ROOT = "/api/v1/adviser/community/moderation";
 const { record, exact, integer, timestamp, endpoint, failure, readJson, read } = adviserClient;
 const contentStatuses = ["PENDING_REVIEW", "PUBLISHED", "HIDDEN", "DELETED", "REJECTED"];
 const slaStates = ["ON_TIME", "WARNING", "OVERDUE"];
-const commands = ["HIDE", "RESTORE", "REJECT_REPORT", "MUTE", "BAN"];
+const commands = ["HIDE", "RESTORE", "REJECT", "REJECT_REPORT", "MUTE", "BAN"];
 const reportReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "OTHER"];
 const decisionReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "POLICY_VIOLATION",
   "APPEAL_ACCEPTED", "REVIEW_APPROVED", "REPORT_UNFOUNDED"];

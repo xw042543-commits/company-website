@@ -72,6 +72,7 @@ public class CommunityModerationService {
         if(target.version()!=request.version())throw new ApiException(HttpStatus.CONFLICT,"COMMUNITY_VERSION_CONFLICT","Content changed; refresh before deciding");
         CommunityContentStatus before=target.status(),next=before;
         switch(request.command()) {
+            case REJECT -> {if(before!=CommunityContentStatus.PENDING_REVIEW)throw transition();next=CommunityContentStatus.REJECTED;}
             case HIDE -> {if(before!=CommunityContentStatus.PUBLISHED&&before!=CommunityContentStatus.PENDING_REVIEW)throw transition();next=CommunityContentStatus.HIDDEN;}
             case RESTORE -> {
                 if(before!=CommunityContentStatus.HIDDEN&&before!=CommunityContentStatus.PENDING_REVIEW)throw transition();
@@ -86,6 +87,7 @@ public class CommunityModerationService {
             }
         }
         target.decide(next,now);
+        notifications.moderation(target,type,request.command().name(),request.version(),before);
         if(next==CommunityContentStatus.PUBLISHED&&before!=CommunityContentStatus.PUBLISHED&&target.comment()!=null) {
             notifications.comment(target.post(),target.comment());
         }
@@ -106,7 +108,7 @@ public class CommunityModerationService {
         boolean allowedReason = switch (r.command()) {
             case RESTORE -> restoreReason;
             case REJECT_REPORT -> rejectReason;
-            case HIDE, MUTE, BAN -> !restoreReason && !rejectReason;
+            case HIDE, REJECT, MUTE, BAN -> !restoreReason && !rejectReason;
         };
         if (!allowedReason) throw invalid();
         if (r.command() == CommunityModerationCommand.MUTE) {

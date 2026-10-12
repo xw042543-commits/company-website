@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
-import { loadCommunityModerationQueue, loadCommunityModerationDetail, submitCommunityModerationAction } from "./adviser-community-api.ts";
+import { loadCommunityModerationQueue, loadCommunityModerationDetail, submitCommunityModerationAction, type ModerationAction } from "./adviser-community-api.ts";
 
 const origin = "https://udajo.example";
 const time = "2026-10-08T12:00:00.123456789Z";
@@ -14,6 +14,20 @@ const detail = { targetType: "POST", targetId: "42", status: "PENDING_REVIEW", b
   actionsNextCursor: null };
 const csrf = { headerName: "X-XSRF-TOKEN", token: "safe-token" };
 const action = { command: "HIDE", reasonCode: "HARASSMENT", version: 3 } as const;
+
+test("explicit content rejection submits enforcement reason and reads REJECTED history", async () => {
+  const rejected = { ...detail, status: "REJECTED", version: 4, openReportCount: 0, reports: [],
+    actions: [{ id: "11", command: "REJECT", reasonCode: "SPAM", previousStatus: "PENDING_REVIEW", nextStatus: "REJECTED", createdAt: time }] };
+  const { request, calls } = transport([csrf, rejected]);
+  const decision: ModerationAction = { command: "REJECT", reasonCode: "SPAM", version: 3 };
+  assert.deepEqual(await submitCommunityModerationAction(origin, "POST", "42", decision, request), { status: "ready", value: rejected });
+  assert.deepEqual(JSON.parse(calls[1].init?.body as string), { command: "REJECT", reasonCode: "SPAM", version: 3, restrictionEndsAt: null });
+  for (const reasonCode of ["REVIEW_APPROVED", "APPEAL_ACCEPTED", "REPORT_UNFOUNDED"]) {
+    const invalid = transport([]);
+    assert.deepEqual(await submitCommunityModerationAction(origin, "POST", "42", { ...decision, reasonCode }, invalid.request), { status: "validation-error" });
+    assert.equal(invalid.calls.length, 0);
+  }
+});
 const automaticHideDetail = JSON.parse(readFileSync(new URL("../../../backend/src/test/resources/community/automatic-hide-detail.json", import.meta.url), "utf8"));
 function transport(values: unknown[], status = 200) {
   const calls: { url: string; init?: RequestInit }[] = [];

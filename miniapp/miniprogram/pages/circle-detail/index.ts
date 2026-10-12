@@ -8,7 +8,7 @@ import { sessionStore } from '../../stores/session';
 import { communityCategoryLabel } from '../../utils/community-boards';
 import {
   canUseCommunityWrite, codePointLength, createSubmissionState, editSubmission,
-  errorCopy, finishSubmission, formatCommunityTime, mergeCommunityItems, prepareSubmission,
+  errorCopy, finishSubmission, formatCommunityTime, mergeCommunityItems, PENDING_REVIEW_NOTICE, prepareSubmission,
   unwrapCommunityRoute, type SubmissionState,
 } from '../../utils/community-ui';
 import { communityFeedRoute } from '../../utils/routes';
@@ -61,7 +61,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     ...UNAVAILABLE_POST_COPY['not-found'],
     post: null as CommunityPostDetail | null, postTime: '', postCategoryLabel: '', comments: [] as CommentItem[],
     commentsCursor: null as string | null, loadingMoreComments: false, ownerPost: false,
-    commentBody: '', commentCount: 0, replyParentId: null as string | null, replyAuthor: '', submittingComment: false,
+    commentBody: '', commentCount: 0, commentNotice: '', replyParentId: null as string | null, replyAuthor: '', submittingComment: false,
     reportOpen: false, reportTargetType: 'POST' as 'POST' | 'COMMENT', reportTargetId: '',
     reportReasons: REPORT_REASONS, reportReason: 'SPAM' as CommunityReportReason, reportNote: '', reportNoteCount: 0, reporting: false,
     reactingTarget: null as string | null, postAvatarFailed: false,
@@ -145,7 +145,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
   },
   updateComment(event: WechatMiniprogram.Input) {
     const body = event.detail.value;
-    this.setData({ commentBody: body, commentCount: codePointLength(body) });
+    this.setData({ commentBody: body, commentCount: codePointLength(body), commentNotice: '' });
   },
   chooseReply(event: DataEvent) { this.setData({ replyParentId: event.currentTarget.dataset.parent ?? null, replyAuthor: String(event.currentTarget.dataset.id ?? '') }); },
   cancelReply() { this.setData({ replyParentId: null, replyAuthor: '' }); },
@@ -155,12 +155,13 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     if (!body || codePointLength(body) > 1000) { wx.showToast({ title: '评论需为1至1000个字', icon: 'none' }); return; }
     const state = detailRuntime(this); const fingerprint = `${state.postId}\u0000${this.data.replyParentId ?? ''}\u0000${body}`;
     state.commentSubmission = prepareSubmission(editSubmission(state.commentSubmission, fingerprint), deps.createKey);
-    this.setData({ submittingComment: true });
+    this.setData({ submittingComment: true, commentNotice: '' });
     const result = await deps.createComment({ body, postId: state.postId, parentCommentId: this.data.replyParentId, idempotencyKey: state.commentSubmission.key ?? '' });
     if (!state.active) return;
     if (result.ok) {
       state.commentSubmission = createSubmissionState();
-      this.setData({ commentBody: '', commentCount: 0, replyParentId: null, replyAuthor: '', submittingComment: false });
+      this.setData({ commentBody: '', commentCount: 0, replyParentId: null, replyAuthor: '', submittingComment: false,
+        commentNotice: result.value.status === 'PENDING_REVIEW' ? PENDING_REVIEW_NOTICE : '' });
       wx.showToast({ title: result.value.status === 'PENDING_REVIEW' ? '评论已提交审核' : '评论已发布', icon: 'success' });
       await Promise.all([this.loadPost(), this.loadComments(true)]);
     } else {

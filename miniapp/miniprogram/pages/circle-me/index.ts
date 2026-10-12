@@ -3,7 +3,7 @@ import {
   type CommunityMyComment, type CommunityMyPost,
 } from '../../services/community';
 import { sessionStore } from '../../stores/session';
-import { errorCopy, formatCommunityTime, statusCopy, unwrapCommunityRoute } from '../../utils/community-ui';
+import { errorCopy, formatCommunityTime, PENDING_REVIEW_NOTICE, statusCopy, unwrapCommunityRoute } from '../../utils/community-ui';
 import { communityPostRoute } from '../../utils/routes';
 import { communityCategoryLabel } from '../../utils/community-boards';
 
@@ -13,7 +13,7 @@ type PersonalPostItem = CommunityMyPost & { displayTime: string; statusLabel: st
 type PersonalCommentItem = CommunityMyComment & { displayTime: string; statusLabel: string };
 interface ItemEvent extends WechatMiniprogram.BaseEvent { currentTarget: WechatMiniprogram.BaseEvent['currentTarget'] & { dataset: { id?: string; post?: string; status?: string } } }
 
-interface PersonalRuntime { generation: number; active: boolean; requestScope: string }
+interface PersonalRuntime { generation: number; active: boolean; requestScope: string; submittedForReview: boolean }
 type PersonalDeps = { navigate: (url: string) => void; listPosts: typeof listMyCommunityPosts; listComments: typeof listMyCommunityComments;
   deletePost: typeof deleteCommunityPost; deleteComment: typeof deleteCommunityComment; session: typeof sessionStore; createScope: typeof createCommunityRequestScope };
 const personalDefaults: PersonalDeps = { navigate: (url) => wx.navigateTo({ url }), listPosts: listMyCommunityPosts,
@@ -27,9 +27,14 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
   data: {
     tab: 'posts' as PersonalTab, state: 'loading' as PersonalState,
     posts: [] as PersonalPostItem[], comments: [] as PersonalCommentItem[],
-    nextCursor: null as string | null, loadingMore: false, deletingId: null as string | null,
+    nextCursor: null as string | null, loadingMore: false, deletingId: null as string | null, reviewNotice: '',
   },
-  onLoad() { (this as PersonalPage)._communityRuntime = { generation: 0, active: true, requestScope: deps.createScope() }; void this.requireLoginAndLoad(); },
+  onLoad(options: Record<string, string | undefined> = {}) {
+    const submittedForReview = options.review === 'submitted';
+    (this as PersonalPage)._communityRuntime = { generation: 0, active: true, requestScope: deps.createScope(), submittedForReview };
+    this.setData({ reviewNotice: submittedForReview ? PENDING_REVIEW_NOTICE : '' });
+    void this.requireLoginAndLoad();
+  },
   onUnload() { const state = personalRuntime(this); state.active = false; state.generation++; },
   onPullDownRefresh() { void this.load(true).finally(() => wx.stopPullDownRefresh()); },
   onReachBottom() { if (this.data.state === 'ready' && this.data.nextCursor && !this.data.loadingMore) void this.load(false); },
@@ -64,14 +69,16 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
     }
     if (this.data.tab === 'posts') {
       const incoming = result.value.items as readonly CommunityMyPost[];
-      const items = new Map((reset ? [] : this.data.posts).map((item: PersonalPostItem) => [item.id, item]));
+      const items = new Map<string, PersonalPostItem>((reset ? [] : this.data.posts).map((item: PersonalPostItem) => [item.id, item]));
       incoming.forEach((item) => items.set(item.id, { ...item, categoryLabel: communityCategoryLabel(item.category), displayTime: formatCommunityTime(item.createdAt), statusLabel: statusCopy(item.status) }));
-      const posts = [...items.values()]; this.setData({ posts, nextCursor: result.value.nextCursor, loadingMore: false, state: posts.length ? 'ready' : 'empty' });
+      const posts = [...items.values()]; this.setData({ posts, reviewNotice: state.submittedForReview || posts.some((item) => item.status === 'PENDING_REVIEW') ? PENDING_REVIEW_NOTICE : '',
+        nextCursor: result.value.nextCursor, loadingMore: false, state: posts.length ? 'ready' : 'empty' });
     } else {
       const incoming = result.value.items as readonly CommunityMyComment[];
-      const items = new Map((reset ? [] : this.data.comments).map((item: PersonalCommentItem) => [item.id, item]));
+      const items = new Map<string, PersonalCommentItem>((reset ? [] : this.data.comments).map((item: PersonalCommentItem) => [item.id, item]));
       incoming.forEach((item) => items.set(item.id, { ...item, displayTime: formatCommunityTime(item.createdAt), statusLabel: statusCopy(item.status) }));
-      const comments = [...items.values()]; this.setData({ comments, nextCursor: result.value.nextCursor, loadingMore: false, state: comments.length ? 'ready' : 'empty' });
+      const comments = [...items.values()]; this.setData({ comments, reviewNotice: state.submittedForReview || comments.some((item) => item.status === 'PENDING_REVIEW') ? PENDING_REVIEW_NOTICE : '',
+        nextCursor: result.value.nextCursor, loadingMore: false, state: comments.length ? 'ready' : 'empty' });
     }
   },
   openItem(event: ItemEvent) {

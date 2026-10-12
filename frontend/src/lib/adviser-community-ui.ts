@@ -1,4 +1,4 @@
-import type { ModerationCommand, ModerationDetail, ModerationPostMetadata, ModerationQueueFilters, ModerationQueueItem, ModerationResult } from "./adviser-community-api.ts";
+import type { ModerationCommand, ModerationContentStatus, ModerationDetail, ModerationPostMetadata, ModerationQueueFilters, ModerationQueueItem, ModerationResult } from "./adviser-community-api.ts";
 import type { AdviserFailure } from "./adviser-consultation-api.ts";
 import { type Locale, words } from "./site.ts";
 
@@ -36,7 +36,7 @@ export function moderationReasonLabel(locale: Locale, reason: string): string {
 export function moderationCommandLabel(locale: Locale, command: string): string {
   const w = (zh: string, en: string) => words(locale, zh, en);
   return ({ HIDE: w("隐藏内容", "Hide content"), RESTORE: w("恢复内容", "Restore content"),
-    REJECT_REPORT: w("驳回举报", "Reject reports"), MUTE: w("禁言作者", "Mute author"), BAN: w("封禁作者", "Ban author"),
+    REJECT: w("拒绝发布", "Reject content"), REJECT_REPORT: w("驳回举报", "Reject reports"), MUTE: w("禁言作者", "Mute author"), BAN: w("封禁作者", "Ban author"),
     AUTO_HIDE: w("系统自动隐藏", "Automatically hidden"),
   })[command] ?? w("未知操作", "Unknown action");
 }
@@ -56,11 +56,12 @@ export function muteExpiry(value: string, now = Date.now()): string | null {
 
 export function canSubmitModeration(input: {
   command: ModerationCommand; reasonCode: string; version: number; confirmed?: boolean;
-  busy?: boolean; needsReload?: boolean; expiry?: string; now?: number;
+  busy?: boolean; needsReload?: boolean; expiry?: string; now?: number; contentStatus?: ModerationContentStatus;
 }): boolean {
   return !input.busy && !input.needsReload && Number.isSafeInteger(input.version) && input.version >= 0
     && input.version < Number.MAX_SAFE_INTEGER && reasonsForCommand(input.command).includes(input.reasonCode)
-    && (!["HIDE", "BAN"].includes(input.command) || input.confirmed === true)
+    && (!["HIDE", "REJECT", "BAN"].includes(input.command) || input.confirmed === true)
+    && (input.command !== "REJECT" || input.contentStatus === "PENDING_REVIEW")
     && (input.command !== "MUTE" || muteExpiry(input.expiry ?? "", input.now) !== null);
 }
 

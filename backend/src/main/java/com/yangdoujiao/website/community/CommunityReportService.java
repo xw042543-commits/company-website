@@ -24,12 +24,14 @@ public class CommunityReportService {
     private final CommunityModerationActionRepository actions;
     private final CommunityAuditLogger audit;
     private final CommunityMetrics metrics;
+    private final CommunityNotificationPublisher notifications;
     CommunityReportService(CommunityProperties properties,CommunityReportRepository reports,
             CommunityIdempotencyRecordRepository receipts,CommunityUserRestrictionRepository restrictions,
             UserAccountRepository accounts,CommunityModerationTargets targets,CommunityRateLimiter limiter,ObjectMapper json,
-            CommunityModerationActionRepository actions,CommunityAuditLogger audit,CommunityMetrics metrics) {
+            CommunityModerationActionRepository actions,CommunityAuditLogger audit,CommunityMetrics metrics,CommunityNotificationPublisher notifications) {
         this.properties=properties;this.reports=reports;this.receipts=receipts;this.restrictions=restrictions;this.accounts=accounts;
         this.targets=targets;this.limiter=limiter;this.json=json;this.threshold=properties.autoHideReportThreshold();this.actions=actions;this.audit=audit;this.metrics=metrics;
+        this.notifications=notifications;
     }
     public Result submit(long actor,String address,String key,CommunityReportRequest request) {
         if (request == null || request.targetType() == null || request.reasonCode() == null
@@ -68,7 +70,9 @@ public class CommunityReportService {
             if(!target.reportable())throw new ApiException(HttpStatus.CONFLICT,"COMMUNITY_TARGET_UNAVAILABLE","Community target is not reportable");
             report=reports.saveAndFlush(CommunityReport.create(actor,request.targetType(),id,request.reasonCode().name(),note,targets.now()));
             if(target.publicTarget()&&reports.countByTargetTypeAndTargetIdAndStatus(request.targetType(),id,CommunityReportStatus.OPEN)>=threshold) {
+                long version=target.version();
                 target.decide(CommunityContentStatus.HIDDEN,targets.now());targets.reconcile(target);
+                notifications.moderation(target,request.targetType(),"AUTO_HIDE",version,CommunityContentStatus.PUBLISHED);
                 actions.saveAndFlush(CommunityModerationAction.create(actor,request.targetType().name(),id,"AUTO_HIDE","REPORT_THRESHOLD",
                         CommunityContentStatus.PUBLISHED,CommunityContentStatus.HIDDEN,targets.now()));
                 targets.invalidateAfterCommit();audit.recordAutomaticHideAfterCommit(actor,request.targetType(),id);

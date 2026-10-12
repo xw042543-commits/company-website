@@ -5,6 +5,18 @@ import type { ModerationDetail } from "./adviser-community-api.ts";
 import { loadCommunityModerationDetail } from "./adviser-community-api.ts";
 import * as communityUi from "./adviser-community-ui.ts";
 
+test("rejecting content is distinct from report rejection and requires explicit confirmation", () => {
+  assert.equal(communityUi.moderationCommandLabel("zh", "REJECT"), "拒绝发布");
+  assert.equal(communityUi.moderationCommandLabel("en", "REJECT"), "Reject content");
+  const decision = { command: "REJECT", reasonCode: "SPAM", version: 0, contentStatus: "PENDING_REVIEW" } as const;
+  assert.equal(communityUi.canSubmitModeration(decision), false);
+  assert.equal(communityUi.canSubmitModeration({ ...decision, confirmed: true }), true);
+  assert.equal(communityUi.canSubmitModeration({ ...decision, reasonCode: "REPORT_UNFOUNDED", confirmed: true }), false);
+  for (const contentStatus of ["PUBLISHED", "HIDDEN", "REJECTED", "DELETED"] as const)
+    assert.equal(communityUi.canSubmitModeration({ ...decision, contentStatus, confirmed: true }), false);
+  assert.equal(communityUi.canSubmitModeration({ command: "REJECT_REPORT", reasonCode: "REPORT_UNFOUNDED", version: 0 }), true);
+});
+
 test("pending SLA produces bilingual waiting hints and accessible queue labels", () => {
   const item = { targetType: "POST", targetId: "42", status: "PENDING_REVIEW", bodyPreview: "Pending post", version: 0,
     openReportCount: 0, createdAt: "2099-01-01T00:00:00Z" } as const;

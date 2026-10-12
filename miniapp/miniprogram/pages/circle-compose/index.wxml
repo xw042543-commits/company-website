@@ -17,7 +17,7 @@
   </view>
   <view wx:if="{{notice}}" class="notice" role="alert">{{notice}}</view>
   <button class="publish-button" disabled="{{submitting}}" bindtap="submit">{{submitting ? '正在提交…' : '确认发布'}}</button>
-  <view class="review-note">安全检查认为内容需要人工确认时，将显示“审核中”，不会假装已经公开。</view>
+  <view class="review-note">需要人工确认的内容会进入“审核中”，预计 24 小时内完成。审核结果可在“我的内容”和消息中查看。</view>
 </view>
 <view wx:if="{{schoolOpen}}" class="school-overlay">
   <view class="school-dialog" role="dialog" aria-label="选择院校">
