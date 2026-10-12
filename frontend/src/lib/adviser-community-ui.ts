@@ -1,6 +1,19 @@
-import type { ModerationCommand, ModerationDetail, ModerationPostMetadata, ModerationQueueFilters, ModerationResult } from "./adviser-community-api.ts";
+import type { ModerationCommand, ModerationDetail, ModerationPostMetadata, ModerationQueueFilters, ModerationQueueItem, ModerationResult } from "./adviser-community-api.ts";
 import type { AdviserFailure } from "./adviser-consultation-api.ts";
 import { type Locale, words } from "./site.ts";
+
+export function moderationWaitingHint(locale: Locale, item: Pick<ModerationQueueItem, "status" | "targetType" | "slaState">):
+  { text: string; ariaLabel: string } | null {
+  if (item.status !== "PENDING_REVIEW") return null;
+  const labels = {
+    ON_TIME: words(locale, "等待审核 · 未满 12 小时", "Awaiting review · under 12 hours"),
+    WARNING: words(locale, "等待审核 · 已满 12 小时", "Awaiting review · at least 12 hours"),
+    OVERDUE: words(locale, "审核超时 · 已满 24 小时", "Review overdue · at least 24 hours"),
+  };
+  const text = labels[item.slaState];
+  const target = item.targetType === "POST" ? words(locale, "帖子", "Post") : words(locale, "评论", "Comment");
+  return { text, ariaLabel: `${target}${locale === "zh" ? "：" : ": "}${text}` };
+}
 
 export function moderationPostContext(locale: Locale, post: ModerationPostMetadata): string {
   const labels: Record<string, [string, string]> = { GENERAL: ['日常交流', 'Daily life'], NEWCOMER: ['新生报到', 'New arrivals'],

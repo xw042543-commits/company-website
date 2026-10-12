@@ -2,6 +2,7 @@ import { adviserClient, type AdviserFailure } from "./adviser-consultation-api.t
 
 export type ModerationTargetType = "POST" | "COMMENT";
 export type ModerationContentStatus = "PENDING_REVIEW" | "PUBLISHED" | "HIDDEN" | "DELETED" | "REJECTED";
+export type ModerationSlaState = "ON_TIME" | "WARNING" | "OVERDUE";
 export type ModerationCommand = "HIDE" | "RESTORE" | "REJECT_REPORT" | "MUTE" | "BAN";
 export type ModerationHistoryCommand = ModerationCommand | "AUTO_HIDE";
 export type ModerationAction = Readonly<{ command: ModerationCommand; reasonCode: string; version: number; restrictionEndsAt?: string | null }>;
@@ -10,7 +11,7 @@ export type ModerationCategory = "GENERAL" | "NEWCOMER" | "HOUSING" | "MARKETPLA
 export type ModerationPostMetadata = { title?: string | null; category?: ModerationCategory | null; universityId?: string | null; universityName?: string | null };
 export type ModerationQueueItem = ModerationPostMetadata & {
   targetType: ModerationTargetType; targetId: string; status: ModerationContentStatus; bodyPreview: string;
-  version: number; openReportCount: number; createdAt: string;
+  version: number; openReportCount: number; createdAt: string; slaState: ModerationSlaState;
 };
 export type ModerationQueue = { items: ModerationQueueItem[]; nextCursor: string | null };
 export type ModerationReportSummary = { reasonCode: string; status: "OPEN" | "RESOLVED_ACTIONED" | "RESOLVED_REJECTED"; count: number };
@@ -29,6 +30,7 @@ export type ModerationDetailFilters = { actionsCursor?: string };
 const ROOT = "/api/v1/adviser/community/moderation";
 const { record, exact, integer, timestamp, endpoint, failure, readJson, read } = adviserClient;
 const contentStatuses = ["PENDING_REVIEW", "PUBLISHED", "HIDDEN", "DELETED", "REJECTED"];
+const slaStates = ["ON_TIME", "WARNING", "OVERDUE"];
 const commands = ["HIDE", "RESTORE", "REJECT_REPORT", "MUTE", "BAN"];
 const reportReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "OTHER"];
 const decisionReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "POLICY_VIOLATION",
@@ -61,8 +63,9 @@ function targetFields(value: Record<string, unknown>) {
     && integer(value.version) && integer(value.openReportCount);
 }
 function parseItem(value: unknown): ModerationQueueItem | null {
-  return record(value) && metadataFields(value, ["targetType", "targetId", "status", "bodyPreview", "version", "openReportCount", "createdAt"])
-    && targetFields(value) && previewText(value.bodyPreview) && timestamp(value.createdAt) ? value as ModerationQueueItem : null;
+  return record(value) && metadataFields(value, ["targetType", "targetId", "status", "bodyPreview", "version", "openReportCount", "createdAt", "slaState"])
+    && targetFields(value) && previewText(value.bodyPreview) && timestamp(value.createdAt) && token(value.slaState, slaStates)
+    ? value as ModerationQueueItem : null;
 }
 function parseQueue(value: unknown): ModerationQueue | null {
   return record(value) && exact(value, ["items", "nextCursor"]) && Array.isArray(value.items) && value.items.length <= 50

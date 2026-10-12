@@ -54,7 +54,8 @@ class CommunityPostReaderContractTest {
         var personal = new CommunityMyPost("42", "body", CommunityContentStatus.PUBLISHED, "已发布", TIME, TIME, 0, 0,
                 title, CommunityCategory.STUDY, "1", "Campus");
         var queue = new CommunityModerationPage(List.of(new CommunityModerationPage.Item(CommunityTargetType.POST,
-                "42", CommunityContentStatus.PUBLISHED, "body", 0, 0, TIME, title, CommunityCategory.STUDY, "1", "Campus")), null);
+                "42", CommunityContentStatus.PUBLISHED, "body", 0, 0, TIME, CommunityModerationPage.SlaState.ON_TIME,
+                title, CommunityCategory.STUDY, "1", "Campus")), null);
         var adviser = new CommunityModerationDetail(CommunityTargetType.POST, "42", CommunityContentStatus.PUBLISHED,
                 "body", null, null, 0, 0, List.of(), List.of(), null, title, CommunityCategory.STUDY, "1", "Campus");
         var result = new LinkedHashMap<String, Object>();

@@ -1,5 +1,6 @@
 package com.yangdoujiao.website.community;
 
+import java.time.Clock;
 import java.time.OffsetDateTime;
 import java.util.*;
 import org.springframework.stereotype.Service;
@@ -20,25 +21,36 @@ public class CommunityModerationService {
     private final CommunityCursorCodec cursors;
     private final CommunityAuditLogger audit;
     private final CommunityNotificationPublisher notifications;
+    private final Clock clock;
     CommunityModerationService(CommunityModerationTargets targets,CommunityModerationQueryRepository query,CommunityReportRepository reports,
             CommunityModerationActionRepository actions,CommunityUserRestrictionRepository restrictions,UserAccountRepository accounts,
-            CommunityCursorCodec cursors,CommunityAuditLogger audit,CommunityNotificationPublisher notifications) {
+            CommunityCursorCodec cursors,CommunityAuditLogger audit,CommunityNotificationPublisher notifications,Clock clock) {
         this.targets=targets;this.query=query;this.reports=reports;this.actions=actions;this.restrictions=restrictions;
         this.accounts=accounts;this.cursors=cursors;this.audit=audit;
         this.notifications=notifications;
+        this.clock=clock;
     }
     @Transactional(readOnly=true)
     public CommunityModerationPage queue(String status,CommunityTargetType type,String reason,OffsetDateTime from,OffsetDateTime to,String cursor,int size) {
         if(size<1||size>50||!List.of("PENDING","HIDDEN","PROCESSED").contains(status)||from!=null&&to!=null&&from.isAfter(to))throw invalid();
         if(reason!=null){try{CommunityReportReason.valueOf(reason);}catch(IllegalArgumentException e){throw invalid();}}
-        String scope="moderation:"+status+":"+type+":"+reason+":"+from+":"+to;
+        String direction="PENDING".equals(status)?"ASC":"DESC";
+        String scope="moderation:"+status+":"+direction+":"+type+":"+reason+":"+from+":"+to;
         CommunityCursorCodec.Position after=null;String afterType=null;
         if(cursor!=null){try{after=cursors.decode(cursor,scope+":POST");afterType="POST";}catch(ApiException e){after=cursors.decode(cursor,scope+":COMMENT");afterType="COMMENT";}}
         var items=query.queue(status,type,reason,from,to,after,afterType,size+1);
         boolean more=items.size()>size;if(more)items=items.subList(0,size);
         var last=items.isEmpty()?null:items.getLast();
         String next=more?cursors.encode(last.createdAt(),Long.parseLong(last.targetId()),scope+":"+last.targetType()):null;
-        return new CommunityModerationPage(List.copyOf(items),next);
+        OffsetDateTime now=OffsetDateTime.now(clock);
+        return new CommunityModerationPage(items.stream().map(item->item.withSlaState(slaState(item,now))).toList(),next);
+    }
+    private static CommunityModerationPage.SlaState slaState(CommunityModerationPage.Item item,OffsetDateTime now) {
+        // Open reports also put published/hidden content in PENDING; only actual review waits have an SLA.
+        if(item.status()!=CommunityContentStatus.PENDING_REVIEW)return CommunityModerationPage.SlaState.ON_TIME;
+        if(!now.isBefore(item.createdAt().plusHours(24)))return CommunityModerationPage.SlaState.OVERDUE;
+        if(!now.isBefore(item.createdAt().plusHours(12)))return CommunityModerationPage.SlaState.WARNING;
+        return CommunityModerationPage.SlaState.ON_TIME;
     }
     @Transactional(readOnly=true)
     public CommunityModerationDetail detail(CommunityTargetType type,long id,String cursor) {

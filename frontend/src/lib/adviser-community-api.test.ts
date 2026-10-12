@@ -6,7 +6,7 @@ import { loadCommunityModerationQueue, loadCommunityModerationDetail, submitComm
 const origin = "https://udajo.example";
 const time = "2026-10-08T12:00:00.123456789Z";
 const item = { targetType: "POST", targetId: "9223372036854775807", status: "PENDING_REVIEW",
-  bodyPreview: "Review this post", version: 3, openReportCount: 1, createdAt: time };
+  bodyPreview: "Review this post", version: 3, openReportCount: 1, createdAt: time, slaState: "ON_TIME" };
 const detail = { targetType: "POST", targetId: "42", status: "PENDING_REVIEW", body: "Review this post",
   postId: null, parentCommentId: null, version: 3, openReportCount: 1,
   reports: [{ reasonCode: "HARASSMENT", status: "OPEN", count: 1 }],
@@ -24,6 +24,21 @@ function transport(values: unknown[], status = 200) {
   };
   return { request, calls };
 }
+
+test("queue accepts only server SLA states without guessing from local time", async () => {
+  for (const slaState of ["ON_TIME", "WARNING", "OVERDUE"]) {
+    const page = { items: [{ ...item, slaState, createdAt: "2099-01-01T00:00:00Z" }], nextCursor: null };
+    assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([page]).request), { status: "ready", value: page });
+  }
+});
+
+test("queue rejects missing and unknown SLA states", async () => {
+  for (const slaState of ["LATE", "warning", "", null, 12, undefined]) {
+    assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([{ items: [{ ...item, slaState }], nextCursor: null }]).request), { status: "error" });
+  }
+  const missing = Object.fromEntries(Object.entries(item).filter(([key]) => key !== "slaState"));
+  assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([{ items: [missing], nextCursor: null }]).request), { status: "error" });
+});
 
 test("moderation reads new post metadata and keeps legacy DTOs while rejecting invalid metadata", async () => {
   const metadata = { title: "<b>找室友</b>", category: "HOUSING", universityId: "1", universityName: "马来亚大学" };
