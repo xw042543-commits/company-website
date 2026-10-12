@@ -8,7 +8,6 @@ import {
   buildProgrammeDocument,
   deriveProgrammeCategories,
   filterProgrammes,
-  isTemporarilyLockedSection,
 } from '../miniprogram/utils/discovery-view.ts';
 
 function programme(id: number, categoryCode: string): UniversityProgramme {
@@ -98,30 +97,28 @@ function section(type: string, sortOrder: number, overrides: Partial<ProgrammeDe
   };
 }
 
-test('programme document places one introduction and synthetic basic information before sorted API sections', () => {
+test('programme document always exposes the four canonical detail blocks in product order', () => {
   const sections = [
-    section('CAREER_OUTLOOK', 30), section('CURRICULUM', 20),
-    section('INTRODUCTION', 0, { bodyZh: '重复介绍' }),
-    section('ADMISSIONS', 10), section('INTRODUCTION', 5, { bodyZh: '另一个介绍' }),
+    section('CAREER_OPPORTUNITIES', 30), section('CURRICULUM', 20),
+    section('ADMISSIONS', 10),
   ];
   Object.freeze(sections);
   const document = buildProgrammeDocument(detail({ sections }));
 
   assert.deepEqual(document.map((item) => item.type), [
-    'INTRODUCTION', 'BASIC_INFORMATION', 'ADMISSIONS', 'CURRICULUM', 'CAREER_OUTLOOK',
+    'INTRODUCTION', 'BASIC_INFORMATION', 'CAREER_PROSPECTS', 'CURRICULUM',
   ]);
   assert.deepEqual(document[0], {
-    key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业描述', body: '专业描述正文', locked: false,
+    key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: '专业描述正文', available: true,
   });
   assert.deepEqual(document[1], {
-    key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '基本信息', body: '', locked: false,
+    key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true,
   });
-  assert.deepEqual(document.slice(2).map(({ title, body, locked }) => ({ title, body, locked })), [
-    { title: 'ADMISSIONS标题', body: 'ADMISSIONS正文', locked: true },
-    { title: 'CURRICULUM标题', body: 'CURRICULUM正文', locked: true },
-    { title: 'CAREER_OUTLOOK标题', body: 'CAREER_OUTLOOK正文', locked: false },
+  assert.deepEqual(document.slice(2).map(({ title, body, available }) => ({ title, body, available })), [
+    { title: '专业前景', body: 'CAREER_OPPORTUNITIES正文', available: true },
+    { title: '专业课程', body: 'CURRICULUM正文', available: true },
   ]);
-  assert.deepEqual(sections.map((item) => item.sortOrder), [30, 20, 0, 10, 5]);
+  assert.deepEqual(sections.map((item) => item.sortOrder), [30, 20, 10]);
 });
 
 test('programme document falls back to the first nonblank introduction in API sort order', () => {
@@ -133,58 +130,29 @@ test('programme document falls back to the first nonblank introduction in API so
     ],
   }));
 
-  assert.deepEqual(document.map((item) => item.type), ['INTRODUCTION', 'BASIC_INFORMATION']);
+  assert.deepEqual(document.map((item) => item.type), ['INTRODUCTION', 'BASIC_INFORMATION', 'CAREER_PROSPECTS', 'CURRICULUM']);
   assert.equal(document[0]?.body, '最早可用介绍');
 });
 
-test('programme document preserves every remaining section with unique stable keys and English text fallback', () => {
+test('programme document accepts legacy aliases and English body fallback', () => {
   const input = detail({ sections: [
-    section('ADMISSIONS', 10), section('ADMISSION_REQUIREMENTS', 10),
-    section('OTHER', 15, { titleZh: '', titleEn: 'Details', bodyZh: '', bodyEn: 'English body' }),
-    section('OTHER', 15),
+    section('COURSE_STRUCTURE', 10, { bodyZh: '', bodyEn: 'English curriculum' }),
+    section('CAREER_OUTLOOK', 5, { bodyZh: '', bodyEn: 'English careers' }),
   ] });
   const document = buildProgrammeDocument(input);
 
-  assert.deepEqual(document.map((item) => item.type), [
-    'INTRODUCTION', 'BASIC_INFORMATION', 'ADMISSIONS', 'ADMISSION_REQUIREMENTS', 'OTHER', 'OTHER',
-  ]);
+  assert.deepEqual(document.map((item) => item.type), ['INTRODUCTION', 'BASIC_INFORMATION', 'CAREER_PROSPECTS', 'CURRICULUM']);
   assert.equal(new Set(document.map((item) => item.key)).size, document.length);
   assert.deepEqual(buildProgrammeDocument(input), document);
-  assert.equal(document[4]?.title, 'Details');
-  assert.equal(document[4]?.body, 'English body');
+  assert.equal(document[2]?.body, 'English careers');
+  assert.equal(document[3]?.body, 'English curriculum');
 });
 
-test('programme document keeps the two public anchors when no description or API sections exist', () => {
+test('programme document keeps all four blocks with explicit pending copy when data is missing', () => {
   assert.deepEqual(buildProgrammeDocument(detail({ descriptionZh: '' })), [
-    { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业描述', body: '', locked: false },
-    { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '基本信息', body: '', locked: false },
+    { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: '专业介绍资料正在整理中，请咨询顾问确认。', available: false },
+    { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true },
+    { key: 'CAREER_PROSPECTS', type: 'CAREER_PROSPECTS', title: '专业前景', body: '专业前景资料正在整理中，请咨询顾问确认。', available: false },
+    { key: 'CURRICULUM', type: 'CURRICULUM', title: '专业课程', body: '专业课程资料正在整理中，请咨询顾问确认。', available: false },
   ]);
-});
-
-test('temporary lock applies only to the four admission and curriculum aliases', () => {
-  for (const type of ['ADMISSION_REQUIREMENTS', 'ADMISSIONS', 'COURSE_STRUCTURE', 'CURRICULUM']) {
-    assert.equal(isTemporarilyLockedSection(type), true, type);
-  }
-  for (const type of [
-    'INTRODUCTION', 'BASIC_INFORMATION', 'LEARNING_OUTCOMES', 'CAREER_OUTLOOK',
-    'CAREER_OPPORTUNITIES', 'IDEAL_STUDENT', 'OTHER', '', 'admissions', 'CURRICULUM_EXTRA',
-  ]) {
-    assert.equal(isTemporarilyLockedSection(type), false, type);
-  }
-});
-
-test('document keeps public English fallback readable while locking only admissions and curriculum', () => {
-  const document = buildProgrammeDocument(detail({ descriptionZh: '', sections: [
-    section('INTRODUCTION', 0, { bodyZh: ' ', bodyEn: 'Programme introduction' }),
-    section('LEARNING_OUTCOMES', 30, { titleZh: ' ', titleEn: 'Learning outcomes', bodyZh: ' ', bodyEn: 'Public outcomes' }),
-    section('COURSE_STRUCTURE', 20), section('ADMISSION_REQUIREMENTS', 10),
-  ] }));
-  assert.deepEqual(document.map(({ type, locked }) => ({ type, locked })), [
-    { type: 'INTRODUCTION', locked: false }, { type: 'BASIC_INFORMATION', locked: false },
-    { type: 'ADMISSION_REQUIREMENTS', locked: true }, { type: 'COURSE_STRUCTURE', locked: true },
-    { type: 'LEARNING_OUTCOMES', locked: false },
-  ]);
-  assert.equal(document[0]?.body, 'Programme introduction');
-  assert.equal(document[4]?.title, 'Learning outcomes');
-  assert.equal(document[4]?.body, 'Public outcomes');
 });

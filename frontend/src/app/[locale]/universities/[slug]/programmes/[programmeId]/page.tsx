@@ -9,9 +9,10 @@ import { backendUniversitySlug, findUniversityBySlug, localizeUniversity } from 
 import { universityProfile } from "@/data/university-profiles";
 import { getFilterOptions, type FilterOption, type FilterOptions } from "@/lib/filter-options-api";
 import { programmeDetailPath } from "@/lib/programme-routes";
+import { findProgrammeSection } from "@/lib/programme-detail-sections";
 import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { formatEnglishDisplayText, isLocale, words } from "@/lib/site";
-import { getUniversityProgramme, type UniversityProgramme } from "@/lib/university-api";
+import { getUniversityProgramme, type UniversityProgramme, type UniversityProgrammeDetailSection } from "@/lib/university-api";
 
 type ProgrammePageProps = {
   params: Promise<{ locale: string; slug: string; programmeId: string }>;
@@ -35,6 +36,8 @@ type ProgrammeDetail = Pick<
   level: string;
   routeIdentifier: string;
   sourceSlug: string;
+  sections: UniversityProgrammeDetailSection[];
+  remote: boolean;
 };
 
 function optionLabel(options: FilterOption[] | undefined, code: string | null, locale: "zh" | "en") {
@@ -83,6 +86,8 @@ function remoteProgrammeDetail(
     routeIdentifier: String(programme.id),
     descriptionZh: programme.descriptionZh?.trim() || "",
     descriptionEn: programme.descriptionEn?.trim() || "",
+    sections: programme.sections,
+    remote: true,
   };
 }
 
@@ -122,25 +127,6 @@ function programmeIntroduction({
   return `${name} is a ${level.toLocaleLowerCase("en")} programme offered by ${university}${faculty ? ` in ${faculty}` : ""}.${studyDetails ? ` It is listed as ${studyDetails}.` : ""} You can review the available fees, intake dates and entry requirements on this page. For confirmed modules, electives and assessment details, request the university's latest course guide before applying.`;
 }
 
-function careerDirections(locale: "zh" | "en", subject: string) {
-  const text = subject.toLocaleLowerCase("en");
-  const groups: Array<[RegExp, string[], string[]]> = [
-    [/comput|software|data|cyber|information technology|人工智能|计算机/, ["软件开发", "数据分析", "系统分析", "网络安全", "产品管理"], ["Software development", "Data analysis", "Systems analysis", "Cybersecurity", "Product management"]],
-    [/business|management|finance|marketing|account|商业|管理|金融|营销|会计/, ["商业分析", "市场营销", "运营管理", "项目管理", "创业"], ["Business analysis", "Marketing", "Operations management", "Project management", "Entrepreneurship"]],
-    [/engineer|工程/, ["工程设计", "项目工程", "质量保证", "技术咨询", "运营管理"], ["Engineering design", "Project engineering", "Quality assurance", "Technical consulting", "Operations management"]],
-    [/health|medic|pharmacy|nurs|医学|健康|药剂|护理/, ["临床与健康服务", "医学研究", "公共卫生", "医疗管理", "健康教育"], ["Clinical and health services", "Medical research", "Public health", "Healthcare management", "Health education"]],
-    [/law|法律/, ["法律服务", "合规", "企业治理", "政策研究", "争议解决"], ["Legal services", "Compliance", "Corporate governance", "Policy research", "Dispute resolution"]],
-    [/design|architecture|media|设计|建筑|媒体/, ["设计与创意制作", "用户体验", "品牌传播", "项目设计", "创意创业"], ["Design and creative production", "User experience", "Brand communication", "Design project work", "Creative entrepreneurship"]],
-    [/education|教育/, ["教学", "课程开发", "教育管理", "学生支持", "教育研究"], ["Teaching", "Curriculum development", "Education management", "Student support", "Education research"]],
-    [/hospitality|tourism|culinary|酒店|旅游|烹饪/, ["酒店运营", "旅游策划", "活动管理", "客户体验", "餐饮管理"], ["Hospitality operations", "Tourism planning", "Events management", "Customer experience", "Food and beverage management"]],
-    [/agricultur|science|biology|chemistry|农业|科学|生物|化学/, ["研究与实验室工作", "质量控制", "技术咨询", "可持续发展", "科学传播"], ["Research and laboratory work", "Quality control", "Technical consulting", "Sustainability", "Science communication"]],
-  ];
-  const group = groups.find(([pattern]) => pattern.test(text));
-  return group ? (locale === "zh" ? group[1] : group[2]) : (locale === "zh"
-    ? ["行业研究", "项目协调", "顾问服务", "运营支持", "继续深造"]
-    : ["Industry research", "Project coordination", "Consulting", "Operations support", "Further study"]);
-}
-
 export default async function ProgrammePage({ params }: ProgrammePageProps) {
   const { locale, slug, programmeId } = await params;
   if (!isLocale(locale)) notFound();
@@ -170,6 +156,8 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
         ...localProgramme,
         sourceSlug: localProgramme.slug,
         routeIdentifier: localProgramme.slug,
+        sections: [],
+        remote: false,
       };
     }
   }
@@ -188,7 +176,13 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
     : formatEnglishDisplayText(programme.facultyEn || "Faculty to be confirmed");
   const detailPath = programmeDetailPath(locale, university.slug, programme.routeIdentifier);
   const universityPath = `/${locale}/universities/${encodeURIComponent(university.slug)}`;
-  const requirements = locale === "zh" ? programme.descriptionZh : programme.descriptionEn;
+  const admissionsSection = findProgrammeSection(programme.sections, ["ADMISSIONS", "ADMISSION_REQUIREMENTS"], locale);
+  const curriculumSection = findProgrammeSection(programme.sections, ["CURRICULUM", "COURSE_STRUCTURE"], locale);
+  const careerSection = findProgrammeSection(programme.sections, ["CAREER_OPPORTUNITIES", "CAREER_OUTLOOK"], locale);
+  const localizedDescription = locale === "zh"
+    ? programme.descriptionZh.trim() || programme.descriptionEn.trim()
+    : programme.descriptionEn.trim() || programme.descriptionZh.trim();
+  const requirements = programme.remote ? admissionsSection?.body ?? "" : localizedDescription;
   const requirementItems = requirements.split(/\s*·\s*/).map((item) => {
     const separator = item.indexOf(":");
     return separator > 0
@@ -211,7 +205,6 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   const verifiedCareers = locale === "zh"
     ? ["商业顾问", "公共关系专员", "创业者", "产品开发经理", "业务拓展", "战略营销专家", "社交媒体专员", "市场研究员"]
     : ["Business consultant", "Public relations specialist", "Entrepreneur", "Product development manager", "Business developer", "Strategic marketing expert", "Social media specialist", "Market researcher"];
-  const careers = isVerifiedTaylorsBusiness ? verifiedCareers : careerDirections(locale, `${faculty} ${name}`);
   const generatedIntroduction = programmeIntroduction({
     locale,
     name,
@@ -223,7 +216,7 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   });
   const introduction = isVerifiedTaylorsBusiness
     ? words(locale, "Taylor’s商业学士（荣誉）课程涵盖管理、营销、金融、商业运营与分析等核心领域。学生先建立广泛的商业基础，再选择一个专业方向，以项目、行业接触和实习经验发展实际应用能力。", "Taylor’s Bachelor of Business (Honours) covers core areas including management, marketing, finance, business operations, and analytics. Students first build a broad business foundation, then choose one specialisation and develop applied skills through projects, industry exposure, and internship experience.")
-    : generatedIntroduction;
+    : programme.remote && localizedDescription ? localizedDescription : generatedIntroduction;
   const adviserPath = `/${locale}/about?university=${encodeURIComponent(school.name)}&programme=${encodeURIComponent(name)}#enquiry`;
   const coverageFields = [faculty, duration, tuition, intakes, programme.mode, requirements];
   const coverageCount = coverageFields.filter((value) => value.trim()).length;
@@ -287,11 +280,11 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
 
     <nav className="programme-section-nav" aria-label={words(locale, "课程页面目录", "Programme page sections")}>
       <div className="container">
-        <a href="#overview">{words(locale, "介绍", "Introduction")}</a>
-        <a href="#basic-information">{words(locale, "基本信息", "Course details")}</a>
+        <a href="#overview">{words(locale, "专业介绍", "Programme introduction")}</a>
+        <a href="#basic-information">{words(locale, "专业基本信息", "Programme basic information")}</a>
+        <a href="#careers">{words(locale, "专业前景", "Career prospects")}</a>
+        <a href="#programme-curriculum">{words(locale, "专业课程", "Programme curriculum")}</a>
         <a href="#requirements">{words(locale, "录取要求", "Entry requirements")}</a>
-        <a href="#programme-structure">{words(locale, "课程安排", "Programme structure")}</a>
-        <a href="#careers">{words(locale, "未来职业方向", "Career directions")}</a>
       </div>
     </nav>
 
@@ -299,10 +292,10 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
       <div className="programme-content">
         <section className="programme-section" id="overview">
           <p className="section-label">{words(locale, "课程资料", "Programme overview")}</p>
-          <h2>{words(locale, "课程介绍", "About this programme")}</h2>
+          <h2>{words(locale, "专业介绍", "Programme introduction")}</h2>
           <p className="programme-introduction">{introduction}</p>
           <div className="programme-essential-details" id="basic-information">
-            <h3>{words(locale, "基本信息", "Course details")}</h3>
+            <h3>{words(locale, "专业基本信息", "Programme basic information")}</h3>
             <div className="programme-table-wrap"><table className="programme-data-table programme-essential-table"><tbody>
               {essentialFacts.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}
             </tbody></table></div>
@@ -333,6 +326,37 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
           </div>}
         </section>
 
+        <details className="programme-info-panel" id="careers" open>
+          <summary>{words(locale, "专业前景", "Career prospects")}</summary>
+          <div className="programme-info-body">
+            {careerSection ? <p className="programme-section-copy">{careerSection.body}</p> : isVerifiedTaylorsBusiness ? <>
+              <p>{words(locale, "以下职业方向由Taylor’s University官方课程页列出。实际职位取决于所选专业方向、经验与当地专业要求。", "These career directions are listed on Taylor’s University’s official programme page. Actual roles depend on the chosen specialisation, experience, and local professional requirements.")}</p>
+              <ul className="programme-career-list">{verifiedCareers.map((career) => <li key={career}>{career}</li>)}</ul>
+            </> : <div className="programme-structure-pending">
+              <strong>{words(locale, "专业前景资料待补充", "Career information pending")}</strong>
+              <p>{words(locale, "大学尚未提供已审核的职业方向或毕业去向资料，请在申请前向顾问确认。", "The university has not supplied reviewed career directions or graduate outcomes for this programme. Confirm them with an adviser before applying.")}</p>
+              <Link className="text-link" href={adviserPath}>{words(locale, "确认专业前景", "Confirm career prospects")}</Link>
+            </div>}
+          </div>
+        </details>
+
+        <details className="programme-info-panel" id="programme-curriculum" open>
+          <summary>{words(locale, "专业课程", "Programme curriculum")}</summary>
+          <div className="programme-info-body">
+            {curriculumSection ? <p className="programme-section-copy">{curriculumSection.body}</p> : isVerifiedTaylorsBusiness ? <>
+              <p>{words(locale, "课程先建立商业运营、管理、营销、金融与数据分析基础，再让学生选择一个专业方向，并包括实习或行业沉浸学习。", "The programme builds a foundation in business operations, management, marketing, finance, and analytics before students select one specialisation. It also includes an internship or industry immersion experience.")}</p>
+              <div className="programme-structure-grid">
+                <div><h3>{words(locale, "共同核心课程", "Common core")}</h3><ul><li>{words(locale, "非专业会计", "Accounting for Non-Specialists")}</li><li>{words(locale, "管理学导论", "Introduction to Management")}</li><li>{words(locale, "市场营销原理", "Principles of Marketing")}</li><li>{words(locale, "商业经济学", "Business Economics")}</li><li>{words(locale, "金融学导论", "Introduction to Finance")}</li><li>{words(locale, "商业定量方法", "Quantitative Methods for Business")}</li></ul></div>
+                <div><h3>{words(locale, "后期学习", "Later study")}</h3><ul><li>{words(locale, "国际商务导论", "Introduction to International Business")}</li><li>{words(locale, "创业基础", "Understanding Entrepreneurialism")}</li><li>{words(locale, "战略管理", "Strategic Management")}</li><li>{words(locale, "实习或行业沉浸", "Internship or Industry Immersion")}</li><li>{words(locale, "所选专业方向课程", "Selected specialisation modules")}</li></ul></div>
+              </div>
+            </> : <div className="programme-structure-pending">
+              <strong>{words(locale, "需要顾问确认", "Confirmation required")}</strong>
+              <p>{words(locale, "具体课程模块、选修方向与考核方式请在申请前向顾问索取大学最新课程说明。", "For confirmed modules, electives and assessment details, request the university's latest course guide before applying.")}</p>
+              <Link className="text-link" href={adviserPath}>{words(locale, "申请前确认最新资料", "Confirm current details")}</Link>
+            </div>}
+          </div>
+        </details>
+
         <details className="programme-info-panel" id="requirements" open>
           <summary>{words(locale, "入学要求与申请", "Entry requirements and application")}</summary>
           <div className="programme-info-body programme-requirements-body">
@@ -349,33 +373,6 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
                 <li>{words(locale, "计划入学时间与预算", "Preferred intake and study budget")}</li>
               </ul>
             </div>
-          </div>
-        </details>
-
-        <details className="programme-info-panel" id="programme-structure" open>
-          <summary>{words(locale, "课程安排", "Programme structure")}</summary>
-          <div className="programme-info-body">
-            {isVerifiedTaylorsBusiness ? <>
-              <p>{words(locale, "课程先建立商业运营、管理、营销、金融与数据分析基础，再让学生选择一个专业方向，并包括实习或行业沉浸学习。", "The programme builds a foundation in business operations, management, marketing, finance, and analytics before students select one specialisation. It also includes an internship or industry immersion experience.")}</p>
-              <div className="programme-structure-grid">
-                <div><h3>{words(locale, "共同核心课程", "Common core")}</h3><ul><li>{words(locale, "非专业会计", "Accounting for Non-Specialists")}</li><li>{words(locale, "管理学导论", "Introduction to Management")}</li><li>{words(locale, "市场营销原理", "Principles of Marketing")}</li><li>{words(locale, "商业经济学", "Business Economics")}</li><li>{words(locale, "金融学导论", "Introduction to Finance")}</li><li>{words(locale, "商业定量方法", "Quantitative Methods for Business")}</li></ul></div>
-                <div><h3>{words(locale, "后期学习", "Later study")}</h3><ul><li>{words(locale, "国际商务导论", "Introduction to International Business")}</li><li>{words(locale, "创业基础", "Understanding Entrepreneurialism")}</li><li>{words(locale, "战略管理", "Strategic Management")}</li><li>{words(locale, "实习或行业沉浸", "Internship or Industry Immersion")}</li><li>{words(locale, "所选专业方向课程", "Selected specialisation modules")}</li></ul></div>
-              </div>
-            </> : <div className="programme-structure-pending">
-              <strong>{words(locale, "需要顾问确认", "Confirmation required")}</strong>
-              <p>{words(locale, "具体课程模块、选修方向与考核方式请在申请前向顾问索取大学最新课程说明。", "For confirmed modules, electives and assessment details, request the university's latest course guide before applying.")}</p>
-              <Link className="text-link" href={adviserPath}>{words(locale, "申请前确认最新资料", "Confirm current details")}</Link>
-            </div>}
-          </div>
-        </details>
-
-        <details className="programme-info-panel" id="careers" open>
-          <summary>{words(locale, "未来职业方向", "Future career directions")}</summary>
-          <div className="programme-info-body">
-            <p>{isVerifiedTaylorsBusiness
-              ? words(locale, "以下职业方向由Taylor’s University官方课程页列出。实际职位取决于所选专业方向、经验与当地专业要求。", "These career directions are listed on Taylor’s University’s official programme page. Actual roles depend on the chosen specialisation, experience, and local professional requirements.")
-              : words(locale, "以下是根据课程所属学科整理的代表性职业方向，并非就业保证。申请前可向顾问索取大学公布的最新职业成果。", "These examples are based on the programme’s subject area and do not guarantee a particular job. Ask an adviser if you would like the university’s latest graduate outcomes.")}</p>
-            <ul className="programme-career-list">{careers.map((career) => <li key={career}>{career}</li>)}</ul>
           </div>
         </details>
 

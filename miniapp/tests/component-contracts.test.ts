@@ -75,7 +75,7 @@ async function loadProgrammePage(): Promise<ProgrammePageDefinition> {
   return programmePage;
 }
 
-test('programme document template clears custom navigation and renders semantic facts and safe locked previews', async () => {
+test('programme document template clears custom navigation and renders all canonical sections with semantic facts', async () => {
   const base = '../miniprogram/pages/programme-detail/';
   const [markup, styles, configText] = await Promise.all(['index.wxml', 'index.wxss', 'index.json'].map((file) => readFile(new URL(base + file, import.meta.url), 'utf8')));
   const config = JSON.parse(configText!);
@@ -91,8 +91,7 @@ test('programme document template clears custom navigation and renders semantic 
   assert.match(markup!, /mode="aspectFit"[^>]+binderror="imageError"/);
   assert.match(markup!, /logoLetter/);
   assert.match(markup!, /wx:for="\{\{documentSections\}\}"/);
-  assert.match(markup!, /专业描述/);
-  assert.match(markup!, /基本信息/);
+  assert.match(markup!, /section\.title/);
   assert.doesNotMatch(markup!, /\srole\s*=/, 'native WeChat templates must use aria-role rather than the HTML role attribute');
   assert.match(markup!, /class="programme-title"[^>]+aria-role="heading"[^>]+aria-level="1"/);
   assert.match(markup!, /class="section-title"[^>]+aria-role="heading"[^>]+aria-level="2"/);
@@ -100,11 +99,8 @@ test('programme document template clears custom navigation and renders semantic 
   assert.match(markup!, /wx:for="\{\{basicFacts\}\}"[^>]+aria-role="row"/);
   assert.match(markup!, /class="fact-label"[^>]+aria-role="rowheader"/);
   assert.match(markup!, /class="fact-value"[^>]+aria-role="cell"/);
-  const locked = markup!.match(/<view wx:elif="\{\{section.locked\}\}"[\s\S]*?(?=<view wx:else)/)?.[0];
-  assert.ok(locked, 'locked branches must be distinct from public body rendering');
-  assert.match(locked, /aria-hidden="true"/);
-  assert.match(locked, /本节内容暂未开放/);
-  assert.doesNotMatch(locked, /section\.body|<button|积分|支付|购买|解锁|价格|¥|RM|MYR/);
+  assert.match(markup!, /section\.available/);
+  assert.doesNotMatch(markup!, /section\.locked|本节内容暂未开放/);
   assert.doesNotMatch(markup!, /aria-label="[^"]*(?:section|item)\.body/);
   assert.match(styles!, /filter:blur\(/);
   assert.match(styles!, /env\(safe-area-inset-bottom\)/);
@@ -152,11 +148,11 @@ test('programme page builds ordered document and meaningful facts with logo and 
       assert.equal(context.data.state, 'ready');
       assert.ok(Array.isArray(context.data.documentSections), 'the programme page must expose ordered document sections');
       assert.ok(Array.isArray(context.data.basicFacts), 'the programme page must expose fact rows');
-      assert.deepEqual(context.data.documentSections.map((section) => section.type), ['INTRODUCTION', 'BASIC_INFORMATION', 'ADMISSIONS', 'CAREER_OUTLOOK']);
+      assert.deepEqual(context.data.documentSections.map((section) => section.type), ['INTRODUCTION', 'BASIC_INFORMATION', 'CAREER_PROSPECTS', 'CURRICULUM']);
       assert.equal(context.data.documentSections[0]?.body, '专业描述正文');
       assert.deepEqual(context.data.basicFacts, complete ? [
-        { label: '学历', value: 'BACHELOR' }, { label: '学制', value: '3年' },
-        { label: '模式／方式', value: scenario === 'pace' ? '全日制' : 'ON_CAMPUS' }, { label: '授课语言', value: 'EN · ZH' },
+        { label: '学历', value: '本科' }, { label: '学制', value: '3年' },
+        { label: '模式／方式', value: '全日制' }, { label: '授课语言', value: '英语 · 中文' },
         { label: '开学日期', value: '9月 · 1月' }, { label: '学习地点', value: '吉隆坡' },
         { label: '学费', value: 'RM 90,000' },
       ] : [

@@ -33,37 +33,32 @@ export interface ProgrammeDocumentSection {
   readonly type: string;
   readonly title: string;
   readonly body: string;
-  readonly locked: boolean;
-}
-
-const TEMPORARILY_LOCKED_SECTIONS: ReadonlySet<string> = new Set([
-  'ADMISSION_REQUIREMENTS', 'ADMISSIONS', 'COURSE_STRUCTURE', 'CURRICULUM',
-]);
-
-export function isTemporarilyLockedSection(type: string): boolean {
-  return TEMPORARILY_LOCKED_SECTIONS.has(type);
+  readonly available: boolean;
 }
 
 function sectionBody(section: ProgrammeDetailSection): string {
   return section.bodyZh.trim() ? section.bodyZh : section.bodyEn;
 }
 
+function firstSection(sections: readonly ProgrammeDetailSection[], types: readonly string[]): string {
+  const aliases = new Set(types);
+  return [...sections]
+    .sort((left, right) => left.sortOrder - right.sortOrder)
+    .filter((section) => aliases.has(section.type))
+    .map(sectionBody)
+    .find((body) => body.trim()) || '';
+}
+
 export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDocumentSection[] {
-  const sections = [...programme.sections].sort((a, b) => a.sortOrder - b.sortOrder);
-  const introduction = sections.find((section) => section.type === 'INTRODUCTION' && sectionBody(section).trim());
-  const body = programme.descriptionZh.trim()
-    ? programme.descriptionZh
-    : introduction ? sectionBody(introduction) : '';
+  const introduction = programme.descriptionZh.trim()
+    || firstSection(programme.sections, ['INTRODUCTION']);
+  const career = firstSection(programme.sections, ['CAREER_OPPORTUNITIES', 'CAREER_OUTLOOK']);
+  const curriculum = firstSection(programme.sections, ['CURRICULUM', 'COURSE_STRUCTURE']);
 
   return [
-    { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业描述', body, locked: false },
-    { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '基本信息', body: '', locked: false },
-    ...sections.filter((section) => section.type !== 'INTRODUCTION').map((section, index) => ({
-      key: `${section.type}-${index}`,
-      type: section.type,
-      title: section.titleZh.trim() ? section.titleZh : section.titleEn,
-      body: sectionBody(section),
-      locked: isTemporarilyLockedSection(section.type),
-    })),
+    { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: introduction || '专业介绍资料正在整理中，请咨询顾问确认。', available: Boolean(introduction) },
+    { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true },
+    { key: 'CAREER_PROSPECTS', type: 'CAREER_PROSPECTS', title: '专业前景', body: career || '专业前景资料正在整理中，请咨询顾问确认。', available: Boolean(career) },
+    { key: 'CURRICULUM', type: 'CURRICULUM', title: '专业课程', body: curriculum || '专业课程资料正在整理中，请咨询顾问确认。', available: Boolean(curriculum) },
   ];
 }

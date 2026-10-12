@@ -23,7 +23,10 @@ import com.yangdoujiao.website.common.api.PageResponse;
 import com.yangdoujiao.website.common.exception.ResourceNotFoundException;
 import com.yangdoujiao.website.media.MediaLookupRepository;
 import com.yangdoujiao.website.programme.Programme;
+import com.yangdoujiao.website.programme.ProgrammeDetailSection;
+import com.yangdoujiao.website.programme.ProgrammeDetailSectionType;
 import com.yangdoujiao.website.programme.ProgrammeIntakeRepository;
+import com.yangdoujiao.website.programme.ProgrammeDetailSectionRepository;
 import com.yangdoujiao.website.programme.ProgrammeRepository;
 import com.yangdoujiao.website.programme.TuitionFeePeriod;
 import com.yangdoujiao.website.search.v4.SearchFilterCodeValidator;
@@ -39,12 +42,14 @@ class UniversityDetailServiceTest {
     @Mock private UniversityRepository universities;
     @Mock private ProgrammeRepository programmes;
     @Mock private ProgrammeIntakeRepository intakes;
+    @Mock private ProgrammeDetailSectionRepository sections;
     @Mock private UniversityProgrammeQueryRepository programmeQuery;
     @Mock private UniversitySearchCriteriaFactory criteriaFactory;
     @Mock private SearchFilterCodeValidator filterCodeValidator;
     @Mock private MediaLookupRepository media;
     @Mock private University university;
     @Mock private Programme programme;
+    @Mock private ProgrammeDetailSection curriculumSection;
     @Mock private SubjectCategory subjectCategory;
     @Mock private StudyLevel studyLevel;
     @Mock private CourseMode courseMode;
@@ -69,12 +74,24 @@ class UniversityDetailServiceTest {
         when(programme.getLanguages()).thenReturn(Set.of());
         when(programme.getTuitionFeePeriod()).thenReturn(TuitionFeePeriod.UNKNOWN);
         when(intakes.findByProgrammeIdOrderByIntakeDateAsc(584L)).thenReturn(List.of());
+        when(sections.findAllByProgramme_IdAndStatusOrderBySortOrderAscIdAsc(584L, CategoryStatus.PUBLISHED))
+                .thenReturn(List.of(curriculumSection));
+        when(curriculumSection.getSectionType()).thenReturn(ProgrammeDetailSectionType.CURRICULUM);
+        when(curriculumSection.getTitleZh()).thenReturn("专业课程");
+        when(curriculumSection.getBodyZh()).thenReturn("核心课程");
+        when(curriculumSection.getSortOrder()).thenReturn(20);
 
         UniversityProgrammeResponse response = service().getPublishedProgramme("segi", "584");
 
         assertThat(response.id()).isEqualTo(584L);
         assertThat(response.slug()).isEqualTo("segi-bachelor-001");
         assertThat(response.nameZh()).isEqualTo("商务管理（荣誉）学士学位");
+        assertThat(response.sections()).singleElement().satisfies(section -> {
+            assertThat(section.type()).isEqualTo("CURRICULUM");
+            assertThat(section.titleZh()).isEqualTo("专业课程");
+            assertThat(section.bodyZh()).isEqualTo("核心课程");
+            assertThat(section.sortOrder()).isEqualTo(20);
+        });
     }
 
     @Test
@@ -162,6 +179,7 @@ class UniversityDetailServiceTest {
                 universities,
                 programmes,
                 intakes,
+                sections,
                 programmeQuery,
                 criteriaFactory,
                 filterCodeValidator,

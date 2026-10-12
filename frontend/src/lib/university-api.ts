@@ -88,7 +88,17 @@ export type UniversityProgramme = {
   intakeDisplayTexts: string[];
   categoryDisplayZh?: string;
   categoryDisplayEn?: string;
+  sections: UniversityProgrammeDetailSection[];
   imageUrl?: string | null;
+};
+
+export type UniversityProgrammeDetailSection = {
+  type: string;
+  titleZh: string | null;
+  titleEn: string | null;
+  bodyZh: string | null;
+  bodyEn: string | null;
+  sortOrder: number;
 };
 
 export type UniversityProgrammePage = {
@@ -250,7 +260,20 @@ function isUniversityProgramme(value: unknown): value is UniversityProgramme {
     && isNullableString(value.tuitionDisplay)
     && isStringArray(value.intakeMonths)
     && isStringArray(value.intakeDisplayTexts)
+    && Array.isArray(value.sections)
+    && value.sections.every(isUniversityProgrammeDetailSection)
     && (value.imageUrl === undefined || isNullableString(value.imageUrl));
+}
+
+function isUniversityProgrammeDetailSection(value: unknown): value is UniversityProgrammeDetailSection {
+  if (!isRecord(value)) return false;
+  return typeof value.type === "string"
+    && value.type.trim().length > 0
+    && isNullableString(value.titleZh)
+    && isNullableString(value.titleEn)
+    && isNullableString(value.bodyZh)
+    && isNullableString(value.bodyEn)
+    && isInteger(value.sortOrder);
 }
 
 export function parseUniversityProgramme(payload: unknown): UniversityProgramme | null {

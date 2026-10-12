@@ -18,6 +18,7 @@ import com.yangdoujiao.website.media.MediaLookupRepository;
 import com.yangdoujiao.website.programme.Programme;
 import com.yangdoujiao.website.programme.ProgrammeIntake;
 import com.yangdoujiao.website.programme.ProgrammeIntakeRepository;
+import com.yangdoujiao.website.programme.ProgrammeDetailSectionRepository;
 import com.yangdoujiao.website.programme.ProgrammeRepository;
 import com.yangdoujiao.website.search.v4.SearchFilterCodeValidator;
 import com.yangdoujiao.website.search.v4.UniversitySearchCriteriaFactory;
@@ -31,6 +32,7 @@ public class UniversityDetailService {
     private final UniversityRepository universities;
     private final ProgrammeRepository programmes;
     private final ProgrammeIntakeRepository intakes;
+    private final ProgrammeDetailSectionRepository sections;
     private final UniversityProgrammeQueryRepository programmeQuery;
     private final UniversitySearchCriteriaFactory criteriaFactory;
     private final SearchFilterCodeValidator filterCodeValidator;
@@ -40,6 +42,7 @@ public class UniversityDetailService {
             UniversityRepository universities,
             ProgrammeRepository programmes,
             ProgrammeIntakeRepository intakes,
+            ProgrammeDetailSectionRepository sections,
             UniversityProgrammeQueryRepository programmeQuery,
             UniversitySearchCriteriaFactory criteriaFactory,
             SearchFilterCodeValidator filterCodeValidator,
@@ -48,6 +51,7 @@ public class UniversityDetailService {
         this.universities = universities;
         this.programmes = programmes;
         this.intakes = intakes;
+        this.sections = sections;
         this.programmeQuery = programmeQuery;
         this.criteriaFactory = criteriaFactory;
         this.filterCodeValidator = filterCodeValidator;
@@ -99,6 +103,7 @@ public class UniversityDetailService {
                 .map(programme -> UniversityProgrammeResponse.from(
                         programme,
                         intakesByProgrammeId.getOrDefault(programme.getId(), List.of()),
+                        List.of(),
                         programmeImages.getOrDefault(programme.getId(), universityImage)
                 ))
                 .toList();
@@ -121,7 +126,9 @@ public class UniversityDetailService {
         String universityImage = media.findUniversityImageUrls(List.of(university.getId())).get(university.getId());
         String imageUrl = media.findProgrammeImageUrls(List.of(programme.getId()))
                 .getOrDefault(programme.getId(), universityImage);
-        return UniversityProgrammeResponse.from(programme, programmeIntakes, imageUrl);
+        return UniversityProgrammeResponse.from(programme, programmeIntakes,
+                sections.findAllByProgramme_IdAndStatusOrderBySortOrderAscIdAsc(
+                        programme.getId(), CategoryStatus.PUBLISHED), imageUrl);
     }
 
     private Optional<Programme> findPublishedProgramme(Long universityId, String identifier) {

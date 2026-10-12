@@ -1716,6 +1716,7 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .programme-info-panel summary::after { content: "+"; font-size: 1.5rem; font-weight: 400; }
 .programme-info-panel[open] summary::after { content: "−"; }
 .programme-info-body { padding: 0 2px 30px; }
+.programme-section-copy { white-space: pre-wrap; }
 .programme-info-body h3 { margin-top: 26px; }
 .programme-fees-layout { display: grid; grid-template-columns: minmax(230px, .72fr) minmax(360px, 1.28fr); gap: clamp(28px, 4vw, 52px); align-items: start; }
 .programme-fees-context { padding: 20px 22px; border-left: 3px solid #d5aa35; background: #fbf6e9; }
