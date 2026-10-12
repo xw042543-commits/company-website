@@ -37,6 +37,22 @@ import tools.jackson.databind.ObjectMapper;
 
 @ExtendWith(OutputCaptureExtension.class)
 class WechatCommunityContentSafetyGatewayTest {
+    @ParameterizedTest
+    @ValueSource(strings = {"{\"errcode\":40001,\"errmsg\":\"private-body content-token real-openid\"}",
+            "{\"errcode\":\"private-body\"}", "<html>private-body</html>"})
+    void httpErrorsExposeOnlyStatusAndNumericProviderCode(String body, CapturedOutput output) {
+        server.expect(once(), requestTo(CHECK_URI)).andRespond(
+                org.springframework.test.web.client.response.MockRestResponseCreators
+                        .withStatus(org.springframework.http.HttpStatus.FORBIDDEN)
+                        .body(body).contentType(MediaType.APPLICATION_JSON));
+        assertThat(gateway(1).check(42L, "private-body"))
+                .isEqualTo(CommunityContentSafetyGateway.Result.UNAVAILABLE);
+        assertThat(output).contains("httpStatus=403")
+                .contains(body.contains("40001") ? "providerCode=40001" : "providerCode=unknown")
+                .doesNotContain("private-body", "content-token", "real-openid", CHECK_URI);
+        server.verify();
+    }
+
     private static final String CHECK_URI = "https://api.weixin.qq.com/wxa/msg_sec_check?access_token=content-token";
 
     private final UserExternalIdentityRepository identities = mock(UserExternalIdentityRepository.class);
