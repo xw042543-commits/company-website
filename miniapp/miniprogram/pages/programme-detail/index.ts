@@ -17,10 +17,10 @@ Page({
   data: {
     universitySlug: '', programmeId: '', state: 'loading' as ViewState,
     programme: null as ProgrammeDetail | null,
-    documentSections: [] as ProgrammeDocumentSection[], basicFacts: [] as BasicFact[],
+    documentSections: [] as ProgrammeDocumentSection[], basicFacts: [] as BasicFact[], headlineFacts: [] as BasicFact[],
     universityLogoUrl: null as string | null, logoLetter: 'U',
     statusBarHeight: 20, navigationHeight: 44, navigationRight: 96,
-    favorite: false, saving: false, imageFailed: false,
+    favorite: false, saving: false, imageFailed: false, coverFailed: false,
   },
   onLoad(options: Record<string, string | undefined>) {
     this.setupNavigation();
@@ -38,6 +38,12 @@ Page({
   back() { wx.navigateBack(); },
   retry() { void this.loadPage(); },
   imageError() { this.setData({ imageFailed: true }); },
+  coverError() { this.setData({ coverFailed: true }); },
+  scrollToSection(event: WechatMiniprogram.BaseEvent) {
+    const target = event.currentTarget.dataset.target;
+    if (typeof target !== 'string' || !/^section-[A-Z_]+$/.test(target)) return;
+    wx.pageScrollTo({ selector: `#${target}`, duration: 240 });
+  },
   setupNavigation() {
     try {
       const windowInfo = wx.getWindowInfo();
@@ -75,7 +81,7 @@ Page({
     wx.showToast({ title: previous ? '已取消收藏' : '已收藏专业', icon: 'none' });
   },
   async loadPage() {
-    this.setData({ state: 'loading' as ViewState, imageFailed: false });
+    this.setData({ state: 'loading' as ViewState, imageFailed: false, coverFailed: false });
     const result = await getProgrammeDetail(this.data.universitySlug, this.data.programmeId);
     if (!result.ok) {
       if (result.error.code === 'REQUEST_SUPERSEDED') return;
@@ -83,10 +89,12 @@ Page({
       return;
     }
     const programme = result.value;
+    const basicFacts = buildBasicFacts(programme);
     this.setData({
       programme,
       documentSections: buildProgrammeDocument(programme),
-      basicFacts: buildBasicFacts(programme),
+      basicFacts,
+      headlineFacts: basicFacts.filter((fact) => ['学历', '学制', '授课语言', '学习地点'].includes(fact.label)),
       universityLogoUrl: programme.universityLogoUrl,
       logoLetter: programme.universityNameEn.charAt(0).toUpperCase() || 'U',
       state: 'ready' as ViewState,

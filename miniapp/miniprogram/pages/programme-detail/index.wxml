@@ -7,6 +7,10 @@
   </view>
 
   <view wx:if="{{state === 'ready'}}" class="programme-document">
+    <view class="programme-cover">
+      <image wx:if="{{programme.imageUrl && !coverFailed}}" class="programme-cover-image" src="{{programme.imageUrl}}" mode="aspectFill" fade-show binderror="coverError" aria-label="{{programme.nameZh}}专业图片" />
+      <view wx:else class="programme-cover-fallback"><text class="programme-cover-brand">洋豆角</text><text>专业图片暂未提供</text></view>
+    </view>
     <view class="identity-row">
       <view class="university-logo">
         <image wx:if="{{universityLogoUrl && !imageFailed}}" class="university-logo-image" src="{{universityLogoUrl}}" mode="aspectFit" binderror="imageError" aria-label="{{programme.universityNameZh}}校徽" />
@@ -19,9 +23,28 @@
       </view>
     </view>
 
-    <view wx:for="{{documentSections}}" wx:key="key" wx:for-item="section" class="document-section">
+    <view class="headline-facts" aria-label="专业摘要">
+      <view wx:for="{{headlineFacts}}" wx:key="label" class="headline-fact"><text>{{item.label}}</text><text class="headline-fact-value">{{item.value}}</text></view>
+    </view>
+
+    <view class="actions">
+      <button class="primary" bindtap="consult" hover-class="control--pressed">咨询顾问</button>
+      <button class="secondary {{favorite ? 'secondary--active' : ''}}" loading="{{saving}}" disabled="{{saving}}" bindtap="toggleFavorite" aria-label="{{favorite ? '取消收藏专业' : '收藏专业'}}" hover-class="control--pressed">{{favorite ? '♥ 已收藏' : '♡ 收藏'}}</button>
+    </view>
+
+    <view class="section-directory" aria-role="navigation" aria-label="专业详情目录">
+      <view class="directory-heading">专业资料</view>
+      <view class="directory-list">
+        <button wx:for="{{documentSections}}" wx:key="key" class="directory-item" data-target="section-{{item.key}}" bindtap="scrollToSection" hover-class="directory-item--pressed">
+          <text class="directory-dot" aria-hidden="true"></text>
+          <text class="directory-label">{{item.title}}</text>
+        </button>
+      </view>
+    </view>
+
+    <view wx:for="{{documentSections}}" wx:key="key" wx:for-item="section" id="section-{{section.key}}" class="document-section document-section--{{section.key}}">
       <view class="section-title" aria-role="heading" aria-level="2">{{section.title}}</view>
-      <view wx:if="{{section.key === 'BASIC_INFORMATION'}}" class="facts-table" aria-role="table" aria-label="基本信息">
+      <view wx:if="{{section.key === 'BASIC_INFORMATION'}}" class="facts-table" aria-role="table" aria-label="专业基本信息">
         <view wx:for="{{basicFacts}}" wx:key="label" aria-role="row" class="fact-row">
           <view class="fact-label" aria-role="rowheader">{{item.label}}</view>
           <view class="fact-value" aria-role="cell">{{item.value}}</view>
@@ -30,10 +53,6 @@
       <view wx:else class="section-body {{section.available ? '' : 'section-body--pending'}}">{{section.body}}</view>
     </view>
 
-    <view class="actions">
-      <button class="secondary {{favorite ? 'secondary--active' : ''}}" loading="{{saving}}" disabled="{{saving}}" bindtap="toggleFavorite" aria-label="{{favorite ? '取消收藏专业' : '收藏专业'}}" hover-class="control--pressed">{{favorite ? '已收藏' : '收藏专业'}}</button>
-      <button class="primary" bindtap="consult" hover-class="control--pressed">咨询顾问</button>
-    </view>
   </view>
   <view wx:else class="state-wrap">
     <app-state wx:if="{{state === 'loading'}}" kind="loading" title="正在读取专业资料" description="学费、学制与录取要求正在加载。" />
