@@ -7,6 +7,32 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CommunityImageCodecTest {
+    @Test void rejectsTruncatedJpegInsteadOfPublishingRecoveredPixels() throws Exception {
+        byte[] jpeg = fixture("jpg", 100, 100);
+        byte[] truncated = java.util.Arrays.copyOf(jpeg, jpeg.length - 2);
+        assertThrows(IllegalArgumentException.class, () -> new CommunityImageCodec().encode(truncated));
+    }
+    @Test void acceptsExactPixelLimit() throws Exception {
+        var result = new CommunityImageCodec().encode(fixture("png", 5000, 4000));
+        assertEquals(1600, result.width());
+        assertEquals(1280, result.height());
+    }
+    @Test void removesSourceExifFromBothOutputs() throws Exception {
+        byte[] jpeg = fixture("jpg", 20, 10);
+        var output = new ByteArrayOutputStream();
+        var data = new DataOutputStream(output);
+        data.write(jpeg, 0, 2);
+        byte[] exif = new byte[]{'E','x','i','f',0,0,'I','I',42,0,8,0,0,0,0,0,0,0,0,0};
+        data.writeShort(0xffe1);
+        data.writeShort(exif.length + 2);
+        data.write(exif);
+        data.write(jpeg, 2, jpeg.length - 2);
+        var result = new CommunityImageCodec().encode(output.toByteArray());
+        for (byte[] bytes : new byte[][]{result.display(), result.thumbnail()}) {
+            assertFalse(new String(bytes, java.nio.charset.StandardCharsets.ISO_8859_1).contains("Exif"));
+            assertNotNull(ImageIO.read(new ByteArrayInputStream(bytes)));
+        }
+    }
     @Test void rejectsInvalidInput() {
         var codec = new CommunityImageCodec();
         for (byte[] input : new byte[][] {new byte[0], new byte[5 * 1024 * 1024 + 1], "<svg/>".getBytes(), {1, 2, 3}}) {

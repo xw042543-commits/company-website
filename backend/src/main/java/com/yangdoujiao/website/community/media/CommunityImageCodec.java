@@ -25,6 +25,11 @@ public final class CommunityImageCodec {
                     throw new IllegalArgumentException("Unsupported image format");
                 }
                 if (format.equalsIgnoreCase("PNG")) rejectPngAnimation(input);
+                // ImageIO may recover a truncated JPEG. Uploads must be complete,
+                // so decoder warnings fail closed rather than publishing recovery pixels.
+                reader.addIIOReadWarningListener((source, warning) -> {
+                    throw new IllegalArgumentException("Damaged image");
+                });
                 reader.setInput(stream);
                 int width = reader.getWidth(0), height = reader.getHeight(0);
                 if (width <= 0 || height <= 0 || (long) width * height > 20_000_000L) {
