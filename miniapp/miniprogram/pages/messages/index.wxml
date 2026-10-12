@@ -1,13 +1,8 @@
 <view class="page-shell messages-page">
-  <view class="messages-masthead">
-    <view class="messages-watermark" aria-hidden="true">讯</view>
-    <view class="messages-heading">消息</view>
-    <view class="messages-intro">你的留学动态，在这里按时间抵达。</view>
-    <view wx:if="{{unreadCount > 0}}" class="messages-unread">{{unreadCount}} 条未读</view>
-  </view>
   <view class="message-filters" role="tablist">
-    <button wx:for="{{filters}}" wx:key="key" class="message-filter {{category === item.key ? 'message-filter--active' : ''}}" data-category="{{item.key}}" bindtap="selectCategory" aria-label="{{item.label}}消息" aria-selected="{{category === item.key}}"><text class="filter-dot" />{{item.label}}</button>
+    <button wx:for="{{filters}}" wx:key="key" class="message-filter {{category === item.key ? 'message-filter--active' : ''}}" data-category="{{item.key}}" bindtap="selectCategory" aria-label="{{item.label}}消息" aria-selected="{{category === item.key}}"><view class="filter-icon filter-icon--{{item.key}}" aria-hidden="true"><view class="filter-symbol" /></view><text>{{item.label}}</text></button>
   </view>
+  <view wx:if="{{unreadCount > 0}}" class="messages-unread">{{unreadCount}} 条未读</view>
 
   <view wx:if="{{detail}}" class="message-detail">
     <view class="detail-header"><text class="detail-category">{{detail.categoryLabel}}</text><button class="detail-close" bindtap="closeDetail" aria-label="关闭消息详情">关闭</button></view>
