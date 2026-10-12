@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 @RequestMapping("/api/v1/community/image-review/callback")
 @ConditionalOnProperty(name="app.community.images.review-enabled",havingValue="true")
 public class CommunityImageReviewCallback {
+    private static final org.slf4j.Logger LOG=org.slf4j.LoggerFactory.getLogger(CommunityImageReviewCallback.class);
     private final WechatImageCallbackCrypto crypto;
     private final CommunityImageReviewJobs jobs;
     private final ObjectMapper json;
@@ -31,6 +32,7 @@ public class CommunityImageReviewCallback {
     }
     String receive(String signature,String timestamp,String nonce,InputStream input)throws IOException {
         String trace,verdict;
+        String providerCode,suggestion,reason;
         try {
             if(timestamp.length()>20||nonce.length()>128)throw rejected();
             byte[] bytes=input.readNBytes(100001);
@@ -43,9 +45,28 @@ public class CommunityImageReviewCallback {
             trace=data.path("trace_id").asText("");
             if(!trace.matches("[A-Za-z0-9_-]{1,128}"))throw rejected();
             verdict=WechatImageReviewGateway.verdict(data);
+            // Only bounded numeric codes and allowlisted values may enter logs. Never log
+            // raw payloads, provider messages, user identities or signed media URLs.
+            var code=data.path("errcode");
+            providerCode=code.isIntegralNumber()&&code.canConvertToInt()?Integer.toString(code.intValue()):"unknown";
+            suggestion=switch(data.path("result").path("suggest").asText("")) {
+                case "pass" -> "pass";
+                case "review" -> "review";
+                case "risky" -> "risky";
+                default -> "unknown";
+            };
+            reason="unknown".equals(providerCode)?"INVALID_PROVIDER_CODE":
+                !"0".equals(providerCode)?"PROVIDER_ERROR":switch(suggestion) {
+                    case "review" -> "MANUAL_REVIEW";
+                    case "pass" -> "PASS";
+                    case "risky" -> "REJECTED";
+                    default -> "UNKNOWN_SUGGESTION";
+                };
         }catch(IllegalArgumentException|tools.jackson.core.JacksonException e){throw rejected();}
         // A database failure must propagate so WeChat retries; do not acknowledge lost events.
         jobs.receive(trace,verdict,clock.instant());
+        LOG.info("community image review callback providerCode={} suggestion={} reason={} verdict={}",
+            providerCode,suggestion,reason,verdict);
         return "success";
     }
     private static ApiException rejected(){return new ApiException(HttpStatus.BAD_REQUEST,"INVALID_REVIEW_CALLBACK","Invalid callback");}
