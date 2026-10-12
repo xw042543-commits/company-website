@@ -15,6 +15,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class CommunityMetrics {
     public enum Command { POST, COMMENT, REPORT, HOT, CACHE_INVALIDATION }
+    public enum SafetyStage { LOCAL, WECHAT }
+    public enum SafetyResult { PASS, REVIEW, REJECT, UNAVAILABLE }
     private static final String START = CommunityMetrics.class.getName() + ".start";
     private static final String PENDING = """
             FROM (SELECT 'POST' AS type,id,status,created_at FROM community_posts
@@ -54,6 +56,12 @@ public class CommunityMetrics {
     public void rateLimited(Command command) { increment("community.rate.limited", command); }
     public void redisUnavailable(Command command) { increment("community.redis.unavailable", command); }
     public void idempotencyHit(Command command) { increment("community.idempotency.hits", command); }
+    public void contentSafety(CommunityTargetType contentType, SafetyStage stage, SafetyResult result) {
+        registry.counter("community.content.safety",
+                "content_type", contentType.name().toLowerCase(Locale.ROOT),
+                "stage", stage.name().toLowerCase(Locale.ROOT),
+                "result", result.name().toLowerCase(Locale.ROOT)).increment();
+    }
     private void increment(String name, Command command) {
         registry.counter(name, "command", command.name().toLowerCase(Locale.ROOT)).increment();
     }

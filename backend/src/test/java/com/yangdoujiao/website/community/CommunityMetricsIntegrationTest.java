@@ -3,6 +3,7 @@ package com.yangdoujiao.website.community;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.doReturn;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -27,7 +28,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 
 @SpringBootTest(properties = {"app.community.enabled=true",
         "app.community.cursor-secret=test-community-metrics-secret-32-bytes",
-        "app.community.review-terms=synthetic-review"})
+        "app.community.review-terms=synthetic-review", "app.community.reject-terms=hard-reject"})
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @Import(TestContainersConfiguration.class)
@@ -39,6 +40,60 @@ class CommunityMetricsIntegrationTest {
     @Autowired CommunityPostRepository posts;
     @Autowired CommunityReportRepository reports;
     @MockitoSpyBean StringRedisTemplate redis;
+    @MockitoSpyBean WechatCommunityContentSafetyGateway contentSafety;
+
+    // Missing policy instrumentation, incorrect content type, or rechecking a replay loses these exact counts.
+    @Test void realWritesCountLocalAndWechatDecisionsWithOnlyClosedSafetyLabels() throws Exception {
+        var parentActor = accounts.saveAndFlush(UserAccount.external("Parent", "terms", "privacy"));
+        var parent = posts.saveAndFlush(CommunityPost.create(parentActor.getId(), "public parent",
+                CommunityContentStatus.PUBLISHED, null, OffsetDateTime.now()));
+        int addressSuffix = 50;
+        for (String type : new String[]{"post", "comment"}) {
+            double localPass = safety(type, "local", "pass");
+            double localReview = safety(type, "local", "review");
+            double localReject = safety(type, "local", "reject");
+            double wechatPass = safety(type, "wechat", "pass");
+            double wechatReview = safety(type, "wechat", "review");
+            double wechatUnavailable = safety(type, "wechat", "unavailable");
+            String endpoint = type.equals("post") ? "/api/v1/community/posts"
+                    : "/api/v1/community/posts/" + parent.getId() + "/comments";
+            for (String result : new String[]{"pass", "review", "unavailable", "local-review", "local-reject"}) {
+                var actor = accounts.saveAndFlush(UserAccount.external("Metrics actor", "terms", "privacy"));
+                String body = switch (result) {
+                    case "local-review" -> "synthetic-review private text";
+                    case "local-reject" -> "hard-reject private text";
+                    default -> "private text " + result;
+                };
+                if (!result.startsWith("local-")) doReturn(CommunityContentSafetyGateway.Result.valueOf(result.toUpperCase(java.util.Locale.ROOT)))
+                        .when(contentSafety).check(actor.getId(), body);
+                String key = UUID.randomUUID().toString();
+                String address = "198.51.100." + addressSuffix++;
+                for (int attempt = 0; attempt < (result.equals("local-reject") ? 1 : 2); attempt++) {
+                    mvc.perform(post(endpoint).with(user(UserPrincipal.from(actor))).with(csrf())
+                                    .with(request -> { request.setRemoteAddr(address); return request; })
+                                    .header("Idempotency-Key", key).contentType("application/json")
+                                    .content("{\"body\":\"" + body + "\"}"))
+                            .andExpect(status().is(result.equals("local-reject") ? 400 : attempt == 0 ? 201 : 200));
+                }
+            }
+            assertThat(safety(type, "local", "pass")).isEqualTo(localPass + 3);
+            assertThat(safety(type, "local", "review")).isEqualTo(localReview + 1);
+            assertThat(safety(type, "local", "reject")).isEqualTo(localReject + 1);
+            assertThat(safety(type, "wechat", "pass")).isEqualTo(wechatPass + 1);
+            assertThat(safety(type, "wechat", "review")).isEqualTo(wechatReview + 1);
+            assertThat(safety(type, "wechat", "unavailable")).isEqualTo(wechatUnavailable + 1);
+        }
+        assertThat(registry.find("community.content.safety").meters()).isNotEmpty().allSatisfy(meter -> {
+            assertThat(meter.getId().getTags()).hasSize(3).allSatisfy(tag -> {
+                assertThat(tag.getKey()).isIn("content_type", "stage", "result");
+                assertThat(tag.getValue()).isIn("post", "comment", "local", "wechat", "pass", "review", "reject", "unavailable");
+            });
+        });
+    }
+
+    private double safety(String type, String stage, String result) {
+        return counter("community.content.safety", "content_type", type, "stage", stage, "result", result);
+    }
 
     // Removing HTTP completion instrumentation or tagging content/IDs must break this test.
     @Test void realRequestsRecordLatencyStableResultsAndIdempotencyWithoutPrivateTags() throws Exception {
@@ -83,10 +138,11 @@ class CommunityMetricsIntegrationTest {
         assertThat(counter("community.idempotency.hits", "command", "report")).isEqualTo(reportHits + 1);
         assertThat(registry.getMeters().stream().filter(m -> m.getId().getName().startsWith("community.")))
                 .allSatisfy(m -> assertThat(m.getId().getTags()).allSatisfy(t -> {
-                    assertThat(t.getKey()).isIn("endpoint", "sort", "command", "outcome");
+                    assertThat(t.getKey()).isIn("endpoint", "sort", "command", "outcome", "content_type", "stage", "result");
                     assertThat(t.getValue()).isIn("feed", "latest", "hot", "invalid", "none", "publish", "detail",
                             "comment", "comments", "replies", "post", "report", "success", "not_found",
-                            "rate_limited", "unavailable", "validation", "unauthorized", "forbidden", "conflict", "error");
+                            "rate_limited", "unavailable", "validation", "unauthorized", "forbidden", "conflict", "error",
+                            "local", "wechat", "pass", "review", "reject");
                 }));
     }
 

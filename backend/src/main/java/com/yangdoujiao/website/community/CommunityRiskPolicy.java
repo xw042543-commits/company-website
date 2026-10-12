@@ -7,4 +7,7 @@ public interface CommunityRiskPolicy {
     default RiskDecision classify(long actorId, String normalizedText) {
         return classify(normalizedText);
     }
+    default RiskDecision classify(long actorId, CommunityTargetType contentType, String normalizedText) {
+        return classify(actorId, normalizedText);
+    }
 }

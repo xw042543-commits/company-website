@@ -61,7 +61,7 @@ public class CommunityWriteService {
         validateWrite(key);
         Optional<CreationResult> replay = replay(actorId, "CREATE_POST", key, fingerprint);
         if (replay.isPresent()) return replay.get();
-        var status = classify(actorId, metadata.title() == null ? body : metadata.title() + "\n" + body);
+        var status = classify(actorId, CommunityTargetType.POST, metadata.title() == null ? body : metadata.title() + "\n" + body);
         return transactions.execute(() -> execute(actorId, "CREATE_POST", key, fingerprint, () -> {
             requireAllowed(actorId);
             if (metadata.universityId() != null && !universities.existsById(metadata.universityId())) throw new ApiException(
@@ -82,7 +82,7 @@ public class CommunityWriteService {
         validateWrite(key);
         Optional<CreationResult> replay = replay(actorId, "CREATE_COMMENT", key, fingerprint);
         if (replay.isPresent()) return replay.get();
-        var status = classify(actorId, body);
+        var status = classify(actorId, CommunityTargetType.COMMENT, body);
         return transactions.execute(() -> execute(actorId, "CREATE_COMMENT", key, fingerprint, () -> {
             requireAllowed(actorId);
             var post = lockedPost(postId);
@@ -200,8 +200,8 @@ public class CommunityWriteService {
         return posts.findLockedById(id).orElseThrow(() -> new ApiException(
                 HttpStatus.NOT_FOUND, "COMMUNITY_POST_NOT_FOUND", "Community post does not exist"));
     }
-    private CommunityContentStatus classify(long actorId, String body) {
-        return switch (risk.classify(actorId, body)) {
+    private CommunityContentStatus classify(long actorId, CommunityTargetType contentType, String body) {
+        return switch (risk.classify(actorId, contentType, body)) {
             case PUBLISH -> CommunityContentStatus.PUBLISHED;
             case REVIEW -> CommunityContentStatus.PENDING_REVIEW;
             case REJECT -> throw new ApiException(HttpStatus.BAD_REQUEST, "COMMUNITY_CONTENT_REJECTED", "Content cannot be published");

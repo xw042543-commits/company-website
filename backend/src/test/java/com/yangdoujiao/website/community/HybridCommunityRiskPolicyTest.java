@@ -6,6 +6,11 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
+import java.net.URI;
+import java.time.Duration;
+import com.yangdoujiao.website.auth.miniapp.MiniappAuthProperties;
+import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.env.MockEnvironment;
@@ -15,8 +20,12 @@ class HybridCommunityRiskPolicyTest {
     private final ConfiguredCommunityRiskPolicy local = new ConfiguredCommunityRiskPolicy(
             new CommunityProperties(true, 2, 30, 10, 300, 30, "x".repeat(32),
                     List.of("needs-review"), List.of("hard-reject"), 5),
-            new MockEnvironment());
-    private final HybridCommunityRiskPolicy policy = new HybridCommunityRiskPolicy(local, wechat);
+            new MockEnvironment(),
+            new CommunityContentSafetyProperties(false, Duration.ofSeconds(2), 2,
+                    URI.create("https://api.weixin.qq.com/cgi-bin/token"), URI.create("https://api.weixin.qq.com/wxa/msg_sec_check")),
+            new MiniappAuthProperties(false, null, null, Duration.ofMinutes(15), Duration.ofDays(30), false, null, null));
+    private final HybridCommunityRiskPolicy policy = new HybridCommunityRiskPolicy(local, wechat,
+            new CommunityMetrics(new SimpleMeterRegistry(), mock(JdbcTemplate.class)));
 
     @Test
     void localRejectHasHighestPriorityAndSkipsWechat() {
