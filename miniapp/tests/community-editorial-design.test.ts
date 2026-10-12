@@ -25,10 +25,12 @@ test('community composer keeps publishing actionable and applies native input li
 
   assert.match(page, /id="post-title"[^>]*maxlength="60"/);
   assert.match(page, /id="post-body"[^>]*maxlength="2000"/);
-  assert.match(page, /class="publish-button"[^>]*disabled="{{submitting}}"/);
+  assert.match(page, /class="publish-button"[^>]*disabled="{{submitting \|\| choosingImages \|\| imagesBusy}}"/);
   assert.doesNotMatch(page, /disabled="{{[^"]*!title/);
-  assert.match(page, /帖子标题（必填）/);
-  assert.match(page, /帖子正文（必填）/);
+  assert.match(page, /for="post-title">标题.*必填/);
+  assert.match(page, /for="post-body">正文.*必填/);
+  assert.match(page, /bindtap="addImages"/);
+  assert.doesNotMatch(page, /placeholder="[^"]*&#(?:10|x0?a);/i);
 });
 
 test('community detail keeps comment submission actionable with native limits', () => {

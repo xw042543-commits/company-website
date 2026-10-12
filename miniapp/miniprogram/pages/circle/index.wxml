@@ -13,7 +13,7 @@
     <view wx:for="{{skeletonRows}}" wx:key="*this" class="post-skeleton"><view class="skeleton-track"></view><view class="skeleton-head"><view class="skeleton-avatar"></view><view class="skeleton-line skeleton-line--name"></view></view><view class="skeleton-body"><view class="skeleton-line"></view><view class="skeleton-line skeleton-line--short"></view></view></view>
   </view>
   <view wx:elif="{{state === 'ready'}}" class="feed-list">
-    <community-post-card wx:for="{{posts}}" wx:key="id" post="{{item}}" reacting="{{reactingId === item.id}}" bind:open="openPost" bind:react="toggleLike" bind:report="reportPost" />
+    <community-post-card wx:for="{{posts}}" wx:key="id" post="{{item}}" images="{{postImages[item.id] || []}}" reacting="{{reactingId === item.id}}" bind:open="openPost" bind:react="toggleLike" bind:report="reportPost" />
     <view wx:if="{{loadingMore}}" class="feed-foot">正在加载更多内容…</view><view wx:elif="{{!nextCursor}}" class="feed-foot">已显示全部内容</view>
   </view>
   <view wx:elif="{{state === 'select-school'}}" class="editorial-state editorial-state--select"><view class="state-watermark" aria-hidden="true">校</view><view class="state-index">CAMPUS / 01</view><view class="state-title">选一所学校，进入校园现场</view><view class="state-copy">看看同校学生正在讨论什么，也可以分享你的校园日常。</view><button class="state-link" bindtap="openSchools">选择校园 <text aria-hidden="true">→</text></button></view>

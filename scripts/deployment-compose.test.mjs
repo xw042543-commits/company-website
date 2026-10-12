@@ -27,6 +27,8 @@ function renderedBackend(overrides = {}) {
 test("rendered Compose disables safety by default and applies bounded timeout and retry defaults", () => {
   const backend = renderedBackend();
   assert.equal(backend.APP_COMMUNITY_ENABLED, "false");
+  assert.equal(backend.APP_COMMUNITY_IMAGES_ENABLED, "false");
+  assert.equal(backend.APP_COMMUNITY_IMAGES_REVIEW_ENABLED, "false");
   assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_ENABLED, "false");
   assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT, "2s");
   assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS, "2");
@@ -129,5 +131,7 @@ test("stateful services use named volumes", () => {
   assert.match(serviceBlock("postgres"), /postgres-data:\/var\/lib\/postgresql\/data/);
   assert.match(serviceBlock("redis"), /redis-data:\/data/);
   assert.match(serviceBlock("elasticsearch"), /elasticsearch-data:\/usr\/share\/elasticsearch\/data/);
-  assert.match(compose, /^volumes:\n  postgres-data:\n  redis-data:\n  elasticsearch-data:\n  caddy-data:\n  caddy-config:/m);
+  assert.match(compose, /^volumes:\n  community-images:\n  postgres-data:\n  redis-data:\n  elasticsearch-data:\n  caddy-data:\n  caddy-config:/m);
+  assert.match(serviceBlock('backend'), /community-images:\/var\/lib\/udajo\/community-images/);
+  assert.doesNotMatch(serviceBlock('caddy'), /community-images:/);
 });

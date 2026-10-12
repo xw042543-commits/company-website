@@ -1,5 +1,6 @@
 import { createCommunityRequestScope, listCommunityPosts, setCommunityReaction, type CommunityPostSummary } from '../../services/community';
 import { sessionStore } from '../../stores/session';
+import { fetchCommunityImages } from '../../services/community-images';
 import { canUseCommunityWrite, errorCopy, shouldRestartHotFeed, unwrapCommunityRoute } from '../../utils/community-ui';
 import { communityComposeRoute, communityMeRoute, communityPostRoute } from '../../utils/routes';
 import { COMMUNITY_BOARDS, isCommunityCategory } from '../../utils/community-boards';
@@ -21,7 +22,7 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
   const definition: WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> = {
   data: {
     session: sessionStore.getSnapshot(), sort: 'latest' as 'latest' | 'hot', state: 'loading' as FeedState,
-    posts: [] as CommunityPostSummary[], nextCursor: null as string | null, loadingMore: false,
+    posts: [] as CommunityPostSummary[], postImages: {}, nextCursor: null as string | null, loadingMore: false,
     reactingId: null as string | null, skeletonRows: [1, 2, 3],
     mode: 'plaza', category: '', boards: [{ code: '', label: '全部' }, ...COMMUNITY_BOARDS],
     universityId: null as string | null, universityName: '',
@@ -158,6 +159,9 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
     const posts = [...merged.values()];
     this.setData({ posts, nextCursor: result.value.nextCursor, loadingMore: false,
       state: posts.length === 0 ? 'empty' as FeedState : 'ready' as FeedState });
+    void fetchCommunityImages(result.value.items.map((post) => post.id)).then((images) => {
+      if (state.active && generation === state.generation) this.setData({ postImages: { ...(reset ? {} : this.data.postImages), ...images } });
+    });
   },
   async ensureLogin(): Promise<boolean> {
     if (canUseCommunityWrite(deps.session.getSnapshot().status)) return true;

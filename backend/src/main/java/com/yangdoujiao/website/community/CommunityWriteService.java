@@ -36,32 +36,38 @@ public class CommunityWriteService {
     private final CommunityMetrics metrics;
     private final CommunityNotificationPublisher notifications;
     private final UniversityRepository universities;
+    private final CommunityImageAttachments images;
 
     public CommunityWriteService(CommunityProperties properties, CommunityPostRepository posts,
             CommunityCommentRepository comments, CommunityIdempotencyRecordRepository idempotency,
             CommunityUserRestrictionRepository restrictions, UserAccountRepository accounts,
             CommunityRateLimiter limiter, CommunityRiskPolicy risk, CommunityWriteTransaction transactions,
             ObjectMapper json, Clock clock, StringRedisTemplate redis,
-            CommunityMetrics metrics, CommunityNotificationPublisher notifications, UniversityRepository universities) {
+            CommunityMetrics metrics, CommunityNotificationPublisher notifications, UniversityRepository universities,
+            CommunityImageAttachments images) {
         this.properties = properties; this.posts = posts; this.comments = comments; this.idempotency = idempotency;
         this.restrictions = restrictions; this.accounts = accounts; this.limiter = limiter; this.risk = risk;
         this.transactions = transactions;
         this.json = json; this.clock = clock; this.redis = redis; this.metrics = metrics;
         this.notifications = notifications;
         this.universities = universities;
+        this.images = images;
     }
 
     public CreationResult createPost(long actorId, String address, String key, CommunityPostRequest request) {
         String body = normalize(request == null ? null : request.body(), 2000);
         var metadata = CommunityPostMetadata.from(request);
+        var imageIds = CommunityImageAttachments.parse(request == null ? null : request.imageIds());
         // Preserve the historical fingerprint for semantically body-only requests.
-        String fingerprint = metadata.title() == null && metadata.category() == CommunityCategory.GENERAL && metadata.universityId() == null
+        String textFingerprint = metadata.title() == null && metadata.category() == CommunityCategory.GENERAL && metadata.universityId() == null
                 ? hash(List.of(body)) : hash(java.util.Arrays.asList(body, metadata.title(), metadata.category().name(),
                         metadata.universityId() == null ? null : metadata.universityId().toString()));
+        String fingerprint = imageIds.isEmpty() ? textFingerprint : hash(List.of(textFingerprint, imageIds));
         validateWrite(key);
         Optional<CreationResult> replay = replay(actorId, "CREATE_POST", key, fingerprint);
         if (replay.isPresent()) return replay.get();
-        var status = classify(actorId, CommunityTargetType.POST, metadata.title() == null ? body : metadata.title() + "\n" + body);
+        var textStatus = classify(actorId, CommunityTargetType.POST, metadata.title() == null ? body : metadata.title() + "\n" + body);
+        var status = imageIds.isEmpty() ? textStatus : CommunityContentStatus.PENDING_REVIEW;
         return transactions.execute(() -> execute(actorId, "CREATE_POST", key, fingerprint, () -> {
             requireAllowed(actorId);
             if (metadata.universityId() != null && !universities.existsById(metadata.universityId())) throw new ApiException(
@@ -69,6 +75,7 @@ public class CommunityWriteService {
             limiter.checkPost(actorId, address);
             var post = posts.saveAndFlush(CommunityPost.create(actorId, body, metadata, status,
                     status == CommunityContentStatus.PENDING_REVIEW ? "RISK_REVIEW" : null, now()));
+            images.bind(actorId, post.getId(), imageIds, textStatus == CommunityContentStatus.PUBLISHED);
             return new CommunityCreationResponse(post.getId().toString(), null, null, post.getBody(), post.getStatus(),
                     post.getCreatedAt(), post.getPublishedAt());
         }));

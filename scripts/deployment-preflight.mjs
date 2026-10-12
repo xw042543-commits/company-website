@@ -196,6 +196,27 @@ export function validateDeploymentEnv(environment) {
     errors.push("APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD must be an integer between 2 and 100.");
   }
   const safetyEnabled = valueFor("APP_COMMUNITY_CONTENT_SAFETY_ENABLED") || "false";
+  const imagesEnabled = valueFor("APP_COMMUNITY_IMAGES_ENABLED") || "false";
+  const imageReviewEnabled = valueFor("APP_COMMUNITY_IMAGES_REVIEW_ENABLED") || "false";
+  for (const [name, flag] of [["APP_COMMUNITY_IMAGES_ENABLED", imagesEnabled], ["APP_COMMUNITY_IMAGES_REVIEW_ENABLED", imageReviewEnabled]]) {
+    if (!["true", "false"].includes(flag)) errors.push(`${name} must be true or false.`);
+  }
+  if (imagesEnabled === "true") {
+    if (communityEnabled !== "true" || imageReviewEnabled !== "true") errors.push("APP_COMMUNITY_IMAGES_ENABLED requires community and image review enabled before production uploads.");
+    const capacity = valueFor("APP_COMMUNITY_IMAGES_MAX_BYTES");
+    if (!/^[1-9]\d*$/.test(capacity) || !Number.isSafeInteger(Number(capacity))) errors.push("APP_COMMUNITY_IMAGES_MAX_BYTES must be an explicit positive capacity.");
+  }
+  if (imageReviewEnabled === "true") {
+    if (safetyEnabled !== "true") errors.push("APP_COMMUNITY_IMAGES_REVIEW_ENABLED requires content safety.");
+    if (Buffer.byteLength(valueFor("APP_COMMUNITY_IMAGES_REVIEW_SECRET"), "utf8") < 32) errors.push("APP_COMMUNITY_IMAGES_REVIEW_SECRET needs at least 32 bytes.");
+    if (!/^[A-Za-z0-9_-]{3,32}$/.test(valueFor("APP_COMMUNITY_IMAGES_CALLBACK_TOKEN"))) errors.push("APP_COMMUNITY_IMAGES_CALLBACK_TOKEN must contain 3-32 URL-safe characters.");
+    if (!/^[A-Za-z0-9+/]{43}$/.test(valueFor("APP_COMMUNITY_IMAGES_CALLBACK_AES_KEY"))) errors.push("APP_COMMUNITY_IMAGES_CALLBACK_AES_KEY must be the 43-character EncodingAESKey.");
+    try {
+      const origin = new URL(valueFor("APP_COMMUNITY_IMAGES_PUBLIC_ORIGIN"));
+      if (origin.protocol !== "https:" || origin.username || origin.password || origin.search || origin.hash || origin.pathname !== "/"
+        || origin.origin !== new URL(valueFor("PUBLIC_SITE_URL")).origin) throw new Error();
+    } catch { errors.push("APP_COMMUNITY_IMAGES_PUBLIC_ORIGIN must equal the HTTPS public site origin."); }
+  }
   const miniappEnabled = valueFor("APP_MINIAPP_AUTH_ENABLED") || "false";
   const localProviderEnabled = valueFor("APP_MINIAPP_LOCAL_PROVIDER_ENABLED") || "false";
   for (const [name, flag] of [["APP_COMMUNITY_CONTENT_SAFETY_ENABLED", safetyEnabled],

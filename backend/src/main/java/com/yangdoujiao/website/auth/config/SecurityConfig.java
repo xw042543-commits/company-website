@@ -61,6 +61,7 @@ public class SecurityConfig {
         http.cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/api/v1/miniapp/**")
+                        .ignoringRequestMatchers("/api/v1/community/image-review/callback")
                         .ignoringRequestMatchers(request -> request.getRequestURI().substring(request.getContextPath().length())
                                 .matches("/api/v1/(?:community/.*|consultations)")
                                 && Boolean.TRUE.equals(request.getAttribute(MiniappBearerFilter.AUTHENTICATED_ATTRIBUTE)))
@@ -90,6 +91,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/miniapp/**").hasRole("USER")
                         .requestMatchers(HttpMethod.GET, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
                         .requestMatchers(HttpMethod.HEAD, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/community/images", "/api/v1/community/images/**").permitAll()
+                        .requestMatchers(HttpMethod.HEAD, "/api/v1/community/images", "/api/v1/community/images/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/community/image-review/callback", "/api/v1/community/image-review/media/*").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/community/image-review/callback").permitAll()
                         .requestMatchers("/api/v1/community/**").hasRole("USER")
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
                         .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")

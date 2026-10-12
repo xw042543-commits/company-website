@@ -1,3 +1,4 @@
 {
-  "component": true
+  "component": true,
+  "usingComponents": { "community-image-gallery": "/components/community-image-gallery/index" }
 }

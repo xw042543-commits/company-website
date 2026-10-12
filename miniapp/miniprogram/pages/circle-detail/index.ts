@@ -12,6 +12,7 @@ import {
   unwrapCommunityRoute, type SubmissionState,
 } from '../../utils/community-ui';
 import { communityFeedRoute } from '../../utils/routes';
+import { fetchCommunityImages } from '../../services/community-images';
 
 type ViewState = 'loading' | 'ready' | 'empty' | 'hidden' | 'deleted' | 'not-found' | 'unavailable' | 'unauthorized' | 'offline' | 'failed';
 const UNAVAILABLE_POST_COPY = {
@@ -57,6 +58,7 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
   const deps = { ...detailDefaults, ...overrides };
   const definition: WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> = {
   data: {
+    images: [],
     postState: 'loading' as ViewState, commentsState: 'loading' as ViewState,
     ...UNAVAILABLE_POST_COPY['not-found'],
     post: null as CommunityPostDetail | null, postTime: '', postCategoryLabel: '', comments: [] as CommentItem[],
@@ -106,6 +108,9 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
     const postAvatarFailed = this.data.post?.authorAvatarUrl === result.value.authorAvatarUrl ? this.data.postAvatarFailed : false;
     this.setData({ post: result.value, postCategoryLabel: communityCategoryLabel(result.value.category), ownerPost: result.value.ownedByMe, postAvatarFailed,
       postTime: formatCommunityTime(result.value.publishedAt), postState: 'ready' as ViewState });
+    void fetchCommunityImages([state.postId]).then((images) => {
+      if (state.active && generation === state.postGeneration) this.setData({ images: images[state.postId] ?? [] });
+    });
   },
   async loadComments(reset: boolean) {
     if (['hidden', 'deleted', 'not-found'].includes(this.data.postState)) return;

@@ -48,7 +48,7 @@ export interface FeedInput extends PageInput { readonly sort: 'latest' | 'hot'; 
 export interface CommentPageInput extends PageInput { readonly postId: string }
 export interface ReplyPageInput extends CommentPageInput { readonly parentCommentId: string }
 interface BodySubmission { readonly body: string; readonly idempotencyKey: string }
-export interface PostSubmission extends BodySubmission { readonly title?: string; readonly category?: CommunityCategory; readonly universityId?: string | null }
+export interface PostSubmission extends BodySubmission { readonly title?: string; readonly category?: CommunityCategory; readonly universityId?: string | null; readonly imageIds?: readonly string[] }
 export interface CommentSubmission extends BodySubmission { readonly postId: string; readonly parentCommentId?: string | null }
 export interface ReactionInput { readonly targetType: CommunityTargetType; readonly targetId: string; readonly liked: boolean }
 export interface ReportSubmission {
@@ -233,10 +233,13 @@ export function createCommunityService(
     async createPost(input: PostSubmission): Promise<Result<CommunityCreationResponse>> {
       if (!submissionKey(input.idempotencyKey) || !text(input.body, 2000) || !input.body.trim()
         || (input.title !== undefined && !isCommunityTitle(input.title)) || (input.category !== undefined && !isCommunityCategory(input.category))
-        || (input.universityId !== undefined && input.universityId !== null && !isCommunityId(input.universityId))) return invalidInput();
+        || (input.universityId !== undefined && input.universityId !== null && !isCommunityId(input.universityId))
+        || (input.imageIds !== undefined && (!Array.isArray(input.imageIds) || input.imageIds.length > 9
+          || new Set(input.imageIds).size !== input.imageIds.length || input.imageIds.some((id) => typeof id !== 'string' || !/^[0-9a-f]{32}$/.test(id))))) return invalidInput();
       return call({ method: 'POST', path: '/api/v1/community/posts', data: { body: input.body,
         ...(input.title === undefined ? {} : { title: input.title }), ...(input.category === undefined ? {} : { category: input.category }),
-        ...(input.universityId === undefined ? {} : { universityId: input.universityId }) }, authenticated: true, idempotencyKey: input.idempotencyKey }, (v) => {
+        ...(input.universityId === undefined ? {} : { universityId: input.universityId }),
+        ...(input.imageIds?.length ? { imageIds: input.imageIds } : {}) }, authenticated: true, idempotencyKey: input.idempotencyKey }, (v) => {
         const parsed = parseCreationResponse(v);
         return parsed.ok && parsed.value.postId !== null ? invalidResponse() : parsed;
       });

@@ -1,0 +1,7 @@
+<view wx:if="{{tiles.length}}" class="gallery {{tiles.length === 1 ? 'gallery--single' : ''}}">
+  <view wx:for="{{tiles}}" wx:key="id" class="tile" style="{{tiles.length === 1 ? 'height:' + singleHeight + 'rpx' : ''}}">
+    <button wx:if="{{item.failed}}" class="retry" catchtap="retry">图片未加载 · 重试</button>
+    <image wx:elif="{{item.src}}" class="photo" src="{{item.src}}" mode="aspectFill" data-id="{{item.id}}" data-index="{{index}}" catchtap="preview" binderror="imageError" aria-label="查看第{{index + 1}}张图片" />
+    <view wx:else class="loading">加载图片…</view>
+  </view>
+</view>

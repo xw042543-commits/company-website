@@ -14,6 +14,7 @@ RUN apt-get update \
     && useradd --system --gid app --home-dir /app app
 WORKDIR /app
 COPY --from=builder --chown=app:app /app/target/backend-*.jar app.jar
+RUN mkdir -p /var/lib/udajo/community-images && chown app:app /var/lib/udajo/community-images
 USER app
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]

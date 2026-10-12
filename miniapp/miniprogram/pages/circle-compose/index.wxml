@@ -1,23 +1,37 @@
+<!-- Operate: one continuous writing surface, photographs beneath the story, compact metadata rows.
+     Inherits U圈 green/neutral palette; visible input boundaries and a persistent publish action. -->
 <view class="page-shell compose-page">
-  <view class="compose-title">分享真实留学经验</view>
-  <view class="compose-copy">U圈目前仅支持纯文字内容。请勿发布联系方式、隐私资料或未经核实的信息。</view>
-  <view class="editor-card surface-card">
-    <label class="field-label" for="post-title">帖子标题（必填）</label>
-    <input id="post-title" value="{{title}}" maxlength="60" placeholder="用一句话说明你想分享什么" bindinput="updateTitle" />
+  <view class="compose-heading"><view class="compose-title">分享你的留学日常</view><button class="discard-draft" disabled="{{submitting}}" bindtap="discardDraft">清空草稿</button></view>
+  <view class="compose-copy">一个问题、一段经验，或几张校园照片。</view>
+  <view class="editor-card">
+    <label class="field-label" for="post-title">标题 <text class="required-copy">必填</text></label>
+    <input id="post-title" class="title-input" value="{{title}}" maxlength="60" disabled="{{submitting}}" placeholder="给这次分享起个标题" placeholder-class="editor-placeholder" bindinput="updateTitle" />
     <view class="title-counter counter {{titleCount > 60 ? 'counter--danger' : ''}}">{{titleCount}} / 60</view>
-    <view class="field-label">生活分类</view>
-    <picker mode="selector" range="{{categoryLabels}}" value="{{categoryIndex}}" bindchange="changeCategory"><view class="selection-field">{{categoryLabels[categoryIndex]}} · 更改分类</view></picker>
-    <view class="field-label">院校（可选）</view>
-    <button class="selection-field" bindtap="openSchools">{{universityName || '选择院校'}}</button>
-    <button wx:if="{{universityId}}" class="clear-school" bindtap="clearSchool">取消院校归属</button>
+    <view class="writing-divider"></view>
+    <label class="field-label body-label" for="post-body">正文 <text class="required-copy">必填</text></label>
+    <textarea id="post-body" class="body-input" value="{{body}}" maxlength="2000" disabled="{{submitting}}" auto-height placeholder="分享校园生活，或说说你遇到的问题…" placeholder-class="editor-placeholder" bindinput="updateBody" />
+    <view class="body-counter counter {{count > 2000 ? 'counter--danger' : ''}}">{{count}} / 2000</view>
+    <view class="photos-heading"><text>配上照片</text><text class="photo-count">{{images.length}} / 9 · 可选</text></view>
+    <view class="image-grid">
+      <view wx:for="{{images}}" wx:key="key" class="image-item">
+        <image class="draft-image" src="{{item.path}}" mode="aspectFill" data-key="{{item.key}}" bindtap="previewImage" />
+        <button class="remove-image" aria-label="移除第{{index + 1}}张图片" disabled="{{submitting}}" data-key="{{item.key}}" catchtap="removeImage"><view class="close-mark"></view></button>
+        <button wx:if="{{item.status === 'failed'}}" class="image-state image-state--failed" data-key="{{item.key}}" bindtap="retryImage">上传失败 · 重试</button>
+        <view wx:elif="{{item.status !== 'ready'}}" class="image-state">{{item.status === 'queued' ? '等待上传' : '上传中…'}}</view>
+      </view>
+      <button wx:if="{{images.length < 9}}" class="add-image" disabled="{{submitting || choosingImages}}" bindtap="addImages"><view class="add-mark"></view><text>{{choosingImages ? '正在处理…' : '添加图片'}}</text></button>
+    </view>
+    <view class="image-hint">支持 JPEG / PNG，最多9张。图片会在审核后公开。</view>
+  </view>
+  <view class="post-settings">
+    <picker mode="selector" range="{{categoryLabels}}" value="{{categoryIndex}}" disabled="{{submitting}}" bindchange="changeCategory"><view class="setting-row"><text class="setting-label">发布到</text><text class="setting-value">{{categoryLabels[categoryIndex]}}</text><view class="setting-chevron"></view></view></picker>
+    <button class="setting-row school-select" disabled="{{submitting}}" bindtap="openSchools"><text class="setting-label">关联院校</text><text class="setting-value {{universityName ? '' : 'setting-value--muted'}}">{{universityName || '选择院校 · 可选'}}</text><view class="setting-chevron"></view></button>
+    <button wx:if="{{universityId}}" class="clear-school" disabled="{{submitting}}" bindtap="clearSchool">取消院校归属</button>
     <view class="school-note">院校标签仅代表讨论归属，不证明学生身份。</view>
-    <label class="field-label" for="post-body">帖子正文（必填）</label>
-    <textarea id="post-body" value="{{body}}" maxlength="2000" placeholder="写下你的问题、经验或建议" bindinput="updateBody" />
-    <view class="editor-meta"><text class="counter {{count > 2000 ? 'counter--danger' : ''}}">{{count}} / 2000</text><text>公开发布</text></view>
   </view>
   <view wx:if="{{notice}}" class="notice" role="alert">{{notice}}</view>
-  <button class="publish-button" disabled="{{submitting}}" bindtap="submit">{{submitting ? '正在提交…' : '确认发布'}}</button>
-  <view class="review-note">需要人工确认的内容会进入“审核中”，预计 24 小时内完成。审核结果可在“我的内容”和消息中查看。</view>
+  <view class="review-note">请勿发布联系方式、隐私资料或未经核实的信息。需要人工确认的内容会进入审核队列，结果可在消息中查看。</view>
+  <view class="publish-dock"><text class="draft-hint">{{imagesBusy ? '图片上传完成后即可发布' : '返回时会保留当前账号的草稿'}}</text><button class="publish-button" disabled="{{submitting || choosingImages || imagesBusy}}" bindtap="submit">{{submitting ? '正在提交…' : '发布到U圈'}}</button></view>
 </view>
 <view wx:if="{{schoolOpen}}" class="school-overlay">
   <view class="school-dialog" role="dialog" aria-label="选择院校">

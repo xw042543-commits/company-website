@@ -218,7 +218,7 @@ class CommunitySchemaIntegrationTest {
                 SELECT data_type FROM information_schema.columns
                 WHERE table_name LIKE 'community_%' AND column_name LIKE '%account_id'
                 """, String.class);
-        assertThat(accountTypes).hasSize(11).containsOnly("bigint");
+        assertThat(accountTypes).hasSize(12).containsOnly("bigint");
     }
 
     private long insertActiveUser() {
