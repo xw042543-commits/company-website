@@ -1,6 +1,7 @@
 package com.yangdoujiao.website.community;
 
 import java.net.URI;
+import java.net.http.HttpClient;
 import java.nio.charset.StandardCharsets;
 import java.time.Clock;
 import java.time.Duration;
@@ -9,6 +10,9 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.client.JdkClientHttpRequestFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -19,6 +23,7 @@ import tools.jackson.core.JacksonException;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
+@Component
 public final class WechatAccessTokenProvider {
     private static final Logger log = LoggerFactory.getLogger(WechatAccessTokenProvider.class);
     private static final int MAXIMUM_RESPONSE_BYTES = 16 * 1024;
@@ -34,6 +39,13 @@ public final class WechatAccessTokenProvider {
     private final Clock clock;
 
     private CachedToken cached;
+
+    @Autowired
+    WechatAccessTokenProvider(CommunityContentSafetyProperties properties,
+            MiniappAuthProperties credentials, RestClient.Builder builder,
+            ObjectMapper objectMapper, Clock clock) {
+        this(properties, credentials, timedClient(properties, builder), objectMapper, clock);
+    }
 
     WechatAccessTokenProvider(CommunityContentSafetyProperties properties,
             MiniappAuthProperties credentials, RestClient restClient,
@@ -108,6 +120,16 @@ public final class WechatAccessTokenProvider {
             throw new IllegalArgumentException("invalid token lifetime");
         }
         return seconds;
+    }
+
+    private static RestClient timedClient(CommunityContentSafetyProperties properties,
+            RestClient.Builder builder) {
+        HttpClient httpClient = HttpClient.newBuilder()
+                .connectTimeout(properties.requestTimeout())
+                .build();
+        var requestFactory = new JdkClientHttpRequestFactory(httpClient);
+        requestFactory.setReadTimeout(properties.requestTimeout());
+        return builder.clone().requestFactory(requestFactory).build();
     }
 
     private record CachedToken(String value, Instant safeExpiry) {}
