@@ -3,11 +3,14 @@
 ## 数据库职责
 
 PostgreSQL 是本项目的主数据库，也是业务数据的唯一真实来源（Source of Truth）。
-Redis 只负责缓存，Elasticsearch 只负责全文搜索；即使缓存或搜索索引被清空，也必须
-能够根据 PostgreSQL 中的数据重新生成。
+Redis 用于缓存、社区热门快照和社区写入限流，Elasticsearch 用于全文搜索；
+业务记录必须保存在 PostgreSQL 中，搜索投影和缓存可根据主数据库重建。
+Redis 不可用时，社区写入和热门快照按接口契约返回不可用状态，不能绕过限流写入。
 
-当前 V8 已建立院校、课程、筛选字典、搜索支持、公开文章、留学咨询和用户认证的数据结构。
-仓库不包含老板尚未提供的正式 Excel 数据，测试数据只存在于临时测试容器中。
+当前迁移已到 V24，包含院校、课程、媒体、用户认证、咨询处理、小程序收藏与规划、
+社区、钱包、消息、申请进度和头像的数据结构。
+仓库内的数据整理及导入资料包不等于正式发布批准；发布仍须依据业务负责人确认的资料。
+数据库集成测试使用临时测试容器，不连接真实业务数据库。
 
 ## 数据库版本管理
 
@@ -25,6 +28,22 @@ Redis 只负责缓存，Elasticsearch 只负责全文搜索；即使缓存或搜
 - `V6__create_content_articles.sql`：创建公开文章表。
 - `V7__create_consultation_enquiries.sql`：创建默认关闭的留学咨询数据表。
 - `V8__create_user_authentication.sql`：创建用户账号、验证与重置 Token、认证限流和 Spring Session 表。
+- `V9__create_user_external_identities.sql`：创建账号与微信外部身份的关联。
+- `V10__allow_external_only_user_accounts.sql`：支持没有邮箱、手机号和密码的外部身份账号。
+- `V11__add_external_identity_profile.sql`：为外部身份增加昵称和头像地址。
+- `V12__add_adviser_consultation_management.sql`：增加顾问角色、咨询处理状态和乐观锁版本。
+- `V13__add_miniapp_authentication.sql`：增加小程序身份提供方和访问/刷新令牌表。
+- `V14__extend_programme_details.sql`：补充课程来源、申请截止时间及详情章节。
+- `V15__create_university_and_programme_media.sql`：创建院校和课程媒体表。
+- `V16__create_miniapp_user_data.sql`：关联咨询所属账号，创建课程收藏和留学规划表。
+- `V17__create_community.sql`：创建社区帖子、评论、点赞、举报、审核、限制和幂等记录表。
+- `V18__persist_community_write_receipts.sql`：持久化社区写入回执以支持幂等重放。
+- `V19__create_miniapp_wallet.sql`：创建小程序钱包账户和流水表。
+- `V20__inbox_notifications.sql`：创建收件箱通知表。
+- `V21__create_student_applications.sql`：创建学生申请、文档、费用和进度事件表。
+- `V22__create_miniapp_account_avatars.sql`：创建小程序账号头像存储表。
+- `V23__community_boards.sql`：为帖子增加标题、分类和所属院校。
+- `V24__community_feed_scope_indexes.sql`：增加按院校和分类读取社区列表的索引。
 
 已经在任何环境执行过的迁移文件不能直接修改。后续需要调整结构时，应新增
 新的顺序版本迁移，确保三名开发人员、CI 和服务器按相同顺序升级数据库。
@@ -186,7 +205,7 @@ lease，完成时会新建 `PENDING` 补偿任务，以 PostgreSQL 的最新状�
 `Controller → Service → Repository → PostgreSQL`
 
 实体类负责数据库映射。REST API 应使用独立 DTO 返回数据，避免数据库结构直接绑定
-前端页面。当前已提供筛选字典和院校课程搜索 API，但正式数据导入仍需等待老板提供资料。
+前端页面。当前已提供筛选字典和院校课程搜索 API；导入与发布应核对已审核资料包和业务批准状态。
 
 ## 测试与本地数据安全
 
@@ -217,8 +236,8 @@ lease，完成时会新建 `PENDING` 补偿任务，以 PostgreSQL 的最新状�
 
 为减少个人资料收集，数据库不保存 IP、浏览器信息或请求正文日志。只有明确勾选隐私
 同意且服务端已配置正式隐私声明版本时才能写入；数据库也会拒绝未同意、空姓名、空
-联系方式、非法学历层次和未知状态。当前状态固定为 `NEW`，员工处理流程不在本阶段
-范围内。
+联系方式、非法学历层次和未知状态。V12 支持 `NEW`、`IN_PROGRESS`、`COMPLETED`，
+并记录处理人员、状态更新时间和乐观锁版本；V16 关联提交者账号。
 
 咨询提交开关默认关闭。正式隐私声明、必填规则和处理人员确认前，前端不会开放提交，
 后端收到请求也不会保存数据。接口限流只在 Redis 中保存客户端地址的 SHA-256 摘要和
@@ -229,7 +248,8 @@ lease，完成时会新建 `PENDING` 补偿任务，以 PostgreSQL 的最新状�
 ### user_accounts
 
 保存用户姓名、规范化后的邮箱/手机号、密码摘要、验证时间、协议版本和账号
-状态。邮箱和手机号分别唯一，且至少填写一项。删除账号采用软删除：状态改为
+状态。邮箱和手机号分别唯一；密码账号必须填写至少一种联系方式，V10 支持没有联系方式
+和密码的外部身份账号。V12 增加 `USER`、`ADVISER` 角色。删除账号采用软删除：状态改为
 `DELETED` 并记录 `deleted_at`，不在接口中暴露密码摘要或未脱敏联系方式。
 
 ### user_verification_tokens 和 password_reset_tokens
@@ -249,3 +269,23 @@ lease，完成时会新建 `PENDING` 补偿任务，以 PostgreSQL 的最新状�
 保存 Spring Security 会话及其属性。会话 Cookie 只携带随机会话标识，不包含账号资料。
 登录会更换匿名会话 ID，修改/重置密码和删除账号时会作废相关会话。正式环境的
 Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
+
+## 小程序与后续业务表
+
+- `user_external_identities`：关联网站微信和小程序身份，保存身份展示资料。
+- `miniapp_auth_tokens`：保存访问/刷新令牌摘要、过期时间、撤销状态和令牌族关系。
+- `university_media`、`programme_media`、`programme_detail_sections`：保存经过审核的媒体和课程详情。
+- `miniapp_programme_favorites`、`miniapp_study_plans`：保存账号所属的课程收藏和规划。
+- `community_posts`、`community_comments`、`community_reactions`、`community_reports`：
+  保存帖子、评论、点赞和举报；帖子支持标题、分类和院校范围。
+- `community_moderation_actions`、`community_user_restrictions`、
+  `community_idempotency_records`：保存审核证据、用户限制和写入回执。
+- `miniapp_wallet_accounts`、`miniapp_wallet_entries`：保存钱包账户和流水；
+  页面及记录存在不代表已接通支付渠道。
+- `inbox_notifications`：保存账号所属的通知及阅读状态。
+- `student_applications`、`application_documents`、`application_fees`、
+  `application_events`：保存申请、私有文档、费用记录和进度历史；
+  访问限于所属学生及被分配的顾问，见 [申请说明](miniapp-applications.md)。
+- `miniapp_account_avatars`：保存用户主动选择上传的头像。
+
+详细字段、约束和索引以对应迁移文件为准；文档中的迁移清单不表示服务器已经执行这些迁移。
