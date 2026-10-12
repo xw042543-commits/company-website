@@ -11,7 +11,7 @@ import type { AdviserFailure } from "@/lib/adviser-consultation-api";
 import { abortableRequest, createLatestRequest } from "@/lib/adviser-consultations-ui";
 import {
   afterModerationFailure, canSubmitModeration, moderationErrorText, moderationQueueFilters,
-  muteExpiry, reasonsForCommand, reportReasons, resolveModerationHistoryPage, moderationCommandLabel, moderationReasonLabel, moderationPostContext, type QueueFilterDraft,
+  muteExpiry, reasonsForCommand, reportReasons, resolveModerationHistoryPage, moderationCommandLabel, moderationReasonLabel, moderationPostContext, moderationWaitingHint, type QueueFilterDraft,
 } from "@/lib/adviser-community-ui";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
@@ -58,6 +58,11 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
   const typeLabel = (value: ModerationTargetType) => value === "POST" ? w("帖子", "Post") : w("评论", "Comment");
   const date = (value: string) => new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB",
     { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kuala_Lumpur" }).format(new Date(value));
+  // Detail responses omit SLA; use the server queue snapshot only while its content version is current.
+  const selectedQueueItem = !queuePending && !detailPending && !saving && !needsReload && detail
+    ? data?.items.find((item) => item.targetType === detail.targetType && item.targetId === detail.targetId
+      && item.version === detail.version && item.status === detail.status) : undefined;
+  const detailWaitingHint = selectedQueueItem ? moderationWaitingHint(locale, selectedQueueItem) : null;
 
   const handleAccessFailure = useCallback((failure: AdviserFailure) => {
     if (failure.status !== "unauthorized" && failure.status !== "forbidden") return false;
@@ -176,20 +181,25 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
     {filterFailure && <p className="adviser-error" role="alert">{moderationErrorText(locale, "validation-error")}</p>}
     <div className="adviser-master-detail community-master-detail">
       <section className="adviser-record-list" aria-label={w("审核队列", "Moderation queue")} aria-busy={queuePending}>
-        <div className="adviser-list-heading"><div><h2 ref={queueHeading} tabIndex={-1}>{w("内容队列", "Content queue")}</h2><p>{w("最新内容优先 · 马来西亚时间", "Newest first · Malaysia time")}</p></div>
+        <div className="adviser-list-heading"><div><h2 ref={queueHeading} tabIndex={-1}>{w("内容队列", "Content queue")}</h2><p>{filters.status === "PENDING"
+          ? w("最久待审优先 · 马来西亚时间", "Longest waiting first · Malaysia time")
+          : w("最新内容优先 · 马来西亚时间", "Newest first · Malaysia time")}</p></div>
           <button type="button" className="secondary" disabled={busy} onClick={() => setRevision((value) => value + 1)}>{w("刷新", "Refresh")}</button></div>
         {queuePending && <p className="adviser-message" role="status">{w("正在载入队列…", "Loading queue…")}</p>}
         {!queuePending && queue && queue.status !== "ready" && <div className="adviser-message adviser-error" role="alert"><p>{moderationErrorText(locale, queue.status)}</p><button type="button" className="secondary" disabled={busy} onClick={() => setRevision((value) => value + 1)}>{w("重试", "Retry")}</button></div>}
         {!queuePending && data?.items.length === 0 && <p className="adviser-message" role="status">{w("没有符合筛选条件的内容。", "No items match these filters.")}</p>}
-        {!queuePending && data && <ol ref={queueRecords} className="adviser-records">{data.items.map((item) => <li key={`${item.targetType}:${item.targetId}`}>
+        {!queuePending && data && <ol ref={queueRecords} className="adviser-records">{data.items.map((item) => {
+          const waitingHint = moderationWaitingHint(locale, item);
+          return <li key={`${item.targetType}:${item.targetId}`}>
           <button type="button" className="adviser-record community-record" disabled={busy} data-selected={selected?.targetType === item.targetType && selected.targetId === item.targetId}
             aria-expanded={selected?.targetType === item.targetType && selected.targetId === item.targetId} aria-controls="community-detail" onClick={() => {
               setSelected({ targetType: item.targetType, targetId: item.targetId }); setDetail(null); setReasonCode(""); setConfirmed(false); setExpiry(""); setAnnouncement("");
               void loadDetail(item);
             }}>
             <span className="adviser-record-primary"><strong>{typeLabel(item.targetType)} · {statusLabel(item.status)}</strong>{item.targetType === "POST" && <span className="community-post-context">{moderationPostContext(locale, item)}</span>}{item.title && <strong className="community-post-title">{item.title}</strong>}<span className="community-preview">{item.bodyPreview.trim() || w("打开查看完整内容", "Open to review full content")}</span></span>
-            <span className="adviser-record-meta"><span>{w(`待处理举报 ${item.openReportCount} 条`, `${item.openReportCount} open reports`)}</span><time dateTime={item.createdAt}>{date(item.createdAt)}</time></span>
-          </button></li>)}</ol>}
+            <span className="adviser-record-meta">{waitingHint && <span className="community-sla" role="note" data-sla-state={item.slaState} aria-label={waitingHint.ariaLabel}>{waitingHint.text}</span>}<span>{w(`待处理举报 ${item.openReportCount} 条`, `${item.openReportCount} open reports`)}</span><time dateTime={item.createdAt}>{date(item.createdAt)}</time></span>
+          </button></li>;
+        })}</ol>}
         {data && <nav className="adviser-pagination" aria-label={w("队列分页", "Queue pagination")}>
           <button type="button" className="secondary" disabled={busy || previousCursors.length === 0} onClick={() => {
             const cursor = previousCursors.at(-1); setPreviousCursors((values) => values.slice(0, -1)); setQueue(null); setQueuePending(true); setFilters({ ...filters, cursor });
@@ -211,6 +221,9 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
           {detailFailure && <div className="adviser-error" role="alert"><p>{moderationErrorText(locale, detailFailure.status)}</p><button type="button" className="secondary" disabled={busy} onClick={() => void loadDetail(selected)}>{w("重新载入详情", "Reload details")}</button></div>}
           {detail && <>
             <dl className="adviser-detail-fields"><div><dt>{w("内容状态", "Content status")}</dt><dd>{typeLabel(detail.targetType)} · {statusLabel(detail.status)}</dd></div>
+              {detail.status === "PENDING_REVIEW" && <div><dt>{w("等待状态", "Waiting status")}</dt><dd aria-live="polite" aria-atomic="true">{detailWaitingHint
+                ? <span className="community-sla" role="note" data-sla-state={selectedQueueItem?.slaState} aria-label={detailWaitingHint.ariaLabel}>{detailWaitingHint.text}</span>
+                : w("等待状态暂不可用，请刷新队列。", "Waiting status unavailable. Refresh the queue.")}</dd></div>}
               <div><dt>{w("当前版本", "Current version")}</dt><dd>{detail.version}</dd></div>
               {detail.postId && <div><dt>{w("所属帖子编号", "Parent post ID")}</dt><dd>{detail.postId}</dd></div>}
               {detail.parentCommentId && <div><dt>{w("回复评论编号", "Parent comment ID")}</dt><dd>{detail.parentCommentId}</dd></div>}</dl>
