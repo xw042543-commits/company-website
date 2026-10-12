@@ -157,6 +157,23 @@ test("enabled community requires owned review rules rather than only reject rule
   }
 });
 
+test("both policy lists enforce runtime entry and UTF-16 length bounds before filtering or deduplication", () => {
+  for (const environment of [validEnvironment, enabledCommunityEnvironment]) {
+    for (const name of ["APP_COMMUNITY_REVIEW_TERMS", "APP_COMMUNITY_REJECT_TERMS"]) {
+      for (const terms of ["x".repeat(201), "🔐".repeat(101), `\u00a0${"x".repeat(200)}`,
+        Array.from({ length: 1001 }, (_, index) => `owned-rule-${index}`).join(","),
+        Array(1001).fill("owned-rule").join(","), Array(1001).fill("").join(",")]) {
+        assert.match(validateDeploymentEnv({ ...environment, [name]: terms }).join("\n"), new RegExp(`${name}.*1000.*200`));
+      }
+      for (const terms of ["x".repeat(200), "🔐".repeat(100), `  ${"x".repeat(200)}  `,
+        Array.from({ length: 1000 }, (_, index) => `owned-rule-${index}`).join(","),
+        Array(1000).fill("owned-rule").join(",")]) {
+        assert.deepEqual(validateDeploymentEnv({ ...environment, [name]: terms }), []);
+      }
+    }
+  }
+});
+
 test("enabled community requires content safety and real miniapp auth with shared credentials", () => {
   for (const [name, value] of [
     ["APP_COMMUNITY_CONTENT_SAFETY_ENABLED", "false"], ["APP_MINIAPP_AUTH_ENABLED", "false"],
@@ -198,6 +215,25 @@ test("enabled community permits only the exact official HTTPS token and message-
       official.replace("https://", "https://user:password@"), official.replace(".com/", ".com:443/")]) {
       assert.match(validateDeploymentEnv({ ...enabledCommunityEnvironment, [name]: endpoint }).join("\n"),
         /official HTTPS endpoints/i);
+    }
+  }
+});
+
+test("content safety endpoint structure is validated while community writes are disabled", () => {
+  for (const name of ["APP_COMMUNITY_CONTENT_SAFETY_ACCESS_TOKEN_ENDPOINT", "APP_COMMUNITY_CONTENT_SAFETY_MESSAGE_CHECK_ENDPOINT"]) {
+    for (const endpoint of ["not-a-url", "/relative", "ftp://provider.test/check", "https:///check", "https:provider.test/check",
+      "https://user:secret@provider.test/check", "https://@provider.test/check",
+      "https://provider.test/check?", "https://provider.test/check?token=secret",
+      "https://provider.test/check#", "https://provider.test/check#fragment",
+      "https://provider.test/space here", "https://审核.test/check", "https://-provider.test/check",
+      "https://provider-.test/check", "https://127.1/check", "https://a.123/check", "https://provider.test/%zz"]) {
+      const errors = validateDeploymentEnv({ ...validEnvironment, [name]: endpoint }).join("\n");
+      assert.match(errors, new RegExp(`${name}.*absolute HTTP or HTTPS.*host.*userinfo.*query.*fragment`));
+      assert.equal(errors.includes(endpoint), false, "endpoint errors must redact input values");
+    }
+    for (const endpoint of ["http://localhost:18080/mock-check", "https://provider.test/check", "http://[::1]:18080/check",
+      "https://provider.test:99999/check", "https://provider.test:/check"]) {
+      assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, [name]: endpoint }), []);
     }
   }
 });
