@@ -37,6 +37,33 @@ import tools.jackson.databind.ObjectMapper;
 
 @ExtendWith(OutputCaptureExtension.class)
 class WechatCommunityContentSafetyGatewayTest {
+    @Test
+    void realTransportSendsFixedLengthJson() throws Exception {
+        var observed = new java.util.concurrent.atomic.AtomicReference<com.sun.net.httpserver.Headers>();
+        var local = com.sun.net.httpserver.HttpServer.create(new java.net.InetSocketAddress("127.0.0.1", 0), 0);
+        local.createContext("/check", exchange -> {
+            observed.set(exchange.getRequestHeaders());
+            exchange.getRequestBody().readAllBytes();
+            byte[] response = "{\"errcode\":0,\"result\":{\"suggest\":\"pass\"}}".getBytes(java.nio.charset.StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(200, response.length);
+            exchange.getResponseBody().write(response);
+            exchange.close();
+        });
+        local.start();
+        try {
+            var properties = new CommunityContentSafetyProperties(true, Duration.ofSeconds(2), 1,
+                    URI.create("https://api.weixin.qq.com/cgi-bin/token"),
+                    URI.create("http://127.0.0.1:" + local.getAddress().getPort() + "/check"));
+            var real = new WechatCommunityContentSafetyGateway(properties, identities, tokens, new ObjectMapper());
+            assertThat(real.check(42L, "测试内容")).isEqualTo(CommunityContentSafetyGateway.Result.PASS);
+            assertThat(observed.get().getFirst("Content-Type")).startsWith("application/json");
+            assertThat(observed.get().getFirst("Transfer-Encoding")).isNull();
+            assertThat(observed.get().getFirst("Content-Length")).isNotNull();
+        } finally {
+            local.stop(0);
+        }
+    }
+
     @ParameterizedTest
     @ValueSource(strings = {"{\"errcode\":40001,\"errmsg\":\"private-body content-token real-openid\"}",
             "{\"errcode\":\"private-body\"}", "<html>private-body</html>"})

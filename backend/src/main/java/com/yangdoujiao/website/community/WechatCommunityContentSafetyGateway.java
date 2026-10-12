@@ -81,12 +81,14 @@ public final class WechatCommunityContentSafetyGateway implements CommunityConte
                 .queryParam("access_token", token)
                 .build().encode().toUri();
         try {
+            // WeChat rejects chunked request bodies with HTTP 412. Buffer this bounded text
+            // payload so the transport sends the exact UTF-8 Content-Length.
+            byte[] payload = objectMapper.writeValueAsBytes(Map.of(
+                    "content", normalizedText, "version", 2, "scene", 2, "openid", openid));
             byte[] body = restClient.post().uri(uri)
-                    .body(Map.of(
-                            "content", normalizedText,
-                            "version", 2,
-                            "scene", 2,
-                            "openid", openid))
+                    .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+                    .contentLength(payload.length)
+                    .body(payload)
                     .retrieve().body(byte[].class);
             if (body == null || body.length == 0 || body.length > MAXIMUM_RESPONSE_BYTES) {
                 return Result.UNAVAILABLE;
