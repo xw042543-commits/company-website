@@ -278,11 +278,11 @@ test("programme detail hero keeps its copy, actions, and campus image aligned on
   assert.match(css, /@media \(max-width: 760px\)[\s\S]*?\.programme-hero-visual\.has-photo\s*\{[^}]*aspect-ratio:\s*16 \/ 9/);
   assert.match(css, /@media \(max-width: 390px\)[\s\S]*?\.programme-hero-actions\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
   assert.match(programmePage, /className="programme-section-nav"/);
-  assert.match(programmePage, /"介绍", "Introduction"/);
-  assert.match(programmePage, /"基本信息", "Course details"/);
+  assert.match(programmePage, /"专业介绍", "Programme introduction"/);
+  assert.match(programmePage, /"专业基本信息", "Programme basic information"/);
+  assert.match(programmePage, /"专业前景", "Career prospects"/);
+  assert.match(programmePage, /"专业课程", "Programme curriculum"/);
   assert.match(programmePage, /"录取要求", "Entry requirements"/);
-  assert.match(programmePage, /"课程安排", "Programme structure"/);
-  assert.match(programmePage, /"未来职业方向", "Career directions"/);
   assert.doesNotMatch(programmePage, /className="programme-header-facts"/);
   assert.match(programmePage, /"收藏课程", "Save programme"/);
   assert.match(programmePage, /className="programme-data-table programme-essential-table"/);
@@ -292,9 +292,9 @@ test("programme detail hero keeps its copy, actions, and campus image aligned on
   assert.match(programmePage, /"授课语言", "Teaching language"/);
   assert.match(programmePage, /"授课方式", "Study mode"/);
   assert.ok(programmePage.indexOf('id="overview"') < programmePage.indexOf('id="basic-information"'));
-  assert.ok(programmePage.indexOf('id="basic-information"') < programmePage.indexOf('id="requirements"'));
-  assert.ok(programmePage.indexOf('id="requirements"') < programmePage.indexOf('id="programme-structure"'));
-  assert.ok(programmePage.indexOf('id="programme-structure"') < programmePage.indexOf('id="careers"'));
+  assert.ok(programmePage.indexOf('id="basic-information"') < programmePage.indexOf('id="careers"'));
+  assert.ok(programmePage.indexOf('id="careers"') < programmePage.indexOf('id="programme-curriculum"'));
+  assert.ok(programmePage.indexOf('id="programme-curriculum"') < programmePage.indexOf('id="requirements"'));
   assert.match(css, /\.programme-trust-summary\s*\{[^}]*grid-template-columns:\s*repeat\(2/);
   assert.match(programmePage, /className="programme-applicant-note"/);
   assert.doesNotMatch(programmePage, /"中国学生", "Applicants from China"/);

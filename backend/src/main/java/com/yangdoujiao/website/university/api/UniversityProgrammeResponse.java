@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.yangdoujiao.website.programme.Programme;
+import com.yangdoujiao.website.programme.ProgrammeDetailSection;
 import com.yangdoujiao.website.programme.ProgrammeIntake;
 
 public record UniversityProgrammeResponse(
@@ -34,17 +35,34 @@ public record UniversityProgrammeResponse(
         String tuitionDisplay,
         List<String> intakeMonths,
         List<String> intakeDisplayTexts,
+        List<DetailSection> sections,
         String imageUrl
 ) {
+    public record DetailSection(
+            String type,
+            String titleZh,
+            String titleEn,
+            String bodyZh,
+            String bodyEn,
+            int sortOrder
+    ) {
+        static DetailSection from(ProgrammeDetailSection section) {
+            return new DetailSection(section.getSectionType().name(), section.getTitleZh(), section.getTitleEn(),
+                    section.getBodyZh(), section.getBodyEn(), section.getSortOrder());
+        }
+    }
+
     public UniversityProgrammeResponse {
         languageCodes = List.copyOf(languageCodes);
         intakeMonths = List.copyOf(intakeMonths);
         intakeDisplayTexts = List.copyOf(intakeDisplayTexts);
+        sections = List.copyOf(sections);
     }
 
     public static UniversityProgrammeResponse from(
             Programme programme,
             List<ProgrammeIntake> intakes,
+            List<ProgrammeDetailSection> sections,
             String imageUrl
     ) {
         return new UniversityProgrammeResponse(
@@ -86,6 +104,7 @@ public record UniversityProgrammeResponse(
                         ))
                         .map(ProgrammeIntake::getDisplayText)
                         .toList(),
+                sections.stream().map(DetailSection::from).toList(),
                 imageUrl
         );
     }

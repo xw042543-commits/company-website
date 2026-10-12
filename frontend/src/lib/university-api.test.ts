@@ -228,6 +228,7 @@ const validUniversityProgrammePage = {
     tuitionDisplay: "MYR 35,000–40,000",
     intakeMonths: ["2027-09"],
     intakeDisplayTexts: ["September 2027"],
+    sections: [],
     imageUrl: null,
   }],
   page: 1,
@@ -475,6 +476,19 @@ test("requests one programme by its database id and preserves not-found separate
   }) as typeof fetch;
 
   assert.deepEqual(parseUniversityProgramme(programme), programme);
+  const withSections = {
+    ...programme,
+    sections: [{
+      type: "CURRICULUM",
+      titleZh: "专业课程",
+      titleEn: "Programme curriculum",
+      bodyZh: "核心课程",
+      bodyEn: "Core modules",
+      sortOrder: 20,
+    }],
+  };
+  assert.deepEqual(parseUniversityProgramme(withSections), withSections);
+  assert.equal(parseUniversityProgramme({ ...withSections, sections: [{ ...withSections.sections[0], sortOrder: -1 }] }), null);
   assert.deepEqual(
     await requestUniversityProgramme(
       "http://localhost:8080",
