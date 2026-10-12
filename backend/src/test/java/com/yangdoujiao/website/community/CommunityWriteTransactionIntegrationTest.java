@@ -2,7 +2,11 @@ package com.yangdoujiao.website.community;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.verify;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -21,6 +25,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.test.web.servlet.MockMvc;
 import com.yangdoujiao.website.TestContainersConfiguration;
@@ -47,10 +52,35 @@ class CommunityWriteTransactionIntegrationTest {
     @Autowired Clock clock;
     @Autowired org.springframework.transaction.PlatformTransactionManager transactionManager;
     @MockitoSpyBean CommunityIdempotencyRecordRepository idempotency;
+    @MockitoBean CommunityContentSafetyGateway contentSafety;
     final List<Long> accountIds = new ArrayList<>();
 
     @BeforeEach void resetCache() {
         var keys = redis.keys("community:*"); if (!keys.isEmpty()) redis.delete(keys);
+        doAnswer(invocation -> {
+            assertThat(org.springframework.transaction.support.TransactionSynchronizationManager
+                    .isActualTransactionActive()).isFalse();
+            return CommunityContentSafetyGateway.Result.PASS;
+        }).when(contentSafety).check(anyLong(), anyString());
+    }
+    @Test void externalModerationRunsBeforeLocksWithActorAndCanonicalContent() throws Exception {
+        var author = account();
+        var postResponse = mvc.perform(post("/api/v1/community/posts")
+                        .with(user(UserPrincipal.from(author))).with(csrf())
+                        .header("Idempotency-Key", "outside-transaction-post")
+                        .contentType("application/json")
+                        .content("{\"title\":\"canonical title\",\"body\":\"canonical body\"}"))
+                .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
+        long postId = Long.parseLong((String) com.jayway.jsonpath.JsonPath.read(postResponse, "$.id"));
+        mvc.perform(post("/api/v1/community/posts/" + postId + "/comments")
+                        .with(user(UserPrincipal.from(author))).with(csrf())
+                        .header("Idempotency-Key", "outside-transaction-comment")
+                        .contentType("application/json")
+                        .content("{\"body\":\"comment body\"}"))
+                .andExpect(status().isCreated());
+
+        verify(contentSafety).check(author.getId(), "canonical title\ncanonical body");
+        verify(contentSafety).check(author.getId(), "comment body");
     }
     @AfterEach void removeOnlyThisTestsFixtures() {
         for (Long id : accountIds) {

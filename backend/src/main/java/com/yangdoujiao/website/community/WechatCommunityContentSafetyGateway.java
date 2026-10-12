@@ -37,8 +37,8 @@ public final class WechatCommunityContentSafetyGateway implements CommunityConte
     @Autowired
     WechatCommunityContentSafetyGateway(CommunityContentSafetyProperties properties,
             UserExternalIdentityRepository identities, WechatAccessTokenProvider tokens,
-            RestClient.Builder builder, ObjectMapper objectMapper) {
-        this(properties, identities, tokens, timedClient(properties, builder), objectMapper);
+            ObjectMapper objectMapper) {
+        this(properties, identities, tokens, timedClient(properties), objectMapper);
     }
 
     WechatCommunityContentSafetyGateway(CommunityContentSafetyProperties properties,
@@ -115,13 +115,12 @@ public final class WechatCommunityContentSafetyGateway implements CommunityConte
         }
     }
 
-    private static RestClient timedClient(CommunityContentSafetyProperties properties,
-            RestClient.Builder builder) {
+    private static RestClient timedClient(CommunityContentSafetyProperties properties) {
         HttpClient httpClient = HttpClient.newBuilder()
                 .connectTimeout(properties.requestTimeout())
                 .build();
         var requestFactory = new JdkClientHttpRequestFactory(httpClient);
         requestFactory.setReadTimeout(properties.requestTimeout());
-        return builder.clone().requestFactory(requestFactory).build();
+        return RestClient.builder().requestFactory(requestFactory).build();
     }
 }

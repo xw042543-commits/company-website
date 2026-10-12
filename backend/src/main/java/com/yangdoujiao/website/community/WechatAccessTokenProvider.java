@@ -42,9 +42,8 @@ public final class WechatAccessTokenProvider {
 
     @Autowired
     WechatAccessTokenProvider(CommunityContentSafetyProperties properties,
-            MiniappAuthProperties credentials, RestClient.Builder builder,
-            ObjectMapper objectMapper, Clock clock) {
-        this(properties, credentials, timedClient(properties, builder), objectMapper, clock);
+            MiniappAuthProperties credentials, ObjectMapper objectMapper, Clock clock) {
+        this(properties, credentials, timedClient(properties), objectMapper, clock);
     }
 
     WechatAccessTokenProvider(CommunityContentSafetyProperties properties,
@@ -122,14 +121,13 @@ public final class WechatAccessTokenProvider {
         return seconds;
     }
 
-    private static RestClient timedClient(CommunityContentSafetyProperties properties,
-            RestClient.Builder builder) {
+    private static RestClient timedClient(CommunityContentSafetyProperties properties) {
         HttpClient httpClient = HttpClient.newBuilder()
                 .connectTimeout(properties.requestTimeout())
                 .build();
         var requestFactory = new JdkClientHttpRequestFactory(httpClient);
         requestFactory.setReadTimeout(properties.requestTimeout());
-        return builder.clone().requestFactory(requestFactory).build();
+        return RestClient.builder().requestFactory(requestFactory).build();
     }
 
     private record CachedToken(String value, Instant safeExpiry) {}
