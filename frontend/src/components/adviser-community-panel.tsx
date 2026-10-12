@@ -1,4 +1,5 @@
 "use client";
+import { AdviserCommunityImages } from "./adviser-community-images";
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -227,7 +228,7 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
               <div><dt>{w("当前版本", "Current version")}</dt><dd>{detail.version}</dd></div>
               {detail.postId && <div><dt>{w("所属帖子编号", "Parent post ID")}</dt><dd>{detail.postId}</dd></div>}
               {detail.parentCommentId && <div><dt>{w("回复评论编号", "Parent comment ID")}</dt><dd>{detail.parentCommentId}</dd></div>}</dl>
-            <section className="community-detail-section" aria-label={w("完整内容", "Full content")}><h3>{w("完整内容", "Full content")}</h3>{detail.targetType === "POST" && <p className="community-post-context">{moderationPostContext(locale, detail)}</p>}{detail.title && <h4 className="community-post-title">{detail.title}</h4>}<p className="community-body">{detail.body}</p></section>
+            <section className="community-detail-section" aria-label={w("完整内容", "Full content")}><h3>{w("完整内容", "Full content")}</h3>{detail.targetType === "POST" && <p className="community-post-context">{moderationPostContext(locale, detail)}</p>}{detail.title && <h4 className="community-post-title">{detail.title}</h4>}<p className="community-body">{detail.body}</p>{detail.targetType === "POST" && detail.status !== "DELETED" && <AdviserCommunityImages key={`${detail.targetId}:${detail.version}`} postId={detail.targetId} />}</section>
             <section className="community-detail-section" aria-labelledby="community-reports-title"><h3 id="community-reports-title">{w("举报汇总", "Report summary")}</h3>
               <p>{w(`待处理举报 ${detail.openReportCount} 条`, `${detail.openReportCount} open reports`)}</p>
               {detail.reports.length === 0 ? <p>{w("暂无举报。", "No reports.")}</p> : <ul className="community-report-list">{detail.reports.map((report) => <li key={`${report.reasonCode}:${report.status}`}><span>{reasonLabel(report.reasonCode)} · {reportStatus(report.status)}</span><strong>{w(`${report.count} 条`, `${report.count} reports`)}</strong></li>)}</ul>}

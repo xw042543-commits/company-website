@@ -6,6 +6,7 @@ import { sessionStore } from '../../stores/session';
 import { errorCopy, formatCommunityTime, PENDING_REVIEW_NOTICE, statusCopy, unwrapCommunityRoute } from '../../utils/community-ui';
 import { communityPostRoute } from '../../utils/routes';
 import { communityCategoryLabel } from '../../utils/community-boards';
+import { fetchCommunityImages } from '../../services/community-images';
 
 type PersonalTab = 'posts' | 'comments';
 type PersonalState = 'loading' | 'ready' | 'empty' | 'offline' | 'failed';
@@ -25,6 +26,7 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
   const deps = { ...personalDefaults, ...overrides };
   const definition: WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> = {
   data: {
+    postImages: {},
     tab: 'posts' as PersonalTab, state: 'loading' as PersonalState,
     posts: [] as PersonalPostItem[], comments: [] as PersonalCommentItem[],
     nextCursor: null as string | null, loadingMore: false, deletingId: null as string | null, reviewNotice: '',
@@ -73,6 +75,11 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
       incoming.forEach((item) => items.set(item.id, { ...item, categoryLabel: communityCategoryLabel(item.category), displayTime: formatCommunityTime(item.createdAt), statusLabel: statusCopy(item.status) }));
       const posts = [...items.values()]; this.setData({ posts, reviewNotice: state.submittedForReview || posts.some((item) => item.status === 'PENDING_REVIEW') ? PENDING_REVIEW_NOTICE : '',
         nextCursor: result.value.nextCursor, loadingMore: false, state: posts.length ? 'ready' : 'empty' });
+      const owner = deps.session.getSnapshot().account?.id;
+      void fetchCommunityImages(incoming.map((post) => post.id), true).then((images) => {
+        if (state.active && request === state.generation && owner === deps.session.getSnapshot().account?.id)
+          this.setData({ postImages: { ...(reset ? {} : this.data.postImages), ...images } });
+      });
     } else {
       const incoming = result.value.items as readonly CommunityMyComment[];
       const items = new Map<string, PersonalCommentItem>((reset ? [] : this.data.comments).map((item: PersonalCommentItem) => [item.id, item]));

@@ -4,6 +4,7 @@ import { communityCategoryLabel } from '../../utils/community-boards';
 
 Component({
   properties: {
+    images: { type: Array, value: [] },
     post: {
       type: Object,
       value: {},

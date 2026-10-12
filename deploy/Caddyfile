@@ -8,6 +8,15 @@
 
 	encode zstd gzip
 
+	@imageUpload path /api/v1/community/images
+	request_body @imageUpload {
+		max_size 6MB
+	}
+	@imageCallback path /api/v1/community/image-review/callback
+	request_body @imageCallback {
+		max_size 100KB
+	}
+
 	reverse_proxy frontend:3000 {
 		header_up -Forwarded
 		header_up -X-Forwarded-*

@@ -11,10 +11,16 @@ import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration(proxyBeanMethods=false)
 @ConditionalOnProperty(name="app.community.images.enabled",havingValue="true")
+@EnableScheduling
 public class CommunityImageUploadConfiguration {
+    @Bean CommunityImageCleanupWorker communityImageCleanupWorker(CommunityImageCleanupRepository repository,Clock clock,
+            @Value("${app.community.images.root}") String root) throws IOException {
+        return new CommunityImageCleanupWorker(repository,new LocalCommunityImageStorage(Path.of(root)),clock);
+    }
     @Bean CommunityImageUploadService communityImageUploadService(JdbcTemplate jdbc,UserAccountRepository accounts,
             CommunityUserRestrictionRepository restrictions,PlatformTransactionManager manager,Clock clock,
             CommunityProperties community,@Value("${app.community.images.root}") String directory,

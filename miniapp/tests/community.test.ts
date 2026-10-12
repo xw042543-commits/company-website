@@ -23,6 +23,17 @@ const mine = { id, body: '正文', status: 'HIDDEN', statusMessage: '内容暂�
 const myComment = { id, postId: '1', parentCommentId: null, body: '正文', status: 'DELETED', statusMessage: '已删除', createdAt: time, likeCount: 0 };
 const page = (item: unknown) => ({ items: [item], nextCursor: null });
 const invalid = { ok: false, error: { kind: 'unexpected', code: 'INVALID_COMMUNITY_RESPONSE' } };
+test('image posts send ordered IDs and reject duplicates before requesting', async () => {
+  const requests: RequestOptions[] = [];
+  const service = createCommunityService(async <T>(options: RequestOptions): Promise<Result<T>> => {
+    requests.push(options); return { ok: true, value: creation as T };
+  }, () => true);
+  const imageIds = ['a'.repeat(32), 'b'.repeat(32)];
+  assert.equal((await service.createPost({ body: '正文', idempotencyKey: 'images', imageIds })).ok, true);
+  assert.deepEqual((requests[0]!.data as { imageIds: string[] }).imageIds, imageIds);
+  assert.equal((await service.createPost({ body: '正文', idempotencyKey: 'duplicate', imageIds: [imageIds[0]!, imageIds[0]!] })).ok, false);
+  assert.equal(requests.length, 1);
+});
 test('campus metadata accepts legacy responses and rejects explicitly malformed metadata', () => {
   const metadata = { title: '学习求助', category: 'STUDY', universityId: '42', universityName: '真实院校' };
   assert.equal(parsePostPage(page({ ...summary, ...metadata })).ok, true);

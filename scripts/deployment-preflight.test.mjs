@@ -53,6 +53,17 @@ test("parses comments, whitespace, and quoted env values", () => {
   });
 });
 
+test("image publication requires private capacity and explicit encrypted-review configuration", () => {
+  const enabled = { ...enabledCommunityEnvironment, APP_COMMUNITY_IMAGES_ENABLED: 'true' };
+  assert.match(validateDeploymentEnv(enabled).join('\n'), /APP_COMMUNITY_IMAGES/);
+  const complete = { ...enabled, APP_COMMUNITY_IMAGES_MAX_BYTES: '10737418240', APP_COMMUNITY_IMAGES_REVIEW_ENABLED: 'true',
+    APP_COMMUNITY_IMAGES_PUBLIC_ORIGIN: 'https://preview.yangdoujiao.com', APP_COMMUNITY_IMAGES_REVIEW_SECRET: 'synthetic-only-secret-at-least-32-bytes',
+    APP_COMMUNITY_IMAGES_CALLBACK_TOKEN: 'synthetic-token', APP_COMMUNITY_IMAGES_CALLBACK_AES_KEY: 'a'.repeat(43) };
+  assert.deepEqual(validateDeploymentEnv(complete), []);
+  assert.match(validateDeploymentEnv({ ...complete, APP_COMMUNITY_IMAGES_PUBLIC_ORIGIN: 'http://unsafe.test' }).join('\n'), /PUBLIC_ORIGIN/);
+  assert.match(validateDeploymentEnv({ ...complete, APP_COMMUNITY_IMAGES_CALLBACK_AES_KEY: '' }).join('\n'), /AES_KEY/);
+});
+
 test("reports every missing required deployment variable", () => {
   const errors = validateDeploymentEnv({});
   for (const name of Object.keys(validEnvironment).filter((name) => name !== "APP_CONSULTATION_PRIVACY_NOTICE_VERSION")) {

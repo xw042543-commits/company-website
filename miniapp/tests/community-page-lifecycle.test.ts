@@ -18,6 +18,21 @@ function context(definition: any, data = {}) {
 
 const tap = (dataset: Record<string, string>) => ({ currentTarget: { dataset } });
 const anonymousSession = { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) };
+test('composer blocks while uploading and submits image IDs after upload succeeds', async () => {
+  const { createCircleComposePage } = await import('../miniprogram/pages/circle-compose/index.ts');
+  const upload = deferred<any>(); const writes: any[] = [];
+  const page = context(createCircleComposePage({
+    session: { getSnapshot: () => ({ status: 'authenticated', account: { id: 1 } }), subscribe: () => () => {} },
+    createUploader: () => ({ upload: () => upload.promise, dispose: () => undefined }),
+    draftStore: () => ({ load: () => null, save: () => undefined, clear: () => undefined }),
+    chooseImages: async () => ['/selected'], prepareImage: async () => '/saved', removeImageFile: () => undefined,
+    createPost: async (input: any) => { writes.push(input); return ok({ id: '42', status: 'PENDING_REVIEW' }); }, createKey: () => 'image-post',
+  } as any));
+  page.onLoad(); page.updateTitle({ detail: { value: '标题' } }); page.updateBody({ detail: { value: '正文' } });
+  await page.addImages(); await page.submit(); assert.equal(writes.length, 0); assert.match(page.data.notice, /图片/);
+  upload.resolve({ id: 'a'.repeat(32), width: 20, height: 30 }); await new Promise(setImmediate);
+  await page.submit(); assert.deepEqual(writes[0].imageIds, ['a'.repeat(32)]); page.onUnload();
+});
 
 test('composer confirms publication or saved pending review and routes to the appropriate destination', async () => {
   const { createCircleComposePage } = await import('../miniprogram/pages/circle-compose/index.ts');

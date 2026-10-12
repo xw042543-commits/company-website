@@ -24,6 +24,7 @@ public final class CommunityImageUploadService {
     private final BooleanSupplier enabled;
     private final LongSupplier usableSpace;
     private final long maxBytes;
+    private final java.util.concurrent.Semaphore uploadSlots = new java.util.concurrent.Semaphore(2);
     public record Upload(String id,int width,int height,String status) {}
     public CommunityImageUploadService(CommunityImageRepository images,UserAccountRepository accounts,
             CommunityUserRestrictionRepository restrictions,CommunityImageStorage storage,
@@ -34,6 +35,10 @@ public final class CommunityImageUploadService {
     }
     public Upload upload(long actorId,byte[] content) {
         if(!enabled.getAsBoolean()) throw error(HttpStatus.SERVICE_UNAVAILABLE,"COMMUNITY_DISABLED");
+        if(!uploadSlots.tryAcquire()) throw error(HttpStatus.TOO_MANY_REQUESTS,"COMMUNITY_IMAGE_BUSY");
+        try { return processUpload(actorId,content); } finally { uploadSlots.release(); }
+    }
+    private Upload processUpload(long actorId,byte[] content) {
         final EncodedCommunityImage image;
         try { image=new CommunityImageCodec().encode(content); }
         catch(IllegalArgumentException e) { throw error(HttpStatus.BAD_REQUEST,"INVALID_COMMUNITY_IMAGE"); }
