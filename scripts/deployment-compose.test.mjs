@@ -1,8 +1,61 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import test from "node:test";
 
+import { parseEnv } from "./deployment-preflight.mjs";
+
 const compose = readFileSync(new URL("../compose.production.yaml", import.meta.url), "utf8").replace(/\r\n/g, "\n");
+
+function renderedBackend(overrides = {}) {
+  const rendered = execFileSync("docker", ["compose", "--env-file", ".env.example", "-f", "compose.production.yaml", "config", "--format", "json"], {
+    cwd: new URL("../", import.meta.url),
+    env: {
+      PATH: process.env.PATH,
+      APP_COMMUNITY_CURSOR_SECRET: "synthetic-compose-cursor-key-at-least-32-bytes",
+      PUBLIC_SITE_URL: "https://preview.example.test", CORS_ALLOWED_ORIGINS: "https://preview.example.test",
+      APP_AUTH_PUBLIC_SITE_ORIGIN: "https://preview.example.test",
+      CADDY_SITE_ADDRESSES: ":80", CADDY_ACME_EMAIL: "ci@example.test",
+      DEPLOYMENT_NETWORK_SUBNET: "172.30.0.0/24", FRONTEND_INTERNAL_IP: "172.30.0.10", BACKEND_INTERNAL_IP: "172.30.0.20",
+      ...overrides,
+    },
+    encoding: "utf8",
+  });
+  return JSON.parse(rendered).services.backend.environment;
+}
+
+test("rendered Compose disables safety by default and applies bounded timeout and retry defaults", () => {
+  const backend = renderedBackend();
+  assert.equal(backend.APP_COMMUNITY_ENABLED, "false");
+  assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_ENABLED, "false");
+  assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT, "2s");
+  assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS, "2");
+  assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_ACCESS_TOKEN_ENDPOINT, "https://api.weixin.qq.com/cgi-bin/token");
+  assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_MESSAGE_CHECK_ENDPOINT, "https://api.weixin.qq.com/wxa/msg_sec_check");
+});
+
+test("rendered Compose forwards owned safety settings and shares miniapp credentials without local auth", () => {
+  const backend = renderedBackend({
+    APP_COMMUNITY_CONTENT_SAFETY_ENABLED: "true", APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT: "3s",
+    APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS: "1", APP_MINIAPP_AUTH_ENABLED: "true",
+    APP_MINIAPP_WECHAT_APP_ID: "wx-ci-only-miniapp", APP_MINIAPP_WECHAT_APP_SECRET: "synthetic-ci-only-secret",
+    APP_MINIAPP_LOCAL_PROVIDER_ENABLED: "true",
+  });
+  assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_ENABLED, "true");
+  assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT, "3s");
+  assert.equal(backend.APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS, "1");
+  assert.equal(backend.APP_MINIAPP_WECHAT_APP_SECRET, "synthetic-ci-only-secret");
+  assert.equal(backend.APP_MINIAPP_LOCAL_PROVIDER_ENABLED, "false");
+});
+
+test("checked-in environment examples contain no credentials, cursor key or sample moderation rules", () => {
+  for (const name of [".env.example", "deploy/.env.production.example"]) {
+    const example = parseEnv(readFileSync(new URL(`../${name}`, import.meta.url), "utf8"));
+    for (const variable of ["APP_MINIAPP_WECHAT_APP_ID", "APP_MINIAPP_WECHAT_APP_SECRET", "APP_COMMUNITY_CURSOR_SECRET",
+      "APP_COMMUNITY_REVIEW_TERMS", "APP_COMMUNITY_REJECT_TERMS"]) assert.equal(example[variable], "", `${name}: ${variable}`);
+    assert.equal(example.APP_COMMUNITY_CONTENT_SAFETY_ENABLED, "false");
+  }
+});
 
 function serviceBlock(name) {
   const match = compose.match(new RegExp(`^  ${name}:\\n([\\s\\S]*?)(?=^  [a-z][a-z0-9_-]*:|^volumes:|^networks:|(?![\\s\\S]))`, "m"));

@@ -30,7 +30,7 @@
   <app-state wx:elif="{{commentsState === 'offline'}}" kind="offline" title="评论加载失败" description="请检查网络后重试。" retryable="{{true}}" bind:retry="retryComments" />
   <app-state wx:elif="{{commentsState === 'failed'}}" kind="failed" title="评论暂时不可用" description="请稍后重新加载。" retryable="{{true}}" bind:retry="retryComments" />
 
-  <view class="comment-composer surface-card"><view wx:if="{{replyParentId}}" class="replying">回复 {{replyAuthor}}<button bindtap="cancelReply">取消</button></view><textarea value="{{commentBody}}" maxlength="1000" placeholder="友善交流，分享真实经验" bindinput="updateComment" /><view class="composer-foot"><text class="counter {{commentCount > 1000 ? 'counter--danger' : ''}}">{{commentCount}} / 1000</text><button class="submit-button" disabled="{{submittingComment}}" bindtap="submitComment">{{submittingComment ? '提交中…' : '发表评论'}}</button></view></view>
+  <view class="comment-composer surface-card"><view wx:if="{{replyParentId}}" class="replying">回复 {{replyAuthor}}<button bindtap="cancelReply">取消</button></view><textarea value="{{commentBody}}" maxlength="1000" placeholder="友善交流，分享真实经验" bindinput="updateComment" /><view class="composer-foot"><text class="counter {{commentCount > 1000 ? 'counter--danger' : ''}}">{{commentCount}} / 1000</text><button class="submit-button" disabled="{{submittingComment}}" bindtap="submitComment">{{submittingComment ? '提交中…' : '发表评论'}}</button></view><view wx:if="{{commentNotice}}" class="report-copy" role="status">{{commentNotice}}。可在“我的评论”查看审核状态。</view></view>
 
   </block>
 

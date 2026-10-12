@@ -26,18 +26,20 @@ class CommunityModerationQueryRepository {
             default -> throw new IllegalArgumentException("Invalid moderation queue status");
         };
         var parameters=new HashMap<String,Object>();parameters.put("limit",size);
+        String comparison="PENDING".equals(status)?">":"<";
+        String direction="PENDING".equals(status)?"ASC":"DESC";
         StringBuilder where=new StringBuilder(predicate);
         if(type!=null){where.append(" AND t.type=:type");parameters.put("type",type.name());}
         if(reason!=null){where.append(" AND EXISTS (SELECT 1 FROM community_reports r WHERE r.target_type=t.type AND r.target_id=t.id AND r.reason_code=:reason)");parameters.put("reason",reason);}
         if(from!=null){where.append(" AND t.created_at>=:from");parameters.put("from",from);}
         if(to!=null){where.append(" AND t.created_at<=:to");parameters.put("to",to);}
-        if(after!=null){where.append(" AND (t.created_at<:time OR (t.created_at=:time AND (t.id<:id OR (t.id=:id AND t.type<:afterType))))");
+        if(after!=null){where.append(" AND (t.created_at"+comparison+":time OR (t.created_at=:time AND (t.id"+comparison+":id OR (t.id=:id AND t.type"+comparison+":afterType))))");
             parameters.put("time",after.timestamp());parameters.put("id",after.id());parameters.put("afterType",afterType);}
         return jdbc.query("SELECT t.type,t.id,t.status,substring(t.body from 1 for 160) AS preview,t.version,t.created_at,t.title,t.category,t.university_id,t.university_name,"+
                 "(SELECT count(*) FROM community_reports r WHERE r.target_type=t.type AND r.target_id=t.id AND r.status='OPEN') AS report_count FROM "+TARGETS+
-                " WHERE "+where+" ORDER BY t.created_at DESC,t.id DESC,t.type DESC LIMIT :limit",parameters,(rs,n)->new CommunityModerationPage.Item(
+                " WHERE "+where+" ORDER BY t.created_at "+direction+",t.id "+direction+",t.type "+direction+" LIMIT :limit",parameters,(rs,n)->new CommunityModerationPage.Item(
                 CommunityTargetType.valueOf(rs.getString("type")),rs.getString("id"),CommunityContentStatus.valueOf(rs.getString("status")),
-                rs.getString("preview"),rs.getLong("version"),rs.getLong("report_count"),rs.getObject("created_at",OffsetDateTime.class),
+                rs.getString("preview"),rs.getLong("version"),rs.getLong("report_count"),rs.getObject("created_at",OffsetDateTime.class),CommunityModerationPage.SlaState.ON_TIME,
                 rs.getString("title"),category(rs.getString("category")),rs.getString("university_id"),rs.getString("university_name")));
     }
     CommunityModerationDetail detail(CommunityTargetType type,long id,List<CommunityModerationDetail.Action> actions,String next) {

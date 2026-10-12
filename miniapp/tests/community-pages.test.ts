@@ -10,6 +10,7 @@ import {
   codePointLength,
   createSubmissionState,
   editSubmission,
+  errorCopy,
   finishSubmission,
   prepareSubmission,
   mergeCommunityItems,
@@ -20,6 +21,11 @@ import {
 } from '../miniprogram/utils/community-ui.ts';
 
 const root = new URL('../miniprogram/', import.meta.url);
+
+test('rejected content explains editing before generic availability errors and never exposes backend text', () => {
+  const notice = errorCopy({ kind: 'unavailable', code: 'COMMUNITY_CONTENT_REJECTED' });
+  assert.match(notice, /修改/); assert.doesNotMatch(notice, /网络/);
+});
 
 async function composer(overrides: any = {}) {
   const { createCircleComposePage } = await import('../miniprogram/pages/circle-compose/index.ts');

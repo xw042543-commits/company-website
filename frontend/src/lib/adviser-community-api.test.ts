@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
-import { loadCommunityModerationQueue, loadCommunityModerationDetail, submitCommunityModerationAction } from "./adviser-community-api.ts";
+import { loadCommunityModerationQueue, loadCommunityModerationDetail, submitCommunityModerationAction, type ModerationAction } from "./adviser-community-api.ts";
 
 const origin = "https://udajo.example";
 const time = "2026-10-08T12:00:00.123456789Z";
 const item = { targetType: "POST", targetId: "9223372036854775807", status: "PENDING_REVIEW",
-  bodyPreview: "Review this post", version: 3, openReportCount: 1, createdAt: time };
+  bodyPreview: "Review this post", version: 3, openReportCount: 1, createdAt: time, slaState: "ON_TIME" };
 const detail = { targetType: "POST", targetId: "42", status: "PENDING_REVIEW", body: "Review this post",
   postId: null, parentCommentId: null, version: 3, openReportCount: 1,
   reports: [{ reasonCode: "HARASSMENT", status: "OPEN", count: 1 }],
@@ -14,6 +14,20 @@ const detail = { targetType: "POST", targetId: "42", status: "PENDING_REVIEW", b
   actionsNextCursor: null };
 const csrf = { headerName: "X-XSRF-TOKEN", token: "safe-token" };
 const action = { command: "HIDE", reasonCode: "HARASSMENT", version: 3 } as const;
+
+test("explicit content rejection submits enforcement reason and reads REJECTED history", async () => {
+  const rejected = { ...detail, status: "REJECTED", version: 4, openReportCount: 0, reports: [],
+    actions: [{ id: "11", command: "REJECT", reasonCode: "SPAM", previousStatus: "PENDING_REVIEW", nextStatus: "REJECTED", createdAt: time }] };
+  const { request, calls } = transport([csrf, rejected]);
+  const decision: ModerationAction = { command: "REJECT", reasonCode: "SPAM", version: 3 };
+  assert.deepEqual(await submitCommunityModerationAction(origin, "POST", "42", decision, request), { status: "ready", value: rejected });
+  assert.deepEqual(JSON.parse(calls[1].init?.body as string), { command: "REJECT", reasonCode: "SPAM", version: 3, restrictionEndsAt: null });
+  for (const reasonCode of ["REVIEW_APPROVED", "APPEAL_ACCEPTED", "REPORT_UNFOUNDED"]) {
+    const invalid = transport([]);
+    assert.deepEqual(await submitCommunityModerationAction(origin, "POST", "42", { ...decision, reasonCode }, invalid.request), { status: "validation-error" });
+    assert.equal(invalid.calls.length, 0);
+  }
+});
 const automaticHideDetail = JSON.parse(readFileSync(new URL("../../../backend/src/test/resources/community/automatic-hide-detail.json", import.meta.url), "utf8"));
 function transport(values: unknown[], status = 200) {
   const calls: { url: string; init?: RequestInit }[] = [];
@@ -24,6 +38,21 @@ function transport(values: unknown[], status = 200) {
   };
   return { request, calls };
 }
+
+test("queue accepts only server SLA states without guessing from local time", async () => {
+  for (const slaState of ["ON_TIME", "WARNING", "OVERDUE"]) {
+    const page = { items: [{ ...item, slaState, createdAt: "2099-01-01T00:00:00Z" }], nextCursor: null };
+    assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([page]).request), { status: "ready", value: page });
+  }
+});
+
+test("queue rejects missing and unknown SLA states", async () => {
+  for (const slaState of ["LATE", "warning", "", null, 12, undefined]) {
+    assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([{ items: [{ ...item, slaState }], nextCursor: null }]).request), { status: "error" });
+  }
+  const missing = Object.fromEntries(Object.entries(item).filter(([key]) => key !== "slaState"));
+  assert.deepEqual(await loadCommunityModerationQueue(origin, {}, transport([{ items: [missing], nextCursor: null }]).request), { status: "error" });
+});
 
 test("moderation reads new post metadata and keeps legacy DTOs while rejecting invalid metadata", async () => {
   const metadata = { title: "<b>找室友</b>", category: "HOUSING", universityId: "1", universityName: "马来亚大学" };

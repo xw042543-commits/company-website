@@ -28,6 +28,8 @@ const STATUS_COPY: Readonly<Record<CommunityContentStatus, string>> = {
   REJECTED: '内容未通过审核',
 };
 
+export const PENDING_REVIEW_NOTICE = '内容已提交审核，预计 24 小时内完成';
+
 export function applyFeedPage<T extends Identified>(input: FeedPageInput<T>): { applied: boolean; items: readonly T[] } {
   if (input.activeRequest !== input.resultRequest || input.loadingMore) {
     return { applied: false, items: input.current };
@@ -91,15 +93,22 @@ export function restrictionCopy(details: CommunityRestrictionDetails | null): st
 }
 
 export function errorCopy(error: AppError): string {
+  if (error.code === 'COMMUNITY_CONTENT_REJECTED') return '内容未通过安全检查，请修改后重试。';
   if (error.code === 'COMMUNITY_USER_RESTRICTED') {
     return restrictionCopy('details' in error ? error.details : null);
   }
   if (error.kind === 'unauthorized') return '请先登录后再继续。';
   if (error.kind === 'rate-limited') return '操作有些频繁，请稍后再试。';
   if (error.kind === 'unavailable') return '网络或服务暂时不可用，请稍后重试。';
-  if (error.code === 'COMMUNITY_CONTENT_REJECTED') return '内容未通过安全检查，请修改后重试。';
   if (error.code === 'COMMUNITY_NOT_OWNER') return '只能管理自己发布的内容。';
   return '暂时无法完成此操作，请稍后重试。';
+}
+
+export function submissionErrorCopy(error: AppError): string {
+  if (error.code === 'COMMUNITY_CONTENT_REJECTED') return errorCopy(error);
+  if (error.kind === 'unauthorized') return '暂时无法发布，请重新登录后重试。草稿已保留。';
+  if (error.kind === 'unavailable') return '暂时无法发布，请稍后重试。草稿已保留。';
+  return errorCopy(error);
 }
 
 export function formatCommunityTime(value: string): string {

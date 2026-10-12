@@ -31,4 +31,13 @@ public interface UserExternalIdentityRepository extends JpaRepository<UserExtern
 
     Optional<UserExternalIdentity> findByProviderAndUserAccountId(
             ExternalIdentityProvider provider, Long userAccountId);
+
+    @Query("""
+            select identity.providerSubject from UserExternalIdentity identity
+            where identity.provider = :provider
+              and identity.userAccount.id = :accountId
+            """)
+    Optional<String> findProviderSubjectByProviderAndUserAccountId(
+            @Param("provider") ExternalIdentityProvider provider,
+            @Param("accountId") Long accountId);
 }

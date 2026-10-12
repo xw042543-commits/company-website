@@ -4,12 +4,12 @@ import java.time.Clock;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Supplier;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronization;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 import com.yangdoujiao.website.auth.AuthHash;
@@ -20,7 +20,6 @@ import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
 @Service
-@Transactional
 public class CommunityWriteService {
     private final CommunityProperties properties;
     private final CommunityPostRepository posts;
@@ -30,6 +29,7 @@ public class CommunityWriteService {
     private final UserAccountRepository accounts;
     private final CommunityRateLimiter limiter;
     private final CommunityRiskPolicy risk;
+    private final CommunityWriteTransaction transactions;
     private final ObjectMapper json;
     private final Clock clock;
     private final StringRedisTemplate redis;
@@ -40,10 +40,12 @@ public class CommunityWriteService {
     public CommunityWriteService(CommunityProperties properties, CommunityPostRepository posts,
             CommunityCommentRepository comments, CommunityIdempotencyRecordRepository idempotency,
             CommunityUserRestrictionRepository restrictions, UserAccountRepository accounts,
-            CommunityRateLimiter limiter, CommunityRiskPolicy risk, ObjectMapper json, Clock clock, StringRedisTemplate redis,
+            CommunityRateLimiter limiter, CommunityRiskPolicy risk, CommunityWriteTransaction transactions,
+            ObjectMapper json, Clock clock, StringRedisTemplate redis,
             CommunityMetrics metrics, CommunityNotificationPublisher notifications, UniversityRepository universities) {
         this.properties = properties; this.posts = posts; this.comments = comments; this.idempotency = idempotency;
         this.restrictions = restrictions; this.accounts = accounts; this.limiter = limiter; this.risk = risk;
+        this.transactions = transactions;
         this.json = json; this.clock = clock; this.redis = redis; this.metrics = metrics;
         this.notifications = notifications;
         this.universities = universities;
@@ -56,23 +58,32 @@ public class CommunityWriteService {
         String fingerprint = metadata.title() == null && metadata.category() == CommunityCategory.GENERAL && metadata.universityId() == null
                 ? hash(List.of(body)) : hash(java.util.Arrays.asList(body, metadata.title(), metadata.category().name(),
                         metadata.universityId() == null ? null : metadata.universityId().toString()));
-        return execute(actorId, "CREATE_POST", key, fingerprint, () -> {
+        validateWrite(key);
+        Optional<CreationResult> replay = replay(actorId, "CREATE_POST", key, fingerprint);
+        if (replay.isPresent()) return replay.get();
+        var status = classify(actorId, CommunityTargetType.POST, metadata.title() == null ? body : metadata.title() + "\n" + body);
+        return transactions.execute(() -> execute(actorId, "CREATE_POST", key, fingerprint, () -> {
             requireAllowed(actorId);
             if (metadata.universityId() != null && !universities.existsById(metadata.universityId())) throw new ApiException(
                     HttpStatus.BAD_REQUEST, "INVALID_COMMUNITY_UNIVERSITY", "University does not exist");
             limiter.checkPost(actorId, address);
-            var status = classify(metadata.title() == null ? body : metadata.title() + "\n" + body);
             var post = posts.saveAndFlush(CommunityPost.create(actorId, body, metadata, status,
                     status == CommunityContentStatus.PENDING_REVIEW ? "RISK_REVIEW" : null, now()));
             return new CommunityCreationResponse(post.getId().toString(), null, null, post.getBody(), post.getStatus(),
                     post.getCreatedAt(), post.getPublishedAt());
-        });
+        }));
     }
 
     public CreationResult createComment(long actorId, long postId, String address, String key, CommunityCommentRequest request) {
         String body = normalize(request == null ? null : request.body(), 1000);
         Long parentId = parentId(request == null ? null : request.parentCommentId());
-        return execute(actorId, "CREATE_COMMENT", key, hash(java.util.Arrays.asList(Long.toString(postId), parentId == null ? null : parentId.toString(), body)), () -> {
+        String fingerprint = hash(java.util.Arrays.asList(Long.toString(postId),
+                parentId == null ? null : parentId.toString(), body));
+        validateWrite(key);
+        Optional<CreationResult> replay = replay(actorId, "CREATE_COMMENT", key, fingerprint);
+        if (replay.isPresent()) return replay.get();
+        var status = classify(actorId, CommunityTargetType.COMMENT, body);
+        return transactions.execute(() -> execute(actorId, "CREATE_COMMENT", key, fingerprint, () -> {
             requireAllowed(actorId);
             var post = lockedPost(postId);
             if (post.getStatus() != CommunityContentStatus.PUBLISHED) throw targetUnavailable();
@@ -80,7 +91,6 @@ public class CommunityWriteService {
                     parentId, postId, CommunityContentStatus.PUBLISHED).orElseThrow(() -> new ApiException(
                             HttpStatus.BAD_REQUEST, "INVALID_COMMUNITY_PARENT", "Reply parent must be a published top-level comment on this post"));
             limiter.checkComment(actorId, address);
-            var status = classify(body);
             var comment = comments.saveAndFlush(CommunityComment.create(postId, actorId, parentId,
                     parent == null ? null : parent.getAuthorAccountId(), body, status, now()));
             if (status == CommunityContentStatus.PUBLISHED) {
@@ -89,10 +99,14 @@ public class CommunityWriteService {
             }
             return new CommunityCreationResponse(comment.getId().toString(), Long.toString(postId),
                     parentId == null ? null : parentId.toString(), comment.getBody(), comment.getStatus(), comment.getCreatedAt(), null);
-        });
+        }));
     }
 
     public void deletePost(long actorId, long postId) {
+        transactions.execute(() -> deletePostInTransaction(actorId, postId));
+    }
+
+    private void deletePostInTransaction(long actorId, long postId) {
         requireEnabled(); lockAccount(actorId);
         var post = lockedPost(postId);
         requireOwner(actorId, post.getAuthorAccountId());
@@ -103,6 +117,10 @@ public class CommunityWriteService {
     }
 
     public void deleteComment(long actorId, long commentId) {
+        transactions.execute(() -> deleteCommentInTransaction(actorId, commentId));
+    }
+
+    private void deleteCommentInTransaction(long actorId, long commentId) {
         requireEnabled(); lockAccount(actorId);
         var postId = comments.findPostIdById(commentId).orElseThrow(() -> new ApiException(
                 HttpStatus.NOT_FOUND, "COMMUNITY_COMMENT_NOT_FOUND", "Community comment does not exist"));
@@ -128,9 +146,7 @@ public class CommunityWriteService {
 
     private CreationResult execute(long actorId, String operation, String key, String fingerprint,
             Supplier<CommunityCreationResponse> action) {
-        requireEnabled();
-        if (key == null || !key.matches("[A-Za-z0-9._:-]{1,64}")) throw new ApiException(
-                HttpStatus.BAD_REQUEST, "INVALID_IDEMPOTENCY_KEY", "A valid Idempotency-Key is required");
+        validateWrite(key);
         // PostgreSQL serializes the account's write transactions across replicas; Redis is not a dedupe authority.
         lockAccount(actorId);
         var existing = idempotency.findByAccountIdAndOperationTypeAndIdempotencyKey(actorId, operation, key);
@@ -146,6 +162,26 @@ public class CommunityWriteService {
         idempotency.saveAndFlush(CommunityIdempotencyRecord.create(actorId, operation, key, fingerprint,
                 Long.valueOf(response.id()), json.writeValueAsString(response), now()));
         return new CreationResult(response, false);
+    }
+
+    private Optional<CreationResult> replay(long actorId, String operation, String key, String fingerprint) {
+        return idempotency.findByAccountIdAndOperationTypeAndIdempotencyKey(actorId, operation, key)
+                .map(record -> replay(record, fingerprint, operation));
+    }
+
+    private CreationResult replay(CommunityIdempotencyRecord record, String fingerprint, String operation) {
+        if (!record.getRequestHash().equals(fingerprint)) throw new ApiException(
+                HttpStatus.CONFLICT, "IDEMPOTENCY_CONFLICT", "Idempotency key was used for a different request");
+        if (record.getResultResponse() == null) throw CommunityRateLimiter.unavailable();
+        metrics.idempotencyHit("CREATE_POST".equals(operation)
+                ? CommunityMetrics.Command.POST : CommunityMetrics.Command.COMMENT);
+        return new CreationResult(json.readValue(record.getResultResponse(), CommunityCreationResponse.class), true);
+    }
+
+    private void validateWrite(String key) {
+        requireEnabled();
+        if (key == null || !key.matches("[A-Za-z0-9._:-]{1,64}")) throw new ApiException(
+                HttpStatus.BAD_REQUEST, "INVALID_IDEMPOTENCY_KEY", "A valid Idempotency-Key is required");
     }
 
     private void lockAccount(long actorId) {
@@ -164,8 +200,8 @@ public class CommunityWriteService {
         return posts.findLockedById(id).orElseThrow(() -> new ApiException(
                 HttpStatus.NOT_FOUND, "COMMUNITY_POST_NOT_FOUND", "Community post does not exist"));
     }
-    private CommunityContentStatus classify(String body) {
-        return switch (risk.classify(body)) {
+    private CommunityContentStatus classify(long actorId, CommunityTargetType contentType, String body) {
+        return switch (risk.classify(actorId, contentType, body)) {
             case PUBLISH -> CommunityContentStatus.PUBLISHED;
             case REVIEW -> CommunityContentStatus.PENDING_REVIEW;
             case REJECT -> throw new ApiException(HttpStatus.BAD_REQUEST, "COMMUNITY_CONTENT_REJECTED", "Content cannot be published");

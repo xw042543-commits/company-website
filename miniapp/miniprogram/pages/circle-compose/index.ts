@@ -1,6 +1,6 @@
 import { createCommunityPost, createCommunityRequestScope, createSubmissionKey } from '../../services/community';
 import { sessionStore } from '../../stores/session';
-import { canUseCommunityWrite, codePointLength, createSubmissionState, editSubmission, errorCopy, finishSubmission, prepareSubmission, unwrapCommunityRoute, type SubmissionState } from '../../utils/community-ui';
+import { canUseCommunityWrite, codePointLength, createSubmissionState, editSubmission, submissionErrorCopy, finishSubmission, PENDING_REVIEW_NOTICE, prepareSubmission, unwrapCommunityRoute, type SubmissionState } from '../../utils/community-ui';
 import { communityMeRoute, communityPostRoute } from '../../utils/routes';
 import { COMMUNITY_BOARDS, isCommunityCategory } from '../../utils/community-boards';
 import { isCommunityId, isCommunityTitle } from '../../utils/community-validation';
@@ -74,23 +74,25 @@ export function createCircleComposePage(overrides: Partial<ComposeDeps> = {}): W
     if (!canUseCommunityWrite(deps.session.getSnapshot().status)) {
       const auth = await deps.session.ensureAuthenticated();
       if (!state.active) return;
-      if (!auth.ok) { this.setData({ submitting: false, notice: '请先完成微信登录后再发布。' }); return; }
+      if (!auth.ok) { this.setData({ submitting: false, notice: submissionErrorCopy(auth.error) }); return; }
     }
     state.submission = prepareSubmission(editSubmission(state.submission, JSON.stringify(['POST', title, body, category, universityId])), deps.createKey);
     const result = await deps.createPost({ body, title, category, universityId, idempotencyKey: state.submission.key ?? '' });
     if (!state.active) return;
     if (!result.ok) {
       state.submission = finishSubmission(state.submission, result.error.kind === 'unavailable' ? 'uncertain' : result.error.kind === 'unauthorized' ? 'authentication' : 'completed');
-      this.setData({ submitting: false, notice: errorCopy(result.error) });
+      this.setData({ submitting: false, notice: submissionErrorCopy(result.error) });
       return;
     }
     state.submission = finishSubmission(state.submission, 'completed');
     if (result.value.status === 'PENDING_REVIEW') {
+      this.setData({ notice: PENDING_REVIEW_NOTICE });
       wx.showToast({ title: '已提交审核', icon: 'success' });
       const route = unwrapCommunityRoute(communityMeRoute());
-      if (route) wx.redirectTo({ url: route });
+      if (route) wx.redirectTo({ url: `${route}?review=submitted` });
       return;
     }
+    wx.showToast({ title: '发布成功', icon: 'success' });
     const route = unwrapCommunityRoute(communityPostRoute(result.value.id));
     if (route) wx.redirectTo({ url: route });
     else this.setData({ submitting: false, notice: '帖子已发布，请返回U圈查看。' });

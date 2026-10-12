@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { isIP } from "node:net";
 import { fileURLToPath } from "node:url";
 
 export const REQUIRED_DEPLOYMENT_VARIABLES = [
@@ -74,6 +75,34 @@ function validUrl(value, protocols) {
   } catch {
     return false;
   }
+}
+
+function validSafetyEndpoint(value) {
+  // Java URI does not normalize malformed hosts or impose URL's 65535 port limit.
+  const match = value.match(/^https?:\/\/(\[[a-zA-Z0-9:.%_-]+\]|[a-zA-Z0-9.-]+)(?::(\d*))?(\/[^?#]*)?$/);
+  if (!match || /[\s\\<>"{}|^`]/.test(value) || /%(?![\da-f]{2})/i.test(match[3] || "")) return false;
+  if (/[\[\]]/.test(match[3] || "")) return false;
+  if (match[2] && Number(match[2]) > 2147483647) return false;
+  const host = match[1];
+  if (host.startsWith("[")) return isIP(host.slice(1, -1)) === 6;
+  if (/^\d+\.\d+\.\d+\.\d+$/.test(host)) return host.split(".").every((part) => Number(part) <= 255);
+  const labels = host.replace(/\.$/, "").split(".");
+  return labels.every((label) => /^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(label))
+    && (labels.length === 1 || /^[a-zA-Z]/.test(labels.at(-1)));
+}
+
+// Spring duration inputs: simple integer/unit values or ISO-8601 day/time durations.
+function durationMillis(value) {
+  const simple = value.match(/^([+-]?\d+)(ns|us|ms|s|m|h|d)?$/i);
+  if (simple) {
+    const units = { ns: 0.000001, us: 0.001, ms: 1, s: 1000, m: 60000, h: 3600000, d: 86400000 };
+    return Number(simple[1]) * units[(simple[2] || "ms").toLowerCase()];
+  }
+  const iso = value.match(/^([+-])?P(?:(-?\d+)D)?(?:T(?:(-?\d+)H)?(?:(-?\d+)M)?(?:(-?\d+(?:[.,]\d{1,9})?)S)?)?$/i);
+  if (!iso || !iso.slice(2).some((part) => part !== undefined) || /T$/i.test(value)) return NaN;
+  return (iso[1] === "-" ? -1 : 1) * (
+    Number(iso[2] || 0) * 86400000 + Number(iso[3] || 0) * 3600000
+    + Number(iso[4] || 0) * 60000 + Number((iso[5] || "0").replace(",", ".")) * 1000);
 }
 
 export function validateDeploymentEnv(environment) {
@@ -166,9 +195,56 @@ export function validateDeploymentEnv(environment) {
   if (!/^[1-9]\d*$/.test(autoHideThreshold) || Number(autoHideThreshold) < 2 || Number(autoHideThreshold) > 100) {
     errors.push("APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD must be an integer between 2 and 100.");
   }
-  if (communityEnabled === "true" && !["APP_COMMUNITY_REVIEW_TERMS", "APP_COMMUNITY_REJECT_TERMS"].some(
-    (name) => valueFor(name).split(",").some((term) => term.trim()))) {
-    errors.push("Enabled production community requires configured community risk policy terms.");
+  const safetyEnabled = valueFor("APP_COMMUNITY_CONTENT_SAFETY_ENABLED") || "false";
+  const miniappEnabled = valueFor("APP_MINIAPP_AUTH_ENABLED") || "false";
+  const localProviderEnabled = valueFor("APP_MINIAPP_LOCAL_PROVIDER_ENABLED") || "false";
+  for (const [name, flag] of [["APP_COMMUNITY_CONTENT_SAFETY_ENABLED", safetyEnabled],
+    ["APP_MINIAPP_AUTH_ENABLED", miniappEnabled], ["APP_MINIAPP_LOCAL_PROVIDER_ENABLED", localProviderEnabled]]) {
+    if (!["true", "false"].includes(flag)) errors.push(`${name} must be true or false.`);
+  }
+  const safetyTimeout = durationMillis(valueFor("APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT") || "2s");
+  if (!Number.isFinite(safetyTimeout) || safetyTimeout < 250 || safetyTimeout > 5000) {
+    errors.push("APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT must be a duration between 250ms and 5s.");
+  }
+  const safetyAttempts = valueFor("APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS") || "2";
+  if (!/^[1-3]$/.test(safetyAttempts)) {
+    errors.push("APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS must be an integer between 1 and 3.");
+  }
+  for (const name of ["APP_COMMUNITY_REVIEW_TERMS", "APP_COMMUNITY_REJECT_TERMS"]) {
+    // Boot's comma conversion applies Java String.trim(); runtime checks precede blank filtering/distinct().
+    const raw = String(environment[name] ?? "");
+    const terms = raw === "" ? [] : raw.split(",").map((term) => term.replace(/^[\x00-\x20]+|[\x00-\x20]+$/g, ""));
+    if (terms.length > 1000 || terms.some((term) => term.length > 200)) {
+      errors.push(`${name} must contain at most 1000 entries before filtering or deduplication, each at most 200 UTF-16 characters.`);
+    }
+  }
+  const safetyEndpoints = [
+    ["APP_COMMUNITY_CONTENT_SAFETY_ACCESS_TOKEN_ENDPOINT", "https://api.weixin.qq.com/cgi-bin/token"],
+    ["APP_COMMUNITY_CONTENT_SAFETY_MESSAGE_CHECK_ENDPOINT", "https://api.weixin.qq.com/wxa/msg_sec_check"],
+  ];
+  for (const [name, official] of safetyEndpoints) {
+    if (!validSafetyEndpoint(valueFor(name) || official)) {
+      errors.push(`${name} must be an absolute HTTP or HTTPS URL with a host and no userinfo, query or fragment.`);
+    }
+  }
+  if (communityEnabled === "true") {
+    const terms = (name) => valueFor(name).split(",").map((term) => term.trim().toLowerCase()).filter(Boolean);
+    const reviewTerms = terms("APP_COMMUNITY_REVIEW_TERMS");
+    const sampleTerms = new Set(["synthetic-review", "hard-reject", "needs-review", "example-review", "example-reject"]);
+    if (!reviewTerms.length || [...reviewTerms, ...terms("APP_COMMUNITY_REJECT_TERMS")].some((term) => sampleTerms.has(term))) {
+      errors.push("Enabled production community risk policy requires owned local review rules; known sample terms are forbidden.");
+    }
+    const credentialNames = ["APP_MINIAPP_WECHAT_APP_ID", "APP_MINIAPP_WECHAT_APP_SECRET"];
+    if (safetyEnabled !== "true" || miniappEnabled !== "true" || localProviderEnabled !== "false"
+        || credentialNames.some((name) => !valueFor(name)
+          || /^(change[_-]?me|replace[_-]?with|example|your[_-]|todo)/i.test(valueFor(name)))) {
+      errors.push("Enabled production community requires WeChat content safety and real miniapp credentials (shared APP_MINIAPP_WECHAT_APP_ID/APP_MINIAPP_WECHAT_APP_SECRET), with local auth disabled.");
+    }
+    for (const [name, official] of safetyEndpoints) {
+      if ((valueFor(name) || official) !== official) {
+        errors.push(`Production community content safety requires official HTTPS endpoints: ${name} must use its exact official URL.`);
+      }
+    }
   }
   const privacyNoticeVersion = valueFor("APP_CONSULTATION_PRIVACY_NOTICE_VERSION");
   if (consultationEnabled && consultationEnabled !== "true" && consultationEnabled !== "false") {

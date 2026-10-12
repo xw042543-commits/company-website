@@ -19,6 +19,92 @@ function context(definition: any, data = {}) {
 const tap = (dataset: Record<string, string>) => ({ currentTarget: { dataset } });
 const anonymousSession = { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) };
 
+test('composer confirms publication or saved pending review and routes to the appropriate destination', async () => {
+  const { createCircleComposePage } = await import('../miniprogram/pages/circle-compose/index.ts');
+  const previousToast = wx.showToast; const previousRedirect = wx.redirectTo;
+  try {
+    for (const status of ['PUBLISHED', 'PENDING_REVIEW']) {
+      const toasts: string[] = []; const routes: string[] = []; let writes = 0;
+      wx.showToast = ((input: any) => { toasts.push(input.title); }) as any;
+      wx.redirectTo = ((input: any) => { routes.push(input.url); }) as any;
+      const definition: any = createCircleComposePage({ session: { getSnapshot: () => ({ status: 'authenticated' }) },
+        createPost: async () => { writes++; return ok({ id: '42', status }); }, createKey: () => 'saved-key' } as any);
+      const page = context(definition); definition.onLoad.call(page);
+      page.data.title = '标题'; page.data.body = '正文';
+      await definition.submit.call(page);
+      await definition.submit.call(page);
+      assert.equal(writes, 1);
+      assert.deepEqual(toasts, [status === 'PUBLISHED' ? '发布成功' : '已提交审核']);
+      assert.deepEqual(routes, [status === 'PUBLISHED' ? '/pages/circle-detail/index?id=42' : '/pages/circle-me/index?review=submitted']);
+      assert.equal(page.data.notice, status === 'PENDING_REVIEW' ? '内容已提交审核，预计 24 小时内完成' : '');
+    }
+  } finally { wx.showToast = previousToast; wx.redirectTo = previousRedirect; }
+});
+
+test('composer retains drafts and retry key for database Redis auth outages and rejects with an editable notice', async () => {
+  const { createCircleComposePage } = await import('../miniprogram/pages/circle-compose/index.ts');
+  for (const error of [{ kind: 'unavailable', code: 'COMMUNITY_WRITE_UNAVAILABLE' }, { kind: 'unavailable', code: 'COMMUNITY_RATE_LIMIT_UNAVAILABLE' },
+    { kind: 'unauthorized', code: 'AUTHENTICATION_REQUIRED' }, { kind: 'unexpected', code: 'COMMUNITY_CONTENT_REJECTED' }]) {
+    const calls: any[] = []; let keys = 0;
+    const definition: any = createCircleComposePage({ session: { getSnapshot: () => ({ status: 'authenticated' }) },
+      createPost: async (input: any) => { calls.push(input); return { ok: false, error }; }, createKey: () => `retry-key-${++keys}` } as any);
+    const page = context(definition); definition.onLoad.call(page); page.data.title = '标题'; page.data.body = '正文';
+    await definition.submit.call(page); await definition.submit.call(page);
+    assert.equal(page.data.title, '标题'); assert.equal(page.data.body, '正文');
+    assert.equal(calls[0].idempotencyKey, calls[1].idempotencyKey);
+    assert.match(page.data.notice, error.code === 'COMMUNITY_CONTENT_REJECTED' ? /修改/ : /暂时无法发布/);
+    definition.updateBody.call(page, { detail: { value: '修改后正文' } }); await definition.submit.call(page);
+    assert.notEqual(calls[1].idempotencyKey, calls[2].idempotencyKey);
+  }
+});
+
+test('login service outage before publication keeps draft and explains a temporary publish failure', async () => {
+  const { createCircleComposePage } = await import('../miniprogram/pages/circle-compose/index.ts');
+  let writes = 0;
+  const definition: any = createCircleComposePage({ session: { getSnapshot: () => ({ status: 'anonymous' }),
+    ensureAuthenticated: async () => ({ ok: false, error: { kind: 'unavailable', code: 'WECHAT_LOGIN_UNAVAILABLE' } }) },
+    createPost: async () => { writes++; return ok({}); } } as any);
+  const page = context(definition); definition.onLoad.call(page); page.data.title = '标题'; page.data.body = '草稿';
+  await definition.submit.call(page);
+  assert.match(page.data.notice, /暂时无法发布/); assert.equal(page.data.body, '草稿'); assert.equal(writes, 0);
+});
+
+test('saved pending post receipt keeps the full notice even while my content cannot load', async () => {
+  const { createCircleMePage } = await import('../miniprogram/pages/circle-me/index.ts');
+  const definition: any = createCircleMePage({ session: { getSnapshot: () => ({ status: 'authenticated' }) },
+    listPosts: async () => ({ ok: false, error: { kind: 'unavailable', code: 'OFFLINE' } }) } as any);
+  const page = context(definition); definition.onLoad.call(page, { review: 'submitted' }); await Promise.resolve(); await Promise.resolve();
+  assert.equal(page.data.reviewNotice, '内容已提交审核，预计 24 小时内完成'); assert.equal(page.data.state, 'offline');
+});
+
+test('my content keeps the full 24 hour notice and only published items open public detail', async () => {
+  const { createCircleMePage } = await import('../miniprogram/pages/circle-me/index.ts');
+  const routes: string[] = [];
+  const items = ['PENDING_REVIEW', 'PUBLISHED', 'REJECTED', 'HIDDEN'].map((status, index) => ({ id: String(index + 1), postId: '42', status, body: '正文', createdAt: '2026-10-08T00:00:00Z' }));
+  const definition: any = createCircleMePage({ session: { getSnapshot: () => ({ status: 'authenticated' }) }, navigate: (route: string) => routes.push(route),
+    listPosts: async () => ok({ items, nextCursor: null }), listComments: async () => ok({ items, nextCursor: null }) } as any);
+  const page = context(definition); definition.onLoad.call(page); await Promise.resolve(); await Promise.resolve();
+  assert.equal(page.data.reviewNotice, '内容已提交审核，预计 24 小时内完成');
+  assert.deepEqual(page.data.posts.slice(0, 3).map((item: any) => item.statusLabel), ['审核中', '已发布', '内容未通过审核']);
+  for (const item of items) definition.openItem.call(page, tap({ id: item.id, status: item.status }));
+  assert.deepEqual(routes, ['/pages/circle-detail/index?id=2']);
+  page.data.tab = 'comments'; await definition.load.call(page, true);
+  assert.equal(page.data.reviewNotice, '内容已提交审核，预计 24 小时内完成');
+  for (const item of items) definition.openItem.call(page, tap({ post: item.postId, status: item.status }));
+  assert.deepEqual(routes, ['/pages/circle-detail/index?id=2', '/pages/circle-detail/index?id=42']);
+});
+
+test('saved pending comment keeps detail context with readable 24 hour feedback and clears the submitted draft', async () => {
+  const { createCircleDetailPage } = await import('../miniprogram/pages/circle-detail/index.ts');
+  const definition: any = createCircleDetailPage({ session: { ...anonymousSession, getSnapshot: () => ({ status: 'authenticated' }) },
+    loadPost: async () => ok({ id: '42', body: '当前帖子', publishedAt: '2026-10-08T00:00:00Z' }), listComments: async () => ok({ items: [], nextCursor: null }),
+    createComment: async () => ok({ id: '7', status: 'PENDING_REVIEW' }), createKey: () => 'comment-key' } as any);
+  const page = context(definition); definition.onLoad.call(page, { id: '42' }); await Promise.resolve(); await Promise.resolve();
+  page.data.commentBody = '评论正文'; await definition.submitComment.call(page);
+  assert.equal(page.data.commentNotice, '内容已提交审核，预计 24 小时内完成');
+  assert.equal(page.data.commentBody, ''); assert.equal(page.data.post.id, '42');
+});
+
 test('campus B wins when campus A responds late and paging keeps the selected category and school', async () => {
   const { createCirclePage } = await import('../miniprogram/pages/circle/index.ts');
   const calls: any[] = []; const pending: Array<ReturnType<typeof deferred<Result<any>>>> = [];

@@ -5,6 +5,38 @@ import type { ModerationDetail } from "./adviser-community-api.ts";
 import { loadCommunityModerationDetail } from "./adviser-community-api.ts";
 import * as communityUi from "./adviser-community-ui.ts";
 
+test("rejecting content is distinct from report rejection and requires explicit confirmation", () => {
+  assert.equal(communityUi.moderationCommandLabel("zh", "REJECT"), "拒绝发布");
+  assert.equal(communityUi.moderationCommandLabel("en", "REJECT"), "Reject content");
+  const decision = { command: "REJECT", reasonCode: "SPAM", version: 0, contentStatus: "PENDING_REVIEW" } as const;
+  assert.equal(communityUi.canSubmitModeration(decision), false);
+  assert.equal(communityUi.canSubmitModeration({ ...decision, confirmed: true }), true);
+  assert.equal(communityUi.canSubmitModeration({ ...decision, reasonCode: "REPORT_UNFOUNDED", confirmed: true }), false);
+  for (const contentStatus of ["PUBLISHED", "HIDDEN", "REJECTED", "DELETED"] as const)
+    assert.equal(communityUi.canSubmitModeration({ ...decision, contentStatus, confirmed: true }), false);
+  assert.equal(communityUi.canSubmitModeration({ command: "REJECT_REPORT", reasonCode: "REPORT_UNFOUNDED", version: 0 }), true);
+});
+
+test("pending SLA produces bilingual waiting hints and accessible queue labels", () => {
+  const item = { targetType: "POST", targetId: "42", status: "PENDING_REVIEW", bodyPreview: "Pending post", version: 0,
+    openReportCount: 0, createdAt: "2099-01-01T00:00:00Z" } as const;
+  for (const [state, zh, en] of [
+    ["ON_TIME", "等待审核 · 未满 12 小时", "Awaiting review · under 12 hours"],
+    ["WARNING", "等待审核 · 已满 12 小时", "Awaiting review · at least 12 hours"],
+    ["OVERDUE", "审核超时 · 已满 24 小时", "Review overdue · at least 24 hours"],
+  ] as const) {
+    assert.deepEqual(communityUi.moderationWaitingHint("zh", { ...item, slaState: state }), { text: zh, ariaLabel: `帖子：${zh}` });
+    assert.deepEqual(communityUi.moderationWaitingHint("en", { ...item, targetType: "COMMENT", slaState: state }), { text: en, ariaLabel: `Comment: ${en}` });
+  }
+});
+
+test("reported content outside pending review has no waiting SLA label", () => {
+  for (const status of ["PUBLISHED", "HIDDEN", "DELETED", "REJECTED"] as const) {
+    assert.equal(communityUi.moderationWaitingHint("zh", { targetType: "POST", status, slaState: "OVERDUE" }), null);
+    assert.equal(communityUi.moderationWaitingHint("en", { targetType: "COMMENT", status, slaState: "ON_TIME" }), null);
+  }
+});
+
 test("post context identifies real school and board while legacy posts have no invented title", () => {
   assert.equal(communityUi.moderationPostContext("zh", { category: "HOUSING", universityName: "马来亚大学" }), "租房室友 · 马来亚大学");
   assert.equal(communityUi.moderationPostContext("en", { category: "STUDY", universityName: "Universiti Malaya" }), "Study help · Universiti Malaya");

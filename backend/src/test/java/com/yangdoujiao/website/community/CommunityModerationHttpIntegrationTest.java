@@ -1,14 +1,17 @@
 package com.yangdoujiao.website.community;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import java.time.OffsetDateTime;
+import java.time.*;
 import java.util.*;
 import java.util.concurrent.*;
 import org.junit.jupiter.api.*;
 import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import com.yangdoujiao.website.auth.account.*;
 import com.yangdoujiao.website.auth.session.UserPrincipal;
 import com.jayway.jsonpath.JsonPath;
@@ -51,6 +54,90 @@ abstract class CommunityModerationIntegrationFixture extends CommunityReactionIn
 }
 
 class CommunityModerationHttpIntegrationTest extends CommunityModerationIntegrationFixture {
+    @MockitoBean Clock clock;
+    @Autowired CommunityCursorCodec cursors;
+
+    @BeforeEach void useRealTimeByDefault() {
+        when(clock.getZone()).thenReturn(ZoneOffset.UTC);
+        when(clock.instant()).thenAnswer(invocation -> Instant.now());
+    }
+
+    @Test void pendingQueuePagesOldestFirstWithIdAndTypeTiesWithoutGaps() throws Exception {
+        long oldest=9007199254740801L,tied=9007199254740802L,newest=9007199254740803L;
+        for (long id : new long[]{oldest,tied,newest})
+            jdbc.update("INSERT INTO community_posts(id,author_account_id,body,status,created_at) VALUES (?,?,'pending','PENDING_REVIEW',?)",
+                    id,actor.getId(),OffsetDateTime.parse(id==newest?"2026-10-08T01:00:00Z":"2026-10-08T00:00:00Z"));
+        jdbc.update("INSERT INTO community_comments(id,post_id,author_account_id,body,status,created_at) VALUES (?,?,?,'pending','PENDING_REVIEW','2026-10-08T00:00:00Z')",
+                tied,tied,actor.getId());
+        assertThat(queueKeys("PENDING")).containsExactly("POST:"+oldest,"COMMENT:"+tied,"POST:"+tied,"POST:"+newest);
+    }
+
+    @Test void hiddenAndProcessedQueuesRemainNewestFirstAcrossPages() throws Exception {
+        long older=post(CommunityContentStatus.PUBLISHED),newer=post(CommunityContentStatus.PUBLISHED);
+        action("POST",older,"HIDE","SPAM",0,null).andExpect(status().isOk());
+        action("POST",newer,"HIDE","SPAM",0,null).andExpect(status().isOk());
+        jdbc.update("UPDATE community_posts SET created_at='2026-10-08T00:00:00Z' WHERE id IN (?,?)",older,newer);
+        long root=comment(newer,null,CommunityContentStatus.PUBLISHED);
+        jdbc.update("UPDATE community_comments SET id=?,created_at='2026-10-08T00:00:00Z' WHERE id=?",newer,root);
+        action("COMMENT",newer,"HIDE","SPAM",0,null).andExpect(status().isOk());
+        long latest=post(CommunityContentStatus.PUBLISHED);
+        action("POST",latest,"HIDE","SPAM",0,null).andExpect(status().isOk());
+        jdbc.update("UPDATE community_posts SET created_at='2026-10-08T01:00:00Z' WHERE id=?",latest);
+        for(String queue:List.of("HIDDEN","PROCESSED"))
+            assertThat(queueKeys(queue)).containsExactly("POST:"+latest,"POST:"+newer,"COMMENT:"+newer,"POST:"+older);
+    }
+
+    @Test void pendingSlaUsesInjectedClockAtExactTwelveAndTwentyFourHourBoundaries() throws Exception {
+        Instant now=Instant.parse("2026-10-12T12:00:00Z");
+        when(clock.instant()).thenReturn(now);
+        var ages=List.of(Duration.ofHours(12).minusNanos(1000),Duration.ofHours(12),
+                Duration.ofHours(24).minusNanos(1000),Duration.ofHours(24),Duration.ofHours(25),Duration.ofHours(-1));
+        var expected=List.of("ON_TIME","WARNING","WARNING","OVERDUE","OVERDUE","ON_TIME");
+        for(int index=0;index<ages.size();index++) {
+            long id=post(CommunityContentStatus.PENDING_REVIEW);
+            jdbc.update("UPDATE community_posts SET created_at=? WHERE id=?",OffsetDateTime.ofInstant(now.minus(ages.get(index)),ZoneOffset.UTC),id);
+            mvc.perform(get("/api/v1/adviser/community/moderation").with(user(UserPrincipal.from(adviser))).param("targetType","POST"))
+                    .andExpect(status().isOk()).andExpect(jsonPath("$.items[?(@.targetId == '"+id+"')].slaState").value(org.hamcrest.Matchers.contains(expected.get(index))));
+        }
+        long parent=post(CommunityContentStatus.PUBLISHED),root=comment(parent,null,CommunityContentStatus.PENDING_REVIEW);
+        jdbc.update("UPDATE community_comments SET created_at=? WHERE id=?",OffsetDateTime.ofInstant(now.minus(Duration.ofHours(24)),ZoneOffset.UTC),root);
+        mvc.perform(get("/api/v1/adviser/community/moderation").with(user(UserPrincipal.from(adviser))).param("targetType","COMMENT"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items[0].slaState").value("OVERDUE"));
+    }
+
+    @Test void oldReportedPublishedAndHiddenContentRemainInPendingQueueWithoutReviewSla() throws Exception {
+        long published=post(CommunityContentStatus.PUBLISHED),hidden=post(CommunityContentStatus.HIDDEN);
+        for(long id:new long[]{published,hidden}) {
+            jdbc.update("UPDATE community_posts SET created_at='2026-10-01T00:00:00Z' WHERE id=?",id);
+            jdbc.update("INSERT INTO community_reports(reporter_account_id,target_type,target_id,status,reason_code,note) VALUES (?,'POST',?,'OPEN','SPAM','')",actor.getId(),id);
+        }
+        mvc.perform(get("/api/v1/adviser/community/moderation").with(user(UserPrincipal.from(adviser))))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.items.length()").value(2))
+                .andExpect(jsonPath("$.items[0].targetId").value(Long.toString(published)))
+                .andExpect(jsonPath("$.items[1].targetId").value(Long.toString(hidden)))
+                .andExpect(jsonPath("$.items[*].slaState").value(org.hamcrest.Matchers.contains("ON_TIME","ON_TIME")));
+    }
+
+    @Test void pendingQueueRejectsLegacyDescendingCursor() throws Exception {
+        long id=post(CommunityContentStatus.PENDING_REVIEW);
+        String legacy=cursors.encode(OffsetDateTime.parse("2026-10-08T00:00:00Z"),id,"moderation:PENDING:null:null:null:null:POST");
+        mvc.perform(get("/api/v1/adviser/community/moderation").with(user(UserPrincipal.from(adviser))).param("cursor",legacy))
+                .andExpect(status().isBadRequest());
+    }
+
+    private List<String> queueKeys(String queue) throws Exception {
+        var keys=new ArrayList<String>();String cursor=null;
+        do {
+            var request=get("/api/v1/adviser/community/moderation").with(user(UserPrincipal.from(adviser))).param("status",queue).param("size","1");
+            if(cursor!=null)request.param("cursor",cursor);
+            String response=mvc.perform(request).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+            List<Map<String,Object>> items=JsonPath.read(response,"$.items");
+            for(var item:items)keys.add(item.get("targetType")+":"+item.get("targetId"));
+            cursor=JsonPath.read(response,"$.nextCursor");
+            assertThat(keys.size()).as("cursor must advance").isLessThan(10);
+        } while(cursor!=null);
+        return keys;
+    }
 
     @Test void historicalBlankTitleKeepsModerationQueueAndDetailReadable() throws Exception {
         long id = post(CommunityContentStatus.PENDING_REVIEW);

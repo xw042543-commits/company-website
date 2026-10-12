@@ -163,6 +163,9 @@
 .community-workspace .community-record { grid-template-columns: minmax(0, 1fr) minmax(0, .65fr); border-radius: var(--radius-sm); }
 .community-workspace .community-record[data-selected="true"] { box-shadow: none; border-color: var(--brand-action); }
 .community-workspace .community-record:hover { transform: none; }
+.community-sla { display: inline-block; width: fit-content; max-width: 100%; padding: 3px 8px; border-radius: var(--radius-sm); color: var(--brand-deep); background: var(--wash); font-size: .82rem; font-weight: 700; line-height: 1.5; text-align: start; overflow-wrap: anywhere; }
+.community-sla[data-sla-state="WARNING"] { color: var(--warning); background: var(--support-cream); }
+.community-sla[data-sla-state="OVERDUE"] { color: var(--danger); background: var(--support-cream); }
 .community-preview, .community-body { white-space: pre-wrap; overflow-wrap: anywhere; }
 .community-post-context { color: var(--muted); font-size: .8125rem; line-height: 1.6; overflow-wrap: anywhere; }
 .community-post-title { margin: .4rem 0; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }

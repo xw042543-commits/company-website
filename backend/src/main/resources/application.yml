@@ -60,6 +60,12 @@ app:
     auto-hide-report-threshold: ${APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD:5}
     review-terms: ${APP_COMMUNITY_REVIEW_TERMS:}
     reject-terms: ${APP_COMMUNITY_REJECT_TERMS:}
+    content-safety:
+      enabled: ${APP_COMMUNITY_CONTENT_SAFETY_ENABLED:false}
+      request-timeout: ${APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT:2s}
+      maximum-attempts: ${APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS:2}
+      access-token-endpoint: ${APP_COMMUNITY_CONTENT_SAFETY_ACCESS_TOKEN_ENDPOINT:https://api.weixin.qq.com/cgi-bin/token}
+      message-check-endpoint: ${APP_COMMUNITY_CONTENT_SAFETY_MESSAGE_CHECK_ENDPOINT:https://api.weixin.qq.com/wxa/msg_sec_check}
   trusted-proxies: ${APP_TRUSTED_PROXIES:}
   auth:
     registration-enabled: ${APP_AUTH_REGISTRATION_ENABLED:false}

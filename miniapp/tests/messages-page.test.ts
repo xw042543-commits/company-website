@@ -31,6 +31,14 @@ function fixture(message = item, initial = 'authenticated', loginResult?: Promis
 }
 const event = (id = item.id) => ({ currentTarget: { dataset: { id } } });
 
+test('generic moderation result opens as SYSTEM text without linking rejected or hidden content', async () => {
+  for (const body of ['你的帖子已通过审核，可在“我的内容”查看。', '你的评论未通过审核，请修改后重新提交。', '你的帖子已隐藏，可在“我的内容”查看当前状态。']) {
+    const f = fixture({ ...item, title: 'U圈内容审核结果', body }); await tick();
+    await f.definition.openMessage.call(f.page, event());
+    assert.equal(f.page.data.detail?.body, body); assert.deepEqual(f.routes, []);
+  }
+});
+
 test('NONE opens full plain message inline after server read and logout clears detail', async () => {
   const f = fixture(); await tick(); await f.definition.openMessage.call(f.page, event());
   assert.equal(f.reads(), 1); assert.equal(f.page.data.detail?.body, '<b>完整正文</b>'); assert.deepEqual(f.routes, []);
