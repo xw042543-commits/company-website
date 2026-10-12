@@ -1,0 +1,1152 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:20:37.842Z",
+  "sourceKey": "california-institute-of-technology",
+  "sourceName": "California Institute of Technology",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_7f01adc82ee6d87e",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "California Institute of Technology",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Pasadena, California",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.caltech.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:14:06.324Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.caltech.edu/",
+        "sourcePageTitle": "Home - www.caltech.edu",
+        "sourceHash": "2919196a99f9c9ffc34b997851df6e575435312983e98f8cb676dd7f5ffcbcf4",
+        "fetchedAt": "2026-10-07T04:14:06.324Z",
+        "field": "name",
+        "rawText": "California Institute of Technology"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 4,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": [
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://main.oscweb.caltech.edu/static/core/img/caltech-logo-400x400.png",
+        "sourceUrl": "https://www.caltech.edu/",
+        "sourceCheckedAt": "2026-10-07T04:14:06.324Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [],
+  "pages": [
+    {
+      "url": "https://www.caltech.edu/",
+      "fetchedAt": "2026-10-07T04:14:06.324Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2919196a99f9c9ffc34b997851df6e575435312983e98f8cb676dd7f5ffcbcf4",
+      "title": "Home - www.caltech.edu",
+      "snapshotFile": "raw/0001-2919196a99f9.html"
+    },
+    {
+      "url": "https://www.caltech.edu/quick-links-faculty",
+      "fetchedAt": "2026-10-07T04:14:17.353Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "68dcb89cebb27fd74cad06f45d3110d224cba3345f2844bdfd78d6f93fbb4c13",
+      "title": "Quick Links for Faculty - www.caltech.edu",
+      "snapshotFile": "raw/0002-68dcb89cebb2.html"
+    },
+    {
+      "url": "https://www.caltech.edu/research/faculty-listing",
+      "fetchedAt": "2026-10-07T04:14:26.356Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "fb1bbc3a980a9eeb0e0af365727217d195151df1d07dd1d218ae6fa54ca0ef55",
+      "title": "Faculty Listing - www.caltech.edu",
+      "snapshotFile": "raw/0003-fb1bbc3a980a.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/visit/plan-your-visit",
+      "fetchedAt": "2026-10-07T04:14:37.275Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "66fa7fdb4d079e1ddf63e9ae7b5015c405b7738dd60a874706b33a22ad318326",
+      "title": "Plan Your Visit - www.caltech.edu",
+      "snapshotFile": "raw/0004-66fa7fdb4d07.html"
+    },
+    {
+      "url": "https://www.caltech.edu/quick-links-students",
+      "fetchedAt": "2026-10-07T04:14:46.382Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8de365ff81815e2d6a6ab8c7698a95dfddd83f93811ddbed63eba4acc862f818",
+      "title": "Quick Links for Students - www.caltech.edu",
+      "snapshotFile": "raw/0005-8de365ff8181.html"
+    },
+    {
+      "url": "https://www.caltech.edu/quick-links-staff",
+      "fetchedAt": "2026-10-07T04:14:57.403Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "153acba9efb29f1185ec19a932e1475387f14c2a99f73c4249995d9be0173a6c",
+      "title": "Quick Links for Staff - www.caltech.edu",
+      "snapshotFile": "raw/0006-153acba9efb2.html"
+    },
+    {
+      "url": "https://www.caltech.edu/quick-links-alumni",
+      "fetchedAt": "2026-10-07T04:15:07.367Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "047924c1da6d55f13209f676b586c18d82113b06959936f8334830b917755f35",
+      "title": "Quick Links for Alumni - www.caltech.edu",
+      "snapshotFile": "raw/0007-047924c1da6d.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about",
+      "fetchedAt": "2026-10-07T04:15:16.410Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "581851121ef65bbea66bcf2e32229d736998d1eff7f972d5cc78343fded291b4",
+      "title": "About Caltech - www.caltech.edu",
+      "snapshotFile": "raw/0008-581851121ef6.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/at-a-glance",
+      "fetchedAt": "2026-10-07T04:15:27.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "413203c1ba30a7116eee31b2a8773eda0926150bbd712d8ff329bf91b24c902b",
+      "title": "Caltech at a Glance - www.caltech.edu",
+      "snapshotFile": "raw/0009-413203c1ba30.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/university-and-college-rankings",
+      "fetchedAt": "2026-10-07T04:15:37.346Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7c14fd3297e3d297f337d66a0e5dc787cb0ca35918fe7750e7c1fd8ba53bde79",
+      "title": "University and College Rankings - www.caltech.edu",
+      "snapshotFile": "raw/0010-7c14fd3297e3.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/leadership/academic-and-administrative-leadership",
+      "fetchedAt": "2026-10-07T04:15:47.618Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "17c72a54821b1fa9840f47fae5abcc2977e7549ba9dff9dea6b1795882a0a4cf",
+      "title": "Academic and Administrative Leadership - www.caltech.edu",
+      "snapshotFile": "raw/0011-17c72a54821b.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/values/freedom-expression",
+      "fetchedAt": "2026-10-07T04:15:57.443Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d07cc602cf81a8191e38a2ae270e8946f7c4fcb7e5a61d89fb2e6c3d5062fa7e",
+      "title": "Freedom of Expression - www.caltech.edu",
+      "snapshotFile": "raw/0012-d07cc602cf81.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/legacy/history-milestones",
+      "fetchedAt": "2026-10-07T04:16:07.602Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "022b057c15ef594ef9a9eeff789756611d36f06cd68161559f7266e847a05e4f",
+      "title": "History & Milestones - www.caltech.edu",
+      "snapshotFile": "raw/0013-022b057c15ef.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/legacy/awards-and-honors",
+      "fetchedAt": "2026-10-07T04:16:17.468Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7834a523d61d32850587c1bc9d204238c83c8199c846c3630231fc7707e90dcc",
+      "title": "Awards & Honors - www.caltech.edu",
+      "snapshotFile": "raw/0014-7834a523d61d.html"
+    },
+    {
+      "url": "https://www.caltech.edu/map/history",
+      "fetchedAt": "2026-10-07T04:16:27.430Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "70164fa3a9c6d601800ad1a38d878d8355eef1e86beb5d3b41443465be32ed3e",
+      "title": "History Map | www.caltech.edu",
+      "snapshotFile": "raw/0015-70164fa3a9c6.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/visit/directions",
+      "fetchedAt": "2026-10-07T04:16:37.613Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "17b6544627252ff0b967da18799796ef3d6bfc2515441db3e7da5716dec41542",
+      "title": "Directions - www.caltech.edu",
+      "snapshotFile": "raw/0016-17b654462725.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/visit/campus-maps",
+      "fetchedAt": "2026-10-07T04:16:47.607Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3ab99d89564cd308450db3de37bcca6a36aac54edf34003fa5215023b63959bb",
+      "title": "Campus Maps - www.caltech.edu",
+      "snapshotFile": "raw/0017-3ab99d89564c.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/visit/tours",
+      "fetchedAt": "2026-10-07T04:16:57.612Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "80f71cac5cd5307ef52b3bf948d9b299081a1572e6f1829c9d73d37fb6c02de3",
+      "title": "Tours - www.caltech.edu",
+      "snapshotFile": "raw/0018-80f71cac5cd5.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/offices-departments",
+      "fetchedAt": "2026-10-07T04:17:07.623Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "11f9e5a0f2f62227c0cfd73bed1040f5d337f75466e9271a74a0d1807113a5ec",
+      "title": "Administrative Offices & Departments - www.caltech.edu",
+      "snapshotFile": "raw/0019-11f9e5a0f2f6.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/media-relations",
+      "fetchedAt": "2026-10-07T04:17:16.509Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a91bb589088f2b944634e8fc43694a37081d3f6b7a1d00e5f07ea1aa11e37c66",
+      "title": "Media Relations - www.caltech.edu",
+      "snapshotFile": "raw/0020-a91bb589088f.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/media-relations/earthquake-information",
+      "fetchedAt": "2026-10-07T04:17:27.599Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "65281e49f3b59e731f38c4e8001b00bff95eb4bf3e5bc4ec075e41fab1279c5b",
+      "title": "Earthquake Information for the Media - www.caltech.edu",
+      "snapshotFile": "raw/0021-65281e49f3b5.html"
+    },
+    {
+      "url": "https://www.caltech.edu/about/media-relations/crew-information",
+      "fetchedAt": "2026-10-07T04:17:37.630Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "903cf1d98a25ae957a60187932338669690d3e3b191d9a71142fd317f4a4ae7c",
+      "title": "News Crew Information - www.caltech.edu",
+      "snapshotFile": "raw/0022-903cf1d98a25.html"
+    },
+    {
+      "url": "https://www.caltech.edu/research",
+      "fetchedAt": "2026-10-07T04:17:46.537Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8bd4d8f108decf7d6ea53bc85b5c5835ffead5dda69a0f0cf48956c14de7a54d",
+      "title": "Research - www.caltech.edu",
+      "snapshotFile": "raw/0023-8bd4d8f108de.html"
+    },
+    {
+      "url": "https://www.caltech.edu/research/jpl",
+      "fetchedAt": "2026-10-07T04:17:56.550Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1de26c7f2fc11a286847829acfb86c5346f63e93b4021a777127364c6d3c0844",
+      "title": "Jet Propulsion Laboratory - www.caltech.edu",
+      "snapshotFile": "raw/0024-1de26c7f2fc1.html"
+    },
+    {
+      "url": "https://www.caltech.edu/research/centers-institutes",
+      "fetchedAt": "2026-10-07T04:18:06.578Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1196adc8222308bfe08b9a13d5494c450498b9da86ebbcd8d3f58d76e9efbccb",
+      "title": "Research Centers and Institutes - www.caltech.edu",
+      "snapshotFile": "raw/0025-1196adc82223.html"
+    },
+    {
+      "url": "https://www.caltech.edu/research/research-facilities",
+      "fetchedAt": "2026-10-07T04:18:16.587Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "23b28257ab8bab756c862153d8086711a596fd2a9e9117b247e0531ad9a1e1ea",
+      "title": "Research Facilities - www.caltech.edu",
+      "snapshotFile": "raw/0026-23b28257ab8b.html"
+    },
+    {
+      "url": "https://www.caltech.edu/academics",
+      "fetchedAt": "2026-10-07T04:18:26.595Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "932ec73a913f37ee739647c4680e7542c68a7c4ca6d70836a2a13476ba223e24",
+      "title": "Academics - www.caltech.edu",
+      "snapshotFile": "raw/0027-932ec73a913f.html"
+    },
+    {
+      "url": "https://www.caltech.edu/academics/resources/academic-calendar",
+      "fetchedAt": "2026-10-07T04:18:37.553Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1a756c139111e73390180af9d79cc078516999e15cd30595140df085cb2beca5",
+      "title": "Academic Calendar - www.caltech.edu",
+      "snapshotFile": "raw/0028-1a756c139111.html"
+    },
+    {
+      "url": "https://www.caltech.edu/campus-life-events",
+      "fetchedAt": "2026-10-07T04:18:46.617Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "47c84de937c76ff95bbc1e98b90225beb210e044145574dae20d46bd75221f62",
+      "title": "Campus Life & Events - www.caltech.edu",
+      "snapshotFile": "raw/0029-47c84de937c7.html"
+    },
+    {
+      "url": "https://www.caltech.edu/campus-life-events/calendar",
+      "fetchedAt": "2026-10-07T04:18:58.311Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "aa3c6ff284f2e8fe57469dd576e175d3b9a7a11230a579fafe6af0f58e6a0c5a",
+      "title": "Institute Calendar - www.caltech.edu",
+      "snapshotFile": "raw/0030-aa3c6ff284f2.html"
+    },
+    {
+      "url": "https://www.caltech.edu/emergency",
+      "fetchedAt": "2026-10-07T04:19:08.192Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bdc7464d929cd957b72db2545e8a9e8e1213aa22b3d4fd0805c4524e645b5396",
+      "title": "Emergency Updates - www.caltech.edu",
+      "snapshotFile": "raw/0031-bdc7464d929c.html"
+    },
+    {
+      "url": "https://www.caltech.edu/did-you-know",
+      "fetchedAt": "2026-10-07T04:19:17.655Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ab67735f7d8090f64c357472c9c309a24814b1cbc60a87d8bed403d11ac71115",
+      "title": "Did You Know? - www.caltech.edu",
+      "snapshotFile": "raw/0032-ab67735f7d80.html"
+    },
+    {
+      "url": "https://www.caltech.edu/campus-life-events/calendar/campus-history-architectural-tour-26-oct",
+      "fetchedAt": "2026-10-07T04:19:27.605Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "452419be06d4146c0a313b50e42b04b63b4b40b23e9b2c1acc0003fdaac27df4",
+      "title": "Campus History & Architectural Tour - www.caltech.edu",
+      "snapshotFile": "raw/0033-452419be06d4.html"
+    },
+    {
+      "url": "https://www.caltech.edu/map/campus/the-athenaeum",
+      "fetchedAt": "2026-10-07T04:19:37.785Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "925cedbdbff4cf9607c8824d0efd904d1e30467765e3b25d2505647ce5878049",
+      "title": "Campus Map | www.caltech.edu",
+      "snapshotFile": "raw/0034-925cedbdbff4.html"
+    },
+    {
+      "url": "https://www.caltech.edu/campus-life-events/calendar/stargazing-lecture-90179",
+      "fetchedAt": "2026-10-07T04:19:47.623Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "325f6c4fec8823549e5157f1c6a16730def87100bba4de90cc0a75640c0f83d0",
+      "title": "Stargazing Lecture - www.caltech.edu",
+      "snapshotFile": "raw/0035-325f6c4fec88.html"
+    },
+    {
+      "url": "https://www.caltech.edu/map/campus/cahill-center-for-astronomy-and-astrophysics",
+      "fetchedAt": "2026-10-07T04:19:57.796Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "925cedbdbff4cf9607c8824d0efd904d1e30467765e3b25d2505647ce5878049",
+      "title": "Campus Map | www.caltech.edu",
+      "snapshotFile": "raw/0036-925cedbdbff4.html"
+    },
+    {
+      "url": "https://www.caltech.edu/campus-life-events/calendar/caltech-jpl-archival-exhibition",
+      "fetchedAt": "2026-10-07T04:20:06.646Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b7a5ce3f288c309a0080d0d2c2c726b7f52c6f2348f106a8d2da6f5bae957aa1",
+      "title": "Special Preview Days: Caltech JPL Archival Exhibition - www.caltech.edu",
+      "snapshotFile": "raw/0037-b7a5ce3f288c.html"
+    },
+    {
+      "url": "https://www.caltech.edu/map/campus/beckman-institute",
+      "fetchedAt": "2026-10-07T04:20:17.829Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "925cedbdbff4cf9607c8824d0efd904d1e30467765e3b25d2505647ce5878049",
+      "title": "Campus Map | www.caltech.edu",
+      "snapshotFile": "raw/0038-925cedbdbff4.html"
+    },
+    {
+      "url": "https://www.caltech.edu/claimed-copyright-infringement",
+      "fetchedAt": "2026-10-07T04:20:27.591Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3ed95875d867a302c988079191c49808d2f8367db9da5e095f4544a7c9489410",
+      "title": "Claimed Copyright Infringement - www.caltech.edu",
+      "snapshotFile": "raw/0039-3ed95875d867.html"
+    },
+    {
+      "url": "https://www.caltech.edu/campus-life-events/announcements-and-events/announcements",
+      "fetchedAt": "2026-10-07T04:20:37.792Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f215ece64f442ea60821fffad7763f27f32ca360fef16662c5ee0f72ceaa80fd",
+      "title": "Working with Campus Announcements - www.caltech.edu",
+      "snapshotFile": "raw/0040-f215ece64f44.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/universityteaching/programs/cfam",
+      "fetchedAt": "2026-10-07T06:20:38.236Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a3a330beb21992e119124044dd2ab00e6f5bad1a016a18c4006ecaff7a2122b0",
+      "title": "CFAM Grad / Postdoc Community - CTLO",
+      "snapshotFile": "raw/0001-a3a330beb219.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/surf",
+      "fetchedAt": "2026-10-07T06:20:47.238Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7854b75d9bf283ba9bae83744eeae816144924fac315d8631eff476d7f25b52d",
+      "title": "SURF at Caltech - Student-Faculty Programs",
+      "snapshotFile": "raw/0002-7854b75d9bf2.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs",
+      "fetchedAt": "2026-10-07T06:20:57.508Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "82cc9169c8fe7fd0ec01f5edab723506c2b16e967986a343225c79df3806592c",
+      "title": "Programs - Student-Faculty Programs",
+      "snapshotFile": "raw/0003-82cc9169c8fe.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/off-campus-surf",
+      "fetchedAt": "2026-10-07T06:21:06.972Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ff9a540264e0afaaf49b61314b341bfa414107044397da5a274b5ce6020aee6d",
+      "title": "Off-Campus SURF - Student-Faculty Programs",
+      "snapshotFile": "raw/0004-ff9a540264e0.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/surfjpl",
+      "fetchedAt": "2026-10-07T06:21:17.227Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b421b0e6938749900c2e41458722e5c1a4f4290b52de50904efedce5667e57c4",
+      "title": "SURF@JPL - Student-Faculty Programs",
+      "snapshotFile": "raw/0005-b421b0e69387.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/amgen_scholars",
+      "fetchedAt": "2026-10-07T06:21:27.154Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "fb64763cb05edf9803fe94acb84f2fc1e3e51d4a31da2afd6f82a372152a421c",
+      "title": "Amgen Scholars - Student-Faculty Programs",
+      "snapshotFile": "raw/0006-fb64763cb05e.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/wavefellows",
+      "fetchedAt": "2026-10-07T06:21:37.185Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "957b4c2d0156cbedc2ea5a0896b1ff10052aec3e7ac91020d0234379f630a31a",
+      "title": "WAVE Fellows - Student-Faculty Programs",
+      "snapshotFile": "raw/0007-957b4c2d0156.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/ligo_surf",
+      "fetchedAt": "2026-10-07T06:21:46.960Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bf8a9f53b5df2b075f3e871506b0a09fce55c6ce3bcf9eda4336e024065d98bd",
+      "title": "LIGO SURF - Student-Faculty Programs",
+      "snapshotFile": "raw/0008-bf8a9f53b5df.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/exchange_programs",
+      "fetchedAt": "2026-10-07T06:21:57.038Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0adaa348d7fc7d1a1b5e19f0b50bb8cf8b8a83dc9a9ac8fa1c4a405c9fb0f661",
+      "title": "Exchanges - Student-Faculty Programs",
+      "snapshotFile": "raw/0009-0adaa348d7fc.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/jpl_nasa_program",
+      "fetchedAt": "2026-10-07T06:22:06.999Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3cac3e3cd83ebf2df3d25196deba794e5772611627548a58b19b20951f168e7b",
+      "title": "JPL/NASA Programs - Student-Faculty Programs",
+      "snapshotFile": "raw/0010-3cac3e3cd83e.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/vurp",
+      "fetchedAt": "2026-10-07T06:22:17.043Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "080d6676f920d19ed38f043fc42bada0c29efbbbba37e2725311223f0b985a95",
+      "title": "Student-Faculty Programs",
+      "snapshotFile": "raw/0011-080d6676f920.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/rising-tide",
+      "fetchedAt": "2026-10-07T06:22:27.442Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c2eee7decbaa20ea07b8e0fd191e7accd047a56aa5162cd663404b1e41a816d7",
+      "title": "Rising Tide - Student-Faculty Programs",
+      "snapshotFile": "raw/0012-c2eee7decbaa.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/external_opportunities",
+      "fetchedAt": "2026-10-07T06:22:36.988Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "435bd84083df75d89df776c3ca111d135463c5ae9aabe78aaecf669701954ba5",
+      "title": "External Summer Program Opportunities - Student-Faculty Programs",
+      "snapshotFile": "raw/0013-435bd84083df.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/academic_year_opps",
+      "fetchedAt": "2026-10-07T06:22:46.991Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9e4689349c39efc1f0adc46aaf40db86944bc0fe56e45ea15fc42227e0b16e3e",
+      "title": "Academic-Year Opportunities - Student-Faculty Programs",
+      "snapshotFile": "raw/0014-9e4689349c39.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/surf/eligibility_requirements",
+      "fetchedAt": "2026-10-07T06:22:57.271Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ef51fe5fb8386f9d1973e6c83ee5aa887fb7986c2e61022b088dfc9eb9364680",
+      "title": "Eligibility - Student-Faculty Programs",
+      "snapshotFile": "raw/0015-ef51fe5fb838.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/surf/application_information",
+      "fetchedAt": "2026-10-07T06:23:07.348Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3c92b963884f3c395c4c47912af825f0a0c3b482d45aaf123b537be10777d1e6",
+      "title": "Application Information - Student-Faculty Programs",
+      "snapshotFile": "raw/0016-3c92b963884f.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/surf/ntu",
+      "fetchedAt": "2026-10-07T06:23:16.998Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "080d6676f920d19ed38f043fc42bada0c29efbbbba37e2725311223f0b985a95",
+      "title": "Student-Faculty Programs",
+      "snapshotFile": "raw/0017-080d6676f920.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/surfjpl/eligiblity",
+      "fetchedAt": "2026-10-07T06:23:27.225Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2539d87717bfa62e2df2fe64198909bf749eacbea1764e731588b6f5b82a0c5b",
+      "title": "Eligiblity - Student-Faculty Programs",
+      "snapshotFile": "raw/0018-2539d87717bf.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/surfjpl/application-information",
+      "fetchedAt": "2026-10-07T06:23:37.238Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6a53f58b84bba369fe33324175d1d39f1d10ceac15c17c862cfd705c4c37f98e",
+      "title": "Application Information - Student-Faculty Programs",
+      "snapshotFile": "raw/0019-6a53f58b84bb.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/amgen_scholars/eligibility",
+      "fetchedAt": "2026-10-07T06:23:47.285Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e5d2061d7381fafce619b9829d9a976e5dff478d04ec8a5ad36d72ed79a1a414",
+      "title": "Eligibility - Student-Faculty Programs",
+      "snapshotFile": "raw/0020-e5d2061d7381.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/amgen_scholars/application_information",
+      "fetchedAt": "2026-10-07T06:23:57.241Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "59375fd46037ad8160adbd70df4747f59a88a7bb5bbc061c593c3d6a60621e68",
+      "title": "Application Information - Student-Faculty Programs",
+      "snapshotFile": "raw/0021-59375fd46037.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/wavefellows/eligibility",
+      "fetchedAt": "2026-10-07T06:24:07.213Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "afe300555222e1b2cb7ffac53d048dbce7b0f29400e4833ea62eea255eb504b3",
+      "title": "Eligibility - Student-Faculty Programs",
+      "snapshotFile": "raw/0022-afe300555222.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/wavefellows/application_information",
+      "fetchedAt": "2026-10-07T06:24:17.292Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6c50b8e922dd1537e9f25721b30ee17dd6845083009cd538f9e899661152ec3e",
+      "title": "Application Information - Student-Faculty Programs",
+      "snapshotFile": "raw/0023-6c50b8e922dd.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/wavefellows/recruitment-schedule",
+      "fetchedAt": "2026-10-07T06:24:27.282Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3fdd9028fbfd2cd522587b1001a7d1800a807440883b96f68d39e7d59601a295",
+      "title": "Recruitment Schedule - Student-Faculty Programs",
+      "snapshotFile": "raw/0024-3fdd9028fbfd.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/wavefellows/information-sessions",
+      "fetchedAt": "2026-10-07T06:24:37.274Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4085da8938e0745d29b6b3b5f453a2313e6cbba4c679a6aa3b9fb12f2cce6009",
+      "title": "Information Sessions - Student-Faculty Programs",
+      "snapshotFile": "raw/0025-4085da8938e0.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/wavefellows/wave-council",
+      "fetchedAt": "2026-10-07T06:24:47.264Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e6be287586a7a215c3a85079f1c2d7f11e30a05e8a749fcac5ed79abd9edb7fa",
+      "title": "WAVE Council - Student-Faculty Programs",
+      "snapshotFile": "raw/0026-e6be287586a7.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/wavefellows/wave-logos",
+      "fetchedAt": "2026-10-07T06:24:57.037Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6d28de9bdeaac36b1606b83971ededd6ed6583d1fc1f4f7862aa69abbe76e5ce",
+      "title": "WAVE Logos - Student-Faculty Programs",
+      "snapshotFile": "raw/0027-6d28de9bdeaa.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/vurp/vurp",
+      "fetchedAt": "2026-10-07T06:25:07.160Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "080d6676f920d19ed38f043fc42bada0c29efbbbba37e2725311223f0b985a95",
+      "title": "Student-Faculty Programs",
+      "snapshotFile": "raw/0028-080d6676f920.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/vurp/flex-vurp",
+      "fetchedAt": "2026-10-07T06:25:17.172Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "080d6676f920d19ed38f043fc42bada0c29efbbbba37e2725311223f0b985a95",
+      "title": "Student-Faculty Programs",
+      "snapshotFile": "raw/0029-080d6676f920.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/rising-tide/program-information",
+      "fetchedAt": "2026-10-07T06:25:27.255Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0ef3e438d48c1abbb01433fa5c6a6a44042e4904ae2fa1643de88adad76894d5",
+      "title": "Program Information - Student-Faculty Programs",
+      "snapshotFile": "raw/0030-0ef3e438d48c.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/rising-tide/eligibility",
+      "fetchedAt": "2026-10-07T06:25:37.312Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0333b2ddf2b705de9417ece2b2858ff1787c916f699b39e03f2bde1cdc822af6",
+      "title": "Eligibility - Student-Faculty Programs",
+      "snapshotFile": "raw/0031-0333b2ddf2b7.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/programs/wavefellows/application_information/finding-mentor",
+      "fetchedAt": "2026-10-07T06:25:47.372Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "53bc11eb5bacffbd3769a447bcca9d55dea51b8ded55078371c6487ac25764f3",
+      "title": "Finding a Mentor - Student-Faculty Programs",
+      "snapshotFile": "raw/0032-53bc11eb5bac.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates",
+      "fetchedAt": "2026-10-07T06:25:57.449Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "91cf7844f1b535d24283a3fd9d7d1366deb90b41ce098a190221dade692c00ba",
+      "title": "Undergraduates - CTLO",
+      "snapshotFile": "raw/0033-91cf7844f1b5.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research",
+      "fetchedAt": "2026-10-07T06:26:07.518Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f824f0081d77eaee5d7a034714d5fa97def6a46588244e49f0fd6b73a2600a4c",
+      "title": "Undergraduate Research - Student-Faculty Programs",
+      "snapshotFile": "raw/0034-f824f0081d77.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/getting-started",
+      "fetchedAt": "2026-10-07T06:26:17.332Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b7ded10578a729667af5504059809023eeeb94cd166f02bc4663a0ada9993981",
+      "title": "Getting Started - Student-Faculty Programs",
+      "snapshotFile": "raw/0035-b7ded10578a7.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/getting-started/finding_a_mentor",
+      "fetchedAt": "2026-10-07T06:26:27.673Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a725e299d20c04b90cebf3b6384ec88a29c0a1ab42dbfecc6f324ddcf6f90850",
+      "title": "Finding a Mentor - Student-Faculty Programs",
+      "snapshotFile": "raw/0036-a725e299d20c.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/getting-started/meeting_tips",
+      "fetchedAt": "2026-10-07T06:26:37.403Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "72cd72b712ce196f8542e8a4f14b9990bdd03975d87dd1889599b7186b1ef2d6",
+      "title": "Tips for Meeting with a Potential Mentor - Student-Faculty Programs",
+      "snapshotFile": "raw/0037-72cd72b712ce.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/proposal",
+      "fetchedAt": "2026-10-07T06:26:47.390Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "650408039760b051ec21a40fa3f79b30bb971eee6afed806b7b3a5acd9141f67",
+      "title": "Proposal/Project Plans - Student-Faculty Programs",
+      "snapshotFile": "raw/0038-650408039760.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/proposal/surf_and_amgen_proposals",
+      "fetchedAt": "2026-10-07T06:26:57.429Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "dbde8ffb179e37ab71b0cfaea2ea3be44123d99e7fe9e8a1e0cc4b61d3221586",
+      "title": "SURF Proposals - Student-Faculty Programs",
+      "snapshotFile": "raw/0039-dbde8ffb179e.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/proposal/other_project_plans",
+      "fetchedAt": "2026-10-07T06:27:07.386Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7e0782bd3e3e8848548bf62ed82e013fcd6af2587198eff1c51d5078cb81abe9",
+      "title": "Project Plans - Student-Faculty Programs",
+      "snapshotFile": "raw/0040-7e0782bd3e3e.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/summer_requirements",
+      "fetchedAt": "2026-10-07T06:27:17.400Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f22b177fb997f4534983bf1cfbbf63238ff4b9368be2b44b4252b7b6ad2434f1",
+      "title": "Summer Expectations and Requirements - Student-Faculty Programs",
+      "snapshotFile": "raw/0041-f22b177fb997.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/summer_requirements/progress_reports",
+      "fetchedAt": "2026-10-07T06:27:27.446Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4b9dc56e57d08240b3afaa3afd757241bd7c6c83abb184c23cb3ed88fec782e8",
+      "title": "Interim Reports - Student-Faculty Programs",
+      "snapshotFile": "raw/0042-4b9dc56e57d0.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/summer_requirements/abstract",
+      "fetchedAt": "2026-10-07T06:27:37.392Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b529b8f5c3fb47a036a04ff40e7cc816adb690ad52a8698ecb5a5aa8e817cace",
+      "title": "Abstract - Student-Faculty Programs",
+      "snapshotFile": "raw/0043-b529b8f5c3fb.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/summer_requirements/final_report",
+      "fetchedAt": "2026-10-07T06:27:47.454Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b80024dac9791b03a859f14ad804c98ab7e810ee41f07ab9787c5252b550c8ca",
+      "title": "Final Report - Student-Faculty Programs",
+      "snapshotFile": "raw/0044-b80024dac979.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/summer_requirements/final_presentation",
+      "fetchedAt": "2026-10-07T06:27:57.465Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2b73b7fed8767b974ccc285810ac2a6bd2b6281042838f35e0e8174589fbf226",
+      "title": "Final Presentation - Student-Faculty Programs",
+      "snapshotFile": "raw/0045-2b73b7fed876.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/summer_requirements/fall_seminar_day",
+      "fetchedAt": "2026-10-07T06:28:07.433Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ec2964373b2b1ee09bd064318cce4c4c674bb60d77a486d6c338a671f26f6539",
+      "title": "Fall Seminar Day - Student-Faculty Programs",
+      "snapshotFile": "raw/0046-ec2964373b2b.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/undergraduate-research-week",
+      "fetchedAt": "2026-10-07T06:28:17.205Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "365b4c01cb61c8613f74bc01ac285a5bf42e051160f62b6e67e93b39a8c02417",
+      "title": "Undergraduate Research Week - Student-Faculty Programs",
+      "snapshotFile": "raw/0047-365b4c01cb61.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions",
+      "fetchedAt": "2026-10-07T06:28:27.370Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a84edf44bb56fe7674cea2eb32d0b918e2a5ea8f3d1424bb0e91929cedea0c36",
+      "title": "Communication Competitions - Student-Faculty Programs",
+      "snapshotFile": "raw/0048-a84edf44bb56.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/doris-s-perpall-surf-speaking-competition",
+      "fetchedAt": "2026-10-07T06:28:37.311Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "90c01e5616262968e12308d18178be33908d723025feaa1d4d749a050542cc71",
+      "title": "Doris S. Perpall SURF Speaking Competition - Student-Faculty Programs",
+      "snapshotFile": "raw/0049-90c01e561626.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/gee-family-surf-poster-competition",
+      "fetchedAt": "2026-10-07T06:28:47.223Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "706c33092ad03c29e8f079017eeb8c505d83d3fa9583cfd6a637529cf9d949e2",
+      "title": "Gee Family SURF Poster Competition - Student-Faculty Programs",
+      "snapshotFile": "raw/0050-706c33092ad0.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/joel-marcella-bonsall-surf-technical-writing-prize",
+      "fetchedAt": "2026-10-07T06:28:57.307Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "70d86efd9bfd2006faf518ebf68c4ab8cbce1271d277458f46b018b11f52f721",
+      "title": "Joel & Marcella Bonsall SURF Technical Writing Prize - Student-Faculty Programs",
+      "snapshotFile": "raw/0051-70d86efd9bfd.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/vodopia-hasson-surf-summer-poster",
+      "fetchedAt": "2026-10-07T06:29:07.202Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7ece27184fe0bb977810f3338d3b6cbe907e01ca47ef6e1667d8ef470f0ac47a",
+      "title": "Vodopia-Hasson SURF Summer Poster Competition - Student-Faculty Programs",
+      "snapshotFile": "raw/0052-7ece27184fe0.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/mentoring-resources/mentoring-undergraduate-researchers",
+      "fetchedAt": "2026-10-07T06:29:17.453Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "11432e6dcd891eea0d910f908d5b54eb61fed0d8536c430a6efe85d81509cb69",
+      "title": "Mentoring Undergraduate Researchers - Student-Faculty Programs",
+      "snapshotFile": "raw/0053-11432e6dcd89.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/mentoring-resources/mentoring-undergraduate-researchers/practices-and-resources",
+      "fetchedAt": "2026-10-07T06:29:27.466Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f0331a3e22b86705cb70a981531c7b7c9d5bd361fc75aff1924c57f5dfdfc435",
+      "title": "Practices and Resources - Student-Faculty Programs",
+      "snapshotFile": "raw/0054-f0331a3e22b8.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/mentoring-resources/mentoring-undergraduate-researchers/undergraduate-research-mentoring-series",
+      "fetchedAt": "2026-10-07T06:29:37.493Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f45e1339303157e66bca84219a868093d559ac5c75e9eb3c30d074864762a627",
+      "title": "Undergraduate Research Mentor Development Series - Student-Faculty Programs",
+      "snapshotFile": "raw/0055-f45e13393031.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/mentoring-resources/mentoring-undergraduate-researchers/certificate-of-interest-in-undergraduate-research-mentoring",
+      "fetchedAt": "2026-10-07T06:29:47.494Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0cd9fce426b0aaecb5b81a08e320522d3555311812c782e249441b504079f632",
+      "title": "Certificate of Interest in Undergraduate Research Mentoring - Student-Faculty Programs",
+      "snapshotFile": "raw/0056-0cd9fce426b0.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/support-us/support-undergraduate-research",
+      "fetchedAt": "2026-10-07T06:29:57.527Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "49d451b234ddbb11d13217db5a08e0f70f72584e3362d130efc0768a77a35e7f",
+      "title": "Support Undergraduate Research - Student-Faculty Programs",
+      "snapshotFile": "raw/0057-49d451b234dd.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/proposal/other_project_plans/project-plan-submission",
+      "fetchedAt": "2026-10-07T06:30:07.534Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d6b66f0d3781952aa8584196471fdde312fe0c5fe47d94c4c7ff8b55e6f8901e",
+      "title": "Program Due Dates and Submission Instructions - Student-Faculty Programs",
+      "snapshotFile": "raw/0058-d6b66f0d3781.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/doris-s-perpall-surf-speaking-competition/perpall-surf-speaking-competition-winners",
+      "fetchedAt": "2026-10-07T06:30:17.297Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "174e38d273db53ac58a30986e2aafcd09b3e863069acefaf6197c9d97623c90a",
+      "title": "Perpall SURF Speaking Competition Winners - Student-Faculty Programs",
+      "snapshotFile": "raw/0059-174e38d273db.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/doris-s-perpall-surf-speaking-competition/perpall-surf-speaking-competition-history",
+      "fetchedAt": "2026-10-07T06:30:27.471Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "80a9a08d255012a1a6cd2eece714e1c6a5e9b603f04bad6acd60e3da081054e6",
+      "title": "Perpall SURF Speaking Competition History - Student-Faculty Programs",
+      "snapshotFile": "raw/0060-80a9a08d2550.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/gee-family-surf-poster-competition/gee-competition-surf-poster-competition-history",
+      "fetchedAt": "2026-10-07T06:30:37.322Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cba901315f7ff48eda53a9d854da375792c27640f6487edaaabb61f78d3c0f8b",
+      "title": "Gee Family SURF Poster Competition History - Student-Faculty Programs",
+      "snapshotFile": "raw/0061-cba901315f7f.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/gee-family-surf-poster-competition/gee-family-surf-competition-winners",
+      "fetchedAt": "2026-10-07T06:30:47.374Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8fe75a7465eb8f0bc5fe6cc8ec51cc3429694b65b5929d43ca044313d77f65b8",
+      "title": "Gee Family SURF Competition Winners - Student-Faculty Programs",
+      "snapshotFile": "raw/0062-8fe75a7465eb.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/joel-marcella-bonsall-surf-technical-writing-prize/bonsall-surf-technical-writing-prize-winners",
+      "fetchedAt": "2026-10-07T06:30:57.440Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "108b1e22ec640ee63b040bfa9cb9a1645216039fe0e78eb5d748c62c5ea90ed2",
+      "title": "Bonsall SURF Technical Writing Prize Winners - Student-Faculty Programs",
+      "snapshotFile": "raw/0063-108b1e22ec64.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/joel-marcella-bonsall-surf-technical-writing-prize/bonsall-surf-technical-writing-prize-more",
+      "fetchedAt": "2026-10-07T06:31:07.428Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "21cddc57d3b7131cfa81a20424102a69e28f98787a62df2cd937041716dcd94d",
+      "title": "Bonsall SURF Technical Writing Prize History - Student-Faculty Programs",
+      "snapshotFile": "raw/0064-21cddc57d3b7.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/vodopia-hasson-surf-summer-poster/vodopia-hasson-surf-summer-poster-competition-history",
+      "fetchedAt": "2026-10-07T06:31:17.366Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "81504445796e67440d72a222961d01332542f412aeeea4d4921c631b0789fc7f",
+      "title": "Vodopia-Hasson SURF Summer Poster Competition History - Student-Faculty Programs",
+      "snapshotFile": "raw/0065-81504445796e.html"
+    },
+    {
+      "url": "https://sfp.caltech.edu/undergraduate-research/communication-competitions/vodopia-hasson-surf-summer-poster/vodopia-hasson-surf-summer-poster-competition-winners",
+      "fetchedAt": "2026-10-07T06:31:27.412Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ef98c408ae75683f28a70524658f8fe892620cd6eb6312de625706f51b62ce70",
+      "title": "Vodopia-Hasson SURF Summer Poster Competition Winners - Student-Faculty Programs",
+      "snapshotFile": "raw/0066-ef98c408ae75.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/peer-academic-coaching",
+      "fetchedAt": "2026-10-07T06:31:37.734Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3d77b989c80ae7d575dffc328fbf38d4ea928d8229baf94b7dba86895caf7115",
+      "title": "Peer Academic Coaching - CTLO",
+      "snapshotFile": "raw/0067-3d77b989c80a.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/peer-academic-coaching/information-for-course-instructors",
+      "fetchedAt": "2026-10-07T06:31:47.809Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "150649268db3eb50f71dfb95e515079124940350cbc9932b774258e55048d0cf",
+      "title": "Information for Course Instructors - CTLO",
+      "snapshotFile": "raw/0068-150649268db3.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/learning-resources",
+      "fetchedAt": "2026-10-07T06:31:57.663Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b748aec7b286ad9fabfe18b718f1a31784091f7f1c58212968c653cf2ae9b60a",
+      "title": "Learning Resources - CTLO",
+      "snapshotFile": "raw/0069-b748aec7b286.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/problem-set-workshops-and-group-tutoring",
+      "fetchedAt": "2026-10-07T06:32:07.634Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "63c83156645456c48884a04a7197b9fe9c11ade948404632e33104c6f0041481",
+      "title": "Problem Set Workshops and Group Tutoring - CTLO",
+      "snapshotFile": "raw/0070-63c831566454.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/peer-academic-coaching/information-for-students",
+      "fetchedAt": "2026-10-07T06:32:17.694Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8a0fd5037e846ef5917ba7d454f70bf3b514b2c5f2b3a36f33b0296345bf7536",
+      "title": "Information for Students - CTLO",
+      "snapshotFile": "raw/0071-8a0fd5037e84.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/peer-academic-coaching/information-for-coaches",
+      "fetchedAt": "2026-10-07T06:32:27.655Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ff1e223144b4acd9170d9a08e0c7eba9db6bc94d5d1c199d3439dac373965fe2",
+      "title": "Information for Coaches - CTLO",
+      "snapshotFile": "raw/0072-ff1e223144b4.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/learning-resources/learning",
+      "fetchedAt": "2026-10-07T06:32:37.712Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4f20b7858638acf61b933eeea53e69ab8db8587f4e64bc93bd0187910d53050a",
+      "title": "Learning Strategies for Students - CTLO",
+      "snapshotFile": "raw/0073-4f20b7858638.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/learning-resources/learning/metacognition",
+      "fetchedAt": "2026-10-07T06:32:47.693Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "60571df9d1a34657bf7070773ba1374d01d44556a4856177ff629a6ddfe6bbf0",
+      "title": "Metacognition - CTLO",
+      "snapshotFile": "raw/0074-60571df9d1a3.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/learning-resources/learning/growth-mindset",
+      "fetchedAt": "2026-10-07T06:32:57.699Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1253638d24760f5a4a3ee2f58af1d7749f987b1852ff6bb486fe4c38eef659da",
+      "title": "Growth Mindset - CTLO",
+      "snapshotFile": "raw/0075-1253638d2476.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/learning-resources/learning/learning-cycle",
+      "fetchedAt": "2026-10-07T06:33:07.723Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6936f4b24ff5dc808839400b3877530f248e35c29a0c154a1a9b1e6b44e5c2de",
+      "title": "The Learning Cycle - CTLO",
+      "snapshotFile": "raw/0076-6936f4b24ff5.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/learning-resources/learning/study-sessions",
+      "fetchedAt": "2026-10-07T06:33:17.706Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "54e800328e8bee0ed543c47d7a2a3272b085dabb2ce075fefed8de0e8a3bff2d",
+      "title": "Focused Study Sessions - CTLO",
+      "snapshotFile": "raw/0077-54e800328e8b.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/learning-resources/learning/active-reading",
+      "fetchedAt": "2026-10-07T06:33:27.745Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4544e06e633df20eefdf2999a1a71e6be9ec233c93514e41bc962c38e72fd904",
+      "title": "Active Reading - CTLO",
+      "snapshotFile": "raw/0078-4544e06e633d.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/learning-resources/learning/homework-as-assessment",
+      "fetchedAt": "2026-10-07T06:33:37.849Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "89c1155ea059ef2b3daf733b2d65d004eadd511df4b635644c9ca3aa1e18cd12",
+      "title": "Homework as Assessment - CTLO",
+      "snapshotFile": "raw/0079-89c1155ea059.html"
+    },
+    {
+      "url": "https://ctlo.caltech.edu/aboutctlo/whoweserve/undergraduates/learning-resources/learning/effective-groupwork",
+      "fetchedAt": "2026-10-07T06:33:47.884Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "061b27035c2f24f39b13ea862c675207d72bcefd5cdf280a122629948f5d58a8",
+      "title": "Effective Groupwork - CTLO",
+      "snapshotFile": "raw/0080-061b27035c2f.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:33:47.955Z",
+    "seedUrls": [
+      "https://ctlo.caltech.edu/universityteaching/programs/cpet",
+      "https://sfp.caltech.edu/undergraduate-research/programs/surf",
+      "http://online.caltech.edu/courses",
+      "https://sfp.caltech.edu/undergraduate-research/programs",
+      "https://www.admissions.caltech.edu/why-caltech/academics/majors-minors",
+      "https://www.caltech.edu/academics",
+      "https://gradoffice.caltech.edu/academics/optionreps"
+    ],
+    "pages": 80
+  }
+}

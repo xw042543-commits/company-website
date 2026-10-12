@@ -1,0 +1,130 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "university-of-california-los-angeles",
+    "displayName": "University of California, Los Angeles",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.ucla.edu/"
+    ],
+    "allowedHosts": [
+      "www.ucla.edu",
+      "ucla.edu"
+    ],
+    "discoveredUrls": 15,
+    "parsedProgrammes": 5,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 404：https://www.ucla.edu/$%7Bfield_link%20?%20field_link%20:%20`/events/detail/${slug}`}",
+      "https://www.ucla.edu/external-affairs：跳转超出允许域名: externalaffairs.ucla.edu",
+      "https://www.registrar.ucla.edu/Academics/Academic-Counseling：跳转超出允许域名: registrar.ucla.edu"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://www.ucla.edu/academics/programs-and-majors",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://www.ucla.edu/academics/support/entrepreneurship",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://grad.ucla.edu/academics/research/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://www.ucla.edu/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://www.ucla.edu/academics/college-and-schools",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://www.ucla.edu/academics/undergraduate-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://www.ucla.edu/academics/graduate-and-professional-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://www.ucla.edu/academics/continuing-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://www.registrar.ucla.edu/Academics/Academic-Counseling",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://www.ucla.edu/academics/libraries",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://grad.ucla.edu/programs/social-sciences/geography-department/master-of-applied-geospatial-information-systems-technologies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:36.399Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://grad.ucla.edu/programs/school-of-law/master-of-legal-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:36.399Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://grad.ucla.edu/programs/school-of-public-health/community-health-sciences-department/master-of-public-health-in-community-health-health-promotion-and-education/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:36.399Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://grad.ucla.edu/programs/physical-sciences/physics-and-astronomy-department/master-of-quantum-science-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:36.399Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-los-angeles",
+      "url": "https://grad.ucla.edu/programs/school-of-public-affairs/urban-planning-department/master-of-real-estate-development/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:34:36.399Z",
+      "error": null
+    }
+  ]
+}

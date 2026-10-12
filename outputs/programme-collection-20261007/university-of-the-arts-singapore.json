@@ -1,0 +1,1023 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:30:17.705Z",
+  "sourceKey": "university-of-the-arts-singapore",
+  "sourceName": "University of the Arts Singapore",
+  "warnings": [
+    "HTTP 404：https://uas.edu.sg/programmes/res.UseExternalLink%20?%20res.LearnMoreUrl%20:%20res.DetailPageUrl",
+    "HTTP 404：https://uas.edu.sg/the-uas-experience/in-depth-programme",
+    "HTTP 404：https://uas.edu.sg/res.UseExternalLink%20?%20res.LearnMoreUrl%20:%20res.DetailPageUrl",
+    "https://mailto:industry@uas.edu.sg/：网址不得包含账号信息",
+    "HTTP 404：https://uas.edu.sg/cdn-cgi/l/email-protection",
+    "HTTP 404：https://uas.edu.sg/eBook/Year-In-Review/2024/files/basic-html/index.html",
+    "HTTP 404：https://uas.edu.sg/eBook/Year-In-Review/2023/files/basic-html/index.html",
+    "HTTP 404：https://uas.edu.sg/programmes/res.ApplyUrl",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/about-us/year-in-review/uas-year-in-review-2024-2025.pdf?sfvrsn=e1917ef5_2",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/about-us/year-in-review/uas-year-in-review-2023-2024.pdf?sfvrsn=10f00f8e_2",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/about-us/year-in-review/uas-year-in-review-2022-2023.pdf?sfvrsn=b10fc7cf_1",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Full.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-About-us.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Message-Chairman.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Message-Vice-Chancellor.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Our-leadership.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Org-structure.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Financials.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-ESR.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-ERM.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Achievements-collaborations.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Highlights-LASALLE.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Highlights-NAFA.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Gifts.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Corp-gov-framework.pdf",
+    "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Audited-FS.pdf",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/events/2025/uas-arts-education-symposium-2025-speakers-profiles.pdf?sfvrsn=915ff732_2",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/events/2026/uas-cf26-event-calendar.pdf",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/forms/venue-hire-application-form.pdf?sfvrsn=fba0b26b_7",
+    "HTTP 404：https://uas.edu.sg/res.ApplyUrl",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/forms/uas-harassment-complaint-form.pdf?sfvrsn=7a614e30_1",
+    "HTTP 404：https://uas.edu.sg/news-and-events/newsdetails?title=UAS+Career+Fair+2025",
+    "HTTP 404：https://uas.edu.sg/news-and-events/newsdetails?title=The+University+of+the+Arts+Singapore+unveils+its+logo+%0dat+the+Inaugural+UAS+Arts+Symposium+%0d%E2%80%9CTransforming+Arts+Education%3a+Our+Collective+Mission%E2%80%9D+-+Media+coverage",
+    "HTTP 404：https://uas.edu.sg/news-and-events/newsdetails?title=%27Why+a+university+of+the+arts+now?%27+-+Professor+Chan+Heng+Chee,+for+The+Straits+Times",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/uas-symposium-10-may-2023-vc's-keynote.pdf",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/zb31may2026page4.pdf?sfvrsn=4a73418b_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/st3aug2026.pdf?sfvrsn=9d618975_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/zb8aug2026page6.pdf?sfvrsn=ec78e014_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/sm7aug2026page4.pdf?sfvrsn=52a588d6_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2024/st12aug2024-combined.pdf?sfvrsn=d1776f59_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2024/zb11aug2024page5.pdf?sfvrsn=44e57035_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/bh17aug2026pages16-17---crop.pdf?sfvrsn=8ec27ae1_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/admissions/scholarships-and-financial-aids/nac-uas-arts-scholarship-terms-and-conditions.pdf?sfvrsn=7b37dd4f_4",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2025/uas-lasalle-postgraduate-convocation-2025-annex-a.pdf?sfvrsn=53e16b5e_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2025/tm10nov2025page4.pdf?sfvrsn=121c2481_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2025/mapletree-uas-conclude-sg60-annex-a.pdf?sfvrsn=222fa2fe_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/mapletree-young-composers-initiative-performance-award-ceremony-annex-a.pdf?sfvrsn=8b859717_1",
+    "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/uas-marks-first-overseas-residency-collaboration-annex-a.pdf?sfvrsn=57f16165_1"
+  ],
+  "university": {
+    "candidateId": "university_86e3d99f4647517a",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "University of the Arts Singapore",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://uas.edu.sg",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:27:59.060Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://uas.edu.sg/",
+        "sourcePageTitle": "University of the Arts Singapore (UAS)",
+        "sourceHash": "f54d2a5918b3083d9baa085d2c09475c716d7b18d3354f96a6310ce3cea97efa",
+        "fetchedAt": "2026-10-07T04:27:59.060Z",
+        "field": "name",
+        "rawText": "University of the Arts Singapore"
+      }
+    ],
+    "institutionTypeRaw": "Government-supported arts university",
+    "selectionRank": 7,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": []
+  },
+  "programmes": [],
+  "pages": [
+    {
+      "url": "https://uas.edu.sg/",
+      "fetchedAt": "2026-10-07T04:27:59.060Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f54d2a5918b3083d9baa085d2c09475c716d7b18d3354f96a6310ce3cea97efa",
+      "title": "University of the Arts Singapore (UAS)",
+      "snapshotFile": "raw/0001-f54d2a5918b3.html"
+    },
+    {
+      "url": "https://uas.edu.sg/programmes",
+      "fetchedAt": "2026-10-07T04:28:01.220Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cbd66cc6289f96f3755beceaa78a85a3ec6d81e77188bcf01b45c4f0b4973795",
+      "title": "Degree programmes",
+      "snapshotFile": "raw/0002-cbd66cc6289f.html"
+    },
+    {
+      "url": "https://uas.edu.sg/programmes/bachelor's-programmes",
+      "fetchedAt": "2026-10-07T04:28:03.196Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "611b1d39e9fb21ef66db310e4dd8483ec3ed60e96038df7e463b667e4de0804a",
+      "title": "Bachelor's programmes",
+      "snapshotFile": "raw/0003-611b1d39e9fb.html"
+    },
+    {
+      "url": "https://uas.edu.sg/programmes/master's-programmes",
+      "fetchedAt": "2026-10-07T04:28:05.192Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bddc45b42869a029300331e0487648499905bdac49dd423d33529ee9c50d4147",
+      "title": "Master's programmes",
+      "snapshotFile": "raw/0004-bddc45b42869.html"
+    },
+    {
+      "url": "https://uas.edu.sg/the-uas-experience",
+      "fetchedAt": "2026-10-07T04:28:09.230Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c994d99af03c1f9aa30853c666fbf75e385633e9c8cb8feeb55cadb74bbd1f60",
+      "title": "The UAS Experience",
+      "snapshotFile": "raw/0005-c994d99af03c.html"
+    },
+    {
+      "url": "https://uas.edu.sg/giving-to-uas",
+      "fetchedAt": "2026-10-07T04:28:13.284Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "43afdbf6ba662b3f46fdfdd42d9f94de36504fdd02e3c88aefd4db4da6dd1ff0",
+      "title": "Giving to UAS",
+      "snapshotFile": "raw/0006-43afdbf6ba66.html"
+    },
+    {
+      "url": "https://uas.edu.sg/the-uas-experience/career-services-and-internships",
+      "fetchedAt": "2026-10-07T04:28:15.141Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "729c7ee2d20a10ef8e400e52f0dda978ff36a8de42b13d179a48af15b65cad6f",
+      "title": "Career services and internships",
+      "snapshotFile": "raw/0007-729c7ee2d20a.html"
+    },
+    {
+      "url": "https://uas.edu.sg/the-uas-experience/in-depth-module",
+      "fetchedAt": "2026-10-07T04:28:17.156Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "121b3bb933d99975bcab22a97b2908928670533de955f953d05677383af60a6f",
+      "title": "IN-depth module",
+      "snapshotFile": "raw/0008-121b3bb933d9.html"
+    },
+    {
+      "url": "https://uas.edu.sg/giving-to-uas/charles-keith-group-foundation",
+      "fetchedAt": "2026-10-07T04:28:19.165Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "72805324920facff64c11fb684ed7a281dcae62bf08c0ae1012283c7e887eabe",
+      "title": "CHARLES & KEITH Group Foundation",
+      "snapshotFile": "raw/0009-72805324920f.html"
+    },
+    {
+      "url": "https://uas.edu.sg/giving-to-uas/the-stage-emma-yong-left-behind",
+      "fetchedAt": "2026-10-07T04:28:21.179Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f538aca18afaf2b30807b729ed0bce73d029dbfb62b488fb03208d0776c98b3f",
+      "title": "The Stage Emma Yong Left Behind",
+      "snapshotFile": "raw/0010-f538aca18afa.html"
+    },
+    {
+      "url": "https://uas.edu.sg/giving-to-uas/inspiring-future-generations-through-arts-education",
+      "fetchedAt": "2026-10-07T04:28:23.166Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f651eb720d926c1fde752ccf6c17b42c1860c573483560e17fe288de03d7bccd",
+      "title": "Inspiring Future Generations through Arts Education",
+      "snapshotFile": "raw/0011-f651eb720d92.html"
+    },
+    {
+      "url": "https://uas.edu.sg/uas-alumni",
+      "fetchedAt": "2026-10-07T04:28:25.176Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "214fb682c5c3e78f047cfdc2a1d50a612d5fda7b43e496434f6754153809902a",
+      "title": "UAS alumni",
+      "snapshotFile": "raw/0012-214fb682c5c3.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us",
+      "fetchedAt": "2026-10-07T04:28:27.270Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a15f81d8f6eed89bb01dfe3dfdd8e568580a51b9aad0ed38af9a45c5178eb0fd",
+      "title": "About us",
+      "snapshotFile": "raw/0013-a15f81d8f6ee.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us/board-of-trustees",
+      "fetchedAt": "2026-10-07T04:28:29.282Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "04c53989c3e6e6e3212455218a9d90ef945169c50f6dbb63503ccaf75329e87d",
+      "title": "Board of trustees",
+      "snapshotFile": "raw/0014-04c53989c3e6.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us/key-leadership",
+      "fetchedAt": "2026-10-07T04:28:31.219Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "51e7d1ad66205d40c9ed7a331f00a33b941b6de10b361234f07b085194816115",
+      "title": "Key leadership",
+      "snapshotFile": "raw/0015-51e7d1ad6620.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us/vice-chancellor-message",
+      "fetchedAt": "2026-10-07T04:28:33.206Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "051fec73df2186b57dcc7d73cec5543928fe50f33fcaafa7dd0f18566a1cb505",
+      "title": "Vice-Chancellor's message",
+      "snapshotFile": "raw/0016-051fec73df21.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us/year-in-review",
+      "fetchedAt": "2026-10-07T04:28:35.235Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cca79637947324c2dcdd76b3fdbb37581dfb92da106d24aec761e6534066b7cd",
+      "title": "Year in Review",
+      "snapshotFile": "raw/0017-cca796379473.html"
+    },
+    {
+      "url": "https://uas.edu.sg/aboutus/year-in-review/2024-25/",
+      "fetchedAt": "2026-10-07T04:28:37.189Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "960b2884ef255aade2cb4ce94f0d7b464f3c5a5b7e56e756445e763fd5af9191",
+      "title": "Year in Review 2024/2025",
+      "snapshotFile": "raw/0018-960b2884ef25.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/open-house-uas-2026",
+      "fetchedAt": "2026-10-07T04:28:39.249Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9b9a1c4ed99ceeaa89a7b12a4d374ab34144cd73254d53e40f86e904c7f27080",
+      "title": "Events",
+      "snapshotFile": "raw/0019-9b9a1c4ed99c.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/uas-arts-symposium-2025",
+      "fetchedAt": "2026-10-07T04:28:41.269Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "564f2774f8b012bdb97af5f48ec377793eebfdb181492dbc2add7ce784ec454f",
+      "title": "Events",
+      "snapshotFile": "raw/0020-564f2774f8b0.html"
+    },
+    {
+      "url": "https://uas.edu.sg/home",
+      "fetchedAt": "2026-10-07T04:28:43.295Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0022c80ee9a0b5b61db059ef1d5f4df79e4106dce10ca2d2610d19c437f77778",
+      "title": "University of the Arts Singapore (UAS)",
+      "snapshotFile": "raw/0021-0022c80ee9a0.html"
+    },
+    {
+      "url": "https://uas.edu.sg/disclaimer",
+      "fetchedAt": "2026-10-07T04:28:45.332Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e19dd962c56fe8526e2980d20ad8585f9d4b5983f7ea3e99a64e1c6cf68f70e0",
+      "title": "Disclaimer",
+      "snapshotFile": "raw/0022-e19dd962c56f.html"
+    },
+    {
+      "url": "https://uas.edu.sg/eBook/Year-In-Review/2024/",
+      "fetchedAt": "2026-10-07T04:28:57.324Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "4dd477bac479f5dd515e477f907af814b249e2d694d66b345fca9c23451997df",
+      "title": "UAS Year In Review 2023/2024",
+      "snapshotFile": "raw/0023-4dd477bac479.html"
+    },
+    {
+      "url": "https://uas.edu.sg/eBook/Year-In-Review/2023/",
+      "fetchedAt": "2026-10-07T04:28:59.318Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "d475613e7622acc30e222ea07a80d7e50090f87a9a3207b4532fbc98a9dd7b86",
+      "title": "UAS Year In Review",
+      "snapshotFile": "raw/0024-d475613e7622.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/uas-career-fair-2026",
+      "fetchedAt": "2026-10-07T04:29:01.487Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5bb3486927c3d9716cd2870e31fa6ecddadc25ac67b0a2a7ce84db425ec984a7",
+      "title": "Events",
+      "snapshotFile": "raw/0025-5bb3486927c3.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/uas-bootcamp-2026",
+      "fetchedAt": "2026-10-07T04:29:03.390Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b36df24baf39e59bbe999c79689dce85f8585879360c77be69970b86efed99be",
+      "title": "Events",
+      "snapshotFile": "raw/0026-b36df24baf39.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/university-of-the-arts-singapore-lasalle-and-nafa-commencement-2026",
+      "fetchedAt": "2026-10-07T04:29:05.385Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a68fcaac13d59789c85ab14f29fa691e472259ff513f2bfac097c4c02651385e",
+      "title": "Events",
+      "snapshotFile": "raw/0027-a68fcaac13d5.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions",
+      "fetchedAt": "2026-10-07T04:29:53.616Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a1eb32aa57195f5c61845a7abcec8ec71b555227dfd3fd80d045c4b3cf849921",
+      "title": "Admissions",
+      "snapshotFile": "raw/0028-a1eb32aa5719.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/international-students",
+      "fetchedAt": "2026-10-07T04:29:55.615Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8ad83b15df674b2483362617ea28e51a97a56b1b98ebf2e04a3c90ce6615ca20",
+      "title": "International students",
+      "snapshotFile": "raw/0029-8ad83b15df67.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/scholarships-and-financial-assistance",
+      "fetchedAt": "2026-10-07T04:29:57.572Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9c700f955ccdfda6334983943eb7090fc0c3f1eb0ab1d56cc340a89ec913966f",
+      "title": "Scholarships and financial assistance",
+      "snapshotFile": "raw/0030-9c700f955ccd.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/faq",
+      "fetchedAt": "2026-10-07T04:29:59.599Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0688244f2f542d6377c7779a6c83bf0ce1e8485dec553029668262ca41f42984",
+      "title": "FAQ",
+      "snapshotFile": "raw/0031-0688244f2f54.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news-and-events",
+      "fetchedAt": "2026-10-07T04:30:01.812Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "70945e951f42036a4089b2309ca03f646ba94d13b3bbbc73b0e2448f2167780f",
+      "title": "News and events",
+      "snapshotFile": "raw/0032-70945e951f42.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/reimagining-resilience-flourishing-in-a-changing-world",
+      "fetchedAt": "2026-10-07T04:30:03.639Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "acdd1fb0fb33e3b1fb081f54c8b32fe37b22995556f21e74ccf42524c022ee21",
+      "title": "Events",
+      "snapshotFile": "raw/0033-acdd1fb0fb33.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/university-of-the-arts-singapore-lasalle-postgraduate-convocation-2025",
+      "fetchedAt": "2026-10-07T04:30:05.636Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "32d366f3961be2e6f610c7041a1cefbac0016352db69c594cb22650cd6164a36",
+      "title": "Events",
+      "snapshotFile": "raw/0034-32d366f3961b.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/open-house-uas-2025",
+      "fetchedAt": "2026-10-07T04:30:07.655Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b5ef73444d5241c41d36f942c893c724f27ebe86dbfc5db79e4bbb26e3022ffd",
+      "title": "Events",
+      "snapshotFile": "raw/0035-b5ef73444d52.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/uas-career-fair-2025",
+      "fetchedAt": "2026-10-07T04:30:09.662Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "50e4dcaa76a0e72ee53c88c2513df1f645ceb37429fe05d2d584bff730225907",
+      "title": "Events",
+      "snapshotFile": "raw/0036-50e4dcaa76a0.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/student-orientation-2024",
+      "fetchedAt": "2026-10-07T04:30:11.667Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1b7b3e8ae6fbd4dc9d86df93517ef86bbc4b6aa6b769ff2ed93f6597cbb121a6",
+      "title": "Events",
+      "snapshotFile": "raw/0037-1b7b3e8ae6fb.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/open-house-uas",
+      "fetchedAt": "2026-10-07T04:30:13.686Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a0d0400574af8daf70b466db9974a813e48d0a5ecdd190ec2e5bf8049842f1d9",
+      "title": "Events",
+      "snapshotFile": "raw/0038-a0d0400574af.html"
+    },
+    {
+      "url": "https://uas.edu.sg/contact-us",
+      "fetchedAt": "2026-10-07T04:30:15.699Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9d653b9098bf5d66e02c979bbffa747049717b1368214fb1b9da2363673384d9",
+      "title": "Contact us",
+      "snapshotFile": "raw/0039-9d653b9098bf.html"
+    },
+    {
+      "url": "https://uas.edu.sg/contact-us/careers",
+      "fetchedAt": "2026-10-07T04:30:17.669Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3c33f31d60ebf7ea0ccd29d910148fd16326b2f9e3fba7b8ce79af0d0ea5ce16",
+      "title": "Careers",
+      "snapshotFile": "raw/0040-3c33f31d60eb.html"
+    },
+    {
+      "url": "https://uas.edu.sg/programmes",
+      "fetchedAt": "2026-10-07T06:41:02.348Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cbd66cc6289f96f3755beceaa78a85a3ec6d81e77188bcf01b45c4f0b4973795",
+      "title": "Degree programmes",
+      "snapshotFile": "raw/0001-cbd66cc6289f.html"
+    },
+    {
+      "url": "https://uas.edu.sg/programmes/bachelor's-programmes",
+      "fetchedAt": "2026-10-07T06:41:04.337Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "611b1d39e9fb21ef66db310e4dd8483ec3ed60e96038df7e463b667e4de0804a",
+      "title": "Bachelor's programmes",
+      "snapshotFile": "raw/0002-611b1d39e9fb.html"
+    },
+    {
+      "url": "https://uas.edu.sg/programmes/master's-programmes",
+      "fetchedAt": "2026-10-07T06:41:06.369Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bddc45b42869a029300331e0487648499905bdac49dd423d33529ee9c50d4147",
+      "title": "Master's programmes",
+      "snapshotFile": "raw/0003-bddc45b42869.html"
+    },
+    {
+      "url": "https://uas.edu.sg/",
+      "fetchedAt": "2026-10-07T06:41:10.236Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f54d2a5918b3083d9baa085d2c09475c716d7b18d3354f96a6310ce3cea97efa",
+      "title": "University of the Arts Singapore (UAS)",
+      "snapshotFile": "raw/0004-f54d2a5918b3.html"
+    },
+    {
+      "url": "https://uas.edu.sg/the-uas-experience",
+      "fetchedAt": "2026-10-07T06:41:12.355Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "34823e4ed603286f8ce5b1f56b03e0ff9fde56aac1a9348a31ec7a6f7580bc98",
+      "title": "The UAS Experience",
+      "snapshotFile": "raw/0005-34823e4ed603.html"
+    },
+    {
+      "url": "https://uas.edu.sg/giving-to-uas",
+      "fetchedAt": "2026-10-07T06:41:16.445Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "337fd2af0ca3d7a02f585a7b6ba57c66a5da259a2f8057902d25e0f6a6690f67",
+      "title": "Giving to UAS",
+      "snapshotFile": "raw/0006-337fd2af0ca3.html"
+    },
+    {
+      "url": "https://uas.edu.sg/the-uas-experience/career-services-and-internships",
+      "fetchedAt": "2026-10-07T06:41:18.385Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "232e20e04b3537cf33e67f1a8ad6c85b55747c09d1db0532dddb9335f47ce2d8",
+      "title": "Career services and internships",
+      "snapshotFile": "raw/0007-232e20e04b35.html"
+    },
+    {
+      "url": "https://uas.edu.sg/the-uas-experience/in-depth-module",
+      "fetchedAt": "2026-10-07T06:41:20.326Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "121b3bb933d99975bcab22a97b2908928670533de955f953d05677383af60a6f",
+      "title": "IN-depth module",
+      "snapshotFile": "raw/0008-121b3bb933d9.html"
+    },
+    {
+      "url": "https://uas.edu.sg/giving-to-uas/charles-keith-group-foundation",
+      "fetchedAt": "2026-10-07T06:41:22.348Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "72805324920facff64c11fb684ed7a281dcae62bf08c0ae1012283c7e887eabe",
+      "title": "CHARLES & KEITH Group Foundation",
+      "snapshotFile": "raw/0009-72805324920f.html"
+    },
+    {
+      "url": "https://uas.edu.sg/giving-to-uas/the-stage-emma-yong-left-behind",
+      "fetchedAt": "2026-10-07T06:41:24.366Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f538aca18afaf2b30807b729ed0bce73d029dbfb62b488fb03208d0776c98b3f",
+      "title": "The Stage Emma Yong Left Behind",
+      "snapshotFile": "raw/0010-f538aca18afa.html"
+    },
+    {
+      "url": "https://uas.edu.sg/giving-to-uas/inspiring-future-generations-through-arts-education",
+      "fetchedAt": "2026-10-07T06:41:26.344Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f651eb720d926c1fde752ccf6c17b42c1860c573483560e17fe288de03d7bccd",
+      "title": "Inspiring Future Generations through Arts Education",
+      "snapshotFile": "raw/0011-f651eb720d92.html"
+    },
+    {
+      "url": "https://uas.edu.sg/uas-alumni",
+      "fetchedAt": "2026-10-07T06:41:28.362Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "214fb682c5c3e78f047cfdc2a1d50a612d5fda7b43e496434f6754153809902a",
+      "title": "UAS alumni",
+      "snapshotFile": "raw/0012-214fb682c5c3.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us",
+      "fetchedAt": "2026-10-07T06:41:30.450Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a15f81d8f6eed89bb01dfe3dfdd8e568580a51b9aad0ed38af9a45c5178eb0fd",
+      "title": "About us",
+      "snapshotFile": "raw/0013-a15f81d8f6ee.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us/board-of-trustees",
+      "fetchedAt": "2026-10-07T06:41:32.484Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "04c53989c3e6e6e3212455218a9d90ef945169c50f6dbb63503ccaf75329e87d",
+      "title": "Board of trustees",
+      "snapshotFile": "raw/0014-04c53989c3e6.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us/key-leadership",
+      "fetchedAt": "2026-10-07T06:41:34.403Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a8040aab88ee5900fc8f43dea4273608fb0f7b647f7d7a787050f0304eddd1ef",
+      "title": "Key leadership",
+      "snapshotFile": "raw/0015-a8040aab88ee.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us/vice-chancellor-message",
+      "fetchedAt": "2026-10-07T06:41:36.401Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "051fec73df2186b57dcc7d73cec5543928fe50f33fcaafa7dd0f18566a1cb505",
+      "title": "Vice-Chancellor's message",
+      "snapshotFile": "raw/0016-051fec73df21.html"
+    },
+    {
+      "url": "https://uas.edu.sg/about-us/year-in-review",
+      "fetchedAt": "2026-10-07T06:41:38.479Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cca79637947324c2dcdd76b3fdbb37581dfb92da106d24aec761e6534066b7cd",
+      "title": "Year in Review",
+      "snapshotFile": "raw/0017-cca796379473.html"
+    },
+    {
+      "url": "https://uas.edu.sg/home",
+      "fetchedAt": "2026-10-07T06:41:42.441Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "eca8b0c14ddb986fbe5b18c00b102ad05a904cc2de60a0e159e2d6c4a52d596a",
+      "title": "University of the Arts Singapore (UAS)",
+      "snapshotFile": "raw/0018-eca8b0c14ddb.html"
+    },
+    {
+      "url": "https://uas.edu.sg/disclaimer",
+      "fetchedAt": "2026-10-07T06:41:44.463Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e19dd962c56fe8526e2980d20ad8585f9d4b5983f7ea3e99a64e1c6cf68f70e0",
+      "title": "Disclaimer",
+      "snapshotFile": "raw/0019-e19dd962c56f.html"
+    },
+    {
+      "url": "https://uas.edu.sg/aboutus/year-in-review/2024-25/",
+      "fetchedAt": "2026-10-07T06:41:46.456Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "960b2884ef255aade2cb4ce94f0d7b464f3c5a5b7e56e756445e763fd5af9191",
+      "title": "Year in Review 2024/2025",
+      "snapshotFile": "raw/0020-960b2884ef25.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/open-house-uas-2026",
+      "fetchedAt": "2026-10-07T06:41:48.483Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9b9a1c4ed99ceeaa89a7b12a4d374ab34144cd73254d53e40f86e904c7f27080",
+      "title": "Events",
+      "snapshotFile": "raw/0021-9b9a1c4ed99c.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/uas-arts-symposium-2025",
+      "fetchedAt": "2026-10-07T06:41:50.490Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f83c44ef3991d762dc9489296fac0373a3db2ad5b80cdf5d2b8eb44c116b4db0",
+      "title": "Events",
+      "snapshotFile": "raw/0022-f83c44ef3991.html"
+    },
+    {
+      "url": "https://uas.edu.sg/eBook/Year-In-Review/2024/",
+      "fetchedAt": "2026-10-07T06:42:00.484Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "4dd477bac479f5dd515e477f907af814b249e2d694d66b345fca9c23451997df",
+      "title": "UAS Year In Review 2023/2024",
+      "snapshotFile": "raw/0023-4dd477bac479.html"
+    },
+    {
+      "url": "https://uas.edu.sg/eBook/Year-In-Review/2023/",
+      "fetchedAt": "2026-10-07T06:42:02.478Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "d475613e7622acc30e222ea07a80d7e50090f87a9a3207b4532fbc98a9dd7b86",
+      "title": "UAS Year In Review",
+      "snapshotFile": "raw/0024-d475613e7622.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/uas-career-fair-2026",
+      "fetchedAt": "2026-10-07T06:42:04.542Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9b84e822056c4dd35cb02aabbdf1b52df5352634942833962de946794339c0f9",
+      "title": "Events",
+      "snapshotFile": "raw/0025-9b84e822056c.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/uas-bootcamp-2026",
+      "fetchedAt": "2026-10-07T06:42:06.538Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "99eb953caebe58a518f659d4e96ba43184a19718d2bdbbf7c947433f11927e43",
+      "title": "Events",
+      "snapshotFile": "raw/0026-99eb953caebe.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/university-of-the-arts-singapore-lasalle-and-nafa-commencement-2026",
+      "fetchedAt": "2026-10-07T06:42:08.553Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a68fcaac13d59789c85ab14f29fa691e472259ff513f2bfac097c4c02651385e",
+      "title": "Events",
+      "snapshotFile": "raw/0027-a68fcaac13d5.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions",
+      "fetchedAt": "2026-10-07T06:42:56.711Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b50752aef40d35e24bfb2f41a373cb8c4823bb861a827b81bb2a5e2af27dd186",
+      "title": "Admissions",
+      "snapshotFile": "raw/0028-b50752aef40d.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/international-students",
+      "fetchedAt": "2026-10-07T06:42:58.717Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8ad83b15df674b2483362617ea28e51a97a56b1b98ebf2e04a3c90ce6615ca20",
+      "title": "International students",
+      "snapshotFile": "raw/0029-8ad83b15df67.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/scholarships-and-financial-assistance",
+      "fetchedAt": "2026-10-07T06:43:00.674Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9c700f955ccdfda6334983943eb7090fc0c3f1eb0ab1d56cc340a89ec913966f",
+      "title": "Scholarships and financial assistance",
+      "snapshotFile": "raw/0030-9c700f955ccd.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/faq",
+      "fetchedAt": "2026-10-07T06:43:02.693Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3b20c4b586554c864d39cfc5f48e75a10414f6dadc2fafc64753aaeb9254c6ae",
+      "title": "FAQ",
+      "snapshotFile": "raw/0031-3b20c4b58655.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news-and-events",
+      "fetchedAt": "2026-10-07T06:43:04.943Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "70945e951f42036a4089b2309ca03f646ba94d13b3bbbc73b0e2448f2167780f",
+      "title": "News and events",
+      "snapshotFile": "raw/0032-70945e951f42.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/reimagining-resilience-flourishing-in-a-changing-world",
+      "fetchedAt": "2026-10-07T06:43:06.714Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "acdd1fb0fb33e3b1fb081f54c8b32fe37b22995556f21e74ccf42524c022ee21",
+      "title": "Events",
+      "snapshotFile": "raw/0033-acdd1fb0fb33.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/university-of-the-arts-singapore-lasalle-postgraduate-convocation-2025",
+      "fetchedAt": "2026-10-07T06:43:08.715Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "32d366f3961be2e6f610c7041a1cefbac0016352db69c594cb22650cd6164a36",
+      "title": "Events",
+      "snapshotFile": "raw/0034-32d366f3961b.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/open-house-uas-2025",
+      "fetchedAt": "2026-10-07T06:43:10.720Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b5ef73444d5241c41d36f942c893c724f27ebe86dbfc5db79e4bbb26e3022ffd",
+      "title": "Events",
+      "snapshotFile": "raw/0035-b5ef73444d52.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/uas-career-fair-2025",
+      "fetchedAt": "2026-10-07T06:43:12.723Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "53a5260154f1b1ec6abb7fec3b58c36c6d7a910d2e213e66d88580832bb52fb1",
+      "title": "Events",
+      "snapshotFile": "raw/0036-53a5260154f1.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/student-orientation-2024",
+      "fetchedAt": "2026-10-07T06:43:14.734Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1b7b3e8ae6fbd4dc9d86df93517ef86bbc4b6aa6b769ff2ed93f6597cbb121a6",
+      "title": "Events",
+      "snapshotFile": "raw/0037-1b7b3e8ae6fb.html"
+    },
+    {
+      "url": "https://uas.edu.sg/events/open-house-uas",
+      "fetchedAt": "2026-10-07T06:43:16.751Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a0d0400574af8daf70b466db9974a813e48d0a5ecdd190ec2e5bf8049842f1d9",
+      "title": "Events",
+      "snapshotFile": "raw/0038-a0d0400574af.html"
+    },
+    {
+      "url": "https://uas.edu.sg/contact-us",
+      "fetchedAt": "2026-10-07T06:43:18.784Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6be6794f86835d23c2b0b31734612acc2268c8cebb21782d6cef32984e2a65c2",
+      "title": "Contact us",
+      "snapshotFile": "raw/0039-6be6794f8683.html"
+    },
+    {
+      "url": "https://uas.edu.sg/contact-us/careers",
+      "fetchedAt": "2026-10-07T06:43:20.786Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "76f9ca503f01d26b6eaad338aa2db5c553f347f7d3bbdd80cf153044f645af20",
+      "title": "Careers",
+      "snapshotFile": "raw/0040-76f9ca503f01.html"
+    },
+    {
+      "url": "https://uas.edu.sg/contact-us/venue-for-hire",
+      "fetchedAt": "2026-10-07T06:43:22.785Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a5042c9e488632bc7bba9454c1aea9a70571693dc91d9b2d908f887c8e1becf3",
+      "title": "Venue for hire & long term lease",
+      "snapshotFile": "raw/0041-a5042c9e4886.html"
+    },
+    {
+      "url": "https://uas.edu.sg/contact-us/anti-harassment-policy",
+      "fetchedAt": "2026-10-07T06:43:28.783Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "11d217379e3e26ca9381b361cec8deda6122fc91142e1d5db8066411897541c5",
+      "title": "Anti-harassment policy",
+      "snapshotFile": "raw/0042-11d217379e3e.html"
+    },
+    {
+      "url": "https://uas.edu.sg/contact-us/whistleblowing-policy",
+      "fetchedAt": "2026-10-07T06:43:32.925Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ff0f4347bcc9f7888d565b18afa56dd07e7e214926cdcd1bd9cdcda51f4ac995",
+      "title": "Whistleblowing policy",
+      "snapshotFile": "raw/0043-ff0f4347bcc9.html"
+    },
+    {
+      "url": "https://uas.edu.sg/privacy",
+      "fetchedAt": "2026-10-07T06:43:34.830Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9fcb7f7f895ab1496555df593ab10a44329dea2cff4d21e4ec4870632361d33f",
+      "title": "Privacy",
+      "snapshotFile": "raw/0044-9fcb7f7f895a.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/celebrating-singapore-pioneering-cohort-of-arts-university-graduates-press-release",
+      "fetchedAt": "2026-10-07T06:43:38.993Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "21a1269575406bba2f6b27e3b88fd0d2801b325401191c50b7c86d5c5fc27cfe",
+      "title": "News",
+      "snapshotFile": "raw/0045-21a126957540.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/art-in-the-age-of-ai-qs-insights-magazine",
+      "fetchedAt": "2026-10-07T06:43:40.942Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4e8abe3f1a42ccdd02dbf2d3761b4965397a5fbeb7b581e6551cafc84e1482da",
+      "title": "News",
+      "snapshotFile": "raw/0046-4e8abe3f1a42.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/arts-university-sees-growing-admission-demand-plans-more-places-and-new-programmes-media-coverage",
+      "fetchedAt": "2026-10-07T06:43:42.960Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cde8a0fe8ea8e035472db1d06f932c275436dfc5cad7aa15b9cd831b9384120e",
+      "title": "News",
+      "snapshotFile": "raw/0047-cde8a0fe8ea8.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/university-of-the-arts-singapore-marks-first-batch-of-graduates-media-coverage",
+      "fetchedAt": "2026-10-07T06:43:44.964Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "98e37ed3baeaa894383f7703160ef64b4602acb480802a45247f705d1d5f714d",
+      "title": "News",
+      "snapshotFile": "raw/0048-98e37ed3baea.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/desmond-lee-arts-education-more-important-than-ever-in-the-ai-era",
+      "fetchedAt": "2026-10-07T06:43:46.973Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7587d7d9081e456d3499dc3c99167ac01cee54ef48a164239c430ced400804b4",
+      "title": "News",
+      "snapshotFile": "raw/0049-7587d7d9081e.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/diversity-calling-the-straits-times",
+      "fetchedAt": "2026-10-07T06:43:48.980Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6b3e62ce6ce93e6f8660bde51a5692c3b9186ce2f4d85fc65edb1045e1fa3a76",
+      "title": "News",
+      "snapshotFile": "raw/0050-6b3e62ce6ce9.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/enthusiastic-response-from-youths-in-uas-first-intake-to-pursue-their-artistic-dreams-lianhe-zaobao",
+      "fetchedAt": "2026-10-07T06:43:50.967Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a38aa6f961c457976d88df5ded424cffc0c4c4fa051a0ac694777d4056d36ebb",
+      "title": "News",
+      "snapshotFile": "raw/0051-a38aa6f961c4.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/penerima-biasiswa-ingin-perluas-wacana-budaya-warisan-dalam-masyarakat-berita-harian",
+      "fetchedAt": "2026-10-07T06:43:56.976Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "51e352038f9218786f4d5195203cffbded6a378c28eff980555c0c6c8d0ff9d6",
+      "title": "News",
+      "snapshotFile": "raw/0052-51e352038f92.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/scholarships-and-financial-assistance/shein-uas-bursary",
+      "fetchedAt": "2026-10-07T06:43:58.885Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c675ce96a7dbc9f2216a444c61a903c0647f2a6bddac72289815038f9fd23327",
+      "title": "SHEIN-UAS Bursary",
+      "snapshotFile": "raw/0053-c675ce96a7db.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/scholarships-and-financial-assistance/charles-keith-creative-talent-scholarship",
+      "fetchedAt": "2026-10-07T06:44:00.882Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a94d078a32e18cc5287e14c1250834932fb9721ca54845db3ea445305f1c3113",
+      "title": "CHARLES & KEITH Creative Talent Scholarship",
+      "snapshotFile": "raw/0054-a94d078a32e1.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/scholarships-and-financial-assistance/emma-yong-bursary",
+      "fetchedAt": "2026-10-07T06:44:02.883Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1ac2132a083c548e140d1ec7b69dec60171293d7e80f1f7b12ba918bd3c69502",
+      "title": "Emma Yong Bursary",
+      "snapshotFile": "raw/0055-1ac2132a083c.html"
+    },
+    {
+      "url": "https://uas.edu.sg/admissions/scholarships-and-financial-assistance/nac-uas-scholarships",
+      "fetchedAt": "2026-10-07T06:44:04.900Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2daaf8d9603ad803630376cf60c8b6d4323fa9e4b41ec0664795905ea2622a8c",
+      "title": "NAC-UAS Scholarships",
+      "snapshotFile": "raw/0056-2daaf8d9603a.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/university-of-the-arts-singapore-lasalle-postgraduate-convocation-2025-press-release",
+      "fetchedAt": "2026-10-07T06:44:07.016Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9b8fc06423478f51287f2c392785e9dcf264b375df9aec9a468cd5723808e0a3",
+      "title": "News",
+      "snapshotFile": "raw/0057-9b8fc0642347.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/mapletree-and-uas-conclude-sg60-with-inaugural-young-composers-initiative-2025-press-release",
+      "fetchedAt": "2026-10-07T06:44:09.012Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "eae3e436b474526bfe8838516019e1fae1ba2ce17cef8dc8ef113445421ccc57",
+      "title": "News",
+      "snapshotFile": "raw/0058-eae3e436b474.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/student-composers-to-be-presented-at-inaugural-mapletree-young-composers-initiative-performance-press-release",
+      "fetchedAt": "2026-10-07T06:44:11.013Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d91ff7bfa70164c76b07b07bf29c01e3f916b1a429b88b60727ff532300c3ce3",
+      "title": "News",
+      "snapshotFile": "raw/0059-d91ff7bfa701.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/uas-marks-first-overseas-residency-collaboration-at-china's-artfield-nanhai-guangdong-press-release",
+      "fetchedAt": "2026-10-07T06:44:13.019Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a054db5cad15ce7115a5bda425219c94734ee571267a77fbb7a801309707d35f",
+      "title": "News",
+      "snapshotFile": "raw/0060-a054db5cad15.html"
+    },
+    {
+      "url": "https://uas.edu.sg/news/empowering-new-creatives-mapletree-and-uas-launch-first-sg60-arts-initiatives-for-student-composers-and-filmmakers-press-release",
+      "fetchedAt": "2026-10-07T06:44:15.029Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "09a2c4c8393677d7fa65f2605ebe94908c23163ab2adb315f342a9e7294655a3",
+      "title": "News",
+      "snapshotFile": "raw/0061-09a2c4c83936.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:44:43.051Z",
+    "seedUrls": [
+      "https://uas.edu.sg/programmes",
+      "https://uas.edu.sg/programmes/bachelor's-programmes",
+      "https://uas.edu.sg/programmes/master's-programmes",
+      "https://uas.edu.sg/programmes/res.ApplyUrl",
+      "https://uas.edu.sg/programmes/res.UseExternalLink%20?%20res.LearnMoreUrl%20:%20res.DetailPageUrl"
+    ],
+    "pages": 61
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:34.913Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:29:52.880Z",
+  "sourceKey": "james-cook-university-singapore",
+  "sourceName": "James Cook University Singapore",
+  "warnings": [
+    "https://www.jcu.edu.sg/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:43:58.533Z"
+  }
+}

@@ -1,0 +1,910 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-birmingham",
+    "displayName": "University of Birmingham",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.birmingham.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.birmingham.ac.uk",
+      "birmingham.ac.uk"
+    ],
+    "discoveredUrls": 127,
+    "parsedProgrammes": 42,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/apply/flexible-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/accounting-and-finance-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/aerospace-engineering-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/anthropology-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/civil-engineering-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/classics-ancient-history-and-archaeology-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/computer-science-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/dentistry-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/drama-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/economics-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/education-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/electronic-electrical-and-systems-engineering-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/english-language-and-linguistics-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/english-literature-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/global-environmental-change-and-sustainability-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/film-creative-writing-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/engineering-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/geography-urban-planning-and-environmental-sciences-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/geology-and-earth-sciences-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/golf-management-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/history-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/history-of-art-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/human-sciences-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/law-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/liberal-arts-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/materials-science-and-engineering-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/mathematics-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/mechanical-engineering-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/medicine-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/modern-languages-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/music-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/philosophy-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/physics-and-astronomy-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/physiotherapy-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/politics-international-relations-and-development-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/pre-sessional-english-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/psychology-and-neuroscience-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/social-policy-sociology-and-criminology-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/social-work-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/sport-sciences-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/theology-and-religion-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/accounting-and-finance-courses/accounting-and-finance-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:57.538Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/accounting-and-finance-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:59.396Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/accounting-and-finance-courses/accounting-and-finance-with-business-analytics-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:01.575Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/accounting-and-finance-with-foundation-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:03.397Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/money-banking-and-finance-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:05.394Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/money-banking-and-finance-with-foundation-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:07.417Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/economics-courses/money-banking-and-finance-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:09.597Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/aerospace-engineering-courses/aerospace-engineering-beng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:11.598Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/aerospace-engineering-courses/aerospace-engineering-meng",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:13.617Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/engineering-courses/engineering-physical-sciences-foundation-year",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:15.606Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/anthropology-courses/social-anthropology-ba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:17.645Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biochemistry-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:19.640Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biochemistry-with-professional-placement-msci",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:21.621Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biological-sciences-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:23.626Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biological-sciences-with-professional-placement-msci",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:25.708Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biotechnology-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:27.823Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biotechnology-with-placement-year-msci",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:29.650Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biochemistry-with-an-international-year-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:31.672Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biochemistry-with-study-in-continental-europe-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:33.683Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biological-sciences-with-an-international-year-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:35.676Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/biosciences-courses/biological-sciences-with-study-in-continental-europe-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:37.680Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:39.668Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-marketing-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:41.499Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-business-analytics-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:43.546Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-human-resource-management-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:45.541Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-communications-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:47.536Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-operations-and-supply-chain-management-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:49.587Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/mathematics-courses/mathematics-business-management-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:51.758Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-business-management-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:53.737Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-year-in-industry-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:55.761Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-industrial-placement-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:57.605Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-business-analytics-and-year-in-industry-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:59.556Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-marketing-and-year-in-industry-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:12:01.571Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-comms-and-year-in-industry-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:12:03.589Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/business-management-with-human-resource-management-with-year-in-industry-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:12:05.586Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/bsc-business-management-with-operations-and-supply-chain-management-and-year-in-industry-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-marketing-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-psychology-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-economics-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-finance-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-marketing-industrial-placement-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-foundation-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-economics-with-foundation-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-marketing-and-foundation-year-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/business-and-finance-courses/business-management-with-finance-with-foundation-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/chemical-engineering-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/chemical-engineering-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/chemical-engineering-industrial-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/chemical-engineering-industrial-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/chemical-engineering-international-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/chemical-engineering-international-industrial-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/energy-engineering-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/energy-engineering-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/energy-engineering-industrial-study-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemical-engineering-courses/energy-engineering-industrial-study-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-msci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-industry-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-industry-msci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-study-abroad-msci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-modern-language-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-modern-language-msci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-medicinal-drug-discovery-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-medicinal-chemistry-drug-discovery-msci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-sustainability-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-sustainability-msci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-business-management-msci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/chemistry-courses/chemistry-foundation-year",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/geology-and-earth-sciences-courses/natural-sciences-bsc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/geology-and-earth-sciences-courses/natural-sciences-msci",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/civil-engineering-courses/civil-engineering-beng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/civil-engineering-courses/civil-engineering-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/civil-engineering-courses/civil-engineering-industrial-experience-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/civil-engineering-courses/civil-engineering-industrial-year-meng",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/civil-engineering-courses/geotechnical-engineering-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:05:50.261Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/dubai/study/undergraduate/subjects/computer-science-courses/computer-science-bsc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:06:13.795Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/electronic-electrical-and-systems-engineering-courses/electrical-power-systems-advanced-research-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:09:33.125Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/health-services-management-courses/health-care-policy-and-management-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:09:47.203Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/geography-earth-and-environmental-sciences-courses/health-safety-and-environment-management-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:05.193Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/food-safety-courses/food-inspection-module",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:13.237Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-birmingham",
+      "url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/geography-earth-and-environmental-sciences-courses/public-and-environmental-health-sciences-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:35.670Z",
+      "error": null
+    }
+  ]
+}

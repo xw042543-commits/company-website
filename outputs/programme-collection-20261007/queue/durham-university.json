@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "durham-university",
+    "displayName": "Durham University",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.durham.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.durham.ac.uk",
+      "durham.ac.uk"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.durham.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

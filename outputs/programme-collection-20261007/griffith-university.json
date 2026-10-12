@@ -1,0 +1,17 @@
+{
+  "region": "australia",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:01:38.518Z",
+  "sourceKey": "griffith-university",
+  "sourceName": "Griffith University",
+  "warnings": [
+    "https://www.griffith.edu.au/study：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:03:57.361Z"
+  }
+}

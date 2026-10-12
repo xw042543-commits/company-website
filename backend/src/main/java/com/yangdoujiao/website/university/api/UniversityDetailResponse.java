@@ -15,9 +15,10 @@ public record UniversityDetailResponse(
         String cityEn,
         String descriptionZh,
         String descriptionEn,
-        boolean popular
+        boolean popular,
+        String imageUrl
 ) {
-    public static UniversityDetailResponse from(University university) {
+    public static UniversityDetailResponse from(University university, String imageUrl) {
         Country country = university.getCountryReference();
         return new UniversityDetailResponse(
                 university.getId(),
@@ -31,7 +32,8 @@ public record UniversityDetailResponse(
                 university.getCityEn(),
                 university.getDescriptionZh(),
                 university.getDescriptionEn(),
-                university.isPopular()
+                university.isPopular(),
+                imageUrl
         );
     }
 }

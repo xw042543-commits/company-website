@@ -1,5 +1,6 @@
-import { buildUniversitySearchPath, type Query } from "./site.ts";
+import { buildUniversitySearchPath, formatEnglishDisplayText, type Query } from "./site.ts";
 import type { FilterOption, FilterOptions } from "./filter-options-api.ts";
+import { requestInternalApi } from "./internal-api-request.ts";
 
 export type MatchedProgramme = {
   id: number;
@@ -17,6 +18,7 @@ export type MatchedProgramme = {
   durationDisplay: string | null;
   intakeDisplayTexts: string[];
   tuitionDisplay: string | null;
+  imageUrl?: string | null;
 };
 
 export type UniversitySearchItem = {
@@ -32,6 +34,7 @@ export type UniversitySearchItem = {
   popular: boolean;
   matchedProgrammeCount: number;
   matchedProgrammes: MatchedProgramme[];
+  imageUrl?: string | null;
 };
 
 export type UniversitySearchPage = {
@@ -55,6 +58,7 @@ export type UniversityDetail = {
   descriptionZh: string | null;
   descriptionEn: string | null;
   popular: boolean;
+  imageUrl?: string | null;
 };
 
 export type UniversityProgramme = {
@@ -82,6 +86,9 @@ export type UniversityProgramme = {
   tuitionDisplay: string | null;
   intakeMonths: string[];
   intakeDisplayTexts: string[];
+  categoryDisplayZh?: string;
+  categoryDisplayEn?: string;
+  imageUrl?: string | null;
 };
 
 export type UniversityProgrammePage = {
@@ -105,6 +112,11 @@ export type UniversityProgrammesRequestResult =
   | { status: "ready"; page: UniversityProgrammePage }
   | { status: "error" };
 
+export type UniversityProgrammeRequestResult =
+  | { status: "ready"; programme: UniversityProgramme }
+  | { status: "not-found" }
+  | { status: "error" };
+
 export type SchoolSummaryData = {
   id: string;
   slug: string;
@@ -112,11 +124,13 @@ export type SchoolSummaryData = {
   nameZh?: string;
   nameEn?: string;
   country: string;
+  countryCode?: string;
   countryZh?: string;
   countryEn?: string;
   city?: string;
   cityZh?: string;
   cityEn?: string;
+  logoSrc?: string;
   matchedProgrammeCount: number;
   matchedCourses: Array<{
     id: string;
@@ -144,6 +158,7 @@ export type UniversityDetailView = {
     duration: string;
     tuition: string;
     intakes: string;
+    imageUrl?: string;
   }>;
 };
 
@@ -184,7 +199,8 @@ function isMatchedProgramme(value: unknown): value is MatchedProgramme {
     && isNullableNumber(value.tuitionTotalRmbMax)
     && isNullableString(value.durationDisplay)
     && isStringArray(value.intakeDisplayTexts)
-    && isNullableString(value.tuitionDisplay);
+    && isNullableString(value.tuitionDisplay)
+    && (value.imageUrl === undefined || isNullableString(value.imageUrl));
 }
 
 function isUniversitySearchItem(value: unknown): value is UniversitySearchItem {
@@ -203,7 +219,8 @@ function isUniversitySearchItem(value: unknown): value is UniversitySearchItem {
     && typeof value.popular === "boolean"
     && isInteger(value.matchedProgrammeCount)
     && Array.isArray(value.matchedProgrammes)
-    && value.matchedProgrammes.every(isMatchedProgramme);
+    && value.matchedProgrammes.every(isMatchedProgramme)
+    && (value.imageUrl === undefined || isNullableString(value.imageUrl));
 }
 
 function isUniversityProgramme(value: unknown): value is UniversityProgramme {
@@ -232,7 +249,12 @@ function isUniversityProgramme(value: unknown): value is UniversityProgramme {
     && isNullableString(value.exchangeRateDate)
     && isNullableString(value.tuitionDisplay)
     && isStringArray(value.intakeMonths)
-    && isStringArray(value.intakeDisplayTexts);
+    && isStringArray(value.intakeDisplayTexts)
+    && (value.imageUrl === undefined || isNullableString(value.imageUrl));
+}
+
+export function parseUniversityProgramme(payload: unknown): UniversityProgramme | null {
+  return isUniversityProgramme(payload) ? payload : null;
 }
 
 export function parseUniversitySearchPage(payload: unknown): UniversitySearchPage | null {
@@ -268,7 +290,8 @@ export function parseUniversityDetail(payload: unknown): UniversityDetail | null
     || !isNullableString(payload.cityEn)
     || !isNullableString(payload.descriptionZh)
     || !isNullableString(payload.descriptionEn)
-    || typeof payload.popular !== "boolean") {
+    || typeof payload.popular !== "boolean"
+    || (payload.imageUrl !== undefined && !isNullableString(payload.imageUrl))) {
     return null;
   }
 
@@ -305,7 +328,7 @@ export async function searchUniversities(
 
   try {
     const url = new URL(buildUniversitySearchPath(query), baseUrl);
-    const response = await request(url, {
+    const response = await requestInternalApi(request, url, {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });
@@ -327,7 +350,7 @@ export async function getUniversityDetail(
 
   try {
     const path = `/api/v1/universities/${encodeURIComponent(slug)}`;
-    const response = await request(new URL(path, baseUrl), {
+    const response = await requestInternalApi(request, new URL(path, baseUrl), {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });
@@ -353,7 +376,7 @@ export async function getUniversityProgrammes(
     const searchUrl = new URL(buildUniversitySearchPath(query), baseUrl);
     const path = `/api/v1/universities/${encodeURIComponent(slug)}/programmes`;
     const url = new URL(`${path}${searchUrl.search}`, baseUrl);
-    const response = await request(url, {
+    const response = await requestInternalApi(request, url, {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });
@@ -366,20 +389,45 @@ export async function getUniversityProgrammes(
   }
 }
 
+export async function getUniversityProgramme(
+  baseUrl: string | undefined,
+  universitySlug: string,
+  programmeIdentifier: string,
+  request: typeof fetch = fetch,
+): Promise<UniversityProgrammeRequestResult> {
+  if (!baseUrl || !universitySlug.trim() || !programmeIdentifier.trim()) return { status: "error" };
+
+  try {
+    const path = `/api/v1/universities/${encodeURIComponent(universitySlug)}/programmes/${encodeURIComponent(programmeIdentifier)}`;
+    const response = await requestInternalApi(request, new URL(path, baseUrl), {
+      cache: "no-store",
+      signal: AbortSignal.timeout(5000),
+    });
+    if (response.status === 404) return { status: "not-found" };
+    if (!response.ok) return { status: "error" };
+    const programme = parseUniversityProgramme(await response.json());
+    return programme ? { status: "ready", programme } : { status: "error" };
+  } catch {
+    return { status: "error" };
+  }
+}
+
 function preferredText(
   locale: "zh" | "en",
   zh: string | null,
   en: string | null,
   fallback: string,
 ) {
-  return locale === "zh"
+  const selected = locale === "zh"
     ? zh?.trim() || en?.trim() || fallback
-    : en?.trim() || zh?.trim() || fallback;
+    : en?.trim() || fallback;
+  return locale === "en" ? formatEnglishDisplayText(selected) : selected;
 }
 
 export function toSchoolSummary(
   item: UniversitySearchItem,
   locale: "zh" | "en",
+  options?: FilterOptions,
 ): SchoolSummaryData {
   const name = preferredText(locale, item.nameZh, item.nameEn, item.slug);
   const country = preferredText(
@@ -397,11 +445,13 @@ export function toSchoolSummary(
     ...(item.nameZh ? { nameZh: item.nameZh } : {}),
     ...(item.nameEn ? { nameEn: item.nameEn } : {}),
     country,
+    ...(item.countryCode ? { countryCode: item.countryCode } : {}),
     ...(item.countryNameZh ? { countryZh: item.countryNameZh } : {}),
     ...(item.countryNameEn ? { countryEn: item.countryNameEn } : {}),
     ...(city ? { city } : {}),
     ...(item.cityZh ? { cityZh: item.cityZh } : {}),
     ...(item.cityEn ? { cityEn: item.cityEn } : {}),
+    ...(item.imageUrl ? { logoSrc: item.imageUrl } : {}),
     matchedProgrammeCount: item.matchedProgrammeCount,
     matchedCourses: item.matchedProgrammes.slice(0, 3).map((programme) => ({
       id: String(programme.id),
@@ -411,9 +461,15 @@ export function toSchoolSummary(
         programme.nameEn,
         programme.programmeCode,
       ),
-      ...(programme.studyLevelCode ? { level: programme.studyLevelCode } : {}),
+      ...(programme.studyLevelCode
+        ? { level: localizedOption(options?.studyLevels, programme.studyLevelCode, locale) }
+        : {}),
       ...(programme.languageCodes.length
-        ? { language: programme.languageCodes.join(", ") }
+        ? {
+          language: programme.languageCodes
+            .map((code) => localizedOption(options?.languages, code, locale))
+            .join(", "),
+        }
         : {}),
     })),
   };
@@ -426,7 +482,7 @@ export function toUniversityDetailView(
   options?: FilterOptions,
 ): UniversityDetailView {
   const name = preferredText(locale, university.nameZh, university.nameEn, university.slug);
-  const secondaryName = locale === "zh" ? university.nameEn : university.nameZh;
+  const secondaryName = locale === "zh" ? university.nameEn : null;
 
   return {
     name,
@@ -453,9 +509,7 @@ export function toUniversityDetailView(
         programme.nameEn,
         programme.programmeCode,
       );
-      const programmeSecondaryName = locale === "zh"
-        ? programme.nameEn
-        : programme.nameZh;
+      const programmeSecondaryName = locale === "zh" ? programme.nameEn : null;
 
       return {
         id: String(programme.id),
@@ -470,11 +524,9 @@ export function toUniversityDetailView(
           programme.descriptionEn,
           "",
         ),
-        category: localizedOption(
-          options?.subjectCategories,
-          programme.categoryCode,
-          locale,
-        ),
+        category: locale === "zh"
+          ? programme.categoryDisplayZh?.trim() || localizedOption(options?.subjectCategories, programme.categoryCode, locale)
+          : programme.categoryDisplayEn?.trim() || localizedOption(options?.subjectCategories, programme.categoryCode, locale),
         level: localizedOption(options?.studyLevels, programme.studyLevelCode, locale),
         mode: localizedOption(options?.courseModes, programme.courseModeCode, locale),
         languages: programme.languageCodes
@@ -483,6 +535,7 @@ export function toUniversityDetailView(
         duration: programme.durationDisplay ?? "",
         tuition: programme.tuitionDisplay ?? "",
         intakes: programme.intakeDisplayTexts.join(", "),
+        ...(programme.imageUrl ? { imageUrl: programme.imageUrl } : {}),
       };
     }),
   };
@@ -498,5 +551,5 @@ function localizedOption(
   if (!option) return code;
   return locale === "zh"
     ? option.nameZh.trim() || option.nameEn.trim() || code
-    : option.nameEn.trim() || option.nameZh.trim() || code;
+    : formatEnglishDisplayText(option.nameEn.trim() || code);
 }

@@ -8,7 +8,8 @@ public record MatchedProgrammeResponse(
         String categoryCode, String studyLevelCode, String courseModeCode,
         List<String> languageCodes, Integer durationMonths, List<String> intakeMonths,
         BigDecimal tuitionTotalRmbMin, BigDecimal tuitionTotalRmbMax,
-        String durationDisplay, List<String> intakeDisplayTexts, String tuitionDisplay
+        String durationDisplay, List<String> intakeDisplayTexts, String tuitionDisplay,
+        String imageUrl
 ) {
     public MatchedProgrammeResponse {
         languageCodes = List.copyOf(languageCodes);

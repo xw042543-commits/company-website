@@ -99,6 +99,18 @@ class ElasticsearchUniversitySearchGatewayIntegrationTest {
     }
 
     @Test
+    void keywordSearchToleratesLatinTyposAndAlsoSearchesUniversityNames() {
+        Request typo = new Request(); typo.keyword = "scince";
+        assertThat(codes(search(typo))).containsExactly("P-GB-DS-01");
+
+        Request universityName = new Request(); universityName.keyword = "Northstar";
+        assertThat(ids(search(universityName))).containsExactly(1L);
+        universityName.modes = Set.of("ONLINE");
+        assertThat(ids(search(universityName))).containsExactly(1L);
+        assertThat(codes(search(universityName))).containsExactly("P-GB-AI-02");
+    }
+
+    @Test
     void f03CategoryAndF05LevelFilterActualProgrammeFields() {
         Request request = new Request(); request.categories = Set.of("COMPUTING");
         assertThat(ids(search(request))).containsExactlyInAnyOrder(1L, 3L, 4L);
@@ -151,6 +163,30 @@ class ElasticsearchUniversitySearchGatewayIntegrationTest {
         request.categories = Set.of("COMPUTING", "BUSINESS"); request.levels = Set.of("MASTER", "BACHELOR");
         request.modes = Set.of("ON_CAMPUS", "HYBRID"); request.languages = Set.of("ZH", "EN");
         assertThat(ids(search(request))).containsExactlyInAnyOrder(1L, 2L);
+    }
+
+    @Test
+    void expandedBusinessAndBachelorMustMatchTheSameProgrammeAndDeduplicateUniversities() {
+        save(university(5, "MY", "错误组合示例大学", "Split Match Example University", false, List.of(
+                programme(51, "P-MY-BUS-MASTER", "商科硕士", "Business Master", "BUSINESS_MANAGEMENT",
+                        "MASTER", "ON_CAMPUS", List.of("EN"), 12, List.of("2027-09"), null, null),
+                programme(52, "P-MY-CS-BACHELOR", "计算机本科", "Computing Bachelor", "COMPUTING",
+                        "BACHELOR", "ON_CAMPUS", List.of("EN"), 36, List.of("2027-09"), null, null))));
+        save(university(6, "MY", "商科本科示例大学", "Business Bachelor Example University", false, List.of(
+                programme(61, "P-MY-MGT-BACHELOR", "管理学本科", "Management Bachelor", "BUSINESS_MANAGEMENT",
+                        "BACHELOR", "ON_CAMPUS", List.of("EN"), 36, List.of("2027-09"), null, null),
+                programme(62, "P-MY-ACC-BACHELOR", "会计学本科", "Accounting Bachelor", "ACCOUNTING_FINANCE",
+                        "BACHELOR", "ON_CAMPUS", List.of("EN"), 36, List.of("2027-09"), null, null))));
+        operations.indexOps(index).refresh();
+
+        Request request = new Request();
+        request.categories = Set.of("BUSINESS", "ACCOUNTING_FINANCE", "BUSINESS_MANAGEMENT", "ECONOMICS");
+        request.levels = Set.of("BACHELOR");
+        var result = search(request);
+
+        assertThat(ids(result)).containsExactlyInAnyOrder(2L, 6L).doesNotHaveDuplicates();
+        assertThat(codes(result)).contains("P-AU-BA-01", "P-MY-MGT-BACHELOR", "P-MY-ACC-BACHELOR")
+                .doesNotContain("P-MY-BUS-MASTER", "P-MY-CS-BACHELOR");
     }
 
     @ParameterizedTest

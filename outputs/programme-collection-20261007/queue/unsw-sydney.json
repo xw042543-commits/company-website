@@ -1,0 +1,366 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "unsw-sydney",
+    "displayName": "UNSW Sydney",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.unsw.edu.au/study/undergraduate"
+    ],
+    "allowedHosts": [
+      "www.unsw.edu.au",
+      "unsw.edu.au"
+    ],
+    "discoveredUrls": 49,
+    "parsedProgrammes": 6,
+    "pagesRead": 120,
+    "warnings": [
+      "https://www.experience.futurestudents.unsw.edu.au/undergraduate：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/science/study-with-us/undergraduate/view-all-undergraduate-degrees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/science/study-with-us/undergraduate/bridging-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/science/study-with-us/postgraduate/postgraduate-degrees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.handbook.unsw.edu.au/undergraduate/courses/current/math1131/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.handbook.unsw.edu.au/undergraduate/courses/current/MATH1011/?year=2022",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.handbook.unsw.edu.au/undergraduate/programs/current/3970",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "http://www.handbook.unsw.edu.au/undergraduate/programs/current/3970.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "http://www.handbook.unsw.edu.au/undergraduate/programs/current/3962.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.handbook.unsw.edu.au/undergraduate/programs/current/4500",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.handbook.unsw.edu.au/undergraduate/programs/current/4518",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.handbook.unsw.edu.au/undergraduate/programs/current/4518/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/business/agsm/programs/mbax",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate/admission-pathways",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate/entry-requirements",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate/admission-pathways/portfolio-entry",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate/admission-pathways/gateway",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate/admission-pathways/gateway/admission-pathway",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate/admission-pathways/gateway/program",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/emerging-leader-program",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/contract-law-for-non-lawyers",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/human-skills-in-a-digital-world",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/accelerated-leadership-program",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/leading-for-high-performance",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/ai-for-business-leaders",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/master-ai-leadership-strategy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/graduate-certificate-business-psychology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/master-counselling",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/graduate-certificate-project-management-online",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/master-of-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/graduate-diploma-in-data-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/graduate-diploma-in-psychology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/professional-development/course/master-of-cyber-security",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/science/study-with-us/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/science/study-with-us/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate/entry-requirements/assumed-knowledge",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:44.349Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-advanced-science-honours",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:54.359Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate/entry-requirements/adjustment-factors",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/undergraduate/university-preparation-program",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:04.359Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/undergraduate/admission-pathways/tafe-vet-pathway",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.handbook.unsw.edu.au/undergraduate/specialisations/current/MATHV1",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-science-honours",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:14.424Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-psychological-science-honours",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:24.391Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.experience.futurestudents.unsw.edu.au/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "unsw-sydney",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-criminology-criminal-justice-law",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:09.382Z",
+      "error": null
+    }
+  ]
+}

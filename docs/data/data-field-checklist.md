@@ -14,7 +14,7 @@
 | `Programme` | 某所学校开设的具体专业，简称“学校专业” | 属于一所 University，并关联一个公共 SubjectCategory |
 | `SubjectCategory` | 公共专业分类 | 不保存某所学校特有的学费、学制或入学时间 |
 
-本清单已与当前仓库代码核对。Flyway V1～V3、University、Programme、ProgrammeIntake、筛选字典 Entity 和 Repository 已存在；Excel 导入 DTO、Validation、Service、Controller、`/api/v1/universities/search` 和 `/api/v1/catalog/filter-options` 尚未实现。本阶段不修改已经执行的 Flyway，也不自行增加接口或数据库字段。
+本清单已与当前仓库代码核对。Flyway V1～V5、University、Programme、ProgrammeIntake、筛选字典、SearchAlias、Elasticsearch 搜索索引和同步任务已经存在；`GET /api/v1/universities/search` 与 `GET /api/v1/catalog/filter-options` 已实现。Excel 导入 DTO、Validation、Service 和 Controller 尚未实现。本阶段不修改已经执行的 Flyway，不自行增加接口或数据库字段，也不创建新的正式 Excel 模板。
 
 ## 通用检查规则
 
@@ -28,6 +28,43 @@
 | 自动化测试数据 | 使用明显虚构名称和 `.invalid` 域名，只进入测试环境 | 测试学校写入正式库 | 阻止正式导入 |
 | 老板数据导入演练 | 可以从老板文件选取少量记录放入隔离测试环境 | 未审核数据直接发布 | 保持 `DRAFT`，不得进入生产发布流程 |
 | 重复值 | 先报告，不自动覆盖或删除 | 同一稳定代码出现两次 | 交由负责人判断保留哪条 |
+
+## 资料接收准备
+
+### 收件登记
+
+老板资料到达后先登记，不直接修改原文件，也不立即导入数据库。每个文件至少记录以下信息：
+
+| 登记项 | 检查规则 | 处理方式 |
+| --- | --- | --- |
+| 原始文件名 | 保留老板提供的文件名和扩展名 | 原文件只读留存；整理结果另存，不覆盖原件 |
+| 接收时间和资料版本 | 记录实际接收时间；优先使用资料内明确标注的版本日期 | 没有版本日期时标记“待确认”，不自行推断 |
+| 提供人或确认记录 | 能追溯到老板文件、消息或负责人确认 | 只记录必要的来源说明，不在公开仓库保存私人聊天内容 |
+| 资料范围 | 标明包含的工作表、附件、图片和授权文件 | 建立清单，防止 Excel 与附件脱离 |
+| 公开级别 | 区分“可公开”“内部使用”“暂不发布” | 未标明时按“暂不发布”处理，业务状态保持 `DRAFT` |
+| 图片和 Logo 授权 | 每个素材应有来源或授权说明 | 缺少授权时只登记，不用于正式页面 |
+| 敏感信息 | 密钥、Webhook、部署账号、真实咨询人资料不得进入 Git | 交由负责人通过安全渠道配置或保管 |
+
+### 接收结果分类
+
+每个老板字段完成映射后归入以下一类，不能为了“填满数据库”而改变原意：
+
+| 分类 | 含义 | 示例 | 当前处理 |
+| --- | --- | --- | --- |
+| 可直接映射 | 当前表中已有含义一致的字段 | 学校代码、双语名称、国家代码、学费范围 | 校验格式和引用后进入待导入数据 |
+| 拆分为关系数据 | 一个 Programme 可能对应多个值 | 授课语言、入学时间 | 分别整理到 `programme_languages`、`programme_intakes` |
+| 保留待结构确认 | 老板提供了资料，但当前业务表没有对应字段 | 校区、官网、Logo、申请要求、英语要求、来源链接、审核人 | 原文保留在接收记录中，不写入不相干字段，不自行新增迁移 |
+| 敏感资料不入库 | 不属于公开院校与专业数据，或包含密钥及个人资料 | 企业微信 Webhook、部署账号、咨询人员个人资料 | 不提交 Git，不写入测试日志，由负责人安全处理 |
+
+### 老板 Excel 到达后的处理顺序
+
+1. 复制并只读留存原文件，登记文件、工作表、附件和版本信息。
+2. 只分析实际工作表、列名、单元格类型、空值表示和多值写法，不预设老板会采用项目字段名。
+3. 建立“老板工作表与字段 → 整理字段 → 当前系统字段”映射，并把无法映射的内容列入待确认清单。
+4. 检查重复记录、缺失字段、错误枚举、未知字典代码、学校与 Programme 关系，以及学费组合规则。
+5. 将多语言、多入学时间和搜索别名拆成独立关系数据；不在单元格中使用 `|` 拼接后直接入库。
+6. 先生成校验报告，由组长确认映射、重复处理和发布范围。
+7. 只在隔离测试环境选取 3～5 所学校进行 `DRAFT` 演练；在导入功能完成并获确认前，不通过直接 SQL 写入正式库。
 
 ## 当前数据库关系和导入顺序
 
@@ -51,7 +88,7 @@ programmes
 
 ## University 学校
 
-当前 V3 已为 `universities` 增加稳定代码、双语名称、城市、描述、国家外键和发布状态。为兼容现有接口，V1 的 `name` 和自由文本 `country` 仍为非空字段，导入时暂时也必须赋值。
+当前 V5 数据结构包含学校稳定代码、双语名称、城市、描述、国家外键和发布状态。为兼容现有接口，V1 的 `name` 和自由文本 `country` 仍为非空字段，导入时暂时也必须赋值。
 
 | 整理工作簿字段 | 当前系统字段 | 必填规则 | 格式或允许值 | 导入处理 |
 | --- | --- | --- | --- | --- |
@@ -68,7 +105,7 @@ programmes
 | `status` | `universities.status` | 是 | `DRAFT` / `PUBLISHED` / `ARCHIVED` | 未审核数据使用 `DRAFT` |
 | 无 | `id`、审计时间、`published_at` | 系统维护 | 数据库生成 | Excel 不填写 |
 
-`source_sheet`、`validation_status` 和 `validation_message` 是整理与审计字段，不写入当前 `universities` 表。
+`source_sheet`、`validation_status` 和 `validation_message` 是整理与审计字段，不写入当前 `universities` 表。资料清单中的校区、官方网站、Logo、Logo 授权、合作院校标记、合作关系表述、资料来源链接、最后核对日期和审核人目前也没有对应业务列；收到后保留原文和附件关联，标记“待结构确认”，不得强行写入名称、描述或其他字段。
 
 ## Country 国家
 
@@ -99,7 +136,7 @@ SubjectCategory 只表达公共分类。学费、学制、课程模式、授课�
 
 ## Programme 学校专业
 
-Programme Entity、Repository 和 V3 表结构已经实现。`study_level_id` 与 `course_mode_id` 在草稿阶段允许为空；`university_id` 和 `subject_category_id` 不能为空。
+Programme Entity、Repository 和 V5 表结构已经实现。`study_level_id` 与 `course_mode_id` 在草稿阶段允许为空；`university_id` 和 `subject_category_id` 不能为空。
 
 | 整理工作簿字段 | 当前系统字段 | 必填规则 | 格式或允许值 | 导入处理 |
 | --- | --- | --- | --- | --- |
@@ -114,15 +151,17 @@ Programme Entity、Repository 和 V3 表结构已经实现。`study_level_id` �
 | `duration_months` | 同名字段 | 否 | 正整数 | 只有能可靠换算为月时才填写 |
 | `duration_display` | 同名字段 | 否 | 不超过 100 字符 | 保留老板原始学制文字 |
 | `tuition_min` / `tuition_max` | 同名字段 | 否 | 大于等于 0，最多两位小数 | 两者都存在时最低值不得大于最高值 |
-| `tuition_currency` | 同名字段 | 有原币金额时必填 | 三位大写币种代码 | 业务资料中的 `currency_code` 映射到当前 V3 字段 `tuition_currency` |
-| `tuition_display` | 同名字段 | 否 | 不超过 200 字符 | 业务资料中的 `tuition_text` 映射到当前 V3 字段 `tuition_display` |
+| `tuition_currency` | 同名字段 | 有原币金额时必填 | 三位大写币种代码 | 业务资料中的 `currency_code` 映射到当前字段 `tuition_currency` |
+| `tuition_display` | 同名字段 | 否 | 不超过 200 字符 | 业务资料中的 `tuition_text` 映射到当前字段 `tuition_display` |
 | `tuition_rmb_min` / `tuition_rmb_max` | 同名字段 | 否 | 大于等于 0，最多两位小数 | 用于统一学费筛选 |
+| `tuition_fee_period` | 同名字段 | 是 | `PER_YEAR` / `PER_SEMESTER` / `TOTAL_PROGRAM` / `UNKNOWN` | 依据老板原文映射；无法判断时用 `UNKNOWN`，不得猜测 |
+| `tuition_total_rmb_min` / `tuition_total_rmb_max` | 同名字段 | 否 | 大于等于 0，最多两位小数 | 用于按完整课程总学费筛选；两者都有值时最小值不得大于最大值 |
 | `exchange_rate` | 同名字段 | 有人民币金额时必填 | 大于 0，最多 8 位小数 | 必须与人民币金额一起校验 |
 | `exchange_rate_date` | 同名字段 | 有人民币金额时必填 | `YYYY-MM-DD` | 必须与汇率一起保存 |
 | `status` | 同名字段 | 是 | `DRAFT` / `PUBLISHED` / `ARCHIVED` | 未审核 Programme 使用 `DRAFT` |
 | 无 | `id`、审计时间、`published_at` | 系统维护 | 数据库生成 | Excel 不填写 |
 
-以下整理字段目前没有 V3 业务列：`faculty_text`、`source_cgpa_requirement`、`source_english_requirement`、`source_registration_fee`、`source_interview`、`source_campus`、`source_career`、`source_note`、`validation_status`、`validation_message`。它们用于来源追踪和复核，不得丢失，也不能在未批准新结构前强行写入其他字段。
+以下整理字段目前没有 V5 业务列：`faculty_text`、`source_cgpa_requirement`、`source_english_requirement`、`source_registration_fee`、`source_interview`、`source_campus`、`source_career`、`source_note`、`validation_status`、`validation_message`。资料清单中的申请要求、英语要求、官方资料来源链接、最后核对日期和审核人也属于这一类。它们用于来源追踪和复核，不得丢失，也不能在未批准新结构前强行写入其他字段。
 
 ### 学费组合校验
 
@@ -132,6 +171,8 @@ Programme Entity、Repository 和 V3 表结构已经实现。`study_level_id` �
 4. 没有学费资料时，所有学费数值、币种、汇率和换算日期保持为空，不填 `0`，页面显示“请咨询”。
 5. 启用学费筛选时，人民币筛选值为空的 Programme 不算匹配。
 6. 数据人员不得自行选择汇率；换算来源和日期需要得到项目负责人确认。
+7. `tuition_fee_period` 无法从原文可靠判断时使用 `UNKNOWN`；不得把“金额”默认解释为每年、每学期或完整课程。
+8. `tuition_total_rmb_min` 和 `tuition_total_rmb_max` 是完整课程总额；缺少可靠学制或计费周期时保持为空。
 
 ## ProgrammeLanguages 专业授课语言
 
@@ -153,15 +194,15 @@ Programme Entity、Repository 和 V3 表结构已经实现。`study_level_id` �
 | `intake_date` | 同名字段 | 否 | `YYYY-MM-DD` | 只有日期完整且可靠时填写 |
 | `display_text` | 同名字段 | 是 | 1–100 字符 | 保留老板原始月份或日期文字 |
 
-V3 没有为入学时间建立业务唯一约束。导入 Validation 仍应检查同一 Programme 下完全重复的日期或展示文字并报告，不能依赖数据库自动去重。
+V5 没有为入学时间建立业务唯一约束。导入 Validation 仍应检查同一 Programme 下完全重复的日期或展示文字并报告，不能依赖数据库自动去重。
 
 ## SearchAliases 搜索别名
 
-`search_aliases` 尚未出现在当前 Flyway 或 Entity 中。已确认的业务规则是别名使用独立数据结构，不在 Excel 单元格中使用 `|` 拼接；未获得老板确认的别名不能作为正式数据。
+`search_aliases` 已由 V4 和 SearchAlias Entity 实现。别名使用独立数据结构，不在 Programme 或 University 单元格中使用 `|` 拼接；未获得老板确认的别名不能发布。
 
-确认示例：`UK → COUNTRY → GB`。在组长确定实体、唯一键和目标类型枚举前，不创建迁移或导入逻辑。
+接收时至少保留 `alias`、`language`、`target_type`、`target_code` 和 `status`；`normalized_alias` 由后续导入逻辑按统一规则生成。当前目标类型只允许 `COUNTRY`、`SUBJECT_CATEGORY`、`PROGRAMME`。确认示例：`UK → COUNTRY → GB`。未知目标代码、重复别名和未确认缩写应报告，不自动纠正或发布。
 
-## 老板工作簿到当前 V3 的工作表映射
+## 已整理工作簿到当前 V5 的工作表映射
 
 | 整理工作表 | 目标表 | 当前处理状态 |
 | --- | --- | --- |
@@ -208,16 +249,16 @@ V3 没有为入学时间建立业务唯一约束。导入 Validation 仍应检�
 
 | 范围 | 当前实现 | 导入阶段结论 |
 | --- | --- | --- |
-| Flyway | V1～V3 已实现完整数据层结构 | 已执行迁移不得修改；本次导入不需要新增迁移 |
+| Flyway | V1～V5 已实现当前数据层和搜索支持结构 | 已执行迁移不得修改；资料接收阶段不新增迁移 |
 | 字典 Entity / Repository | Country、SubjectCategory、StudyLevel、CourseMode、Language 已实现 | 五个 Repository 都可以按 `code` 查询，用于解析字典外键 |
 | University Repository | 已实现基础 JPA Repository | 尚无 `findByUniversityCode`，导入 Service 不能直接按稳定代码解析学校 |
-| Entity 写入能力 | University、Programme、ProgrammeIntake 已映射 V3 | University 没有业务构造方法；Programme 的构造方法不包含学制、学费等字段，需由后端负责人确定安全写入方式 |
+| Entity 写入能力 | University、Programme、ProgrammeIntake 已映射 V5 | University 没有业务构造方法；Programme 的构造方法不包含学制、学费等字段，需由后端负责人确定安全写入方式 |
 | Programme languages | Entity 多对多关系和关系表已实现 | 需要导入 Service 根据语言代码建立关系 |
 | 导入 DTO / Validation | 尚未实现 | 不能直接接收 Excel 行或生成逐行错误报告 |
 | 导入 Service / Controller | 尚未实现 | 当前没有安全的批量导入入口 |
-| 筛选选项接口 | 尚未实现 `/api/v1/catalog/filter-options` | 前端不能把建议字典硬编码为正式数据 |
-| 搜索接口 | 当前仍是兼容接口 `/api/search` | 目标 `/api/v1/universities/search` 尚不能执行测试矩阵 |
-| Elasticsearch | 当前索引只有旧 University 字段 | 尚未索引 Programme，也未实现多条件筛选 |
-| SearchAliases | 尚未实现 | 等组长确认结构后再处理 |
+| 筛选选项接口 | 已实现 `GET /api/v1/catalog/filter-options` | 国家表没有发布状态，当前返回全部国家；专业分类、学历层次、课程模式和语言只返回 `PUBLISHED` 项。正式选项仍需老板提供或确认 |
+| 搜索接口 | 已实现 `GET /api/v1/universities/search` | 支持 Programme 级组合筛选；正式结果依赖已确认并已索引的数据 |
+| Elasticsearch | 已实现 University + Programme 搜索文档、重建和同步任务 | 只作为搜索副本；接收资料仍先以 PostgreSQL 映射和校验为准 |
+| SearchAliases | V4、Entity、Repository 和解析器已实现 | 正式别名必须由老板确认；资料接收阶段不直接发布 |
 
 后续开始导入代码前，组长还需要确定导入入口形式、重复代码的更新策略、整批失败或部分成功策略，以及建议字典如何完成审核。未经确认，不通过直接 SQL 绕过 Service、Validation 和审计流程。

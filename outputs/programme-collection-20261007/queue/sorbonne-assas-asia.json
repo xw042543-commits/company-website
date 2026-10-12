@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "sorbonne-assas-asia",
+    "displayName": "Sorbonne-Assas International Law School – Asia",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://www.assas-international.com/en/campuses/singapore"
+    ],
+    "allowedHosts": [
+      "www.assas-international.com",
+      "assas-international.com"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "HTTP 404：https://www.assas-international.com/en/campuses/singapore"
+    ]
+  },
+  "queue": []
+}

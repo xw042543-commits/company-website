@@ -1,0 +1,105 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "university-of-the-arts-singapore",
+    "displayName": "University of the Arts Singapore",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://uas.edu.sg/"
+    ],
+    "allowedHosts": [
+      "uas.edu.sg",
+      "www.uas.edu.sg"
+    ],
+    "discoveredUrls": 5,
+    "parsedProgrammes": 0,
+    "pagesRead": 101,
+    "warnings": [
+      "HTTP 404：https://uas.edu.sg/programmes/res.UseExternalLink%20?%20res.LearnMoreUrl%20:%20res.DetailPageUrl",
+      "HTTP 404：https://uas.edu.sg/the-uas-experience/in-depth-programme",
+      "HTTP 404：https://uas.edu.sg/res.UseExternalLink%20?%20res.LearnMoreUrl%20:%20res.DetailPageUrl",
+      "https://mailto:industry@uas.edu.sg/：网址不得包含账号信息",
+      "HTTP 404：https://uas.edu.sg/cdn-cgi/l/email-protection",
+      "HTTP 404：https://uas.edu.sg/eBook/Year-In-Review/2024/files/basic-html/index.html",
+      "HTTP 404：https://uas.edu.sg/eBook/Year-In-Review/2023/files/basic-html/index.html",
+      "HTTP 404：https://uas.edu.sg/programmes/res.ApplyUrl",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/about-us/year-in-review/uas-year-in-review-2024-2025.pdf?sfvrsn=e1917ef5_2",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/about-us/year-in-review/uas-year-in-review-2023-2024.pdf?sfvrsn=10f00f8e_2",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/about-us/year-in-review/uas-year-in-review-2022-2023.pdf?sfvrsn=b10fc7cf_1",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Full.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-About-us.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Message-Chairman.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Message-Vice-Chancellor.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Our-leadership.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Org-structure.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Financials.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-ESR.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-ERM.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Achievements-collaborations.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Highlights-LASALLE.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Highlights-NAFA.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Gifts.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Corp-gov-framework.pdf",
+      "HTTP 406：https://uas.edu.sg/aboutus/year-in-review/2024-25/pdf/UAS-AR2024-25-Audited-FS.pdf",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/events/2025/uas-arts-education-symposium-2025-speakers-profiles.pdf?sfvrsn=915ff732_2",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/events/2026/uas-cf26-event-calendar.pdf",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/forms/venue-hire-application-form.pdf?sfvrsn=fba0b26b_7",
+      "HTTP 404：https://uas.edu.sg/res.ApplyUrl",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/forms/uas-harassment-complaint-form.pdf?sfvrsn=7a614e30_1",
+      "HTTP 404：https://uas.edu.sg/news-and-events/newsdetails?title=UAS+Career+Fair+2025",
+      "HTTP 404：https://uas.edu.sg/news-and-events/newsdetails?title=The+University+of+the+Arts+Singapore+unveils+its+logo+%0dat+the+Inaugural+UAS+Arts+Symposium+%0d%E2%80%9CTransforming+Arts+Education%3a+Our+Collective+Mission%E2%80%9D+-+Media+coverage",
+      "HTTP 404：https://uas.edu.sg/news-and-events/newsdetails?title=%27Why+a+university+of+the+arts+now?%27+-+Professor+Chan+Heng+Chee,+for+The+Straits+Times",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/uas-symposium-10-may-2023-vc's-keynote.pdf",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/zb31may2026page4.pdf?sfvrsn=4a73418b_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/st3aug2026.pdf?sfvrsn=9d618975_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/zb8aug2026page6.pdf?sfvrsn=ec78e014_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/sm7aug2026page4.pdf?sfvrsn=52a588d6_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2024/st12aug2024-combined.pdf?sfvrsn=d1776f59_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2024/zb11aug2024page5.pdf?sfvrsn=44e57035_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/bh17aug2026pages16-17---crop.pdf?sfvrsn=8ec27ae1_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/admissions/scholarships-and-financial-aids/nac-uas-arts-scholarship-terms-and-conditions.pdf?sfvrsn=7b37dd4f_4",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2025/uas-lasalle-postgraduate-convocation-2025-annex-a.pdf?sfvrsn=53e16b5e_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2025/tm10nov2025page4.pdf?sfvrsn=121c2481_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2025/mapletree-uas-conclude-sg60-annex-a.pdf?sfvrsn=222fa2fe_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/mapletree-young-composers-initiative-performance-award-ceremony-annex-a.pdf?sfvrsn=8b859717_1",
+      "跳过非 HTML 内容：https://uas.edu.sg/docs/default-source/default-document-library/news/2026/uas-marks-first-overseas-residency-collaboration-annex-a.pdf?sfvrsn=57f16165_1"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-the-arts-singapore",
+      "url": "https://uas.edu.sg/programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-the-arts-singapore",
+      "url": "https://uas.edu.sg/programmes/bachelor's-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-the-arts-singapore",
+      "url": "https://uas.edu.sg/programmes/master's-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-the-arts-singapore",
+      "url": "https://uas.edu.sg/programmes/res.ApplyUrl",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-the-arts-singapore",
+      "url": "https://uas.edu.sg/programmes/res.UseExternalLink%20?%20res.LearnMoreUrl%20:%20res.DetailPageUrl",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "queen-mary-university-of-london",
+    "displayName": "Queen Mary University of London",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.qmul.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.qmul.ac.uk",
+      "qmul.ac.uk"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.qmul.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

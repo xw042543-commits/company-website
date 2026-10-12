@@ -2,20 +2,24 @@ package com.yangdoujiao.website;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.Bean;
+import org.springframework.test.context.DynamicPropertyRegistrar;
+import org.testcontainers.lifecycle.Startable;
 
 class TestContainersConfigurationTest {
 
     @Test
-    void reusesTheSameContainersAcrossSpringTestContexts() {
-        var firstContext = new TestContainersConfiguration();
-        var secondContext = new TestContainersConfiguration();
+    void keepsSharedContainersOutsideSpringContextLifecycle() {
+        var beanReturnTypes = Arrays.stream(TestContainersConfiguration.class.getDeclaredMethods())
+                .filter(method -> method.isAnnotationPresent(Bean.class))
+                .<Class<?>>map(method -> method.getReturnType())
+                .toList();
 
-        assertThat(secondContext.postgresqlContainer())
-                .isSameAs(firstContext.postgresqlContainer());
-        assertThat(secondContext.redisContainer())
-                .isSameAs(firstContext.redisContainer());
-        assertThat(secondContext.elasticsearchContainer())
-                .isSameAs(firstContext.elasticsearchContainer());
+        assertThat(beanReturnTypes)
+                .contains(DynamicPropertyRegistrar.class)
+                .noneMatch(Startable.class::isAssignableFrom);
     }
 }

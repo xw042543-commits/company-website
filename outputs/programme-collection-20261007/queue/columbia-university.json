@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "columbia-university",
+    "displayName": "Columbia University",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.columbia.edu/"
+    ],
+    "allowedHosts": [
+      "www.columbia.edu",
+      "columbia.edu"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "HTTP 403：https://www.columbia.edu/"
+    ]
+  },
+  "queue": []
+}

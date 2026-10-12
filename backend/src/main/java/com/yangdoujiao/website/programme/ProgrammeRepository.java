@@ -19,6 +19,44 @@ public interface ProgrammeRepository extends JpaRepository<Programme, Long> {
     Optional<Programme> findByUniversityIdAndSlug(Long universityId, String slug);
 
     @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
+    @Query("""
+            SELECT DISTINCT programme
+            FROM Programme programme
+            WHERE programme.id = :id
+              AND programme.university.id = :universityId
+              AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+              AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+            """)
+    Optional<Programme> findPublishedDetailedByIdAndUniversityId(
+            @Param("id") Long id,
+            @Param("universityId") Long universityId
+    );
+
+    @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
+    @Query("""
+            SELECT DISTINCT programme
+            FROM Programme programme
+            WHERE programme.slug = :slug
+              AND programme.university.id = :universityId
+              AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+              AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+            """)
+    Optional<Programme> findPublishedDetailedBySlugAndUniversityId(
+            @Param("slug") String slug,
+            @Param("universityId") Long universityId
+    );
+
+    @EntityGraph(attributePaths = {"university", "studyLevel"})
+    @Query("""
+            SELECT programme
+            FROM Programme programme
+            WHERE programme.id = :id
+              AND programme.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+              AND programme.university.status = com.yangdoujiao.website.catalog.CategoryStatus.PUBLISHED
+            """)
+    Optional<Programme> findPublishedForFavorite(@Param("id") Long id);
+
+    @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})
     List<Programme> findAllByUniversity_IdAndStatusOrderByIdAsc(Long universityId, CategoryStatus status);
 
     @EntityGraph(attributePaths = {"subjectCategory", "studyLevel", "courseMode", "languages"})

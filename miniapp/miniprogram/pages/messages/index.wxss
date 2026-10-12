@@ -1,0 +1,105 @@
+.messages-page {
+  --message-paper: #f7faf7;
+  --message-ink: #153b30;
+  --message-muted: #687971;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 0;
+  padding-bottom: calc(176rpx + env(safe-area-inset-bottom));
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.messages-masthead {
+  position: relative;
+  min-height: 224rpx;
+  margin: 0 -28rpx;
+  padding: 50rpx 32rpx 30rpx;
+  overflow: hidden;
+  background: var(--message-paper);
+}
+.messages-watermark {
+  position: absolute;
+  right: 30rpx;
+  bottom: -76rpx;
+  color: #e0eee7;
+  font-size: 250rpx;
+  font-weight: 900;
+  line-height: 1;
+  opacity: .9;
+  transform: rotate(8deg);
+}
+.messages-heading,
+.messages-intro,
+.messages-unread { position: relative; z-index: 1; }
+.messages-heading { color: var(--message-ink); font-size: 56rpx; font-weight: 800; letter-spacing: -2rpx; line-height: 1.1; }
+.messages-intro { max-width: 430rpx; margin-top: 16rpx; color: var(--message-muted); font-size: 23rpx; line-height: 1.6; letter-spacing: 1rpx; }
+.messages-unread { display: inline-block; margin-top: 18rpx; padding: 7rpx 16rpx; border-radius: 999rpx; background: #dff1e7; color: #087c49; font-size: 21rpx; font-weight: 700; }
+
+.message-filters { display: flex; gap: 28rpx; margin: 16rpx 0 18rpx; padding: 0; border-bottom: 1rpx solid #e0e9e4; background: transparent; }
+.message-filter { position: relative; display: flex; min-height: 48px; flex: none; align-items: center; gap: 10rpx; margin: 0; padding: 0 4rpx; background: transparent; color: var(--message-muted); font-size: 25rpx; line-height: 48px; }
+.message-filter::before { position: absolute; right: 4rpx; bottom: -1rpx; left: 4rpx; height: 5rpx; border-radius: 3rpx; background: transparent; content: ""; }
+.filter-dot { width: 7rpx; height: 7rpx; border-radius: 50%; background: transparent; }
+.message-filter--active { color: var(--message-ink); font-weight: 750; }
+.message-filter--active::before,
+.message-filter--active .filter-dot { background: var(--color-action); }
+
+.message-list { background: transparent; }
+.message-thread { position: relative; padding-top: 4rpx; }
+.message-thread::before { position: absolute; top: 62rpx; bottom: 66rpx; left: 41rpx; width: 2rpx; background: #e0e9e4; content: ""; }
+.message-row { position: relative; display: flex; width: 100%; min-height: 180rpx; align-items: flex-start; gap: 22rpx; margin: 0; padding: 28rpx 0; border-bottom: 1rpx solid #e8eeeb; border-radius: 0; background: transparent; color: var(--color-ink); line-height: 1.5; text-align: left; }
+.message-row:active { background: #f6faf7; }
+.message-row--busy { opacity: .62; }
+.message-category-mark { position: relative; z-index: 1; display: flex; width: 82rpx; height: 82rpx; flex: 0 0 82rpx; align-items: center; justify-content: center; border: 8rpx solid #fff; border-radius: 50%; background: #e5f2eb; box-sizing: border-box; }
+.message-category-mark--SYSTEM { background: #e7f0f4; color: #426b7a; }
+.message-category-mark--APPLICATION { background: #fbefd9; color: #a76c13; }
+.message-category-mark--COMMUNITY { background: #dff2e8; color: #087c49; }
+.mark-core { position: relative; width: 28rpx; height: 28rpx; border: 3rpx solid currentColor; border-radius: 8rpx 8rpx 10rpx 4rpx; box-sizing: border-box; }
+.mark-core::after { position: absolute; left: 3rpx; bottom: -7rpx; width: 8rpx; height: 8rpx; border-left: 3rpx solid currentColor; transform: skew(-24deg); content: ""; }
+.mark-line { position: absolute; left: 6rpx; height: 3rpx; border-radius: 2rpx; background: currentColor; }
+.mark-line--top { top: 6rpx; width: 13rpx; }
+.mark-line--bottom { top: 13rpx; width: 9rpx; opacity: .65; }
+.message-copy { min-width: 0; flex: 1; padding-top: 1rpx; }
+.message-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 14rpx; color: #76867e; font-size: 20rpx; line-height: 1.5; letter-spacing: 1rpx; }
+.message-title-line { display: flex; align-items: center; gap: 14rpx; margin-top: 8rpx; }
+.message-title { flex: 1; color: var(--message-ink); font-size: 29rpx; font-weight: 560; overflow-wrap: break-word; }
+.message-row--unread .message-title { font-weight: 760; }
+.message-unread-dot { flex: none; width: 10rpx; height: 10rpx; border-radius: 50%; background: var(--color-action); }
+.message-body { display: -webkit-box; overflow: hidden; margin-top: 8rpx; color: var(--message-muted); font-size: 24rpx; line-height: 1.65; -webkit-box-orient: vertical; -webkit-line-clamp: 2; white-space: pre-wrap; overflow-wrap: break-word; }
+.message-chevron { align-self: center; flex: 0 0 auto; color: #a6b2ac; font-size: 40rpx; font-weight: 300; }
+
+.messages-foot { padding: 30rpx 20rpx; color: #819087; font-size: 22rpx; line-height: 1.7; letter-spacing: 1rpx; text-align: center; }
+.messages-more,
+.messages-retry { min-height: 44px; margin: 12rpx auto 0; padding: 0 18rpx; background: transparent; color: var(--color-action); font-size: 24rpx; font-weight: 700; line-height: 44px; }
+
+.message-detail { position: relative; margin: 26rpx 0 34rpx; padding: 26rpx 28rpx 34rpx; overflow: hidden; border-radius: 6rpx 34rpx 34rpx 34rpx; background: #f3f8f5; }
+.message-detail::before { position: absolute; top: 0; bottom: 0; left: 0; width: 7rpx; background: var(--color-action); content: ""; }
+.detail-header { display: flex; align-items: center; justify-content: space-between; gap: 20rpx; }
+.detail-category { color: var(--color-action); font-size: 22rpx; font-weight: 700; letter-spacing: 2rpx; }
+.detail-close { min-width: 44px; min-height: 44px; margin: -10rpx -12rpx 0 0; padding: 0 12rpx; background: transparent; color: var(--message-muted); font-size: 23rpx; line-height: 44px; }
+.detail-title { margin-top: 10rpx; color: var(--message-ink); font-size: 34rpx; font-weight: 760; line-height: 1.5; overflow-wrap: break-word; }
+.detail-time { margin-top: 8rpx; color: #7a8a82; font-size: 21rpx; }
+.detail-body { display: block; margin-top: 26rpx; color: var(--color-ink); font-size: 27rpx; line-height: 1.85; white-space: pre-wrap; overflow-wrap: break-word; }
+
+.message-login { position: relative; min-height: 500rpx; padding: 112rpx 24rpx 40rpx 108rpx; overflow: hidden; text-align: left; }
+.message-login::before { position: absolute; left: -8rpx; top: 52rpx; color: #e5f2eb; font-size: 230rpx; font-weight: 900; line-height: 1; content: "U"; transform: rotate(-9deg); }
+.login-title,
+.login-copy,
+.login-button { position: relative; z-index: 1; }
+.login-title { color: var(--message-ink); font-size: 38rpx; font-weight: 760; }
+.login-copy { max-width: 420rpx; margin-top: 16rpx; color: var(--message-muted); font-size: 25rpx; line-height: 1.75; }
+.login-button { min-width: 200rpx; min-height: 48px; margin: 30rpx 0 0; padding: 0 30rpx; border-radius: 999rpx; background: var(--color-action); color: #fff; font-size: 26rpx; font-weight: 700; line-height: 48px; }
+.count-warning { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12rpx; margin-top: 20rpx; color: var(--message-muted); font-size: 23rpx; }
+.count-retry { display: inline-block; min-height: 44px; padding: 0 12rpx; color: var(--color-action); font-weight: 700; line-height: 44px; }
+
+.message-row::after,
+.message-filter::after,
+.detail-close::after,
+.messages-more::after,
+.messages-retry::after,
+.login-button::after { border: 0; }
+
+@media (min-width: 600px) {
+  .messages-page { max-width: 720px; margin: 0 auto; padding-right: 32px; padding-left: 32px; }
+  .messages-masthead { margin-right: -32px; margin-left: -32px; padding-right: 32px; padding-left: 32px; }
+}

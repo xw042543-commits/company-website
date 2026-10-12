@@ -21,7 +21,7 @@ test("uses the approved company identity and canonical domain", () => {
 test("describes qualification level as the level the student plans to apply for", () => {
   assert.deepEqual(applicationLevelLabel, {
     zh: "计划申请的学历层次",
-    en: "Level you plan to apply for",
+    en: "Qualification you plan to apply for",
   });
 });
 

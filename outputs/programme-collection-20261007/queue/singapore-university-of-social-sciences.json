@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "singapore-university-of-social-sciences",
+    "displayName": "Singapore University of Social Sciences",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.suss.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.suss.edu.sg",
+      "suss.edu.sg"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.suss.edu.sg/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

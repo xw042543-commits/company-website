@@ -89,6 +89,15 @@ public class Programme {
     @Column(name = "description_en", columnDefinition = "TEXT")
     private String descriptionEn;
 
+    @Column(name = "official_url", length = 1000)
+    private String officialUrl;
+
+    @Column(name = "source_checked_at")
+    private OffsetDateTime sourceCheckedAt;
+
+    @Column(name = "study_pace_display", length = 100)
+    private String studyPaceDisplay;
+
     @Column(name = "duration_months")
     private Integer durationMonths;
 

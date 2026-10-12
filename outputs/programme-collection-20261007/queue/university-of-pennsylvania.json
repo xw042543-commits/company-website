@@ -1,0 +1,214 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "university-of-pennsylvania",
+    "displayName": "University of Pennsylvania",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.upenn.edu/"
+    ],
+    "allowedHosts": [
+      "www.upenn.edu",
+      "upenn.edu"
+    ],
+    "discoveredUrls": 27,
+    "parsedProgrammes": 2,
+    "pagesRead": 120,
+    "warnings": [
+      "http://www.upenn.edu/faculty_senate/：跳转超出允许域名: provost.upenn.edu",
+      "https://ugrad.seas.upenn.edu/student-handbook/programs-options/majors/：跳转超出允许域名: academics.seas.upenn.edu",
+      "https://www.bio.upenn.edu/undergraduate/submatriculation/accelerated-dental-program：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://ugrad.seas.upenn.edu/student-handbook/programs-options/majors/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/programs/penn-volunteers-public-service-penn-vips",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://catalog.upenn.edu/programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.nettercenter.upenn.edu/what-we-do/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/index.php/academics/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/index.php/academics/graduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/index.php/academics/online-learning",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/index.php/academics/global-initiatives",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/index.php/academics/interdisciplinary",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/index.php/academics/schools",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/index.php/academics/off-campus-learning",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.bio.upenn.edu/undergraduate/submatriculation/accelerated-dental-program",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://catalog.upenn.edu/undergraduate/interdisciplinary/university-minors/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://catalog.upenn.edu/undergraduate/academic-resources/quaker-consortium/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.design.upenn.edu/architecture/undergraduate/about",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/academics/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/academics/graduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/academics/schools",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/academics/global-initiatives",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/academics/interdisciplinary",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/academics/online-learning",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/academics/off-campus-learning",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://catalog.upenn.edu/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.upenn.edu/index.php/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.design.upenn.edu/phd-programs",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:29:31.952Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-pennsylvania",
+      "url": "https://www.design.upenn.edu/city-regional-planning/phd/about",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:29:31.952Z",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:26:24.373Z",
+  "sourceKey": "new-york-university",
+  "sourceName": "New York University",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_5b1a62f57f1cf4f6",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "New York University",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "New York City, New York",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.nyu.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:25:20.845Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.nyu.edu/",
+        "sourcePageTitle": "New York University",
+        "sourceHash": "0453a15326278c74cb9b7bd32867c64d6617954ab665b8eb04e97d660e4ff106",
+        "fetchedAt": "2026-10-07T04:25:20.845Z",
+        "field": "name",
+        "rawText": "New York University"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 17,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": [
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://www.nyu.edu/jcr:content/cq:featuredimage.coreimg.82.1280.jpeg",
+        "sourceUrl": "https://www.nyu.edu/",
+        "sourceCheckedAt": "2026-10-07T04:25:20.845Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [],
+  "pages": [
+    {
+      "url": "https://www.nyu.edu/",
+      "fetchedAt": "2026-10-07T04:25:20.845Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "0453a15326278c74cb9b7bd32867c64d6617954ab665b8eb04e97d660e4ff106",
+      "title": "New York University",
+      "snapshotFile": "raw/0001-0453a1532627.html"
+    },
+    {
+      "url": "https://www.nyu.edu/faculty.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:22.595Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "47b78a6ed62b0ed0d07c7312625400850d4172532c35f69b6882b90b2f9d827d",
+      "title": null,
+      "snapshotFile": "raw/0002-47b78a6ed62b.html"
+    },
+    {
+      "url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:24.630Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5e88ab885f2aca6159ff38780f0235cae66b1a65e0061c0e5b8c059a912d8338",
+      "title": null,
+      "snapshotFile": "raw/0003-5e88ab885f2a.html"
+    },
+    {
+      "url": "https://www.nyu.edu/academics.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:26.623Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "caa5591f7ba24c7d748cfa6c88e292344f7064cc728994cd8b5c1e7dfbd5631a",
+      "title": null,
+      "snapshotFile": "raw/0004-caa5591f7ba2.html"
+    },
+    {
+      "url": "https://www.nyu.edu/research.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:28.649Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4f44b895a38195bb7995a0d362a3c5c3e4db1ec23f71aafa35e1b6dd0a7657e1",
+      "title": null,
+      "snapshotFile": "raw/0005-4f44b895a381.html"
+    },
+    {
+      "url": "https://www.nyu.edu/life.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:30.628Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "63c60613bc33bf78f011be9f0c7e9eb121bf39a62353bc4720e7fd4b3e18efc0",
+      "title": null,
+      "snapshotFile": "raw/0006-63c60613bc33.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:32.679Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2f573a0b85777212ecbe937878bb95cd808027b84e8dc16902214621b40d74b0",
+      "title": null,
+      "snapshotFile": "raw/0007-2f573a0b8577.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/giving.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:34.202Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "554e564626bf3744129ea3d0e214ba42927c6eb01cd7c19f1612591b9f627508",
+      "title": null,
+      "snapshotFile": "raw/0008-554e564626bf.html"
+    },
+    {
+      "url": "https://www.nyu.edu/students.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:36.310Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c816e079023dcbb9c8d95b20078c8818e50750532053e4892272532e7762239c",
+      "title": null,
+      "snapshotFile": "raw/0009-c816e079023d.html"
+    },
+    {
+      "url": "https://www.nyu.edu/alumni.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:38.218Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8f8455aed49ab03e51d3b094e00649f596601f3f9a2d28e6b59078f531e61817",
+      "title": null,
+      "snapshotFile": "raw/0010-8f8455aed49a.html"
+    },
+    {
+      "url": "https://www.nyu.edu/employees.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:40.230Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7170e58ed3192afbb973980ce51c5b4f84c463fcae3649bced1fe291c74db6bc",
+      "title": null,
+      "snapshotFile": "raw/0011-7170e58ed319.html"
+    },
+    {
+      "url": "https://www.nyu.edu/community.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:42.245Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b5581dc5ffbffa488938246454f774ab9b78b04097563a6ae8217fa0f747fdb4",
+      "title": null,
+      "snapshotFile": "raw/0012-b5581dc5ffbf.html"
+    },
+    {
+      "url": "https://www.nyu.edu/content/nyu/en/about/university-initiatives/nyu-irl?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:44.236Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9970cd67c16fbb4a9a124f694e352d8e7a4678ebc3c6619387b8c2797b7d6327",
+      "title": null,
+      "snapshotFile": "raw/0013-9970cd67c16f.html"
+    },
+    {
+      "url": "https://www.nyu.edu/academics/interdisciplinary-initiatives/arts-and-impact.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:46.657Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "29a0f40b4692c8bc585bedf2e9f1164f906f49074c21706a33589ee242832fb7",
+      "title": null,
+      "snapshotFile": "raw/0014-29a0f40b4692.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/policies-guidelines-compliance/equal-opportunity/harassment-and-discrimination.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:48.267Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "361b80f4239be2559a5cd55f9a2f5020edca712b5aa7eb641a653e7620ec0384",
+      "title": null,
+      "snapshotFile": "raw/0015-361b80f4239b.html"
+    },
+    {
+      "url": "https://www.nyu.edu/footer/map.html",
+      "fetchedAt": "2026-10-07T04:25:50.532Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "cec62c4e93cb002c7237844e979d210c3d45bc4989f8ad18a031395a16a742b5",
+      "title": "Campus Map",
+      "snapshotFile": "raw/0016-cec62c4e93cb.html"
+    },
+    {
+      "url": "https://www.nyu.edu/footer/copyright-and-fair-use.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:52.249Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dd866567ebcf0a1d2f32f734834c6aa75ad52e7d537d8f856e704103dff22172",
+      "title": null,
+      "snapshotFile": "raw/0017-dd866567ebcf.html"
+    },
+    {
+      "url": "https://www.nyu.edu/footer/accessibility.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:54.272Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b62e5cd4da84a3d307a00817394d8cc0ec8ba93029710bf2b3063150bee9e400",
+      "title": null,
+      "snapshotFile": "raw/0018-b62e5cd4da84.html"
+    },
+    {
+      "url": "https://www.nyu.edu/content/nyuwww/us/en.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:56.303Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e0dfadcfb47e19b99ef3b8e6f6c0e49ffaab7d7145360e27a9168d169c0597e4",
+      "title": null,
+      "snapshotFile": "raw/0019-e0dfadcfb47e.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/2026/september/kayaking-the-new-york-harbor-for-science-and-course-credit.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:25:58.291Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "062c8a237dc9d84d778b4d2fda013792dd98c067f8dd6ea77556d466c2fabd1f",
+      "title": null,
+      "snapshotFile": "raw/0020-062c8a237dc9.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/2026/april/cool-course--smartphone-cinema-capturing-your-los-angeles-story.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:00.271Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "526df39966d9d9040e1f8138c39456974aa3112a508d79308aef2d9fac4ca89b",
+      "title": null,
+      "snapshotFile": "raw/0021-526df39966d9.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/series-archive/cool-course-dispatches.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:02.295Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6fa8ead3be3997b00f2086d36f385f1c9bdffe0b178dde4bcde082b4a5c235ff",
+      "title": null,
+      "snapshotFile": "raw/0022-6fa8ead3be39.html"
+    },
+    {
+      "url": "https://www.nyu.edu/admissions.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:04.723Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c8bf848a8574e37845a02b0bdb005167f338881c212f1d7c0ddb2cf98e08a6f4",
+      "title": null,
+      "snapshotFile": "raw/0023-c8bf848a8574.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/2026/september/-dear-phone---students-write-breakup-letters-as-part-of-30-day-c.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:06.288Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "de227d92077d27615977db11411f4fca9fd59a16133c650b10fd52ac9c6f55b4",
+      "title": null,
+      "snapshotFile": "raw/0024-de227d92077d.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/2026/september/nyu-multidisciplinary-artist-immanuel-wilkins-wins-2026-macarthu.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:08.749Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee0f0a3b705ee600b9f0dd1343a0bd7912ba650643ce511eb2bf0bd408d7b830",
+      "title": null,
+      "snapshotFile": "raw/0025-ee0f0a3b705e.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/2026/september/nyu-celebrates-service-.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:10.363Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0a4086adbef1335da50ff961da96117fb9417a2da99d8ad511351cd26515f23a",
+      "title": null,
+      "snapshotFile": "raw/0026-0a4086adbef1.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/2026/september/forthcoming-exhibition---sng--photographs-by-ocean-vuong----oct-.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:12.766Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8f6698b2761dc5eca6f31468510a8797f14df4c2806fb4a1ee2ae3f48c9877f6",
+      "title": null,
+      "snapshotFile": "raw/0027-8f6698b2761d.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:14.770Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5dc0283a2d83ccb7b4a7c1e9ee73cd513b12d51a14e12a585f00dfd94e55e6e9",
+      "title": null,
+      "snapshotFile": "raw/0028-5dc0283a2d83.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/series-archive/ask-the-intern.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:16.764Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d453057724ba2e63fced895b06cf60b1515ccbbb5f6af9ed22f357a41c55ef9f",
+      "title": null,
+      "snapshotFile": "raw/0029-d453057724ba.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/2026/may/through-art-and-literary-publications--students-scrapbook-their-.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:18.759Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee9a8bbed885c14a912b7df92500c7fd584b6470ce1c9e8fe321323b8c0f893b",
+      "title": null,
+      "snapshotFile": "raw/0030-ee9a8bbed885.html"
+    },
+    {
+      "url": "https://www.nyu.edu/about/news-publications/news/2026/february/orphaned-by-war-at-age-11--a-global-health-researcher-builds-a-s.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:20.595Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3340959c5e40b312c3785776dd41f6180572b06f55de5cea42c0e6390395ddf6",
+      "title": null,
+      "snapshotFile": "raw/0031-3340959c5e40.html"
+    },
+    {
+      "url": "https://www.nyu.edu/footer/contact-us.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:22.766Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9a0387bd48a5f11e7f132e96633943cff537409eccba9e4a02ef1d950382574f",
+      "title": null,
+      "snapshotFile": "raw/0032-9a0387bd48a5.html"
+    },
+    {
+      "url": "https://www.nyu.edu/footer/privacy.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T04:26:24.355Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "22dedc832c5c93980755cd033f369b589149d0d9c4d8a9b0d27fc0949bb7c4ff",
+      "title": null,
+      "snapshotFile": "raw/0033-22dedc832c5c.html"
+    },
+    {
+      "url": "https://www.nyu.edu/academics/interdisciplinary-initiatives/arts-and-impact.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+      "fetchedAt": "2026-10-07T06:35:52.053Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a9acddc7b1efe752c4c10bf1053e6388206c1606f03ee64dbded4fdffa92ac96",
+      "title": null,
+      "snapshotFile": "raw/0001-a9acddc7b1ef.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:35:52.056Z",
+    "seedUrls": [
+      "https://www.nyu.edu/academics/interdisciplinary-initiatives/arts-and-impact.html"
+    ],
+    "pages": 1
+  }
+}

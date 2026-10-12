@@ -38,6 +38,18 @@ public class ProgrammeIntake {
     @Column(name = "display_text", nullable = false, length = 100)
     private String displayText;
 
+    @Column(name = "application_deadline")
+    private LocalDate applicationDeadline;
+
+    @Column(name = "application_deadline_text", length = 200)
+    private String applicationDeadlineText;
+
+    @Column(name = "source_url", length = 1000)
+    private String sourceUrl;
+
+    @Column(name = "source_checked_at")
+    private OffsetDateTime sourceCheckedAt;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;

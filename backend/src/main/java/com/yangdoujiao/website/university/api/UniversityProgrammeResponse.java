@@ -33,7 +33,8 @@ public record UniversityProgrammeResponse(
         LocalDate exchangeRateDate,
         String tuitionDisplay,
         List<String> intakeMonths,
-        List<String> intakeDisplayTexts
+        List<String> intakeDisplayTexts,
+        String imageUrl
 ) {
     public UniversityProgrammeResponse {
         languageCodes = List.copyOf(languageCodes);
@@ -43,7 +44,8 @@ public record UniversityProgrammeResponse(
 
     public static UniversityProgrammeResponse from(
             Programme programme,
-            List<ProgrammeIntake> intakes
+            List<ProgrammeIntake> intakes,
+            String imageUrl
     ) {
         return new UniversityProgrammeResponse(
                 programme.getId(),
@@ -83,7 +85,8 @@ public record UniversityProgrammeResponse(
                                 Comparator.nullsLast(Comparator.naturalOrder())
                         ))
                         .map(ProgrammeIntake::getDisplayText)
-                        .toList()
+                        .toList(),
+                imageUrl
         );
     }
 }

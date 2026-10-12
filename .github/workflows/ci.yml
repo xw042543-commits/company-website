@@ -31,6 +31,10 @@ jobs:
       ELASTICSEARCH_PORT: "9200"
       ELASTICSEARCH_URL: http://localhost:9200
       CORS_ALLOWED_ORIGINS: http://localhost:3000
+      APP_AUTH_PRODUCTION_NOTIFICATION_PROVIDER: NONE
+      APP_AUTH_APPROVED_DOMAIN: NONE
+      APP_AUTH_PRODUCTION_LAUNCH_APPROVED: "false"
+      APP_SESSION_COOKIE_SECURE: "false"
 
     steps:
       - name: Check out repository
@@ -69,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      NEXT_PUBLIC_API_BASE_URL: http://localhost:8080
+      API_BASE_URL: http://backend:8080
 
     steps:
       - name: Check out repository
@@ -107,3 +111,109 @@ jobs:
       - name: Build frontend
         working-directory: frontend
         run: npm run build
+
+  miniapp:
+    name: Miniapp - tests, types and lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: miniapp/package-lock.json
+      - name: Install miniapp dependencies
+        working-directory: miniapp
+        run: npm ci
+      - name: Verify integrated miniapp
+        working-directory: miniapp
+        run: npm run check
+
+  deployment:
+    name: Deployment - contracts and images
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      - name: Create isolated CI deployment environment
+        shell: bash
+        run: |
+          cat > "$RUNNER_TEMP/deployment.env" <<'EOF'
+          PUBLIC_SITE_URL=https://preview.yangdoujiao.com
+          PUBLIC_INDEXING_ENABLED=false
+          API_BASE_URL=http://backend:8080
+          SPRING_PROFILES_ACTIVE=prod
+          CORS_ALLOWED_ORIGINS=https://preview.yangdoujiao.com
+          CADDY_SITE_ADDRESSES=:80
+          CADDY_ACME_EMAIL=ci@example.test
+          POSTGRES_DB=company_website
+          POSTGRES_USER=company_app
+          POSTGRES_PASSWORD=ci-only-postgres-secret
+          POSTGRES_HOST=postgres
+          POSTGRES_PORT=5432
+          REDIS_HOST=redis
+          REDIS_PORT=6379
+          REDIS_PASSWORD=ci-only-redis-secret
+          ELASTICSEARCH_URL=http://elasticsearch:9200
+          ELASTICSEARCH_PORT=9200
+          APP_CONSULTATION_SUBMISSION_ENABLED=false
+          APP_AUTH_REGISTRATION_ENABLED=false
+          APP_SESSION_COOKIE_SECURE=true
+          APP_AUTH_PRODUCTION_NOTIFICATION_PROVIDER=NONE
+          APP_AUTH_APPROVED_DOMAIN=YANGDOUJIAO_COM
+          APP_AUTH_PUBLIC_SITE_ORIGIN=https://preview.yangdoujiao.com
+          APP_AUTH_PRODUCTION_LAUNCH_APPROVED=false
+          APP_AUTH_WECHAT_ENABLED=false
+          DEPLOYMENT_NETWORK_SUBNET=172.30.0.0/24
+          FRONTEND_INTERNAL_IP=172.30.0.10
+          BACKEND_INTERNAL_IP=172.30.0.20
+          FRONTEND_IMAGE=udajo/frontend:ci
+          BACKEND_IMAGE=udajo/backend:ci
+          EOF
+          printf 'APP_COMMUNITY_CURSOR_SECRET=%s\n' "$(openssl rand -hex 32)" >> "$RUNNER_TEMP/deployment.env"
+
+      - name: Validate deployment contracts
+        run: |
+          node --test scripts/deployment-preflight.test.mjs scripts/deployment-artifacts.test.mjs scripts/deployment-compose.test.mjs scripts/deployment-ci.test.mjs scripts/deployment-cd.test.mjs scripts/deployment-documentation.test.mjs scripts/migration-versions.test.mjs
+          node scripts/deployment-preflight.mjs "$RUNNER_TEMP/deployment.env"
+
+      - name: Validate public Caddy domain configuration
+        run: docker run --rm -e CADDY_SITE_ADDRESSES='yangdoujiao.com, www.yangdoujiao.com' -e CADDY_ACME_EMAIL=ci@example.test -v "$PWD/deploy/Caddyfile:/etc/caddy/Caddyfile:ro" caddy:2.11.4-alpine caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+
+      - name: Validate production Compose configuration
+        run: docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml config --quiet
+
+      - name: Build frontend production image
+        run: docker build --tag udajo/frontend:ci frontend
+
+      - name: Build backend production image
+        run: docker build --tag udajo/backend:ci backend
+
+      - name: Start and verify production topology
+        run: |
+          docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml up -d --no-build --wait --wait-timeout 300
+          curl --fail --silent http://127.0.0.1/zh >/dev/null
+          curl --fail-with-body --silent http://127.0.0.1/healthz >/dev/null
+          curl --fail --silent http://127.0.0.1/api/v1/auth/providers >/dev/null
+          curl --silent --head --header 'Host: www.yangdoujiao.com' http://127.0.0.1/ | grep --ignore-case --quiet '^location: https://yangdoujiao.com/'
+
+      - name: Show production topology logs after a failure
+        if: failure()
+        run: |
+          docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml ps
+          docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml logs --no-color --tail=200 caddy frontend backend
+
+      - name: Stop production topology
+        if: always()
+        run: docker compose --env-file "$RUNNER_TEMP/deployment.env" -f compose.production.yaml down --volumes

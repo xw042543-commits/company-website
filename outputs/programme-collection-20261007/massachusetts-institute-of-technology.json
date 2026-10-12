@@ -1,0 +1,1540 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.475Z",
+  "sourceKey": "massachusetts-institute-of-technology",
+  "sourceName": "Massachusetts Institute of Technology",
+  "warnings": [
+    "http://mit.edu/：跳转超出允许域名: web.mit.edu",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_text.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_africanafricandiasporastudiestext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_americanstudiestext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_ancientmedievalstudiestext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_asianasiandiasporastudiestext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_latinamericanlatinostudiestext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_newitemtext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_womensgenderstudiestext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/undergraduate-programs.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/degrees.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/degrees_text.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/degrees_degtext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/academic-programs.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_text.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_concoursetext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_designplustext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_esgtext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_terrascopetext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_freshmangradingtext.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/majors/majors.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/minors/minors.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/undergraduate-research-opportunities-program/undergraduate-research-opportunities-program.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/chemistry-biology/chemistry-biology.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/climate-system-science-engineering/climate-system-science-engineering.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computation-cognition/computation-cognition.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-molecular-biology/computer-science-molecular-biology.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-economics-data-science/computer-science-economics-data-science.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities-engineering/humanities-engineering.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities-science/humanities-science.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/urban-science-planning-computer-science/urban-science-planning-computer-science.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minors.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minor-african-studies/minor-african-studies.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minor-american-studies/minor-american-studies.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/ancient-medieval-studies/ancient-medieval-studies.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/applied-international-studies/applied-international-studies.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/asian-studies/asian-studies.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/astronomy/astronomy.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/biomedical-engineering/biomedical-engineering.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/energy-studies/energy-studies.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/environment-sustainability/environment-sustainability.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/latin-american-latino-studies/latin-american-latino-studies.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/middle-eastern-studies/middle-eastern-studies.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/polymers-soft-matter/polymers-soft-matter.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/public-policy/public-policy.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/russian-eurasian-studies/russian-eurasian-studies.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/statistics-data-science/statistics-data-science.pdf",
+    "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/womens-gender-studies/womens-gender-studies.pdf",
+    "HTTP 404：http://shass.mit.edu/undergraduate/minors/"
+  ],
+  "university": {
+    "candidateId": "university_f1b36ce7da8b9176",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Massachusetts Institute of Technology",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Cambridge, Massachusetts",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.mit.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:11:00.263Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.mit.edu/",
+        "sourcePageTitle": "MIT - Massachusetts Institute of Technology",
+        "sourceHash": "a28818066f56c80b980efdc972bc7cff034228d5be409010c0b40b13ff4f7e7e",
+        "fetchedAt": "2026-10-07T04:11:00.263Z",
+        "field": "name",
+        "rawText": "Massachusetts Institute of Technology"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 1,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": []
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_5c337fc77547c247",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "人文科学学士(第21期)",
+      "nameEn": "Bachelor of Science in Humanities (Course 21)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalog.mit.edu/degree-charts/humanities-course-21/",
+      "sourceCheckedAt": "2026-10-07T06:16:16.847Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/",
+          "sourcePageTitle": "Humanities | MIT Course Catalog",
+          "sourceHash": "1269550303f89673e5f9885e3c999f03357416dc2aa2c8e280fc86063204b8f6",
+          "fetchedAt": "2026-10-07T06:16:16.847Z",
+          "field": "name",
+          "rawText": "Bachelor of Science in Humanities (Course 21)"
+        },
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/",
+          "sourcePageTitle": "Humanities | MIT Course Catalog",
+          "sourceHash": "1269550303f89673e5f9885e3c999f03357416dc2aa2c8e280fc86063204b8f6",
+          "fetchedAt": "2026-10-07T06:16:16.847Z",
+          "field": "detailUrl",
+          "rawText": "https://catalog.mit.edu/degree-charts/humanities-course-21/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_aae35fc20ef68992",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "化学和生物学士",
+      "nameEn": "Bachelor of Science in Chemistry and Biology",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalog.mit.edu/degree-charts/chemistry-biology-course-5-7/",
+      "sourceCheckedAt": "2026-10-07T06:16:32.904Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/chemistry-biology/",
+          "sourcePageTitle": "Chemistry and Biology | MIT Course Catalog",
+          "sourceHash": "10ab25a45e80f23e22c2f625c02c686807c3f0455eab7f3abc62dd181af607ee",
+          "fetchedAt": "2026-10-07T06:16:32.904Z",
+          "field": "name",
+          "rawText": "Bachelor of Science in Chemistry and Biology"
+        },
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/chemistry-biology/",
+          "sourcePageTitle": "Chemistry and Biology | MIT Course Catalog",
+          "sourceHash": "10ab25a45e80f23e22c2f625c02c686807c3f0455eab7f3abc62dd181af607ee",
+          "fetchedAt": "2026-10-07T06:16:32.904Z",
+          "field": "detailUrl",
+          "rawText": "https://catalog.mit.edu/degree-charts/chemistry-biology-course-5-7/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_d969412196443019",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "气候系统科学和工程学士学位",
+      "nameEn": "Bachelor of Science in Climate System Science and Engineering",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalog.mit.edu/degree-charts/climate-system-science-engineering-course-1-12/",
+      "sourceCheckedAt": "2026-10-07T06:16:34.734Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/climate-system-science-engineering/",
+          "sourcePageTitle": "Climate System Science and Engineering | MIT Course Catalog",
+          "sourceHash": "fd1b6b34022b45a53e7f63c720b97ebca06eb1c4e711d7b8e35a118deaaeabdf",
+          "fetchedAt": "2026-10-07T06:16:34.734Z",
+          "field": "name",
+          "rawText": "Bachelor of Science in Climate System Science and Engineering"
+        },
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/climate-system-science-engineering/",
+          "sourcePageTitle": "Climate System Science and Engineering | MIT Course Catalog",
+          "sourceHash": "fd1b6b34022b45a53e7f63c720b97ebca06eb1c4e711d7b8e35a118deaaeabdf",
+          "fetchedAt": "2026-10-07T06:16:34.734Z",
+          "field": "detailUrl",
+          "rawText": "https://catalog.mit.edu/degree-charts/climate-system-science-engineering-course-1-12/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_e55cf476fa488741",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算和认知学理科学士",
+      "nameEn": "Bachelor of Science in Computation and Cognition",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalog.mit.edu/degree-charts/computation-cognition-6-9/",
+      "sourceCheckedAt": "2026-10-07T06:16:36.031Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computation-cognition/",
+          "sourcePageTitle": "Computation and Cognition | MIT Course Catalog",
+          "sourceHash": "60954c05a18b4d9d18ab238ee14e982ab6668743dc2192c71f0767800ccabb50",
+          "fetchedAt": "2026-10-07T06:16:36.031Z",
+          "field": "name",
+          "rawText": "Bachelor of Science in Computation and Cognition"
+        },
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computation-cognition/",
+          "sourcePageTitle": "Computation and Cognition | MIT Course Catalog",
+          "sourceHash": "60954c05a18b4d9d18ab238ee14e982ab6668743dc2192c71f0767800ccabb50",
+          "fetchedAt": "2026-10-07T06:16:36.031Z",
+          "field": "detailUrl",
+          "rawText": "https://catalog.mit.edu/degree-charts/computation-cognition-6-9/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_0e8627f582e1ff70",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机科学和分子生物学科学学士",
+      "nameEn": "Bachelor of Science in Computer Science and Molecular Biology",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalog.mit.edu/degree-charts/computer-science-molecular-biology-course-6-7/",
+      "sourceCheckedAt": "2026-10-07T06:16:38.271Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-molecular-biology/",
+          "sourcePageTitle": "Computer Science and Molecular Biology | MIT Course Catalog",
+          "sourceHash": "22306a9f639c7df0520f776200e250f8969b230bf62c9d48caa461c6e49fd27f",
+          "fetchedAt": "2026-10-07T06:16:38.271Z",
+          "field": "name",
+          "rawText": "Bachelor of Science in Computer Science and Molecular Biology"
+        },
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-molecular-biology/",
+          "sourcePageTitle": "Computer Science and Molecular Biology | MIT Course Catalog",
+          "sourceHash": "22306a9f639c7df0520f776200e250f8969b230bf62c9d48caa461c6e49fd27f",
+          "fetchedAt": "2026-10-07T06:16:38.271Z",
+          "field": "detailUrl",
+          "rawText": "https://catalog.mit.edu/degree-charts/computer-science-molecular-biology-course-6-7/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_b05bd4de59f6c6ae",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机科学和分子生物学工程硕士",
+      "nameEn": "Master of Engineering in Computer Science and Molecular Biology",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalog.mit.edu/interdisciplinary/graduate-programs/computer-science-molecular-biology/",
+      "sourceCheckedAt": "2026-10-07T06:16:38.271Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-molecular-biology/",
+          "sourcePageTitle": "Computer Science and Molecular Biology | MIT Course Catalog",
+          "sourceHash": "22306a9f639c7df0520f776200e250f8969b230bf62c9d48caa461c6e49fd27f",
+          "fetchedAt": "2026-10-07T06:16:38.271Z",
+          "field": "name",
+          "rawText": "Master of Engineering in Computer Science and Molecular Biology"
+        },
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-molecular-biology/",
+          "sourcePageTitle": "Computer Science and Molecular Biology | MIT Course Catalog",
+          "sourceHash": "22306a9f639c7df0520f776200e250f8969b230bf62c9d48caa461c6e49fd27f",
+          "fetchedAt": "2026-10-07T06:16:38.271Z",
+          "field": "detailUrl",
+          "rawText": "https://catalog.mit.edu/interdisciplinary/graduate-programs/computer-science-molecular-biology/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_644658904573df42",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "计算机科学、经济学和数据学理学士(第6-14期)",
+      "nameEn": "Bachelor of Science in Computer Science, Economics and Data Science (Course 6-14)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalog.mit.edu/degree-charts/computer-science-economics-data-science-course-6-14/",
+      "sourceCheckedAt": "2026-10-07T06:16:40.262Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-economics-data-science/",
+          "sourcePageTitle": "Computer Science, Economics, and Data Science | MIT Course Catalog",
+          "sourceHash": "424630af28056bff92e16530eca141f3553ef73062203c85b2d94b91044c0ee1",
+          "fetchedAt": "2026-10-07T06:16:40.262Z",
+          "field": "name",
+          "rawText": "Bachelor of Science in Computer Science, Economics and Data Science (Course 6-14)"
+        },
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-economics-data-science/",
+          "sourcePageTitle": "Computer Science, Economics, and Data Science | MIT Course Catalog",
+          "sourceHash": "424630af28056bff92e16530eca141f3553ef73062203c85b2d94b91044c0ee1",
+          "fetchedAt": "2026-10-07T06:16:40.262Z",
+          "field": "detailUrl",
+          "rawText": "https://catalog.mit.edu/degree-charts/computer-science-economics-data-science-course-6-14/"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_3805b31893aceb23",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "城市科学和规划学士,计算机科学(课程11-6)",
+      "nameEn": "Bachelor of Science in Urban Science and Planning with Computer Science (Course 11-6)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://catalog.mit.edu/degree-charts/urban-science-planning-computer-science-11-6/",
+      "sourceCheckedAt": "2026-10-07T06:16:46.276Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/urban-science-planning-computer-science/",
+          "sourcePageTitle": "Urban Science and Planning with Computer Science | MIT Course Catalog",
+          "sourceHash": "1d4ac0c38d51199ff6c8bc3b4d75d39c99c57a227c20d9ef98b575bbc48ac44c",
+          "fetchedAt": "2026-10-07T06:16:46.276Z",
+          "field": "name",
+          "rawText": "Bachelor of Science in Urban Science and Planning with Computer Science (Course 11-6)"
+        },
+        {
+          "sourceUrl": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/urban-science-planning-computer-science/",
+          "sourcePageTitle": "Urban Science and Planning with Computer Science | MIT Course Catalog",
+          "sourceHash": "1d4ac0c38d51199ff6c8bc3b4d75d39c99c57a227c20d9ef98b575bbc48ac44c",
+          "fetchedAt": "2026-10-07T06:16:46.276Z",
+          "field": "detailUrl",
+          "rawText": "https://catalog.mit.edu/degree-charts/urban-science-planning-computer-science-11-6/"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.mit.edu/",
+      "fetchedAt": "2026-10-07T04:11:00.263Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a28818066f56c80b980efdc972bc7cff034228d5be409010c0b40b13ff4f7e7e",
+      "title": "MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0001-a28818066f56.html"
+    },
+    {
+      "url": "https://www.mit.edu/education/",
+      "fetchedAt": "2026-10-07T04:11:02.620Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "56090eebedfaabab2ec79fac3a2a64543f6317bb2e9dcb8fa7e597a727019c56",
+      "title": "Education | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0002-56090eebedfa.html"
+    },
+    {
+      "url": "https://www.mit.edu/research/",
+      "fetchedAt": "2026-10-07T04:11:04.521Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "60452abfcc189e22deb8d99cbb35b46ccc3555a7a72e932b7e2f9c48102b67f7",
+      "title": "Research | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0003-60452abfcc18.html"
+    },
+    {
+      "url": "https://www.mit.edu/research/centers-labs-programs/",
+      "fetchedAt": "2026-10-07T04:11:06.473Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "56b5bb4543016575400413d013ba50d4916784c0a89b3735221d63004e5dbc2c",
+      "title": "Centers, Labs & Programs | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0004-56b5bb454301.html"
+    },
+    {
+      "url": "https://www.mit.edu/innovation/",
+      "fetchedAt": "2026-10-07T04:11:08.579Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "99b912df02fc8f9f31b6b5a1de0febd5cffe84cebc6c1bf20b88f85d0477a9b6",
+      "title": "Innovation | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0005-99b912df02fc.html"
+    },
+    {
+      "url": "https://www.mit.edu/campus-life/",
+      "fetchedAt": "2026-10-07T04:11:11.046Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a09b1df13ccf90d172544d7f96e7d413f7034d4524218d762bcc2cb5414177ff",
+      "title": "Campus Life | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0006-a09b1df13ccf.html"
+    },
+    {
+      "url": "https://www.mit.edu/alumni/",
+      "fetchedAt": "2026-10-07T04:11:13.282Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "aa0c75892de2e136fc3dff0c0d4b766cd2611203e14643a7adf84ebdc64e56f4",
+      "title": "Alumni | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0007-aa0c75892de2.html"
+    },
+    {
+      "url": "https://www.mit.edu/about/",
+      "fetchedAt": "2026-10-07T04:11:14.682Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "f5c79244d6373a25d8dd346851f3be79b43d789b3e5b78f7a42a687da13d1c56",
+      "title": "About MIT | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0008-f5c79244d637.html"
+    },
+    {
+      "url": "https://www.mit.edu/building-a-better-world/",
+      "fetchedAt": "2026-10-07T04:11:17.958Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "f63afc09ae386037ef4801e61348ee012f9477998b36f46f971c57340049fd80",
+      "title": "Better World | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0009-f63afc09ae38.html"
+    },
+    {
+      "url": "https://www.mit.edu/search/",
+      "fetchedAt": "2026-10-07T04:11:19.895Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a1f2c920e2d545ee98688eb3b1b21117d20f810e8492c799e912b01746e92b12",
+      "title": "Search Results | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0010-a1f2c920e2d5.html"
+    },
+    {
+      "url": "https://www.mit.edu/feedback/",
+      "fetchedAt": "2026-10-07T04:11:22.019Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "d474378ef4911c8c64f9f4203dbbe51147e31dd06dfe7a8371b01d05b2db0681",
+      "title": "Feedback | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0011-d474378ef491.html"
+    },
+    {
+      "url": "https://www.mit.edu/visitmit/",
+      "fetchedAt": "2026-10-07T04:11:24.005Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "3b17812367ff3f77b907c47d70cc891a58f494a0c96111e41a40358b605d92a4",
+      "title": "Visit | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0012-3b17812367ff.html"
+    },
+    {
+      "url": "https://www.mit.edu/search/?redirect-origin=legacy&tab=directory",
+      "fetchedAt": "2026-10-07T04:11:25.170Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a1f2c920e2d545ee98688eb3b1b21117d20f810e8492c799e912b01746e92b12",
+      "title": "Search Results | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0013-a1f2c920e2d5.html"
+    },
+    {
+      "url": "https://www.mit.edu/accessibility/",
+      "fetchedAt": "2026-10-07T04:11:26.617Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "61a2b62fb9405bdf75ce88e3005e276455b1b813afdd927911ec0422506ef44a",
+      "title": "Accessibility | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0014-61a2b62fb940.html"
+    },
+    {
+      "url": "https://www.mit.edu/education/schools-and-departments/",
+      "fetchedAt": "2026-10-07T04:11:29.071Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "aaa9ca7d0c3b28ac36d04cc50b7bd38034e98664fac3687bc3e99a1202050ed9",
+      "title": "Schools & Departments | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0015-aaa9ca7d0c3b.html"
+    },
+    {
+      "url": "https://www.mit.edu/about/mission-statement/",
+      "fetchedAt": "2026-10-07T04:11:31.295Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "6cfb1c7666764044e34e4ac2722f72c40d8fa8aa2241cf2371da3667bf2ef283",
+      "title": "Mission Statement | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0016-6cfb1c766676.html"
+    },
+    {
+      "url": "https://www.mit.edu/education/schools-and-departments/",
+      "fetchedAt": "2026-10-07T04:11:33.274Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "aaa9ca7d0c3b28ac36d04cc50b7bd38034e98664fac3687bc3e99a1202050ed9",
+      "title": "Schools & Departments | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0017-aaa9ca7d0c3b.html"
+    },
+    {
+      "url": "https://www.mit.edu/research/research-alliances/",
+      "fetchedAt": "2026-10-07T04:11:35.274Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "c0a156483e0ebe0f30f4f72e978ea1f7c4df7835d39996e951dd5fdaac03df57",
+      "title": "Collaborating Institutions | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0018-c0a156483e0e.html"
+    },
+    {
+      "url": "https://www.mit.edu/about/mission-statement/",
+      "fetchedAt": "2026-10-07T04:11:38.258Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "6cfb1c7666764044e34e4ac2722f72c40d8fa8aa2241cf2371da3667bf2ef283",
+      "title": "Mission Statement | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0019-6cfb1c766676.html"
+    },
+    {
+      "url": "https://www.mit.edu/values/",
+      "fetchedAt": "2026-10-07T04:11:39.326Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "44bdeaff9d01e0a2c0b69587b136ebe9a5ca18b7f23d7c66e440cabc6d8dc1de",
+      "title": "MIT Values | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0020-44bdeaff9d01.html"
+    },
+    {
+      "url": "https://www.mit.edu/visitmit/where-eat/",
+      "fetchedAt": "2026-10-07T04:11:42.232Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "8fcc8724edaaa15b45913627aac074a8aee983d1500e37e82c3971ab30efdc37",
+      "title": "Where to eat | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0021-8fcc8724edaa.html"
+    },
+    {
+      "url": "https://www.mit.edu/visitmit/where-stay/",
+      "fetchedAt": "2026-10-07T04:11:44.203Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "4db33c0c6ec29fce7a757cf3deb8d55d895843dec933b6f4d05f66ebf78a1770",
+      "title": "Where to stay | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0022-4db33c0c6ec2.html"
+    },
+    {
+      "url": "https://www.mit.edu/admissions-aid/",
+      "fetchedAt": "2026-10-07T04:11:44.733Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "826b6020acef0526bade4c415e74e29124928ae76201e0f334efa5effc0fb4fa",
+      "title": "Admissions + Aid | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0023-826b6020acef.html"
+    },
+    {
+      "url": "https://www.mit.edu/contact/",
+      "fetchedAt": "2026-10-07T04:11:46.762Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "88752dbeeb51e00dfbd08715e9a7389728abde967e74919f9a709e656bf7d9b6",
+      "title": "Contact | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0024-88752dbeeb51.html"
+    },
+    {
+      "url": "https://www.mit.edu/privacy/",
+      "fetchedAt": "2026-10-07T04:11:50.158Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "ac3af3e59a47af980f3d22a23026a597fef62556e5122e49b8e71c716b8df44b",
+      "title": "Privacy | MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0025-ac3af3e59a47.html"
+    },
+    {
+      "url": "https://www.mit.edu/",
+      "fetchedAt": "2026-10-07T04:11:56.452Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "a28818066f56c80b980efdc972bc7cff034228d5be409010c0b40b13ff4f7e7e",
+      "title": "MIT - Massachusetts Institute of Technology",
+      "snapshotFile": "raw/0026-a28818066f56.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/",
+      "fetchedAt": "2026-10-07T06:16:16.847Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1269550303f89673e5f9885e3c999f03357416dc2aa2c8e280fc86063204b8f6",
+      "title": "Humanities | MIT Course Catalog",
+      "snapshotFile": "raw/0001-1269550303f8.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/",
+      "fetchedAt": "2026-10-07T06:16:17.719Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f6700a471c18844126225e8882ac390e33db0762523eac667d52eacba0cb3878",
+      "title": "Undergraduate Programs | MIT Course Catalog",
+      "snapshotFile": "raw/0002-f6700a471c18.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/",
+      "fetchedAt": "2026-10-07T06:16:20.191Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0e86dd81660ffa7181343527ff26201c3d0b14020c6cc1c1c574b0bdf0a86c87",
+      "title": "Interdisciplinary Undergraduate Degrees | MIT Course Catalog",
+      "snapshotFile": "raw/0003-0e86dd81660f.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-programs/",
+      "fetchedAt": "2026-10-07T06:16:22.180Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3bbd33cbd29a121b400524738280b01b7fe08de9d86a0a7de3d8fb23d9045892",
+      "title": "Academic Programs | MIT Course Catalog",
+      "snapshotFile": "raw/0004-3bbd33cbd29a.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/",
+      "fetchedAt": "2026-10-07T06:16:24.626Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9747a44c9eba69abe09da890ee9e5d3c595563a6904d53c4d4325fc877fd5818",
+      "title": "First Year | MIT Course Catalog",
+      "snapshotFile": "raw/0005-9747a44c9eba.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-programs/majors/",
+      "fetchedAt": "2026-10-07T06:16:26.871Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b2635ce69511cb1b320169a47552c16c4bf7a8827cfb13e9ce946a379876fd55",
+      "title": "Major Course of Study | MIT Course Catalog",
+      "snapshotFile": "raw/0006-b2635ce69511.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-programs/minors/",
+      "fetchedAt": "2026-10-07T06:16:28.653Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e47c927601d2e56c53b5629ee0e5942b22e654943f56ef02afa66fb902ad7dd1",
+      "title": "Minors | MIT Course Catalog",
+      "snapshotFile": "raw/0007-e47c927601d2.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/undergraduate-research-opportunities-program/",
+      "fetchedAt": "2026-10-07T06:16:30.856Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9cb6433e1f2c13bea5824860a9aaa7622f7341876a8ff41593d2f72c593376f9",
+      "title": "Undergraduate Research Opportunities Program | MIT Course Catalog",
+      "snapshotFile": "raw/0008-9cb6433e1f2c.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/chemistry-biology/",
+      "fetchedAt": "2026-10-07T06:16:32.904Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "10ab25a45e80f23e22c2f625c02c686807c3f0455eab7f3abc62dd181af607ee",
+      "title": "Chemistry and Biology | MIT Course Catalog",
+      "snapshotFile": "raw/0009-10ab25a45e80.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/climate-system-science-engineering/",
+      "fetchedAt": "2026-10-07T06:16:34.734Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fd1b6b34022b45a53e7f63c720b97ebca06eb1c4e711d7b8e35a118deaaeabdf",
+      "title": "Climate System Science and Engineering | MIT Course Catalog",
+      "snapshotFile": "raw/0010-fd1b6b34022b.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computation-cognition/",
+      "fetchedAt": "2026-10-07T06:16:36.031Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "60954c05a18b4d9d18ab238ee14e982ab6668743dc2192c71f0767800ccabb50",
+      "title": "Computation and Cognition | MIT Course Catalog",
+      "snapshotFile": "raw/0011-60954c05a18b.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-molecular-biology/",
+      "fetchedAt": "2026-10-07T06:16:38.271Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "22306a9f639c7df0520f776200e250f8969b230bf62c9d48caa461c6e49fd27f",
+      "title": "Computer Science and Molecular Biology | MIT Course Catalog",
+      "snapshotFile": "raw/0012-22306a9f639c.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-economics-data-science/",
+      "fetchedAt": "2026-10-07T06:16:40.262Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "424630af28056bff92e16530eca141f3553ef73062203c85b2d94b91044c0ee1",
+      "title": "Computer Science, Economics, and Data Science | MIT Course Catalog",
+      "snapshotFile": "raw/0013-424630af2805.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities-engineering/",
+      "fetchedAt": "2026-10-07T06:16:42.267Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5fa36f520008a7b671bc19fa4ee218cf4c8b97d0a9c2674c8d88662527284a10",
+      "title": "Humanities and Engineering | MIT Course Catalog",
+      "snapshotFile": "raw/0014-5fa36f520008.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities-science/",
+      "fetchedAt": "2026-10-07T06:16:44.286Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0dffa4a2cf2944044e5a716194624a0b9c4c38b3619df7a69e991954531ed0b8",
+      "title": "Humanities and Science | MIT Course Catalog",
+      "snapshotFile": "raw/0015-0dffa4a2cf29.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/urban-science-planning-computer-science/",
+      "fetchedAt": "2026-10-07T06:16:46.276Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1d4ac0c38d51199ff6c8bc3b4d75d39c99c57a227c20d9ef98b575bbc48ac44c",
+      "title": "Urban Science and Planning with Computer Science | MIT Course Catalog",
+      "snapshotFile": "raw/0016-1d4ac0c38d51.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/",
+      "fetchedAt": "2026-10-07T06:16:48.283Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "681933db7a0ebb1cf314949a4d45608399c44e32b890f2d2a2f5d2003c210059",
+      "title": "Minors | MIT Course Catalog",
+      "snapshotFile": "raw/0017-681933db7a0e.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minor-african-studies/",
+      "fetchedAt": "2026-10-07T06:16:50.300Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4e1507caee12c5fb3a9655ffb3af016d6e13b40c1069a543d955146814f222cb",
+      "title": "Minor in African and African Diaspora Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0018-4e1507caee12.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minor-american-studies/",
+      "fetchedAt": "2026-10-07T06:16:52.292Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2e8b6ccedce32eb7b3be04c42241ab103ba733584f9d5bed8ae423217f1e8454",
+      "title": "Minor in American Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0019-2e8b6ccedce3.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/ancient-medieval-studies/",
+      "fetchedAt": "2026-10-07T06:16:54.296Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d15e9aeba8130b1c73d2fd1757041a5688c424e1b79a100a7010fb951f955950",
+      "title": "Minor in Ancient and Medieval Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0020-d15e9aeba813.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/applied-international-studies/",
+      "fetchedAt": "2026-10-07T06:16:56.319Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8931ff457d1b2a955fabaf6673c059db3c77f6a62f150e3891f0dd38a1dd2730",
+      "title": "Minor in Applied International Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0021-8931ff457d1b.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/asian-studies/",
+      "fetchedAt": "2026-10-07T06:16:58.303Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "93992c1ee6d16be80b899d28d21d350b2f1a4816013468e6b58ed43020e8b23d",
+      "title": "Minor in Asian and Asian Diaspora Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0022-93992c1ee6d1.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/astronomy/",
+      "fetchedAt": "2026-10-07T06:17:00.314Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "288e3d59b94908f32ffc5bcf3f2257e8a26b264a0a3c1e29e9bfc4fb8c7def1a",
+      "title": "Minor in Astronomy | MIT Course Catalog",
+      "snapshotFile": "raw/0023-288e3d59b949.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/biomedical-engineering/",
+      "fetchedAt": "2026-10-07T06:17:02.332Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec2311c615cfd9c5d9f6dd0ed8bfce20e53f6e6c63dc18f586149f736b6b56a0",
+      "title": "Minor in Biomedical Engineering | MIT Course Catalog",
+      "snapshotFile": "raw/0024-ec2311c615cf.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/energy-studies/",
+      "fetchedAt": "2026-10-07T06:17:04.323Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6f04b6602ec8cced63904f12d61589559846920badb5d75e2c2acdbbb55526da",
+      "title": "Minor in Energy Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0025-6f04b6602ec8.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/environment-sustainability/",
+      "fetchedAt": "2026-10-07T06:17:06.563Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d2fa80eaa6cbdb5e4b29c1fc8c1176f4db68217f411f06b309dc93dbec4da649",
+      "title": "Minor in Environment and Sustainability | MIT Course Catalog",
+      "snapshotFile": "raw/0026-d2fa80eaa6cb.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/latin-american-latino-studies/",
+      "fetchedAt": "2026-10-07T06:17:08.773Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c390a44ec800907f6813bbda2510b7b2384da6a4d0a3cc14b01c96f44b9614b6",
+      "title": "Minor in Latin American and Latino/a Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0027-c390a44ec800.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/middle-eastern-studies/",
+      "fetchedAt": "2026-10-07T06:17:10.817Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d28c41ac13fc1736978b64d149d031eaee6241666965947b99537497f8216b30",
+      "title": "Minor in Middle Eastern Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0028-d28c41ac13fc.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/polymers-soft-matter/",
+      "fetchedAt": "2026-10-07T06:17:12.112Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e70a9a22ab1490cd01a2a6d6e1e33d191a34eb7cea9f17c1b210ac7248d9a99e",
+      "title": "Minor in Polymers and Soft Matter | MIT Course Catalog",
+      "snapshotFile": "raw/0029-e70a9a22ab14.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/public-policy/",
+      "fetchedAt": "2026-10-07T06:17:14.371Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "065b04dc70a18b35b47b04c771648157a9987398af87794f68b96d6d0399accf",
+      "title": "Minor in Public Policy | MIT Course Catalog",
+      "snapshotFile": "raw/0030-065b04dc70a1.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/russian-eurasian-studies/",
+      "fetchedAt": "2026-10-07T06:17:16.830Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9c184a3b998068202e75796303e1365d51fe1af3e3c097ea463e699a456b02f2",
+      "title": "Minor in Russian and Eurasian Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0031-9c184a3b9980.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/statistics-data-science/",
+      "fetchedAt": "2026-10-07T06:17:18.848Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b5c29e4b1e345a66da466f9fb773347213e814004b1eb6416e707872fb04a762",
+      "title": "Minor in Statistics and Data Science | MIT Course Catalog",
+      "snapshotFile": "raw/0032-b5c29e4b1e34.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/womens-gender-studies/",
+      "fetchedAt": "2026-10-07T06:17:20.854Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7c52a8a476c20410a9363af22a7436d73a1e792c65a8c8c3e31f50c1bdcb86b5",
+      "title": "Minor in Women's and Gender Studies | MIT Course Catalog",
+      "snapshotFile": "raw/0033-7c52a8a476c2.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/climate-system-science-engineering/index.html",
+      "fetchedAt": "2026-10-07T06:17:22.825Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fd1b6b34022b45a53e7f63c720b97ebca06eb1c4e711d7b8e35a118deaaeabdf",
+      "title": "Climate System Science and Engineering | MIT Course Catalog",
+      "snapshotFile": "raw/0034-fd1b6b34022b.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/joint-degrees/",
+      "fetchedAt": "2026-10-07T06:19:02.681Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "836046d3a03673f7b0ead43a98edf15950231b04deed5c018eb37e6b6d1b7293",
+      "title": "Joint Degrees - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0035-836046d3a036.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/",
+      "fetchedAt": "2026-10-07T06:19:04.759Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "af8b7c30caed9a5a60a9b44fdaec7bdd7d15766b7202c7a217c89cf0eda9b3c0",
+      "title": "Undergraduate Education | MIT Course Catalog",
+      "snapshotFile": "raw/0036-af8b7c30caed.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/general-institute-requirements/",
+      "fetchedAt": "2026-10-07T06:19:07.423Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "36d980d464cff52e9149c18787cafb86682e7f0b15eac01a1d1a33feb13a17bf",
+      "title": "General Institute Requirements | MIT Course Catalog",
+      "snapshotFile": "raw/0037-36d980d464cf.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/",
+      "fetchedAt": "2026-10-07T06:19:08.526Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6cfd642847acd1d7758ec38eb8137900b3771a33e85c822a8f2913fdee408c3a",
+      "title": "Academic and Research Options | MIT Course Catalog",
+      "snapshotFile": "raw/0038-6cfd642847ac.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/independent-activities-period/",
+      "fetchedAt": "2026-10-07T06:19:10.770Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c12f8333ff090e20f79a8e9cf5beaf32ed4db2536bbff1b0eeb03b48e4be8d37",
+      "title": "Independent Activities Period | MIT Course Catalog",
+      "snapshotFile": "raw/0039-c12f8333ff09.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/freshman-advising-seminars/",
+      "fetchedAt": "2026-10-07T06:19:12.764Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c301a01edbca8fb8d2347cec1b527aa9b753d0be894dc29dc860d231d498a691",
+      "title": "First-Year Advising Seminars | MIT Course Catalog",
+      "snapshotFile": "raw/0040-c301a01edbca.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/interphase-edge/",
+      "fetchedAt": "2026-10-07T06:19:14.791Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4f2710303c2aa2eb6ceaa44a7cb6850d7b1fc7404b4810133c80266334ef72b4",
+      "title": "Interphase EDGE/x | MIT Course Catalog",
+      "snapshotFile": "raw/0041-4f2710303c2a.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/edgerton-center/",
+      "fetchedAt": "2026-10-07T06:19:16.789Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "842429fb1bd90b899e6121e5b4895c42ec22ef85cf1f20a678715385b3432bf5",
+      "title": "Edgerton Center | MIT Course Catalog",
+      "snapshotFile": "raw/0042-842429fb1bd9.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/grading/",
+      "fetchedAt": "2026-10-07T06:19:18.789Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e36dcbc86ac3e67123f459e054c1337c26b193dbfc978c6e1af3c2826b526e6d",
+      "title": "Flexible Grading Option | MIT Course Catalog",
+      "snapshotFile": "raw/0043-e36dcbc86ac3.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/other-universities/",
+      "fetchedAt": "2026-10-07T06:19:20.791Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f1d16c00f39f06283962ea2d5dde28218c517924e2246abd0924a9e4e75edcbb",
+      "title": "Study at Other Universities | MIT Course Catalog",
+      "snapshotFile": "raw/0044-f1d16c00f39f.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/internships-abroad/",
+      "fetchedAt": "2026-10-07T06:19:22.795Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "81b58f5c6bdd6a228ac9e613a0b6d4d7f7987354b697d0e04b8cf5c02f6e14e5",
+      "title": "Internships Abroad | MIT Course Catalog",
+      "snapshotFile": "raw/0045-81b58f5c6bdd.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/career/",
+      "fetchedAt": "2026-10-07T06:19:24.804Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fdabb8e54dd76876221093f26c3042d4972b1ead65a815234ae55b4ffd882bd9",
+      "title": "Career and Professional Options | MIT Course Catalog",
+      "snapshotFile": "raw/0046-fdabb8e54dd7.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/career/global-education-career-development/",
+      "fetchedAt": "2026-10-07T06:19:26.810Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c8a903e4dd3e61b989c5d265409b92acda3c265818e2d6f7a8e260ada316e673",
+      "title": "Career Advising and Professional Development | MIT Course Catalog",
+      "snapshotFile": "raw/0047-c8a903e4dd3e.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/career/teacher-licensure-education/",
+      "fetchedAt": "2026-10-07T06:19:28.817Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f7c33011c4a10b4314f81261e1030f2f230447f229fe9ea7d7afa2244afa05e",
+      "title": "Teacher Licensure and Education | MIT Course Catalog",
+      "snapshotFile": "raw/0048-5f7c33011c4a.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/career/rotc/",
+      "fetchedAt": "2026-10-07T06:19:30.815Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d49165855b7187651dc8e8a1fe3f6b2e24ae20be0cd51a83a8cc5519e6d2afcc",
+      "title": "ROTC Programs | MIT Course Catalog",
+      "snapshotFile": "raw/0049-d49165855b71.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/costs/",
+      "fetchedAt": "2026-10-07T06:19:32.827Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a9843ce2cad7334c46ec3cac0d777dfd70fb7440e39f473f1b6e819df3a2504c",
+      "title": "Costs | MIT Course Catalog",
+      "snapshotFile": "raw/0050-a9843ce2cad7.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/financial-aid/",
+      "fetchedAt": "2026-10-07T06:19:34.859Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "19724922754e8e7da8fc471a4c9f51d99f77e7c90407e1e1074effef3fa263b4",
+      "title": "Financial Aid | MIT Course Catalog",
+      "snapshotFile": "raw/0051-19724922754e.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/medical-requirements/",
+      "fetchedAt": "2026-10-07T06:19:36.840Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "db198a1deaa6397cb2b0ee2bb90e4dd8d0787f444a065008de1c9a5becc2a37c",
+      "title": "Medical Requirements | MIT Course Catalog",
+      "snapshotFile": "raw/0052-db198a1deaa6.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/undergraduate-education/general-institute-requirements/",
+      "fetchedAt": "2026-10-07T06:19:39.293Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "36d980d464cff52e9149c18787cafb86682e7f0b15eac01a1d1a33feb13a17bf",
+      "title": "General Institute Requirements | MIT Course Catalog",
+      "snapshotFile": "raw/0053-36d980d464cf.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/",
+      "fetchedAt": "2026-10-07T06:19:42.487Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3974732a9759eecb55003242189fb0d71f55f8508fa972e2100d7cfee9ca393",
+      "title": "Undergraduate Study - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0054-b3974732a975.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/fall-26-subjects/",
+      "fetchedAt": "2026-10-07T06:19:44.653Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c62a31403662ea8004857fdf8ed22911bfcbf73dde9d3f6495285ed5550d3ba4",
+      "title": "Fall 2026 Subjects - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0055-c62a31403662.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/african-african-diaspora-studies/",
+      "fetchedAt": "2026-10-07T06:19:46.613Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aa64f2c6bdc4709c2bc23d30a4f07f7e7ffbafb36b86b5d2966e52755db70963",
+      "title": "African & African Diaspora Studies - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0056-aa64f2c6bdc4.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/ancient-and-medieval-studies/",
+      "fetchedAt": "2026-10-07T06:19:48.646Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "97dbac2c62ccdd7782fb57c0ee2440601ab41faf0b7393c6eba25ff1d4a2b856",
+      "title": "Ancient and Medieval Studies - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0057-97dbac2c62cc.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/applied-international-studies/",
+      "fetchedAt": "2026-10-07T06:19:50.690Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "93e939408121d8575857c7b24329e2c97383c8dd0600c245e79ed538787f2208",
+      "title": "Applied International Studies - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0058-93e939408121.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/archaeology-and-archaeological-science-concentration/",
+      "fetchedAt": "2026-10-07T06:19:52.693Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "98dea1cc7e9760bb4cfc44418e68261a03927d084d6f14022aabb8da5993a93b",
+      "title": "Archaeology and Archaeological Science Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0059-98dea1cc7e97.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/asian-and-asian-diaspora-studies/",
+      "fetchedAt": "2026-10-07T06:19:54.702Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1f11298256dd6792bbcaebea76095003108f316bc35adcd4a0237f917e28791a",
+      "title": "Asian and Asian Diaspora Studies - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0060-1f11298256dd.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/computing-and-society-concentration/",
+      "fetchedAt": "2026-10-07T06:19:56.685Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0a22481dfff5a915fbf2be9391decef01757300d952fe97246fe200611e633f8",
+      "title": "Computing and Society Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0061-0a22481dfff5.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/latin-american-and-latino-a-studies/",
+      "fetchedAt": "2026-10-07T06:19:58.688Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "66e2108dc5583090c4f876ae9a59641d2f5a932decd11c6e287d17c29bfc014f",
+      "title": "Latin American and Latino/a Studies - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0062-66e2108dc558.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/legal-studies-concentration/",
+      "fetchedAt": "2026-10-07T06:20:00.701Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee6d484f1675c45f22854399ace13cff1a57441be2ef76f92d2363b694dd0ac4",
+      "title": "Legal Studies Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0063-ee6d484f1675.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/middle-eastern-studies/",
+      "fetchedAt": "2026-10-07T06:20:02.725Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0962c60ee83b82b33f41c383106ffabe9e1d53f4e1712f8bcd3416e128384365",
+      "title": "Middle Eastern Studies - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0064-0962c60ee83b.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/russian-and-eurasian-studies/",
+      "fetchedAt": "2026-10-07T06:20:04.735Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "86cda3faec583e41b004f3ff008d6f36e94adf385a6de21afeb03c4133e96568",
+      "title": "Russian and Eurasian Studies - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0065-86cda3faec58.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/religious-studies-concentration/",
+      "fetchedAt": "2026-10-07T06:20:06.743Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f598e216b676012bd9d0e96d6750ac8940735e959bb131c97fb26d7618b09d9f",
+      "title": "Religious Studies Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0066-f598e216b676.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/african-and-african-diaspora-studies-concentration/",
+      "fetchedAt": "2026-10-07T06:20:08.713Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a9e2c2195b5cecdab2c38821d9295f36061113c721d9df2723ead381b8b0eab7",
+      "title": "African and African Diaspora Studies Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0067-a9e2c2195b5c.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/ancient-and-medieval-studies-concentration/",
+      "fetchedAt": "2026-10-07T06:20:10.761Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e64a418bd45219339442dcb8c6e543153642b78f8e3567f127391247d1620290",
+      "title": "Ancient and Medieval Studies Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0068-e64a418bd452.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/asian-and-diaspora-studies-concentration/",
+      "fetchedAt": "2026-10-07T06:20:12.724Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "99387c2263687b055dd27be80c4f5af306cf693a83ea6be4a852f1e295eb246b",
+      "title": "Asian and Diaspora Studies Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0069-99387c226368.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/latin-american-and-latino-a-studies-concentration/",
+      "fetchedAt": "2026-10-07T06:20:14.789Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "05bdb86eb21cd32e0d7bdb61d918f54d574248a152e05ceae042041f6a133a08",
+      "title": "Latin American and Latino/a Studies Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0070-05bdb86eb21c.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/middle-eastern-studies-concentration/",
+      "fetchedAt": "2026-10-07T06:20:16.690Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8826ddb49628219a0054215a25d4a802fd2c50a38f2a827f2b1444cf9141fc64",
+      "title": "Middle Eastern Studies Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0071-8826ddb49628.html"
+    },
+    {
+      "url": "https://shass.mit.edu/for-students/undergraduate-study/russian-and-eurasian-studies-concentration/",
+      "fetchedAt": "2026-10-07T06:20:18.727Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "714eaae14b46655c53867c9fb16c59b48ffa34d8620d1d749b3e3d65c2a5def0",
+      "title": "Russian and Eurasian Studies Concentration - MIT School of Humanities, Arts, and Social Sciences",
+      "snapshotFile": "raw/0072-714eaae14b46.html"
+    },
+    {
+      "url": "https://professional.mit.edu/programs",
+      "fetchedAt": "2026-10-07T06:20:21.839Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b36e4127d6c03099903ba36a7fcfffea96c13a0ba798251cbb85b41509e8b8bb",
+      "title": "PROGRAMS | Professional Education",
+      "snapshotFile": "raw/0073-b36e4127d6c0.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/overview/academic-program/",
+      "fetchedAt": "2026-10-07T06:20:23.483Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3a1fbee88afa6633c6082ce6a477aafad68d76a2ed757000ba4b879c58a772e6",
+      "title": "Academic Program | MIT Course Catalog",
+      "snapshotFile": "raw/0074-3a1fbee88afa.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/research/program-art-culture-technology/",
+      "fetchedAt": "2026-10-07T06:20:25.517Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e1bb00d0e31b62631a853b4b1ed37a66d00830ccd7812ce6f44199636a65a002",
+      "title": "Art, Culture, and Technology Program | MIT Course Catalog",
+      "snapshotFile": "raw/0075-e1bb00d0e31b.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/research/knight-science-journalism-program/",
+      "fetchedAt": "2026-10-07T06:20:27.511Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "13433813be8f9a61c7a27738c06e1a132ed1866459efdc794f79edd171fe8524",
+      "title": "Knight Science Journalism Program | MIT Course Catalog",
+      "snapshotFile": "raw/0076-13433813be8f.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/research/mit-portugal-program/",
+      "fetchedAt": "2026-10-07T06:20:29.521Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5cae103374cd745ffda8aefc8b307ac1836f144e77b41bae040b8cfe83b13de",
+      "title": "MIT Portugal Program | MIT Course Catalog",
+      "snapshotFile": "raw/0077-e5cae103374c.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/mit/research/womens-gender-studies-program/",
+      "fetchedAt": "2026-10-07T06:20:31.520Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "badc569883a55a4df1acc2c7dea307b804d57c5159dbf2e7e2b8b59902998777",
+      "title": "Women's and Gender Studies Program | MIT Course Catalog",
+      "snapshotFile": "raw/0078-badc569883a5.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/degree-charts/architecture-course-4/",
+      "fetchedAt": "2026-10-07T06:20:32.814Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "324153ccd507aab017a2b90764123b90086fa3b0e8113f971bc9e6b0dc04dc22",
+      "title": "Architecture (Course 4) | MIT Course Catalog",
+      "snapshotFile": "raw/0079-324153ccd507.html"
+    },
+    {
+      "url": "https://catalog.mit.edu/degree-charts/architecture-course-4-b/",
+      "fetchedAt": "2026-10-07T06:20:35.057Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fa1b4d6e1a0f34209b8508eb5a4fdaad2f7e5cfcc0f4515cc3b9cd7c270a3ae4",
+      "title": "Art and Design (Course 4-B) | MIT Course Catalog",
+      "snapshotFile": "raw/0080-fa1b4d6e1a0f.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:20:35.129Z",
+    "seedUrls": [
+      "http://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/",
+      "https://oge.mit.edu/graduate-admissions/programs/",
+      "http://professional.mit.edu/programs",
+      "https://shass.mit.edu/undergraduate/joint"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:24.335Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.475Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

@@ -1,0 +1,1509 @@
+{
+  "region": "united-kingdom",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.544Z",
+  "sourceKey": "university-of-southampton",
+  "sourceName": "University of Southampton",
+  "warnings": [
+    "HTTP 404：https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bitem.link%7D",
+    "HTTP 404：https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bchild.link%7D",
+    "HTTP 404：https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bitem.link%7D",
+    "HTTP 404：https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bchild.link%7D",
+    "HTTP 404：https://www.southampton.ac.uk/courses/fees/$%7Bitem.link%7D",
+    "HTTP 404：https://www.southampton.ac.uk/courses/fees/$%7Bchild.link%7D",
+    "HTTP 404：https://www.southampton.ac.uk/my/undergraduate/$%7Bitem.link%7D",
+    "HTTP 404：https://www.southampton.ac.uk/my/undergraduate/$%7Bchild.link%7D",
+    "https://www.southampton.ac.uk/my/undergraduate/index.page?：跳转超出允许域名: www.southamptonmalaysia.edu.my"
+  ],
+  "university": {
+    "candidateId": "university_b0ff3ed361982724",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "University of Southampton",
+    "countryCode": null,
+    "countryRaw": "United Kingdom",
+    "cityZh": null,
+    "cityEn": "Southampton",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.southampton.ac.uk",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:06:25.396Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.southampton.ac.uk/",
+        "sourcePageTitle": "Changing the world starts with how we see it | University of Southampton",
+        "sourceHash": "3fdc19671fc8dcc6f88b22dda9c13776533122c71ddda4b573c24bfb2158f423",
+        "fetchedAt": "2026-10-07T04:06:25.396Z",
+        "field": "name",
+        "rawText": "University of Southampton"
+      },
+      {
+        "sourceUrl": "https://www.southampton.ac.uk/",
+        "sourcePageTitle": "Changing the world starts with how we see it | University of Southampton",
+        "sourceHash": "3fdc19671fc8dcc6f88b22dda9c13776533122c71ddda4b573c24bfb2158f423",
+        "fetchedAt": "2026-10-07T04:06:25.396Z",
+        "field": "city",
+        "rawText": "Southampton"
+      },
+      {
+        "sourceUrl": "https://www.southampton.ac.uk/",
+        "sourcePageTitle": "Changing the world starts with how we see it | University of Southampton",
+        "sourceHash": "3fdc19671fc8dcc6f88b22dda9c13776533122c71ddda4b573c24bfb2158f423",
+        "fetchedAt": "2026-10-07T04:06:25.396Z",
+        "field": "countryRaw",
+        "rawText": "United Kingdom"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 13,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+    "media": []
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_56ddc040f76dc507",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "BSc 会计和财务学位",
+      "nameEn": "BSc Accounting and Finance degree",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Learn the financial essentials on this accredited BSc Accounting and Finance degree led by experts. Develop a strong understanding of investment and finance.",
+      "officialUrl": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+      "sourceCheckedAt": "2026-10-07T04:08:04.531Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Learn the financial essentials on this accredited BSc Accounting and Finance degree led by experts. Develop a strong understanding of investment and finance.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+          "sourceCheckedAt": "2026-10-07T04:08:04.531Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "ADMISSIONS",
+          "titleZh": "申请要求",
+          "titleEn": "Admissions",
+          "bodyZh": null,
+          "bodyEn": "For Academic year 202728 A-levels AAB plus a minimum of grade 5 in GCSE Mathematics A-levels additional information Excluded subjects are General Studies and Critical Thinking. More information about A-levels A-levels with Extended Project Qualification If you are taking an EPQ in addition to 3 A levels, you will receive the following offer in addition to the standard A level offer: ABB and grade A in the EPQ A-levels contextual offer We are committed to ensuring that all applicants with the potential to succeed, regardless of their background, are encouraged to apply to study with us. The additional information gained through contextual data allows us to recognise an applicant's potential to succeed in the context of their background and experience. Applicants who are highlighted in this way will be made an offer which is lower than the typical offer for that programme as follows: BBB or International Baccalaureate Diploma Pass, with 34 points overall with 17 points at Higher Level More information about International Baccalaureate Diploma International Baccalaureate contextual offer We are committed to ensuring that all learners with the potential to succeed, regardless of their background, are encouraged to apply to study with us. The additional information gained through contextual data allows us to recognise a learner’s potential to succeed in the context of their background and experience. Applicants who are highlighted in this way will be made an offer which is lower than the typical offer for that programme. International Baccalaureate Career Programme (IBCP) statement Offers will be made on the individual Diploma Course subject(s) and the career-related study qualification. The CP core will not form part of the offer. Where there is a subject pre-requisite(s), applicants will be required to study the subject(s) at Higher Level in the Diploma course subject and/or take a specified unit in the career-related study qualification. Applicants may also be asked to achieve a specific grade in those elements. Please see the University of Southampton International Baccalaureate Career-Related Programme (IBCP) Statement for further information. Applicants are advised to contact their Faculty Admissions Office for more information. or BTEC RQF BTEC D in the Business BTEC National Extended Certificate plus AA from two A levels DD in the Business BTEC National Diploma plus A from one A level DDD in the Business, Marketing or Enterprise & Entrepreneurship BTEC National Extended Diploma We are committed to ensuring that all learners with the potential to succeed, regardless of their background, are encouraged to apply to study with us. The additional information gained through contextual data allows us to recognise a learner’s potential to succeed in the context of their background and experience. Applicants who are highlighted in this way will be made an offer which is lower than the typical offer for that programme. Additional information For the BTEC Extended/National Extended Diploma we can accept Business, Marketing or Enterprise & Entrepreneurship. Other BTEC qualifications in subjects other than Business may also be accepted if taken alongside A levels or other academic qualifications. Please contact us to check if your qualification or subject is accepted. More information about BTEC QCF BTEC D in the Business BTEC Subsidiary Diploma plus AA from two A levels DD in the Business BTEC Diploma plus A grade from one A level DDD in the Business, Marketing or Enterprise & Entrepreneurship BTEC Extended Diploma BTEC contextual We are committed to ensuring that all learners with the potential to succeed, regardless of their background, are encouraged to apply to study with us. The additional information gained through contextual data allows us to recognise a learner’s potential to succeed in the context of their background and experience. Applicants who are highlighted in this way will be made an offer which is lower than the typica",
+          "sortOrder": 10,
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+          "sourceCheckedAt": "2026-10-07T04:08:04.531Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CURRICULUM",
+          "titleZh": "课程结构",
+          "titleEn": "Curriculum",
+          "bodyZh": null,
+          "bodyEn": "This course is made up of a combination of modules. Your A level results will determine which core or compulsory modules you'll need to take. Compulsory modules will give you a thorough grounding in the theory and practice of management and financial accounting. Different to other accounting and finance degrees, you can choose from a wide range of optional modules. Choose from risk management to learning a language and also explore finance economics and accounting topics in more detail. You do not need to select your modules when you apply. Your academic tutor will help you to customise your course. Year 1 overview You'll study the fundamentals of management. You'll gain a vital understanding of the theories and techniques of successful management, and work as a team to develop and deliver a presentation. Other key subjects include management accounting and financial management. Your optional modules cover management analysis and the foundations of business analytics. Year 2 overview You'll gain a greater understanding of business essentials such as financial accounting, company law, portfolio theory, and the principles of audit and taxation. You can choose from a wide range of module options including human resource management, digital marketing, and management ethics. You'll also be able to broaden your studies by choosing: interdisciplinary modules language modules Year 3 overview Your final-year dissertation is a chance for you to demonstrate your knowledge and skills by completing an extended piece of writing on an aspect of management you have researched yourself. You'll also study further compulsory modules covering financial and management accounting. Your optional module choices include strategic marketing, project management, and futures and options. Want more detail? See all the modules in the course. Entry requirements Modules",
+          "sortOrder": 20,
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+          "sourceCheckedAt": "2026-10-07T04:08:04.531Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+          "sourcePageTitle": "Accounting and Finance (Hons) | BSc | University of Southampton",
+          "sourceHash": "e1200d16cd84a696387b5d526eb631a1c77f1eb2be6f535f070c6db73266ab8a",
+          "fetchedAt": "2026-10-07T04:08:04.531Z",
+          "field": "name",
+          "rawText": "BSc Accounting and Finance degree"
+        },
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+          "sourcePageTitle": "Accounting and Finance (Hons) | BSc | University of Southampton",
+          "sourceHash": "e1200d16cd84a696387b5d526eb631a1c77f1eb2be6f535f070c6db73266ab8a",
+          "fetchedAt": "2026-10-07T04:08:04.531Z",
+          "field": "description",
+          "rawText": "Learn the financial essentials on this accredited BSc Accounting and Finance degree led by experts. Develop a strong understanding of investment and finance."
+        },
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+          "sourcePageTitle": "Accounting and Finance (Hons) | BSc | University of Southampton",
+          "sourceHash": "e1200d16cd84a696387b5d526eb631a1c77f1eb2be6f535f070c6db73266ab8a",
+          "fetchedAt": "2026-10-07T04:08:04.531Z",
+          "field": "detailSections.ADMISSIONS",
+          "rawText": "For Academic year 202728 A-levels AAB plus a minimum of grade 5 in GCSE Mathematics A-levels additional information Excluded subjects are General Studies and Critical Thinking. More information about A-levels A-levels with Extended Project Qualification If you are taking an EPQ in addition to 3 A levels, you will receive the following offer in addition to the standard A level offer: ABB and grade A in the EPQ A-levels contextual offer We are committed to ensuring that all applicants with the potential to succeed, regardless of their background, are encouraged to apply to study with us. The additional information gained through contextual data allows us to recognise an applicant's potential to succeed in the context of their background and experience. Applicants who are highlighted in this way will be made an offer which is lower than the typical offer for that programme as follows: BBB or International Baccalaureate Diploma Pass, with 34 points overall with 17 points at Higher Level More information about International Baccalaureate Diploma International Baccalaureate contextual offer We are committed to ensuring that all learners with the potential to succeed, regardless of their background, are encouraged to apply to study with us. The additional information gained through contextual data allows us to recognise a learner’s potential to succeed in the context of their background and experience. Applicants who are highlighted in this way will be made an offer which is lower than the typical offer for that programme. International Baccalaureate Career Programme (IBCP) statement Offers will be made on the individual Diploma Course subject(s) and the career-related study qualification. The CP core will not form part of the offer. Where there is a subject pre-requisite(s), applicants will be required to study the subject(s) at Higher Level in the Diploma course subject and/or take a specified unit in the career-related study qualification. Applicants may also be asked to achieve a specific grade in those elements. Please see the University of Southampton International Baccalaureate Career-Related Programme (IBCP) Statement for further information. Applicants are advised to contact their Faculty Admissions Office for more information. or BTEC RQF BTEC D in the Business BTEC National Extended Certificate plus AA from two A levels DD in the Business BTEC National Diploma plus A from one A level DDD in the Business, Marketing or Enterprise & Entrepreneurship BTEC National Extended Diploma We are committed to ensuring that all learners with the potential to succeed, regardless of their background, are encouraged to apply to study with us. The additional information gained through contextual data allows us to recognise a learner’s potential to succeed in the context of their background and experience. Applicants who are highlighted in this way will be made an offer which is lower than the typical offer for that programme. Additional information For the BTEC Extended/National Extended Diploma we can accept Business, Marketing or Enterprise & Entrepreneurship. Other BTEC qualifications in subjects other than Business may also be accepted if taken alongside A levels or other academic qualifications. Please contact us to check if your qualification or subject is accepted. More information about BTEC QCF BTEC D in the Business BTEC Subsidiary Diploma plus AA from two A levels DD in the Business BTEC Diploma plus A grade from one A level DDD in the Business, Marketing or Enterprise & Entrepreneurship BTEC Extended Diploma BTEC contextual We are committed to ensuring that all learners with the potential to succeed, regardless of their background, are encouraged to apply to study with us. The additional information gained through contextual data allows us to recognise a learner’s potential to succeed in the context of their background and experience. Applicants who are highlighted in this way will be made an offer which is lower than the typica"
+        },
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+          "sourcePageTitle": "Accounting and Finance (Hons) | BSc | University of Southampton",
+          "sourceHash": "e1200d16cd84a696387b5d526eb631a1c77f1eb2be6f535f070c6db73266ab8a",
+          "fetchedAt": "2026-10-07T04:08:04.531Z",
+          "field": "detailSections.CURRICULUM",
+          "rawText": "This course is made up of a combination of modules. Your A level results will determine which core or compulsory modules you'll need to take. Compulsory modules will give you a thorough grounding in the theory and practice of management and financial accounting. Different to other accounting and finance degrees, you can choose from a wide range of optional modules. Choose from risk management to learning a language and also explore finance economics and accounting topics in more detail. You do not need to select your modules when you apply. Your academic tutor will help you to customise your course. Year 1 overview You'll study the fundamentals of management. You'll gain a vital understanding of the theories and techniques of successful management, and work as a team to develop and deliver a presentation. Other key subjects include management accounting and financial management. Your optional modules cover management analysis and the foundations of business analytics. Year 2 overview You'll gain a greater understanding of business essentials such as financial accounting, company law, portfolio theory, and the principles of audit and taxation. You can choose from a wide range of module options including human resource management, digital marketing, and management ethics. You'll also be able to broaden your studies by choosing: interdisciplinary modules language modules Year 3 overview Your final-year dissertation is a chance for you to demonstrate your knowledge and skills by completing an extended piece of writing on an aspect of management you have researched yourself. You'll also study further compulsory modules covering financial and management accounting. Your optional module choices include strategic marketing, project management, and futures and options. Want more detail? See all the modules in the course. Entry requirements Modules"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_df45c779169b1d5e",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "会计和财务学位",
+      "nameEn": "MSc Accounting and Finance degree",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Discover our MSc Accounting and Finance master’s degree at the University of Southampton. You’ll learn accounting, auditing, governance, finance, and tax.",
+      "officialUrl": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+      "sourceCheckedAt": "2026-10-07T04:08:07.240Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Discover our MSc Accounting and Finance master’s degree at the University of Southampton. You’ll learn accounting, auditing, governance, finance, and tax.",
+          "sortOrder": 0,
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+          "sourceCheckedAt": "2026-10-07T04:08:07.240Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "ADMISSIONS",
+          "titleZh": "申请要求",
+          "titleEn": "Admissions",
+          "bodyZh": null,
+          "bodyEn": "You'll need a 2.2 degree in either Accounting or Auditing or a degree programme that has at least 7 modules of accounting or auditing Find the equivalent international qualifications for your country. We'll consider the following professional qualifications ACCA/ACA/CIMA qualifications on a case by case basis. Work experience in Accounting is not a requirement but can compensate for unrelated degree subject/grades. We do not accept the following subjects: Language Studies – degrees that focus on learning a language or how to translate, such as 'Business English', 'Applied English', or 'Translation', are not acceptable. However, this restriction does not apply to ‘English’ and ‘English literature’ degrees of the kind taught in the UK. Art/Design/Vocational Studies – degrees that focus on learning a particular form of art, craft or vocation. These include degrees in art, graphic design, photography, television broadcasting, script writing, or performance/dance. English language requirements If English is not your first language, you must show that you can use English to the level we require. Visit our English language pages to find out which qualifications we accept and how you can meet our requirements. If you are taking the International English Language Testing System (IELTS), you must get at least the following scores: IELTS score requirements overall score 6.5 reading 6.0 writing 6.0 speaking 6.0 listening 6.0 If you do not meet the English language requirements through a test or qualification, you may be able to meet them by completing one of our pre-sessional English programmes before you start your course. Pre-masters If you don’t meet direct entry requirements, you can apply to complete a Pre-Master's programme through our partnership with OnCampus. You'll progress to your chosen course after successfully completing the programme. Find out more about Pre-Master's programmes for international students. Recognition of professional experience If you don't have the exact entry requirements, but you have significant work experience in this sector we’ll assess your relevant professional experience, your subject knowledge and your aptitude for learning. Your application will be considered on individual merit and you may be asked to attend an interview. Got a question? Please contact us if you're not sure you have the right experience or qualifications to get onto this course. Email: enquiries@southampton.ac.uk Tel: +44(0)23 8059 5000 About this course Course structure",
+          "sortOrder": 10,
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+          "sourceCheckedAt": "2026-10-07T04:08:07.240Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CURRICULUM",
+          "titleZh": "课程结构",
+          "titleEn": "Curriculum",
+          "bodyZh": null,
+          "bodyEn": "This is a full-time, 1-year course, running from September to the following September. Your studies will be divided into 3 semesters, with exams in January and May. In semesters 1 and 2 you will study a range of core and optional taught modules in: accounting and finance developing advanced knowledge of financial reporting management accounting capital markets You will also have the opportunity to explore specialist topics that match your interests and career aspirations. In semester 2 you will also take a Research Methods module, which introduces you to key research designs, data collection and analysis techniques, and how to apply these to real accounting and finance issues. This module will support the development of your individual research proposal and prepare you for the final stage of the programme. In semester 3, you will choose to undertake either the Dissertation or the Industry Project in Accounting, Finance and Management. The Dissertation involves conducting an in-depth piece of independent research under academic supervision, allowing you to investigate a topic of particular interest in greater depth. The Industry Project provides an opportunity for you to apply your knowledge and skills to a practical business challenge, bridging academic theory and professional practice. Want more detail? See all the modules in the course. Entry requirements Modules",
+          "sortOrder": 20,
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+          "sourceCheckedAt": "2026-10-07T04:08:07.240Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+          "sourcePageTitle": "MSc Accounting and Finance | University of Southampton",
+          "sourceHash": "22e182d044cb2da0b9721377377f87c4c173b25756095e145b321cd2a7be4b02",
+          "fetchedAt": "2026-10-07T04:08:07.240Z",
+          "field": "name",
+          "rawText": "MSc Accounting and Finance degree"
+        },
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+          "sourcePageTitle": "MSc Accounting and Finance | University of Southampton",
+          "sourceHash": "22e182d044cb2da0b9721377377f87c4c173b25756095e145b321cd2a7be4b02",
+          "fetchedAt": "2026-10-07T04:08:07.240Z",
+          "field": "description",
+          "rawText": "Discover our MSc Accounting and Finance master’s degree at the University of Southampton. You’ll learn accounting, auditing, governance, finance, and tax."
+        },
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+          "sourcePageTitle": "MSc Accounting and Finance | University of Southampton",
+          "sourceHash": "22e182d044cb2da0b9721377377f87c4c173b25756095e145b321cd2a7be4b02",
+          "fetchedAt": "2026-10-07T04:08:07.240Z",
+          "field": "detailSections.ADMISSIONS",
+          "rawText": "You'll need a 2.2 degree in either Accounting or Auditing or a degree programme that has at least 7 modules of accounting or auditing Find the equivalent international qualifications for your country. We'll consider the following professional qualifications ACCA/ACA/CIMA qualifications on a case by case basis. Work experience in Accounting is not a requirement but can compensate for unrelated degree subject/grades. We do not accept the following subjects: Language Studies – degrees that focus on learning a language or how to translate, such as 'Business English', 'Applied English', or 'Translation', are not acceptable. However, this restriction does not apply to ‘English’ and ‘English literature’ degrees of the kind taught in the UK. Art/Design/Vocational Studies – degrees that focus on learning a particular form of art, craft or vocation. These include degrees in art, graphic design, photography, television broadcasting, script writing, or performance/dance. English language requirements If English is not your first language, you must show that you can use English to the level we require. Visit our English language pages to find out which qualifications we accept and how you can meet our requirements. If you are taking the International English Language Testing System (IELTS), you must get at least the following scores: IELTS score requirements overall score 6.5 reading 6.0 writing 6.0 speaking 6.0 listening 6.0 If you do not meet the English language requirements through a test or qualification, you may be able to meet them by completing one of our pre-sessional English programmes before you start your course. Pre-masters If you don’t meet direct entry requirements, you can apply to complete a Pre-Master's programme through our partnership with OnCampus. You'll progress to your chosen course after successfully completing the programme. Find out more about Pre-Master's programmes for international students. Recognition of professional experience If you don't have the exact entry requirements, but you have significant work experience in this sector we’ll assess your relevant professional experience, your subject knowledge and your aptitude for learning. Your application will be considered on individual merit and you may be asked to attend an interview. Got a question? Please contact us if you're not sure you have the right experience or qualifications to get onto this course. Email: enquiries@southampton.ac.uk Tel: +44(0)23 8059 5000 About this course Course structure"
+        },
+        {
+          "sourceUrl": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+          "sourcePageTitle": "MSc Accounting and Finance | University of Southampton",
+          "sourceHash": "22e182d044cb2da0b9721377377f87c4c173b25756095e145b321cd2a7be4b02",
+          "fetchedAt": "2026-10-07T04:08:07.240Z",
+          "field": "detailSections.CURRICULUM",
+          "rawText": "This is a full-time, 1-year course, running from September to the following September. Your studies will be divided into 3 semesters, with exams in January and May. In semesters 1 and 2 you will study a range of core and optional taught modules in: accounting and finance developing advanced knowledge of financial reporting management accounting capital markets You will also have the opportunity to explore specialist topics that match your interests and career aspirations. In semester 2 you will also take a Research Methods module, which introduces you to key research designs, data collection and analysis techniques, and how to apply these to real accounting and finance issues. This module will support the development of your individual research proposal and prepare you for the final stage of the programme. In semester 3, you will choose to undertake either the Dissertation or the Industry Project in Accounting, Finance and Management. The Dissertation involves conducting an in-depth piece of independent research under academic supervision, allowing you to investigate a topic of particular interest in greater depth. The Industry Project provides an opportunity for you to apply your knowledge and skills to a practical business challenge, bridging academic theory and professional practice. Want more detail? See all the modules in the course. Entry requirements Modules"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.southampton.ac.uk/",
+      "fetchedAt": "2026-10-07T04:06:25.396Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3fdc19671fc8dcc6f88b22dda9c13776533122c71ddda4b573c24bfb2158f423",
+      "title": "Changing the world starts with how we see it | University of Southampton",
+      "snapshotFile": "raw/0001-3fdc19671fc8.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/undergraduate.page",
+      "fetchedAt": "2026-10-07T04:06:26.866Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0e4cf83aa27184c6a41a3a2a9a7d289eec1c65b40bdeb872329ca5a3870266fc",
+      "title": "Undergraduate tuition fees | University of Southampton",
+      "snapshotFile": "raw/0002-0e4cf83aa271.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/undergraduate",
+      "fetchedAt": "2026-10-07T04:06:30.411Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7386b2e685759a8396aa70abc006b3417f5cbbe0b55d75b7c125a0b81e4f8b23",
+      "title": "Undergraduate funding options | University of Southampton",
+      "snapshotFile": "raw/0003-7386b2e68575.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/undergraduate/tuition-fees.page",
+      "fetchedAt": "2026-10-07T04:06:31.252Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "584e17b1463fb43cf4142f281f11c42b637472f6711ee0a042ecaeae083186f4",
+      "title": "Undergraduate course fees",
+      "snapshotFile": "raw/0004-584e17b1463f.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses",
+      "fetchedAt": "2026-10-07T04:06:32.944Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c8a3efbe95166a61cb05761de11b2719c1fc92b7e9dc00e273245162e85526ab",
+      "title": "CourseFinder | University of Southampton",
+      "snapshotFile": "raw/0005-c8a3efbe9516.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/funding/undergraduate/finance.page",
+      "fetchedAt": "2026-10-07T04:06:35.377Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2c1bb8be92f3f428bd000ceedb628dc50738fe60d7e643da6fdcf1e277ba2380",
+      "title": "Undergraduate student finance | University of Southampton",
+      "snapshotFile": "raw/0006-2c1bb8be92f3.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/undergraduate/southampton-undergraduate-bursary",
+      "fetchedAt": "2026-10-07T04:06:37.830Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "eb58aefdc74ec7a1195ae75adb90ff528628c64e5daeee37f7e283522fbfb46c",
+      "title": "Southampton undergraduate bursary | University of Southampton",
+      "snapshotFile": "raw/0007-eb58aefdc74e.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/undergraduate",
+      "fetchedAt": "2026-10-07T04:06:46.943Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "96343ec033fb1f4cbffd5906208bf20542cdb197995142dd7c97a07a270c3d91",
+      "title": "Undergraduate Degree Courses | University of Southampton",
+      "snapshotFile": "raw/0008-96343ec033fb.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/undergraduate/foundation-years",
+      "fetchedAt": "2026-10-07T04:06:50.011Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a1ee94a1d01ff1f3ce9e41f979fe934f3add18eff289f04482aa18e6dbdf3a66",
+      "title": "Foundation years | University of Southampton",
+      "snapshotFile": "raw/0009-a1ee94a1d01f.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/open-days/undergraduate",
+      "fetchedAt": "2026-10-07T04:06:51.141Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "68e7d1063279e2c553f8fd29c89fb4d1e9edde95f3aee31bdf48c488e90d5aff",
+      "title": "Undergraduate Open Days | University of Southampton",
+      "snapshotFile": "raw/0010-68e7d1063279.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/open-days/undergraduate/what-to-expect-on-campus",
+      "fetchedAt": "2026-10-07T04:06:53.790Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7570af6bdeb1bb034815f9d90a15a48ed51008e6dffdc11850be52acbaf0b5b9",
+      "title": "Undergraduate campus open days | University of Southampton",
+      "snapshotFile": "raw/0011-7570af6bdeb1.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/open-days/undergraduate/virtual",
+      "fetchedAt": "2026-10-07T04:06:55.991Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3ec218d188376f15ab028e807982689f7727f2be94168d6dfe3995a3f5021e42",
+      "title": "What to expect at an undergraduate virtual open day | University of Southampton",
+      "snapshotFile": "raw/0012-3ec218d18837.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses?keyword_filter=",
+      "fetchedAt": "2026-10-07T04:06:58.350Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e771e5c8d7a914fa167a9e46e595a50fb810e274c58f057f7a18acb08b8aab21",
+      "title": "CourseFinder | University of Southampton",
+      "snapshotFile": "raw/0013-e771e5c8d7a9.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/undergraduate/apply",
+      "fetchedAt": "2026-10-07T04:06:59.643Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "40e7801876cffd6d2b37cac4d5f8c1c3b0a9feebeef34b527b02ba3808e1bcf1",
+      "title": "How to Apply for an UG Degree | University of Southampton",
+      "snapshotFile": "raw/0014-40e7801876cf.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/about/faculties-schools-departments",
+      "fetchedAt": "2026-10-07T04:07:00.774Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "997322384b888f812f3384bdde1e4ab2d747703f02de27e10f0124d29c2b2b02",
+      "title": "Our faculties, schools and departments | University of Southampton",
+      "snapshotFile": "raw/0015-997322384b88.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/postgraduate",
+      "fetchedAt": "2026-10-07T04:07:03.370Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4b9ed8c8233c02b10a953c532598ff9b0e36d8ff90cb22f1f1f2f317770c60ca",
+      "title": "CourseFinder | University of Southampton",
+      "snapshotFile": "raw/0016-4b9ed8c8233c.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/postgraduate.page",
+      "fetchedAt": "2026-10-07T04:07:05.796Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7bfb1da352e41169143ad9f3c0bb0401f9a211d23143d2fb006c6c20d297d1e8",
+      "title": "Postgraduate tuition fees | University of Southampton",
+      "snapshotFile": "raw/0017-7bfb1da352e4.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/postgraduate",
+      "fetchedAt": "2026-10-07T04:07:08.102Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f1dfa6b6767382388c0fb86ede8871391674ffc7c8aaa3b1de8d281e2f622522",
+      "title": "Postgraduate funding options | University of Southampton",
+      "snapshotFile": "raw/0018-f1dfa6b67673.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/pre-masters-programmes",
+      "fetchedAt": "2026-10-07T04:07:09.824Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "94ea4b6c8c734ddc9faadf75f2b74b58a932b1229c2ace27c748f09951bd7661",
+      "title": "International Pre-Master's Programmes | University of Southampton",
+      "snapshotFile": "raw/0019-94ea4b6c8c73.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/exchanges.page",
+      "fetchedAt": "2026-10-07T04:07:11.089Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3c9eebfa33c850ce29f043d27b6f085865b56805472a7e1968563f8dd94f0789",
+      "title": "Exchanges | University of Southampton",
+      "snapshotFile": "raw/0020-3c9eebfa33c8.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/customise-your-degree.page",
+      "fetchedAt": "2026-10-07T04:07:13.614Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c1f4fe91f2a845159e1beb81aded278fa1630e28a8dae19efccbbccd164f6f2c",
+      "title": "Customise your degree | University of Southampton",
+      "snapshotFile": "raw/0021-c1f4fe91f2a8.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses",
+      "fetchedAt": "2026-10-07T04:07:14.824Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c8a3efbe95166a61cb05761de11b2719c1fc92b7e9dc00e273245162e85526ab",
+      "title": "CourseFinder | University of Southampton",
+      "snapshotFile": "raw/0022-c8a3efbe9516.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/short-courses",
+      "fetchedAt": "2026-10-07T04:07:17.392Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6cef4f8fa2950c14963707917f7611273c8c19553ec2192d1b4c4bf6aa74c3e2",
+      "title": "Short courses | University of Southampton",
+      "snapshotFile": "raw/0023-6cef4f8fa295.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/short-courses/cpd",
+      "fetchedAt": "2026-10-07T04:07:20.144Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4ee8fd32f09f6f338f29a67685b9b8761485e0905e4642129752324ea83839e6",
+      "title": "Professional development",
+      "snapshotFile": "raw/0024-4ee8fd32f09f.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/subjects/the-civil-engineering-course-that-opened-doors-to-the-industry",
+      "fetchedAt": "2026-10-07T04:07:22.439Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b6119ba2cedc2bcae4ed5e78cc7abeeb52506956177e6db143091341f387d54f",
+      "title": "The civil engineering course that opened doors to the industry | University of Southampton",
+      "snapshotFile": "raw/0025-b6119ba2cedc.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/postgraduate-research/funding/doctoral-training-programmes",
+      "fetchedAt": "2026-10-07T04:07:24.175Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6b15a98b13fc1a6cbbb5b2aefe9d9f3c2d54db1fedf8d178d6332ded645f1a95",
+      "title": "Funded doctoral training programmes | University of Southampton",
+      "snapshotFile": "raw/0026-6b15a98b13fc.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/short-courses/cpd/radiochemistry",
+      "fetchedAt": "2026-10-07T04:07:25.830Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ff4bb210bf7ab415761f1dbda956c61bd8410f4d7c77147b3683a600af52e847",
+      "title": "Radiochemistry | University of Southampton",
+      "snapshotFile": "raw/0027-ff4bb210bf7a.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/short-courses/cpd/radiochemistry/alphaspectrometry",
+      "fetchedAt": "2026-10-07T04:07:28.143Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "97e135e2092d35fe9aece82e470d1da402cfd56048f3ec1db52e9f94f778ec2b",
+      "title": "Alpha spectrometry course | University of Southampton",
+      "snapshotFile": "raw/0028-97e135e2092d.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/short-courses/cpd/radiochemistry/radiochemistry",
+      "fetchedAt": "2026-10-07T04:07:29.185Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3c564f4b690a053065b93e1fe53a12fbbd75c40ff4a23eaa3388ad6f6a09ec5",
+      "title": "Radiochemistry Course | CPD | University of Southampton",
+      "snapshotFile": "raw/0029-b3c564f4b690.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses",
+      "fetchedAt": "2026-10-07T04:07:35.677Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c8a3efbe95166a61cb05761de11b2719c1fc92b7e9dc00e273245162e85526ab",
+      "title": "CourseFinder | University of Southampton",
+      "snapshotFile": "raw/0030-c8a3efbe9516.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/fee-status",
+      "fetchedAt": "2026-10-07T04:07:38.239Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aa1a452159a837b12f03991e951a9d04fc6aef8c74c7b4dbeb7b248ab1f4a574",
+      "title": "Tuition Fee Status | University of Southampton",
+      "snapshotFile": "raw/0031-aa1a452159a8.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/pay.page",
+      "fetchedAt": "2026-10-07T04:07:39.189Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6d4ff05e604745a0ab6deed83d3a8f324dbfe7c94b4cc27dff20b48b00f88f13",
+      "title": "Pay your tuition fees | University of Southampton",
+      "snapshotFile": "raw/0032-6d4ff05e6047.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/where-your-tuition-fees-go.page",
+      "fetchedAt": "2026-10-07T04:07:41.563Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "001a76ccdd73380478d5a003269ed39b8bea1ace4ef2cc71554ca49f8b677eca",
+      "title": "Where your tuition fees go | University of Southampton",
+      "snapshotFile": "raw/0033-001a76ccdd73.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/prospectus",
+      "fetchedAt": "2026-10-07T04:07:43.216Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "48f1c44d3ffd8399ae0020bb8c29205034c710159e8d5849ae7d33041560fdd2",
+      "title": "Get a prospectus | University of Southampton",
+      "snapshotFile": "raw/0034-48f1c44d3ffd.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/my/undergraduate/prospectus.page",
+      "fetchedAt": "2026-10-07T04:07:45.696Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a7fadb4f5c6625e23672a811f467a0ef5afdd197044feb6d7e3d9e15b48ac023",
+      "title": "Prospectus | University of Southampton Malaysia | University of Southampton",
+      "snapshotFile": "raw/0035-a7fadb4f5c66.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/short-courses/cpd/executive-education",
+      "fetchedAt": "2026-10-07T04:07:58.741Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e3525283e1f0a4efbb5abeac944c194e04faa5501457c2bd3afe1f33acee7fc7",
+      "title": "Executive education | University of Southampton",
+      "snapshotFile": "raw/0036-e3525283e1f0.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/short-courses/cpd",
+      "fetchedAt": "2026-10-07T04:08:00.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4ee8fd32f09f6f338f29a67685b9b8761485e0905e4642129752324ea83839e6",
+      "title": "Professional development",
+      "snapshotFile": "raw/0037-4ee8fd32f09f.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/international.page",
+      "fetchedAt": "2026-10-07T04:08:02.126Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "300e0ce9eae4dbbac8edada7dd5fc6db909faa2a165a6062f6a2db122c6c6186",
+      "title": "Tuition fees for overseas students | University of Southampton",
+      "snapshotFile": "raw/0038-300e0ce9eae4.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+      "fetchedAt": "2026-10-07T04:08:04.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e1200d16cd84a696387b5d526eb631a1c77f1eb2be6f535f070c6db73266ab8a",
+      "title": "Accounting and Finance (Hons) | BSc | University of Southampton",
+      "snapshotFile": "raw/0039-e1200d16cd84.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+      "fetchedAt": "2026-10-07T04:08:07.240Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "22e182d044cb2da0b9721377377f87c4c173b25756095e145b321cd2a7be4b02",
+      "title": "MSc Accounting and Finance | University of Southampton",
+      "snapshotFile": "raw/0040-22e182d044cb.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/postgraduate.page",
+      "fetchedAt": "2026-10-07T06:11:49.926Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7bfb1da352e41169143ad9f3c0bb0401f9a211d23143d2fb006c6c20d297d1e8",
+      "title": "Postgraduate tuition fees | University of Southampton",
+      "snapshotFile": "raw/0001-7bfb1da352e4.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/undergraduate.page",
+      "fetchedAt": "2026-10-07T06:11:51.663Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0e4cf83aa27184c6a41a3a2a9a7d289eec1c65b40bdeb872329ca5a3870266fc",
+      "title": "Undergraduate tuition fees | University of Southampton",
+      "snapshotFile": "raw/0002-0e4cf83aa271.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/undergraduate",
+      "fetchedAt": "2026-10-07T06:11:55.182Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7386b2e685759a8396aa70abc006b3417f5cbbe0b55d75b7c125a0b81e4f8b23",
+      "title": "Undergraduate funding options | University of Southampton",
+      "snapshotFile": "raw/0003-7386b2e68575.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/undergraduate/tuition-fees.page",
+      "fetchedAt": "2026-10-07T06:11:56.776Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "584e17b1463fb43cf4142f281f11c42b637472f6711ee0a042ecaeae083186f4",
+      "title": "Undergraduate course fees",
+      "snapshotFile": "raw/0004-584e17b1463f.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/funding/undergraduate/finance.page",
+      "fetchedAt": "2026-10-07T06:11:58.031Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2c1bb8be92f3f428bd000ceedb628dc50738fe60d7e643da6fdcf1e277ba2380",
+      "title": "Undergraduate student finance | University of Southampton",
+      "snapshotFile": "raw/0005-2c1bb8be92f3.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/undergraduate/southampton-undergraduate-bursary",
+      "fetchedAt": "2026-10-07T06:12:01.320Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "eb58aefdc74ec7a1195ae75adb90ff528628c64e5daeee37f7e283522fbfb46c",
+      "title": "Southampton undergraduate bursary | University of Southampton",
+      "snapshotFile": "raw/0006-eb58aefdc74e.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses",
+      "fetchedAt": "2026-10-07T06:12:10.461Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7b89d48e1122f984d922572f968466b4afaa9588adb2da1a8650fdcefbb7dea4",
+      "title": "CourseFinder | University of Southampton",
+      "snapshotFile": "raw/0007-7b89d48e1122.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/undergraduate",
+      "fetchedAt": "2026-10-07T06:12:12.439Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "96343ec033fb1f4cbffd5906208bf20542cdb197995142dd7c97a07a270c3d91",
+      "title": "Undergraduate Degree Courses | University of Southampton",
+      "snapshotFile": "raw/0008-96343ec033fb.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/undergraduate/foundation-years",
+      "fetchedAt": "2026-10-07T06:12:13.447Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a1ee94a1d01ff1f3ce9e41f979fe934f3add18eff289f04482aa18e6dbdf3a66",
+      "title": "Foundation years | University of Southampton",
+      "snapshotFile": "raw/0009-a1ee94a1d01f.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/open-days/undergraduate",
+      "fetchedAt": "2026-10-07T06:12:15.704Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "68e7d1063279e2c553f8fd29c89fb4d1e9edde95f3aee31bdf48c488e90d5aff",
+      "title": "Undergraduate Open Days | University of Southampton",
+      "snapshotFile": "raw/0010-68e7d1063279.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/open-days/undergraduate/what-to-expect-on-campus",
+      "fetchedAt": "2026-10-07T06:12:18.999Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7570af6bdeb1bb034815f9d90a15a48ed51008e6dffdc11850be52acbaf0b5b9",
+      "title": "Undergraduate campus open days | University of Southampton",
+      "snapshotFile": "raw/0011-7570af6bdeb1.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/open-days/undergraduate/virtual",
+      "fetchedAt": "2026-10-07T06:12:23.746Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3ec218d188376f15ab028e807982689f7727f2be94168d6dfe3995a3f5021e42",
+      "title": "What to expect at an undergraduate virtual open day | University of Southampton",
+      "snapshotFile": "raw/0012-3ec218d18837.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses?keyword_filter=",
+      "fetchedAt": "2026-10-07T06:12:24.129Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5c0ae509ab90fc41e6e0e28e6bb9f71685b24c31c9d3ce0f4007dccf481fd68",
+      "title": "CourseFinder | University of Southampton",
+      "snapshotFile": "raw/0013-e5c0ae509ab9.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/undergraduate/apply",
+      "fetchedAt": "2026-10-07T06:12:26.112Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "40e7801876cffd6d2b37cac4d5f8c1c3b0a9feebeef34b527b02ba3808e1bcf1",
+      "title": "How to Apply for an UG Degree | University of Southampton",
+      "snapshotFile": "raw/0014-40e7801876cf.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/postgraduate",
+      "fetchedAt": "2026-10-07T06:12:29.793Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f1dfa6b6767382388c0fb86ede8871391674ffc7c8aaa3b1de8d281e2f622522",
+      "title": "Postgraduate funding options | University of Southampton",
+      "snapshotFile": "raw/0015-f1dfa6b67673.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/fee-status",
+      "fetchedAt": "2026-10-07T06:12:34.813Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aa1a452159a837b12f03991e951a9d04fc6aef8c74c7b4dbeb7b248ab1f4a574",
+      "title": "Tuition Fee Status | University of Southampton",
+      "snapshotFile": "raw/0016-aa1a452159a8.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/pay.page",
+      "fetchedAt": "2026-10-07T06:12:36.769Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6d4ff05e604745a0ab6deed83d3a8f324dbfe7c94b4cc27dff20b48b00f88f13",
+      "title": "Pay your tuition fees | University of Southampton",
+      "snapshotFile": "raw/0017-6d4ff05e6047.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/where-your-tuition-fees-go.page",
+      "fetchedAt": "2026-10-07T06:12:38.185Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "001a76ccdd73380478d5a003269ed39b8bea1ace4ef2cc71554ca49f8b677eca",
+      "title": "Where your tuition fees go | University of Southampton",
+      "snapshotFile": "raw/0018-001a76ccdd73.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/fees/international.page",
+      "fetchedAt": "2026-10-07T06:12:40.193Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "300e0ce9eae4dbbac8edada7dd5fc6db909faa2a165a6062f6a2db122c6c6186",
+      "title": "Tuition fees for overseas students | University of Southampton",
+      "snapshotFile": "raw/0019-300e0ce9eae4.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/foundation-programmes/international",
+      "fetchedAt": "2026-10-07T06:12:44.436Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "552bfa3d63351e7fba2624e7b713daeb0181875702388f18b76c3fa3abe89186",
+      "title": "International Foundation Programmes | University of Southampton",
+      "snapshotFile": "raw/0020-552bfa3d6335.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/foundation-years/engineering-physics-maths.page",
+      "fetchedAt": "2026-10-07T06:12:45.553Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0ef2e6bc86c27828323675657965689dc43ab6b421a022027cd1bbf71debcd88",
+      "title": "Engineering/Physics/Maths Foundation Year",
+      "snapshotFile": "raw/0021-0ef2e6bc86c2.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/subjects/mathematical-sciences",
+      "fetchedAt": "2026-10-07T06:12:47.358Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "47c7151194dfa1132a84eec3725e9bb9c1eb2a5811da970839d748ce8eccaa15",
+      "title": "Study mathematics | University of Southampton",
+      "snapshotFile": "raw/0022-47c7151194df.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/subjects/chemistry",
+      "fetchedAt": "2026-10-07T06:12:48.890Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fb6471510204c709417875d96625279adf2152d4892439ce4cdbfc00487f3d45",
+      "title": "Chemistry and chemical engineering | University of Southampton",
+      "snapshotFile": "raw/0023-fb6471510204.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/subjects/civil-engineering",
+      "fetchedAt": "2026-10-07T06:12:53.355Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7e0854c9b16611ffe44609425444116b9c7f8b0bcddd30051038780abb9e2a3c",
+      "title": "Civil engineering | University of Southampton",
+      "snapshotFile": "raw/0024-7e0854c9b166.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/subjects/mechanical-engineering",
+      "fetchedAt": "2026-10-07T06:12:55.065Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6951a0d000e58d83b4b6f1856ef3aa054bfd6dec6e34d46c41b3adc72ca9eeab",
+      "title": "Study mechanical engineering | University of Southampton",
+      "snapshotFile": "raw/0025-6951a0d000e5.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/foundation-years/science.page",
+      "fetchedAt": "2026-10-07T06:12:56.465Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "43a3909f8b273337290bd7a152a04d89e0962dec48bd181805147565a1e10af7",
+      "title": "Science Foundation Year | University of Southampton",
+      "snapshotFile": "raw/0026-43a3909f8b27.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/subjects/audiology",
+      "fetchedAt": "2026-10-07T06:13:00.381Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e7f7f34f3f93ace7c7f16027c866c85b4dae83a4bbce0077dd03c100164fcf0b",
+      "title": "Audiology | University of Southampton",
+      "snapshotFile": "raw/0027-e7f7f34f3f93.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/subjects/geography-environmental-science",
+      "fetchedAt": "2026-10-07T06:13:02.588Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "86f11b812ffd34e4883782580e0c9c36b1da9390b4265c5c021f1a1ef36f37ff",
+      "title": "Geography and environmental science | University of Southampton",
+      "snapshotFile": "raw/0028-86f11b812ffd.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/funding/postgraduate/finance.page",
+      "fetchedAt": "2026-10-07T06:13:03.294Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e3b30fee6e92a12553d03189efad6b75da2e119556529c5a84dae624bedb3938",
+      "title": "Postgraduate student finance | University of Southampton",
+      "snapshotFile": "raw/0029-e3b30fee6e92.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/postgraduate",
+      "fetchedAt": "2026-10-07T06:13:05.293Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f1dfa6b6767382388c0fb86ede8871391674ffc7c8aaa3b1de8d281e2f622522",
+      "title": "Postgraduate funding options | University of Southampton",
+      "snapshotFile": "raw/0030-f1dfa6b67673.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/engineering/postgraduate/research_degrees/courses/engd.page",
+      "fetchedAt": "2026-10-07T06:13:07.609Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c9ddb01ffafcdba0e9711cf55b032ecad683881ad8a898398e6513b2465345b3",
+      "title": "Engineering Doctorate (EngD) | Engineering | University of Southampton",
+      "snapshotFile": "raw/0031-c9ddb01ffafc.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/exchanges/going-abroad.page",
+      "fetchedAt": "2026-10-07T06:13:09.371Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5d8c08b05166463e9922e56221faa55a0bc382dfb1b4757d7dba082c848b07c8",
+      "title": "Going abroad | University of Southampton",
+      "snapshotFile": "raw/0032-5d8c08b05166.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/exchanges/come-to-southampton.page",
+      "fetchedAt": "2026-10-07T06:13:10.952Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5dc9b0856b358a4b4cb4a749554968071c673d846c593b8423d5b71e82aa94ea",
+      "title": "Come to Southampton | University of Southampton",
+      "snapshotFile": "raw/0033-5dc9b0856b35.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2004",
+      "fetchedAt": "2026-10-07T06:13:14.012Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7b40b3c7b3e389462ffa4b69bafaa4f006f1649ee54157075fb823922c033b07",
+      "title": "Global Health | UOSM2004 | University of Southampton",
+      "snapshotFile": "raw/0034-7b40b3c7b3e3.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2043",
+      "fetchedAt": "2026-10-07T06:13:18.402Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "adef66d29441b7130fc01b759e861ce627f56b6999b3ccea5718c14d8b571574",
+      "title": "Global Sustainability Challenges | UOSM2043 | University of Southampton",
+      "snapshotFile": "raw/0035-adef66d29441.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2017",
+      "fetchedAt": "2026-10-07T06:13:21.841Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9bb29b15b921f150faa0b5a536178cee432afdc1b448661cfb49f6ffc0e3b01f",
+      "title": "Intercultural Communication in a Global World | UOSM2017 | University of Southampton",
+      "snapshotFile": "raw/0036-9bb29b15b921.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2022",
+      "fetchedAt": "2026-10-07T06:13:24.579Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0e7aacdcdfe1b62a4604a33769ff787992b5ae9869dc25346326d330f6ce8c28",
+      "title": "Social Enterprise | UOSM2022 | University of Southampton",
+      "snapshotFile": "raw/0037-0e7aacdcdfe1.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2026",
+      "fetchedAt": "2026-10-07T06:13:26.849Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d4c0b3a81bc2c5abf1e1d4573338b69dbef7a67f956e8a5b25026b2008400eb2",
+      "title": "Ethics in Science, Engineering and Technology: Jekyll and Hyde | UOSM2026 | University of Southampton",
+      "snapshotFile": "raw/0038-d4c0b3a81bc2.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2029",
+      "fetchedAt": "2026-10-07T06:13:28.596Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5a50b07767bc4f5d7b4ed7ef811d3bf2268769fa9ff2fc98bf33c0c800864169",
+      "title": "Life in the Cosmos | UOSM2029 | University of Southampton",
+      "snapshotFile": "raw/0039-5a50b07767bc.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2031",
+      "fetchedAt": "2026-10-07T06:13:32.571Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7143b821d681b87b2272c8443261418b09de4351944b8229cde1a588ef09afdb",
+      "title": "Engineering Replacement Body Parts | UOSM2031 | University of Southampton",
+      "snapshotFile": "raw/0040-7143b821d681.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2045",
+      "fetchedAt": "2026-10-07T06:13:35.669Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ed7f20a6de5fe8b43649bc5ea9ead32c2e12120c7c11461646222c770c7946af",
+      "title": "Introduction to Teachers and Teaching | UOSM2045 | University of Southampton",
+      "snapshotFile": "raw/0041-ed7f20a6de5f.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2049",
+      "fetchedAt": "2026-10-07T06:13:38.240Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "937f537ebb4611dcc4a4133dd645f8a09564908df5b9d5cfbae0960ae61239af",
+      "title": "Astronomy For Everyone | UOSM2049 | University of Southampton",
+      "snapshotFile": "raw/0042-937f537ebb46.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2047",
+      "fetchedAt": "2026-10-07T06:13:39.575Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8ae14114a3b23789c14476803dedd8376a090aa05e1993d2070da6f4361bc73a",
+      "title": "Everything, Everywhere, Anytime - Learning in Informal Settings | UOSM2047 | University of Southampton",
+      "snapshotFile": "raw/0043-8ae14114a3b2.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2048",
+      "fetchedAt": "2026-10-07T06:13:43.035Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fed2434cc824a5c7c9086654cade1073fa17ed5b4d2f360fa177431e233b3818",
+      "title": "Are you ready for the 100-year life? How should people, business and governments adapt? | UOSM2048 | University of Southampton",
+      "snapshotFile": "raw/0044-fed2434cc824.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2026-27/modules/uosm2041",
+      "fetchedAt": "2026-10-07T06:13:44.483Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "08981a40beb3b6cad4451a9805a4aa70bec38b264d31bfb790f35fc659e5e8e9",
+      "title": "Emerging and Resilient India | UOSM2041 | University of Southampton",
+      "snapshotFile": "raw/0045-08981a40beb3.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/engineering/postgraduate/taught_courses/audiology/hearing_aid_aptitude_distance_learning.page",
+      "fetchedAt": "2026-10-07T06:13:45.372Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e42399207fed2fe948ef4b7f48d3859fdc82f895b9e29a6dd05c6df30a809526",
+      "title": "Hearing aid aptitude distance learning | Engineering | University of Southampton",
+      "snapshotFile": "raw/0046-e42399207fed.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/study/fees-funding/international",
+      "fetchedAt": "2026-10-07T06:13:48.372Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2b4e5469c934a6d30c4b593b613a47c56764b75749c41c5b1134652683d336cc",
+      "title": "International funding options | University of Southampton",
+      "snapshotFile": "raw/0047-2b4e5469c934.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1014",
+      "fetchedAt": "2026-10-07T06:13:50.940Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d12e1c7be32828aa77a1712288d47726061d102798b7692351faa9a82a1ca575",
+      "title": "Commercial Law | MANG1014 | University of Southampton",
+      "snapshotFile": "raw/0048-d12e1c7be328.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1044",
+      "fetchedAt": "2026-10-07T06:13:53.773Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a5456b2e5c8c61443deccc0a6a5487ea10cdd83fd5569377010e862343ceb522",
+      "title": "Financial Accounting 1 | MANG1044 | University of Southampton",
+      "snapshotFile": "raw/0049-a5456b2e5c8c.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1019",
+      "fetchedAt": "2026-10-07T06:13:56.806Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec7d75777d4e7a3a4cb41828aee656a8b4236f664735a4502aa9966442a9d3b2",
+      "title": "Foundations of Business Analytics | MANG1019 | University of Southampton",
+      "snapshotFile": "raw/0050-ec7d75777d4e.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1046",
+      "fetchedAt": "2026-10-07T06:13:59.597Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c22beb09cbf27096c6c45a21d35c84d838e53a24c453916df858d265fa6082b9",
+      "title": "Introduction to Accounting and Finance | MANG1046 | University of Southampton",
+      "snapshotFile": "raw/0051-c22beb09cbf2.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/econ1009",
+      "fetchedAt": "2026-10-07T06:14:01.782Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b1ea677992e47f263521ad803aed74227f68f94bceb63f971bdd5eebc9194d43",
+      "title": "Introduction to Economics For Non-Economists | ECON1009 | University of Southampton",
+      "snapshotFile": "raw/0052-b1ea677992e4.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1003",
+      "fetchedAt": "2026-10-07T06:14:03.971Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8a5dda14da9b0a977c90b3aa4911ad9fe3ce6fd01d3110052f54dcd2b029593d",
+      "title": "Introduction to Management | MANG1003 | University of Southampton",
+      "snapshotFile": "raw/0053-8a5dda14da9b.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1015",
+      "fetchedAt": "2026-10-07T06:14:06.310Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "125794068515e7d7ba1b961f03e85f8719f9d9e641f1e7afaa9ffef5e0ede797",
+      "title": "Introduction to Marketing for Accounting and Finance | MANG1015 | University of Southampton",
+      "snapshotFile": "raw/0054-125794068515.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2027-28/modules/mang1045",
+      "fetchedAt": "2026-10-07T06:14:08.648Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "88584b16d7ba27a46531c4b8360555a940900bae193d575caab0d5525b2b5492",
+      "title": "Management Accounting 1 | MANG1045 | University of Southampton",
+      "snapshotFile": "raw/0055-88584b16d7ba.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2017",
+      "fetchedAt": "2026-10-07T06:14:10.600Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d55a74bcabc87a1740570fc2526952063fb56af606baa5a764fafcd39522fc4b",
+      "title": "Company Law | MANG2017 | University of Southampton",
+      "snapshotFile": "raw/0056-d55a74bcabc8.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2098",
+      "fetchedAt": "2026-10-07T06:14:12.691Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fe54e6877a96c501298e553978f6b2c1c3a9df924fa55a9b6d075a8f35fd7e09",
+      "title": "Contemporary Issues in Accounting | MANG2098 | University of Southampton",
+      "snapshotFile": "raw/0057-fe54e6877a96.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2003",
+      "fetchedAt": "2026-10-07T06:14:14.793Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8d1decf3850b6ac90fcd166ace543b1fd76d8d173e17a7a33c15a04d1ea4600a",
+      "title": "Financial Accounting 2 | MANG2003 | University of Southampton",
+      "snapshotFile": "raw/0058-8d1decf3850b.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2015",
+      "fetchedAt": "2026-10-07T06:14:17.134Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "625d7bfcf5f92bc994d72969b66d8a2c11b8fd89fce838f1022a02fcf1d7db83",
+      "title": "Financial Management | MANG2015 | University of Southampton",
+      "snapshotFile": "raw/0059-625d7bfcf5f9.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2005",
+      "fetchedAt": "2026-10-07T06:14:19.383Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bd3c13f19e9a72723ce1d5df207bf60fbda027ca2dae137d0a02eed9bb10128a",
+      "title": "Management Accounting 2 | MANG2005 | University of Southampton",
+      "snapshotFile": "raw/0060-bd3c13f19e9a.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2004",
+      "fetchedAt": "2026-10-07T06:14:22.199Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8fcb6aa43b654eed2674140274adb3290b4bdad8c60f23429dec02aedb3ddff5",
+      "title": "Portfolio Theory and Financial Markets | MANG2004 | University of Southampton",
+      "snapshotFile": "raw/0061-8fcb6aa43b65.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2066",
+      "fetchedAt": "2026-10-07T06:14:24.898Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "21f276020571006abe65a197e34bac401489637bfdaa2f942c4e0cc8ce379992",
+      "title": "Principles of Audit and Taxation | MANG2066 | University of Southampton",
+      "snapshotFile": "raw/0062-21f276020571.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2097",
+      "fetchedAt": "2026-10-07T06:14:27.486Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "45a6aa4f9d59ded6f0155543400544e3b364841821f681d72036840dd981a219",
+      "title": "Sustainability Reporting | MANG2097 | University of Southampton",
+      "snapshotFile": "raw/0063-45a6aa4f9d59.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2092",
+      "fetchedAt": "2026-10-07T06:14:29.795Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d0958f4d75f7b03ec7d4ac9ca9d91fba77e2056e9371cec6ecdcd54bbba9f373",
+      "title": "Business Analytics Programming II: Algorithmic Thinking | MANG2092 | University of Southampton",
+      "snapshotFile": "raw/0064-d0958f4d75f7.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2011",
+      "fetchedAt": "2026-10-07T06:14:32.573Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "92327ef42b2fcac7f0e90b896081caa262416cd97ee661619ed97c39c12e65e1",
+      "title": "Human Resource Management | MANG2011 | University of Southampton",
+      "snapshotFile": "raw/0065-92327ef42b2f.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2076",
+      "fetchedAt": "2026-10-07T06:14:34.946Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0d5de75a592da2e611e32520b259772379ec04579330610d2e7397209d65ce15",
+      "title": "Islamic Banking and Finance | MANG2076 | University of Southampton",
+      "snapshotFile": "raw/0066-0d5de75a592d.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2028-29/modules/mang2041",
+      "fetchedAt": "2026-10-07T06:14:37.305Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5a3fe1aa489806238ca2dc3b1994735ead7eadeed3fcc26f431adc8488b3d219",
+      "title": "Management Ethics | MANG2041 | University of Southampton",
+      "snapshotFile": "raw/0067-5a3fe1aa4898.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3119",
+      "fetchedAt": "2026-10-07T06:14:39.929Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "017d7cdb7f67e1e3c5878f7aab2c01798f51bb6d264bcb0484d6a560e35cfbff",
+      "title": "Accounting Research Project | MANG3119 | University of Southampton",
+      "snapshotFile": "raw/0068-017d7cdb7f67.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3003",
+      "fetchedAt": "2026-10-07T06:14:42.225Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e336f6d0f28051b1ebfda1ab5f9241aba18971610f3af526356e53890c45b18b",
+      "title": "Financial Accounting 3 | MANG3003 | University of Southampton",
+      "snapshotFile": "raw/0069-e336f6d0f280.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3006",
+      "fetchedAt": "2026-10-07T06:14:44.716Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9d3998628d57e5826a2961566e14aee508ff8ba165f9a85d0366ac70bcc53b5a",
+      "title": "Management Accounting 3 | MANG3006 | University of Southampton",
+      "snapshotFile": "raw/0070-9d3998628d57.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3076",
+      "fetchedAt": "2026-10-07T06:14:45.855Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4924b57abfd06b3b31799376261eeb5088ddd4a5ae3d814abcfd3de894fec374",
+      "title": "Advanced Taxation | MANG3076 | University of Southampton",
+      "snapshotFile": "raw/0071-4924b57abfd0.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3107",
+      "fetchedAt": "2026-10-07T06:14:48.874Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b47a548a5559b7223d41fa60ae152f1a1a2081db5f5e8ece15dbc18656bf816c",
+      "title": "Advanced Taxation 2 | MANG3107 | University of Southampton",
+      "snapshotFile": "raw/0072-b47a548a5559.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3093",
+      "fetchedAt": "2026-10-07T06:14:51.390Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "840e1c3b3187b8b702595a51e15327f18fa005b16e09690ab1fd4dcf9821b358",
+      "title": "Analytics Implementation III: Knowledge Management, Methods and Ethics | MANG3093 | University of Southampton",
+      "snapshotFile": "raw/0073-840e1c3b3187.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3015",
+      "fetchedAt": "2026-10-07T06:14:53.505Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e3396fd52aa98442b46a504047ccbc3f7660f4d92900a23f78a7e3ec9fbb0f06",
+      "title": "Auditing | MANG3015 | University of Southampton",
+      "snapshotFile": "raw/0074-e3396fd52aa9.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3021",
+      "fetchedAt": "2026-10-07T06:14:55.479Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dbb9022214db03afb3184824fa0997f5f8e7115f631c00580f9889cb9f388629",
+      "title": "Corporate Governance | MANG3021 | University of Southampton",
+      "snapshotFile": "raw/0075-dbb9022214db.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3029",
+      "fetchedAt": "2026-10-07T06:14:57.377Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cb0cc3cb2853ef51ecb0b80a469e5de3d92993ac640a352e99e65f066999d754",
+      "title": "Corporate Social Responsibility and Sustainable Business | MANG3029 | University of Southampton",
+      "snapshotFile": "raw/0076-cb0cc3cb2853.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3030",
+      "fetchedAt": "2026-10-07T06:14:58.010Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7ea7726eaa883180ae642e7b488efc50cdfd263c438b39ab7b00c9e2975d52e7",
+      "title": "Financial Analysis, Information and Markets | MANG3030 | University of Southampton",
+      "snapshotFile": "raw/0077-7ea7726eaa88.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3020",
+      "fetchedAt": "2026-10-07T06:15:02.545Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "08f75cdfcbbbcf160a2631142e0154942851a2816fced639aa3c39eea7ff49ce",
+      "title": "Futures and Options | MANG3020 | University of Southampton",
+      "snapshotFile": "raw/0078-08f75cdfcbbb.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3065",
+      "fetchedAt": "2026-10-07T06:15:05.473Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3d50231690cf0ff2f4c76da1c3ca2f6971a35c41230c12a0ca7c68215fd4db2e",
+      "title": "Information, Organisation and Accountability from a Historical Perspective | MANG3065 | University of Southampton",
+      "snapshotFile": "raw/0079-3d50231690cf.html"
+    },
+    {
+      "url": "https://www.southampton.ac.uk/courses/2029-30/modules/mang3009",
+      "fetchedAt": "2026-10-07T06:15:08.078Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f572166d06b8f156e075444f032df969625e8a7dc14edfe39eefddca196541e0",
+      "title": "International Banking | MANG3009 | University of Southampton",
+      "snapshotFile": "raw/0080-f572166d06b8.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:15:08.171Z",
+    "seedUrls": [
+      "https://www.southampton.ac.uk/courses/fees/postgraduate.page",
+      "https://www.southampton.ac.uk/courses/funding/postgraduate.page",
+      "https://www.southampton.ac.uk/courses/fees/undergraduate.page",
+      "https://www.southampton.ac.uk/courses/funding/undergraduate.page",
+      "https://www.southampton.ac.uk/courses/fees/$%7Bitem.link%7D",
+      "https://www.southampton.ac.uk/courses/fees/$%7Bchild.link%7D",
+      "https://www.southampton.ac.uk/courses/fees/undergraduate/2024-2025.page",
+      "https://www.southampton.ac.uk/courses/fees/status.page",
+      "https://www.southampton.ac.uk/courses/fees/pay.page",
+      "https://www.southampton.ac.uk/courses/fees/where-your-tuition-fees-go.page",
+      "https://www.southampton.ac.uk/courses/funding/undergraduate/finance.page",
+      "https://www.southampton.ac.uk/courses/funding/undergraduate/bursaries.page",
+      "https://www.southampton.ac.uk/courses/funding/scholarships-awards.page",
+      "https://www.southampton.ac.uk/courses/fees/undergraduate/tuition-fees.page",
+      "https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bitem.link%7D",
+      "https://www.southampton.ac.uk/courses/fees/undergraduate/$%7Bchild.link%7D",
+      "https://www.southampton.ac.uk/courses/fees/international.page",
+      "https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bitem.link%7D",
+      "https://www.southampton.ac.uk/courses/funding/undergraduate/$%7Bchild.link%7D",
+      "https://www.southampton.ac.uk/courses/how-to-apply/undergraduate-applications.page",
+      "https://www.southampton.ac.uk/courses/foundation-programmes/international",
+      "https://www.southampton.ac.uk/courses/foundation-years/engineering-physics-maths.page",
+      "https://www.southampton.ac.uk/courses/foundation-years/science.page",
+      "https://www.southampton.ac.uk/courses/funding/postgraduate/finance.page",
+      "https://www.southampton.ac.uk/courses/funding/postgraduate/subject-area.page",
+      "https://www.southampton.ac.uk/engineering/postgraduate/research_degrees/courses/engd.page",
+      "https://www.southampton.ac.uk/courses/exchanges/going-abroad.page",
+      "https://www.southampton.ac.uk/courses/exchanges/come-to-southampton.page",
+      "https://www.southampton.ac.uk/courses/modules/uosm2004.page",
+      "https://www.southampton.ac.uk/courses/modules/uosm2043",
+      "https://www.southampton.ac.uk/courses/modules/uosm2017.page",
+      "https://www.southampton.ac.uk/courses/modules/uosm2022",
+      "https://www.southampton.ac.uk/courses/modules/uosm2026.page",
+      "https://www.southampton.ac.uk/courses/modules/uosm2029",
+      "https://www.southampton.ac.uk/courses/modules/uosm2031",
+      "https://www.southampton.ac.uk/courses/modules/uosm2045",
+      "https://www.southampton.ac.uk/courses/modules/uosm2049",
+      "https://www.southampton.ac.uk/courses/modules/uosm2047",
+      "https://www.southampton.ac.uk/courses/modules/uosm2048",
+      "https://www.southampton.ac.uk/courses/modules/uosm2041",
+      "https://www.southampton.ac.uk/engineering/postgraduate/taught_courses/audiology/hearing_aid_aptitude_distance_learning.page",
+      "https://www.southampton.ac.uk/courses/funding/international.page",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang1014",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang1044",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang1019",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang1046",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/econ1009",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang1003",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang1015",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang1045",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2017",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2098",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2003",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2015",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2005",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2004",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2066",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2097",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2092",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2011",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2076",
+      "https://www.southampton.ac.uk/courses/2028-29/modules/mang2041",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3119",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3003",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3006",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3076",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3107",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3093",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3015",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3021",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3029",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3030",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3020",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3065",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3009",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3054",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3034",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3032",
+      "https://www.southampton.ac.uk/courses/2029-30/modules/mang3008",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6031",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6027",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6029",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6607",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6322",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6026",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6028",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6548",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6593",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6562",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6606",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6604",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6025",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6319",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6592",
+      "https://www.southampton.ac.uk/courses/2027-28/modules/mang6521",
+      "https://www.southampton.ac.uk/courses",
+      "https://www.southampton.ac.uk/courses/postgraduate",
+      "https://www.southampton.ac.uk/courses/pre-masters-programmes",
+      "https://www.southampton.ac.uk/courses/exchanges.page",
+      "https://www.southampton.ac.uk/courses/customise-your-degree.page",
+      "https://www.southampton.ac.uk/courses/undergraduate.page",
+      "https://www.southampton.ac.uk/courses/prospectuses.page",
+      "https://www.southampton.ac.uk/courses/accounting-finance-degree-bsc",
+      "https://www.southampton.ac.uk/courses/accounting-finance-masters-msc",
+      "https://www.southampton.ac.uk/courses/accounting-finance-with-placement-year-degree-bsc",
+      "https://www.southampton.ac.uk/courses/accounting-finance-with-study-abroad-year-degree-bsc",
+      "https://www.southampton.ac.uk/courses/accounting-management-masters-msc",
+      "https://www.southampton.ac.uk/courses/accounting-taxation-degree-bsc",
+      "https://www.southampton.ac.uk/courses/accounting-taxation-with-placement-year-degree-bsc",
+      "https://www.southampton.ac.uk/courses/acoustical-engineering-degree-beng",
+      "https://www.southampton.ac.uk/courses/acoustical-engineering-degree-meng",
+      "https://www.southampton.ac.uk/courses/acoustical-vibration-engineering-masters-msc",
+      "https://www.southampton.ac.uk/courses/actuarial-science-masters-msc",
+      "https://www.southampton.ac.uk/courses/advanced-audiology-masters-msc",
+      "https://www.southampton.ac.uk/courses/advanced-biological-sciences-masters-mres",
+      "https://www.southampton.ac.uk/courses/advanced-chemical-engineering-masters-msc",
+      "https://www.southampton.ac.uk/courses/advanced-clinical-practice-advanced-allied-health-practitioner-masters-msc",
+      "https://www.southampton.ac.uk/courses/advanced-clinical-practice-advanced-critical-care-practitioner-masters-msc",
+      "https://www.southampton.ac.uk/courses/advanced-clinical-practice-advanced-neonatal-nurse-practitioner-masters-msc",
+      "https://www.southampton.ac.uk/courses/advanced-clinical-practice-advanced-nurse-practitioner-masters-msc"
+    ],
+    "pages": 80
+  },
+  "detailEnrichment": {
+    "enrichedAt": "2026-10-09T01:54:01.977Z",
+    "source": "saved official programme-page snapshots",
+    "rule": "Only visible source text is copied; missing fields remain null; status remains DRAFT."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.544Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

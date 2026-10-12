@@ -1,0 +1,15 @@
+{
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "libVersion": "3.9.2",
+  "miniprogramRoot": "miniprogram/",
+  "projectname": "udajo-miniapp",
+  "setting": {
+    "checkSiteMap": true,
+    "coverView": true,
+    "es6": true,
+    "minified": true,
+    "postcss": true,
+    "useCompilerPlugins": ["typescript"]
+  }
+}

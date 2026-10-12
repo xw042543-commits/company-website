@@ -1,0 +1,1342 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.457Z",
+  "sourceKey": "cornell-university",
+  "sourceName": "Cornell University",
+  "warnings": [
+    "https://www.cornell.edu/academics/calendar/：跳转超出允许域名: registrar.cornell.edu",
+    "robots.txt 禁止抓取：https://www.cornell.edu/search/people.cfm",
+    "http://www.cornell.edu/leadership/：跳转超出允许域名: leadership.cornell.edu",
+    "HTTP 404：https://www.cornell.edu/about/timeline/item-list",
+    "https://www.cornell.edu/video/dedication-of-the-robert-w-holley-center-for-agriculture-and-health：跳转超出允许域名: vod.video.cornell.edu",
+    "https://www.cornell.edu/cuinfo/specialconditions/：跳转超出允许域名: cuinfo.cornell.edu",
+    "https://sce.cornell.edu/courses/programs/summer：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+    "https://sce.cornell.edu/courses/programs/winter：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+    "https://sce.cornell.edu/courses/programs/part-time：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+  ],
+  "university": {
+    "candidateId": "university_9db339bec0ade467",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Cornell University",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Ithaca, New York",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.cornell.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:16:15.382Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.cornell.edu/",
+        "sourcePageTitle": "Cornell University",
+        "sourceHash": "56b618f42e1ea320642592b15708227dfb60aab61663c9f82630cc4caf82697a",
+        "fetchedAt": "2026-10-07T04:16:15.382Z",
+        "field": "name",
+        "rawText": "Cornell University"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 6,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": []
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_4eeab4e66a75683c",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "康奈尔执行部 MBA",
+      "nameEn": "Cornell Executive MBA NYC",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "An Ivy League MBA for executives delivered in New York City. In 22 months, learn to lead at the highest levels, with rigorous academics, leadership and AI concentrations and an intimate cohort of accomplished peers.",
+      "officialUrl": "https://business.cornell.edu/programs/emba-nyc/",
+      "sourceCheckedAt": "2026-10-07T06:23:32.674Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "An Ivy League MBA for executives delivered in New York City. In 22 months, learn to lead at the highest levels, with rigorous academics, leadership and AI concentrations and an intimate cohort of accomplished peers.",
+          "sortOrder": 0,
+          "sourceUrl": "https://business.cornell.edu/programs/emba-nyc/",
+          "sourceCheckedAt": "2026-10-07T06:23:32.674Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://business.cornell.edu/programs/emba-nyc/",
+          "sourcePageTitle": "Cornell Executive MBA NYC | Our Programs - Cornell SC Johnson College of Business",
+          "sourceHash": "3e355e510523474295c5d966cdd24d728f062350c9bfdd55e13640c32b958a90",
+          "fetchedAt": "2026-10-07T06:23:32.674Z",
+          "field": "name",
+          "rawText": "Cornell Executive MBA NYC"
+        },
+        {
+          "sourceUrl": "https://business.cornell.edu/programs/emba-nyc/",
+          "sourcePageTitle": "Cornell Executive MBA NYC | Our Programs - Cornell SC Johnson College of Business",
+          "sourceHash": "3e355e510523474295c5d966cdd24d728f062350c9bfdd55e13640c32b958a90",
+          "fetchedAt": "2026-10-07T06:23:32.674Z",
+          "field": "description",
+          "rawText": "An Ivy League MBA for executives delivered in New York City. In 22 months, learn to lead at the highest levels, with rigorous academics, leadership and AI concentrations and an intimate cohort of accomplished peers."
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.cornell.edu/",
+      "fetchedAt": "2026-10-07T04:16:15.382Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "56b618f42e1ea320642592b15708227dfb60aab61663c9f82630cc4caf82697a",
+      "title": "Cornell University",
+      "snapshotFile": "raw/0001-56b618f42e1e.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/",
+      "fetchedAt": "2026-10-07T04:16:21.455Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "061f81c8e211ba06ef22ae340a18c6543f48dc1f57c8d0000a3a0c6d966a3896",
+      "title": "About | Cornell University",
+      "snapshotFile": "raw/0002-061f81c8e211.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/timeline/",
+      "fetchedAt": "2026-10-07T04:16:28.669Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4db7fcd5dec99866080007865b51cda0f2e7dd51e77f9d36bba5bedcf416966a",
+      "title": "About | Cornell University",
+      "snapshotFile": "raw/0003-4db7fcd5dec9.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/maps/",
+      "fetchedAt": "2026-10-07T04:16:34.300Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "10f6d9f715c2e60a656bdbad4cb8991e0e1b9c5d157001ba74d1390f35fb6e3f",
+      "title": "Cornell University | Cornell Maps",
+      "snapshotFile": "raw/0004-10f6d9f715c2.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/mission.cfm",
+      "fetchedAt": "2026-10-07T04:16:39.484Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "fc4f806064f6b6e5618f9a7fc8e3a10f50a0cd86ac6145913bfe3607abe110ff",
+      "title": "University Mission | Cornell University",
+      "snapshotFile": "raw/0005-fc4f806064f6.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/values.cfm",
+      "fetchedAt": "2026-10-07T04:16:46.323Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a212b155f611e8156b655a2795b71acc2dd3b20f2fb3c3af950b33043c8dd599",
+      "title": "University Core Values | Cornell University",
+      "snapshotFile": "raw/0006-a212b155f611.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/locations/",
+      "fetchedAt": "2026-10-07T04:16:51.533Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ba3dcb52c90e6664660ba5b86200ee007d8c1830d7978c5da0a66d3657860b5d",
+      "title": "Locations | Cornell University",
+      "snapshotFile": "raw/0007-ba3dcb52c90e.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/locations/ithaca/",
+      "fetchedAt": "2026-10-07T04:16:58.382Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "acec16d18dec988a8a5aa10d86553dd3aeda463d28dc21ef19aeebc607067fd8",
+      "title": "About Ithaca | Cornell University",
+      "snapshotFile": "raw/0008-acec16d18dec.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/locations/nyc/",
+      "fetchedAt": "2026-10-07T04:17:04.762Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "30bb4e73e7af57bf45081773afbc5748eeb8912c3c4b440b9d8c72a44cd3fe16",
+      "title": "Cornell in NYC | Cornell University",
+      "snapshotFile": "raw/0009-30bb4e73e7af.html"
+    },
+    {
+      "url": "https://www.cornell.edu/academics/",
+      "fetchedAt": "2026-10-07T04:17:09.599Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a74a6487724d9427581442c991576948fd41aeaee04f003c4ec4ecc7599066ac",
+      "title": "Academics | Cornell University",
+      "snapshotFile": "raw/0010-a74a6487724d.html"
+    },
+    {
+      "url": "https://www.cornell.edu/academics/",
+      "fetchedAt": "2026-10-07T04:17:15.551Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a74a6487724d9427581442c991576948fd41aeaee04f003c4ec4ecc7599066ac",
+      "title": "Academics | Cornell University",
+      "snapshotFile": "raw/0011-a74a6487724d.html"
+    },
+    {
+      "url": "https://www.cornell.edu/academics/fields.cfm",
+      "fetchedAt": "2026-10-07T04:17:22.553Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "6117a0988b870e4e5a2b71fc92331f5ad11e15f5d699164b91fe5e1b01f73b65",
+      "title": "Fields of Study | Cornell University",
+      "snapshotFile": "raw/0012-6117a0988b87.html"
+    },
+    {
+      "url": "https://www.cornell.edu/academics/colleges.cfm",
+      "fetchedAt": "2026-10-07T04:17:28.463Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "17198b331048c39189a85b39c4b48ce0938d48b7939ac053af537bdb90780868",
+      "title": "Colleges & Schools | Cornell University",
+      "snapshotFile": "raw/0013-17198b331048.html"
+    },
+    {
+      "url": "https://www.cornell.edu/academics/departments.cfm",
+      "fetchedAt": "2026-10-07T04:17:33.631Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "0100006ba955b7bd3422a120f26befee41cc2f13d41e6f883666d167141e455c",
+      "title": "Academic Departments | Cornell University",
+      "snapshotFile": "raw/0014-0100006ba955.html"
+    },
+    {
+      "url": "https://www.cornell.edu/academics/library.cfm",
+      "fetchedAt": "2026-10-07T04:17:40.613Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "2071e9406db898eabf30b579ca6990a3ed55acc042225112dd834693fdb1a998",
+      "title": "Library | Cornell University",
+      "snapshotFile": "raw/0015-2071e9406db8.html"
+    },
+    {
+      "url": "https://www.cornell.edu/academics/continuing.cfm",
+      "fetchedAt": "2026-10-07T04:17:46.455Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "65d8f1fd016c174ea6e189b3422a7dc246dbf5b46add036c2368fcdcd51c4c43",
+      "title": "Continuing Education | Cornell University",
+      "snapshotFile": "raw/0016-65d8f1fd016c.html"
+    },
+    {
+      "url": "https://www.cornell.edu/research/",
+      "fetchedAt": "2026-10-07T04:17:51.723Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "f6721baaca428daab7bbbe752ff0f4f4c6d38b3eac764dd751061b2b73d69dcf",
+      "title": "Research | Cornell University",
+      "snapshotFile": "raw/0017-f6721baaca42.html"
+    },
+    {
+      "url": "https://www.cornell.edu/engagement/",
+      "fetchedAt": "2026-10-07T04:17:58.464Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "fa40119b66f395778e20d8746fdb16fb47d188d9fa3048b96b1a03d4b7346662",
+      "title": "Public Engagement | Cornell",
+      "snapshotFile": "raw/0018-fa40119b66f3.html"
+    },
+    {
+      "url": "https://www.cornell.edu/life-at-cornell/",
+      "fetchedAt": "2026-10-07T04:18:04.428Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "bef106b8fccebcb733dd5c7a24c3f932553f6893686f85b4a36ca6d762978b97",
+      "title": "Life at Cornell | Cornell University",
+      "snapshotFile": "raw/0019-bef106b8fcce.html"
+    },
+    {
+      "url": "https://www.cornell.edu/life-at-cornell/athletics.cfm",
+      "fetchedAt": "2026-10-07T04:18:10.363Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "e130fa4a381f01631b5bcf632646dbfe3d92b918b706b15fffa6b71383cfb01e",
+      "title": "Athletics & Recreation | Cornell University",
+      "snapshotFile": "raw/0020-e130fa4a381f.html"
+    },
+    {
+      "url": "https://www.cornell.edu/life-at-cornell/arts.cfm",
+      "fetchedAt": "2026-10-07T04:18:16.410Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4190e50918f10b1c197a314039a36e14fae884c8f9b275a0731ac6a727089bc8",
+      "title": "Arts & Culture | Cornell University",
+      "snapshotFile": "raw/0021-4190e50918f1.html"
+    },
+    {
+      "url": "https://www.cornell.edu/life-at-cornell/health.cfm",
+      "fetchedAt": "2026-10-07T04:18:22.452Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "699ac64e5f3e81f68b9c9b44b12a4f88374ac7bce74e0b07090218ee1ed4f638",
+      "title": "Health & Well-being | Cornell University",
+      "snapshotFile": "raw/0022-699ac64e5f3e.html"
+    },
+    {
+      "url": "https://www.cornell.edu/life-at-cornell/live.cfm",
+      "fetchedAt": "2026-10-07T04:18:27.655Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "df7fab2f78a57e47b069fac7ea2ab1a8e9cacad7d1c3ae63613caaac7194e56f",
+      "title": "Live, Work, Travel | Cornell University",
+      "snapshotFile": "raw/0023-df7fab2f78a5.html"
+    },
+    {
+      "url": "https://www.cornell.edu/life-at-cornell/student-life.cfm",
+      "fetchedAt": "2026-10-07T04:18:34.498Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4d4d16ffd8f1a7153733c69d7f77087dfb6c7de3d076f5db3abdbbfb2355eeac",
+      "title": "Student Life | Cornell University",
+      "snapshotFile": "raw/0024-4d4d16ffd8f1.html"
+    },
+    {
+      "url": "https://www.cornell.edu/life-at-cornell/in-a-day/",
+      "fetchedAt": "2026-10-07T04:18:40.474Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4829af1bb9622ff4cee459e994b64ac9e6d20ce59b2ce78a28f012eed1e90723",
+      "title": "Experience Cornell in a Day | Life at Cornell | Cornell University",
+      "snapshotFile": "raw/0025-4829af1bb962.html"
+    },
+    {
+      "url": "https://www.cornell.edu/visit/",
+      "fetchedAt": "2026-10-07T04:18:46.687Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "593eac104cbb60cd69218bf69f54b2a40ef929ec3426357b37115c92aa1e4c9c",
+      "title": "Visit | Cornell University",
+      "snapshotFile": "raw/0026-593eac104cbb.html"
+    },
+    {
+      "url": "https://www.cornell.edu/weather/",
+      "fetchedAt": "2026-10-07T04:18:52.621Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "3edd314c81abc69727748aa0db30865a7427d59d015f630daf03134d923599ff",
+      "title": "Cornell University | Weather",
+      "snapshotFile": "raw/0027-3edd314c81ab.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/locations/nyc/travel-resources.cfm",
+      "fetchedAt": "2026-10-07T04:19:04.641Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "5517921a1c52f15f010f6a961aef787322ac004ba74203aff6548a3fd177226e",
+      "title": "NYC Travel Resources | Cornell University",
+      "snapshotFile": "raw/0028-5517921a1c52.html"
+    },
+    {
+      "url": "https://www.cornell.edu/live-view/",
+      "fetchedAt": "2026-10-07T04:19:09.875Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "8e29922e183ff7d8152357940c77e3246cfb10824fd41d2fee46cfc7426d4562",
+      "title": "Live View | Cornell University",
+      "snapshotFile": "raw/0029-8e29922e183f.html"
+    },
+    {
+      "url": "https://www.cornell.edu/accessibility-assistance.cfm",
+      "fetchedAt": "2026-10-07T04:19:16.525Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "fe4c8d6db9f347502a49d1fd8b7eb169290c3be90a176b7d7956fad34aabbe5e",
+      "title": "Web Accessibility Assistance | Cornell University",
+      "snapshotFile": "raw/0030-fe4c8d6db9f3.html"
+    },
+    {
+      "url": "https://www.cornell.edu/copyright.cfm",
+      "fetchedAt": "2026-10-07T04:19:22.627Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "883f4c1171d8efaad045d76b3567b327a169d979ad11168b17d87b431892babd",
+      "title": "Copyright | Cornell University",
+      "snapshotFile": "raw/0031-883f4c1171d8.html"
+    },
+    {
+      "url": "https://www.cornell.edu/site-info.cfm",
+      "fetchedAt": "2026-10-07T04:19:28.574Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "c6e22c60447b2ddd96302295e8b870f6a39babf9ee5f0ddc4692f1d872e4bd46",
+      "title": "Site Information | Cornell University",
+      "snapshotFile": "raw/0032-c6e22c60447b.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/index.cfm",
+      "fetchedAt": "2026-10-07T04:19:34.505Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "9cab2d25c2faf2b2d601256f7e842a0c6235cb575a7ee36da7ff81a4453492b9",
+      "title": "About | Cornell University",
+      "snapshotFile": "raw/0033-9cab2d25c2fa.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/locations/ithaca/",
+      "fetchedAt": "2026-10-07T04:19:46.075Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "acec16d18dec988a8a5aa10d86553dd3aeda463d28dc21ef19aeebc607067fd8",
+      "title": "About Ithaca | Cornell University",
+      "snapshotFile": "raw/0034-acec16d18dec.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/locations/nyc/570-lexington.cfm",
+      "fetchedAt": "2026-10-07T04:19:52.984Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "7539d43ff35e9b6f5c05240a90480d47f498ad839fdad51d412763c6ada9950f",
+      "title": "570 Lexington Avenue | Cornell",
+      "snapshotFile": "raw/0035-7539d43ff35e.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/locations/",
+      "fetchedAt": "2026-10-07T04:19:58.136Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ba3dcb52c90e6664660ba5b86200ee007d8c1830d7978c5da0a66d3657860b5d",
+      "title": "Locations | Cornell University",
+      "snapshotFile": "raw/0036-ba3dcb52c90e.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/timeline/index.cfm?",
+      "fetchedAt": "2026-10-07T04:20:05.347Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ab7add212295e1ed45984700c9cf527ca4131c96cd6a1e2a4c2c5e998c0fe105",
+      "title": "About | Cornell University",
+      "snapshotFile": "raw/0037-ab7add212295.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/maps/",
+      "fetchedAt": "2026-10-07T04:20:10.814Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "10f6d9f715c2e60a656bdbad4cb8991e0e1b9c5d157001ba74d1390f35fb6e3f",
+      "title": "Cornell University | Cornell Maps",
+      "snapshotFile": "raw/0038-10f6d9f715c2.html"
+    },
+    {
+      "url": "https://www.cornell.edu/indigenous/",
+      "fetchedAt": "2026-10-07T04:20:22.965Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "c766cfd76a76eacbb3f83592d41fcc81e1d53e74ab77fcce956438c9a6f42fd7",
+      "title": "Commitment to Indigenous Communities and Nations in North America | Cornell",
+      "snapshotFile": "raw/0039-c766cfd76a76.html"
+    },
+    {
+      "url": "https://www.cornell.edu/about/maps/directory/",
+      "fetchedAt": "2026-10-07T04:20:43.956Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "1d91313b742c9265077f96bcb4ab2f25f1c970dde0334ca9aec655b7e60e117b",
+      "title": "Cornell University | Maps (text)",
+      "snapshotFile": "raw/0040-1d91313b742c.html"
+    },
+    {
+      "url": "https://business.cornell.edu/programs/emba-nyc/",
+      "fetchedAt": "2026-10-07T06:23:32.674Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3e355e510523474295c5d966cdd24d728f062350c9bfdd55e13640c32b958a90",
+      "title": "Cornell Executive MBA NYC | Our Programs - Cornell SC Johnson College of Business",
+      "snapshotFile": "raw/0001-3e355e510523.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/africana-studies-ba/",
+      "fetchedAt": "2026-10-07T06:23:33.681Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "243c9865a4dde7394b318c95e5ea00385b62c9d8a79cca987e190dc93ca9f5bf",
+      "title": null,
+      "snapshotFile": "raw/0002-243c9865a4dd.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/agricultural-sciences-bs/",
+      "fetchedAt": "2026-10-07T06:23:35.720Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c2596eebcac6de7c87382d0b75364133623d842a6708a83c8fbb5ed82d8d590f",
+      "title": null,
+      "snapshotFile": "raw/0003-c2596eebcac6.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/american-studies-ba/",
+      "fetchedAt": "2026-10-07T06:23:37.766Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec4af1e5c971e59129a885f4456cdde2987fdd335fe83ad4547a191c67da3d77",
+      "title": null,
+      "snapshotFile": "raw/0004-ec4af1e5c971.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/animal-science-bs/",
+      "fetchedAt": "2026-10-07T06:23:39.729Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "90fa0039a9f60da09729958f6a946f9517c1f4d6cad7b28aeaeb03a9186bd2e8",
+      "title": null,
+      "snapshotFile": "raw/0005-90fa0039a9f6.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/anthropology-ba/",
+      "fetchedAt": "2026-10-07T06:23:41.726Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3db71dcf43374541d91fbb96ffd9e22025612c96924502e114d3f6f3ad643135",
+      "title": null,
+      "snapshotFile": "raw/0006-3db71dcf4337.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/applied-economics-management-bs/",
+      "fetchedAt": "2026-10-07T06:23:43.753Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "912311934bbf2781d687e6e5bdf1c1598057d410461dd741a3e87cfad098d3c9",
+      "title": null,
+      "snapshotFile": "raw/0007-912311934bbf.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/archaeology-ba/",
+      "fetchedAt": "2026-10-07T06:23:45.747Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3ee81299647bb0df098565202220a18d02179ae4b60edac206547f6a0dd17c8d",
+      "title": null,
+      "snapshotFile": "raw/0008-3ee81299647b.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/architecture-barch/",
+      "fetchedAt": "2026-10-07T06:23:47.750Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "563308dd1d201ffb71523a7a4712ffde85f8d5ee40b759a161a4929e9843c016",
+      "title": null,
+      "snapshotFile": "raw/0009-563308dd1d20.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/asian-studies-ba/",
+      "fetchedAt": "2026-10-07T06:23:49.768Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9102a8df280bbd886481cec01268ac4f7253739039ba1b80908431417de62e64",
+      "title": null,
+      "snapshotFile": "raw/0010-9102a8df280b.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/astronomy-ba/",
+      "fetchedAt": "2026-10-07T06:23:51.764Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d4cf99f5fe207aec421b4efba08cfac401e0a95b1fc33a28c7dd8f0d9ed974d0",
+      "title": null,
+      "snapshotFile": "raw/0011-d4cf99f5fe20.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/atmospheric-science-bs/",
+      "fetchedAt": "2026-10-07T06:23:53.760Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "34aa72c333e679cb64a9b5986ac5c7711e20d566858cbefdd40a600dd3dea4e4",
+      "title": null,
+      "snapshotFile": "raw/0012-34aa72c333e6.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/biological-engineering-bs/",
+      "fetchedAt": "2026-10-07T06:23:55.793Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aa209d4029c386a1855c06ff397f06ec74c8357630a1b9b765d4273aeba7e259",
+      "title": null,
+      "snapshotFile": "raw/0013-aa209d4029c3.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/biological-sciences-ba/",
+      "fetchedAt": "2026-10-07T06:23:57.789Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3003c9f6a9b88dfdcbfa16ded33925e5ff4109cc746e689cef4a7c074a711162",
+      "title": null,
+      "snapshotFile": "raw/0014-3003c9f6a9b8.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/biological-sciences-bs/",
+      "fetchedAt": "2026-10-07T06:23:59.797Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "673aaa82305a4d621e8311ceda210ac5ae3e33a0f0e7f872866d5c883a736739",
+      "title": null,
+      "snapshotFile": "raw/0015-673aaa82305a.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/biology-society-ba/",
+      "fetchedAt": "2026-10-07T06:24:01.841Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b4e0a595264222379b049ff6e423d47fe6f031fe9945f6b2d7e820df0d12f546",
+      "title": null,
+      "snapshotFile": "raw/0016-b4e0a5952642.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/biomedical-engineering-bs/",
+      "fetchedAt": "2026-10-07T06:24:03.816Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "91d28b55f57549fe2d1d8564835614932bb6f1020edeb3d98e022e07f156ce40",
+      "title": null,
+      "snapshotFile": "raw/0017-91d28b55f575.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/biometry-statistics-bs/",
+      "fetchedAt": "2026-10-07T06:24:05.863Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "08f620a5d95e6167a945911ac6a3b58746447618201fd7c0a036e98663d4e5e1",
+      "title": null,
+      "snapshotFile": "raw/0018-08f620a5d95e.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/chemical-engineering-bs/",
+      "fetchedAt": "2026-10-07T06:24:07.839Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c14dcc508336ce7aa2c46ef87ad52b15c11b4b129e86070b9d65eee57d77269e",
+      "title": null,
+      "snapshotFile": "raw/0019-c14dcc508336.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/chemistry-ba/",
+      "fetchedAt": "2026-10-07T06:24:09.849Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7a5b223fee89dcbc95a7cc2e70590f408047cda5a525ee7ece1c20b1d312f1e7",
+      "title": null,
+      "snapshotFile": "raw/0020-7a5b223fee89.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/china-asia-pacific-studies-ba/",
+      "fetchedAt": "2026-10-07T06:24:11.851Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "95e3f4c6ebbfca3b967de389625fc9e8b79a53fa610611470f7bd796dc754d4a",
+      "title": null,
+      "snapshotFile": "raw/0021-95e3f4c6ebbf.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/civil-engineering-bs/",
+      "fetchedAt": "2026-10-07T06:24:13.871Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2e556c52639290987998f2794add2fa75a9aa930e761714d9f52b9b4e77b430a",
+      "title": null,
+      "snapshotFile": "raw/0022-2e556c526392.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/classics-ba/",
+      "fetchedAt": "2026-10-07T06:24:15.867Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ce62867ebdba208cedb42a8fbccb1f77117ae96b8ea5fab989ba8351486f7cd7",
+      "title": null,
+      "snapshotFile": "raw/0023-ce62867ebdba.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/cognitive-science-ba/",
+      "fetchedAt": "2026-10-07T06:24:17.877Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7e279264809b2c5777300d28b7dcebf6f38ce0751af2a097793807f7007fed53",
+      "title": null,
+      "snapshotFile": "raw/0024-7e279264809b.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/college-scholar-ba/",
+      "fetchedAt": "2026-10-07T06:24:19.900Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a62da023e645e1038f717ec78478c9a1f2fbabaf524b93101d8bb368ce1644e7",
+      "title": null,
+      "snapshotFile": "raw/0025-a62da023e645.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/communication-bs/",
+      "fetchedAt": "2026-10-07T06:24:21.910Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3c84ef4373c7d940a74348d29eee05c4f925b076b7b4a176425aef93853f4e9",
+      "title": null,
+      "snapshotFile": "raw/0026-b3c84ef4373c.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/comparative-literature-ba/",
+      "fetchedAt": "2026-10-07T06:24:23.899Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f0b180aebdf08d74e6c89ec3f982512f0c022859f5cb20f5f7f4ec0bf93f8d4e",
+      "title": null,
+      "snapshotFile": "raw/0027-f0b180aebdf0.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/computer-science-ba/",
+      "fetchedAt": "2026-10-07T06:24:25.911Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0803bd047c443c7c6ecaa442bef0a1ad2ce09ba9216d8c3ad430416ef5b48483",
+      "title": null,
+      "snapshotFile": "raw/0028-0803bd047c44.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/computer-science-bs/",
+      "fetchedAt": "2026-10-07T06:24:27.906Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6906396dc99e818082fd2ab84c1160febdcfcf03fbdefa28a117492171018ada",
+      "title": null,
+      "snapshotFile": "raw/0029-6906396dc99e.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/design-environmental-analysis-bs/",
+      "fetchedAt": "2026-10-07T06:24:29.913Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bf6c156212c766899446e853038ad4a60eb467cced1174d7788b4e7857e61b32",
+      "title": null,
+      "snapshotFile": "raw/0030-bf6c156212c7.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/earth-climate-sciences-ba/",
+      "fetchedAt": "2026-10-07T06:24:31.935Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2353a8cdfac580f9a3fcca7b65e528a1fda58319f6cb63d804a16906221105fd",
+      "title": null,
+      "snapshotFile": "raw/0031-2353a8cdfac5.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/earth-climate-sciences-ecsag-bs/",
+      "fetchedAt": "2026-10-07T06:24:33.946Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "79598587f731f990408f6184f5d35756a686a1f83d03c080e2c6ccfe7d38c658",
+      "title": null,
+      "snapshotFile": "raw/0032-79598587f731.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/earth-climate-sciences-ecsen-bs/",
+      "fetchedAt": "2026-10-07T06:24:35.940Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "503924ee25dc0ae9184a71b6493e794b46bfa1d2d1f6976635c95ea4cf15511a",
+      "title": null,
+      "snapshotFile": "raw/0033-503924ee25dc.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/economics-ba/",
+      "fetchedAt": "2026-10-07T06:24:37.955Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "39b27f5cfe73adce08cf4c8561b5e7de08a3cea9dee1647a33242c4160769a74",
+      "title": null,
+      "snapshotFile": "raw/0034-39b27f5cfe73.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/electrical-computer-engineering-bs/",
+      "fetchedAt": "2026-10-07T06:24:39.951Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "657325bd9be99e5c28f707911b962095eebf7dab769e8b9cdec566299fc9164b",
+      "title": null,
+      "snapshotFile": "raw/0035-657325bd9be9.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/engineering-physics-bs/",
+      "fetchedAt": "2026-10-07T06:24:41.963Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2e77971d82e0e113508583f7781a91d72f871d99dc5798b7655296d8aff498c1",
+      "title": null,
+      "snapshotFile": "raw/0036-2e77971d82e0.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/english-ba/",
+      "fetchedAt": "2026-10-07T06:24:43.983Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dbb0e65e534e31604284d2e4be2c25cea2c96e33f6b840e7e282217fa2fdd420",
+      "title": null,
+      "snapshotFile": "raw/0037-dbb0e65e534e.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/entomology-bs/",
+      "fetchedAt": "2026-10-07T06:24:45.987Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "421a35566ce71e3f18ee90c322646daf30551d0d99382c0a322091f3409ae0c2",
+      "title": null,
+      "snapshotFile": "raw/0038-421a35566ce7.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/environment-sustainability-ba/",
+      "fetchedAt": "2026-10-07T06:24:48.016Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c0c79cfc312603fe3b07fc49188716a836e346a7866e424700b8bb60737f3a39",
+      "title": null,
+      "snapshotFile": "raw/0039-c0c79cfc3126.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/environment-sustainability-bs/",
+      "fetchedAt": "2026-10-07T06:24:50.022Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "59c32c7fdab6916c514a255e11599480982604ec28bf9b89efb5559b79fde768",
+      "title": null,
+      "snapshotFile": "raw/0040-59c32c7fdab6.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/environmental-engineering-bs/",
+      "fetchedAt": "2026-10-07T06:24:52.019Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1dcdfb639b4dc462937baa83a8103219264857a737b8c99f091c09180395fd3e",
+      "title": null,
+      "snapshotFile": "raw/0041-1dcdfb639b4d.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/fashion-design-management-bs/",
+      "fetchedAt": "2026-10-07T06:24:54.029Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "735b476ddd3bf6b7f742f3755150918f64d8ed09ad4b295b9b473c971eb9086d",
+      "title": null,
+      "snapshotFile": "raw/0042-735b476ddd3b.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/fgss-ba/",
+      "fetchedAt": "2026-10-07T06:24:56.052Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "570229dea207620aaf24c52e6a8362245b89474059c478828f0dae7fd5e767eb",
+      "title": null,
+      "snapshotFile": "raw/0043-570229dea207.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/fiber-science-bs/",
+      "fetchedAt": "2026-10-07T06:24:58.043Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "523b497ef8fe8d91a6453134448c7d191525d9500bd1f224108b7b49c2d7503f",
+      "title": null,
+      "snapshotFile": "raw/0044-523b497ef8fe.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/art-bfa/",
+      "fetchedAt": "2026-10-07T06:25:00.052Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "16f3896cc079f7aacf02f64bd52c245786c680bc2ec60ee399904ffb1580ca68",
+      "title": null,
+      "snapshotFile": "raw/0045-16f3896cc079.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/food-science-bs/",
+      "fetchedAt": "2026-10-07T06:25:02.084Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "920a95825aed36dcaf0c5d4f919f59d8bb9adcfa8f6378d9f771ad30dc084096",
+      "title": null,
+      "snapshotFile": "raw/0046-920a95825aed.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/french-ba/",
+      "fetchedAt": "2026-10-07T06:25:04.065Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ac1edd62cb674d5ffd0a1df2c974b577a624483c401b51e00da2769de015a87e",
+      "title": null,
+      "snapshotFile": "raw/0047-ac1edd62cb67.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/german-studies-ba/",
+      "fetchedAt": "2026-10-07T06:25:06.074Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ff46947dd810d10ed505699e1b5c369b3e7c94491b09a96e2d256bbc7a7b33a7",
+      "title": null,
+      "snapshotFile": "raw/0048-ff46947dd810.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/global-public-health-sciences-bs/",
+      "fetchedAt": "2026-10-07T06:25:08.091Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a2a5137023651c9b0267bc8e0e83102852f4fadd51c2557aebaa6517f0f86c67",
+      "title": null,
+      "snapshotFile": "raw/0049-a2a513702365.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/global-public-health-sciences-hum-ecol-bs/",
+      "fetchedAt": "2026-10-07T06:25:10.170Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "30258c1edd93a39489b655594fffd099e00d3eb7fa6d3f3126899ce02d08c2fb",
+      "title": null,
+      "snapshotFile": "raw/0050-30258c1edd93.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/global-development-bs/",
+      "fetchedAt": "2026-10-07T06:25:12.099Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0984fd707390d48caa5cdcf2ca5791514e26fa11b21f147d5c75598dd8c82756",
+      "title": null,
+      "snapshotFile": "raw/0051-0984fd707390.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/government-ba/",
+      "fetchedAt": "2026-10-07T06:25:14.117Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "da32b967357df158bfdb4b061201b6ad127ad13a9a7a02c8fb57c03dd4cbf7c7",
+      "title": null,
+      "snapshotFile": "raw/0052-da32b967357d.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/health-care-policy-major-bs/",
+      "fetchedAt": "2026-10-07T06:25:16.109Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "534be954119e55c28e8f11457967a068b5c337e83dcc3bf79c9705abb0248f3f",
+      "title": null,
+      "snapshotFile": "raw/0053-534be954119e.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/history-ba/",
+      "fetchedAt": "2026-10-07T06:25:18.124Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3003a75e4ce123d642f7c6ff3c0a83798d4718a67d281181d845f51e6797ffb5",
+      "title": null,
+      "snapshotFile": "raw/0054-3003a75e4ce1.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/history-architecture-urban-development-bs-haud/",
+      "fetchedAt": "2026-10-07T06:25:20.144Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "96810cf23cb62a0c158f66796c6d359843ed6bbf3c2f8e0b5f25c24df0955e69",
+      "title": null,
+      "snapshotFile": "raw/0055-96810cf23cb6.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/history-art-ba/",
+      "fetchedAt": "2026-10-07T06:25:22.144Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "83fe02bbad2bc4c8b10df5320dd48b64f8bfa54a5e124145a2277ae051e238c4",
+      "title": null,
+      "snapshotFile": "raw/0056-83fe02bbad2b.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/hotel-management-bs/",
+      "fetchedAt": "2026-10-07T06:25:24.153Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5ce5028cefe6d4b36152a9c9845b8e21612386ae12f711b1f96f732b716b4b9",
+      "title": null,
+      "snapshotFile": "raw/0057-e5ce5028cefe.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/human-biology-health-society-bs/",
+      "fetchedAt": "2026-10-07T06:25:26.180Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "224eaafc3f6322a21e8ce96f2eba1d6fc70d67f92ed1bf7625446c16c1ff32ae",
+      "title": null,
+      "snapshotFile": "raw/0058-224eaafc3f63.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/human-development-bs/",
+      "fetchedAt": "2026-10-07T06:25:28.173Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5354f2fc27c3d05fca00fead182b21376944a236ee42233192d6d706d172d8dd",
+      "title": null,
+      "snapshotFile": "raw/0059-5354f2fc27c3.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/independent-major/",
+      "fetchedAt": "2026-10-07T06:25:30.184Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dd94dd31656535c9df6918ba36177f72864638c3d055afb8a99cf934652fc513",
+      "title": null,
+      "snapshotFile": "raw/0060-dd94dd316565.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/industrial-labor-relations-bs/",
+      "fetchedAt": "2026-10-07T06:25:32.205Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "42b31cc623880d92669874248eeb173bd15c90d061f8ad7f0a262852d586f903",
+      "title": null,
+      "snapshotFile": "raw/0061-42b31cc62388.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/information-science-ba/",
+      "fetchedAt": "2026-10-07T06:25:34.220Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "18ea59d28840f992cdf0a00fe656481dc86b1d76338bf222a793c318bd9d15b9",
+      "title": null,
+      "snapshotFile": "raw/0062-18ea59d28840.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/information-science-bs/",
+      "fetchedAt": "2026-10-07T06:25:36.214Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "43867abf699295236462fc6eac9e20cbef7f9e5272730dfd2f448fa961162992",
+      "title": null,
+      "snapshotFile": "raw/0063-43867abf6992.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/information-science-systems-technology-bs/",
+      "fetchedAt": "2026-10-07T06:25:38.234Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2ba497b75842267871e3b08a0f7ce2e9b767ed5932b4bd59583676faf998efa3",
+      "title": null,
+      "snapshotFile": "raw/0064-2ba497b75842.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/interdisciplinary-studies-bs/",
+      "fetchedAt": "2026-10-07T06:25:40.238Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "081971288d51574c1b6a814ccfb25ecddd0dfddf27a1eb3ebfc163681db2db24",
+      "title": null,
+      "snapshotFile": "raw/0065-081971288d51.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/italian-ba/",
+      "fetchedAt": "2026-10-07T06:25:42.246Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fd22dbe60b9b68ae0e9a99c03e1441249e1c1fd0bf812dfa6f7b0802d8d5085b",
+      "title": null,
+      "snapshotFile": "raw/0066-fd22dbe60b9b.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/jewish-studies-ba/",
+      "fetchedAt": "2026-10-07T06:25:44.266Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d7f2b1e064f4d93857fb4289c0e1421c3cb3f32095bb68e90de1d14206951988",
+      "title": null,
+      "snapshotFile": "raw/0067-d7f2b1e064f4.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/landscape-architecture-bs/",
+      "fetchedAt": "2026-10-07T06:25:46.260Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a682a894289c17ea606dc7494c3552f8e710a41116d5ada7e379c15061b723f6",
+      "title": null,
+      "snapshotFile": "raw/0068-a682a894289c.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/latina-o-studies-ba/",
+      "fetchedAt": "2026-10-07T06:25:48.274Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "48285de927cc486403a34885e98f3b69143df03012bd78c26aa95cfa739064a1",
+      "title": null,
+      "snapshotFile": "raw/0069-48285de927cc.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/linguistics-ba/",
+      "fetchedAt": "2026-10-07T06:25:50.293Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "47d283ea1171e7e2dc32ca0cc6462caf11d063544cb623ed45a4b57913b733ea",
+      "title": null,
+      "snapshotFile": "raw/0070-47d283ea1171.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/materials-science-engineering-bs/",
+      "fetchedAt": "2026-10-07T06:25:52.293Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f0e2c0e5b4f190f5380e28caecbf28aec121004a9f5ce1572c04390616336282",
+      "title": null,
+      "snapshotFile": "raw/0071-f0e2c0e5b4f1.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/mathematics-ba/",
+      "fetchedAt": "2026-10-07T06:25:54.310Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2980db8faeb4f0de0a5871c30eaec4b2f6a963177f2cd1f0c87c33bcb70a451d",
+      "title": null,
+      "snapshotFile": "raw/0072-2980db8faeb4.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/mechanical-engineering-bs/",
+      "fetchedAt": "2026-10-07T06:25:56.333Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a3186f0b371708571758f97c670279d6e6cb2779fda3fa0f47692d852a98fa64",
+      "title": null,
+      "snapshotFile": "raw/0073-a3186f0b3717.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/music-ba/",
+      "fetchedAt": "2026-10-07T06:25:58.318Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bc5f8f0d675490fb1aeb808218530183e715604d52b47cd32fea8532c9e56450",
+      "title": null,
+      "snapshotFile": "raw/0074-bc5f8f0d6754.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/near-eastern-studies-ba/",
+      "fetchedAt": "2026-10-07T06:26:00.321Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ad3aa3c0ac83e0eae6b4c346a5cbb4dfa9d0c13cb793da6e2c7fb005efb9973c",
+      "title": null,
+      "snapshotFile": "raw/0075-ad3aa3c0ac83.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/nutritional-sciences-bs/",
+      "fetchedAt": "2026-10-07T06:26:02.335Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cf1448ef99e2347a49c206471f9851321d21a8490904cd7424acd6af76fd05c0",
+      "title": null,
+      "snapshotFile": "raw/0076-cf1448ef99e2.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/operations-research-engineering-bs/",
+      "fetchedAt": "2026-10-07T06:26:04.335Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a248c0bee001ad0e3b2508f83688d8b10801b7d349651430f5c26dc24eac4fed",
+      "title": null,
+      "snapshotFile": "raw/0077-a248c0bee001.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/performing-media-arts-ba/",
+      "fetchedAt": "2026-10-07T06:26:06.336Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "96e45393d5998bedf04e04ee39ed73c7150d87278880b9ee47b0a33552cce076",
+      "title": null,
+      "snapshotFile": "raw/0078-96e45393d599.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/philosophy-ba/",
+      "fetchedAt": "2026-10-07T06:26:08.356Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fdcd67db0594680fa976f9356793a433ea956d4b760dad518fb4e72dcf373f19",
+      "title": null,
+      "snapshotFile": "raw/0079-fdcd67db0594.html"
+    },
+    {
+      "url": "https://catalog.cornell.edu/programs/physics-ba/",
+      "fetchedAt": "2026-10-07T06:26:10.351Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "06c151039887d28858efef41a60c0e53a85a43c855c6d4b50bca0516a83a1249",
+      "title": null,
+      "snapshotFile": "raw/0080-06c151039887.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:26:10.390Z",
+    "seedUrls": [
+      "https://sce.cornell.edu/courses/programs/summer",
+      "https://sce.cornell.edu/courses/programs/winter",
+      "https://sce.cornell.edu/courses/programs/part-time",
+      "https://www.johnson.cornell.edu/programs/emba/metro-ny/",
+      "https://catalog.cornell.edu/programs/africana-studies-ba/",
+      "https://catalog.cornell.edu/programs/agricultural-sciences-bs/",
+      "https://catalog.cornell.edu/programs/american-studies-ba/",
+      "https://catalog.cornell.edu/programs/animal-science-bs/",
+      "https://catalog.cornell.edu/programs/anthropology-ba/",
+      "https://catalog.cornell.edu/programs/applied-economics-management-bs/",
+      "https://catalog.cornell.edu/programs/archaeology-ba/",
+      "https://catalog.cornell.edu/programs/architecture-barch/",
+      "https://catalog.cornell.edu/programs/asian-studies-ba/",
+      "https://catalog.cornell.edu/programs/astronomy-ba/",
+      "https://catalog.cornell.edu/programs/atmospheric-science-bs/",
+      "https://catalog.cornell.edu/programs/biological-engineering-bs/",
+      "https://catalog.cornell.edu/programs/biological-sciences-ba/",
+      "https://catalog.cornell.edu/programs/biological-sciences-bs/",
+      "https://catalog.cornell.edu/programs/biology-society-ba/",
+      "https://catalog.cornell.edu/programs/biomedical-engineering-bs/",
+      "https://catalog.cornell.edu/programs/biometry-statistics-bs/",
+      "https://catalog.cornell.edu/programs/chemical-engineering-bs/",
+      "https://catalog.cornell.edu/programs/chemistry-ba/",
+      "https://catalog.cornell.edu/programs/china-asia-pacific-studies-ba/",
+      "https://catalog.cornell.edu/programs/civil-engineering-bs/",
+      "https://catalog.cornell.edu/programs/classics-ba/",
+      "https://catalog.cornell.edu/programs/cognitive-science-ba/",
+      "https://catalog.cornell.edu/programs/college-scholar-ba/",
+      "https://catalog.cornell.edu/programs/communication-bs/",
+      "https://catalog.cornell.edu/programs/comparative-literature-ba/",
+      "https://catalog.cornell.edu/programs/computer-science-ba/",
+      "https://catalog.cornell.edu/programs/computer-science-bs/",
+      "https://catalog.cornell.edu/programs/design-environmental-analysis-bs/",
+      "https://catalog.cornell.edu/programs/earth-climate-sciences-ba/",
+      "https://catalog.cornell.edu/programs/earth-climate-sciences-ecsag-bs/",
+      "https://catalog.cornell.edu/programs/earth-climate-sciences-ecsen-bs/",
+      "https://catalog.cornell.edu/programs/economics-ba/",
+      "https://catalog.cornell.edu/programs/electrical-computer-engineering-bs/",
+      "https://catalog.cornell.edu/programs/engineering-physics-bs/",
+      "https://catalog.cornell.edu/programs/english-ba/",
+      "https://catalog.cornell.edu/programs/entomology-bs/",
+      "https://catalog.cornell.edu/programs/environment-sustainability-ba/",
+      "https://catalog.cornell.edu/programs/environment-sustainability-bs/",
+      "https://catalog.cornell.edu/programs/environmental-engineering-bs/",
+      "https://catalog.cornell.edu/programs/fashion-design-management-bs/",
+      "https://catalog.cornell.edu/programs/fgss-ba/",
+      "https://catalog.cornell.edu/programs/fiber-science-bs/",
+      "https://catalog.cornell.edu/programs/art-bfa/",
+      "https://catalog.cornell.edu/programs/food-science-bs/",
+      "https://catalog.cornell.edu/programs/french-ba/",
+      "https://catalog.cornell.edu/programs/german-studies-ba/",
+      "https://catalog.cornell.edu/programs/global-public-health-sciences-bs/",
+      "https://catalog.cornell.edu/programs/global-public-health-sciences-hum-ecol-bs/",
+      "https://catalog.cornell.edu/programs/global-development-bs/",
+      "https://catalog.cornell.edu/programs/government-ba/",
+      "https://catalog.cornell.edu/programs/health-care-policy-major-bs/",
+      "https://catalog.cornell.edu/programs/history-ba/",
+      "https://catalog.cornell.edu/programs/history-architecture-urban-development-bs-haud/",
+      "https://catalog.cornell.edu/programs/history-art-ba/",
+      "https://catalog.cornell.edu/programs/hotel-management-bs/",
+      "https://catalog.cornell.edu/programs/human-biology-health-society-bs/",
+      "https://catalog.cornell.edu/programs/human-development-bs/",
+      "https://catalog.cornell.edu/programs/independent-major/",
+      "https://catalog.cornell.edu/programs/industrial-labor-relations-bs/",
+      "https://catalog.cornell.edu/programs/information-science-ba/",
+      "https://catalog.cornell.edu/programs/information-science-bs/",
+      "https://catalog.cornell.edu/programs/information-science-systems-technology-bs/",
+      "https://catalog.cornell.edu/programs/interdisciplinary-studies-bs/",
+      "https://catalog.cornell.edu/programs/italian-ba/",
+      "https://catalog.cornell.edu/programs/jewish-studies-ba/",
+      "https://catalog.cornell.edu/programs/landscape-architecture-bs/",
+      "https://catalog.cornell.edu/programs/latina-o-studies-ba/",
+      "https://catalog.cornell.edu/programs/linguistics-ba/",
+      "https://catalog.cornell.edu/programs/materials-science-engineering-bs/",
+      "https://catalog.cornell.edu/programs/mathematics-ba/",
+      "https://catalog.cornell.edu/programs/mechanical-engineering-bs/",
+      "https://catalog.cornell.edu/programs/music-ba/",
+      "https://catalog.cornell.edu/programs/near-eastern-studies-ba/",
+      "https://catalog.cornell.edu/programs/nutritional-sciences-bs/",
+      "https://catalog.cornell.edu/programs/operations-research-engineering-bs/",
+      "https://catalog.cornell.edu/programs/performing-media-arts-ba/",
+      "https://catalog.cornell.edu/programs/philosophy-ba/",
+      "https://catalog.cornell.edu/programs/physics-ba/",
+      "https://catalog.cornell.edu/programs/plant-sciences-bs/",
+      "https://catalog.cornell.edu/programs/public-policy-ba/",
+      "https://catalog.cornell.edu/programs/public-policy-bs/",
+      "https://catalog.cornell.edu/programs/psychology-ba/",
+      "https://catalog.cornell.edu/programs/religious-studies-ba/",
+      "https://catalog.cornell.edu/programs/science-technology-studies-ba/",
+      "https://catalog.cornell.edu/programs/sociology-ba/",
+      "https://catalog.cornell.edu/programs/spanish-ba/",
+      "https://catalog.cornell.edu/programs/statistics-data-science-ba/",
+      "https://catalog.cornell.edu/programs/urban-regional-studies-bs-urs/",
+      "https://catalog.cornell.edu/programs/viticulture-enology-bs/",
+      "https://catalog.cornell.edu/programs/actuarial-science-minor/",
+      "https://catalog.cornell.edu/programs/aerospace-engineering-minor/",
+      "https://catalog.cornell.edu/programs/africana-minor/",
+      "https://catalog.cornell.edu/programs/american-indian-indigenous-studies-minor/",
+      "https://catalog.cornell.edu/programs/asl-deaf-studies-minor/",
+      "https://catalog.cornell.edu/programs/american-studies-minor/",
+      "https://catalog.cornell.edu/programs/animal-science-minor/",
+      "https://catalog.cornell.edu/programs/anthropology-minor/",
+      "https://catalog.cornell.edu/programs/applied-economics-minor/",
+      "https://catalog.cornell.edu/programs/applied-exercise-science-minor/",
+      "https://catalog.cornell.edu/programs/applied-mathematics-minor/",
+      "https://catalog.cornell.edu/programs/arabic-minor/",
+      "https://catalog.cornell.edu/programs/archaeology-minor/",
+      "https://catalog.cornell.edu/programs/architecture-minor-for-non-departmental-students/",
+      "https://catalog.cornell.edu/programs/artificial-intelligence-minor/",
+      "https://catalog.cornell.edu/programs/asian-american-studies-minor/",
+      "https://catalog.cornell.edu/programs/astrobiology-minor/",
+      "https://catalog.cornell.edu/programs/astronomy-minor/",
+      "https://catalog.cornell.edu/programs/atmospheric-science-minor/",
+      "https://catalog.cornell.edu/programs/biological-engineering-minor/",
+      "https://catalog.cornell.edu/programs/biomedical-engineering-minor/",
+      "https://catalog.cornell.edu/programs/biomedical-sciences-minor/",
+      "https://catalog.cornell.edu/programs/biometry-statistics-minor/",
+      "https://catalog.cornell.edu/programs/business-minor/",
+      "https://catalog.cornell.edu/programs/china-asia-pacific-studies-minor/",
+      "https://catalog.cornell.edu/programs/caribbean-studies-minor/"
+    ],
+    "pages": 80
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.457Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

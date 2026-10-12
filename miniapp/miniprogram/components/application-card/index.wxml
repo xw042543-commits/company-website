@@ -1,0 +1,8 @@
+<view class="application-card {{compact ? 'application-card--compact' : ''}}">
+  <view class="identity">
+    <view class="logo-box"><image wx:if="{{application.logo && !imageFailed}}" src="{{application.logo}}" mode="aspectFit" binderror="imageError" lazy-load /><text wx:else class="logo-fallback">院校</text></view>
+    <view class="identity-copy"><view class="school">{{application.universityName}}</view><view class="programme">{{application.programmeName}}</view><view class="level">{{application.level}}{{application.subject ? ' · ' + application.subject : ''}}</view></view>
+    <view class="badge badge--{{application.tone}}">{{application.statusLabel}}</view>
+  </view>
+  <view class="metadata"><view class="meta-row"><text>申请编号</text><text class="reference">{{application.reference}}</text></view><view wx:if="{{!compact}}" class="meta-row"><text>提交时间</text><text>{{application.date}}</text><text class="chevron">›</text></view></view>
+</view>

@@ -18,6 +18,7 @@ import org.springframework.data.elasticsearch.RestStatusException;
 import org.springframework.data.elasticsearch.UncategorizedElasticsearchException;
 
 import com.yangdoujiao.website.common.api.PageResponse;
+import com.yangdoujiao.website.media.MediaLookupRepository;
 import com.yangdoujiao.website.search.v4.alias.SearchAliasResolver;
 import com.yangdoujiao.website.search.v4.alias.SearchAliasTargetType;
 import com.yangdoujiao.website.search.v4.api.UniversitySearchQuery;
@@ -30,10 +31,19 @@ class UniversitySearchV1ServiceTest {
 
     private final UniversitySearchCriteriaFactory criteriaFactory = mock(UniversitySearchCriteriaFactory.class);
     private final SearchFilterCodeValidator validator = mock(SearchFilterCodeValidator.class);
+    private final SubjectCategoryFilterExpander categoryFilterExpander = mock(SubjectCategoryFilterExpander.class);
     private final SearchAliasResolver aliasResolver = mock(SearchAliasResolver.class);
     private final UniversitySearchGateway gateway = mock(UniversitySearchGateway.class);
-    private final UniversitySearchV1Service service = new UniversitySearchV1Service(
-            criteriaFactory, validator, aliasResolver, gateway);
+    private final MediaLookupRepository media = mock(MediaLookupRepository.class);
+    private final UniversitySearchV1Service service;
+
+    UniversitySearchV1ServiceTest() {
+        when(categoryFilterExpander.expand(any())).thenAnswer(invocation -> invocation.getArgument(0));
+        when(media.findUniversityImageUrls(any())).thenReturn(java.util.Map.of());
+        when(media.findProgrammeImageUrls(any())).thenReturn(java.util.Map.of());
+        service = new UniversitySearchV1Service(
+                criteriaFactory, validator, categoryFilterExpander, aliasResolver, gateway, media);
+    }
 
     @Test
     void usesTheRequiredPipelineAndMapsGatewayResults() {
@@ -47,15 +57,41 @@ class UniversitySearchV1ServiceTest {
 
         var response = service.search(query);
 
-        InOrder order = inOrder(criteriaFactory, validator, aliasResolver, gateway);
+        InOrder order = inOrder(criteriaFactory, validator, categoryFilterExpander, aliasResolver, gateway);
         order.verify(criteriaFactory).create(query);
         order.verify(validator).validate(criteria);
+        order.verify(categoryFilterExpander).expand(criteria);
         order.verify(aliasResolver).resolve("Data Science");
         order.verify(gateway).search(criteria, term);
         assertThat(response.items()).hasSize(1);
         assertThat(response.items().getFirst().matchedProgrammeCount()).isEqualTo(4);
         assertThat(response.items().getFirst().matchedProgrammes()).hasSize(3);
         assertThat(response.items().getFirst().nameZh()).isNull();
+    }
+
+    @Test
+    void validatesTheRequestedCodesThenSearchesWithExpandedCategoryCodes() {
+        UniversitySearchQuery query = new UniversitySearchQuery();
+        UniversitySearchCriteria requested = new UniversitySearchCriteria(
+                null, Set.of("BUSINESS"), Set.of("BACHELOR"), Set.of(), Set.of(), Set.of(),
+                null, null, null, null, 1, 12);
+        UniversitySearchCriteria expanded = new UniversitySearchCriteria(
+                null, Set.of("BUSINESS", "ACCOUNTING_FINANCE", "BUSINESS_MANAGEMENT", "ECONOMICS"),
+                Set.of("BACHELOR"), Set.of(), Set.of(), Set.of(), null, null, null, null, 1, 12);
+        ResolvedSearchTerm term = new ResolvedSearchTerm(null, null, null);
+        when(criteriaFactory.create(query)).thenReturn(requested);
+        when(categoryFilterExpander.expand(requested)).thenReturn(expanded);
+        when(aliasResolver.resolve(null)).thenReturn(term);
+        when(gateway.search(expanded, term)).thenReturn(PageResponse.of(List.of(), 1, 12, 0));
+
+        assertThat(service.search(query).items()).isEmpty();
+
+        InOrder order = inOrder(criteriaFactory, validator, categoryFilterExpander, aliasResolver, gateway);
+        order.verify(criteriaFactory).create(query);
+        order.verify(validator).validate(requested);
+        order.verify(categoryFilterExpander).expand(requested);
+        order.verify(aliasResolver).resolve(null);
+        order.verify(gateway).search(expanded, term);
     }
 
     @Test

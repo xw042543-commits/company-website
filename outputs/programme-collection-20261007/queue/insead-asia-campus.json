@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "insead-asia-campus",
+    "displayName": "INSEAD Asia Campus",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.insead.edu/about-insead/asia-campus"
+    ],
+    "allowedHosts": [
+      "www.insead.edu",
+      "insead.edu"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.insead.edu/about-insead/asia-campus：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

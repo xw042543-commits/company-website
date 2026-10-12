@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "deakin-university",
+    "displayName": "Deakin University",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.deakin.edu.au/courses"
+    ],
+    "allowedHosts": [
+      "www.deakin.edu.au",
+      "deakin.edu.au"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.deakin.edu.au/courses：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

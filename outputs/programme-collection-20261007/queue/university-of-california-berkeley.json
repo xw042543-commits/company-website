@@ -1,0 +1,292 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "university-of-california-berkeley",
+    "displayName": "University of California, Berkeley",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://www.berkeley.edu/"
+    ],
+    "allowedHosts": [
+      "www.berkeley.edu",
+      "berkeley.edu"
+    ],
+    "discoveredUrls": 38,
+    "parsedProgrammes": 0,
+    "pagesRead": 120,
+    "warnings": [
+      "http://guide.berkeley.edu/undergraduate/degree-programs/：跳转超出允许域名: registrar.berkeley.edu",
+      "HTTP 404：https://ourenvironment.berkeley.edu/undergraduate-programshttps://nature.berkeley.edu/advising/majors/molecular-environmental-biology",
+      "https://guide.berkeley.edu/undergraduate/degree-programs/：跳转超出允许域名: registrar.berkeley.edu",
+      "http://bulletin.berkeley.edu/undergraduate/degree-programs/：getaddrinfo ENOTFOUND bulletin.berkeley.edu"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "http://guide.berkeley.edu/undergraduate/degree-programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/aerospace-engineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://www.law.berkeley.edu/academics/doctoral-programs/jsp/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://ourenvironment.berkeley.edu/undergraduate-programshttps://nature.berkeley.edu/advising/majors/molecular-environmental-biology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://ourenvironment.berkeley.edu/graduate-programs/degrees/ms-range-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://guide.berkeley.edu/undergraduate/degree-programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://grad.berkeley.edu/programs/list/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "http://scet.berkeley.edu/programs/elpp/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://publichealth.berkeley.edu/academics/programs/health-policy-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "http://bulletin.berkeley.edu/undergraduate/degree-programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "http://ourenvironment.berkeley.edu/graduate-programs/degrees/ms-range-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://undergraduate.catalog.berkeley.edu/programs?page=1&pq=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://gspp.berkeley.edu/programs/masters-of-public-affairs-mpa",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "http://teaching.berkeley.edu/programs/distinguished-teaching-award",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://www.berkeley.edu/academics/schools-colleges/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://www.berkeley.edu/academics/advising-tutoring/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://ced.berkeley.edu/academics/architecture/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://publichealth.berkeley.edu/academics/biostatistics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://ced.berkeley.edu/academics/city-regional-planning/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://nature.berkeley.edu/advising/majors/conservation-and-resource-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://www.law.berkeley.edu/academics/areas-of-study/law-and-economics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://nature.berkeley.edu/advising/majors/environmental-economics-and-policy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://publichealth.berkeley.edu/academics/environmental-health-sciences/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://ced.berkeley.edu/academics/landscape-architecture-environmental-planning/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://nature.berkeley.edu/advising/majors/environmental-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://nature.berkeley.edu/advising/majors/genetics-and-plant-biology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://publichealth.berkeley.edu/academics/infectious-diseases-and-vaccinology/infectious-diseases-and-immunity-phd/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://nature.berkeley.edu/advising/majors/society-and-environment",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://cltc.berkeley.edu/program/ai-policy-hub/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "http://ccb.berkeley.edu/academics/designated-emphasis/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "http://nature.berkeley.edu/site/majors/crs.php",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "http://nature.berkeley.edu/site/majors/meb.php",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "http://nature.berkeley.edu/site/majors/mt.php",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://www.berkeley.edu/academics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://www.berkeley.edu/academics/schools-colleges",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://asianstudies.berkeley.edu/program/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://www.berkeley.edu/academics/sked.shtml",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-california-berkeley",
+      "url": "https://publichealth.berkeley.edu/academics/environmental-health-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

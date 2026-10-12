@@ -4,8 +4,9 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
-import { filterUniversityCatalog, findUniversityBySlug, localizeUniversity, searchUniversityCatalog, UNIVERSITY_CATALOG } from "./university-catalog.ts";
+import { backendUniversitySlug, filterUniversityCatalog, findUniversityBySlug, localizeUniversity, searchUniversityCatalog, UNIVERSITY_CATALOG } from "./university-catalog.ts";
 import { universityProfile } from "./university-profiles.ts";
+import { localProgrammeLevels } from "./local-programmes.ts";
 import { isNavigationActive } from "../lib/site.ts";
 
 test("matches an approved abbreviation", () => {
@@ -58,6 +59,24 @@ test("finds a reviewed university by slug", () => {
   assert.equal(findUniversityBySlug("sunway-university")?.nameZh, "双威大学");
 });
 
+test("resolves database slugs to the same reviewed university", () => {
+  assert.equal(findUniversityBySlug("segi")?.slug, "segi-university");
+  assert.equal(findUniversityBySlug("taylor")?.slug, "taylors-university");
+  assert.equal(backendUniversitySlug("segi-university"), "segi");
+  assert.equal(backendUniversitySlug("unknown-university"), "unknown-university");
+});
+
+test("catalogue matches the twenty imported university records", () => {
+  assert.deepEqual(
+    UNIVERSITY_CATALOG.map((university) => university.apiSlug).sort(),
+    [
+      "apu", "city", "help", "inti", "mahsa", "monash", "nilai", "nottingham",
+      "segi", "southampton", "sunway", "taylor", "ucsi", "ukm", "um", "upm",
+      "usm", "utar", "utm", "uum",
+    ],
+  );
+});
+
 test("returns undefined for an unknown slug", () => {
   assert.equal(findUniversityBySlug("unknown-university"), undefined);
 });
@@ -78,7 +97,7 @@ test("localizes a university identity for English pages", () => {
   assert.ok(university);
   assert.deepEqual(localizeUniversity(university, "en"), {
     name: "Sunway University",
-    secondaryName: "双威大学",
+    secondaryName: undefined,
     country: "Malaysia",
     city: "Bandar Sunway",
   });
@@ -94,7 +113,7 @@ test("APU and UTAR use the supplied local logos", () => {
 test("every supplied logo reference resolves to a nonempty public file", () => {
   const publicRoot = fileURLToPath(new URL("../../public/", import.meta.url));
   for (const university of UNIVERSITY_CATALOG) {
-    if (!university.logoSrc) continue;
+    assert.ok(university.logoSrc, `${university.slug} logo reference is missing`);
     const path = resolve(publicRoot, university.logoSrc.slice(1));
     assert.equal(existsSync(path), true, `${university.slug} logo is missing`);
     assert.ok(statSync(path).size > 0, `${university.slug} logo is empty`);
@@ -105,8 +124,14 @@ test("every reviewed university has bilingual comparison and introduction data",
   for (const university of UNIVERSITY_CATALOG) {
     const profile = universityProfile(university.id);
     assert.ok(profile, `${university.id} profile is missing`);
-    assert.ok(profile.introductionZh.length > 20, `${university.id} Chinese introduction is incomplete`);
-    assert.ok(profile.introductionEn.length > 20, `${university.id} English introduction is incomplete`);
+    assert.ok(profile.introductionZh.length > 55, `${university.id} Chinese introduction is incomplete`);
+    assert.ok(profile.introductionEn.length > 130, `${university.id} English introduction is incomplete`);
+    if (!university.nameZh.includes(university.cityZh)) {
+      assert.equal(profile.introductionZh.includes(university.cityZh), false, `${university.id} Chinese introduction repeats the header location`);
+    }
+    if (!university.nameEn.toLowerCase().includes(university.cityEn.toLowerCase())) {
+      assert.equal(profile.introductionEn.toLowerCase().includes(university.cityEn.toLowerCase()), false, `${university.id} English introduction repeats the header location`);
+    }
     assert.ok(profile.subjectsZh.length >= 3, `${university.id} Chinese subjects are incomplete`);
     assert.equal(profile.subjectsZh.length, profile.subjectsEn.length, `${university.id} subject translations do not match`);
   }
@@ -123,4 +148,34 @@ test("every campus photo reference resolves to a nonempty public file", () => {
   }
 });
 
+test("University of Malaya uses the supplied modern campus photo", () => {
+  assert.equal(universityProfile("um")?.campusImageSrc, "/universities/campuses/um-modern-campus.webp");
+  assert.equal(universityProfile("um")?.imageCredit, undefined);
+});
+
+test("supplied university campus photos are assigned to their matching profiles", () => {
+  const expected = {
+    ucsi: "/universities/campuses/ucsi-campus.webp",
+    inti: "/universities/campuses/inti-campus.webp",
+    sunway: "/universities/campuses/sunway-campus.webp",
+    segi: "/universities/campuses/segi-campus.webp",
+    utar: "/universities/campuses/utar-campus.webp",
+    monash: "/universities/campuses/monash-campus.webp",
+    nottingham: "/universities/campuses/nottingham-campus.webp",
+    southampton: "/universities/campuses/southampton-campus.webp",
+    help: "/universities/campuses/help-campus.webp",
+    nilai: "/universities/campuses/nilai-campus.webp",
+  } as const;
+
+  for (const [id, photo] of Object.entries(expected)) {
+    assert.equal(universityProfile(id)?.campusImageSrc, photo, `${id} uses the wrong campus photo`);
+  }
+});
+
+test("catalogue marks universities with supplied programme records as available", () => {
+  for (const university of UNIVERSITY_CATALOG) {
+    if (!localProgrammeLevels(university.slug).length) continue;
+    assert.equal(university.programmeStatus, "available", `${university.id} should show available programme data`);
+  }
+});
 

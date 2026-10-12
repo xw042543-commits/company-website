@@ -1,0 +1,193 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "duke-university",
+    "displayName": "Duke University",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.duke.edu/"
+    ],
+    "allowedHosts": [
+      "www.duke.edu",
+      "duke.edu"
+    ],
+    "discoveredUrls": 24,
+    "parsedProgrammes": 11,
+    "pagesRead": 93,
+    "warnings": [
+      "HTTP 403：https://nicholas.duke.edu/marinelab/academics/undergraduate/research-experience-undergraduates",
+      "HTTP 404：https://nicholas.duke.edu/marinelab/academics/undergraduate/martin.brooke@duke.edu",
+      "跳过非 HTML 内容：https://nicholas.duke.edu/sites/default/files/documents/IS-Record-of-Faculty-Mentor-Meetings.xlsx"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://gradschool.duke.edu/academics/programs-and-degrees/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://sanford.duke.edu/academics/masters-programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://www.fuqua.duke.edu/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://nicholas.duke.edu/academics/undergraduate-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://divinity.duke.edu/academics/dual-degrees-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://www.fuqua.duke.edu/programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://sanford.duke.edu/academics/undergraduate-program/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://www.duke.edu/academics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://divinity.duke.edu/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://nicholas.duke.edu/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://divinity.duke.edu/academics/masters",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://divinity.duke.edu/academics/online",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://sanford.duke.edu/academics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://nicholas.duke.edu/academics/masters-programs/master-environmental-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:35:56.101Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://nicholas.duke.edu/academics/masters-programs/master-business-climate-and-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:35:56.101Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://gradschool.duke.edu/academics/programs-degrees/master-interdisciplinary-data-science/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:32.453Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://gradschool.duke.edu/academics/programs-degrees/master-fine-arts-dance-embodied-interdisciplinary-praxis/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:32.453Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://gradschool.duke.edu/academics/programs-degrees/master-fine-arts-experimental-and-documentary-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:32.453Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://nicholas.duke.edu/academics/masters-programs/master-forestry",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:53.126Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://nicholas.duke.edu/academics/doctoral-programs/earth-climate-sciences-ecs",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:22.107Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://nicholas.duke.edu/academics/doctoral-programs/marine-science-conservation-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:22.107Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://sanford.duke.edu/academics/masters-programs/master-public-policy/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:42.912Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://sanford.duke.edu/academics/masters-programs/master-international-development-policy/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:43.181Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "duke-university",
+      "url": "https://sanford.duke.edu/academics/masters-programs/master-national-security-policy/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:46.014Z",
+      "error": null
+    }
+  ]
+}

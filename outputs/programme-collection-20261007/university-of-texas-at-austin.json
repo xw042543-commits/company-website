@@ -1,0 +1,1230 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.548Z",
+  "sourceKey": "university-of-texas-at-austin",
+  "sourceName": "The University of Texas at Austin",
+  "warnings": [
+    "https://www.utexas.edu/cola/depts/sociology/undergraduate/sociological-insight/Overview.php：跳转超出允许域名: liberalarts.utexas.edu",
+    "https://undergraduates.utexas.edu/academics/facultystaff-awards/cale-mcdowell-award-innovation-undergraduate-studies：跳转超出允许域名: provost.utexas.edu"
+  ],
+  "university": {
+    "candidateId": "university_0c0757c106359cf4",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "The University of Texas at Austin",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Austin, Texas",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.utexas.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:26:33.578Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.utexas.edu/",
+        "sourcePageTitle": "The University of Texas at Austin",
+        "sourceHash": "a8ddbad12c773bba06f618c53996b412bf34748dafda91521b1449ae9fe075ec",
+        "fetchedAt": "2026-10-07T04:26:33.578Z",
+        "field": "name",
+        "rawText": "The University of Texas at Austin"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 20,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": [
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://www.utexas.edu/sites/default/files/2026-07/homepage-parallax-background-image.jpg",
+        "sourceUrl": "https://www.utexas.edu/",
+        "sourceCheckedAt": "2026-10-07T04:26:33.578Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_bd44f54e3f843784",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "技术商业化硕士",
+      "nameEn": "Master's in Technology Commercialization",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Postgraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.mccombs.utexas.edu/graduate/specialized-masters/ms-technology-commercialization/",
+      "sourceCheckedAt": "2026-10-07T04:27:13.976Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.utexas.edu/entrepreneurship",
+          "sourcePageTitle": "Texas Entrepreneurship | University of Texas at Austin",
+          "sourceHash": "2f965fe3202c76363ba1292ac5ef327878f5f15fc49b30bcb564493eeb9d165c",
+          "fetchedAt": "2026-10-07T04:27:13.976Z",
+          "field": "name",
+          "rawText": "Master's in Technology Commercialization"
+        },
+        {
+          "sourceUrl": "https://www.utexas.edu/entrepreneurship",
+          "sourcePageTitle": "Texas Entrepreneurship | University of Texas at Austin",
+          "sourceHash": "2f965fe3202c76363ba1292ac5ef327878f5f15fc49b30bcb564493eeb9d165c",
+          "fetchedAt": "2026-10-07T04:27:13.976Z",
+          "field": "detailUrl",
+          "rawText": "https://www.mccombs.utexas.edu/graduate/specialized-masters/ms-technology-commercialization/"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.utexas.edu/",
+      "fetchedAt": "2026-10-07T04:26:33.578Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a8ddbad12c773bba06f618c53996b412bf34748dafda91521b1449ae9fe075ec",
+      "title": "The University of Texas at Austin",
+      "snapshotFile": "raw/0001-a8ddbad12c77.html"
+    },
+    {
+      "url": "https://www.utexas.edu/faculty-and-staff-resources",
+      "fetchedAt": "2026-10-07T04:26:35.812Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "01dd2e67b140e3acd10b6018d50542fc42322fdd2453be0887fd28f1db90cc03",
+      "title": "Faculty and Staff Resources | University of Texas at Austin",
+      "snapshotFile": "raw/0002-01dd2e67b140.html"
+    },
+    {
+      "url": "https://www.utexas.edu/family-and-visitor-resources",
+      "fetchedAt": "2026-10-07T04:26:37.809Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c323a1665006ebced38d6c31fb078a8d5488338b1cc061af05d51beefb1edd2c",
+      "title": "Family and Visitor Resources | University of Texas at Austin",
+      "snapshotFile": "raw/0003-c323a1665006.html"
+    },
+    {
+      "url": "https://www.utexas.edu/alumni-resources",
+      "fetchedAt": "2026-10-07T04:26:39.842Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e8361f9a520774a422ec1044cb31220a39cc2efffb904ea929d0adfa3ba5ab7b",
+      "title": "Alumni Resources | University of Texas at Austin",
+      "snapshotFile": "raw/0004-e8361f9a5207.html"
+    },
+    {
+      "url": "https://www.utexas.edu/about-texas",
+      "fetchedAt": "2026-10-07T04:26:41.825Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0b98cc9772a6cec80a8247ce38c69f5c86bb26e5158f94cdde78d0280f5acb40",
+      "title": "About | University of Texas at Austin",
+      "snapshotFile": "raw/0005-0b98cc9772a6.html"
+    },
+    {
+      "url": "https://www.utexas.edu/academics/core",
+      "fetchedAt": "2026-10-07T04:26:43.860Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "59817524104b942d456d14cbb7450d2aca6ce6f55e6bf467fcc40262efae4bd3",
+      "title": "Core Curriculum | University of Texas at Austin",
+      "snapshotFile": "raw/0006-59817524104b.html"
+    },
+    {
+      "url": "https://www.utexas.edu/academics/academic-experience",
+      "fetchedAt": "2026-10-07T04:26:45.649Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "75a9331d04839eb8d71eba9d9655f3922bc8b4e3891b6545f9af105793b9b32d",
+      "title": "Academic Experience | University of Texas at Austin",
+      "snapshotFile": "raw/0007-75a9331d0483.html"
+    },
+    {
+      "url": "https://www.utexas.edu/academics/colleges-schools",
+      "fetchedAt": "2026-10-07T04:26:47.868Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d2781638f635209b421010ed7c215caf2267bbf96465d69edb043066ae3ffd8a",
+      "title": "Colleges & Schools | University of Texas at Austin",
+      "snapshotFile": "raw/0008-d2781638f635.html"
+    },
+    {
+      "url": "https://www.utexas.edu/academics/texas-statement-academic-integrity",
+      "fetchedAt": "2026-10-07T04:26:49.876Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c68d45a5fbdd6fba28267893cfaef4169780644e49d9de7ddb1d0faa0513ba69",
+      "title": "Texas Statement on Academic Integrity | University of Texas at Austin",
+      "snapshotFile": "raw/0009-c68d45a5fbdd.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/arts-and-culture",
+      "fetchedAt": "2026-10-07T04:26:51.674Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "021871c03430c243abf355fabc19b744c1589adda6f5d339e5033e5ff8c849af",
+      "title": "Arts & Culture | University of Texas at Austin",
+      "snapshotFile": "raw/0010-021871c03430.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/campus-destinations",
+      "fetchedAt": "2026-10-07T04:26:53.905Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9ed9a5f2f42983e7c67d26c4ad90ad76362a758f14159def123c23f4447d82ce",
+      "title": "Campus Destinations | University of Texas at Austin",
+      "snapshotFile": "raw/0011-9ed9a5f2f429.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/health-and-wellbeing",
+      "fetchedAt": "2026-10-07T04:26:55.907Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7c848235ac7c625d85b193e839c07eca101fe897663383c3b505f9b1c715890c",
+      "title": "Health & Well-being | University of Texas at Austin",
+      "snapshotFile": "raw/0012-7c848235ac7c.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/health-and-wellbeing/health-faculty-staff",
+      "fetchedAt": "2026-10-07T04:26:57.954Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "89c44a6f84a4db87778b3236ac538b73e19f8b1c5065e3d9ab41033c198712da",
+      "title": "Health & Well-being - Faculty and Staff | University of Texas at Austin",
+      "snapshotFile": "raw/0013-89c44a6f84a4.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/housing-and-dining",
+      "fetchedAt": "2026-10-07T04:26:59.912Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0bf019d647dd1b92ff40aa088ebe85dedbeb397593a3ca7314f84e7e4283727d",
+      "title": "Housing & Dining | University of Texas at Austin",
+      "snapshotFile": "raw/0014-0bf019d647dd.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/life-in-austin",
+      "fetchedAt": "2026-10-07T04:27:01.925Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "300d1f6302bce3d6f4edf8d22587e86a21f9e5121e4e41eba344ab791c298b02",
+      "title": "Life in Austin | University of Texas at Austin",
+      "snapshotFile": "raw/0015-300d1f6302bc.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/report-misconduct",
+      "fetchedAt": "2026-10-07T04:27:03.978Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8db12d4f36560951402966280de9c44364f93edd086e4b37dd03e52eb6c37d17",
+      "title": "Report Violence, Misconduct, Harassment, or Discrimination | University of Texas at Austin",
+      "snapshotFile": "raw/0016-8db12d4f3656.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/safety-and-security",
+      "fetchedAt": "2026-10-07T04:27:05.951Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "026943f4616b1964b5a119e06686014fee2db0fbfc8acad6e46ccde088c2aa1a",
+      "title": "Safety & Security Resources | University of Texas at Austin",
+      "snapshotFile": "raw/0017-026943f4616b.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/student-involvement",
+      "fetchedAt": "2026-10-07T04:27:07.965Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "773c3e6d4f34c2e4385c0643dd930326018f4cf453802783e41f16bbec6c02b3",
+      "title": "Student Involvement | University of Texas at Austin",
+      "snapshotFile": "raw/0018-773c3e6d4f34.html"
+    },
+    {
+      "url": "https://www.utexas.edu/research",
+      "fetchedAt": "2026-10-07T04:27:09.745Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "db5569bf775c39954c05370beb5ad37307ec264ecb06ea2bf323e254a2f75be4",
+      "title": "TEXAS Research | University of Texas at Austin",
+      "snapshotFile": "raw/0019-db5569bf775c.html"
+    },
+    {
+      "url": "https://www.utexas.edu/energy",
+      "fetchedAt": "2026-10-07T04:27:11.974Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ee04ad6e209b13f5f82af07f62f5d4a030c2b1702b865f1c360d8a128691444f",
+      "title": "Texas Energy | University of Texas at Austin",
+      "snapshotFile": "raw/0020-ee04ad6e209b.html"
+    },
+    {
+      "url": "https://www.utexas.edu/entrepreneurship",
+      "fetchedAt": "2026-10-07T04:27:13.976Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2f965fe3202c76363ba1292ac5ef327878f5f15fc49b30bcb564493eeb9d165c",
+      "title": "Texas Entrepreneurship | University of Texas at Austin",
+      "snapshotFile": "raw/0021-2f965fe3202c.html"
+    },
+    {
+      "url": "https://www.utexas.edu/medical-center",
+      "fetchedAt": "2026-10-07T04:27:15.975Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "267ba6a50f33b17aee1d11918ce944e8a1126f0939e60e3c1124c360c15e940c",
+      "title": "TEXAS Medical Center | University of Texas at Austin",
+      "snapshotFile": "raw/0022-267ba6a50f33.html"
+    },
+    {
+      "url": "https://www.utexas.edu/research/student-research",
+      "fetchedAt": "2026-10-07T04:27:17.775Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "999eafa3aa37798be3e60368837c6ba4e1c480e832540fd16b444d17a9a727de",
+      "title": "Student Research | University of Texas at Austin",
+      "snapshotFile": "raw/0023-999eafa3aa37.html"
+    },
+    {
+      "url": "https://www.utexas.edu/research",
+      "fetchedAt": "2026-10-07T04:27:19.778Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "db5569bf775c39954c05370beb5ad37307ec264ecb06ea2bf323e254a2f75be4",
+      "title": "TEXAS Research | University of Texas at Austin",
+      "snapshotFile": "raw/0024-db5569bf775c.html"
+    },
+    {
+      "url": "https://www.utexas.edu/academics/colleges-schools",
+      "fetchedAt": "2026-10-07T04:27:22.459Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d2781638f635209b421010ed7c215caf2267bbf96465d69edb043066ae3ffd8a",
+      "title": "Colleges & Schools | University of Texas at Austin",
+      "snapshotFile": "raw/0025-d2781638f635.html"
+    },
+    {
+      "url": "https://www.utexas.edu/impact-on-texas",
+      "fetchedAt": "2026-10-07T04:27:24.068Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "59543f3c506a09c0e0c817c6cd1731f130e07f20263a74d754ce1faa97d0d38b",
+      "title": "Impact on Texas | University of Texas at Austin",
+      "snapshotFile": "raw/0026-59543f3c506a.html"
+    },
+    {
+      "url": "https://www.utexas.edu/state-and-system-resources",
+      "fetchedAt": "2026-10-07T04:27:26.018Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "195d0eba5b15f5606a4fc0694ed9431d26f41b09e52ca4642554b440832cd4b7",
+      "title": "State and System Resources | University of Texas at Austin",
+      "snapshotFile": "raw/0027-195d0eba5b15.html"
+    },
+    {
+      "url": "https://www.utexas.edu/jobs",
+      "fetchedAt": "2026-10-07T04:27:27.805Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d3a82c1b388d04417e4349657336f4e403bc623510c2efdc11d2462a396db395",
+      "title": "Jobs | University of Texas at Austin",
+      "snapshotFile": "raw/0028-d3a82c1b388d.html"
+    },
+    {
+      "url": "https://www.utexas.edu/policies-and-reporting",
+      "fetchedAt": "2026-10-07T04:27:30.045Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f5dae99d48a7a3832aaffe7d5c4cd818fb46831911e14594875174c4d9478d3d",
+      "title": "Policies and Reporting | University of Texas at Austin",
+      "snapshotFile": "raw/0029-f5dae99d48a7.html"
+    },
+    {
+      "url": "https://www.utexas.edu/site-policies",
+      "fetchedAt": "2026-10-07T04:27:32.106Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b585d98d3a558e36a81e86869eb1c3ed40ab147117269b09c2a89d4a471f5ddb",
+      "title": "Site Policies | University of Texas at Austin",
+      "snapshotFile": "raw/0030-b585d98d3a55.html"
+    },
+    {
+      "url": "https://www.utexas.edu/about/facts-and-figures",
+      "fetchedAt": "2026-10-07T04:27:34.056Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e94d19ff32c57153271cae1790faaa322c9fb5c2708a654efdd6df7f9903960e",
+      "title": "Facts & Figures | University of Texas at Austin",
+      "snapshotFile": "raw/0031-e94d19ff32c5.html"
+    },
+    {
+      "url": "https://www.utexas.edu/about/longhorn-traditions",
+      "fetchedAt": "2026-10-07T04:27:36.062Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "054abef5466dc75efb2a8f4fb3d0e31dc9db0d0a9c3b8e594ceed45153595f16",
+      "title": "Longhorn Traditions | University of Texas at Austin",
+      "snapshotFile": "raw/0032-054abef5466d.html"
+    },
+    {
+      "url": "https://www.utexas.edu/about/leadership",
+      "fetchedAt": "2026-10-07T04:27:38.077Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a4f1f2d8dbc1d3880f4cf545b45aa5abffa8a3c2a6401d562315904e4acdb671",
+      "title": "Leadership | University of Texas at Austin",
+      "snapshotFile": "raw/0033-a4f1f2d8dbc1.html"
+    },
+    {
+      "url": "https://www.utexas.edu/military",
+      "fetchedAt": "2026-10-07T04:27:40.110Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0793d617b11c058a8d0647eb1473a9205b2d213838cb7f691b82edad99c09d6b",
+      "title": "UT Austin Military and Veteran Connections | University of Texas at Austin",
+      "snapshotFile": "raw/0034-0793d617b11c.html"
+    },
+    {
+      "url": "https://www.utexas.edu/about/mission-and-values",
+      "fetchedAt": "2026-10-07T04:27:42.096Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0f5cecace162ecd173bad61daa8f928a2ae736eebedca0ddb2c0c29d0201bf30",
+      "title": "Mission & Values | University of Texas at Austin",
+      "snapshotFile": "raw/0035-0f5cecace162.html"
+    },
+    {
+      "url": "https://www.utexas.edu/university-honor-code",
+      "fetchedAt": "2026-10-07T04:27:44.132Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "789ad26e45f717f146e7ab6d663d8da2b4977817a4121724923625f2b3d6fe08",
+      "title": "University Honor Code | University of Texas at Austin",
+      "snapshotFile": "raw/0036-789ad26e45f7.html"
+    },
+    {
+      "url": "https://www.utexas.edu/academics/core/implementation-timeline",
+      "fetchedAt": "2026-10-07T04:27:46.114Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "276e81490837a48249e450a5405cc6d76d8e3af920e3a15863c171641ebdadec",
+      "title": "Core Curriculum Implementation Timeline | University of Texas at Austin",
+      "snapshotFile": "raw/0037-276e81490837.html"
+    },
+    {
+      "url": "https://www.utexas.edu/academics/core/task-force-members",
+      "fetchedAt": "2026-10-07T04:27:48.144Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5ad16db608c3e93712467417d639e86a3f4f48ca6be06465e39002e744b07991",
+      "title": "Core Curriculum Task Force Members | University of Texas at Austin",
+      "snapshotFile": "raw/0038-5ad16db608c3.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-life/health-and-wellbeing/health-campuswide-resources",
+      "fetchedAt": "2026-10-07T04:27:50.174Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "712ecaa5fc28f48f1dd66604c32f7fda5b172bc54e031480b6f25a834e62b9f9",
+      "title": "Health & Well-being - Campuswide Resources | University of Texas at Austin",
+      "snapshotFile": "raw/0039-712ecaa5fc28.html"
+    },
+    {
+      "url": "https://www.utexas.edu/campus-carry",
+      "fetchedAt": "2026-10-07T04:27:52.199Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4be0fc3246e18c646cc7d31fd62e96cc664b17acee47f7327b54f2be981e30e5",
+      "title": "General Information on Campus Carry | University of Texas at Austin",
+      "snapshotFile": "raw/0040-4be0fc3246e1.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/non-profits-social-entrepreneurship",
+      "fetchedAt": "2026-10-07T06:37:10.482Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "482bc0442344e0d057629bfb4a97a1c7b9ae486818187b4b6c8ab49c05348715",
+      "title": "Non-Profits & Social Entrepreneurship | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0001-482bc0442344.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/undergraduate-research/about-undergraduate-research-0",
+      "fetchedAt": "2026-10-07T06:37:12.495Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "20fafbc401f9187948f64ae6dc2927f6ca13bddac05161e6c800f4baa4aefcec",
+      "title": "About Undergraduate Research | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0002-20fafbc401f9.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/undergraduate-research/why-conduct-research/publishing-work-journal",
+      "fetchedAt": "2026-10-07T06:37:14.494Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9f21aa4d11443213a1a6d9af10c64a927da33316342617904ecb3e03e6d3ea0e",
+      "title": "Publishing Work in a Journal | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0003-9f21aa4d1144.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/undergraduate-research/about-undergraduate-research/info-sessions-advising-and-workshops",
+      "fetchedAt": "2026-10-07T06:37:16.519Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "59bbb16c79cbdfc482694bf87249a4090dc0f3f7daa4c702256193f37430d5ac",
+      "title": "Info Sessions, Advising, and Workshops | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0004-59bbb16c79cb.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/undergraduate-research/why-conduct-research",
+      "fetchedAt": "2026-10-07T06:37:18.715Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6dc005a1605f3f0a7998b67e04b9916415b13791a1df6cbe1a80568889126fba",
+      "title": "Research Benefits and Models | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0005-6dc005a1605f.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/post-graduate-programs/mcnair-scholars",
+      "fetchedAt": "2026-10-07T06:37:27.137Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "777fed6c1d9777efda74e3f5cbc40009908852fa612a3a8d8e8af844b5e07b8e",
+      "title": "McNair Scholars | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0006-777fed6c1d97.html"
+    },
+    {
+      "url": "https://compliance.utexas.edu/programs/dia",
+      "fetchedAt": "2026-10-07T06:37:29.099Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1176c8c5a8c16fbcc266dde0ea901aad5cbf11acccd261dc53b2c04400d78ded",
+      "title": "Department of Investigation and Adjudication | University Risk and Compliance Services",
+      "snapshotFile": "raw/0007-1176c8c5a8c1.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs",
+      "fetchedAt": "2026-10-07T06:37:31.085Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e3b56eea528eddc4e5b1ed630f9a97cb93f64f749cbe1b42354e12540da22f1a",
+      "title": "Bridging Disciplines Programs | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0008-e3b56eea528e.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/signature-courses",
+      "fetchedAt": "2026-10-07T06:37:33.082Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "db15c6f6b80367ddf7c25df13103b73bcf6465c33bb14c14a83ea250aa82c3e4",
+      "title": "Signature Courses | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0009-db15c6f6b803.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/post-graduate-programs",
+      "fetchedAt": "2026-10-07T06:37:35.106Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d8aeb8f081429f1a2d8efa462090696d0e6e4f121e68f7123ba4550de65ce337",
+      "title": "Post Graduate Programs | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0010-d8aeb8f08142.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/facultystaff-awards",
+      "fetchedAt": "2026-10-07T06:37:37.112Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "19d090912169cf0d85f74255204deea1ee37fb3c3b49b46a7707daf191737c3a",
+      "title": "Faculty/Staff Awards | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0011-19d090912169.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/first-year-experience/transfer-year-experience-program",
+      "fetchedAt": "2026-10-07T06:37:45.487Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e1e7ba2dfdd753211d84e63a63de7bfbfc21faf9c958de4835ee3ee2e6132f5e",
+      "title": "Transfer-Year Experience Program | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0012-e1e7ba2dfdd7.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs",
+      "fetchedAt": "2026-10-07T06:37:47.484Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f424a8c42e7fb8d317b3538fa76d9eb5a7ee573763f62315912f8927ba5e3c1c",
+      "title": "BDP Certificate Programs | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0013-f424a8c42e7f.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/discover-bdp",
+      "fetchedAt": "2026-10-07T06:37:49.497Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "86eaf5e5ff1c849097716452479544313f5208f382aea6706839aafb26d52ca9",
+      "title": "Discover BDP | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0014-86eaf5e5ff1c.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/children-society",
+      "fetchedAt": "2026-10-07T06:37:51.510Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6a896e13cdcb282cd719b49e21b0b53a95b353f63e312db1ba718fdec6bf4bc5",
+      "title": "Children & Society | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0015-6a896e13cdcb.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/conflict-prevention-management-resolution",
+      "fetchedAt": "2026-10-07T06:37:53.519Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7cdf72df895c042c85d23ca39aae4ea25259a1f40324672f21581426d553a7a8",
+      "title": "Conflict Prevention, Management & Resolution | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0016-7cdf72df895c.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/bdp-certificate-programs/criminal-law-justice-inequality",
+      "fetchedAt": "2026-10-07T06:37:55.538Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1a9a448102c079f6bfd36a369e2907c511f94de1a2a1a538457df73401133e68",
+      "title": "Criminal Law, Justice & Inequality | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0017-1a9a448102c0.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/bdp-certificate-programs/design-strategies",
+      "fetchedAt": "2026-10-07T06:37:57.533Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "aa6c313c6ac7dcbd6839751741841154e48c39899f6c0ca4e6c628067d0521bd",
+      "title": "Design Strategies | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0018-aa6c313c6ac7.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/digital-arts-media",
+      "fetchedAt": "2026-10-07T06:37:59.550Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "80026936e488f69ae2233690284ea80b51bf9966f171bb8f355e9a62345f02cb",
+      "title": "Digital Arts & Media | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0019-80026936e488.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/environment-sustainability",
+      "fetchedAt": "2026-10-07T06:38:01.560Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2b5b9d1b844f52f059e05684e1a466c07c422ee6d4cb8a344eafe911bdaf9324",
+      "title": "Environment & Sustainability | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0020-2b5b9d1b844f.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/ethics-leadership-business",
+      "fetchedAt": "2026-10-07T06:38:03.557Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e6b804cb3a3f2a2ca228236433d0a7744b9c0ab9e9c1bf978f3d5693e05685cd",
+      "title": "Ethics & Leadership in Business | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0021-e6b804cb3a3f.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/ethics-leadership-health-care",
+      "fetchedAt": "2026-10-07T06:38:05.561Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e62f6896a986ea0048604e8205561071f4c96a3d0867e237319fc2680f17afd8",
+      "title": "Ethics & Leadership in Health Care | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0022-e62f6896a986.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/ethics-leadership-law-politics-government",
+      "fetchedAt": "2026-10-07T06:38:07.554Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9aed6b2ae59229ad08e6aa510e8d18982823970f57d1d13d4d842734721bef43",
+      "title": "Ethics & Leadership in Law, Politics & Government | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0023-9aed6b2ae592.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/human-rights-social-justice",
+      "fetchedAt": "2026-10-07T06:38:09.565Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c836a78ac25c1afa5988ff54aa5a084eb62c9e5aa1046f39af623a22162639da",
+      "title": "Human Rights & Social Justice | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0024-c836a78ac25c.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/innovation-creativity-entrepreneurship",
+      "fetchedAt": "2026-10-07T06:38:11.598Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7f5ba41bbed08f578be427b60a318c8a35ee35fc7d9c2475ce251023eeced225",
+      "title": "Innovation, Creativity & Entrepreneurship | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0025-7f5ba41bbed0.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/museum-studies",
+      "fetchedAt": "2026-10-07T06:38:13.619Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "394b77447f88acf0ea4fd99390a9c8c8ac5b085b2d8ecd0acb5bc0fd2820d21b",
+      "title": "Museum Studies | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0026-394b77447f88.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/bdp-certificate-programs/patients-practitioners-cultures-care",
+      "fetchedAt": "2026-10-07T06:38:15.583Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5677eeaf7986a39aa79f30b4236d506d6808dd39516b342e31e883168f1c2c25",
+      "title": "Patients, Practitioners & Cultures of Care | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0027-5677eeaf7986.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/public-policy",
+      "fetchedAt": "2026-10-07T06:38:17.590Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "53381ce7259a4ba1dc92c8e6e138796730b116ee0c404b5986cc2dc8515f7370",
+      "title": "Public Policy | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0028-53381ce7259a.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/bdp-certificate-programs/smart-cities",
+      "fetchedAt": "2026-10-07T06:38:19.605Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "83b0e7eacc28ab425abb4a411dc6fab62d70477d8692cc2a5e7492cc267474d0",
+      "title": "Smart Cities | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0029-83b0e7eacc28.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/social-inequality-health-policy",
+      "fetchedAt": "2026-10-07T06:38:21.621Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3a026ccb22a41da02ec6bdbaa8f442921b9421e194e882c7a11fbb8b0697b26e",
+      "title": "Social Inequality, Health & Policy | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0030-3a026ccb22a4.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/bdp-certificate-programs/curriculum-sheets",
+      "fetchedAt": "2026-10-07T06:38:23.630Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cdd4cdb83e7822ee8a07d43fbee90565a9de3847348a286068d06918d381ef0b",
+      "title": "Curriculum Sheets | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0031-cdd4cdb83e78.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/prospective-students",
+      "fetchedAt": "2026-10-07T06:38:25.641Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "70d893ec75ed9da9645bda455b873c452e928e5bb717431f456b8f7b16b12c74",
+      "title": "Prospective Students | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0032-70d893ec75ed.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/current-students",
+      "fetchedAt": "2026-10-07T06:38:27.640Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ace7a161503bdc091c3aade1f947685e4a2e5f650bbc39c5d7390501f60cf11c",
+      "title": "Current Students | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0033-ace7a161503b.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/faculty-overview",
+      "fetchedAt": "2026-10-07T06:38:29.665Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a20ff1943692dd25c290d977ec6aff40ea7b53474be53e743e75a4d1dc720a13",
+      "title": "Faculty Overview | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0034-a20ff1943692.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/faculty-overview/find-undergraduate-researcher",
+      "fetchedAt": "2026-10-07T06:38:31.647Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b75c7ae1818524dd5b560a7d41864c3c5765c7d4a050ae1130d086c0b100fe97",
+      "title": "Find an Undergraduate Researcher | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0035-b75c7ae18185.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/alumni-engagement",
+      "fetchedAt": "2026-10-07T06:38:33.657Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0084195e71a06b5593de142c9ef6d5a8920193b8fc8b43a53b96201de388e7a9",
+      "title": "Alumni Engagement | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0036-0084195e71a0.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/student-stories",
+      "fetchedAt": "2026-10-07T06:38:35.658Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8bb5a09839a025e2c49a0761d8a4fee71cb236042913af92efb3a3f902757c30",
+      "title": "Student Stories | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0037-8bb5a09839a0.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/important-dates-deadlines",
+      "fetchedAt": "2026-10-07T06:38:37.657Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7c4fc4504c036734e59b49cb8d8aa5933cbbb91c72e056187854cf5a94280e8a",
+      "title": "Important Dates & Deadlines | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0038-7c4fc4504c03.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/bdp-courses",
+      "fetchedAt": "2026-10-07T06:38:39.675Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ec04e7a853e05a3ee4ae463ab75d563bbae5b412ce27fbe557e31761f7c3d782",
+      "title": "BDP Courses | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0039-ec04e7a853e0.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/quick-links-forms",
+      "fetchedAt": "2026-10-07T06:38:41.698Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3c40a53c8d8664b466ac59924c615e42d9966a49d162bab2ea7177cae287ba66",
+      "title": "Quick Links & Forms | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0040-3c40a53c8d86.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/faculty-overview/faculty-participation-bridging-disciplines-programs/bdp-faculty-panels/non-profits-social",
+      "fetchedAt": "2026-10-07T06:38:44.270Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0cdd880631bd3459a9cf167e8a919097e69741f1eb1322ec5082b308a02dd4b3",
+      "title": "Non-profits & Social Entrepreneurship Faculty Panel | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0041-0cdd880631bd.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/post-graduate-programs/mcnair-scholars/about-mcnair-scholars",
+      "fetchedAt": "2026-10-07T06:38:45.714Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6a4033e9adc4a230f34dc5a80604d18351424b8804bee127bee5ed598f5180ee",
+      "title": "About McNair Scholars | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0042-6a4033e9adc4.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/post-graduate-programs/mcnair-scholars/eligibility",
+      "fetchedAt": "2026-10-07T06:38:48.155Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "49da18d0204c6e4c4f1d4bb1f1ecefcf7a09ed531e5753ee535c2135b5c8f18d",
+      "title": "Eligibility | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0043-49da18d0204c.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/post-graduate-programs/mcnair-scholars/mcns-application-process",
+      "fetchedAt": "2026-10-07T06:38:49.748Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6c136367801dfe00997982ab5a7c81d8072307b81e696e6cc22c87109501dbe1",
+      "title": "MCNS Application Process | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0044-6c136367801d.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/post-graduate-programs/mcnair-scholars/services-and-publications",
+      "fetchedAt": "2026-10-07T06:38:52.196Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c2dfc56d9589cf1580d0b7f3271067d7d52a23b453b197854265df49226ea4ab",
+      "title": "Services and Publications | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0045-c2dfc56d9589.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/post-graduate-programs/strive-grad-prep-academy",
+      "fetchedAt": "2026-10-07T06:38:54.215Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e7b1f14c65ee400b7ade282c24f35843e114819fcc2745798bc63672249c0109",
+      "title": "Strive Grad Prep Academy | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0046-e7b1f14c65ee.html"
+    },
+    {
+      "url": "https://compliance.utexas.edu/programs",
+      "fetchedAt": "2026-10-07T06:38:56.035Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "301f509005668e2cc5ba061c6437adffae080c183f4a315192e16fc386aa42cc",
+      "title": "Programs: University Risk and Compliance Services (URCS) | University Risk and Compliance Services",
+      "snapshotFile": "raw/0047-301f50900566.html"
+    },
+    {
+      "url": "https://compliance.utexas.edu/programs/clery",
+      "fetchedAt": "2026-10-07T06:38:57.811Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5e8b3fb11bb6530a1ca17cbb2ce16f512dcefbd67e9ab94a988453cbb8058ef7",
+      "title": "Clery Act | University Risk and Compliance Services",
+      "snapshotFile": "raw/0048-5e8b3fb11bb6.html"
+    },
+    {
+      "url": "https://compliance.utexas.edu/programs/cep",
+      "fetchedAt": "2026-10-07T06:38:59.757Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f23828188c01189e16a86200827a959b5a576e6ca43272e22afa475fb038d7e6",
+      "title": "Compliance and Ethics Program | University Risk and Compliance Services",
+      "snapshotFile": "raw/0049-f23828188c01.html"
+    },
+    {
+      "url": "https://compliance.utexas.edu/programs/iaa",
+      "fetchedAt": "2026-10-07T06:39:01.778Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b3e83ba6a4cc811114c1e24a55ce3a1a9dddf8a71ef9df4107f30b9d4c69fcc0",
+      "title": "IAA | University Risk and Compliance Services",
+      "snapshotFile": "raw/0050-b3e83ba6a4cc.html"
+    },
+    {
+      "url": "https://compliance.utexas.edu/programs/cep/clg",
+      "fetchedAt": "2026-10-07T06:39:03.779Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d2911d138c389d7c3fd58874ab5a292a3225d111497fe7fcdddc54b0ea5978f7",
+      "title": "Compliance Leadership Group | University Risk and Compliance Services",
+      "snapshotFile": "raw/0051-d2911d138c38.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/bdp-certificate-programs",
+      "fetchedAt": "2026-10-07T06:39:05.863Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cd42244ed6aa811a859ed04dce03094fd4c9d3175361512fefb77f99525ad67e",
+      "title": "BDP Certificate Programs | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0052-cd42244ed6aa.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/signature-courses/about-signature-courses",
+      "fetchedAt": "2026-10-07T06:39:07.802Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f7dc029d8205bda39d60ba6c652477332f3b8e73ae58e348465815a9bb3b786a",
+      "title": "About Signature Courses | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0053-f7dc029d8205.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/signature-courses/register-signature-course",
+      "fetchedAt": "2026-10-07T06:39:09.787Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6dc5c44fec160037bbc92ffa827f9fea8e9e308cd607f67ad9593e61bf9097d8",
+      "title": "Register for a Signature Course | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0054-6dc5c44fec16.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/signature-courses/faculty-resources-plan-propose",
+      "fetchedAt": "2026-10-07T06:39:11.860Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bed41f29509366cb14dd88cbefede92d9fa7e43ac1bfb4db0f6df62964fa2590",
+      "title": "Faculty Resources - Plan & Propose | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0055-bed41f295093.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/signature-courses/teaching-assistants-and-academic-fellows",
+      "fetchedAt": "2026-10-07T06:39:13.875Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "825292497c67f38b5611067df38639fa2f34d7c80fae07a922039bbdaa353489",
+      "title": "Teaching Assistants and Academic Fellows | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0056-825292497c67.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/signature-courses/faculty-awards",
+      "fetchedAt": "2026-10-07T06:39:15.845Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "076eedf995ba28b229d4cbc22fa8d81895cdb38a1c98f92f8fc8028eb9f1383e",
+      "title": "Faculty Awards | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0057-076eedf995ba.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/signature-courses/agatha-and-anthony-precourt-lecture-series",
+      "fetchedAt": "2026-10-07T06:39:17.843Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bd48c60ead1a480d8d43bb1177434c18c2ed428c31b9e1f0d872524ec14329a6",
+      "title": "Agatha and Anthony Precourt Lecture Series | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0058-bd48c60ead1a.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/first-year-experience/transfer-year-experience-program/prospective-and-newly-admitted-students",
+      "fetchedAt": "2026-10-07T06:39:20.012Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f54c1622b36a119e6478b39c3d68c4adae46ac0f184c978073fce25b5f010175",
+      "title": "Prospective and Newly Admitted Students | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0059-f54c1622b36a.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/first-year-experience/transfer-year-experience-program/support-students-dependents",
+      "fetchedAt": "2026-10-07T06:39:21.858Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "60ec96c1efd9d641e56fbce2de889ddb7badc6c84c2e452d6f8d80f93272aa03",
+      "title": "Support for Students with Dependents | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0060-60ec96c1efd9.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/first-year-experience/transfer-year-experience-program/transfer-living-learning-community",
+      "fetchedAt": "2026-10-07T06:39:23.840Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ae4af091494bb2ef89e8c95a6ef65d424c97bc3295b142c4b94646e734891b94",
+      "title": "Transfer Living Learning Community | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0061-ae4af091494b.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/first-year-experience/transfer-year-experience-program/transfer-student-leadership-summit",
+      "fetchedAt": "2026-10-07T06:39:25.837Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9c40c99cf5b4eb8488cf8966d1d5a8228e8b4fafabcfb909216e3d0df4c8394d",
+      "title": "Transfer Student Leadership Summit | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0062-9c40c99cf5b4.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/first-year-experience/transfer-year-experience-program/transfer-student-resources",
+      "fetchedAt": "2026-10-07T06:39:27.857Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "95ce44da25b03b7b2001efd0952f96e386c0c2516fb2b611dfec0af048b8a557",
+      "title": "Transfer Student Resources | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0063-95ce44da25b0.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/first-year-experience/transfer-year-experience-program/transfer-student-profiles",
+      "fetchedAt": "2026-10-07T06:39:29.843Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b8c8de8ad9c2cd4e4f69c9d3ef6a193ecf5885a1f4baa2225fcfb15bd17c7012",
+      "title": "Transfer-Student Profiles | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0064-b8c8de8ad9c2.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/first-year-experience/transfer-year-experience-program/transfer-student-signature-courses",
+      "fetchedAt": "2026-10-07T06:39:31.988Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "54a0168974ca244ec73371a07f266b4a69621bc3ffdfac4b5ac6a93c966c778d",
+      "title": "Transfer-Student Signature Courses | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0065-54a0168974ca.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/first-year-experience/transfer-year-experience-program/transfer-year-interest-groups",
+      "fetchedAt": "2026-10-07T06:39:33.903Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "12819dc2d45953806870929698b7afe20ea0cb1eb73a3ffa95ee2ee5ec89f0cd",
+      "title": "Transfer-Year Interest Groups | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0066-12819dc2d459.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/prospective-students/certificate-topics/social-change",
+      "fetchedAt": "2026-10-07T06:39:35.873Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1d5fab81fd216fed9ae36dbccae799a24183b817e5eab5c97528d088597c383f",
+      "title": "Social Change | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0067-1d5fab81fd21.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/about-bridging-disciplines-programs",
+      "fetchedAt": "2026-10-07T06:39:38.223Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4e30102d4149acb1b7cb53236fd0849612ba6688253ca415e47cbae4ba00aee5",
+      "title": "Discover BDP | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0068-4e30102d4149.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/discover-bdp/learning-objectives",
+      "fetchedAt": "2026-10-07T06:39:39.911Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "650bb4fcfb7d72d7d6de647cd698ff3c424c06415fb5150cf7fac17267aaf6c8",
+      "title": "Learning Objectives | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0069-650bb4fcfb7d.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/discover-bdp/mission-statement",
+      "fetchedAt": "2026-10-07T06:39:41.902Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6f5763d11962ecbdd35676b2a7753b680d4371f1a905bb0986f49ad168203467",
+      "title": "Mission Statement | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0070-6f5763d11962.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/discover-bdp/why-participate",
+      "fetchedAt": "2026-10-07T06:39:43.983Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5c9f8898635bd0a3ec031db3427a9a9a3db6a39360fcaa91036a1d12f220892a",
+      "title": "Why Participate? | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0071-5c9f8898635b.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/discover-bdp/bridging-disciplines-programs-staff",
+      "fetchedAt": "2026-10-07T06:39:45.999Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "93e8b14bcc3b12dc7a2184a910c84ccf3a1fa30230d1c71072b31d0c8a6a445f",
+      "title": "Bridging Disciplines Programs Staff | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0072-93e8b14bcc3b.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/about-bridging-disciplines-programs/bdp-faculty-steering-committee",
+      "fetchedAt": "2026-10-07T06:39:47.929Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "dcbd966262e37f229274c155709b7c633399198c2a993122b6418c84479de3cb",
+      "title": "BDP Faculty Steering Committee | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0073-dcbd966262e3.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/bdp-certificate-programs",
+      "fetchedAt": "2026-10-07T06:39:49.954Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cd42244ed6aa811a859ed04dce03094fd4c9d3175361512fefb77f99525ad67e",
+      "title": "BDP Certificate Programs | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0074-cd42244ed6aa.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/faculty-overview/faculty-participation-bridging-disciplines-programs/bdp-faculty-panels/children-and-society",
+      "fetchedAt": "2026-10-07T06:39:52.168Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2f9a3234147ac5e075ca0751176a2829895469ca41dd9632fa099622d94e69e5",
+      "title": "Children and Society Faculty Panel | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0075-2f9a3234147a.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/faculty-overview/faculty-participation-bridging-disciplines-programs/bdp-faculty-panels/conflict-prevention",
+      "fetchedAt": "2026-10-07T06:39:54.358Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b5a4771529b7cbb16e96baca73debaf471826bbe280ef79365bdffa8973a5328",
+      "title": "Conflict Prevention, Management & Resolution Faculty Panel | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0076-b5a4771529b7.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/faculty-overview/faculty-participation-bridging-disciplines-programs/bdp-faculty-panels/criminal-law-justice",
+      "fetchedAt": "2026-10-07T06:39:56.229Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3dace0300f400abf544829af6aa7b853a772d9b46625a642190e266de0ba0e85",
+      "title": "Criminal Law, Justice & Inequality Faculty Panel | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0077-3dace0300f40.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/faculty-overview/faculty-participation-bridging-disciplines-programs/bdp-faculty-panels/design-strategies",
+      "fetchedAt": "2026-10-07T06:39:58.230Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "337f8d757ae32062d1392d3efff22f6bd82babcd756b89b0234070b10f2a34d7",
+      "title": "Design Strategies Faculty Panel | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0078-337f8d757ae3.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/faculty-overview/faculty-participation-bridging-disciplines-programs/bdp-faculty-panels/digital-arts-media",
+      "fetchedAt": "2026-10-07T06:40:00.375Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b6aa79077dc34e12e53e42da0cdb4e5268e51da307ac2fa8912505562a37f139",
+      "title": "Digital Arts & Media Faculty Panel | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0079-b6aa79077dc3.html"
+    },
+    {
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/faculty-overview/faculty-participation-bridging-disciplines-programs/bdp-faculty-panels/environment",
+      "fetchedAt": "2026-10-07T06:40:02.215Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5ad5f11d3bb05c18429b72432da1dd250839328985e688634f2733d9444ed14b",
+      "title": "Environment & Sustainability Faculty Panel | Academic Programs for Undergraduates",
+      "snapshotFile": "raw/0080-5ad5f11d3bb0.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:40:02.250Z",
+    "seedUrls": [
+      "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/non-profits-social-entrepreneurship",
+      "https://undergraduates.utexas.edu/academics/post-graduate-programs/mcnair-scholars",
+      "https://compliance.utexas.edu/programs/dia",
+      "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs",
+      "https://www.utexas.edu/academics/core/implementation-timeline",
+      "https://www.utexas.edu/academics/core/task-force-members",
+      "https://www.utexas.edu/academics/core/faqs",
+      "https://undergraduates.utexas.edu/academics/undergraduate-research/about-undergraduate-research-0",
+      "https://undergraduates.utexas.edu/academics/undergraduate-research/why-conduct-research/publishing-work-journal",
+      "https://www.utexas.edu/academics/core",
+      "https://www.utexas.edu/academics/academic-experience",
+      "https://www.utexas.edu/academics/colleges-schools",
+      "https://www.utexas.edu/academics/texas-statement-academic-integrity",
+      "https://www.utexas.edu/academics/areas-of-study"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:33.363Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.548Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

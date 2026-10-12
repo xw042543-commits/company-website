@@ -1,0 +1,1324 @@
+{
+  "region": "united-kingdom",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.518Z",
+  "sourceKey": "university-of-glasgow",
+  "sourceName": "University of Glasgow",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_49a8e311a62c7e91",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "University of Glasgow",
+    "countryCode": null,
+    "countryRaw": "United Kingdom",
+    "cityZh": null,
+    "cityEn": "Glasgow",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.gla.ac.uk",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:05:39.170Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.gla.ac.uk/",
+        "sourcePageTitle": "The University of Glasgow, Scotland, UK. A world top 100 university",
+        "sourceHash": "48b4e9bb81c4964e120faeb73c29a86f6261d13d9844607ae6367641a856e93a",
+        "fetchedAt": "2026-10-07T04:05:39.170Z",
+        "field": "name",
+        "rawText": "University of Glasgow"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 12,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/world-university-rankings",
+    "media": []
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_28c390b59286cb6c",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "软件工程(研究生学徒)理学学士",
+      "nameEn": "Software Engineering (Graduate Apprenticeship) BSc",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.gla.ac.uk/undergraduate/degrees/softwareengineeringgraduateapprenticeship/",
+      "sourceCheckedAt": "2026-10-07T06:12:36.696Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.gla.ac.uk/undergraduate/degrees/computingscience/",
+          "sourcePageTitle": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Computing Science",
+          "sourceHash": "7dde6fead29948d24712cf180d6102e2ea857e6023b35abcdcb831498750d0e4",
+          "fetchedAt": "2026-10-07T06:12:36.696Z",
+          "field": "name",
+          "rawText": "Software Engineering (Graduate Apprenticeship) BSc"
+        },
+        {
+          "sourceUrl": "https://www.gla.ac.uk/undergraduate/degrees/computingscience/",
+          "sourcePageTitle": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Computing Science",
+          "sourceHash": "7dde6fead29948d24712cf180d6102e2ea857e6023b35abcdcb831498750d0e4",
+          "fetchedAt": "2026-10-07T06:12:36.696Z",
+          "field": "detailUrl",
+          "rawText": "https://www.gla.ac.uk/undergraduate/degrees/softwareengineeringgraduateapprenticeship/"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.gla.ac.uk/",
+      "fetchedAt": "2026-10-07T04:05:39.170Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "48b4e9bb81c4964e120faeb73c29a86f6261d13d9844607ae6367641a856e93a",
+      "title": "The University of Glasgow, Scotland, UK. A world top 100 university",
+      "snapshotFile": "raw/0001-48b4e9bb81c4.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/opendays/",
+      "fetchedAt": "2026-10-07T04:05:41.199Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9d0a8e21a600d55efd2839168d7f3d75550008cb196c44508ec93d2539ec8b50",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Open Days",
+      "snapshotFile": "raw/0002-9d0a8e21a600.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/",
+      "fetchedAt": "2026-10-07T04:05:43.203Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2d92b1b7ef5b5472f87b5ad23c81a81bbd9dd801023cb7450bfa676a95ee456e",
+      "title": "University of Glasgow - Undergraduate study",
+      "snapshotFile": "raw/0003-2d92b1b7ef5b.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/parents/",
+      "fetchedAt": "2026-10-07T04:05:45.207Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d93a2f800fd21f4953f53c7e067a473aa545382cce7322cb5e71e6d5d7de1fdb",
+      "title": "University of Glasgow - Undergraduate study - Information for parents, carers and supporters",
+      "snapshotFile": "raw/0004-d93a2f800fd2.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/",
+      "fetchedAt": "2026-10-07T04:05:47.038Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "42ea6f3710845dd9d2535c9c128efbec679da11869097e3d773926fd6ba29ab4",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events",
+      "snapshotFile": "raw/0005-42ea6f371084.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/opendays/travel/",
+      "fetchedAt": "2026-10-07T04:05:49.070Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6da62f105eb46b4bbbc0cc8717dadb59cf6defc4043efdcdf713cca39a34fcd3",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Open Days - Travel Guide to Open Days",
+      "snapshotFile": "raw/0006-6da62f105eb4.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/opendays/gettingaroundcampus/",
+      "fetchedAt": "2026-10-07T04:05:51.093Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4ee3b4e0dfec8295e76c9b941a8dcd4f12bd0fe92617f7600a2bcadc8f63625d",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Open Days - Getting Around Campus",
+      "snapshotFile": "raw/0007-4ee3b4e0dfec.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/opendays/planyourday/",
+      "fetchedAt": "2026-10-07T04:05:53.259Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3c8f746aa1d8cd58a2bd11ee15f9849d9e0ac57060e4b362b281a0d0bca9136f",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Open Days - Plan your day",
+      "snapshotFile": "raw/0008-3c8f746aa1d8.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/opendays/online/",
+      "fetchedAt": "2026-10-07T04:05:55.092Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "855b29b9f03394b6e10441fbde19818909d54cabd2a5035676ea5e065ba335ca",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Open Days - Online",
+      "snapshotFile": "raw/0009-855b29b9f033.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/",
+      "fetchedAt": "2026-10-07T04:05:58.235Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "17578d77eb14cbd29a8890c23e23b96cd79374b83ce36115326a3b16f36b5248",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z",
+      "snapshotFile": "raw/0010-17578d77eb14.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/entry-requirements/",
+      "fetchedAt": "2026-10-07T04:05:59.303Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "475b80ac35ecf43d90acd0daf928ac0c8efa7a4604696ef8b84ecb513a90e76b",
+      "title": "University of Glasgow - Undergraduate study - How to apply for an undergraduate degree - Entry requirements",
+      "snapshotFile": "raw/0011-475b80ac35ec.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/fees/",
+      "fetchedAt": "2026-10-07T04:06:01.106Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c6a760b777d22589e23dccaabb9888fe3590242b7f56f1d6057fe5681c61c7ed",
+      "title": "University of Glasgow - Undergraduate study - Tuition fees and funding",
+      "snapshotFile": "raw/0012-c6a760b777d2.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/accommodation/",
+      "fetchedAt": "2026-10-07T04:06:03.124Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7cd014d8186c1e752b6551567b9484b43d018ccb022ebeb617d08f8e117422bb",
+      "title": "University of Glasgow - Undergraduate study - Undergraduate accommodation",
+      "snapshotFile": "raw/0013-7cd014d8186c.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/offerholders/",
+      "fetchedAt": "2026-10-07T04:06:05.311Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b486e5e5bebb57dcea81a6cfbff7ca59725a1f7c0aa5105fca51e529d719a2d3",
+      "title": "University of Glasgow - Undergraduate study - Undergraduate offer holders",
+      "snapshotFile": "raw/0014-b486e5e5bebb.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/results/",
+      "fetchedAt": "2026-10-07T04:06:07.320Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b518745b52e6d84d4b1615fd8602048f04ea0bfe8fc55c976a4b0f1c1d8a941f",
+      "title": "University of Glasgow - Undergraduate study - Results guidance",
+      "snapshotFile": "raw/0015-b518745b52e6.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/onlineinfosessions/",
+      "fetchedAt": "2026-10-07T04:06:09.160Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "950d8e295e933290f2459f8a1a6062fff141ec40674b844c3e6d0d9e34fadc68",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Meet us online - Information Sessions",
+      "snapshotFile": "raw/0016-950d8e295e93.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/onlineinfosessions/regionalfairs/",
+      "fetchedAt": "2026-10-07T04:06:11.174Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d9089a160a6455b63faa964a7e006952ffe3b3a23841ac3307b265e0db29a2f6",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Meet us online - Information Sessions - Regional Fairs 2026",
+      "snapshotFile": "raw/0017-d9089a160a64.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/learning/",
+      "fetchedAt": "2026-10-07T04:06:13.168Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8ed5ef97b67d69edcda4ea7b42679cb8fe14a8a95c84255eb9b05aaf16d2e78d",
+      "title": "University of Glasgow - Undergraduate study - Your learning environment",
+      "snapshotFile": "raw/0018-8ed5ef97b67d.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/onlineinfosessions/parentscarerssqaapplicants/",
+      "fetchedAt": "2026-10-07T04:06:15.199Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7172611546d79c51f7df920f1edf36c7e9b594520f57cd4a1ff61452e5fb1ee4",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Meet us online - Information Sessions - Information Sessions for Parents, Carers and Advisers of potential SQA (Scottish) applicants",
+      "snapshotFile": "raw/0019-7172611546d7.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/regional/",
+      "fetchedAt": "2026-10-07T04:06:17.196Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "21070872907a1a12f541d404af3989aaf761982516173bdbfed818222183c917",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Regional Information Evenings 2026",
+      "snapshotFile": "raw/0020-21070872907a.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/teachersconference26/",
+      "fetchedAt": "2026-10-07T04:06:19.200Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a160d000dcc36ae7a7c8a176d9db7b7128335f7e823a0cb2c344c6bb8cc9b268",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Teachers' Conference 2026",
+      "snapshotFile": "raw/0021-a160d000dcc3.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/explore/visit/undergraduate/opendays/online/event/",
+      "fetchedAt": "2026-10-07T04:06:21.386Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c5197ec600c34dc77a539d47722b0c34559e0c6196d7245004350872c4141e36",
+      "title": "University of Glasgow - Explore - Visit us - Undergraduate events - Open Days - Online - Event",
+      "snapshotFile": "raw/0022-c5197ec600c3.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/colleges/mvls/students/undergraduate-programmes/",
+      "fetchedAt": "2026-10-07T04:06:24.655Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8cfbcbb6b64b6c453a2004f74c744044232ea8cce1a77bce2d7137fbe3bcc1da",
+      "title": "University of Glasgow - Colleges - College of Medical, Veterinary & Life Sciences - Information for students - UG programmes",
+      "snapshotFile": "raw/0023-8cfbcbb6b64b.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/accountancy/",
+      "fetchedAt": "2026-10-07T04:06:25.504Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a117ade173815e08bfffd3bfeeef7d703e91ac0ec612d74783f94010c38b9d59",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Accountancy & Finance",
+      "snapshotFile": "raw/0024-a117ade17381.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/accountingmathematics/",
+      "fetchedAt": "2026-10-07T04:06:27.520Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "88e47710ad4746ce462755977fc631c0bcc9ac9a4b0edd8c190cd1fa977d3412",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Accounting & Mathematics",
+      "snapshotFile": "raw/0025-88e47710ad47.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/accountingstatistics/",
+      "fetchedAt": "2026-10-07T04:06:29.573Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7b33a6eb5a00c57c4e31ed5feade43913d7b9ef8eb2098b4df174fe5eb1901a1",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Accounting and Statistics & Data Analytics",
+      "snapshotFile": "raw/0026-7b33a6eb5a00.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/aeronauticalengineering/",
+      "fetchedAt": "2026-10-07T04:06:31.682Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "19a437390b930af5b9f43fbfb69e3fc136d63f45169e23db8945cd2186f0378e",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Aeronautical Engineering",
+      "snapshotFile": "raw/0027-19a437390b93.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/aeronautical-engineering-in-partnership-tianjin/",
+      "fetchedAt": "2026-10-07T04:06:33.628Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cea26c9859d3095a6a95b5276e93cedf09987148d5e28739419834d388eb9738",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Aeronautical Engineering (in partnership with Tianjin University)",
+      "snapshotFile": "raw/0028-cea26c9859d3.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/aerospacesystems/",
+      "fetchedAt": "2026-10-07T04:06:35.584Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0b53b6255814b99ca5be7155e59926fd77d1dd5972f9a3833ff5d4390ac489c0",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Aerospace Systems",
+      "snapshotFile": "raw/0029-0b53b6255814.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/anatomy/",
+      "fetchedAt": "2026-10-07T04:06:37.774Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2df1bcabf6191d3e26a0809deeaaa83e96ce5274ebafb7fc7e889262b5824036",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Anatomy",
+      "snapshotFile": "raw/0030-2df1bcabf619.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/ancienthistory/",
+      "fetchedAt": "2026-10-07T04:06:39.745Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b69a3c14e8a7a7d675ccf44e2886abb16889a617b25c6cc2fd9eb3f2b87f8b19",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Ancient History",
+      "snapshotFile": "raw/0031-b69a3c14e8a7.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/archaeology/",
+      "fetchedAt": "2026-10-07T04:06:41.749Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "10225712e3f75926ec1dc6bbc22ca3267139632b70a995f0168a53370ba04311",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Archaeology",
+      "snapshotFile": "raw/0032-10225712e3f7.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/artificial-intelligence/",
+      "fetchedAt": "2026-10-07T04:06:43.564Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec98e0f9238e3d157af0d896d978cfb80ed3fa22e25d77db107d1a12eb9d6ab2",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Artificial Intelligence",
+      "snapshotFile": "raw/0033-ec98e0f9238e.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/artificial-intelligence-faster-route/",
+      "fetchedAt": "2026-10-07T04:06:45.599Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a906fce256e212e70032b3cab236c5aa91b55aae0585a20b83b993c03de52f66",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Artificial Intelligence (faster route)",
+      "snapshotFile": "raw/0034-a906fce256e2.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/astronomy/",
+      "fetchedAt": "2026-10-07T04:06:47.620Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "731a3c20f7e80cf832edcb8d9ebde9e0a4e14355146b381b6d4db1f644cc3866",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Astronomy",
+      "snapshotFile": "raw/0035-731a3c20f7e8.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biochemistry/",
+      "fetchedAt": "2026-10-07T04:06:49.659Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7f376d78801303ecc592b8f65310d656a68cc2ef7010430a63f9762a34aaaf37",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biochemistry",
+      "snapshotFile": "raw/0036-7f376d788013.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biological-sciences/",
+      "fetchedAt": "2026-10-07T04:06:51.623Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "eadb1b4aa9253ac28827fc890df91a8cacfec4998c9a2545cb6aa5f80ebee580",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biological Sciences",
+      "snapshotFile": "raw/0037-eadb1b4aa925.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biomedicalengineering/",
+      "fetchedAt": "2026-10-07T04:06:53.860Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "02f533ed564d873e3bc509da82d930564c7da7d2699ae0dd8bd795110b8aa5d7",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biomedical Engineering",
+      "snapshotFile": "raw/0038-02f533ed564d.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biomedical-engineering-in-partnership-with-kmitl/",
+      "fetchedAt": "2026-10-07T04:06:55.651Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "551b2ca6eaeba2e9d90a2a66ad1fcd8b3cf163a0d485480bef72d611030bb914",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biomedical Engineering (in partnership with KMITL)",
+      "snapshotFile": "raw/0039-551b2ca6eaeb.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biomedical-engineering-in-partnership-with-tianjin/",
+      "fetchedAt": "2026-10-07T04:06:57.669Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "37fd6a04d3e9d202e8fc4eeac60a73c73d1a6822c4167fe24a399ce15239e2f7",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biomedical Engineering (in partnership with Tianjin University)",
+      "snapshotFile": "raw/0040-37fd6a04d3e9.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/study/short/courses/?subject=Courses+online&delivery=Courses+online",
+      "fetchedAt": "2026-10-07T06:11:15.632Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "514862b8fbc02b5b86db552bcb67a59dd0d144d045ab7d9fcb4209dbaa4dbbe1",
+      "title": "University of Glasgow - Study - Short courses - Courses",
+      "snapshotFile": "raw/0001-514862b8fbc0.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/",
+      "fetchedAt": "2026-10-07T06:11:19.712Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "17578d77eb14cbd29a8890c23e23b96cd79374b83ce36115326a3b16f36b5248",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z",
+      "snapshotFile": "raw/0002-17578d77eb14.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/accountancy/",
+      "fetchedAt": "2026-10-07T06:11:20.257Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a117ade173815e08bfffd3bfeeef7d703e91ac0ec612d74783f94010c38b9d59",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Accountancy & Finance",
+      "snapshotFile": "raw/0003-a117ade17381.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/accountingmathematics/",
+      "fetchedAt": "2026-10-07T06:11:22.265Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "88e47710ad4746ce462755977fc631c0bcc9ac9a4b0edd8c190cd1fa977d3412",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Accounting & Mathematics",
+      "snapshotFile": "raw/0004-88e47710ad47.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/accountingstatistics/",
+      "fetchedAt": "2026-10-07T06:11:24.290Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7b33a6eb5a00c57c4e31ed5feade43913d7b9ef8eb2098b4df174fe5eb1901a1",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Accounting and Statistics & Data Analytics",
+      "snapshotFile": "raw/0005-7b33a6eb5a00.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/aeronauticalengineering/",
+      "fetchedAt": "2026-10-07T06:11:26.347Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "19a437390b930af5b9f43fbfb69e3fc136d63f45169e23db8945cd2186f0378e",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Aeronautical Engineering",
+      "snapshotFile": "raw/0006-19a437390b93.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/aeronautical-engineering-in-partnership-tianjin/",
+      "fetchedAt": "2026-10-07T06:11:28.237Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cea26c9859d3095a6a95b5276e93cedf09987148d5e28739419834d388eb9738",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Aeronautical Engineering (in partnership with Tianjin University)",
+      "snapshotFile": "raw/0007-cea26c9859d3.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/aerospacesystems/",
+      "fetchedAt": "2026-10-07T06:11:30.338Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0b53b6255814b99ca5be7155e59926fd77d1dd5972f9a3833ff5d4390ac489c0",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Aerospace Systems",
+      "snapshotFile": "raw/0008-0b53b6255814.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/anatomy/",
+      "fetchedAt": "2026-10-07T06:11:32.535Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2df1bcabf6191d3e26a0809deeaaa83e96ce5274ebafb7fc7e889262b5824036",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Anatomy",
+      "snapshotFile": "raw/0009-2df1bcabf619.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/ancienthistory/",
+      "fetchedAt": "2026-10-07T06:11:34.431Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b69a3c14e8a7a7d675ccf44e2886abb16889a617b25c6cc2fd9eb3f2b87f8b19",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Ancient History",
+      "snapshotFile": "raw/0010-b69a3c14e8a7.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/archaeology/",
+      "fetchedAt": "2026-10-07T06:11:36.406Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "10225712e3f75926ec1dc6bbc22ca3267139632b70a995f0168a53370ba04311",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Archaeology",
+      "snapshotFile": "raw/0011-10225712e3f7.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/artificial-intelligence/",
+      "fetchedAt": "2026-10-07T06:11:38.303Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ec98e0f9238e3d157af0d896d978cfb80ed3fa22e25d77db107d1a12eb9d6ab2",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Artificial Intelligence",
+      "snapshotFile": "raw/0012-ec98e0f9238e.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/artificial-intelligence-faster-route/",
+      "fetchedAt": "2026-10-07T06:11:40.315Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a906fce256e212e70032b3cab236c5aa91b55aae0585a20b83b993c03de52f66",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Artificial Intelligence (faster route)",
+      "snapshotFile": "raw/0013-a906fce256e2.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/astronomy/",
+      "fetchedAt": "2026-10-07T06:11:42.282Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "731a3c20f7e80cf832edcb8d9ebde9e0a4e14355146b381b6d4db1f644cc3866",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Astronomy",
+      "snapshotFile": "raw/0014-731a3c20f7e8.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biochemistry/",
+      "fetchedAt": "2026-10-07T06:11:44.346Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7f376d78801303ecc592b8f65310d656a68cc2ef7010430a63f9762a34aaaf37",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biochemistry",
+      "snapshotFile": "raw/0015-7f376d788013.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biological-sciences/",
+      "fetchedAt": "2026-10-07T06:11:46.320Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "eadb1b4aa9253ac28827fc890df91a8cacfec4998c9a2545cb6aa5f80ebee580",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biological Sciences",
+      "snapshotFile": "raw/0016-eadb1b4aa925.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biomedicalengineering/",
+      "fetchedAt": "2026-10-07T06:11:48.603Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "02f533ed564d873e3bc509da82d930564c7da7d2699ae0dd8bd795110b8aa5d7",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biomedical Engineering",
+      "snapshotFile": "raw/0017-02f533ed564d.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biomedical-engineering-in-partnership-with-kmitl/",
+      "fetchedAt": "2026-10-07T06:11:50.288Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "551b2ca6eaeba2e9d90a2a66ad1fcd8b3cf163a0d485480bef72d611030bb914",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biomedical Engineering (in partnership with KMITL)",
+      "snapshotFile": "raw/0018-551b2ca6eaeb.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/biomedical-engineering-in-partnership-with-tianjin/",
+      "fetchedAt": "2026-10-07T06:11:52.312Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "37fd6a04d3e9d202e8fc4eeac60a73c73d1a6822c4167fe24a399ce15239e2f7",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Biomedical Engineering (in partnership with Tianjin University)",
+      "snapshotFile": "raw/0019-37fd6a04d3e9.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/businessmanagement/",
+      "fetchedAt": "2026-10-07T06:11:54.553Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bd281740f280e0b2ce55a0b0e7e804be7ed6e0ab8219e094a6acf8d95fcc6438",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Business & Management",
+      "snapshotFile": "raw/0020-bd281740f280.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/businesseconomics/",
+      "fetchedAt": "2026-10-07T06:11:56.376Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "83d13b5e25809a946db4ca5c3ae182f6ed055f5774fca9f4d34a8cc7469459d6",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Business Economics",
+      "snapshotFile": "raw/0021-83d13b5e2580.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/celticcivilisation/",
+      "fetchedAt": "2026-10-07T06:11:58.500Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "78b7fdef741ddeda2df6f9b49decb7c4d591601a271f7365ff7b3a7e70656617",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Celtic Civilisation",
+      "snapshotFile": "raw/0022-78b7fdef741d.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/celticstudies/",
+      "fetchedAt": "2026-10-07T06:12:00.532Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4f1c38c61675197413e54573eead1443707b8b52d5b3fe217f138b4556c2eb4e",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Celtic Studies",
+      "snapshotFile": "raw/0023-4f1c38c61675.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/centraleasteuropeanstudies/",
+      "fetchedAt": "2026-10-07T06:12:02.494Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2852dec77c5d3acd2f6fc94bea0df5d74377d86d72f6f64abb0a99653b252f88",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Central & East European Studies",
+      "snapshotFile": "raw/0024-2852dec77c5d.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemicalphysics/",
+      "fetchedAt": "2026-10-07T06:12:04.368Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "00a4464026a9bc2f336c66903f5faf47a4839bbb5e36f46ef7d6c0ae197d93c1",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Chemical Physics",
+      "snapshotFile": "raw/0025-00a4464026a9.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemistry/",
+      "fetchedAt": "2026-10-07T06:12:06.356Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d48dd43ca0699ecd66f1a93960c7e0e8b41be243fae143a099c45cf67f25bcae",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Chemistry",
+      "snapshotFile": "raw/0026-d48dd43ca069.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemistrymedicinal/",
+      "fetchedAt": "2026-10-07T06:12:08.363Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fa4e31ec1acc2b7529c6d7a5bf74fa34b0ca3a2baf48bb18ef250b0449adbe0c",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Chemistry with Medicinal Chemistry",
+      "snapshotFile": "raw/0027-fa4e31ec1acc.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemistry-with-medicinal-chemistry-work-placement/",
+      "fetchedAt": "2026-10-07T06:12:10.364Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0c18cb1c2c43f77dbf6c9812c04ddd544ee2179bf6ae3765a5c3cb9b0b87266b",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Chemistry with Medicinal Chemistry with Work Placement",
+      "snapshotFile": "raw/0028-0c18cb1c2c43.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chemistry-work-placement/",
+      "fetchedAt": "2026-10-07T06:12:12.354Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a913a4821a1745b11f44f2f18b5af03f1e0a275b33c444a889306e8414463654",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Chemistry with Work Placement",
+      "snapshotFile": "raw/0029-a913a4821a17.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/childhoodpractice/",
+      "fetchedAt": "2026-10-07T06:12:14.366Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "07bbf7dccbb223066bd3c76a8293b58ec4b2fff9bab57fce2588591a18743b5b",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Childhood Practice",
+      "snapshotFile": "raw/0030-07bbf7dccbb2.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/chinese/",
+      "fetchedAt": "2026-10-07T06:12:16.370Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c499d52872d245d5e0d39b9d22d365dfe6a49ce88c6a41068a8caeba3f16cbf4",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Chinese",
+      "snapshotFile": "raw/0031-c499d52872d2.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/civilengineering/",
+      "fetchedAt": "2026-10-07T06:12:18.460Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "001e31b5cf0c616b6d03faabad29dcefa2cb10dbfddb8f9c069a1fc7971dad37",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Civil Engineering",
+      "snapshotFile": "raw/0032-001e31b5cf0c.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/civil-engineering-indonesia/",
+      "fetchedAt": "2026-10-07T06:12:20.410Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a65d6e432737d4bcea7d9a284fab4f60240742654aae277a0c389e09cda5ea17",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Civil Engineering (dual degree programme with Universitas Indonesia)",
+      "snapshotFile": "raw/0033-a65d6e432737.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/civilengineeringwitharchitecture/",
+      "fetchedAt": "2026-10-07T06:12:22.468Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "12192f500ad1aadb97027fff28caca01d15e6b1368e05d3e97679e945283c2c7",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Civil Engineering with Architecture",
+      "snapshotFile": "raw/0034-12192f500ad1.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/classics/",
+      "fetchedAt": "2026-10-07T06:12:24.634Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ffe9baeeef9ff9024f65040a6eaef183d264d283b3b1acb9e5a20a809f2bb142",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Classics (Classical Civilisation)",
+      "snapshotFile": "raw/0035-ffe9baeeef9f.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/commonlaw/",
+      "fetchedAt": "2026-10-07T06:12:26.583Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3baf25024baf5604102aac404845d12e4764f88afe0a68b3206a5d18822eb12e",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Common Law",
+      "snapshotFile": "raw/0036-3baf25024baf.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/commonlawgraduateentry/",
+      "fetchedAt": "2026-10-07T06:12:28.443Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "01d55bde9ad7197e8f03303282f703bac1a271479605f5f43a8f6bc805b9fbe5",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Common Law (graduate entry)",
+      "snapshotFile": "raw/0037-01d55bde9ad7.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/communication-culture-technology/",
+      "fetchedAt": "2026-10-07T06:12:30.468Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "43b625cfe9ab986ac26dc8f033d97af9342514c139fc5081bf54f1e27112d00f",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Communication, Culture & Technology",
+      "snapshotFile": "raw/0038-43b625cfe9ab.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/communitydevelopment/",
+      "fetchedAt": "2026-10-07T06:12:32.441Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0135a1877db5f03393cf58e44fa46e221b5a58430db54f5870ff4b62405eb3bf",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Community Development",
+      "snapshotFile": "raw/0039-0135a1877db5.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/comparativeliterature/",
+      "fetchedAt": "2026-10-07T06:12:34.667Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d97073af849139c1d6a855bd167ea7effa0f54cb88793d72b313b38d1473e6d2",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Comparative Literature",
+      "snapshotFile": "raw/0040-d97073af8491.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computingscience/",
+      "fetchedAt": "2026-10-07T06:12:36.696Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7dde6fead29948d24712cf180d6102e2ea857e6023b35abcdcb831498750d0e4",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Computing Science",
+      "snapshotFile": "raw/0041-7dde6fead299.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computing-science-faster-route/",
+      "fetchedAt": "2026-10-07T06:12:38.544Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c5138dc7f58a70b77e07a0bdc8de1b643c1da3eaa436b4d528bdd12fa6b38711",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Computing Science (faster route)",
+      "snapshotFile": "raw/0042-c5138dc7f58a.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computing-science-in-partnership-with-upes/",
+      "fetchedAt": "2026-10-07T06:12:40.492Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bdf64cc129bdf4f8d231eb92dd73f93078d25ae21435a1181bec32390b5c87bd",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Computing Science (in partnership with UPES)",
+      "snapshotFile": "raw/0043-bdf64cc129bd.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computing-science-sit/",
+      "fetchedAt": "2026-10-07T06:12:42.514Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9a81d85e010853de37494005bc92786a27832efaaf6574060a9f340c2bbc7372",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Computing Science (joint degree with SIT)",
+      "snapshotFile": "raw/0044-9a81d85e0108.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/creativeartsindustries/",
+      "fetchedAt": "2026-10-07T06:12:44.546Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "44b7bbf83b632bc06e8244581c51d4e45a24b962fafc8e5eaa18e9cc549b9850",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Creative Arts & Industries",
+      "snapshotFile": "raw/0045-44b7bbf83b63.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/creative-writing/",
+      "fetchedAt": "2026-10-07T06:12:46.498Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a584be2e68e99edc2ba6dc286704ee5323bcf945bde65e26110e963f2338ad2e",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Creative Writing",
+      "snapshotFile": "raw/0046-a584be2e68e9.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/dentistry/",
+      "fetchedAt": "2026-10-07T06:12:48.524Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0935f7b2b16f25019a9c6126ab1c2551b482ddd92f2ad52942fd0fa148d5521d",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Dentistry",
+      "snapshotFile": "raw/0047-0935f7b2b16f.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/digitalmedia/",
+      "fetchedAt": "2026-10-07T06:12:50.740Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0ff3e140f2a70bdd88351c7a67a9c0008a9cd7e8b14cbb2280bd5af4ce397e6c",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Digital Media & Information Studies",
+      "snapshotFile": "raw/0048-0ff3e140f2a7.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/environmentalgeoscience/",
+      "fetchedAt": "2026-10-07T06:12:52.604Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "194f0e864d3b985509ec64e05abe7b10c4d969b4b7e2a5db2984498446e99626",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Environmental Geoscience",
+      "snapshotFile": "raw/0049-194f0e864d3b.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/economicsocialhistory/",
+      "fetchedAt": "2026-10-07T06:12:54.705Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a179b68aa4731569b0cae0386d341d496fac90dd4e14997e28a4e055dab6ca00",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Economic & Social History",
+      "snapshotFile": "raw/0050-a179b68aa473.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/economics/",
+      "fetchedAt": "2026-10-07T06:12:56.774Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fe47eb8bfc3fbe123bc5e8db56a9e24d42dd8a16f2f0d592f0d7ff451486ce9b",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Economics",
+      "snapshotFile": "raw/0051-fe47eb8bfc3f.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/education/",
+      "fetchedAt": "2026-10-07T06:12:58.564Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8c1065437e685c0b9ab79fff57125d78ac156d8f6cb57814c0283d095710be49",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Education with Primary Teaching Qualification",
+      "snapshotFile": "raw/0052-8c1065437e68.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronicsoftwareengineering/",
+      "fetchedAt": "2026-10-07T06:13:00.847Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1691cf44d82e81d8349999db67c097932d13b5cd836a652bdd591bb2bd5a3ecf",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Electronic & Software Engineering",
+      "snapshotFile": "raw/0053-1691cf44d82e.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronics/",
+      "fetchedAt": "2026-10-07T06:13:05.152Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee0821372cf581a3a6a9939bdd65e44046f03d026162654aab0eeaaa0403bf1e",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Electronics & Electrical Engineering",
+      "snapshotFile": "raw/0054-ee0821372cf5.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronics-electrical-engineering-indonesia/",
+      "fetchedAt": "2026-10-07T06:13:05.506Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fff177e3c5365bc05371df46d4624235eabe5022e441b294962882d21eafcee9",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Electronics and Electrical Engineering (dual degree with Universitas Indonesia)",
+      "snapshotFile": "raw/0055-fff177e3c536.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronics-electrical-engineering-in-partnership/",
+      "fetchedAt": "2026-10-07T06:13:07.742Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d89f619fd80de8f20862d028797ff6da4f4c4e9736fbbdcc2317682ed5b07619",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Electronics & Electrical Engineering (in partnership with Tianjin University)",
+      "snapshotFile": "raw/0056-d89f619fd80d.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/eee-uestc/",
+      "fetchedAt": "2026-10-07T06:13:09.936Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f933fe0e461be53f269541dbacec3c702461fd2f45191af0bb009a95d89e0954",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Electronics & Electrical Engineering with Communications (dual degree with UESTC)",
+      "snapshotFile": "raw/0057-f933fe0e461b.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronics-electrical-engineering-ie-uestc/",
+      "fetchedAt": "2026-10-07T06:13:11.698Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "979f091eb5601b17104ccc52bca2e847dd2acd5b25eaf8ea0c9a27be2dc9fa44",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Electronics & Electrical Engineering with Information Engineering (dual degree with UESTC)",
+      "snapshotFile": "raw/0058-979f091eb560.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/eee-microelectronics-uestc/",
+      "fetchedAt": "2026-10-07T06:13:14.034Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8e8a8d1a45547b57f85ad8725891c9767d74aac31bb2b6d9e80ec3680dd3b1a3",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Electronics & Electrical Engineering with Microelectronics (dual degree with UESTC)",
+      "snapshotFile": "raw/0059-8e8a8d1a4554.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/electronicswithmusic/",
+      "fetchedAt": "2026-10-07T06:13:15.790Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6c203662786d0da5f542f9f11506af082f9d19aade575a3f32b4a41081a22121",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Electronics with Music",
+      "snapshotFile": "raw/0060-6c203662786d.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/energy-engineering/",
+      "fetchedAt": "2026-10-07T06:13:17.733Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c2a08f1cef5b6707cef9c01429f93a2b17ce306bc7e487d775124f6c8052c480",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Energy Engineering",
+      "snapshotFile": "raw/0061-c2a08f1cef5b.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/englishlanguage/",
+      "fetchedAt": "2026-10-07T06:13:19.917Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e7220b270b8768825e3846c42ca3fa47881d07d75194cb10e946b6ce116b78a7",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - English Language & Linguistics",
+      "snapshotFile": "raw/0062-e7220b270b87.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/englishliterature/",
+      "fetchedAt": "2026-10-07T06:13:21.921Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dc0362c4bf35e5f4fb38d1277fe310ec5c2d9c9da574e3ba992f6fe8d6ac2d35",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - English Literature",
+      "snapshotFile": "raw/0063-dc0362c4bf35.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/environmental-geoscience-faster-route/",
+      "fetchedAt": "2026-10-07T06:13:23.819Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "50e738bbec8bb0857d2fe710c5338cdc57c053d0aa63ced22d5bacb6e50e5e25",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Environmental Geoscience (faster route)",
+      "snapshotFile": "raw/0064-50e738bbec8b.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/environmentalsciencesustainability/",
+      "fetchedAt": "2026-10-07T06:13:25.790Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4d5057fc4c208524e595510ecd80ad928662e0bdef40f6d7fea28ea55dce6b7d",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Environmental Science & Sustainability (Dumfries Campus)",
+      "snapshotFile": "raw/0065-4d5057fc4c20.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/filmtelevisionstudies/",
+      "fetchedAt": "2026-10-07T06:13:27.925Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "473808e3abef741602162bc3072ece8efcb63a5b88a2e2c6c81764736946d808",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Film & Television Studies",
+      "snapshotFile": "raw/0066-473808e3abef.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/finance/",
+      "fetchedAt": "2026-10-07T06:13:29.765Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "06ce695fad5a3adde56e021437e158092d947b2a1fcce2cc3a44f76f17ffa248",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Finance",
+      "snapshotFile": "raw/0067-06ce695fad5a.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/financemathematics/",
+      "fetchedAt": "2026-10-07T06:13:31.805Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "223829df75bcfc8fe23f0d63c02b743226eb3391ab6fe8eece5e715141ecb75a",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Finance & Mathematics",
+      "snapshotFile": "raw/0068-223829df75bc.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/financestatistics/",
+      "fetchedAt": "2026-10-07T06:13:33.875Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2c395b4676dcc584bd7fc0d1e4dec73d35c4cb5f6fa6fcdfd35daa36e884d741",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Finance and Statistics & Data Analytics",
+      "snapshotFile": "raw/0069-2c395b4676dc.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/french/",
+      "fetchedAt": "2026-10-07T06:13:35.978Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e887962c417b2946f6a609dd634502c22067460bde280de834df86acd3aa8ad1",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - French",
+      "snapshotFile": "raw/0070-e887962c417b.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/gaelic/",
+      "fetchedAt": "2026-10-07T06:13:37.950Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f724df0f2b34be67ac04e93b00773416e1254243811a2a20c6c96f87d7eeb81a",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Gaelic",
+      "snapshotFile": "raw/0071-f724df0f2b34.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/genetics/",
+      "fetchedAt": "2026-10-07T06:13:39.997Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ff37d40f358db0525dfe0531254e273d65985eaed688d2307a08dc675a7ce176",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Genetics",
+      "snapshotFile": "raw/0072-ff37d40f358d.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/geography/",
+      "fetchedAt": "2026-10-07T06:13:41.978Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aed8f1b539214d10ea89055d9d3bc4428fdacccc7081dc8dbefb121e01a55a5c",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Geography",
+      "snapshotFile": "raw/0073-aed8f1b53921.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/geography-faster-route/",
+      "fetchedAt": "2026-10-07T06:13:43.804Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "10b5dbefa449cacb5b09d6fe8f238e1d0cac329dafd6bedeeb816ba4c5b0b691",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Geography (faster route)",
+      "snapshotFile": "raw/0074-10b5dbefa449.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/geology/",
+      "fetchedAt": "2026-10-07T06:13:45.790Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "91ae38a535695ec95ea5e0017b8a01c86494abf314bc1d14c7c834b34e2471c2",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Geology",
+      "snapshotFile": "raw/0075-91ae38a53569.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/geology-faster-route/",
+      "fetchedAt": "2026-10-07T06:13:47.792Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "50588b4a74575214fc99c4f8127816cc1dedcf36d69973878bb195de18d40ac0",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Geology (faster route)",
+      "snapshotFile": "raw/0076-50588b4a7457.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/german/",
+      "fetchedAt": "2026-10-07T06:13:50.006Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4cac0070944f2edb5e3de15c8b5d990ab88b8f82fd09fa3e85eb259d6d59fadd",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - German",
+      "snapshotFile": "raw/0077-4cac0070944f.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/global-sustainable-development/",
+      "fetchedAt": "2026-10-07T06:13:51.840Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cdce219173daca47bca6093befc85814cc1b88e1dc295b51dc9d0b15f95ddf2d",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Global Sustainable Development (Dumfries Campus)",
+      "snapshotFile": "raw/0078-cdce219173da.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/greek/",
+      "fetchedAt": "2026-10-07T06:13:53.981Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e732c6255018a8dceddcf2f366d811c6299b6c508d53cf378476f6029f0bd7ce",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - Greek",
+      "snapshotFile": "raw/0079-e732c6255018.html"
+    },
+    {
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/history/",
+      "fetchedAt": "2026-10-07T06:13:56.044Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e10765237c8c97ee57b82e993196ed04e7fc9674e2f0d83bcdad0d1606904e87",
+      "title": "University of Glasgow - Undergraduate study - 2027 Degree programmes A‑Z - History",
+      "snapshotFile": "raw/0080-e10765237c8c.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:13:56.122Z",
+    "seedUrls": [
+      "https://www.gla.ac.uk/study/short/courses/?subject=Courses+online&delivery=Courses+online",
+      "https://www.gla.ac.uk/undergraduate/degrees/",
+      "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/choosingyourdegree/flexible-degrees/",
+      "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/choosingyourdegree/professional-degrees/",
+      "https://www.gla.ac.uk/undergraduate/degrees/accountancy/",
+      "https://www.gla.ac.uk/undergraduate/degrees/accountingmathematics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/accountingstatistics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/aeronauticalengineering/",
+      "https://www.gla.ac.uk/undergraduate/degrees/aeronautical-engineering-in-partnership-tianjin/",
+      "https://www.gla.ac.uk/undergraduate/degrees/aerospacesystems/",
+      "https://www.gla.ac.uk/undergraduate/degrees/anatomy/",
+      "https://www.gla.ac.uk/undergraduate/degrees/ancienthistory/",
+      "https://www.gla.ac.uk/undergraduate/degrees/archaeology/",
+      "https://www.gla.ac.uk/undergraduate/degrees/artificial-intelligence/",
+      "https://www.gla.ac.uk/undergraduate/degrees/artificial-intelligence-faster-route/",
+      "https://www.gla.ac.uk/undergraduate/degrees/astronomy/",
+      "https://www.gla.ac.uk/undergraduate/degrees/biochemistry/",
+      "https://www.gla.ac.uk/undergraduate/degrees/biological-sciences/",
+      "https://www.gla.ac.uk/undergraduate/degrees/biomedicalengineering/",
+      "https://www.gla.ac.uk/undergraduate/degrees/biomedical-engineering-in-partnership-with-kmitl/",
+      "https://www.gla.ac.uk/undergraduate/degrees/biomedical-engineering-in-partnership-with-tianjin/",
+      "https://www.gla.ac.uk/undergraduate/degrees/businessmanagement/",
+      "https://www.gla.ac.uk/undergraduate/degrees/businesseconomics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/celticcivilisation/",
+      "https://www.gla.ac.uk/undergraduate/degrees/celticstudies/",
+      "https://www.gla.ac.uk/undergraduate/degrees/centraleasteuropeanstudies/",
+      "https://www.gla.ac.uk/undergraduate/degrees/chemicalphysics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/chemistry/",
+      "https://www.gla.ac.uk/undergraduate/degrees/chemistrymedicinal/",
+      "https://www.gla.ac.uk/undergraduate/degrees/chemistry-with-medicinal-chemistry-work-placement/",
+      "https://www.gla.ac.uk/undergraduate/degrees/chemistry-work-placement/",
+      "https://www.gla.ac.uk/undergraduate/degrees/childhoodpractice/",
+      "https://www.gla.ac.uk/undergraduate/degrees/chinese/",
+      "https://www.gla.ac.uk/undergraduate/degrees/civilengineering/",
+      "https://www.gla.ac.uk/undergraduate/degrees/civil-engineering-indonesia/",
+      "https://www.gla.ac.uk/undergraduate/degrees/civilengineeringwitharchitecture/",
+      "https://www.gla.ac.uk/undergraduate/degrees/classics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/commonlaw/",
+      "https://www.gla.ac.uk/undergraduate/degrees/commonlawgraduateentry/",
+      "https://www.gla.ac.uk/undergraduate/degrees/communication-culture-technology/",
+      "https://www.gla.ac.uk/undergraduate/degrees/communitydevelopment/",
+      "https://www.gla.ac.uk/undergraduate/degrees/comparativeliterature/",
+      "https://www.gla.ac.uk/undergraduate/degrees/computingscience/",
+      "https://www.gla.ac.uk/undergraduate/degrees/computing-science-faster-route/",
+      "https://www.gla.ac.uk/undergraduate/degrees/computing-science-in-partnership-with-upes/",
+      "https://www.gla.ac.uk/undergraduate/degrees/computing-science-sit/",
+      "https://www.gla.ac.uk/undergraduate/degrees/creativeartsindustries/",
+      "https://www.gla.ac.uk/undergraduate/degrees/creative-writing/",
+      "https://www.gla.ac.uk/undergraduate/degrees/dentistry/",
+      "https://www.gla.ac.uk/undergraduate/degrees/digitalmedia/",
+      "https://www.gla.ac.uk/undergraduate/degrees/environmentalgeoscience/",
+      "https://www.gla.ac.uk/undergraduate/degrees/economicsocialhistory/",
+      "https://www.gla.ac.uk/undergraduate/degrees/economics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/education/",
+      "https://www.gla.ac.uk/undergraduate/degrees/electronicsoftwareengineering/",
+      "https://www.gla.ac.uk/undergraduate/degrees/electronics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/electronics-electrical-engineering-indonesia/",
+      "https://www.gla.ac.uk/undergraduate/degrees/electronics-electrical-engineering-in-partnership/",
+      "https://www.gla.ac.uk/undergraduate/degrees/eee-uestc/",
+      "https://www.gla.ac.uk/undergraduate/degrees/electronics-electrical-engineering-ie-uestc/",
+      "https://www.gla.ac.uk/undergraduate/degrees/eee-microelectronics-uestc/",
+      "https://www.gla.ac.uk/undergraduate/degrees/electronicswithmusic/",
+      "https://www.gla.ac.uk/undergraduate/degrees/energy-engineering/",
+      "https://www.gla.ac.uk/undergraduate/degrees/englishlanguage/",
+      "https://www.gla.ac.uk/undergraduate/degrees/englishliterature/",
+      "https://www.gla.ac.uk/undergraduate/degrees/environmental-geoscience-faster-route/",
+      "https://www.gla.ac.uk/undergraduate/degrees/environmentalsciencesustainability/",
+      "https://www.gla.ac.uk/undergraduate/degrees/filmtelevisionstudies/",
+      "https://www.gla.ac.uk/undergraduate/degrees/finance/",
+      "https://www.gla.ac.uk/undergraduate/degrees/financemathematics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/financestatistics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/french/",
+      "https://www.gla.ac.uk/undergraduate/degrees/gaelic/",
+      "https://www.gla.ac.uk/undergraduate/degrees/genetics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/geography/",
+      "https://www.gla.ac.uk/undergraduate/degrees/geography-faster-route/",
+      "https://www.gla.ac.uk/undergraduate/degrees/geology/",
+      "https://www.gla.ac.uk/undergraduate/degrees/geology-faster-route/",
+      "https://www.gla.ac.uk/undergraduate/degrees/german/",
+      "https://www.gla.ac.uk/undergraduate/degrees/global-sustainable-development/",
+      "https://www.gla.ac.uk/undergraduate/degrees/greek/",
+      "https://www.gla.ac.uk/undergraduate/degrees/history/",
+      "https://www.gla.ac.uk/undergraduate/degrees/historyofart/",
+      "https://www.gla.ac.uk/undergraduate/degrees/humanbiology/",
+      "https://www.gla.ac.uk/undergraduate/degrees/immunology/",
+      "https://www.gla.ac.uk/undergraduate/degrees/internationalrelations/",
+      "https://www.gla.ac.uk/undergraduate/degrees/italian/",
+      "https://www.gla.ac.uk/undergraduate/degrees/latin/",
+      "https://www.gla.ac.uk/undergraduate/degrees/?subject=law&location=all&date=all",
+      "https://www.gla.ac.uk/undergraduate/degrees/liberal-arts/",
+      "https://www.gla.ac.uk/undergraduate/degrees/machine-learning-mathematics-statistics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/marinefreshwaterbiology/",
+      "https://www.gla.ac.uk/undergraduate/degrees/materials-chemistry-work-placement/",
+      "https://www.gla.ac.uk/undergraduate/degrees/materialschemistry/",
+      "https://www.gla.ac.uk/undergraduate/degrees/mathematics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/mathematics-and-statistics-zuel/",
+      "https://www.gla.ac.uk/undergraduate/degrees/mathematics-faster-route/",
+      "https://www.gla.ac.uk/undergraduate/degrees/mathematicsstatistics-faster-route/",
+      "https://www.gla.ac.uk/undergraduate/degrees/mechanicaldesignengineering/",
+      "https://www.gla.ac.uk/undergraduate/degrees/mechanicalengineering/",
+      "https://www.gla.ac.uk/undergraduate/degrees/mechanical-engineering-sit/",
+      "https://www.gla.ac.uk/undergraduate/degrees/mechanicalengineeringwithaeronautics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/mechatronics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/gateway-to-medical-studies/",
+      "https://www.gla.ac.uk/undergraduate/degrees/medicine/",
+      "https://www.gla.ac.uk/undergraduate/degrees/microbiology/",
+      "https://www.gla.ac.uk/undergraduate/degrees/molecularcellularbiology/",
+      "https://www.gla.ac.uk/undergraduate/degrees/musicma/",
+      "https://www.gla.ac.uk/undergraduate/degrees/musicbmus/",
+      "https://www.gla.ac.uk/undergraduate/degrees/neuroscience/",
+      "https://www.gla.ac.uk/undergraduate/degrees/nursing/",
+      "https://www.gla.ac.uk/undergraduate/degrees/nursingsit/",
+      "https://www.gla.ac.uk/undergraduate/degrees/pharmacology/",
+      "https://www.gla.ac.uk/undergraduate/degrees/philosophy/",
+      "https://www.gla.ac.uk/undergraduate/degrees/physics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/physics-faster-route/",
+      "https://www.gla.ac.uk/undergraduate/degrees/physicswithastrophysics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/physics-with-astrophysics-faster-route/",
+      "https://www.gla.ac.uk/undergraduate/degrees/politics/",
+      "https://www.gla.ac.uk/undergraduate/degrees/portuguese/"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:19.918Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.518Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

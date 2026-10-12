@@ -1,0 +1,14 @@
+{
+  "userAgent": "YangdoujiaoResearchBot/0.1 (+https://your-real-domain.example/crawler-policy)",
+  "requestDelayMs": 1500,
+  "maxPagesPerSource": 30,
+  "sources": [
+    {
+      "sourceKey": "replace-with-university-key",
+      "displayName": "待配置学校",
+      "seedUrls": ["https://www.university.example/study/programmes"],
+      "allowedHosts": ["www.university.example"],
+      "countryRaw": null
+    }
+  ]
+}

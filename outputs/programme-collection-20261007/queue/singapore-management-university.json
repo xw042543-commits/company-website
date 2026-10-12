@@ -1,0 +1,20 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "singapore-management-university",
+    "displayName": "Singapore Management University",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://www.smu.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.smu.edu.sg",
+      "smu.edu.sg"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 1,
+    "warnings": []
+  },
+  "queue": []
+}

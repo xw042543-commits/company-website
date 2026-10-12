@@ -1,46 +1,89 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { Locale, words } from "@/lib/site";
+import { useRouter } from "next/navigation";
+import { type FormEvent, useState } from "react";
+import { AuthSuccessFeedback } from "@/components/auth-success-feedback";
+import { login } from "@/lib/auth-api";
+import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
+import { browserApiBaseUrl } from "@/lib/client-runtime";
+import { type Locale, words } from "@/lib/site";
 
-export function LoginForm({ locale }: { locale: Locale }) {
+type LoginFormProps = {
+  locale: Locale;
+  returnTo?: string;
+  onForgotPassword?: () => void;
+};
+
+export function LoginForm({ locale, returnTo, onForgotPassword }: LoginFormProps) {
+  const router = useRouter();
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [reviewed, setReviewed] = useState(false);
-  const accountRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
+  const [rememberMe, setRememberMe] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [message, setMessage] = useState<AuthMessage | null>(null);
+  const [demoPending, setDemoPending] = useState(false);
+  const [completed, setCompleted] = useState(false);
 
-  function handlePreview() {
-    if (accountRef.current) accountRef.current.value = "";
-    if (passwordRef.current) passwordRef.current.value = "";
-    setShowPassword(false);
-    setReviewed(true);
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setPending(true);
+    setMessage(null);
+    const result = await login(browserApiBaseUrl(), {
+      identifier: identifier.trim(), password, rememberMe,
+    });
+    setPending(false);
+    if (result.status === "ready") {
+      setCompleted(true);
+      window.setTimeout(() => {
+        router.push(returnTo ?? `/${locale}/account`);
+        router.refresh();
+      }, 900);
+      return;
+    }
+    setMessage(authMessage(locale, result));
   }
 
-  return <div className="login-form" onChange={() => setReviewed(false)} aria-describedby="login-preview-notice">
-    <p id="login-preview-notice" className="login-notice">
-      <strong>{words(locale, "登录界面预览", "Login interface preview")}</strong>
-      <span>{words(locale, "安全登录服务尚未接入。请勿输入真实密码；此页面不会发送或保存任何登录资料。", "Secure account access is not connected yet. Do not enter a real password; this page will not send or store any login details.")}</span>
-    </p>
+  async function startDemoSession() {
+    setDemoPending(true);
+    setMessage(null);
+    try {
+      const response = await fetch("/api/demo-session", { method: "POST", credentials: "include" });
+      if (!response.ok) throw new Error("demo unavailable");
+      router.replace(returnTo ?? `/${locale}/account`);
+      router.refresh();
+    } catch {
+      setMessage({ tone: "error", text: words(locale, "本地演示登录暂时无法启动。", "The local demo session could not be started.") });
+      setDemoPending(false);
+    }
+  }
 
-    <div className="field">
-      <label htmlFor="account-id">{words(locale, "邮箱或用户名", "Email or username")}</label>
-      <input ref={accountRef} id="account-id" type="text" autoComplete="off" maxLength={160} placeholder={words(locale, "请输入邮箱或用户名", "Enter your email or username")} />
-    </div>
+  if (completed) return <AuthSuccessFeedback locale={locale} kind="login" />;
 
-    <div className="field">
-      <label htmlFor="account-password">{words(locale, "密码", "Password")}</label>
-      <div className="password-input-wrap">
-        <input ref={passwordRef} id="account-password" type={showPassword ? "text" : "password"} autoComplete="off" maxLength={128} placeholder={words(locale, "请输入密码", "Enter your password")} />
-        <button className="password-toggle" type="button" aria-controls="account-password" aria-pressed={showPassword} onClick={() => setShowPassword(value => !value)}>
-          {showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}
-        </button>
+  return <form className="login-form account-login-form" onSubmit={handleSubmit}>
+    <div>
+      <div className="field">
+        <label htmlFor="account-id">{words(locale, "邮箱", "Email address")}</label>
+        <input id="account-id" name="identifier" type="email" inputMode="email" autoComplete="email" maxLength={160} required value={identifier} onChange={(event) => { setIdentifier(event.target.value); setMessage(null); }} placeholder={words(locale, "请输入注册邮箱", "Enter your registered email")} />
       </div>
-      <Link className="forgot-password-link" href={`/${locale}/forgot-password`}>{words(locale, "忘记密码？", "Forgot password?")}</Link>
+
+      <div className="field">
+        <label htmlFor="account-password">{words(locale, "密码", "Password")}</label>
+        <div className="password-input-wrap">
+          <input id="account-password" name="password" type={showPassword ? "text" : "password"} autoComplete="current-password" maxLength={128} minLength={8} required value={password} onChange={(event) => { setPassword(event.target.value); setMessage(null); }} placeholder={words(locale, "请输入密码", "Enter your password")} />
+          <button className="password-toggle" type="button" aria-controls="account-password" aria-pressed={showPassword} onClick={() => setShowPassword((value) => !value)}>{showPassword ? words(locale, "隐藏", "Hide") : words(locale, "显示", "Show")}</button>
+        </div>
+        {onForgotPassword
+          ? <button className="forgot-password-link" type="button" onClick={onForgotPassword}>{words(locale, "忘记密码？", "Forgot password?")}</button>
+          : <Link className="forgot-password-link" href={`/${locale}/forgot-password`}>{words(locale, "忘记密码？", "Forgot password?")}</Link>}
+      </div>
+
+      <label className="auth-checkbox"><input type="checkbox" checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} /> <span>{words(locale, "保持登录", "Keep me signed in")}</span></label>
+      <button className="full-width" type="submit" disabled={pending}>{pending ? words(locale, "正在登录…", "Signing in…") : words(locale, "立即登录", "Sign in")}</button>
+      {process.env.NODE_ENV !== "production" && <button className="full-width demo-login-button" type="button" disabled={demoPending} onClick={startDemoSession}>{demoPending ? words(locale, "正在进入演示…", "Opening demo…") : words(locale, "进入本地演示账户", "Open local demo account")}</button>}
     </div>
 
-    <button className="full-width" type="button" onClick={handlePreview}>{words(locale, "预览登录操作", "Preview sign in")}</button>
-    <p className="login-support-note">{words(locale, "安全登录服务接入后，此按钮将验证账户并进入对应页面。", "Once secure authentication is connected, this button will verify the account and open the appropriate area.")}</p>
-    {reviewed && <p className="login-status" role="status" aria-live="polite">{words(locale, "预览完成。登录资料已从页面清除，没有发送或保存。", "Preview complete. The login details were cleared and nothing was sent or stored.")}</p>}
-  </div>;
+    {message && <p className={`login-status auth-status-${message.tone}`} role={message.tone === "error" ? "alert" : "status"} aria-live="polite">{message.text}</p>}
+  </form>;
 }

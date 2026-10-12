@@ -21,13 +21,15 @@ export function CompanyContacts({
       {introduction && <p>{introduction}</p>}
     </div>
     <div className="contact-card-grid">
-      {advisers.map((adviser) => <article className="contact-card" key={adviser.id}>
+      {advisers.map((adviser) => <article className={`contact-card${adviser.region === "MY" ? " contact-card-primary" : ""}`} key={adviser.id}>
         <div className="contact-card-copy">
-          <p className="contact-region">{adviser.region === "MY"
-            ? words(locale, "马来西亚", "Malaysia")
-            : words(locale, "中国", "China")}</p>
-          <h3>{adviser.name}</h3>
-          <p>{words(locale, adviser.role.zh, adviser.role.en)}</p>
+          <div className="contact-card-identity">
+            <p className="contact-region">{adviser.region === "MY"
+              ? words(locale, "马来西亚", "Malaysia")
+              : words(locale, "中国", "China")}</p>
+            <h3>{adviser.name}</h3>
+            <p>{words(locale, adviser.role.zh, adviser.role.en)}</p>
+          </div>
           <dl className="contact-methods">
             <div><dt>{words(locale, "电话", "Phone")}</dt><dd><a href={contactTelephoneHref(adviser)}>{adviser.phone}</a></dd></div>
             {adviser.email && <div><dt>{words(locale, "邮箱", "Email")}</dt><dd><a href={`mailto:${adviser.email}`}>{adviser.email}</a></dd></div>}

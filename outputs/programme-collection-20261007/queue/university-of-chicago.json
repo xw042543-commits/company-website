@@ -1,0 +1,310 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "university-of-chicago",
+    "displayName": "University of Chicago",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.uchicago.edu/"
+    ],
+    "allowedHosts": [
+      "www.uchicago.edu",
+      "uchicago.edu"
+    ],
+    "discoveredUrls": 40,
+    "parsedProgrammes": 6,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 500：https://www.uchicago.edu/academics/graduate-programs/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+      "HTTP 403：https://www.uchicago.edu/life-at-uchicago/student-life",
+      "HTTP 403：https://www.uchicago.edu/features/teaching_and_inspiring_undergraduates/",
+      "HTTP 500：https://www.uchicago.edu/faculty/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+      "HTTP 500：https://www.uchicago.edu/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+      "HTTP 500：https://www.uchicago.edu/academics/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+      "HTTP 500：https://www.uchicago.edu/who-we-are/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+      "HTTP 404：https://harris.uchicago.edu/academics/undergraduate/uchicagoPBPL@uchicago.edu"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/graduate-programs/masters-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/graduate-programs/phd-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://harris.uchicago.edu/academics/degrees/ms-computational-analysis-public-policy-mscapp",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://harris.uchicago.edu/academics/degrees/master-science-data-analytics-policy-msdap",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:31:42.823Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://harris.uchicago.edu/academics/degrees/evening-masters-program-part-time-ma",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://harris.uchicago.edu/academics/degrees/ma-public-policy-certificate-research-methods-macrm",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/graduate-programs/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://harris.uchicago.edu/academics/degrees/phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://grad.uchicago.edu/admissions/programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://harris.uchicago.edu/academics/degrees/master-public-policy-mpp",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:31:42.823Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://researchsafety.uchicago.edu/programs/radiation-safety/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/undergraduate-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/graduate-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://harris.uchicago.edu/academics/degrees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://biosciences.uchicago.edu/programs/biochemistry-and-molecular-biophysics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://pme.uchicago.edu/academics/phd-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://biosciences.uchicago.edu/programs/genetics-genomics-and-system-biology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://biosciences.uchicago.edu/programs/microbiology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://biosciences.uchicago.edu/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://cam.uchicago.edu/academics/ms-in-computational-and-applied-mathematics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://codas.uchicago.edu/academics/ms-data-science/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://geosci.uchicago.edu/academics/ms-in-environmental-sciences/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://cs.uchicago.edu/academics/phd/phd-program-overview/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://codas.uchicago.edu/academics/phd-in-data-science/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://stat.uchicago.edu/academics/phd-in-statistics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/schools-and-divisions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/academic-departments",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/n-12-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/c,document.getElementsByTagName(%22head%22)[0].appendChild(u)%7D)).then((function()%7Bn[e]=0%7D)));var",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://pme.uchicago.edu/academics/masters-of-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://pritzker.uchicago.edu/academics/mesh",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://financialaid.uchicago.edu/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://divinity.uchicago.edu/academics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "http://college.uchicago.edu/academics/arley-d-cathey-learning-center",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://www.uchicago.edu/academics/faculty_research",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://pme.uchicago.edu/academics/phd-programs/phd-molecular-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:02.340Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://pme.uchicago.edu/academics/phd-programs/phd-quantum-science-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:02.340Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://pme.uchicago.edu/academics/phd-programs/phd-courses-core-competencies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:37:02.340Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-chicago",
+      "url": "https://harris.uchicago.edu/academics/degrees/ma-ma-public-policy-international-relations",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:55.880Z",
+      "error": null
+    }
+  ]
+}

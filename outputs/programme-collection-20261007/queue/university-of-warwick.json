@@ -1,0 +1,868 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-warwick",
+    "displayName": "University of Warwick",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://warwick.ac.uk/"
+    ],
+    "allowedHosts": [
+      "warwick.ac.uk",
+      "www.warwick.ac.uk"
+    ],
+    "discoveredUrls": 121,
+    "parsedProgrammes": 4,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/postgraduate/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance-foundation-year",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance-placement-year",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-ancient-history-classical-archaeology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-part-time/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-ancient-history-classical-archaeology-study-in-europe",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-automotive-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-automotive-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biochemistry",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biochemistry",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biochemistry-industrial-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biochemistry-placement-year",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biological-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biological-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biological-sciences-industrial-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biological-sciences-placement-year",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biomedical-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biomedical-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biomedical-science-industrial-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biomedical-science-placement-year",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-biomedical-systems-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-biomedical-systems-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-chemistry",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-industrial-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-international-placement",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-chemistry-medicinal",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-medicinal",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-child-and-family-mental-health/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-civil-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-civil-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classical-civilisation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classical-civilisation-study-in-europe",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-ancient-greek-study-in-europe",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-latin-study-in-europe",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-english",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-computer-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-computer-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-computer-science-business",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-computer-systems-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-computer-systems-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:39.966Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-cyber-security",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-data-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/msci-data-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-design-global-sustainable-development",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-design-for-sustainable-innovation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-discrete-mathematics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-discrete-mathematics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:56.526Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:10:58.141Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-economic-studies-global-sustainable-development",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-economics-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-bsc-economics-politics-international-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-bsc-economics-psychology-philosophy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-education-studies-global-sustainable-development",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-electrical-electronic-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-electrical-electronic-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-engineering-business-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-classical-civilisation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-cultural-studies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-french",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-german",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-hispanic-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-history",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-italian",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-theatre-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-language-linguistics-intercalated-year",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-literature",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-literature-creative-writing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-film-literature",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-film-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-history",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-theatre-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-studies-part-time/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-business-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-history",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-theatre",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-global-politics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-global-sustainable-development-business-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-global-sustainable-development",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-health-medical-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-hispanic-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-hispanic-studies-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-hispanic-studies-global-sustainable-development",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-hispanic-studies-history",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-hispanic-studies-theatre-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-history-global-sustainable-development",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-italian",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-philosophy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-politics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-sociology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-part-time/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-art",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-art-italian",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-human-social-political-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-integrated-natural-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/msci-integrated-natural-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-international-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-international-management-foundation-year",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-international-management-with-marketing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-italian-classics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-italian-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-italian-theatre-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-italian-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/llb-law-4-years",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-law-sociology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-warwick",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/educationstudies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:11:10.380Z",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "massachusetts-institute-of-technology",
+    "displayName": "Massachusetts Institute of Technology",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.mit.edu/"
+    ],
+    "allowedHosts": [
+      "www.mit.edu",
+      "mit.edu"
+    ],
+    "discoveredUrls": 12,
+    "parsedProgrammes": 8,
+    "pagesRead": 106,
+    "warnings": [
+      "http://mit.edu/：跳转超出允许域名: web.mit.edu",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_text.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_africanafricandiasporastudiestext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_americanstudiestext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_ancientmedievalstudiestext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_asianasiandiasporastudiestext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_latinamericanlatinostudiestext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_newitemtext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/humanities_womensgenderstudiestext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/undergraduate-programs.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/degrees.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/degrees_text.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/degrees_degtext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/academic-programs.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_text.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_concoursetext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_designplustext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_esgtext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_terrascopetext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/freshman-year/freshman-year_freshmangradingtext.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/majors/majors.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-programs/minors/minors.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/mit/undergraduate-education/academic-research-options/undergraduate-research-opportunities-program/undergraduate-research-opportunities-program.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/chemistry-biology/chemistry-biology.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/climate-system-science-engineering/climate-system-science-engineering.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computation-cognition/computation-cognition.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-molecular-biology/computer-science-molecular-biology.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/computer-science-economics-data-science/computer-science-economics-data-science.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities-engineering/humanities-engineering.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities-science/humanities-science.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/urban-science-planning-computer-science/urban-science-planning-computer-science.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minors.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minor-african-studies/minor-african-studies.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/minor-american-studies/minor-american-studies.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/ancient-medieval-studies/ancient-medieval-studies.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/applied-international-studies/applied-international-studies.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/asian-studies/asian-studies.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/astronomy/astronomy.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/biomedical-engineering/biomedical-engineering.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/energy-studies/energy-studies.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/environment-sustainability/environment-sustainability.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/latin-american-latino-studies/latin-american-latino-studies.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/middle-eastern-studies/middle-eastern-studies.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/polymers-soft-matter/polymers-soft-matter.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/public-policy/public-policy.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/russian-eurasian-studies/russian-eurasian-studies.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/statistics-data-science/statistics-data-science.pdf",
+      "跳过非 HTML 内容：https://catalog.mit.edu/interdisciplinary/undergraduate-programs/minors/womens-gender-studies/womens-gender-studies.pdf",
+      "HTTP 404：http://shass.mit.edu/undergraduate/minors/"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "http://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/humanities/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://oge.mit.edu/graduate-admissions/programs/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "http://professional.mit.edu/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://shass.mit.edu/undergraduate/joint",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://catalog.mit.edu/degree-charts/humanities-course-21/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:16.847Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://catalog.mit.edu/degree-charts/chemistry-biology-course-5-7/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:32.904Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://catalog.mit.edu/degree-charts/climate-system-science-engineering-course-1-12/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:34.734Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://catalog.mit.edu/degree-charts/computation-cognition-6-9/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:36.031Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://catalog.mit.edu/degree-charts/computer-science-molecular-biology-course-6-7/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:38.271Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://catalog.mit.edu/interdisciplinary/graduate-programs/computer-science-molecular-biology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:38.271Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://catalog.mit.edu/degree-charts/computer-science-economics-data-science-course-6-14/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:40.262Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "massachusetts-institute-of-technology",
+      "url": "https://catalog.mit.edu/degree-charts/urban-science-planning-computer-science-11-6/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:46.276Z",
+      "error": null
+    }
+  ]
+}

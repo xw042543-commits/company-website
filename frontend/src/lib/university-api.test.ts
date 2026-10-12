@@ -29,6 +29,7 @@ type UniversitySearchRequest = (
 type SchoolSummaryMapper = (item: unknown, locale: "zh" | "en") => unknown;
 type UniversityDetailParser = (payload: unknown) => unknown;
 type UniversityProgrammePageParser = (payload: unknown) => unknown;
+type UniversityProgrammeParser = (payload: unknown) => unknown;
 type UniversityDetailRequest = (
   baseUrl: string | undefined,
   slug: string,
@@ -40,12 +41,18 @@ type UniversityProgrammesRequest = (
   query: site.Query,
   request?: typeof fetch,
 ) => Promise<unknown>;
+type UniversityProgrammeRequest = (
+  baseUrl: string | undefined,
+  universitySlug: string,
+  programmeIdentifier: string,
+  request?: typeof fetch,
+) => Promise<unknown>;
 type UniversityDetailViewMapper = (
   university: unknown,
   programmes: unknown[],
   locale: "zh" | "en",
   options?: unknown,
-) => unknown;
+) => universityApi.UniversityDetailView;
 
 function parseSearchPage(payload: unknown): unknown {
   const candidate = Reflect.get(universityApi, "parseUniversitySearchPage");
@@ -86,6 +93,13 @@ function parseUniversityProgrammePage(payload: unknown): unknown {
     : undefined;
 }
 
+function parseUniversityProgramme(payload: unknown): unknown {
+  const candidate = Reflect.get(universityApi, "parseUniversityProgramme");
+  return typeof candidate === "function"
+    ? (candidate as UniversityProgrammeParser)(payload)
+    : undefined;
+}
+
 async function requestUniversityDetail(
   baseUrl: string | undefined,
   slug: string,
@@ -109,16 +123,28 @@ async function requestUniversityProgrammes(
     : undefined;
 }
 
+async function requestUniversityProgramme(
+  baseUrl: string | undefined,
+  universitySlug: string,
+  programmeIdentifier: string,
+  request?: typeof fetch,
+): Promise<unknown> {
+  const candidate = Reflect.get(universityApi, "getUniversityProgramme");
+  return typeof candidate === "function"
+    ? (candidate as UniversityProgrammeRequest)(baseUrl, universitySlug, programmeIdentifier, request)
+    : undefined;
+}
+
 function toUniversityDetailView(
   university: unknown,
   programmes: unknown[],
   locale: "zh" | "en",
   options?: unknown,
-): unknown {
+): universityApi.UniversityDetailView {
   const candidate = Reflect.get(universityApi, "toUniversityDetailView");
   return typeof candidate === "function"
     ? (candidate as UniversityDetailViewMapper)(university, programmes, locale, options)
-    : undefined;
+    : { name: "", country: "", city: "", description: "", programmes: [] };
 }
 
 const validSearchPage = {
@@ -150,7 +176,9 @@ const validSearchPage = {
       durationDisplay: "3 years",
       intakeDisplayTexts: ["September 2027"],
       tuitionDisplay: "CNY 100,000–120,000",
+      imageUrl: null,
     }],
+    imageUrl: null,
   }],
   page: 1,
   pageSize: 12,
@@ -171,6 +199,7 @@ const validUniversityDetail = {
   descriptionZh: "院校中文介绍",
   descriptionEn: "University description",
   popular: true,
+  imageUrl: null,
 };
 
 const validUniversityProgrammePage = {
@@ -199,12 +228,28 @@ const validUniversityProgrammePage = {
     tuitionDisplay: "MYR 35,000–40,000",
     intakeMonths: ["2027-09"],
     intakeDisplayTexts: ["September 2027"],
+    imageUrl: null,
   }],
   page: 1,
   pageSize: 12,
   totalItems: 1,
   totalPages: 1,
 };
+
+test("optional media accepts legacy, null and image values but rejects malformed values", () => {
+  for (const imageUrl of [undefined, null, "https://example.test/campus.jpg", 42, {}, []]) {
+    const valid = imageUrl === undefined || imageUrl === null || typeof imageUrl === "string";
+    const item = validSearchPage.items[0];
+    const search = { ...validSearchPage, items: [{ ...item, imageUrl }] };
+    const matched = { ...validSearchPage, items: [{ ...item, matchedProgrammes: [{ ...item.matchedProgrammes[0], imageUrl }] }] };
+    const detail = { ...validUniversityDetail, imageUrl };
+    const programme = { ...validUniversityProgrammePage.items[0], imageUrl };
+    assert.deepEqual(parseSearchPage(search), valid ? search : null);
+    assert.deepEqual(parseSearchPage(matched), valid ? matched : null);
+    assert.deepEqual(parseUniversityDetail(detail), valid ? detail : null);
+    assert.deepEqual(parseUniversityProgramme(programme), valid ? programme : null);
+  }
+});
 
 test("builds the V1 university search path from every supported filter", () => {
   assert.equal(
@@ -330,6 +375,7 @@ test("maps a V1 result to a localized card with at most three programmes", () =>
     nameZh: "马来亚大学",
     nameEn: "University of Malaya",
     country: "马来西亚",
+    countryCode: "MY",
     countryZh: "马来西亚",
     countryEn: "Malaysia",
     city: "吉隆坡",
@@ -417,6 +463,45 @@ test("requests and parses a university programme page", async () => {
   );
 });
 
+test("requests one programme by its database id and preserves not-found separately from failures", async () => {
+  const programme = validUniversityProgrammePage.items[0];
+  let requestedUrl = "";
+  const successful = (async (input: string | URL | Request) => {
+    requestedUrl = String(input);
+    return new Response(JSON.stringify(programme), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  }) as typeof fetch;
+
+  assert.deepEqual(parseUniversityProgramme(programme), programme);
+  assert.deepEqual(
+    await requestUniversityProgramme(
+      "http://localhost:8080",
+      "segi",
+      "584",
+      successful,
+    ),
+    { status: "ready", programme },
+  );
+  assert.equal(
+    requestedUrl,
+    "http://localhost:8080/api/v1/universities/segi/programmes/584",
+  );
+
+  const missing = (async () => new Response(null, { status: 404 })) as typeof fetch;
+  assert.deepEqual(
+    await requestUniversityProgramme("http://localhost:8080", "segi", "999999", missing),
+    { status: "not-found" },
+  );
+
+  const unavailable = (async () => new Response(null, { status: 503 })) as typeof fetch;
+  assert.deepEqual(
+    await requestUniversityProgramme("http://localhost:8080", "segi", "584", unavailable),
+    { status: "error" },
+  );
+});
+
 test("maps university details and programmes to localized display data", () => {
   assert.deepEqual(
     toUniversityDetailView(
@@ -445,6 +530,34 @@ test("maps university details and programmes to localized display data", () => {
       }],
     },
   );
+});
+
+test("English university views stay English and omit Chinese secondary labels", () => {
+  const view = toUniversityDetailView(
+    validUniversityDetail,
+    validUniversityProgrammePage.items,
+    "en",
+  );
+
+  assert.equal(view.name, "University of Malaya");
+  assert.equal(view.secondaryName, undefined);
+  assert.equal(view.description, "University description");
+  assert.equal(view.programmes[0]?.name, "Bachelor of Computer Science");
+  assert.equal(view.programmes[0]?.secondaryName, undefined);
+  assert.equal(view.programmes[0]?.description, "Programme description");
+});
+
+test("English views do not fall back to Chinese when English copy is missing", () => {
+  const view = toUniversityDetailView(
+    { ...validUniversityDetail, nameEn: null, descriptionEn: null },
+    [{ ...validUniversityProgrammePage.items[0], nameEn: null, descriptionEn: null }],
+    "en",
+  );
+
+  assert.equal(view.name, "university-of-malaya");
+  assert.equal(view.description, "");
+  assert.equal(view.programmes[0]?.name, "BSc CS");
+  assert.equal(view.programmes[0]?.description, "");
 });
 
 test("localizes programme dictionary codes with catalog options", () => {

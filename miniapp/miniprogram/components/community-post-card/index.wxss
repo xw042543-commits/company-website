@@ -1,0 +1,49 @@
+.post-card {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 220rpx;
+  padding: 28rpx 0 22rpx;
+  background: #fff;
+  color: #173C30;
+  --color-action: #087C49;
+  --color-deep: #173C30;
+  --color-muted: #69776F;
+}
+.post-card::after { position: absolute; right: 0; bottom: 0; left: 98rpx; height: 1rpx; background: #E6ECE8; content: ""; }
+.post-track { position: absolute; left: 39rpx; top: 0; bottom: 0; width: 2rpx; background: #DDEBE4; }
+.track-node { position: absolute; left: -7rpx; top: 62rpx; box-sizing: border-box; width: 16rpx; height: 16rpx; border: 4rpx solid #fff; border-radius: 50%; background: var(--color-action); box-shadow: 0 0 0 2rpx #BFDCCF; }
+.post-head { position: relative; display: flex; min-width: 0; align-items: center; }
+.avatar,
+.avatar-fallback { position: relative; z-index: 1; box-sizing: border-box; width: 80rpx; height: 80rpx; flex: 0 0 80rpx; border: 6rpx solid #fff; border-radius: 50%; box-shadow: 0 0 0 1rpx #D9E7E0; }
+.avatar-fallback { display: flex; align-items: center; justify-content: center; background: #E6F2EC; color: var(--color-action); font-size: 30rpx; font-weight: 800; }
+.author-copy { min-width: 0; flex: 1; margin-left: 18rpx; }
+.author-name { color: var(--color-deep); font-size: 25rpx; font-weight: 700; overflow-wrap: anywhere; word-break: break-all; }
+.post-time { margin-top: 4rpx; color: #65736B; font-size: 20rpx; letter-spacing: .5rpx; }
+.text-action,
+.metric-button { min-height: 44px; margin: 0; background: transparent; color: var(--color-muted); font-size: 23rpx; line-height: 44px; }
+.text-action { min-width: 44px; padding: 0 8rpx; color: #65736B; }
+.text-action:active,
+.metric-button:active { opacity: .58; }
+.post-content { padding-left: 98rpx; }
+.post-context { display: flex; flex-wrap: wrap; align-items: center; gap: 10rpx 16rpx; margin-top: 16rpx; font-size: 21rpx; line-height: 1.6; overflow-wrap: anywhere; word-break: break-all; }
+.category-kicker { color: var(--color-action); font-weight: 750; letter-spacing: 1rpx; }
+.category-kicker::before { display: inline-block; width: 16rpx; height: 2rpx; margin: 0 8rpx 6rpx 0; background: var(--color-action); content: ""; }
+.campus-ticket { position: relative; padding: 4rpx 13rpx; background: #EDF6F1; color: #47705E; font-size: 20rpx; }
+.campus-ticket::before,
+.campus-ticket::after { position: absolute; top: 50%; width: 8rpx; height: 8rpx; margin-top: -4rpx; border-radius: 50%; background: #fff; content: ""; }
+.campus-ticket::before { left: -4rpx; }
+.campus-ticket::after { right: -4rpx; }
+.post-title { margin-top: 14rpx; color: var(--color-deep); font-size: 33rpx; font-weight: 760; line-height: 1.45; letter-spacing: -.5rpx; overflow-wrap: anywhere; word-break: break-all; }
+.post-body { padding: 11rpx 0 4rpx; color: #29483D; font-size: 28rpx; line-height: 1.72; overflow-wrap: anywhere; word-break: break-all; }
+.post-actions { display: flex; justify-content: flex-start; gap: 16rpx; margin-top: 8rpx; }
+.metric-button { display: flex; min-width: 44px; align-items: center; justify-content: flex-start; gap: 10rpx; padding: 0 12rpx 0 0; }
+.metric-button--active { color: var(--color-action); font-weight: 700; }
+.metric-button--disabled { opacity: .46; }
+.comment-icon { position: relative; box-sizing: border-box; width: 29rpx; height: 23rpx; border: 3rpx solid currentColor; border-radius: 8rpx; }
+.comment-icon::after { position: absolute; left: 4rpx; bottom: -7rpx; width: 7rpx; height: 7rpx; border-left: 3rpx solid currentColor; transform: skew(-24deg); content: ""; }
+.heart-icon { position: relative; box-sizing: border-box; width: 28rpx; height: 28rpx; transform: rotate(45deg) scale(.7); border-right: 4rpx solid currentColor; border-bottom: 4rpx solid currentColor; }
+.heart-icon::before,
+.heart-icon::after { position: absolute; width: 22rpx; height: 22rpx; border: 4rpx solid currentColor; border-radius: 50%; content: ""; }
+.heart-icon::before { left: -14rpx; bottom: -4rpx; border-right: 0; }
+.heart-icon::after { top: -14rpx; right: -4rpx; border-bottom: 0; }
+.heart-icon--active { background: var(--color-action); color: var(--color-action); }

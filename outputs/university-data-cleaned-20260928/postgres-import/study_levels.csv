@@ -1,0 +1,6 @@
+﻿code,name_zh,name_en,sort_order,status
+FOUNDATION,预科,Foundation,10,DRAFT
+DIPLOMA,大专/文凭,Diploma,20,DRAFT
+BACHELOR,本科,Bachelor,30,DRAFT
+MASTER,硕士,Master,40,DRAFT
+DOCTOR,博士,Doctor,50,DRAFT

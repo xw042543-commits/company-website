@@ -17,6 +17,8 @@ import org.springframework.cache.CacheManager;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.yangdoujiao.website.consultation.ConsultationRateLimitInterceptor;
+
 @WebMvcTest(FilterOptionsController.class)
 class FilterOptionsControllerTest {
 
@@ -28,6 +30,9 @@ class FilterOptionsControllerTest {
 
     @MockitoBean
     private CacheManager cacheManager;
+
+    @MockitoBean
+    private ConsultationRateLimitInterceptor consultationRateLimitInterceptor;
 
     @Test
     void returnsAllFiveFilterOptionGroupsWithBilingualNames() throws Exception {

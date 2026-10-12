@@ -1,0 +1,564 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "adelaide-university",
+    "displayName": "Adelaide University",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://adelaide.edu.au/study/"
+    ],
+    "allowedHosts": [
+      "adelaide.edu.au",
+      "www.adelaide.edu.au"
+    ],
+    "discoveredUrls": 73,
+    "parsedProgrammes": 26,
+    "pagesRead": 120,
+    "warnings": [
+      "跳过非 HTML 内容：https://adelaide.edu.au/content/dam/adelaideuniversity/documents/study/learning-futures/pdfs/short-courses-brochure.pdf",
+      "跳过非 HTML 内容：https://adelaide.edu.au/content/dam/adelaideuniversity/documents/study/learning-futures/pdfs/short-courses-brochure.pdf.coredownload.pdf",
+      "https://catalog.adelaide.edu.au/courses/10956/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/11875/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9888/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9889/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9893/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9894/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9895/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9896/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9897/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9903/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9902/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9900/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9901/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9898/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9899/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9887/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/4653/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/4654/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/10750/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9851/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/7006/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/6127/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/6128/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/8617/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/9275/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/4650/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/6126/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/11338/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au",
+      "https://catalog.adelaide.edu.au/courses/11339/enrollment/new：跳转超出允许域名: canvas.catalog.adelaide.edu.au"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/compare-degrees/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/doctor-of-philosophy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/master-of-philosophy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/master-of-research",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/graduate-certificate-in-research-design",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/graduate-certificate-in-research-skills",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/dr/courses/adelaide-edu",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:57:24.203Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-farm-animal-welfare",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-module-1-animal-ethics-aseptic-technique",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-module-2-animal-ethics-minimally-invasive-techniques-without-anaesthesia-including-wildlife-trapping",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-module-3-animal-ethics-anesthesia-for-minor-procedures",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-module-4-animal-ethics-anesthesia-for-major-procedures",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-module-5-animal-ethics-surgery-principles-methods-and-materials",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-module-6-animal-ethics-performing-a-systematic-post-mortem-examination",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-module-7-animal-ethics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-module-8-animal-ethics-maximising-welfare-and-behavioural-assessment-in-research-animals",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-training-materials-for-becoming-a-laboratory-animal-veterinarian-a-university-veterinarian-or-animal-welfare-officer",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-training-materials-for-minimally-invasive-procedures-in-research-animals",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-training-materials-for-performing-aseptic-technique-surgical-skills-suturing-and-euthanasia-methods",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-wildlife-1---researchers-and-aec-members-guide-to-improved-welfare",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/compass-2024-wildlife-2-researchers-and-aec-members-guide-to-improved-welfare",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/compass2024/courses/core-compass-training-for-aec-members-and-animal-users-2024",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/courses/cyber-security-awareness---primary-years",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:57:56.351Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/pace/courses/cyber-security-awareness---secondary-years",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:57:58.338Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/decoding-dt-primary-v9",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:00.316Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/digital-technologies-x-for-the-primary-years-2023",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:02.374Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/dr/courses/engageadelaide",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/dr/courses/firstgen",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:06.338Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/dr/courses/health-academy-year-12",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:08.328Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/dr/courses/humanities-academy-year-12",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:10.307Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/maths-in-schools-online-3-6-v9-0",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:12.557Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/maths-in-schools-online-7-10-v9-0",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:14.963Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/maths-in-schools-online-f-2-v9",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:16.591Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/dr/courses/stem-academy-teacher-resources",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:18.369Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/dr/courses/stem-academy-year-12",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:20.344Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/ai-primary-v90",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:22.403Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/ecms/cser-stem/courses/ai-secondary-v90",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:24.595Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-advisory-services",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-allergy-nursing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-arbitration",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/2026/professional-certificate-in-behavioural-activation-for-depression/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-classroom-management-in-islamic-schooling/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-clinical-dermoscopy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-clinical-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-conservative-management-of-pelvic-organ-prolapse",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-construction-contract-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-culturally-responsive-pedagogy-and-muslim-learners/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-curriculum-renewal-for-islamic-schools/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-defence-contracting-law",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-integrated-logistics-support",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-islamic-pedagogy-distinctive-educational-practice-for-islamic-schools/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-nuclear-law",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/2026/professional-certificate-in-pain-sciences/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-principles-of-systems-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/2026/professional-certificate-in-principles-of-test-and-evaluation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-sonographic-principles-and-theory",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-space-law",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/professional-certificate-in-understanding-childhood-trauma",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/foundation-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/aboriginal-and-torres-strait-islander-pathway",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/online/unistart",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/courses/pg-prep",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:27.482Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/courses/tertiary-education-strategies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://catalog.adelaide.edu.au/browse/domestic-pathways/courses/tertiary-education-strategies",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:58:29.796Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/doctor-of-philosophy/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:34.332Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/master-of-philosophy/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:36.327Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/master-of-research/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:38.238Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/2026/bachelor-of-science-honours-geology-and-palaeontology/dom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:41.403Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/2026/bachelor-of-science-honours-geology-and-earth-resources/dom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:43.553Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/2026/bachelor-of-science-honours-geophysics/dom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:45.885Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/2026/bachelor-of-science-honours-geology/dom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:48.053Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/2026/bachelor-of-economics-honours/dom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:52.045Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "adelaide-university",
+      "url": "https://adelaide.edu.au/study/degrees/2026/bachelor-of-laws-honours-bachelor-of-economics-honours/dom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:54.446Z",
+      "error": null
+    }
+  ]
+}

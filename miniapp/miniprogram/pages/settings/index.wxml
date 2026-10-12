@@ -1,0 +1,23 @@
+<view class="settings-page">
+  <view class="settings-intro">
+    <view class="settings-title">账号与隐私</view>
+    <view class="settings-copy">管理你的头像和本机登录状态。</view>
+  </view>
+
+  <view class="settings-card">
+    <view class="settings-row">
+      <view class="row-copy"><view class="row-title">当前账号</view><view class="row-caption">{{session.account ? session.account.displayName : '尚未登录'}}</view></view>
+      <view class="status-pill {{session.status === 'authenticated' ? 'status-pill-active' : ''}}">{{session.status === 'authenticated' ? '已登录' : '未登录'}}</view>
+    </view>
+    <button wx:if="{{session.account && session.account.avatarUrl}}" class="settings-action" disabled="{{removingAvatar}}" bindtap="removeAvatar">
+      <view class="row-copy"><view class="row-title">移除个人头像</view><view class="row-caption">恢复默认头像，并同步更新 U圈</view></view><text>{{removingAvatar ? '处理中…' : '移除'}}</text>
+    </button>
+  </view>
+
+  <view class="privacy-card">
+    <view class="privacy-title">头像使用说明</view>
+    <view class="privacy-copy">只有在你主动选择头像后，我们才会上传并保存该图片，用于个人中心和 U圈身份展示。你可以随时在此移除。</view>
+  </view>
+
+  <button wx:if="{{session.status === 'authenticated'}}" class="logout-button" disabled="{{loggingOut}}" bindtap="logout">{{loggingOut ? '正在退出…' : '退出登录'}}</button>
+</view>

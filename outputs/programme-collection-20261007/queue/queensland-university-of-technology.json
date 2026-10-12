@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "queensland-university-of-technology",
+    "displayName": "Queensland University of Technology",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.qut.edu.au/courses"
+    ],
+    "allowedHosts": [
+      "www.qut.edu.au",
+      "qut.edu.au"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.qut.edu.au/courses：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

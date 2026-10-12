@@ -1,0 +1,1845 @@
+{
+  "generatedAt": "2026-10-09T06:31:04.754Z",
+  "records": [
+    {
+      "programmeCandidateId": "programme_fa04472fa69e4cc3",
+      "universitySourceKey": "carnegie-mellon-university",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.cmu.edu/cfa/music/images/music-images/cellocases_hero_900x600_mobile-min.jpg",
+      "sourceUrl": "https://www.cmu.edu/cfa/music/programs/undergraduate-programs/bfa-music-performance.html",
+      "sourceCheckedAt": "2026-10-07T04:25:29.223Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_5073a1d04532ff5a",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.webp",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+      "sourceCheckedAt": "2026-10-07T04:29:59.258Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_5073a1d04532ff5a",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+      "sourceCheckedAt": "2026-10-07T06:44:04.841Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_48ed45e3cbdf7d2f",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/communications/",
+      "sourceCheckedAt": "2026-10-07T04:30:26.891Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_2f5e1d4e107a3f82",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/",
+      "sourceCheckedAt": "2026-10-07T04:30:34.463Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6b78cd97631631a8",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/",
+      "sourceCheckedAt": "2026-10-07T04:30:36.392Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_8a40b27791df6aaa",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/",
+      "sourceCheckedAt": "2026-10-07T04:30:38.479Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_93866b9e6f4daf27",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/05/pathway-flowchart-320x258-1.png",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/",
+      "sourceCheckedAt": "2026-10-07T04:30:52.497Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_999b8f77e1a5adb3",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/phd/",
+      "sourceCheckedAt": "2026-10-07T04:31:00.660Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6da357f6e89eb71a",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/",
+      "sourceCheckedAt": "2026-10-07T04:31:02.546Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_570ce6d2458aa114",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/",
+      "sourceCheckedAt": "2026-10-07T04:31:06.807Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_fbe9b9c5344f1ed3",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/",
+      "sourceCheckedAt": "2026-10-07T04:31:08.660Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_93925092abafab4e",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/",
+      "sourceCheckedAt": "2026-10-07T04:31:11.000Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_da70a217c0bf3fda",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/",
+      "sourceCheckedAt": "2026-10-07T04:31:12.690Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_447298d4297f0527",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/",
+      "sourceCheckedAt": "2026-10-07T04:31:14.041Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_2c6e53c5ae4af253",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+      "sourceCheckedAt": "2026-10-07T06:45:15.344Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_3f939098483992f2",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+      "sourceCheckedAt": "2026-10-07T06:45:17.399Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_af8f7e4e2e24192d",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+      "sourceCheckedAt": "2026-10-07T06:45:19.339Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_38dfdb0eab52daee",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-wound-ostomy-continence-practice/",
+      "sourceCheckedAt": "2026-10-07T06:45:21.414Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_ba7f640733ab2d7e",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+      "sourceCheckedAt": "2026-10-07T06:45:24.071Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_06ed9d1a8cea9e08",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/",
+      "sourceCheckedAt": "2026-10-07T06:45:30.052Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_5048a91a2a6be60c",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-artificial-intelligence-major/",
+      "sourceCheckedAt": "2026-10-07T06:45:31.461Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_3a7e4676773352a1",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-computer-science-major/",
+      "sourceCheckedAt": "2026-10-07T06:45:32.919Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_644509c5a020e1db",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-cyber-security-major/",
+      "sourceCheckedAt": "2026-10-07T06:45:35.647Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_3bd462f1b0bb13ff",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/",
+      "sourceCheckedAt": "2026-10-07T06:45:37.389Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_9ca55db9d9f83a48",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/master-of-cyber-security/",
+      "sourceCheckedAt": "2026-10-07T06:45:39.518Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_4f975bdea6f0087e",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-predictive-analytics/",
+      "sourceCheckedAt": "2026-10-07T06:45:41.598Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a4f6b281fedafa96",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/postgraduate/graduate-diploma-in-predictive-analytics/",
+      "sourceCheckedAt": "2026-10-07T06:45:43.416Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_cca84ef7d20356b1",
+      "universitySourceKey": "curtin-singapore",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.curtin.edu.sg/wp-content/uploads/2025/12/curtin-singapore-campus-1200x675-1.jpg.optimal.jpg",
+      "sourceUrl": "https://www.curtin.edu.sg/courses/english-courses/english-for-academic-purposes/",
+      "sourceCheckedAt": "2026-10-07T06:45:45.424Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_82bd401823214b70",
+      "universitySourceKey": "nanyang-technological-university",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.ntu.edu.sg/images/default-source/default-album/ntu-thehive-775x465.jpg",
+      "sourceUrl": "https://www.ntu.edu.sg/adm/programmes/undergraduate-programmes/bachelor-of-fine-arts-programme-(admission-year-2026)",
+      "sourceCheckedAt": "2026-10-07T06:39:25.870Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_8377becc05fb06c1",
+      "universitySourceKey": "nanyang-technological-university",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.ntu.edu.sg/images/default-source/default-album/ntu-thehive-775x465.jpg",
+      "sourceUrl": "https://www.ntu.edu.sg/adm/programmes/undergraduate-programmes/bachelor-of-fine-arts-programmes/bachelor-of-fine-arts-programmes",
+      "sourceCheckedAt": "2026-10-07T06:39:39.940Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_d97629371c7d4f55",
+      "universitySourceKey": "sim-global-education",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/sim-homepage/og%20image/sim-ge-og.jpg?ext=.jpg",
+      "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/bachelor",
+      "sourceCheckedAt": "2026-10-07T04:30:02.403Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_8da09c609cb67384",
+      "universitySourceKey": "sim-global-education",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/sim-homepage/og%20image/sim-ge-og.jpg?ext=.jpg",
+      "sourceUrl": "https://www.sim.edu.sg/degrees-diplomas/programmes/academic-levels/diploma",
+      "sourceCheckedAt": "2026-10-07T04:30:07.470Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_8593839e942c52e4",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/",
+      "sourceCheckedAt": "2026-10-07T04:01:56.156Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_79ecfdc0e6ca4c59",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/",
+      "sourceCheckedAt": "2026-10-07T04:01:59.235Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_f8dd33b9995bc878",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-business/",
+      "sourceCheckedAt": "2026-10-07T04:02:00.171Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_3eb31dd18ce6d4e1",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_psychological-sciences_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/",
+      "sourceCheckedAt": "2026-10-07T04:02:03.559Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_7c0df784ac4327f7",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/",
+      "sourceCheckedAt": "2026-10-07T04:02:05.573Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_4b958b7c86056149",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-science/",
+      "sourceCheckedAt": "2026-10-07T04:02:07.454Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6b4f7a399029666e",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/climate-and-social-justice/",
+      "sourceCheckedAt": "2026-10-07T04:02:08.205Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_9fdb05ba49e9c76e",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/criminology-and-social-change/",
+      "sourceCheckedAt": "2026-10-07T04:02:10.203Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_d36882008256a2e4",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/ethics-and-technology/",
+      "sourceCheckedAt": "2026-10-07T04:02:13.803Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_f1f2ab70b4572d97",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/indigenous-studies/",
+      "sourceCheckedAt": "2026-10-07T04:02:15.774Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_9ad655e2deb36104",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/literature-and-creative-writing/",
+      "sourceCheckedAt": "2026-10-07T04:02:17.664Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_b9e4be5b9b18b74a",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/perspectives-on-globalisation/",
+      "sourceCheckedAt": "2026-10-07T04:02:18.283Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6790fd755b9dbf8d",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/politics-power-and-technology/",
+      "sourceCheckedAt": "2026-10-07T04:02:20.292Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_390defbe7c8d6f6b",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/screen-studies-and-popular-culture/",
+      "sourceCheckedAt": "2026-10-07T04:02:22.299Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_f81afe012811cf83",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/handbook/",
+      "sourceCheckedAt": "2026-10-07T04:02:26.353Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_858e8191ab46f56c",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Health-science_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-arts/",
+      "sourceCheckedAt": "2026-10-07T04:02:29.648Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_54758deb4490faa1",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/CSIRO_Testlab_Clayton_E6A0101.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-bachelor-of-arts/",
+      "sourceCheckedAt": "2026-10-07T04:02:30.339Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_c544d2628e6a3a6d",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/",
+      "sourceCheckedAt": "2026-10-07T04:02:32.343Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_5bccf35cec223829",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Criminology_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology/",
+      "sourceCheckedAt": "2026-10-07T04:02:35.600Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_7fdefeec4d224038",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_business_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business/",
+      "sourceCheckedAt": "2026-10-07T04:02:38.224Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_2592b5188534aa87",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/climate-and-social-justice/",
+      "sourceCheckedAt": "2026-10-07T04:02:39.749Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_67c0a0512dc2b55b",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/criminology-and-social-change/",
+      "sourceCheckedAt": "2026-10-07T04:02:41.777Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_0868c86bcedaa166",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/ethics-and-technology/",
+      "sourceCheckedAt": "2026-10-07T04:02:43.777Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_76d360b3e25bf98c",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/indigenous-studies/",
+      "sourceCheckedAt": "2026-10-07T04:02:45.825Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_1302dcb60b058a68",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/literature-and-creative-writing/",
+      "sourceCheckedAt": "2026-10-07T04:02:47.778Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_747afeab26e62254",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/perspectives-on-globalisation/",
+      "sourceCheckedAt": "2026-10-07T04:02:49.765Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_cd80a2df31de025b",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/screen-studies-and-popular-culture/",
+      "sourceCheckedAt": "2026-10-07T04:02:54.160Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_0207a5d3d28dae85",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/handbook/",
+      "sourceCheckedAt": "2026-10-07T04:02:54.732Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_40c86d399a848075",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-business/handbook/",
+      "sourceCheckedAt": "2026-10-07T04:02:56.866Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_8fcbd35e6f605c19",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_psychological-sciences_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/climate-and-social-justice/",
+      "sourceCheckedAt": "2026-10-07T04:03:00.080Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_5c3b6f3a1ce26c40",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_psychological-sciences_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/ethics-and-technology/",
+      "sourceCheckedAt": "2026-10-07T04:03:04.006Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_e95ff6ce5a23c8ee",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_psychological-sciences_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/indigenous-studies/",
+      "sourceCheckedAt": "2026-10-07T04:03:06.058Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_b1568cbea2e43bca",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_psychological-sciences_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/literature-and-creative-writing/",
+      "sourceCheckedAt": "2026-10-07T04:03:08.002Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a2ac39ab01e34c98",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_psychological-sciences_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/perspectives-on-globalisation/",
+      "sourceCheckedAt": "2026-10-07T04:03:10.111Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_2a9ac7ff9d1957df",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_psychological-sciences_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/politics,-power-and-technology/",
+      "sourceCheckedAt": "2026-10-07T06:05:21.185Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_7af3f19bb9782860",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_psychological-sciences_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/screen-studies-and-popular-culture/",
+      "sourceCheckedAt": "2026-10-07T06:05:23.070Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_8c4c9c602fce3667",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_psychological-sciences_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/handbook/",
+      "sourceCheckedAt": "2026-10-07T06:05:23.687Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_0f9689f530bc3d57",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/climate-and-social-justice/",
+      "sourceCheckedAt": "2026-10-07T06:05:27.090Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_d179cd6e5f4daa69",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/criminology-and-social-change/",
+      "sourceCheckedAt": "2026-10-07T06:05:29.078Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_73c5fe0198132797",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/ethics-and-technology/",
+      "sourceCheckedAt": "2026-10-07T06:05:31.087Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_b3a6b0694488c800",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/indigenous-studies/",
+      "sourceCheckedAt": "2026-10-07T06:05:33.113Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_03c6dee90ee5ed30",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/literature-and-creative-writing/",
+      "sourceCheckedAt": "2026-10-07T06:05:35.108Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_8155318cbaaafcf7",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/perspectives-on-globalisation/",
+      "sourceCheckedAt": "2026-10-07T06:05:37.271Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_ec06377e98a8e555",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/politics,-power-and-technology/",
+      "sourceCheckedAt": "2026-10-07T06:05:39.051Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_b3f6fa7c39f055b8",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/screen-studies-and-popular-culture/",
+      "sourceCheckedAt": "2026-10-07T06:05:41.415Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a166a9aa3b9d2567",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/iStock-1068876946.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/handbook/",
+      "sourceCheckedAt": "2026-10-07T06:05:41.918Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_57e415815bf7a4a6",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Arts_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-science/handbook/",
+      "sourceCheckedAt": "2026-10-07T06:05:43.921Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_e77e3ecbc58a8b05",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Law_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-science/",
+      "sourceCheckedAt": "2026-10-07T06:05:45.915Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_b3ec9a24b82b5909",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Health-science_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-arts/handbook/",
+      "sourceCheckedAt": "2026-10-07T06:05:47.960Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_f35d3f2caf6c73a8",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/CSIRO_Testlab_Images0E6A0322.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-bachelor-of-arts/handbook/",
+      "sourceCheckedAt": "2026-10-07T06:05:49.936Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_ff26239f9e77392c",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/advertising/",
+      "sourceCheckedAt": "2026-10-07T06:05:54.187Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_4dc3db8b38edb573",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/cinema-screen-studies/",
+      "sourceCheckedAt": "2026-10-07T06:05:54.687Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a86dc0ed8c808cfc",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/place/as-level-4-and-24g-/AS401%20-%20Content%20Studio%201_1D3A0087.jpg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/content-creation/",
+      "sourceCheckedAt": "2026-10-07T06:05:58.394Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_30b0d68b855c1e5f",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/creative-writing-and-publishing/",
+      "sourceCheckedAt": "2026-10-07T06:06:01.208Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_ead084a55a3adfed",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/immersive-media/",
+      "sourceCheckedAt": "2026-10-07T06:06:04.357Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_dcbe85e3c1a5ebef",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/journalism/",
+      "sourceCheckedAt": "2026-10-07T06:06:06.292Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_694ca947e4dfa051",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/public-relations/",
+      "sourceCheckedAt": "2026-10-07T06:06:08.541Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_99b55853867e8f08",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/social-media/",
+      "sourceCheckedAt": "2026-10-07T06:06:11.272Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_13c7ce99e26aace4",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pagesimagery_business-prof_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication-bachelor-of-business/",
+      "sourceCheckedAt": "2026-10-07T06:06:13.595Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a50d692117b6486f",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/john-jennings-fg7J6NnebBc-unsplash.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-bachelor-of-media-and-communication/",
+      "sourceCheckedAt": "2026-10-07T06:06:17.168Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_f7d5c9a5d0a9380b",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Law_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-media-and-communication/",
+      "sourceCheckedAt": "2026-10-07T06:06:20.849Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_3c1248a047ef867e",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner-professional.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication-bachelor-of-applied-innovation/",
+      "sourceCheckedAt": "2026-10-07T06:06:21.612Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_d585b77e4fea9dcb",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/bachelor-of-media-and-communication-banner-professional.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication-professional/",
+      "sourceCheckedAt": "2026-10-07T06:06:23.782Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_555a8fe0fbe971ba",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Criminology_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology/handbook/",
+      "sourceCheckedAt": "2026-10-07T06:06:27.813Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_402a420e672dfe8b",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Criminology_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminology-and-criminal-justice/",
+      "sourceCheckedAt": "2026-10-07T06:06:30.965Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_74ca5f877cc6ceee",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_Criminology_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology-bachelor-of-applied-innovation/",
+      "sourceCheckedAt": "2026-10-07T06:06:31.654Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_7f5c596a1883f79b",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/research/STOCK-1155488047.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-psychological-sciences-bachelor-of-criminal-justice-and-criminology/",
+      "sourceCheckedAt": "2026-10-07T06:06:33.652Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_df13a884aaa6bfad",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/research/STOCK-1183729230.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-criminal-justice-and-criminology/",
+      "sourceCheckedAt": "2026-10-07T06:06:35.655Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_dfdfff7d9a5a6285",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/engagement/forensic-psychology.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-forensic-psychological-sciences/",
+      "sourceCheckedAt": "2026-10-07T06:06:39.859Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a40af9681ee4224f",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/study-areas/Engineer_telecommunications_STOCK.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours/",
+      "sourceCheckedAt": "2026-10-07T06:06:43.858Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_e66ed07635841af0",
+      "universitySourceKey": "swinburne-university-of-technology",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.swinburne.edu.au/content/dam/media/campaigns-restricted/web-banner-images/SUT0138_SSM-XXXX_UG-course-pages-imagery_business_202211_JB.jpg/_jcr_content/renditions/cq5dam.web.1280.720.jpeg",
+      "sourceUrl": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business/accounting/",
+      "sourceCheckedAt": "2026-10-07T06:06:45.871Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6e848cb2ff5bbc76",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/3EE45A70-B32D-4E74-9B660495A3989B61/Original_Image-Derek-Bogart-2020-photo-shoot-day-1.jpg?stamp=0adaa957352d33fdfa6f45fc20003120399fa665",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-communication-in-digital-and-social-media-bachelor-of-creative-intelligence-and-innovation",
+      "sourceCheckedAt": "2026-10-07T03:59:42.683Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_c1f675ba3434280f",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/6CF19EB1-84CF-4243-9F5E9451AE3892A7/Original_Image-Abstract-lilac-fluorite-texture.jpg?stamp=f6a778c9301b4d6bc138865a3e4fc379dcde61d1",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-sport-and-exercise-science-honours",
+      "sourceCheckedAt": "2026-10-07T03:59:54.501Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_79bc6f6c3605dd93",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/080E5608-0A18-4715-9F17DA59D7181E07/Original_Image-ABSTRACT-SCI-AdobeStock_436387822.jpg?stamp=ce6f5b1cd2b832502d835dedfd8cdf553f68ecb8",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-marine-biology-and-climate-change",
+      "sourceCheckedAt": "2026-10-07T03:59:56.524Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_b2cba1737b7a99b8",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/32F2B2F7-02D7-4363-902F5491F5F50DB5/Cybersecurity-Precinct-FEIT.jpg?cropleft=10&cropright=7171&stamp=9eded15a7ef14dc9f8d5626a0c3c01c946a09bc9",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-information-technology-co-op",
+      "sourceCheckedAt": "2026-10-07T03:59:58.606Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_e9165ec3371c72d3",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/7712F39D-B0E9-4844-8A9AB8F41D023818/DPC-HEA-UG-Nursing.jpg?stamp=0aabefe1eb8c38ae7270fe8ed0b4cb2a9721d9df",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-nursing",
+      "sourceCheckedAt": "2026-10-07T04:00:00.389Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_9dd6ded2b0ed91d1",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/E136E280-0FB8-401D-8A55D74B9268E47B/Original_Image-UTS-DAB_DPP-Header_Diploma-in-Fashion-and-Sustainability-2.jpg?stamp=6165e8e46da355afed73ab99ad08859797cdd957",
+      "sourceUrl": "https://www.uts.edu.au/courses/diploma-in-fashion-and-sustainability",
+      "sourceCheckedAt": "2026-10-07T04:00:06.539Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_fd6056e39dd13a3c",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/optimizely/2e751a39-c9ec-4287-9186-35c2db554e32/original-image-uts-campus-building-8-hr-0010.jpg?stamp=db6c26f374c2bcf7e97bf7f0ae85191137ce17d5",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-business",
+      "sourceCheckedAt": "2026-10-07T04:00:10.808Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_4ffd0ad4e835dd8c",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/optimizely/7224e6f5-8c76-453d-af7e-d66ed2431e14/hea-pharmacy-banner.jpg?stamp=daa6e7639c7beb04ac9e058e3c099a09951bdd69",
+      "sourceUrl": "https://www.uts.edu.au/courses/master-of-pharmacy",
+      "sourceCheckedAt": "2026-10-07T05:59:20.554Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_85f45a0135ad952f",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/7E392880-F8E4-4091-B5E17D07611556ED/Original_Image-DAB-Building-6-Design-053.jpg?stamp=6c139a0dd1049980a9690ac519692a475fcd1175",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-design-in-fashion-and-textiles",
+      "sourceCheckedAt": "2026-10-07T05:59:22.676Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_773ac170a5d999d0",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/C63A639C-0134-4026-9C8529F719F19473/Original_Image-UTS-FEIT-Undergraduate-Engineering-Students-in-Lab-EDITED.jpg?stamp=689c53fa74c8417eb60952481dd3a6d7ac2f1ac6",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-engineering-honours-bachelor-of-science",
+      "sourceCheckedAt": "2026-10-07T05:59:24.747Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_7bb0b6af49b1a192",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/9C644BDA-EE13-43C7-9DE8A2D545BAF339/Course-Experience-TD-MDSI.jpg?stamp=8a18a26bb59de2ec542cb4b4c9a6a5b7e296747c",
+      "sourceUrl": "https://www.uts.edu.au/courses/master-of-data-science-and-innovation",
+      "sourceCheckedAt": "2026-10-07T05:59:26.748Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_30eb178de4480d31",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/20E545DB-2028-497D-91DC274BCA5642D7/BCII-Showcase-2024_260.jpg?stamp=d12f88ec08ce6438b3ef650804f943347d9c5765",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-creative-intelligence-and-innovation",
+      "sourceCheckedAt": "2026-10-07T05:59:28.805Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_0b09d4ee889f183d",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/04E35391-8134-4EE9-8A783AE821EF5454/Original_Image-UTS-DAB_DPP-Header_Bachelor-of-Design-in-Fashion-and-Textiles-Bachelor-of-Creative-Intelligence-and-Innovation_Tablet-Mobile.jpg?stamp=7fdfd64c96bf9ca4d8f1137d496badaf33e583c5",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-design-in-fashion-and-textiles-bachelor-of-creative-intelligence-and-innovation",
+      "sourceCheckedAt": "2026-10-07T05:59:30.778Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_79e678441bd02ce4",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/DC60EF81-B499-4E4F-B17FBC56CC6B9F80/Original_Image-DAB-Building-5A-Viscom-and-Product-Design-Students-40.jpg?cropleft=897&cropright=8182&stamp=d44b370135d0bdbae4e9bb3f0accfa76a980dbd0",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-design-in-visual-communication-bachelor-of-creative-intelligence-and-innovation",
+      "sourceCheckedAt": "2026-10-07T05:59:33.009Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_2d449465b22d4470",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/B7EF4950-5110-4422-8D0DF7590AC4D48A/Original_Image-ABSTRACT-HEA-chris-stein-69b2Yyxlygg-unsplash.jpg?stamp=401000db27a67a2be168b1b9d6e38bb9b0974c7f",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-sport-and-exercise-science-bachelor-of-creative-intelligence-and-innovation",
+      "sourceCheckedAt": "2026-10-07T05:59:34.863Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_b09e9ee54703e678",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/671C7EC0-FD12-4F0A-81F6E8E49B1744C7/Original_Image-ABSTRACT-HEA-ryan-stone-U3cctUBucn0-unsplash.jpg?stamp=443fdbac739b43892d4ef91615351391f6afb1b8",
+      "sourceUrl": "https://www.uts.edu.au/courses/graduate-certificate-in-diabetes-education-and-management",
+      "sourceCheckedAt": "2026-10-07T05:59:36.813Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_f3e66cf9bc2d222e",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/B9FFD6F4-C45B-4994-82226A258870C317/Original_Image-gabe-09IS_HJcUZA-unsplash.jpg?cropleft=7&cropright=4615&stamp=b209ddb75cc4e81db226962dd761c91fd8115898",
+      "sourceUrl": "https://www.uts.edu.au/courses/doctor-of-philosophy-phd-thesis-orthoptics",
+      "sourceCheckedAt": "2026-10-07T05:59:38.708Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_03f3975ceea5ce16",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/447D0C15-00CC-4238-A6F8652B0ADA6D40/Original_Image-Abstract-wave-blue-dots-lines.jpg?stamp=020e938f32f91474f5db3eec64086b153b770476",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-science-master-of-teaching-in-secondary-education",
+      "sourceCheckedAt": "2026-10-07T05:59:40.845Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_60947a9f453ceab5",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/166BC905-EC10-4F13-92BA767A327DDFBD/Original_Image-susan-wilkinson-7572K1ubVkM-unsplash.jpg?stamp=7759924a3a05a6d4271d7d9274d46bd96a8ad4d3",
+      "sourceUrl": "https://www.uts.edu.au/courses/doctor-of-philosophy-phd-thesis-science",
+      "sourceCheckedAt": "2026-10-07T05:59:42.751Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_1d70ac923e181c75",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/6E03FF01-E5DF-4BBE-8202F5070461323C/Original_Image-ABSTRACT-SCI-AdobeStock_340842205.jpg?stamp=c37ed155e2851270193be06384aebd686bfb8360",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-mathematical-sciences-honours",
+      "sourceCheckedAt": "2026-10-07T05:59:44.821Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_0134292be7fda487",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/C415644A-55A0-4B9E-8234A9B6387C1B3C/Original_Image-ABSTRACT-SCI-solen-feyissa-MJJ9ik9m3J4-unsplash.jpg?stamp=ddb32f2c7ae23414b4b7d9b4a0014041da4abb2c",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-forensic-science-bachelor-of-creative-intelligence-and-innovation",
+      "sourceCheckedAt": "2026-10-07T05:59:46.879Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6a0ccc4715498f09",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/D5089F8A-4784-400A-BE51F5047FA03E91/Original_Image-FEIT-Undergraduate-Engineering-and-IT-Student-Student.jpg?stamp=9bce3476443ea59095a0ad9c658158fd1615d880",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-information-systems-bachelor-of-business",
+      "sourceCheckedAt": "2026-10-07T05:59:48.810Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_fe0a8b2ba384c35f",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/6E73ECCB-2AF5-422E-98CABB017990842A/Original_Image-FEIT-Postgraduate-Engineering-and-IT-Student-9.jpg?stamp=4210d22af2fc78e7db9c13485da81de7fc0d5902",
+      "sourceUrl": "https://www.uts.edu.au/courses/master-of-interaction-design-extension",
+      "sourceCheckedAt": "2026-10-07T05:59:50.692Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_ad0a1ef2b8203d40",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/9D2A5856-0058-4255-B55C01160BA2E099/Original_Image-pawel-czerwinski-Wk5xR31OE_M-unsplash.jpg?stamp=7c06d2a76ceb3fc8903ad80c33c8f639c3451b32",
+      "sourceUrl": "https://www.uts.edu.au/courses/doctor-of-philosophy-phd-thesis-analytics",
+      "sourceCheckedAt": "2026-10-07T05:59:52.711Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_1cd14b63771f88d7",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/3379746C-E0A0-43CB-815F34B949FBF9FD/Original_Image-ABSTRACT-HEA-AdobeStock_874296009.jpg?stamp=26f3a933f322cea05279065b06e1e393e7a520cf",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-nursing-bachelor-of-creative-intelligence-and-innovation",
+      "sourceCheckedAt": "2026-10-07T05:59:56.862Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_92be05ee0b6b5765",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/505E619B-E33D-49C4-B0DF1A3828AF73D4/Original_Image-ABSTRACT-HEA-AdobeStock_805278444.jpg?stamp=bc8ea7a4424181827188873d5709fb7bbd1a5b34",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-nursing-honours",
+      "sourceCheckedAt": "2026-10-07T05:59:58.825Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_bc1d0d591289e580",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/F93A558C-8EAE-46B0-A1F02CD8D45ED764/UG-Midwifery.jpg?stamp=0ba4dfd49ce798edb536fd489e506b5c3cf6b117",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-midwifery",
+      "sourceCheckedAt": "2026-10-07T06:00:00.795Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_95193662d801bd58",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/739CC990-A510-4564-97B0DE9E861D65CF/Original_Image-ABSTRACT-BUS-9lNoGFaNI2c-unsplash.jpg?stamp=dc2e24963eb4fee544f091a49f73b472d6466b72",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-economics-master-of-teaching-in-secondary-education",
+      "sourceCheckedAt": "2026-10-07T06:00:03.012Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_58f088b25bf836e4",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/26698982-6B83-49BF-A74DDEAEA86041DD/Original_Image-ABSTRACT-BUS-LbTm902zXbE-unsplash.jpg?stamp=56404661876c98783789599287b42e9dc7fd3ca1",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-economics",
+      "sourceCheckedAt": "2026-10-07T06:00:07.238Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_398545ef391149e6",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/B8F9D38A-FEA3-4422-A4846EB2126BF46A/Original_Image-valdemars-magone-B8X8o1JcHkg-unsplash.jpg?stamp=f9459dd338272c7fc45b9724cc284d660dd3a960",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-business-bachelor-of-laws",
+      "sourceCheckedAt": "2026-10-07T06:00:08.872Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a2a0471aad94694f",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/66344401-A038-49FB-A7A571F6B871E7A2/Original_Image-Black-dark-blue-green-teal-cyan-petrol-jade-abstract-background-Geometric-shape-3d-effect-Line-triangle-angle-polygon-wave-Color-gradient-Light-glow-neon-flash-metal-metallic-Design-Futuristic.jpg?stamp=2dd080762fe386da12467617a327aa0424ee706d",
+      "sourceUrl": "https://www.uts.edu.au/courses/master-of-business-analytics",
+      "sourceCheckedAt": "2026-10-07T06:00:36.256Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_f208e0e61ff3223d",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/C6A3221A-F5D1-4882-9D1C3340ED33529A/Original_Image-ABSTRACT-BUS-ypqyuASFNps-unsplash.jpg?stamp=93a8b31708506f208ae8d1873ffb5a713674d2ff",
+      "sourceUrl": "https://www.uts.edu.au/courses/graduate-certificate-in-business-analytics",
+      "sourceCheckedAt": "2026-10-07T06:00:38.443Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_df6df18569d925b4",
+      "universitySourceKey": "university-of-technology-sydney",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uts.edu.au/AdaptiveImages/bynder/89AF1BA3-B7E5-4097-A2C1BE9EA0827F76/Original_Image-ABSTRACT-BUS-Df9CR3aQFw4-unsplash.jpg?stamp=15f10dc6404fcb9e151400a83d4d292b120b3aee",
+      "sourceUrl": "https://www.uts.edu.au/courses/bachelor-of-business-honours",
+      "sourceCheckedAt": "2026-10-07T06:00:40.352Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a6ab64328dc37ea5",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/",
+      "sourceCheckedAt": "2026-10-07T04:00:23.718Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_2ca87af26844871f",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/",
+      "sourceCheckedAt": "2026-10-07T04:00:27.730Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_472b8c231ebb4d77",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/",
+      "sourceCheckedAt": "2026-10-07T04:00:31.731Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6000c0ddc91631fc",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-international-studies/",
+      "sourceCheckedAt": "2026-10-07T04:00:35.758Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6b61ebbaa8fac0fc",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-laws/",
+      "sourceCheckedAt": "2026-10-07T04:00:39.777Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_2f1c3468e0cd46e1",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44093",
+      "sourceCheckedAt": "2026-10-07T04:00:43.771Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_8c60649c1ac8ddfb",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44036",
+      "sourceCheckedAt": "2026-10-07T04:00:47.788Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_c14878aff52cd99d",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45340",
+      "sourceCheckedAt": "2026-10-07T04:00:51.826Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a836a8db65227591",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45527",
+      "sourceCheckedAt": "2026-10-07T04:00:55.827Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_02a11e9ac29a0c62",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44138",
+      "sourceCheckedAt": "2026-10-07T04:00:59.885Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_9e040c1cfcdb44ed",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=410100",
+      "sourceCheckedAt": "2026-10-07T04:01:22.638Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_e88e8a1990bed730",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=deciding&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:26.388Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_7c2475f6661cf1fc",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45835&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:28.391Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_76aaef7175cacc7c",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44036&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:30.394Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_ab433bc3ce03e237",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45340&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:32.428Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_da46eeb23c0c07d9",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45527&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:34.419Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_88f2398c32a7fa69",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44138&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:36.439Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_1c4ad2d5c2e08570",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44098&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:38.450Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_b569dc1621da0db7",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44142&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:40.472Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_18404abe574e7aa8",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44161&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:42.457Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a1d555c9502ad836",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=45830&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T04:01:44.480Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_0a955100d3475bf6",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44046&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T06:04:13.091Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_2f02c1cfeea6c7f1",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44048&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T06:04:15.087Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_41b10f22ea8451c7",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?major=44041&students=international&campus=Wollongong&year=2026",
+      "sourceCheckedAt": "2026-10-07T06:04:17.108Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6167025bf94d0244",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-engineering-honours---bachelor-of-arts/",
+      "sourceCheckedAt": "2026-10-07T06:04:19.137Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_54e6a84bafc1106a",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-creative-arts---bachelor-of-arts/",
+      "sourceCheckedAt": "2026-10-07T06:04:21.140Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_08ee9b1d89c20f34",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-science-smah---bachelor-of-arts/",
+      "sourceCheckedAt": "2026-10-07T06:04:23.129Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_070a838339b94584",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts-in-western-civilisation-double-majors/",
+      "sourceCheckedAt": "2026-10-07T06:04:27.141Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_43dc483738ac51f3",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=410566",
+      "sourceCheckedAt": "2026-10-07T06:04:29.130Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_232ef00ed6abf970",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=410134",
+      "sourceCheckedAt": "2026-10-07T06:04:31.146Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_970da575f0306464",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts/?addCourse=410286",
+      "sourceCheckedAt": "2026-10-07T06:04:33.152Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_e9c2d20c1a8d49d1",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/?addCourse=410180",
+      "sourceCheckedAt": "2026-10-07T06:04:45.202Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_4815c9e1f3aa25f7",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-business/",
+      "sourceCheckedAt": "2026-10-07T06:04:47.225Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_78988600fcb5cf7d",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-business---bachelor-of-laws/",
+      "sourceCheckedAt": "2026-10-07T06:04:53.172Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_9f3c32bf2fdb2188",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/?addCourse=410161",
+      "sourceCheckedAt": "2026-10-07T06:04:54.410Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_5d3b2fda1e1887bc",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/?addCourse=410134",
+      "sourceCheckedAt": "2026-10-07T06:04:56.409Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_6983e17149ec1151",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-business/?addCourse=410197",
+      "sourceCheckedAt": "2026-10-07T06:04:58.477Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_7df117ec7b722ac0",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/?addCourse=410134",
+      "sourceCheckedAt": "2026-10-07T06:05:08.465Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_537a1f9e3041ac8e",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-communication-and-media/",
+      "sourceCheckedAt": "2026-10-07T06:05:10.487Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_79530962a48be622",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/?addCourse=410197",
+      "sourceCheckedAt": "2026-10-07T06:05:14.488Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_a37dd98ebd5e865f",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/?addCourse=411228",
+      "sourceCheckedAt": "2026-10-07T06:05:16.511Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_defb817cc397e11f",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-communication-and-media---bachelor-of-laws/",
+      "sourceCheckedAt": "2026-10-07T06:05:18.525Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_e17f94e3cb89249a",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-communication-and-media/?addCourse=410133",
+      "sourceCheckedAt": "2026-10-07T06:05:20.523Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_302fe45d7c9b3e51",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-international-studies/?addCourse=410197",
+      "sourceCheckedAt": "2026-10-07T06:05:30.554Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_d6c4efaf1e50a733",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-international-studies/",
+      "sourceCheckedAt": "2026-10-07T06:05:32.599Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_cab50b689b33b638",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-international-studies---bachelor-of-business/",
+      "sourceCheckedAt": "2026-10-07T06:05:38.508Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    },
+    {
+      "programmeCandidateId": "programme_8781d370cf54bf2c",
+      "universitySourceKey": "university-of-wollongong",
+      "kind": "COURSE_IMAGE",
+      "assetUrl": "https://www.uow.edu.au/study/courses/assets/scripts/uow/course-finder/images/outdoor-study.jpg",
+      "sourceUrl": "https://www.uow.edu.au/study/courses/bachelor-of-arts---bachelor-of-international-studies/?addCourse=410257",
+      "sourceCheckedAt": "2026-10-07T06:05:39.765Z",
+      "licenceRaw": null,
+      "status": "DRAFT"
+    }
+  ]
+}

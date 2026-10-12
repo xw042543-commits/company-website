@@ -1,0 +1,1215 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.555Z",
+  "sourceKey": "yale-university",
+  "sourceName": "Yale University",
+  "warnings": [
+    "HTTP 404：https://jackson.yale.edu/grand-strategy-program/(.*?)",
+    "HTTP 404：https://jackson.yale.edu/grand-strategy-program/.*?",
+    "HTTP 404：https://jackson.yale.edu/schmidt-program-artificial-intelligence/(.*?)",
+    "HTTP 404：https://jackson.yale.edu/schmidt-program-artificial-intelligence/.*?"
+  ],
+  "university": {
+    "candidateId": "university_055a8403f459e1ff",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Yale University",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "New Haven, Connecticut",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.yale.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:18:20.147Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.yale.edu/",
+        "sourcePageTitle": "Yale University",
+        "sourceHash": "f3451599f36982421e462d44f0cb5b7d60acd21117f51088acee1b367b7826ff",
+        "fetchedAt": "2026-10-07T04:18:20.147Z",
+        "field": "name",
+        "rawText": "Yale University"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 7,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": []
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_5355555c6ee0e16d",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "获硕士学位(W014)",
+      "nameEn": "Bachelor’s Degrees Awarded by Major (W014)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://oir.yale.edu/data-browser/student-data/degrees/bachelors-degrees-awarded-major-w014",
+      "sourceCheckedAt": "2026-10-07T06:26:57.193Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://oir.yale.edu/data-browser/student-data/degrees/bachelors-degrees-awarded-major-w014",
+          "sourcePageTitle": "Bachelor’s Degrees Awarded by Major (W014) | Office of Institutional Research",
+          "sourceHash": "dde9bf0448d930c0b0b6bcea3c0935da7bbfa98840b17161dd36bb428c2d667a",
+          "fetchedAt": "2026-10-07T06:26:57.193Z",
+          "field": "name",
+          "rawText": "Bachelor’s Degrees Awarded by Major (W014)"
+        },
+        {
+          "sourceUrl": "https://oir.yale.edu/data-browser/student-data/degrees/bachelors-degrees-awarded-major-w014",
+          "sourcePageTitle": "Bachelor’s Degrees Awarded by Major (W014) | Office of Institutional Research",
+          "sourceHash": "dde9bf0448d930c0b0b6bcea3c0935da7bbfa98840b17161dd36bb428c2d667a",
+          "fetchedAt": "2026-10-07T06:26:57.193Z",
+          "field": "detailUrl",
+          "rawText": "https://oir.yale.edu/data-browser/student-data/degrees/bachelors-degrees-awarded-major-w014"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.yale.edu/",
+      "fetchedAt": "2026-10-07T04:18:20.147Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f3451599f36982421e462d44f0cb5b7d60acd21117f51088acee1b367b7826ff",
+      "title": "Yale University",
+      "snapshotFile": "raw/0001-f3451599f369.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics/undergraduate-study",
+      "fetchedAt": "2026-10-07T04:18:30.436Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "af1ada27a7a2ede94eae48cfa0a1dff06517ce19761043b6065904c3da348e67",
+      "title": "Undergraduate Study | Yale University",
+      "snapshotFile": "raw/0002-af1ada27a7a2.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics/departments-programs",
+      "fetchedAt": "2026-10-07T04:18:40.444Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4cd8d19c672fb800a8cf6382476302a96293143b85fab48889e639b4cd724b7b",
+      "title": "Departments & Programs | Yale University",
+      "snapshotFile": "raw/0003-4cd8d19c672f.html"
+    },
+    {
+      "url": "https://www.yale.edu/faculty",
+      "fetchedAt": "2026-10-07T04:18:50.490Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5ad6bbb42078b7b9debfb947624a933e0c4c9ccdef240e1ac7167724c4e0a33a",
+      "title": "Faculty | Yale University",
+      "snapshotFile": "raw/0004-5ad6bbb42078.html"
+    },
+    {
+      "url": "https://www.yale.edu/calendars",
+      "fetchedAt": "2026-10-07T04:19:00.417Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "abb848f8d83815db3135361ba99582d395d848c5282e2c54e294b8b062a276cd",
+      "title": "Calendars | Yale University",
+      "snapshotFile": "raw/0005-abb848f8d838.html"
+    },
+    {
+      "url": "https://www.yale.edu/directories",
+      "fetchedAt": "2026-10-07T04:19:10.422Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c3035e421802f35426d19618cb0c0bf587d796d95d65e734629f1a541b22cd92",
+      "title": "Directories | Yale University",
+      "snapshotFile": "raw/0006-c3035e421802.html"
+    },
+    {
+      "url": "https://www.yale.edu/search/google",
+      "fetchedAt": "2026-10-07T04:19:20.889Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c8fd95db145230535b69c039b60bb42d4588c6af6d78adbadcfe943cf53eedfa",
+      "title": "Search | Yale University",
+      "snapshotFile": "raw/0007-c8fd95db1452.html"
+    },
+    {
+      "url": "https://www.yale.edu/about-yale",
+      "fetchedAt": "2026-10-07T04:19:30.452Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3b55e140f783fa1f862732cd2cff7c953ca9151ca76aa9cb980fae5fc1c30053",
+      "title": "About Yale | Yale University",
+      "snapshotFile": "raw/0008-3b55e140f783.html"
+    },
+    {
+      "url": "https://www.yale.edu/about-yale/leadership-organization",
+      "fetchedAt": "2026-10-07T04:19:40.442Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5f115bbf49287dda580452b3b85861b00d9686f8ba2a53213150cb00f2e1bc9c",
+      "title": "Leadership & Organization | Yale University",
+      "snapshotFile": "raw/0009-5f115bbf4928.html"
+    },
+    {
+      "url": "https://www.yale.edu/about-yale/yale-facts",
+      "fetchedAt": "2026-10-07T04:19:50.448Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "57d1fa8144f86f408dbf527259e0db63f4339816146bed91f91a5920b8026fb5",
+      "title": "Yale Facts | Yale University",
+      "snapshotFile": "raw/0010-57d1fa8144f8.html"
+    },
+    {
+      "url": "https://www.yale.edu/about-yale/traditions-history",
+      "fetchedAt": "2026-10-07T04:20:00.517Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e59965f18ba93fece81511fa557f109e10649290f82eb0c4008dd9b730311dfa",
+      "title": "Traditions & History | Yale University",
+      "snapshotFile": "raw/0011-e59965f18ba9.html"
+    },
+    {
+      "url": "https://www.yale.edu/about-yale/centers-institutes",
+      "fetchedAt": "2026-10-07T04:20:10.483Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5164c8eb55bcb1889d42bb69cbfd4f4423745506b678a358f66ed2f64fe146b7",
+      "title": "Centers & Institutes | Yale University",
+      "snapshotFile": "raw/0012-5164c8eb55bc.html"
+    },
+    {
+      "url": "https://www.yale.edu/about-yale/yales-impact-america",
+      "fetchedAt": "2026-10-07T04:20:20.576Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f7972e96039b9932e144cdacb9f5baff768b243fa7882f8ef5a86f78c1e8cede",
+      "title": "Yale’s Impact on America | Yale University",
+      "snapshotFile": "raw/0013-f7972e96039b.html"
+    },
+    {
+      "url": "https://www.yale.edu/about-yale/yales-impact-america/impact-state",
+      "fetchedAt": "2026-10-07T04:20:30.518Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c9acfe9984663e8a865e34fb2d7eb805b73675d0ed66e780c216482517a48b17",
+      "title": "Impact by State | Yale University",
+      "snapshotFile": "raw/0014-c9acfe998466.html"
+    },
+    {
+      "url": "https://www.yale.edu/about-yale/visiting",
+      "fetchedAt": "2026-10-07T04:20:40.501Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a57c58f646f4a599e5c8d8a7d910600ae4f737a76467d798aaaf83b89365a7ba",
+      "title": "Visiting | Yale University",
+      "snapshotFile": "raw/0015-a57c58f646f4.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics",
+      "fetchedAt": "2026-10-07T04:20:50.518Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "964a2d29981d13d73e201ecf77ed86892e23945dd28c734f07ac79415e7dfe33",
+      "title": "Academics | Yale University",
+      "snapshotFile": "raw/0016-964a2d29981d.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics/graduate-professional-study",
+      "fetchedAt": "2026-10-07T04:21:00.268Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8893633ce37ab2ce475f01a81bba999b49e08a2102e72d6c7ceff72c5b830e28",
+      "title": "Graduate & Professional Study | Yale University",
+      "snapshotFile": "raw/0017-8893633ce37a.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics/non-degree-offerings",
+      "fetchedAt": "2026-10-07T04:21:10.537Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "fa290af7868d73a96fdc3e1fb5240e3c009e80ff652b45059cf29806db94425f",
+      "title": "Non-Degree Offerings | Yale University",
+      "snapshotFile": "raw/0018-fa290af7868d.html"
+    },
+    {
+      "url": "https://www.yale.edu/collections",
+      "fetchedAt": "2026-10-07T04:21:20.549Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bc0ccf01fc0fa4102ebd7756ce633436d8689b5d918c079df4b77931f6d54541",
+      "title": "Collections at Yale | Yale University",
+      "snapshotFile": "raw/0019-bc0ccf01fc0f.html"
+    },
+    {
+      "url": "https://www.yale.edu/collections/museums-and-libraries",
+      "fetchedAt": "2026-10-07T04:21:30.524Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cd2f11563496381416bce14149c4fec374f8677c792fe786b87dfaf4822f07e4",
+      "title": "Museums and Libraries | Yale University",
+      "snapshotFile": "raw/0020-cd2f11563496.html"
+    },
+    {
+      "url": "https://www.yale.edu/life-yale",
+      "fetchedAt": "2026-10-07T04:21:40.538Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e4fc5fefe489d562dcae92853f896ba8ac10ea0159a450dcc53f3638a7a6cdb2",
+      "title": "Life at Yale | Yale University",
+      "snapshotFile": "raw/0021-e4fc5fefe489.html"
+    },
+    {
+      "url": "https://www.yale.edu/life-yale/arts-culture",
+      "fetchedAt": "2026-10-07T04:21:50.532Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a7087c9762a2f4e359d08b78b34d1699368b45146ce1b1357ef721b1ad7c824c",
+      "title": "Arts & Culture | Yale University",
+      "snapshotFile": "raw/0022-a7087c9762a2.html"
+    },
+    {
+      "url": "https://www.yale.edu/life-yale/athletics-recreation",
+      "fetchedAt": "2026-10-07T04:22:00.573Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "e667826465833ed64b5e7b84e74d177603fcf50bd8529de05a50b25d95d182b6",
+      "title": "Athletics & Recreation | Yale University",
+      "snapshotFile": "raw/0023-e66782646583.html"
+    },
+    {
+      "url": "https://www.yale.edu/life-yale/health-wellness",
+      "fetchedAt": "2026-10-07T04:22:10.546Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b5b6a22dfa96be3f0e79fd0849d4b97cbdc1de6e50036614cb56a9741657b479",
+      "title": "Health & Wellness | Yale University",
+      "snapshotFile": "raw/0024-b5b6a22dfa96.html"
+    },
+    {
+      "url": "https://www.yale.edu/life-yale/new-haven",
+      "fetchedAt": "2026-10-07T04:22:20.563Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4ac4b50a5affc9d5283eeab5113dedc7920bdc54e4d6a83e93a2dbe48cc41566",
+      "title": "New Haven | Yale University",
+      "snapshotFile": "raw/0025-4ac4b50a5aff.html"
+    },
+    {
+      "url": "https://www.yale.edu/life-yale/service",
+      "fetchedAt": "2026-10-07T04:22:30.560Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ef18b8292c2115e662f24ed79bb899ccfe7f5fc9ae84a59fb84e2262ecc9354e",
+      "title": "Service | Yale University",
+      "snapshotFile": "raw/0026-ef18b8292c21.html"
+    },
+    {
+      "url": "https://www.yale.edu/life-yale/virtual-yale",
+      "fetchedAt": "2026-10-07T04:22:40.584Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ba10f5252b6f3e91a6eac6db7bf919e9db72d96a8a1c3fb9c19913db20231223",
+      "title": "Virtual Yale | Yale University",
+      "snapshotFile": "raw/0027-ba10f5252b6f.html"
+    },
+    {
+      "url": "https://www.yale.edu/feature-archive",
+      "fetchedAt": "2026-10-07T04:22:50.595Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "357ed0ab0d42e04f4c8b3b32e43bff889aef102225ec9ba6f03dace3c3d94b1a",
+      "title": "Feature Archive | Yale University",
+      "snapshotFile": "raw/0028-357ed0ab0d42.html"
+    },
+    {
+      "url": "https://www.yale.edu/eo-nondiscriminationstatement",
+      "fetchedAt": "2026-10-07T04:23:00.604Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "70fad45cae38aa2e32b43966e5fbe50f0454a9eb2a72b252328052d14a73ce96",
+      "title": "Equal Opportunity and Nondiscrimination Statement | Yale University",
+      "snapshotFile": "raw/0029-70fad45cae38.html"
+    },
+    {
+      "url": "https://www.yale.edu/social-media",
+      "fetchedAt": "2026-10-07T04:23:10.602Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "30653ed7ea2a9467381e136b48e0595d43f11cf31d69baf80caa6dd546288f94",
+      "title": "Stay Connected to Yale University | Yale University",
+      "snapshotFile": "raw/0030-30653ed7ea2a.html"
+    },
+    {
+      "url": "https://www.yale.edu/",
+      "fetchedAt": "2026-10-07T04:23:20.708Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f3451599f36982421e462d44f0cb5b7d60acd21117f51088acee1b367b7826ff",
+      "title": "Yale University",
+      "snapshotFile": "raw/0031-f3451599f369.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics",
+      "fetchedAt": "2026-10-07T04:23:30.634Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "964a2d29981d13d73e201ecf77ed86892e23945dd28c734f07ac79415e7dfe33",
+      "title": "Academics | Yale University",
+      "snapshotFile": "raw/0032-964a2d29981d.html"
+    },
+    {
+      "url": "https://www.yale.edu/directories?title=A",
+      "fetchedAt": "2026-10-07T04:23:40.671Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4992500cefdeca8f3ce37633f1ab41d56cbb31708537ddf3f0100a01f2684871",
+      "title": "Directories | Yale University",
+      "snapshotFile": "raw/0033-4992500cefde.html"
+    },
+    {
+      "url": "https://www.yale.edu/directories?title=B",
+      "fetchedAt": "2026-10-07T04:23:50.651Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "206a44ad68e665b6b4956e94649fbbeb5e9bd1a58dba003f7ac45a1b1bab00b8",
+      "title": "Directories | Yale University",
+      "snapshotFile": "raw/0034-206a44ad68e6.html"
+    },
+    {
+      "url": "https://www.yale.edu/directories?title=C",
+      "fetchedAt": "2026-10-07T04:24:00.675Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2693b4d0effd556880ad0d42e3558512a0cc1a7bbf5bc20607d36dfcb0aa518e",
+      "title": "Directories | Yale University",
+      "snapshotFile": "raw/0035-2693b4d0effd.html"
+    },
+    {
+      "url": "https://www.yale.edu/directories?title=D",
+      "fetchedAt": "2026-10-07T04:24:10.681Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4ac2dc8b31fcc6a72ec74d6a7653517653775ae23810cfcf9ece35de279462c1",
+      "title": "Directories | Yale University",
+      "snapshotFile": "raw/0036-4ac2dc8b31fc.html"
+    },
+    {
+      "url": "https://www.yale.edu/directories?title=E",
+      "fetchedAt": "2026-10-07T04:24:22.738Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a1b0863b4c7805157e1883095529e46454b7e17111418cd5d350beffeffeb4a3",
+      "title": "Directories | Yale University",
+      "snapshotFile": "raw/0037-a1b0863b4c78.html"
+    },
+    {
+      "url": "https://www.yale.edu/directories?title=F",
+      "fetchedAt": "2026-10-07T04:24:32.745Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f465be654809785159e7946c8eb6138d38ddab180f9b29ba6ad3088ddd4c6089",
+      "title": "Directories | Yale University",
+      "snapshotFile": "raw/0038-f465be654809.html"
+    },
+    {
+      "url": "https://www.yale.edu/directories?title=G",
+      "fetchedAt": "2026-10-07T04:24:40.690Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8c7787ce03b341cbc4fcac4db67a6c2c4c39c501e634ad6e55933c6f5e5c2a95",
+      "title": "Directories | Yale University",
+      "snapshotFile": "raw/0039-8c7787ce03b3.html"
+    },
+    {
+      "url": "https://www.yale.edu/directories?title=H",
+      "fetchedAt": "2026-10-07T04:24:52.895Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d204039de987a3690ac5567b80a996538de9435db187a85cb2cc44317d37e954",
+      "title": "Directories | Yale University",
+      "snapshotFile": "raw/0040-d204039de987.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/student-data/degrees",
+      "fetchedAt": "2026-10-07T06:26:11.062Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a94a4b65f7b22eb7ff933e5991ed1e0f8c187fa81525cb5c34c0ecbca0ccc92f",
+      "title": "Degrees | Office of Institutional Research",
+      "snapshotFile": "raw/0001-a94a4b65f7b2.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics/undergraduate-study",
+      "fetchedAt": "2026-10-07T06:26:20.884Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "af1ada27a7a2ede94eae48cfa0a1dff06517ce19761043b6065904c3da348e67",
+      "title": "Undergraduate Study | Yale University",
+      "snapshotFile": "raw/0002-af1ada27a7a2.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics/departments-programs",
+      "fetchedAt": "2026-10-07T06:26:30.914Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4cd8d19c672fb800a8cf6382476302a96293143b85fab48889e639b4cd724b7b",
+      "title": "Departments & Programs | Yale University",
+      "snapshotFile": "raw/0003-4cd8d19c672f.html"
+    },
+    {
+      "url": "https://chaplain.yale.edu/programs",
+      "fetchedAt": "2026-10-07T06:26:33.088Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e37f834f12cc3df6220130e1b5d15b4c72c9c6b77b3b491ef4271fe8f34dc738",
+      "title": "Programs | Chaplain's Office",
+      "snapshotFile": "raw/0004-e37f834f12cc.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/grand-strategy-program",
+      "fetchedAt": "2026-10-07T06:26:35.334Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "93b0751c0e4de7f17c9814fe8ac92b19fd88c43c77c9d1837cdb90ff7894ea82",
+      "title": "Brady-Johnson Program in Grand Strategy | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0005-93b0751c0e4d.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/faculty-research/undergraduate-capstone-faculty",
+      "fetchedAt": "2026-10-07T06:26:37.094Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "44786edd640ec604d5ba0d2e397a8f49baab22c3dec1881158a6fe52afca332f",
+      "title": "Undergraduate Capstone Faculty | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0006-44786edd640e.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/student-data/degrees/degrees-awarded-school-w013",
+      "fetchedAt": "2026-10-07T06:26:47.596Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7f55914e8746681c5aa62dc1d174637cc5e9b3095f2f2f55891d10fe7c9c6216",
+      "title": "Degrees Awarded by School (W013) | Office of Institutional Research",
+      "snapshotFile": "raw/0007-7f55914e8746.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/student-data/degrees/bachelors-degrees-awarded-major-w014",
+      "fetchedAt": "2026-10-07T06:26:57.193Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "dde9bf0448d930c0b0b6bcea3c0935da7bbfa98840b17161dd36bb428c2d667a",
+      "title": "Bachelor’s Degrees Awarded by Major (W014) | Office of Institutional Research",
+      "snapshotFile": "raw/0008-dde9bf0448d9.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/student-data/course-registrations",
+      "fetchedAt": "2026-10-07T06:27:07.522Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c842ac61217fa46f6bd3918a5c9d42509c85ace618bb053c28fb95afc85545f1",
+      "title": "Course Registrations | Office of Institutional Research",
+      "snapshotFile": "raw/0009-c842ac61217f.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/student-data/course-registrations/undergraduate-course-registrations-w034-35",
+      "fetchedAt": "2026-10-07T06:27:17.490Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "94ffab93516ed794e08d5a9ce97da542c3f604b3489537c9da0eebc043a1e368",
+      "title": "Undergraduate Course Registrations (W034-35) | Office of Institutional Research",
+      "snapshotFile": "raw/0010-94ffab93516e.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff",
+      "fetchedAt": "2026-10-07T06:27:27.468Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7cd6e8c25c05f85fab73fe05db3eb2b7416c3fdddbad98777bf157637fe8ce4f",
+      "title": "Faculty & Staff | Office of Institutional Research",
+      "snapshotFile": "raw/0011-7cd6e8c25c05.html"
+    },
+    {
+      "url": "https://www.yale.edu/faculty",
+      "fetchedAt": "2026-10-07T06:27:36.988Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5ad6bbb42078b7b9debfb947624a933e0c4c9ccdef240e1ac7167724c4e0a33a",
+      "title": "Faculty | Yale University",
+      "snapshotFile": "raw/0012-5ad6bbb42078.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/faculty-research",
+      "fetchedAt": "2026-10-07T06:27:39.272Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "498c514a49ed50ea08633333b8f5d5ee838de8f31887e2787c51bf660e95511b",
+      "title": "Faculty & Research | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0013-498c514a49ed.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/faculty-research/professors-global-affairs",
+      "fetchedAt": "2026-10-07T06:27:41.161Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "05476aa9950ce59b5b51861b808f08c393acad2a8ef651f9c7e50cc0164f0efc",
+      "title": "Professors of Global Affairs | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0014-05476aa9950c.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/faculty-research/lecturers-visiting-faculty",
+      "fetchedAt": "2026-10-07T06:27:43.192Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "46ec967ebed3a21a40b648939e1e2a58ad12c3ce51bab79fd4a79fad0ff00a79",
+      "title": "Lecturers & Visiting Faculty | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0015-46ec967ebed3.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/faculty-research/research-scholars",
+      "fetchedAt": "2026-10-07T06:27:45.188Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d8cb5dc3161dc7f133bce279d966f76506d8cd59432d11879be5cf01bb954a22",
+      "title": "Research Scholars | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0016-d8cb5dc3161d.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/faculty-research/post-doctoral-associates",
+      "fetchedAt": "2026-10-07T06:27:47.174Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b604afc645e3f485823115375c8fa5f58f519c0eed3c521b49978c70b8ecd431",
+      "title": "Post-doctoral Associates | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0017-b604afc645e3.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/leitner-program",
+      "fetchedAt": "2026-10-07T06:27:49.216Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "884b169575e714416f372e185420fabbd344322fc54e4cb72d9f2f3b3ef21c1d",
+      "title": "Leitner Program on Effective Democratic Governance | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0018-884b169575e7.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/schmidt-program-artificial-intelligence",
+      "fetchedAt": "2026-10-07T06:27:51.220Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7f375c89148e65b99e0093ed30f9e20c1cc363a6870bae4e8ae1f1c0f794ef85",
+      "title": "Schmidt Program on Artificial Intelligence, Emerging Technologies & National Power | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0019-7f375c89148e.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/resources-faculty-staff",
+      "fetchedAt": "2026-10-07T06:27:53.222Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "36ad2595b9fcdaefbd080669183e20896fe839e3e0506a07d7af86340a8e1993",
+      "title": "Resources for Faculty & Staff | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0020-36ad2595b9fc.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/grand-strategy-program/about-grand-strategy",
+      "fetchedAt": "2026-10-07T06:27:55.210Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ed84c21a2a60d91086612278cc11b0c70cedb42bf8b75c7684ef011cce9b8e7c",
+      "title": "About Grand Strategy | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0021-ed84c21a2a60.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/grand-strategy-program/faculty-fellows-staff",
+      "fetchedAt": "2026-10-07T06:27:57.237Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ecf4aa9c2bbfae0c2963f9154aca67741081cbd09d8c6dfd22cc49fb2b30e39b",
+      "title": "Faculty, Fellows & Staff | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0022-ecf4aa9c2bbf.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/grand-strategy-program/fellowships-awards",
+      "fetchedAt": "2026-10-07T06:27:59.241Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bf377cddaaa2215fef0208579dc546c557cbf33b08596006443c8ec07b435683",
+      "title": "Fellowships & Awards | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0023-bf377cddaaa2.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/grand-strategy-program/summer-research",
+      "fetchedAt": "2026-10-07T06:28:01.234Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "dbf467b4d5c98075a763d4d89e4075a0430aec8d5f84852477bf6dd9ed7a2c34",
+      "title": "Summer Research | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0024-dbf467b4d5c9.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/grand-strategy-program/subscribe",
+      "fetchedAt": "2026-10-07T06:28:03.766Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cb5a8c8d9e115e82523b02ba3c046f96741563cfa04579edb0e3e841854e1b96",
+      "title": "Subscribe | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0025-cb5a8c8d9e11.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-staff-headcounts",
+      "fetchedAt": "2026-10-07T06:28:13.899Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "37e30decb7e473129f02163cfb868ded78ffe0dd32e9da729a08504ff8e21bd0",
+      "title": "Faculty & Staff Headcounts | Office of Institutional Research",
+      "snapshotFile": "raw/0026-37e30decb7e4.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty/faculty-salary-benefits",
+      "fetchedAt": "2026-10-07T06:28:23.581Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b53c43810f47f8232ba8a63d3bb4d757fe824937ed22049ade7e05a661cbfba1",
+      "title": "Faculty Salary & Benefits | Office of Institutional Research",
+      "snapshotFile": "raw/0027-b53c43810f47.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/schmidt-program-artificial-intelligence/about",
+      "fetchedAt": "2026-10-07T06:28:25.275Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "abc1849a42936995a92c0b4454cfa41cd3585284a14418749411015d8ecde896",
+      "title": "About | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0028-abc1849a4293.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/schmidt-program-artificial-intelligence/research",
+      "fetchedAt": "2026-10-07T06:28:27.258Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "3887cb0e364091c970f171f867157672d7d39e431abc23a6b3ac2c152c167508",
+      "title": "Research | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0029-3887cb0e3640.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/schmidt-program-artificial-intelligence/fellowships-and-funding",
+      "fetchedAt": "2026-10-07T06:28:29.257Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c849ca3c24f06675041bdd1f98d3cb0de89ae5536718e4965094bbcade0c04c9",
+      "title": "Fellowships and funding | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0030-c849ca3c24f0.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/schmidt-program-artificial-intelligence/people",
+      "fetchedAt": "2026-10-07T06:28:31.278Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5fc8a323e2e58e76528a8330733aa72c6b2898b962414b87efea88c4643af804",
+      "title": "People | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0031-5fc8a323e2e5.html"
+    },
+    {
+      "url": "https://jackson.yale.edu/schmidt-program-artificial-intelligence/subscribe",
+      "fetchedAt": "2026-10-07T06:28:33.284Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5d55501871e4df9267334891ec6020e59e1e7c9a027549c32a1c07ff4834d07d",
+      "title": "Subscribe | Yale Jackson School of Global Affairs",
+      "snapshotFile": "raw/0032-5d55501871e4.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/faculty-data-dashboard",
+      "fetchedAt": "2026-10-07T06:28:47.610Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7c117a5f5fb8380794d94395f25a5ac2694bd18c53fee994d27cc418bbd6096c",
+      "title": "Faculty Data Dashboard | Office of Institutional Research",
+      "snapshotFile": "raw/0033-7c117a5f5fb8.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/faculty-headcount-school-and-rank-w055",
+      "fetchedAt": "2026-10-07T06:28:57.625Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "4705d0e3f70af3a3c6a84fccf76e4cc6b8407eb8877b41252ec1949d2a8fedaa",
+      "title": "Faculty Headcount by School and Rank (W055) | Office of Institutional Research",
+      "snapshotFile": "raw/0034-4705d0e3f70a.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/university-faculty-rank-and-department-w054",
+      "fetchedAt": "2026-10-07T06:29:08.181Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "446b572ef1782706a565b9c9f99ff0e7ba35ac7984ddd394c2f08bb974ff8b36",
+      "title": "University Faculty by Rank and Department (W054) | Office of Institutional Research",
+      "snapshotFile": "raw/0035-446b572ef178.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/fas-ladder-faculty-over-time-w127",
+      "fetchedAt": "2026-10-07T06:29:17.722Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "985fe3d8bfdafe4f65cc5675b0ad5361ab13d2b9b6bcc459d178a4f3428c8206",
+      "title": "FAS Ladder Faculty Over Time (W127) | Office of Institutional Research",
+      "snapshotFile": "raw/0036-985fe3d8bfda.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/faculty-race-and-gender-school-w106",
+      "fetchedAt": "2026-10-07T06:29:27.662Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f26d38a0201035a50decff9329bca4612310f5c7804b39012455929b32a77e0c",
+      "title": "Faculty Race and Gender by School (W106) | Office of Institutional Research",
+      "snapshotFile": "raw/0037-f26d38a02010.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/ladder-faculty-gender-w056",
+      "fetchedAt": "2026-10-07T06:29:37.652Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5676f3ed197bd037e33f585d314388f41dfc9ccd0b78c16a85c24384dac3bc07",
+      "title": "Ladder Faculty by Gender (W056) | Office of Institutional Research",
+      "snapshotFile": "raw/0038-5676f3ed197b.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-staff-headcounts/staff-faculty-ratio-headcounts-operating-revenue",
+      "fetchedAt": "2026-10-07T06:29:47.819Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "01f211f757c8713131adc42ed25f8720f979418ef67b7edd67fed47991c6b116",
+      "title": "Staff to Faculty Ratio & Headcounts with Operating Revenue (W130) | Office of Institutional Research",
+      "snapshotFile": "raw/0039-01f211f757c8.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-staff-headcounts/staff-job-category",
+      "fetchedAt": "2026-10-07T06:29:57.402Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2789d1256bb84f95f9c8c667005e808d4aea4a821e924403c5a9d708f849ae18",
+      "title": "Staff by Job Category | Office of Institutional Research",
+      "snapshotFile": "raw/0040-2789d1256bb8.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-salary-benefits/aaup-faculty-salaries-w060",
+      "fetchedAt": "2026-10-07T06:30:07.990Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "81c3daaeb553d90917f5b1a0e3f625dc9e3c897d8e469c6b3f305715a1cf6ece",
+      "title": "AAUP Faculty Salaries (W060) | Office of Institutional Research",
+      "snapshotFile": "raw/0041-81c3daaeb553.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-salary-benefits/faculty-salaries-yale-and-peer-schools-w061",
+      "fetchedAt": "2026-10-07T06:30:17.739Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f80ad340a2c422b10b31bfcd1f95979025c7f95fff5e5058bba9c3ade606f536",
+      "title": "Faculty Salaries at Yale and Peer Schools (W061) | Office of Institutional Research",
+      "snapshotFile": "raw/0042-f80ad340a2c4.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-salary-benefits/faculty-benefits-yale-and-peer-schools-w062",
+      "fetchedAt": "2026-10-07T06:30:27.991Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "adb52186a9b6211ace32bb8d56eef1ceec3e31491a86d002f1daca4c5fc2ffb7",
+      "title": "Faculty Benefits at Yale and Peer Schools (W062) | Office of Institutional Research",
+      "snapshotFile": "raw/0043-adb52186a9b6.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-salary-benefits/university-faculty-salary-benefits-w107",
+      "fetchedAt": "2026-10-07T06:30:38.345Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "5de8caa7385453cefb84a5ebac57783e7d4c187a18f5ab252032913355727ac9",
+      "title": "University Faculty Salary & Benefits (W107) | Office of Institutional Research",
+      "snapshotFile": "raw/0044-5de8caa73854.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/faculty-data-dashboard?qt-faculty_demographics_quicktab_bl=0",
+      "fetchedAt": "2026-10-07T06:30:51.727Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9c6e3cafea7ae1de54febc884502ce99a182b807f4c53234dd9778508946a3f7",
+      "title": "Faculty Data Dashboard | Office of Institutional Research",
+      "snapshotFile": "raw/0045-9c6e3cafea7a.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/faculty-data-dashboard?qt-faculty_demographics_quicktab_bl=1",
+      "fetchedAt": "2026-10-07T06:31:01.719Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1a0f5501877ade35e359c810ad7805b78d5dcf2adc68913b45af9f183d7ce326",
+      "title": "Faculty Data Dashboard | Office of Institutional Research",
+      "snapshotFile": "raw/0046-1a0f5501877a.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/faculty-data-dashboard?qt-faculty_demographics_quicktab_bl=2",
+      "fetchedAt": "2026-10-07T06:31:11.712Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "913a0dffff3513a60337a57c06d755c7632891fe2435f60ad1156fbbdaf6c840",
+      "title": "Faculty Data Dashboard | Office of Institutional Research",
+      "snapshotFile": "raw/0047-913a0dffff35.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/faculty-data-dashboard?qt-faculty_demographics_quicktab_bl=3",
+      "fetchedAt": "2026-10-07T06:31:21.895Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "59152a78513996314aaca9457c0f164c8e66505b512a47dd347811932c6d2afc",
+      "title": "Faculty Data Dashboard | Office of Institutional Research",
+      "snapshotFile": "raw/0048-59152a785139.html"
+    },
+    {
+      "url": "https://oir.yale.edu/data-browser/faculty-staff/faculty-headcounts/faculty-data-dashboard?qt-faculty_demographics_quicktab_bl=4",
+      "fetchedAt": "2026-10-07T06:31:31.731Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1f5ff3a9bc2d2fd28156efd433b603447b392bb6bc44e8ed0177f30809f7b112",
+      "title": "Faculty Data Dashboard | Office of Institutional Research",
+      "snapshotFile": "raw/0049-1f5ff3a9bc2d.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics",
+      "fetchedAt": "2026-10-07T06:31:41.422Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "964a2d29981d13d73e201ecf77ed86892e23945dd28c734f07ac79415e7dfe33",
+      "title": "Academics | Yale University",
+      "snapshotFile": "raw/0050-964a2d29981d.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics/graduate-professional-study",
+      "fetchedAt": "2026-10-07T06:31:51.245Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8893633ce37ab2ce475f01a81bba999b49e08a2102e72d6c7ceff72c5b830e28",
+      "title": "Graduate & Professional Study | Yale University",
+      "snapshotFile": "raw/0051-8893633ce37a.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics/non-degree-offerings",
+      "fetchedAt": "2026-10-07T06:32:01.250Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "fa290af7868d73a96fdc3e1fb5240e3c009e80ff652b45059cf29806db94425f",
+      "title": "Non-Degree Offerings | Yale University",
+      "snapshotFile": "raw/0052-fa290af7868d.html"
+    },
+    {
+      "url": "https://www.yale.edu/academics",
+      "fetchedAt": "2026-10-07T06:32:11.514Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "964a2d29981d13d73e201ecf77ed86892e23945dd28c734f07ac79415e7dfe33",
+      "title": "Academics | Yale University",
+      "snapshotFile": "raw/0053-964a2d29981d.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/english-language-institute",
+      "fetchedAt": "2026-10-07T06:32:13.446Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3f07c0152795a29d07a71d9b8a832b774abcc0a95c9755ab2794c94aed45f4f",
+      "title": "English Language Institute | Yale Summer Session",
+      "snapshotFile": "raw/0054-b3f07c015279.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/courses-credit",
+      "fetchedAt": "2026-10-07T06:32:15.467Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e3a075740867437117956bf5a6639989bb04eaadaf8004924753f47fe427330f",
+      "title": "Courses for Credit | Yale Summer Session",
+      "snapshotFile": "raw/0055-e3a075740867.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/signature-programs",
+      "fetchedAt": "2026-10-07T06:32:17.583Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7b26d25f226c503fe2bf20e839b9c7787326795c888c0e1f970dd16c98e7f5a0",
+      "title": "Signature Programs | Yale Summer Session",
+      "snapshotFile": "raw/0056-7b26d25f226c.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yale-summer-session-programs-abroad",
+      "fetchedAt": "2026-10-07T06:32:19.477Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f1245f53cbbf06e2dd4427b84bcef19c962fe7522a6865cbc3a61f941673dab3",
+      "title": "Yale Summer Session Programs Abroad | Yale Summer Session",
+      "snapshotFile": "raw/0057-f1245f53cbbf.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/intensive-english-program",
+      "fetchedAt": "2026-10-07T06:32:21.516Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7f0913f1d6b7f88297865c04ddfcf72e85d9e23354480e05c44abdb977b7ad91",
+      "title": "Intensive English Program | Yale Summer Session",
+      "snapshotFile": "raw/0058-7f0913f1d6b7.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/course-list",
+      "fetchedAt": "2026-10-07T06:32:23.512Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "50714a21902311b144ae95c8aa33da6ced7a966b2893c382d89b50cb5b55b03f",
+      "title": "Course List | Yale Summer Session",
+      "snapshotFile": "raw/0059-50714a219023.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/course-syllabi",
+      "fetchedAt": "2026-10-07T06:32:25.518Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1e63580086a5fe2537ce7fc8c0670420f53fc56c5669f05e700e54414e16b05f",
+      "title": "Course Syllabi | Yale Summer Session",
+      "snapshotFile": "raw/0060-1e63580086a5.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/online-course-information",
+      "fetchedAt": "2026-10-07T06:32:27.517Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cf306945617fea78c6e188003fa57550bbbb2e3ccb013af75875d70fadf56a7c",
+      "title": "Online Course Information | Yale Summer Session",
+      "snapshotFile": "raw/0061-cf306945617f.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/online-language-reading-courses",
+      "fetchedAt": "2026-10-07T06:32:30.249Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4965e045ccbc9872da3f002a1405371d5ad9cd48ed900f87a981199e17290409",
+      "title": "Online Language Reading Courses | Yale Summer Session",
+      "snapshotFile": "raw/0062-4965e045ccbc.html"
+    },
+    {
+      "url": "https://summer.yale.edu/yss-acting-program",
+      "fetchedAt": "2026-10-07T06:32:31.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5400b2ff4d90e8b5ccdeece96c2fc805446350a5318386485a46aef77112f18e",
+      "title": "YSS Acting Program | Yale Summer Session",
+      "snapshotFile": "raw/0063-5400b2ff4d90.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yale-summer-session-acting-program-curriculum",
+      "fetchedAt": "2026-10-07T06:32:33.546Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f4b580e29e7f3c3246e6e5f6bcbc3b5af32353a18e91e6d2070211c8de4ca615",
+      "title": "Yale Summer Session Acting Program Curriculum | Yale Summer Session",
+      "snapshotFile": "raw/0064-f4b580e29e7f.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yale-summer-session-actors-faculty",
+      "fetchedAt": "2026-10-07T06:32:35.557Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2ee9260146e0114334481a2c7fe029983ef30495934aea167656c2d510bae0da",
+      "title": "Yale Summer Session Actors Faculty | Yale Summer Session",
+      "snapshotFile": "raw/0065-2ee9260146e0.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yss-journalism-program",
+      "fetchedAt": "2026-10-07T06:32:37.579Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "eab5719cbce7f8f0808c291650f4c253283504853281fe135cf354233818e326",
+      "title": "YSS Journalism Program | Yale Summer Session",
+      "snapshotFile": "raw/0066-eab5719cbce7.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yss-journalism-program-curriculum",
+      "fetchedAt": "2026-10-07T06:32:39.554Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "91f0e5a00896ce62cb0e41bad47e8bf02bff31c1c92e35bd5eac7d7d3bc05cda",
+      "title": "YSS Journalism Program Curriculum | Yale Summer Session",
+      "snapshotFile": "raw/0067-91f0e5a00896.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yss-politics-program",
+      "fetchedAt": "2026-10-07T06:32:41.575Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d6eeb0a69b5b5778c6d2a311046494a291bada061fdb442047a000b43780dae7",
+      "title": "YSS Politics Program | Yale Summer Session",
+      "snapshotFile": "raw/0068-d6eeb0a69b5b.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yss-program-politics-curriculum",
+      "fetchedAt": "2026-10-07T06:32:43.575Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "13062c6210a6c7dfd2368661f9c3430fa6695b3811f3c52e8f3c5fe0fe5bb318",
+      "title": "YSS Program in Politics Curriculum | Yale Summer Session",
+      "snapshotFile": "raw/0069-13062c6210a6.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/session-i-faculty",
+      "fetchedAt": "2026-10-07T06:32:45.555Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3102660b3092f1e4bab5c0ff998318883254c7c220a35bd3a68e442374e9de51",
+      "title": "Session I Faculty | Yale Summer Session",
+      "snapshotFile": "raw/0070-3102660b3092.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/session-i-program-schedule",
+      "fetchedAt": "2026-10-07T06:32:47.602Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d20ee0a7925644b70d0ce62b357021a1e2d74d0ae0201326127e181335cc9438",
+      "title": "Session I Program Schedule | Yale Summer Session",
+      "snapshotFile": "raw/0071-d20ee0a79256.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yale-writers-workshop-faculty-session-ii",
+      "fetchedAt": "2026-10-07T06:32:49.571Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "34c988a9b36088cf2dc3a6c6669704fe8f05e6f379f20380c50f64ee97f4c153",
+      "title": "Yale Writers' Workshop Faculty, Session II | Yale Summer Session",
+      "snapshotFile": "raw/0072-34c988a9b360.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/session-ii-program-schedule",
+      "fetchedAt": "2026-10-07T06:32:51.620Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f211937b14e0e049248e770d49ee92a69ba7b6f7f40412593098e086b764ec2f",
+      "title": "Session II Program Schedule | Yale Summer Session",
+      "snapshotFile": "raw/0073-f211937b14e0.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yale-young-writers-workshop-faculty",
+      "fetchedAt": "2026-10-07T06:32:53.601Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9b8c0610a4568e49381fdaba6846960d6a78159cd6a106c9fac027c1723ba694",
+      "title": "Yale Young Writers' Workshop Faculty | Yale Summer Session",
+      "snapshotFile": "raw/0074-9b8c0610a456.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/yww-program-essentials",
+      "fetchedAt": "2026-10-07T06:32:55.597Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6fe1da9c94701c0258983cba772ea35b55151a402a9064bfae43db4759bec2af",
+      "title": "YWW Program Essentials | Yale Summer Session",
+      "snapshotFile": "raw/0075-6fe1da9c9470.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/business-seminar-courses",
+      "fetchedAt": "2026-10-07T06:32:57.631Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aaa3bcd483326df8ce379bce9e98f3078d8810850cd1fde5b675f6be4d785c6a",
+      "title": "Business Seminar Courses | Yale Summer Session",
+      "snapshotFile": "raw/0076-aaa3bcd48332.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/intensive-english-courses",
+      "fetchedAt": "2026-10-07T06:32:59.604Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "77022c8e32fc7e11ea0560905a5344a6108c3bdbbb32ee16a9d2f671a40c9965",
+      "title": "Intensive English Courses | Yale Summer Session",
+      "snapshotFile": "raw/0077-77022c8e32fc.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/law-seminar-courses",
+      "fetchedAt": "2026-10-07T06:33:01.601Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ea24ac3c31cdc38349b21c7a18a75b6473f279a5691851e4626b9e6b23d8c0e6",
+      "title": "Law Seminar Courses | Yale Summer Session",
+      "snapshotFile": "raw/0078-ea24ac3c31cd.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/postgraduate-seminar-courses",
+      "fetchedAt": "2026-10-07T06:33:03.628Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3ec52617a6620ed6d82025f8fe490690ac95d6f5d7c22602f499782581bc00b6",
+      "title": "Postgraduate Seminar Courses | Yale Summer Session",
+      "snapshotFile": "raw/0079-3ec52617a662.html"
+    },
+    {
+      "url": "https://summer.yale.edu/academics/university-preparation-courses",
+      "fetchedAt": "2026-10-07T06:33:05.646Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8c61e70edc3ec568481ef9260d60990c472f13a6f7ed2871a9aeeecfd3a41c9b",
+      "title": "University Preparation Courses | Yale Summer Session",
+      "snapshotFile": "raw/0080-8c61e70edc3e.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:33:05.705Z",
+    "seedUrls": [
+      "https://oir.yale.edu/data-browser/student-data/degrees",
+      "https://www.yale.edu/academics/departments-programs",
+      "https://chaplain.yale.edu/programs",
+      "https://jackson.yale.edu/academics/grand-strategy-program/",
+      "https://www.yale.edu/academics",
+      "https://www.yale.edu/academics/undergraduate-study",
+      "https://www.yale.edu/academics/graduate-professional-study",
+      "https://www.yale.edu/academics/non-degree-offerings",
+      "https://www.yale.edu/academics/index.html",
+      "https://summer.yale.edu/academics/english-language-institute"
+    ],
+    "pages": 80
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.555Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}
