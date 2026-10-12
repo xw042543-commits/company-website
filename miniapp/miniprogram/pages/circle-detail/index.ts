@@ -150,9 +150,10 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
   chooseReply(event: DataEvent) { this.setData({ replyParentId: event.currentTarget.dataset.parent ?? null, replyAuthor: String(event.currentTarget.dataset.id ?? '') }); },
   cancelReply() { this.setData({ replyParentId: null, replyAuthor: '' }); },
   async submitComment() {
-    if (this.data.submittingComment || !(await this.ensureLogin())) return;
+    if (this.data.submittingComment) return;
     const body = this.data.commentBody.trim();
     if (!body || codePointLength(body) > 1000) { wx.showToast({ title: '评论需为1至1000个字', icon: 'none' }); return; }
+    if (!(await this.ensureLogin())) return;
     const state = detailRuntime(this); const fingerprint = `${state.postId}\u0000${this.data.replyParentId ?? ''}\u0000${body}`;
     state.commentSubmission = prepareSubmission(editSubmission(state.commentSubmission, fingerprint), deps.createKey);
     this.setData({ submittingComment: true, commentNotice: '' });

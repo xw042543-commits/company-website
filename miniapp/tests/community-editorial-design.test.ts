@@ -35,3 +35,12 @@ test('community composer keeps publishing actionable and applies native input li
   assert.match(page, /帖子标题（必填）/);
   assert.match(page, /帖子正文（必填）/);
 });
+
+test('community detail keeps comment submission actionable with native limits', () => {
+  const page = readFileSync(new URL('pages/circle-detail/index.wxml', root), 'utf8');
+
+  assert.match(page, /value="{{commentBody}}"[^>]*maxlength="1000"/);
+  assert.match(page, /class="submit-button"[^>]*disabled="{{submittingComment}}"[^>]*bindtap="submitComment"/);
+  assert.doesNotMatch(page, /disabled="{{[^"]*!commentBody/);
+  assert.match(page, /value="{{reportNote}}"[^>]*maxlength="500"/);
+});

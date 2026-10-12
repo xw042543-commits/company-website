@@ -549,3 +549,20 @@ test('personal nonpublic content does not navigate to a public detail', async ()
   definition.openItem.call(page, { currentTarget: { dataset: { id: '9', status: 'PUBLISHED' } } });
   assert.equal(navigated.length, 1);
 });
+
+test('blank comments validate before requesting login or creating a comment', async () => {
+  const module = await import('../miniprogram/pages/circle-detail/index.ts');
+  let loginCalls = 0; let createCalls = 0;
+  const definition: any = module.createCircleDetailPage({
+    loadPost: async (id: string) => ok({ id, authorName: '用户', authorAvatarUrl: null, body: '正文', commentCount: 0, likeCount: 0, publishedAt: '2026-10-08T00:00:00Z', likedByMe: false, ownedByMe: false }),
+    listComments: async () => ok({ items: [], nextCursor: null }),
+    createComment: async () => { createCalls++; return ok({}); },
+    session: { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => { loginCalls++; return ok({}); } },
+  } as any);
+  const page = context(definition); definition.onLoad.call(page, { id: '1' });
+  await Promise.resolve(); await Promise.resolve();
+  page.data.commentBody = '   ';
+  await definition.submitComment.call(page);
+  assert.equal(loginCalls, 0);
+  assert.equal(createCalls, 0);
+});

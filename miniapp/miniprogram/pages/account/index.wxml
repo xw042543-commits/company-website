@@ -1,5 +1,8 @@
 <view class="account-page">
   <view class="account-hero" bindtap="openIdentity">
+    <view class="account-watermark" aria-hidden="true">U</view>
+    <view class="account-orbit account-orbit--one" aria-hidden="true" />
+    <view class="account-orbit account-orbit--two" aria-hidden="true" />
     <button wx:if="{{session.status === 'authenticated'}}" class="avatar-button {{avatarUploading ? 'avatar-button-disabled' : ''}}"
       open-type="chooseAvatar" bindchooseavatar="chooseAvatar" catchtap="noop"
       disabled="{{avatarUploading}}" aria-label="选择微信头像">
@@ -26,6 +29,10 @@
     <view class="overview-item"><view class="overview-number">{{overview.consultations}}</view><text>咨询记录</text></view>
   </view>
 
+  <view class="journey-heading">
+    <view class="journey-title">我的留学旅程</view>
+    <view class="journey-copy">收藏、规划与申请，都从这里继续。</view>
+  </view>
   <view class="menu-card">
     <view
       wx:for="{{menuItems}}"
@@ -34,6 +41,7 @@
       bindtap="openMenu"
       data-key="{{item.key}}"
     >
+      <view class="menu-marker menu-marker--{{item.tone}}" aria-hidden="true">{{item.mark}}</view>
       <view class="menu-copy">
         <view class="menu-label">{{item.label}}</view>
         <view class="menu-caption">{{item.caption}}</view>

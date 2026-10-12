@@ -6,7 +6,7 @@ The list and detail use authenticated student APIs, not the design fixture recor
 
 ## Backend
 
-Migration V19 adds application, document, fee and event tables. Existing catalogue records supply school and programme names. Only the owning student can read a student application or submit its requested documents. Only its assigned adviser can manage the application through the existing adviser session and CSRF protection.
+Migration V21 adds application, document, fee and event tables; V19 is reserved for the miniapp wallet. Existing catalogue records supply school and programme names. Only the owning student can read a student application or submit its requested documents. Only its assigned adviser can manage the application through the existing adviser session and CSRF protection.
 
 - GET `/api/v1/miniapp/me/applications?page=0&status=IN_PROGRESS`
 - GET `/api/v1/miniapp/me/applications/{id}`

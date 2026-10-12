@@ -44,21 +44,29 @@ APP_AUTH_PRIVACY_VERSION=local-privacy-v1
 
 ## 微信小程序
 
-小程序第一阶段包含首页、院校、U圈、我的四个底部入口，以及从首页进入的留学规划页。
-院校列表读取现有真实院校接口；U圈当前仅提供经过认证的安全入口，正式社区、审核和举报系统
-将作为独立项目继续开发。开发导入、登录配置、测试和体验版上传步骤见
+小程序当前包含首页、U圈、消息、我的四个底部入口；院校查询和留学规划从首页进入。
+院校列表读取现有真实院校接口，U圈已接入帖子、评论、点赞、举报及顾问审核能力。
+消息、收藏、咨询记录、申请进度、钱包和账号设置已有对应页面；生产写入能力仍受各自配置开关控制。
+开发导入、登录配置、测试和体验版上传步骤见
 [小程序说明](miniapp/README.md)。
 
 ## 验收命令
 
+以下命令均从仓库根目录执行；后端集成测试需要可用的 Docker。
+
 ```bash
-cd backend && ./mvnw clean test
-cd miniapp && npm ci && npm run check
+./backend/mvnw -f backend/pom.xml clean test
+npm --prefix miniapp ci
+npm --prefix miniapp run check
 npm --prefix frontend ci
 npm --prefix frontend test
 npm --prefix frontend run lint
 npm --prefix frontend run build
+node --test scripts/*.test.mjs
 ```
+
+Windows PowerShell 使用 `./backend/mvnw.cmd -f backend/pom.xml clean test`。
+部署脚本的执行测试还需要 Bash；在 Windows 上，当前测试使用 `C:/msys64/usr/bin/bash.exe`。
 
 正式院校和课程数据仍以老板最终确认的 Excel 为准，不应将演示数据当作正式资料发布。
 
