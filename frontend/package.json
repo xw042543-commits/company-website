@@ -16,7 +16,7 @@
     "test:api": "node --test src/lib/university-api.test.ts src/lib/filter-options-api.test.ts src/lib/article-api.test.ts src/lib/consultation-api.test.ts src/lib/universities.test.ts src/lib/programme-routes.test.ts",
     "test:catalog": "node --test src/data/university-catalog.test.ts src/data/local-programmes.test.ts src/data/search-suggestions.test.ts src/data/curated-articles.test.ts",
     "test:company": "node --test src/data/company-profile.test.ts src/data/university-profiles.test.ts src/lib/site-content.test.ts",
-    "test:styles": "node --test src/app/globals.test.ts src/app/error-pages.test.ts src/components/visual-polish.test.ts src/lib/deployment-config.test.ts src/lib/public-indexing.test.ts",
+    "test:styles": "node --test src/app/globals.test.ts src/app/error-pages.test.ts src/components/visual-polish.test.ts src/components/remote-image.test.mjs src/lib/deployment-config.test.ts src/lib/public-indexing.test.ts",
     "test:saved": "node --test src/lib/saved-items.test.ts src/lib/consultation-history.test.ts"
   },
   "dependencies": {
@@ -31,6 +31,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "jsdom": "^29.1.1",
     "typescript": "^5"
   }
 }
