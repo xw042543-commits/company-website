@@ -22,7 +22,7 @@
   <app-state wx:elif="{{state === 'failed' || state === 'offline'}}" kind="{{state}}" title="暂时无法加载院校" description="筛选条件已保留，请稍后重试。" retryable="{{true}}" bind:retry="retry" />
   <block wx:else>
     <view wx:for="{{schools}}" wx:key="slug" wx:for-item="school" class="school-entry">
-      <button class="school-cover {{!school.coverImageUrl || school.imageFailed ? 'school-cover--plain' : ''}}" data-slug="{{school.slug}}" bindtap="openUniversity" aria-label="查看{{school.nameZh}}院校详情">
+      <button class="school-cover {{!school.coverImageUrl || school.imageFailed ? 'school-cover--plain' : ''}}" data-slug="{{school.slug}}" bindtap="openUniversity" aria-label="查看{{school.nameZh}}匹配专业">
         <image wx:if="{{school.coverImageUrl && !school.imageFailed}}" class="campus-image" src="{{school.coverImageUrl}}" mode="aspectFill" lazy-load="{{true}}" data-slug="{{school.slug}}" binderror="imageError" />
         <view class="cover-shade" wx:if="{{school.coverImageUrl && !school.imageFailed}}" />
         <view class="school-place">{{school.location || '院校资料'}}</view>

@@ -3,7 +3,9 @@ import {
   getUniversityProgrammes,
   type UniversityDetail,
   type UniversityProgramme,
+  type UniversitySearchInput,
 } from '../../services/universities';
+import { createPlanningDiscoveryService } from '../../services/planning-discovery';
 import { favoriteUniversities } from '../../stores/favorites';
 import { loadFilterOptions } from '../../services/catalogue';
 import { deriveProgrammeCategories, filterProgrammes, type ProgrammeCategory } from '../../utils/discovery-view';
@@ -15,6 +17,8 @@ type DetailSection = 'introduction' | 'programmes';
 Page({
   data: {
     slug: '',
+    planningEntry: false,
+    planningFilters: {} as UniversitySearchInput,
     state: 'loading' as ViewState,
     university: null as UniversityDetail | null,
     programmes: [] as UniversityProgramme[],
@@ -37,12 +41,21 @@ Page({
   onLoad(options: Record<string, string | undefined>) {
     this.setupNavigation();
     let slug: string;
-    try { slug = options.slug ? decodeURIComponent(options.slug) : ''; }
+    const planningEntry = options.planning === '1';
+    const planningFilters: Record<string, string> = {};
+    try {
+      slug = options.slug ? decodeURIComponent(options.slug) : '';
+      if (planningEntry) {
+        for (const key of ['q', 'level', 'category', 'country', 'mode', 'language', 'duration', 'intake', 'tuitionMin', 'tuitionMax']) {
+          if (options[key]) planningFilters[key] = decodeURIComponent(options[key]!);
+        }
+      }
+    }
     catch {
       this.setData({ state: 'failed' as ViewState });
       return;
     }
-    this.setData({ slug, favorite: favoriteUniversities.has(slug) });
+    this.setData({ slug, planningEntry, planningFilters, activeSection: planningEntry ? 'programmes' : 'introduction', favorite: favoriteUniversities.has(slug) });
     void this.loadPage();
   },
   onShow() {
@@ -102,9 +115,12 @@ Page({
       return;
     }
     this.setData({ state: 'loading' as ViewState, imageFailed: false, logoFailed: false });
+    const loadProgrammes = (page: number) => this.data.planningEntry
+      ? createPlanningDiscoveryService().programmes(this.data.slug, this.data.planningFilters, page)
+      : getUniversityProgrammes(this.data.slug, page, 48);
     const [detail, programmes, catalogue] = await Promise.all([
       getUniversityDetail(this.data.slug),
-      getUniversityProgrammes(this.data.slug, 1, 48),
+      loadProgrammes(1),
       loadFilterOptions(),
     ]);
     if (!detail.ok || !programmes.ok) {
@@ -116,7 +132,7 @@ Page({
     const allProgrammes = [...programmes.value.items];
     // The service shares one request key, so later pages must complete in order.
     for (let page = 2; page <= programmes.value.totalPages; page++) {
-      const next = await getUniversityProgrammes(this.data.slug, page, 48);
+      const next = await loadProgrammes(page);
       if (!next.ok) {
         if (next.error.code === 'REQUEST_SUPERSEDED') return;
         this.setData({ state: next.error.kind === 'unavailable' ? 'offline' as ViewState : 'failed' as ViewState });
@@ -132,7 +148,7 @@ Page({
       ? catalogue.value.subjectCategories.map((category) => [category.code, category.nameZh]) : []);
     const programmeCategories = deriveProgrammeCategories(allProgrammes, labels)
       .filter((category) => category.code !== 'ALL');
-    const activeCategory = programmeCategories.some((category) => category.code === this.data.activeCategory)
+    const activeCategory = this.data.planningEntry ? '' : programmeCategories.some((category) => category.code === this.data.activeCategory)
       ? this.data.activeCategory : programmeCategories[0]?.code ?? '';
     this.setData({
       university: detail.value,
@@ -140,7 +156,7 @@ Page({
       programmeCount: programmes.value.totalItems,
       programmeCategories,
       activeCategory,
-      visibleProgrammes: filterProgrammes(allProgrammes, activeCategory),
+      visibleProgrammes: this.data.planningEntry ? allProgrammes : filterProgrammes(allProgrammes, activeCategory),
       location: [detail.value.cityZh, detail.value.countryNameZh].filter(Boolean).join('，'),
       descriptionParagraphs: detail.value.descriptionZh.split(/\r?\n/).map((paragraph) => paragraph.trim()).filter(Boolean),
       logoLetter: detail.value.nameEn.charAt(0).toUpperCase() || 'U',

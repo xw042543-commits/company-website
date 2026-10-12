@@ -1,6 +1,7 @@
 import { loadFilterOptions, type FilterOptions, type FilterOption } from '../../services/catalogue';
 import { createPlanningDiscoveryService } from '../../services/planning-discovery';
 import type { UniversitySummary, UniversityProgramme } from '../../services/universities';
+import { buildUniversitySearchPath } from '../../services/universities';
 import { universityLogoUrl } from '../../services/university-media';
 import { universityDetailRoute, programmeDetailRoute } from '../../utils/routes';
 
@@ -162,7 +163,11 @@ export function createPlanningDiscoveryPage(overrides: Partial<ReturnType<typeof
       this.patchSchool(slug, event.currentTarget.dataset.kind === 'logo' ? { logoFailed: true } : { imageFailed: true });
     },
     openUniversity(event: Event) {
-      const route = universityDetailRoute(String(event.currentTarget.dataset.slug ?? '')); if (route.ok) wx.navigateTo({ url: route.value });
+      const route = universityDetailRoute(String(event.currentTarget.dataset.slug ?? ''));
+      if (route.ok) {
+        const query = buildUniversitySearchPath(this.data.applied).split('?')[1];
+        wx.navigateTo({ url: `${route.value}&planning=1&${query}` });
+      }
     },
     openProgramme(event: Event) {
       const route = programmeDetailRoute(String(event.currentTarget.dataset.slug ?? ''), String(event.currentTarget.dataset.id ?? ''));
