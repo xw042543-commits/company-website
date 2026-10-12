@@ -200,6 +200,7 @@ const validUniversityDetail = {
   descriptionEn: "University description",
   popular: true,
   imageUrl: null,
+  sections: [],
 };
 
 const validUniversityProgrammePage = {

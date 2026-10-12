@@ -45,6 +45,16 @@ export interface UniversityDetail {
   readonly popular: boolean;
   readonly imageUrl: string | null;
   readonly logoUrl: string | null;
+  readonly sections: UniversityProfileSection[];
+}
+
+export interface UniversityProfileSection {
+  readonly type: string;
+  readonly titleZh: string;
+  readonly titleEn: string;
+  readonly bodyZh: string;
+  readonly bodyEn: string;
+  readonly sortOrder: number;
 }
 
 export interface UniversityProgramme {
@@ -220,7 +230,16 @@ function mapUniversity(raw: unknown): UniversitySummary | null {
 
 export function mapUniversityDetail(raw: unknown): Result<UniversityDetail> {
   if (!isObject(raw) || !positiveInteger(raw.id) || !text(raw.slug)
-    || !text(raw.nameZh) || !text(raw.nameEn)) return invalid('INVALID_UNIVERSITY_DETAIL_RESPONSE');
+    || !text(raw.nameZh) || !text(raw.nameEn) || !Array.isArray(raw.sections)) return invalid('INVALID_UNIVERSITY_DETAIL_RESPONSE');
+  const sections: UniversityProfileSection[] = [];
+  for (const section of raw.sections) {
+    if (!isObject(section) || !text(section.type) || !nonNegativeInteger(section.sortOrder)
+      || !['titleZh', 'titleEn', 'bodyZh', 'bodyEn'].every((field) => typeof section[field] === 'string')) {
+      return invalid('INVALID_UNIVERSITY_DETAIL_RESPONSE');
+    }
+    sections.push({ type: section.type, titleZh: optionalText(section.titleZh), titleEn: optionalText(section.titleEn),
+      bodyZh: optionalText(section.bodyZh), bodyEn: optionalText(section.bodyEn), sortOrder: section.sortOrder });
+  }
   return {
     ok: true,
     value: {
@@ -235,6 +254,7 @@ export function mapUniversityDetail(raw: unknown): Result<UniversityDetail> {
       popular: raw.popular === true,
       imageUrl: secureImage(raw.imageUrl) ?? universityCampusUrl(raw.slug),
       logoUrl: universityLogoUrl(raw.slug),
+      sections: sections.sort((left, right) => left.sortOrder - right.sortOrder),
     },
   };
 }

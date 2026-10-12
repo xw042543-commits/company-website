@@ -482,6 +482,7 @@ test('maps university detail with reviewed media without inventing optional cont
     cityZh: '哥打白沙罗',
     descriptionZh: '院校简介',
     popular: true,
+    sections: [{ type: 'INSTITUTION_TYPE', titleZh: '院校类型', titleEn: 'Institution type', bodyZh: '私立大学', bodyEn: 'Private university', sortOrder: 10 }],
   }), { ok: true, value: {
     id: 12,
     slug: 'segi-university',
@@ -494,6 +495,7 @@ test('maps university detail with reviewed media without inventing optional cont
     popular: true,
     imageUrl: 'https://yangdoujiao.com/universities/campuses/segi-campus.webp',
     logoUrl: 'https://yangdoujiao.com/universities/segi-university.jpg',
+    sections: [{ type: 'INSTITUTION_TYPE', titleZh: '院校类型', titleEn: 'Institution type', bodyZh: '私立大学', bodyEn: 'Private university', sortOrder: 10 }],
   } });
 });
 

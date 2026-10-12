@@ -189,6 +189,7 @@ export async function getUniversityDetailWithFallback(
       descriptionEn: profile?.introductionEn ?? null,
       popular: FEATURED_UNIVERSITY_IDS.some((id) => id === university.id),
       imageUrl: null,
+      sections: [],
     },
   };
 }

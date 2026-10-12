@@ -70,6 +70,7 @@
         <view class="university-fact-row" aria-role="row"><text class="university-fact-label" aria-role="rowheader">所在地区</text><text class="university-fact-value" aria-role="cell">{{location || '待补充'}}</text></view>
         <view class="university-fact-row" aria-role="row"><text class="university-fact-label" aria-role="rowheader">专业数量</text><text class="university-fact-value" aria-role="cell">{{programmeCount}} 个</text></view>
         <view class="university-fact-row" aria-role="row"><text class="university-fact-label" aria-role="rowheader">学历层次</text><text class="university-fact-value" aria-role="cell">{{levelSummary}}</text></view>
+        <view wx:for="{{profileFacts}}" wx:key="label" class="university-fact-row" aria-role="row"><text class="university-fact-label" aria-role="rowheader">{{item.label}}</text><text class="university-fact-value" aria-role="cell">{{item.value}}</text></view>
       </view>
     </view>
 
