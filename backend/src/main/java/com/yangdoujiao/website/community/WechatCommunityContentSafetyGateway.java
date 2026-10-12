@@ -14,6 +14,7 @@ import org.springframework.http.client.JdkClientHttpRequestFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.yangdoujiao.website.auth.external.ExternalIdentityProvider;
@@ -108,10 +109,27 @@ public final class WechatCommunityContentSafetyGateway implements CommunityConte
                 case "review", "risky" -> Result.REVIEW;
                 default -> Result.UNAVAILABLE;
             };
+        } catch (RestClientResponseException exception) {
+            log.warn("community content safety check unavailable httpStatus={} providerCode={}",
+                    exception.getStatusCode().value(), safeProviderCode(exception.getResponseBodyAsByteArray()));
+            return Result.UNAVAILABLE;
         } catch (RestClientException | JacksonException | IllegalArgumentException exception) {
             log.warn("community content safety check unavailable failureType={}",
                     exception.getClass().getSimpleName());
             return Result.UNAVAILABLE;
+        }
+    }
+
+    private String safeProviderCode(byte[] body) {
+        if (body.length == 0 || body.length > MAXIMUM_RESPONSE_BYTES) return "unknown";
+        try {
+            JsonNode response = objectMapper.readTree(new String(body, StandardCharsets.UTF_8));
+            JsonNode code = response == null ? null : response.get("errcode");
+            // Never log upstream messages, response bodies or URLs: they may contain credentials.
+            return code != null && code.isIntegralNumber() && code.canConvertToInt()
+                    ? Integer.toString(code.intValue()) : "unknown";
+        } catch (JacksonException | IllegalArgumentException exception) {
+            return "unknown";
         }
     }
 
