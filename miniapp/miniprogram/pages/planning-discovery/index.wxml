@@ -1,0 +1,67 @@
+<view class="discovery-page">
+  <view class="planning-intro">
+    <view class="intro-top"><view class="intro-title">选专业，<text class="title-second">找到你的学校。</text></view><image class="intro-mark" src="/assets/icons/planning.png" mode="aspectFit" aria-hidden="true" /></view>
+    <view class="intro-bottom"><text class="intro-copy">从你感兴趣的方向开始。</text><button class="text-button" bindtap="openPlans">我的规划<view class="arrow-right" /></button></view>
+  </view>
+  <view class="search-area">
+    <view class="search-line"><view class="search-icon" aria-hidden="true" /><input class="keyword" value="{{keyword}}" maxlength="100" placeholder="专业关键词，如计算机、设计" placeholder-class="placeholder" confirm-type="search" bindinput="updateKeyword" bindconfirm="submitSearch" aria-label="专业关键词" /><button class="search-action" bindtap="submitSearch">找学校</button></view>
+    <view class="quick-filters">
+      <picker wx:for="{{quickGroups}}" wx:key="field" class="quick-picker" mode="selector" range="{{item.options}}" range-key="nameZh" value="{{item.index}}" data-field="{{item.field}}" bindchange="quickSelect" disabled="{{filtersLoading || filtersFailed}}" aria-label="{{item.title}}">
+        <view class="quick-choice {{item.index ? 'quick-choice--active' : ''}}"><text>{{item.index ? item.selected : item.title}}</text><view class="chevron" /></view>
+      </picker>
+      <button class="more-filter" bindtap="openFilters">更多<view class="filter-icon" aria-hidden="true"><view /><view /><view /></view></button>
+    </view>
+    <view wx:if="{{filtersLoading}}" class="filter-notice">正在读取筛选选项…</view>
+    <view wx:elif="{{filtersFailed}}" class="filter-notice">筛选选项暂未加载，可先用关键词查找。<button class="inline-retry" bindtap="loadFilters">重试</button></view>
+    <view wx:if="{{chips.length}}" class="chosen-filters"><button wx:for="{{chips}}" wx:key="field" class="chosen-chip" data-field="{{item.field}}" bindtap="removeFilter" aria-label="移除{{item.text}}"><text>{{item.text}}</text><view class="close-icon close-icon--small" /></button></view>
+    <view wx:if="{{validation && !filterOpen}}" class="validation" role="alert">{{validation}}</view>
+  </view>
+  <view class="results-heading"><view><view class="results-title">{{chips.length ? '为你筛选的院校' : '从这里发现可能'}}</view><view class="results-caption">{{state === 'ready' || state === 'empty' ? '找到 ' + totalItems + ' 所院校 · 按相关度排序' : '匹配院校与专业课程'}}</view></view><button wx:if="{{chips.length}}" class="text-button" bindtap="clearFilters">清除条件</button></view>
+  <app-state wx:if="{{state === 'loading'}}" kind="loading" title="正在匹配院校" description="按你选择的专业与条件查找。" />
+  <view wx:elif="{{state === 'empty'}}" class="empty-result"><view class="empty-title">换个条件，也许有新方向</view><view class="empty-copy">暂时没有同时满足这些条件的院校。试着放宽学费或专业范围。</view><button class="primary-action" bindtap="clearFilters">清除条件，重新看看</button></view>
+  <app-state wx:elif="{{state === 'failed' || state === 'offline'}}" kind="{{state}}" title="暂时无法加载院校" description="筛选条件已保留，请稍后重试。" retryable="{{true}}" bind:retry="retry" />
+  <block wx:else>
+    <view wx:for="{{schools}}" wx:key="slug" wx:for-item="school" class="school-entry">
+      <button class="school-cover {{!school.coverImageUrl || school.imageFailed ? 'school-cover--plain' : ''}}" data-slug="{{school.slug}}" bindtap="openUniversity" aria-label="查看{{school.nameZh}}院校详情">
+        <image wx:if="{{school.coverImageUrl && !school.imageFailed}}" class="campus-image" src="{{school.coverImageUrl}}" mode="aspectFill" lazy-load="{{true}}" data-slug="{{school.slug}}" binderror="imageError" />
+        <view class="cover-shade" wx:if="{{school.coverImageUrl && !school.imageFailed}}" />
+        <view class="school-place">{{school.location || '院校资料'}}</view>
+        <view class="school-identity"><image wx:if="{{school.logoUrl && !school.logoFailed}}" class="school-logo" src="{{school.logoUrl}}" mode="aspectFit" data-kind="logo" data-slug="{{school.slug}}" binderror="imageError" /><view class="school-names"><view class="school-name">{{school.nameZh}}</view><view class="school-english">{{school.nameEn}}</view></view><view class="arrow-right" /></view>
+      </button>
+      <button class="course-toggle" data-slug="{{school.slug}}" bindtap="toggleCourses" aria-expanded="{{school.expanded}}"><view><text class="course-count">{{school.programmeCount}}</text><text> 个匹配课程</text></view><view class="course-toggle-label">{{school.expanded ? '收起课程' : '展开看看'}}<view class="chevron {{school.expanded ? 'chevron--up' : ''}}" /></view></button>
+      <view wx:if="{{school.expanded}}" class="course-list">
+        <button wx:for="{{school.courses}}" wx:for-item="course" wx:key="id" class="course-item" data-slug="{{school.slug}}" data-id="{{course.id}}" bindtap="openProgramme">
+          <view class="course-title">{{course.nameZh}}</view><view wx:if="{{course.nameEn}}" class="course-english">{{course.nameEn}}</view>
+          <view class="course-meta"><text wx:if="{{course.levelLabel}}">{{course.levelLabel}}</text><text wx:if="{{course.durationDisplay}}">{{course.durationDisplay}}</text></view>
+          <view class="course-bottom"><text class="course-fee">{{course.tuitionDisplay || '学费待确认'}}</text><view class="arrow-right" /></view>
+        </button>
+        <view wx:if="{{school.courseState === 'loading'}}" class="course-notice">正在读取匹配课程…</view>
+        <view wx:elif="{{school.courseState === 'failed'}}" class="course-notice">课程加载失败<button class="inline-retry" data-slug="{{school.slug}}" bindtap="moreCourses">重试</button></view>
+        <view wx:elif="{{!school.courses.length}}" class="course-notice">暂无可展示的匹配课程，可进入院校查看详情。</view>
+        <button wx:elif="{{school.coursePage < school.coursePages}}" class="course-more" data-slug="{{school.slug}}" bindtap="moreCourses">查看更多匹配课程</button>
+      </view>
+    </view>
+    <view wx:if="{{loadingMore}}" class="list-foot">正在加载更多院校…</view>
+    <button wx:elif="{{moreFailed}}" class="load-more" bindtap="loadMore">加载失败，点击重试</button>
+    <button wx:elif="{{page < totalPages}}" class="load-more" bindtap="loadMore">查看更多院校</button>
+    <view wx:else class="list-foot">已展示全部匹配院校</view>
+  </block>
+  <view class="result-disclaimer">筛选结果仅供选校参考，不代表录取承诺。课程与学费以院校最新公布为准。</view>
+  <view wx:if="{{filterOpen}}" class="sheet-mask" bindtap="closeFilters" catchtouchmove="noop">
+    <view class="filter-sheet" catchtap="noop" role="dialog" aria-label="筛选院校与课程">
+      <view class="sheet-heading"><view><view class="sheet-title">把方向再缩小一点</view><view class="sheet-copy">条件可选，不必全部填写。</view></view><button class="close-button" bindtap="closeFilters" aria-label="关闭筛选"><view class="close-icon" /></button></view>
+      <scroll-view class="sheet-scroll" scroll-y="{{true}}">
+        <view class="sheet-fields">
+          <view class="field"><label for="planning-keyword" class="field-label">专业关键词</label><input id="planning-keyword" class="field-input" value="{{draft.q}}" maxlength="100" placeholder="输入专业名称" placeholder-class="placeholder" data-field="q" bindinput="updateDraft" /></view>
+          <view class="field-pair"><view wx:for="{{draftGroups}}" wx:key="field" class="field"><view class="field-label">{{item.title}}</view><picker mode="selector" range="{{item.options}}" range-key="nameZh" value="{{item.index}}" data-field="{{item.field}}" bindchange="selectDraft" disabled="{{filtersLoading || filtersFailed}}" aria-label="{{item.title}}"><view class="field-select"><text>{{item.selected}}</text><view class="chevron" /></view></picker></view></view>
+          <view wx:if="{{filtersFailed}}" class="filter-notice">选项读取失败<button class="inline-retry" bindtap="loadFilters">重试</button></view>
+          <view class="field-pair"><view class="field"><label for="planning-duration" class="field-label">学制（月）</label><input id="planning-duration" class="field-input" type="number" value="{{draft.duration}}" maxlength="10" placeholder="不限" placeholder-class="placeholder" data-field="duration" bindinput="updateDraft" /></view><view class="field"><view class="field-label">入学年月</view><picker mode="date" fields="month" value="{{draft.intake}}" data-field="intake" bindchange="updateDraft"><view class="field-select"><text>{{draft.intake || '不限'}}</text><view class="chevron" /></view></picker><button wx:if="{{draft.intake}}" class="inline-retry" data-field="intake" bindtap="clearDraftField">清除年月</button></view></view>
+          <view class="fee-heading">学费范围<text>人民币 · 与网页一致</text></view>
+          <view class="field-pair"><view class="field"><label for="planning-min" class="field-label">最低学费</label><input id="planning-min" class="field-input" type="digit" value="{{draft.tuitionMin}}" maxlength="12" placeholder="不限" placeholder-class="placeholder" data-field="tuitionMin" bindinput="updateDraft" /></view><view class="field"><label for="planning-max" class="field-label">最高学费</label><input id="planning-max" class="field-input" type="digit" value="{{draft.tuitionMax}}" maxlength="12" placeholder="不限" placeholder-class="placeholder" data-field="tuitionMax" bindinput="updateDraft" /></view></view>
+          <view class="sheet-copy">这里筛选的是课程学费，不是每年的生活预算。</view>
+        </view>
+      </scroll-view>
+      <view class="sheet-footer"><view wx:if="{{validation}}" class="validation" role="alert">{{validation}}</view><view class="sheet-actions"><button class="reset-button" bindtap="resetDraft">重置</button><button class="primary-action" bindtap="applyFilters">查看匹配院校</button></view></view>
+    </view>
+  </view>
+</view>

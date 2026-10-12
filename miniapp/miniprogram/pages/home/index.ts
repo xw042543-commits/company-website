@@ -39,7 +39,7 @@ Page({
       return;
     }
     if (key === 'planning') {
-      wx.navigateTo({ url: '/pages/planning/index' });
+      wx.navigateTo({ url: '/pages/planning-discovery/index' });
       return;
     }
     wx.showToast({ title: '功能建设中', icon: 'none' });

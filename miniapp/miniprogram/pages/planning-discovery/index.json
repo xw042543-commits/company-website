@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "留学规划",
+  "enablePullDownRefresh": true,
+  "usingComponents": { "app-state": "/components/app-state/index" }
+}
