@@ -12,7 +12,7 @@ import { deriveProgrammeCategories, filterProgrammes, type ProgrammeCategory } f
 import { consultationRoute, programmeDetailRoute } from '../../utils/routes';
 
 type ViewState = 'loading' | 'ready' | 'failed' | 'offline';
-type DetailSection = 'introduction' | 'programmes';
+type DetailSection = 'introduction' | 'facts' | 'programmes';
 
 Page({
   data: {
@@ -26,9 +26,11 @@ Page({
     activeSection: 'introduction' as DetailSection,
     activeCategory: '',
     programmeCategories: [] as ProgrammeCategory[],
+    featuredCategories: [] as ProgrammeCategory[],
     visibleProgrammes: [] as UniversityProgramme[],
     descriptionParagraphs: [] as string[],
     location: '',
+    levelSummary: '待确认',
     statusBarHeight: 20,
     navigationHeight: 44,
     navigationRight: 96,
@@ -80,8 +82,12 @@ Page({
   },
   selectSection(event: WechatMiniprogram.BaseEvent) {
     const section: unknown = event.currentTarget.dataset.section;
-    if (section !== 'introduction' && section !== 'programmes') return;
+    if (section !== 'introduction' && section !== 'facts' && section !== 'programmes') return;
     this.setData({ activeSection: section });
+  },
+  showProgrammes() {
+    this.setData({ activeSection: 'programmes' as DetailSection });
+    wx.pageScrollTo({ selector: '#university-sections', duration: 240 });
   },
   selectCategory(event: WechatMiniprogram.BaseEvent) {
     const code: unknown = event.currentTarget.dataset.code;
@@ -155,9 +161,11 @@ Page({
       programmes: allProgrammes,
       programmeCount: programmes.value.totalItems,
       programmeCategories,
+      featuredCategories: programmeCategories.slice(0, 4),
       activeCategory,
       visibleProgrammes: this.data.planningEntry ? allProgrammes : filterProgrammes(allProgrammes, activeCategory),
       location: [detail.value.cityZh, detail.value.countryNameZh].filter(Boolean).join('，'),
+      levelSummary: summarizeLevels(allProgrammes),
       descriptionParagraphs: detail.value.descriptionZh.split(/\r?\n/).map((paragraph) => paragraph.trim()).filter(Boolean),
       logoLetter: detail.value.nameEn.charAt(0).toUpperCase() || 'U',
       state: 'ready' as ViewState,
@@ -165,3 +173,11 @@ Page({
     wx.setNavigationBarTitle({ title: detail.value.nameZh });
   },
 });
+
+function summarizeLevels(programmes: readonly UniversityProgramme[]): string {
+  const labels: Readonly<Record<string, string>> = {
+    FOUNDATION: '预科', DIPLOMA: '文凭', BACHELOR: '本科', MASTER: '硕士', DOCTORATE: '博士',
+  };
+  const levels = [...new Set(programmes.map((programme) => labels[programme.studyLevelCode] || programme.studyLevelCode).filter(Boolean))];
+  return levels.join('、') || '待确认';
+}

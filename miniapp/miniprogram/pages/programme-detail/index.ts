@@ -17,10 +17,10 @@ Page({
   data: {
     universitySlug: '', programmeId: '', state: 'loading' as ViewState,
     programme: null as ProgrammeDetail | null,
-    documentSections: [] as ProgrammeDocumentSection[], basicFacts: [] as BasicFact[],
+    documentSections: [] as ProgrammeDocumentSection[], basicFacts: [] as BasicFact[], headlineFacts: [] as BasicFact[],
     universityLogoUrl: null as string | null, logoLetter: 'U',
     statusBarHeight: 20, navigationHeight: 44, navigationRight: 96,
-    favorite: false, saving: false, imageFailed: false,
+    favorite: false, saving: false, imageFailed: false, coverFailed: false,
   },
   onLoad(options: Record<string, string | undefined>) {
     this.setupNavigation();
@@ -38,6 +38,12 @@ Page({
   back() { wx.navigateBack(); },
   retry() { void this.loadPage(); },
   imageError() { this.setData({ imageFailed: true }); },
+  coverError() { this.setData({ coverFailed: true }); },
+  scrollToSection(event: WechatMiniprogram.BaseEvent) {
+    const target = event.currentTarget.dataset.target;
+    if (typeof target !== 'string' || !/^section-[A-Z_]+$/.test(target)) return;
+    wx.pageScrollTo({ selector: `#${target}`, duration: 240 });
+  },
   setupNavigation() {
     try {
       const windowInfo = wx.getWindowInfo();
@@ -75,7 +81,7 @@ Page({
     wx.showToast({ title: previous ? '已取消收藏' : '已收藏专业', icon: 'none' });
   },
   async loadPage() {
-    this.setData({ state: 'loading' as ViewState, imageFailed: false });
+    this.setData({ state: 'loading' as ViewState, imageFailed: false, coverFailed: false });
     const result = await getProgrammeDetail(this.data.universitySlug, this.data.programmeId);
     if (!result.ok) {
       if (result.error.code === 'REQUEST_SUPERSEDED') return;
@@ -83,10 +89,12 @@ Page({
       return;
     }
     const programme = result.value;
+    const basicFacts = buildBasicFacts(programme);
     this.setData({
       programme,
       documentSections: buildProgrammeDocument(programme),
-      basicFacts: buildBasicFacts(programme),
+      basicFacts,
+      headlineFacts: basicFacts.filter((fact) => ['学历', '学制', '授课语言', '学习地点'].includes(fact.label)),
       universityLogoUrl: programme.universityLogoUrl,
       logoLetter: programme.universityNameEn.charAt(0).toUpperCase() || 'U',
       state: 'ready' as ViewState,
@@ -105,7 +113,9 @@ function buildBasicFacts(programme: ProgrammeDetail): BasicFact[] {
     { label: '学历', value: localizedCode(programme.studyLevelCode, { BACHELOR: '本科', MASTER: '硕士', DOCTORATE: '博士' }) },
     { label: '学制', value: programme.durationDisplay || '待确认' },
     { label: '模式／方式', value: programme.studyPaceDisplay || localizedCode(programme.courseModeCode, { ON_CAMPUS: '校内授课', ONLINE: '在线授课', HYBRID: '混合授课' }) },
-    { label: '授课语言', value: programme.languageCodes.map((code) => localizedCode(code, { EN: '英语', ZH: '中文', MS: '马来语' })).join(' · ') || '待确认' },
+    { label: '授课语言', value: programme.languageCodes.map((code) => localizedCode(code, {
+      EN: '英语', ENGLISH: '英语', ZH: '中文', CHINESE: '中文', MS: '马来语', MALAY: '马来语',
+    })).join(' · ') || '待确认' },
     { label: '开学日期', value: programme.intakeDisplayTexts.join(' · ') || '请咨询院校' },
     { label: '学习地点', value: programme.cityZh },
     { label: '学费', value: programme.tuitionDisplay || '请咨询最新费用' },
