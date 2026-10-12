@@ -31,6 +31,17 @@ const validEnvironment = {
   BACKEND_INTERNAL_IP: "172.30.0.20",
 };
 
+const enabledCommunityEnvironment = {
+  ...validEnvironment,
+  APP_COMMUNITY_ENABLED: "true",
+  APP_COMMUNITY_REVIEW_TERMS: "policy-owned-term",
+  APP_COMMUNITY_CONTENT_SAFETY_ENABLED: "true",
+  APP_MINIAPP_AUTH_ENABLED: "true",
+  APP_MINIAPP_LOCAL_PROVIDER_ENABLED: "false",
+  APP_MINIAPP_WECHAT_APP_ID: "wx-ci-only-miniapp",
+  APP_MINIAPP_WECHAT_APP_SECRET: "ci-only-miniapp-credential",
+};
+
 test("parses comments, whitespace, and quoted env values", () => {
   assert.deepEqual(parseEnv(`
     # preview settings
@@ -130,8 +141,65 @@ test("validates community write limits even while disabled and requires configur
     assert.match(validateDeploymentEnv({ ...validEnvironment, [name]: value }).join("\n"), /APP_COMMUNITY/);
   }
   assert.match(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_ENABLED: "true" }).join("\n"), /community.*policy/i);
-  assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_ENABLED: "true", APP_COMMUNITY_REVIEW_TERMS: "policy-owned-term" }), []);
+  assert.deepEqual(validateDeploymentEnv(enabledCommunityEnvironment), []);
   assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_ENABLED: "false" }), []);
+});
+
+test("enabled community requires owned review rules rather than only reject rules or sample terms", () => {
+  assert.match(validateDeploymentEnv({
+    ...enabledCommunityEnvironment, APP_COMMUNITY_REVIEW_TERMS: " , ", APP_COMMUNITY_REJECT_TERMS: "owned-reject-rule",
+  }).join("\n"), /owned local review rules/i);
+  for (const term of ["synthetic-review", "hard-reject", "needs-review", "example-review", "example-reject"]) {
+    for (const name of ["APP_COMMUNITY_REVIEW_TERMS", "APP_COMMUNITY_REJECT_TERMS"]) {
+      assert.match(validateDeploymentEnv({ ...enabledCommunityEnvironment, [name]: ` ${term.toUpperCase()} ` }).join("\n"),
+        /owned local review rules/i);
+    }
+  }
+});
+
+test("enabled community requires content safety and real miniapp auth with shared credentials", () => {
+  for (const [name, value] of [
+    ["APP_COMMUNITY_CONTENT_SAFETY_ENABLED", "false"], ["APP_MINIAPP_AUTH_ENABLED", "false"],
+    ["APP_MINIAPP_LOCAL_PROVIDER_ENABLED", "true"], ["APP_MINIAPP_WECHAT_APP_ID", ""],
+    ["APP_MINIAPP_WECHAT_APP_SECRET", " "], ["APP_MINIAPP_WECHAT_APP_SECRET", "replace_with_secret"],
+  ]) {
+    assert.match(validateDeploymentEnv({ ...enabledCommunityEnvironment, [name]: value }).join("\n"),
+      /content safety and real miniapp credentials/i, name);
+  }
+});
+
+test("content safety flags and bounded request budgets are validated even with writes disabled", () => {
+  for (const [name, value] of [
+    ["APP_COMMUNITY_CONTENT_SAFETY_ENABLED", "yes"], ["APP_MINIAPP_AUTH_ENABLED", "yes"],
+    ["APP_MINIAPP_LOCAL_PROVIDER_ENABLED", "yes"],
+    ["APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT", "249ms"], ["APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT", "5001ms"],
+    ["APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT", "invalid"],
+    ["APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS", "0"], ["APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS", "4"],
+    ["APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS", "1.5"],
+  ]) {
+    assert.match(validateDeploymentEnv({ ...validEnvironment, [name]: value }).join("\n"), new RegExp(name));
+  }
+  for (const timeout of ["250ms", "2s", "5s", "PT0.25S", "PT5S", "2000"]) {
+    assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT: timeout }), []);
+  }
+  for (const attempts of ["1", "2", "3"]) {
+    assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS: attempts }), []);
+  }
+});
+
+test("enabled community permits only the exact official HTTPS token and message-check endpoints", () => {
+  for (const [name, official] of [
+    ["APP_COMMUNITY_CONTENT_SAFETY_ACCESS_TOKEN_ENDPOINT", "https://api.weixin.qq.com/cgi-bin/token"],
+    ["APP_COMMUNITY_CONTENT_SAFETY_MESSAGE_CHECK_ENDPOINT", "https://api.weixin.qq.com/wxa/msg_sec_check"],
+  ]) {
+    assert.deepEqual(validateDeploymentEnv({ ...enabledCommunityEnvironment, [name]: official }), []);
+    for (const endpoint of [official.replace("https:", "http:"), official.replace("api.weixin.qq.com", "evil.example"),
+      `${official}?redirect=1`, `${official}#fragment`, `${official}/`,
+      official.replace("https://", "https://user:password@"), official.replace(".com/", ".com:443/")]) {
+      assert.match(validateDeploymentEnv({ ...enabledCommunityEnvironment, [name]: endpoint }).join("\n"),
+        /official HTTPS endpoints/i);
+    }
+  }
 });
 
 test("requires distinct frontend and backend addresses inside the deployment subnet", () => {

@@ -4,7 +4,7 @@ This runbook targets a single Linux host with Docker Engine and Docker Compose v
 
 ## U圈发布、监控与隔离容量验收
 
-PostgreSQL 是帖子、评论、点赞、举报、回执、限制与审核动作的唯一业务真源；Redis 只保存可丢失的限流预算与热门派生快照。先执行现有部署预检、备份和健康检查，再完成审核值班、合规保留期限、DevTools/真机、并发审核和容量验收，最后按批准的发布流程启用写入。本任务的自动检查不代表这些人工或容量步骤已通过。
+PostgreSQL 是帖子、评论、点赞、举报、回执、限制与审核动作的唯一业务真源；Redis 只保存可丢失的限流预算与热门派生快照。先执行现有部署预检、备份和健康检查，再完成审核值班、合规保留期限、DevTools/真机、并发审核和容量验收，最后按批准的发布流程启用写入。本任务的自动检查不代表这些人工或容量步骤已通过。混合审核的凭据配置、受限预览灰度、12/24 小时响应与回滚步骤见 [community-hybrid-moderation runbook](runbooks/community-hybrid-moderation.md)。
 
 实际开关与生产 Compose 已传递的配置如下；`deploy/.env.production.example` 保持安全默认值，真实值只写未跟踪的服务器环境文件。
 
@@ -17,7 +17,12 @@ PostgreSQL 是帖子、评论、点赞、举报、回执、限制与审核动作
 | `APP_COMMUNITY_COMMENT_PER_MINUTE` / `APP_COMMUNITY_COMMENT_PER_DAY` | `10` / `300`；分钟 1–300，天不少于分钟且最多 10,000 |
 | `APP_COMMUNITY_REPORT_PER_DAY` | `30`；1–300 |
 | `APP_COMMUNITY_AUTO_HIDE_REPORT_THRESHOLD` | `5`；2–100 个不同账号的 OPEN 举报触发保护性隐藏 |
-| `APP_COMMUNITY_REVIEW_TERMS` / `APP_COMMUNITY_REJECT_TERMS` | 默认空；生产开启社区前两类至少一类包含批准的规则，最多各 1,000 条，每条最多 200 字符 |
+| `APP_COMMUNITY_REVIEW_TERMS` / `APP_COMMUNITY_REJECT_TERMS` | 默认空；生产开启社区必须有自有复审规则，拒绝词可选，禁止已知样例词；最多各 1,000 条，每条最多 200 字符 |
+| `APP_COMMUNITY_CONTENT_SAFETY_ENABLED` | `false`；生产开启社区时必须为 `true`，使用同一组 `APP_MINIAPP_WECHAT_APP_ID` / `APP_MINIAPP_WECHAT_APP_SECRET` |
+| `APP_COMMUNITY_CONTENT_SAFETY_REQUEST_TIMEOUT` / `APP_COMMUNITY_CONTENT_SAFETY_MAXIMUM_ATTEMPTS` | `2s` / `2`；令牌获取与文本检查的请求超时均为 250ms–5s；文本检查尝试 1–3 次（包含首次），令牌刷新每次仅请求一次 |
+| `APP_COMMUNITY_CONTENT_SAFETY_ACCESS_TOKEN_ENDPOINT` / `APP_COMMUNITY_CONTENT_SAFETY_MESSAGE_CHECK_ENDPOINT` | 仅允许 `https://api.weixin.qq.com/cgi-bin/token` / `https://api.weixin.qq.com/wxa/msg_sec_check` |
+
+生产启用顺序为先在受保护的环境文件配置批准的复审规则、真实小程序共享凭据及内容安全，再保持 `APP_COMMUNITY_ENABLED=false` 启动新镜像并验收健康与认证，最后完成受限预览灰度、监控和值班验收后另行批准生产开放写入。`APP_COMMUNITY_ENABLED` 是全局写入开关，不支持按账号放量；内部账号试点必须使用隔离且限制访问的 preview/staging 环境。
 
 分钟与日预算同时按账号和可信客户端地址检查。生产沿用 Caddy→frontend→backend 的可信代理边界，客户端不能伪造限流地址。禁止通过提高生产限额或信任任意代理来迎合压测。
 
@@ -30,6 +35,8 @@ PostgreSQL 是帖子、评论、点赞、举报、回执、限制与审核动作
 `community.rate.limited` 来自实际限流拒绝；`community.idempotency.hits` 来自发布/评论/举报的已存回执重放；`community.redis.unavailable` 区分 post/comment/report/hot/cache_invalidation。`community.moderation.backlog` 从 PostgreSQL 聚合待审内容或带 OPEN 举报的目标，每个目标只计一次；`community.moderation.oldest.age` 为最老待处理目标的等待秒数。数据库查询失败返回 NaN，不能当作积压为零。审核队列每 30–60 秒观察一次，值班团队在上线前设定数量/时长告警阈值；数量持续增长、最老等待增加或指标缺失需要排查。举报处理时长可只读聚合 `handled_at-created_at`；不得把举报说明或身份导入监控。监控还应观察 Hikari 连接等待/使用率、PostgreSQL 慢查询与锁等待、表/索引增长和 Redis 延迟。
 
 四个核心计时器启用可聚合直方图，P50/P95/P99 由内部监控的直方图导出器计算；未加入客户端 percentile 的 `phi` 标签。仓库现有生产 Actuator 仅暴露 health，也没有配置生产指标收集器；上线前运维必须连接内部 MeterRegistry 导出器或经审批在私有后端开启 metrics（不能由公网代理暴露）。隔离环境下使用下面启动命令明确开启 `/actuator/metrics`，可检查 `/actuator/metrics/community.moderation.backlog` 和 `/actuator/metrics/community.results`。生产指标收集与告警连通验证应记录为独立发布证据。
+
+混合审核计数 `community.content.safety` 仅使用 `content_type=post|comment`、`stage=local|wechat`、`result=pass|review|reject|unavailable` 标签。微信阶段不可用比例按 `stage=wechat,result=unavailable` 的窗口增量除以该阶段全部结果增量计算；没有微信调用时不能当作可用性 100%。发布错误率使用 `community.results` 的 `endpoint=publish|comment`、`outcome=error|unavailable` 窗口增量除以相同端点总量，详情见 runbook；这些告警尚需运维安装私有采集并验证通知链路。
 
 ### 仅限本机隔离压测
 
@@ -108,6 +115,17 @@ docker compose --env-file .env.production -f compose.production.yaml config --qu
 ```
 
 Both commands must pass before deployment.
+
+仅校验安全示例的 Compose 语法时，`.env.example` 的游标密钥故意留空，需用合成进程环境覆盖。下面命令不启动服务、不验证真实生产凭据，不能代替 `.env.production` 预检；重定向避免打印渲染的环境值：
+
+```bash
+APP_COMMUNITY_CURSOR_SECRET=synthetic-compose-cursor-key-at-least-32-bytes \
+PUBLIC_SITE_URL=https://preview.example.test CORS_ALLOWED_ORIGINS=https://preview.example.test \
+APP_AUTH_PUBLIC_SITE_ORIGIN=https://preview.example.test \
+CADDY_SITE_ADDRESSES=:80 CADDY_ACME_EMAIL=ci@example.test \
+DEPLOYMENT_NETWORK_SUBNET=172.30.0.0/24 FRONTEND_INTERNAL_IP=172.30.0.10 BACKEND_INTERNAL_IP=172.30.0.20 \
+docker compose --env-file .env.example -f compose.production.yaml config >/dev/null
+```
 
 ## GitHub production CD
 
