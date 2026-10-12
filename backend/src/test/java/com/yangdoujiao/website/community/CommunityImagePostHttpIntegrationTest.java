@@ -5,12 +5,16 @@ import com.yangdoujiao.website.auth.account.*;
 import com.yangdoujiao.website.auth.session.UserPrincipal;
 import java.util.*;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,10 +23,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest(properties={"app.community.enabled=true","app.community.images.enabled=true",
-    "app.community.images.root=/private/tmp/community-image-http-fixture","app.community.images.max-bytes=100000000",
+    "app.community.images.max-bytes=100000000",
     "app.community.cursor-secret=test-shared-community-cursor-key-32-bytes"})
 @AutoConfigureMockMvc @ActiveProfiles("test") @Import(TestContainersConfiguration.class)
 class CommunityImagePostHttpIntegrationTest {
+    @TempDir static Path imageRoot;
+    @DynamicPropertySource
+    static void imageStorage(DynamicPropertyRegistry properties) {
+        properties.add("app.community.images.root", () -> imageRoot.toAbsolutePath().toString());
+    }
     @Autowired MockMvc mvc;
     @Autowired JdbcTemplate jdbc;
     @Autowired UserAccountRepository accounts;
