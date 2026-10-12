@@ -4,6 +4,28 @@ import test from "node:test";
 
 import { proxyBackendApiRequest } from "./backend-api-proxy.ts";
 
+test("signed review image GET and HEAD preserve uncompressed media length", async () => {
+  for (const method of ["GET", "HEAD"]) {
+    const path = ["v1", "community", "image-review", "media", "a".repeat(32)];
+    const result = await proxyBackendApiRequest(new Request("https://example.com/api/" + path.join("/"), { method }),
+      "http://backend:8080", path, async () => new Response(method === "HEAD" ? null : new Uint8Array([255,216,255,217]), {
+        headers: { "Content-Type": "image/jpeg", "Content-Length": "4" },
+      }));
+    assert.equal(result.headers.get("content-length"), "4");
+    assert.equal((await result.arrayBuffer()).byteLength, method === "HEAD" ? 0 : 4);
+  }
+});
+
+test("review proxy does not reuse encoded or malformed response lengths", async () => {
+  const cases: Record<string, string>[] = [{ "Content-Encoding": "gzip", "Content-Length": "99" }, { "Content-Length": "invalid" }];
+  for (const extra of cases) {
+    const path = ["v1", "community", "image-review", "media", "a".repeat(32)];
+    const result = await proxyBackendApiRequest(new Request("https://example.com/api/" + path.join("/")),
+      "http://backend:8080", path, async () => new Response("data", { headers: { "Content-Type": "image/jpeg", ...extra } }));
+    assert.equal(result.headers.get("content-length"), null);
+  }
+});
+
 test("proxies same-origin API requests with one trusted HTTPS forwarding boundary", async () => {
   let forwardedUrl = "";
   let forwardedInit: RequestInit | undefined;

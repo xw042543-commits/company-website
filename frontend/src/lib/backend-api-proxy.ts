@@ -49,9 +49,20 @@ export async function proxyBackendApiRequest(
   }
 
   const backendResponse = await requestBackend(target, init);
+  const responseHeaders = cleanHeaders(backendResponse.headers);
+  const mediaLength = backendResponse.headers.get("content-length");
+  // Some media fetchers inspect HEAD metadata first. Preserve the backend's
+  // length only for untouched, uncompressed signed review images, never uploads.
+  if ((method === "GET" || method === "HEAD") && backendResponse.status === 200
+    && /^v1\/community\/image-review\/media\/[0-9a-f]{32}$/.test(path.join("/"))
+    && backendResponse.headers.get("content-type")?.split(";")[0].trim() === "image/jpeg"
+    && !backendResponse.headers.has("content-encoding")
+    && mediaLength !== null && /^[1-9]\d{0,7}$/.test(mediaLength)) {
+    responseHeaders.set("Content-Length", mediaLength);
+  }
   return new Response(backendResponse.body, {
     status: backendResponse.status,
     statusText: backendResponse.statusText,
-    headers: cleanHeaders(backendResponse.headers),
+    headers: responseHeaders,
   });
 }
