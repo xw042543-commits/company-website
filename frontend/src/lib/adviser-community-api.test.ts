@@ -14,6 +14,14 @@ const detail = { targetType: "POST", targetId: "42", status: "PENDING_REVIEW", b
   actionsNextCursor: null };
 const csrf = { headerName: "X-XSRF-TOKEN", token: "safe-token" };
 const action = { command: "HIDE", reasonCode: "HARASSMENT", version: 3 } as const;
+test("release submits appeal reason and reads current author restrictions", async () => {
+  const released = { ...detail, version: 4, authorRestricted: false };
+  const { request, calls } = transport([csrf, released]);
+  assert.deepEqual(await submitCommunityModerationAction(origin, "POST", "42",
+    { command: "RELEASE", reasonCode: "APPEAL_ACCEPTED", version: 3 } as unknown as ModerationAction, request),
+    { status: "ready", value: released });
+  assert.equal(JSON.parse(calls[1].init?.body as string).command, "RELEASE");
+});
 
 test("explicit content rejection submits enforcement reason and reads REJECTED history", async () => {
   const rejected = { ...detail, status: "REJECTED", version: 4, openReportCount: 0, reports: [],

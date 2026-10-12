@@ -54,6 +54,22 @@ abstract class CommunityModerationIntegrationFixture extends CommunityReactionIn
 }
 
 class CommunityModerationHttpIntegrationTest extends CommunityModerationIntegrationFixture {
+    @Test void releaseAuthorRemovesAllActiveRestrictionsWithoutRestoringContent() throws Exception {
+        long id=post(CommunityContentStatus.HIDDEN);
+        action("POST",id,"BAN","HARASSMENT",0,null).andExpect(status().isOk());
+        action("POST",id,"MUTE","SPAM",version("POST",id),OffsetDateTime.now().plusDays(1).toString()).andExpect(status().isOk());
+        mvc.perform(get(path("POST",id)).with(user(UserPrincipal.from(adviser))))
+            .andExpect(jsonPath("$.authorRestricted").value(true));
+        actionAs(actor,"POST",id,"RELEASE","APPEAL_ACCEPTED",version("POST",id),null).andExpect(status().isForbidden());
+        action("POST",id,"RELEASE","SPAM",version("POST",id),null).andExpect(status().isBadRequest());
+        action("POST",id,"RELEASE","APPEAL_ACCEPTED",0,null).andExpect(status().isConflict());
+        action("POST",id,"RELEASE","APPEAL_ACCEPTED",version("POST",id),null).andExpect(status().isOk())
+            .andExpect(jsonPath("$.status").value("HIDDEN")).andExpect(jsonPath("$.authorRestricted").value(false));
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM community_user_restrictions WHERE account_id=? AND released_at IS NULL",Long.class,actor.getId())).isZero();
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM community_user_restrictions WHERE account_id=? AND released_by_account_id=?",Long.class,actor.getId(),adviser.getId())).isEqualTo(2);
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM community_moderation_actions WHERE target_id=? AND action='RELEASE' AND reason_code='APPEAL_ACCEPTED'",Long.class,id)).isEqualTo(1);
+        action("POST",id,"RELEASE","APPEAL_ACCEPTED",version("POST",id),null).andExpect(status().isConflict());
+    }
     @MockitoBean Clock clock;
     @Autowired CommunityCursorCodec cursors;
 

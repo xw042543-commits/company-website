@@ -4,6 +4,13 @@ import test from "node:test";
 import type { ModerationDetail } from "./adviser-community-api.ts";
 import { loadCommunityModerationDetail } from "./adviser-community-api.ts";
 import * as communityUi from "./adviser-community-ui.ts";
+test("release requires a known restricted author and an appeal reason", () => {
+  const decision = { command: "RELEASE", reasonCode: "APPEAL_ACCEPTED", version: 2 } as const;
+  assert.equal(communityUi.canSubmitModeration(decision), false);
+  assert.equal(communityUi.canSubmitModeration({ ...decision, authorRestricted: false }), false);
+  assert.equal(communityUi.canSubmitModeration({ ...decision, authorRestricted: true }), true);
+  assert.equal(communityUi.canSubmitModeration({ ...decision, authorRestricted: true, reasonCode: "SPAM" }), false);
+});
 
 test("rejecting content is distinct from report rejection and requires explicit confirmation", () => {
   assert.equal(communityUi.moderationCommandLabel("zh", "REJECT"), "拒绝发布");

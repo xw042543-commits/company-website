@@ -49,7 +49,7 @@ class CommunityModerationQueryRepository {
         var results=jdbc.query("SELECT * FROM "+TARGETS+" WHERE t.type=:type AND t.id=:id",parameters,(rs,n)->new CommunityModerationDetail(type,Long.toString(id),
                 CommunityContentStatus.valueOf(rs.getString("status")),rs.getString("body"),rs.getString("post_id"),rs.getString("parent_id"),rs.getLong("version"),
                 summaries.stream().filter(s->s.status()==CommunityReportStatus.OPEN).mapToLong(CommunityModerationDetail.ReportSummary::count).sum(),summaries,actions,next,
-                rs.getString("title"),category(rs.getString("category")),rs.getString("university_id"),rs.getString("university_name")));
+                rs.getString("title"),category(rs.getString("category")),rs.getString("university_id"),rs.getString("university_name"),false));
         return results.stream().findFirst().orElseThrow(()->CommunityModerationTargets.missing(type));
     }
     private static CommunityCategory category(String value) { return value == null ? null : CommunityCategory.valueOf(value); }

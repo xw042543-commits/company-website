@@ -57,7 +57,7 @@ class CommunityPostReaderContractTest {
                 "42", CommunityContentStatus.PUBLISHED, "body", 0, 0, TIME, CommunityModerationPage.SlaState.ON_TIME,
                 title, CommunityCategory.STUDY, "1", "Campus")), null);
         var adviser = new CommunityModerationDetail(CommunityTargetType.POST, "42", CommunityContentStatus.PUBLISHED,
-                "body", null, null, 0, 0, List.of(), List.of(), null, title, CommunityCategory.STUDY, "1", "Campus");
+                "body", null, null, 0, 0, List.of(), List.of(), null, title, CommunityCategory.STUDY, "1", "Campus", false);
         var result = new LinkedHashMap<String, Object>();
         result.put("expectedTitle", expectedTitle);
         result.put("legacyFeed", CommunityPostRepresentation.feed(new CommunityCursorPage<>(List.of(summary), null), false).getBody());

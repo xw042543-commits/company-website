@@ -58,7 +58,8 @@ public class CommunityModerationService {
         var history=query.actions(type,id,cursor==null?null:cursors.decode(cursor,scope));
         boolean more=history.size()>20;if(more)history=history.subList(0,20);
         var last=history.isEmpty()?null:history.getLast();
-        return query.detail(type,id,List.copyOf(history),more?cursors.encode(last.createdAt(),Long.parseLong(last.id()),scope):null);
+        return query.detail(type,id,List.copyOf(history),more?cursors.encode(last.createdAt(),Long.parseLong(last.id()),scope):null)
+            .withAuthorRestricted(restrictions.existsActive(targets.author(type,id),OffsetDateTime.now(clock)));
     }
     public CommunityModerationDetail decide(long actor,CommunityTargetType type,long id,CommunityModerationRequest request) {
         validate(request);
@@ -72,6 +73,7 @@ public class CommunityModerationService {
         if(target.version()!=request.version())throw new ApiException(HttpStatus.CONFLICT,"COMMUNITY_VERSION_CONFLICT","Content changed; refresh before deciding");
         CommunityContentStatus before=target.status(),next=before;
         switch(request.command()) {
+            case RELEASE -> {if(restrictions.releaseActive(author,actor,now)==0)throw transition();}
             case REJECT -> {if(before!=CommunityContentStatus.PENDING_REVIEW)throw transition();next=CommunityContentStatus.REJECTED;}
             case HIDE -> {if(before!=CommunityContentStatus.PUBLISHED&&before!=CommunityContentStatus.PENDING_REVIEW)throw transition();next=CommunityContentStatus.HIDDEN;}
             case RESTORE -> {
@@ -91,7 +93,7 @@ public class CommunityModerationService {
         if(next==CommunityContentStatus.PUBLISHED&&before!=CommunityContentStatus.PUBLISHED&&target.comment()!=null) {
             notifications.comment(target.post(),target.comment());
         }
-        reports.resolveOpen(type,id,request.command()==CommunityModerationCommand.REJECT_REPORT?CommunityReportStatus.RESOLVED_REJECTED:CommunityReportStatus.RESOLVED_ACTIONED,
+        if(request.command()!=CommunityModerationCommand.RELEASE)reports.resolveOpen(type,id,request.command()==CommunityModerationCommand.REJECT_REPORT?CommunityReportStatus.RESOLVED_REJECTED:CommunityReportStatus.RESOLVED_ACTIONED,
                 actor,request.reasonCode().name(),now);
         if(next!=before){targets.reconcile(target);targets.invalidateAfterCommit();}
         actions.saveAndFlush(CommunityModerationAction.create(actor,type.name(),id,request.command().name(),request.reasonCode().name(),before,next,now));
@@ -106,6 +108,7 @@ public class CommunityModerationService {
                 || r.reasonCode() == CommunityModerationReason.REVIEW_APPROVED;
         boolean rejectReason = r.reasonCode() == CommunityModerationReason.REPORT_UNFOUNDED;
         boolean allowedReason = switch (r.command()) {
+            case RELEASE -> r.reasonCode()==CommunityModerationReason.APPEAL_ACCEPTED;
             case RESTORE -> restoreReason;
             case REJECT_REPORT -> rejectReason;
             case HIDE, REJECT, MUTE, BAN -> !restoreReason && !rejectReason;

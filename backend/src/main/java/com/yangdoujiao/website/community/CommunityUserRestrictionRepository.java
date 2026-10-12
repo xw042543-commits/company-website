@@ -3,6 +3,13 @@ package com.yangdoujiao.website.community;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CommunityUserRestrictionRepository extends JpaRepository<CommunityUserRestriction, Long> {
+    @org.springframework.data.jpa.repository.Modifying
+    @org.springframework.data.jpa.repository.Query("""
+            update CommunityUserRestriction r set r.releasedAt=:now, r.releasedByAccountId=:actor
+            where r.accountId=:accountId and r.releasedAt is null and r.startsAt <= :now
+              and (r.endsAt is null or r.endsAt > :now)
+            """)
+    int releaseActive(Long accountId, Long actor, java.time.OffsetDateTime now);
     @org.springframework.data.jpa.repository.Query("""
             select r from CommunityUserRestriction r where r.accountId=:accountId
               and r.releasedAt is null and r.startsAt <= :now and (r.endsAt is null or r.endsAt > :now)
