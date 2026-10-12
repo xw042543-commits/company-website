@@ -81,6 +81,7 @@ function validSafetyEndpoint(value) {
   // Java URI does not normalize malformed hosts or impose URL's 65535 port limit.
   const match = value.match(/^https?:\/\/(\[[a-zA-Z0-9:.%_-]+\]|[a-zA-Z0-9.-]+)(?::(\d*))?(\/[^?#]*)?$/);
   if (!match || /[\s\\<>"{}|^`]/.test(value) || /%(?![\da-f]{2})/i.test(match[3] || "")) return false;
+  if (/[\[\]]/.test(match[3] || "")) return false;
   if (match[2] && Number(match[2]) > 2147483647) return false;
   const host = match[1];
   if (host.startsWith("[")) return isIP(host.slice(1, -1)) === 6;

@@ -238,6 +238,18 @@ test("content safety endpoint structure is validated while community writes are 
   }
 });
 
+test("content safety endpoint paths reject raw brackets while allowing escaped brackets and IPv6 hosts", () => {
+  for (const name of ["APP_COMMUNITY_CONTENT_SAFETY_ACCESS_TOKEN_ENDPOINT", "APP_COMMUNITY_CONTENT_SAFETY_MESSAGE_CHECK_ENDPOINT"]) {
+    for (const path of ["/mock/[id]", "/mock/[", "/mock/]"]) {
+      assert.match(validateDeploymentEnv({ ...validEnvironment, [name]: `http://localhost:18080${path}` }).join("\n"),
+        new RegExp(`${name}.*absolute HTTP or HTTPS`));
+    }
+    for (const endpoint of ["http://localhost:18080/mock/%5Bid%5D", "http://[::1]:18080/mock/%5bid%5d"]) {
+      assert.deepEqual(validateDeploymentEnv({ ...validEnvironment, [name]: endpoint }), []);
+    }
+  }
+});
+
 test("requires distinct frontend and backend addresses inside the deployment subnet", () => {
   assert.match(validateDeploymentEnv({
     ...validEnvironment,
