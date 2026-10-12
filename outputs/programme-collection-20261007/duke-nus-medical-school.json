@@ -1,0 +1,62 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:29:46.719Z",
+  "sourceKey": "duke-nus-medical-school",
+  "sourceName": "Duke-NUS Medical School",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_0e21d362c667b593",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Duke-NUS Medical School",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.duke-nus.edu.sg",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:29:46.717Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.duke-nus.edu.sg/",
+        "sourcePageTitle": null,
+        "sourceHash": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+        "fetchedAt": "2026-10-07T04:29:46.717Z",
+        "field": "name",
+        "rawText": "Duke-NUS Medical School"
+      }
+    ],
+    "institutionTypeRaw": "Graduate medical school",
+    "selectionRank": 15,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": []
+  },
+  "programmes": [],
+  "pages": [
+    {
+      "url": "https://www.duke-nus.edu.sg/",
+      "fetchedAt": "2026-10-07T04:29:46.717Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+      "title": null,
+      "snapshotFile": "raw/0001-d02032286070.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:43:58.532Z"
+  }
+}

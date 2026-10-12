@@ -1,0 +1,1048 @@
+{
+  "region": "united-states",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:12:46.429Z",
+  "sourceKey": "stanford-university",
+  "sourceName": "Stanford University",
+  "warnings": [
+    "robots.txt 禁止抓取：https://www.stanford.edu/search",
+    "https://undergrad.stanford.edu/programs/bosp：跳转超出允许域名: bosp.stanford.edu",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_PHOTO-209",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-144",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-126",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-276",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_BUS-307",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_LIN-16",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_CLS-141",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_DAN-33",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_WELL-11",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_FRN-01",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_LIT-91",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_MUS-202",
+    "robots.txt 禁止抓取：https://continuingstudies.stanford.edu/courses/notify-list/20261_FICT-118"
+  ],
+  "university": {
+    "candidateId": "university_7e5f4893043e6298",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Stanford University",
+    "countryCode": null,
+    "countryRaw": "United States",
+    "cityZh": null,
+    "cityEn": "Stanford, California",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.stanford.edu",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:11:56.955Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.stanford.edu/",
+        "sourcePageTitle": "Stanford University",
+        "sourceHash": "7f21c5ca5455b3a12e37c1bee0f230f0652172fb0617bca381a1e6f0c2a96f5f",
+        "fetchedAt": "2026-10-07T04:11:56.955Z",
+        "field": "name",
+        "rawText": "Stanford University"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 2,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/where-to-study/north-america/united-states/ranked-top-100-us-universities",
+    "media": [
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://a-us.storyblok.com/f/1023936/1500x1000/edd739951b/20260613_commencement_n6a1207-1.jpg/m/1200x630/smart/filters:quality(60)",
+        "sourceUrl": "https://www.stanford.edu/",
+        "sourceCheckedAt": "2026-10-07T04:11:56.955Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [],
+  "pages": [
+    {
+      "url": "https://www.stanford.edu/",
+      "fetchedAt": "2026-10-07T04:11:56.955Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7f21c5ca5455b3a12e37c1bee0f230f0652172fb0617bca381a1e6f0c2a96f5f",
+      "title": "Stanford University",
+      "snapshotFile": "raw/0001-7f21c5ca5455.html"
+    },
+    {
+      "url": "https://www.stanford.edu/faculty-staff-gateway",
+      "fetchedAt": "2026-10-07T04:11:59.105Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6a935d8b0847cf2c32cd1e1ed31b4f7f0c23f8c63955bdd1e829989f35fe9734",
+      "title": "Information for Stanford Faculty & Staff | Stanford University",
+      "snapshotFile": "raw/0002-6a935d8b0847.html"
+    },
+    {
+      "url": "https://www.stanford.edu/civics",
+      "fetchedAt": "2026-10-07T04:12:02.244Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "fdf46da6313983921ff40d11a308666c7e4f7728f5fbf968f7d06d31d443081c",
+      "title": "Civics at Stanford | Stanford University",
+      "snapshotFile": "raw/0003-fdf46da63139.html"
+    },
+    {
+      "url": "https://www.stanford.edu/cancer-research",
+      "fetchedAt": "2026-10-07T04:12:03.944Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "16c8f3d63e231752fb0c853112a0b6cefeb1eec0e8c32315316a9f0eb975ba54",
+      "title": "A Bold New Course in Cancer | Stanford University",
+      "snapshotFile": "raw/0004-16c8f3d63e23.html"
+    },
+    {
+      "url": "https://www.stanford.edu/artificial-intelligence",
+      "fetchedAt": "2026-10-07T04:12:05.665Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "48b3f34f88e44502fe938aedb6fc1cfcc4602fcee868d97b424c3de9b1e0ec05",
+      "title": "Human-Centered AI at Stanford | Stanford University",
+      "snapshotFile": "raw/0005-48b3f34f88e4.html"
+    },
+    {
+      "url": "https://www.stanford.edu/about/impact",
+      "fetchedAt": "2026-10-07T04:12:08.176Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6db394343418415091853de852a46755c56e313083df0d0b9ca519730546d476",
+      "title": "Our Impact | Stanford University",
+      "snapshotFile": "raw/0006-6db394343418.html"
+    },
+    {
+      "url": "https://www.stanford.edu/about",
+      "fetchedAt": "2026-10-07T04:12:09.890Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c961b6936dee03861a02b28faa0179b310167317a0e77071162a49ec209277a2",
+      "title": "About Stanford | Stanford University",
+      "snapshotFile": "raw/0007-c961b6936dee.html"
+    },
+    {
+      "url": "https://www.stanford.edu/about/history",
+      "fetchedAt": "2026-10-07T04:12:11.983Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6768a385eaf93c08bbad197359ac50f14e42ca833d8eb9fd003c7f9a99a3a978",
+      "title": "Our History | Stanford University",
+      "snapshotFile": "raw/0008-6768a385eaf9.html"
+    },
+    {
+      "url": "https://www.stanford.edu/about/leadership-and-governance",
+      "fetchedAt": "2026-10-07T04:12:13.185Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a6607387caa63d641ea6746bc90dd5fe196d61b64d02d7ab1e8c4ba69f45959d",
+      "title": "Our Leadership | Stanford University",
+      "snapshotFile": "raw/0009-a6607387caa6.html"
+    },
+    {
+      "url": "https://www.stanford.edu/academics",
+      "fetchedAt": "2026-10-07T04:12:15.664Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "efd99001a3d53aedce8004ac9255fbe5b5f5c802137d2b4499a332d936cb6058",
+      "title": "Academics at Stanford | Stanford University",
+      "snapshotFile": "raw/0010-efd99001a3d5.html"
+    },
+    {
+      "url": "https://www.stanford.edu/academics/schools",
+      "fetchedAt": "2026-10-07T04:12:18.173Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "8460dd2ba3924c85b337ab5823c25ebfeba9967f52fe162eba5520246388b1d8",
+      "title": "Stanford’s Seven Schools | Stanford University",
+      "snapshotFile": "raw/0011-8460dd2ba392.html"
+    },
+    {
+      "url": "https://www.stanford.edu/academics/everyone",
+      "fetchedAt": "2026-10-07T04:12:20.193Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cf409d6276fefde021dccaa4d66fe85fb06433299bf4367e6e08e3511939b458",
+      "title": "Stanford for Everyone | Stanford University",
+      "snapshotFile": "raw/0012-cf409d6276fe.html"
+    },
+    {
+      "url": "https://www.stanford.edu/research",
+      "fetchedAt": "2026-10-07T04:12:21.497Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0ba8f00f250183fed80274a1ecb71eac568ac3ac89a34778f56da693f68a126e",
+      "title": "Research at Stanford | Stanford University",
+      "snapshotFile": "raw/0013-0ba8f00f2501.html"
+    },
+    {
+      "url": "https://www.stanford.edu/health-medicine",
+      "fetchedAt": "2026-10-07T04:12:23.981Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "f2a06ef1cfb8f913e1a0129de50ed61cd7e6c1f7a31f99e45933d6073b1a385e",
+      "title": "Health & Medicine at Stanford | Stanford University",
+      "snapshotFile": "raw/0014-f2a06ef1cfb8.html"
+    },
+    {
+      "url": "https://www.stanford.edu/athletics",
+      "fetchedAt": "2026-10-07T04:12:26.263Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "db6bb2bd3b458d1e61f6fb284acdb14a56256de3dd80defb9bc5cd6b6492bf20",
+      "title": "Athletics at Stanford | Stanford University",
+      "snapshotFile": "raw/0015-db6bb2bd3b45.html"
+    },
+    {
+      "url": "https://www.stanford.edu/life",
+      "fetchedAt": "2026-10-07T04:12:28.328Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b43b70c274fecb76d1d570c0f2af6731d1683a31f6a3f4318a049100b1d29bb1",
+      "title": "Life on the Farm | Stanford University",
+      "snapshotFile": "raw/0016-b43b70c274fe.html"
+    },
+    {
+      "url": "https://www.stanford.edu/life/visit",
+      "fetchedAt": "2026-10-07T04:12:29.837Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ef28887f0fd8d2dc553a63d6949c54af3385f3acac0c85b838049a8c0e1e1028",
+      "title": "Visit Stanford | Stanford University",
+      "snapshotFile": "raw/0017-ef28887f0fd8.html"
+    },
+    {
+      "url": "https://www.stanford.edu/cookies",
+      "fetchedAt": "2026-10-07T04:12:31.949Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2f957bfbc5db8532be590ee9ee65b73b58003bdb504b6c5c32a5c9a312f85e0d",
+      "title": "Cookies | Stanford University",
+      "snapshotFile": "raw/0018-2f957bfbc5db.html"
+    },
+    {
+      "url": "https://www.stanford.edu/policies",
+      "fetchedAt": "2026-10-07T04:12:33.914Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "bfb931b92ba90de1d3486ebebbcde465aa1672257bcffe9f6a5661d8d899d600",
+      "title": "University-wide policy documents | Stanford University",
+      "snapshotFile": "raw/0019-bfb931b92ba9.html"
+    },
+    {
+      "url": "https://www.stanford.edu/terms",
+      "fetchedAt": "2026-10-07T04:12:36.408Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "263404b44cb4045317f4721ba9bf3dcbd0e9bc157d69b942df98576b6dd46a5b",
+      "title": "Terms of Use | Stanford University",
+      "snapshotFile": "raw/0020-263404b44cb4.html"
+    },
+    {
+      "url": "https://www.stanford.edu/accessibility",
+      "fetchedAt": "2026-10-07T04:12:37.096Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6327570dcaaa1f5237cc4f0ea21eb16240c1032e3e5df1c6b47caef1e3358b5c",
+      "title": "Digital Accessibility | Stanford University",
+      "snapshotFile": "raw/0021-6327570dcaaa.html"
+    },
+    {
+      "url": "https://www.stanford.edu/olympic-legacy",
+      "fetchedAt": "2026-10-07T04:12:39.666Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "19bffb5890f8f81ab4075fe848c1e2222c4b5ef9d7a27c95cce2cb40c7b1c8f7",
+      "title": "Stanford’s Olympic Legacy | Stanford University",
+      "snapshotFile": "raw/0022-19bffb5890f8.html"
+    },
+    {
+      "url": "https://www.stanford.edu/admissions-aid",
+      "fetchedAt": "2026-10-07T04:12:42.025Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a7bd1c477cf60c462d030e0e0cabcd6247b4107e02038f7acf98f7af4c6b1692",
+      "title": "Admissions & Financial Aid at Stanford | Stanford University",
+      "snapshotFile": "raw/0023-a7bd1c477cf6.html"
+    },
+    {
+      "url": "https://www.stanford.edu/contact",
+      "fetchedAt": "2026-10-07T04:12:44.140Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a809df099e9a8ecb05d1a48a15e8daab8e7bb89428b5ff981528b1e0b76c55d2",
+      "title": "Contact Us | Stanford University",
+      "snapshotFile": "raw/0024-a809df099e9a.html"
+    },
+    {
+      "url": "https://www.stanford.edu/privacy",
+      "fetchedAt": "2026-10-07T04:12:46.371Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "eb72aff2309d362cd92c0ce4ac9370cc6860d0a9f5a497140d735a9052630187",
+      "title": "Online Privacy Policy | Stanford University",
+      "snapshotFile": "raw/0025-eb72aff2309d.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/digital-photography-basics/20261_PHOTO-07",
+      "fetchedAt": "2026-10-07T06:16:40.857Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "101282aa822920ced58e1ac17995d211717a5ddcf79c447ad68a40a8df5ac777",
+      "title": "Digital Photography Basics",
+      "snapshotFile": "raw/0001-101282aa8229.html"
+    },
+    {
+      "url": "https://facts.stanford.edu/academics/undergraduate-education/class-2029-profile",
+      "fetchedAt": "2026-10-07T06:17:10.726Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a7156c2496b5703f492a9c1d2933bec1ee42c3c0fba66d81dd5235b67cf4718e",
+      "title": "Class of 2029* Profile | Facts",
+      "snapshotFile": "raw/0002-a7156c2496b5.html"
+    },
+    {
+      "url": "https://facts.stanford.edu/academics/undergraduate-education",
+      "fetchedAt": "2026-10-07T06:17:40.747Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5bbb5640425dcc2a4df876738e3774f8b253551300e997f6ad9b83fb4a8068d0",
+      "title": "Undergraduate Education | Facts",
+      "snapshotFile": "raw/0003-5bbb5640425d.html"
+    },
+    {
+      "url": "https://facts.stanford.edu/academics/undergraduate-education/class-2028-profile",
+      "fetchedAt": "2026-10-07T06:18:10.836Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "57ebf89c460c6f95a833a5900fc6e61a8974d5973b2ace37f8fb05f1bd3488a6",
+      "title": "Class of 2028 Profile | Facts",
+      "snapshotFile": "raw/0004-57ebf89c460c.html"
+    },
+    {
+      "url": "https://facts.stanford.edu/academics/undergraduate-education/undergraduate-student-profile",
+      "fetchedAt": "2026-10-07T06:18:40.835Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee600a883fc894de2d194cb185ffe515210c2a4a36497c22b3addab3309457fd",
+      "title": "Undergraduate Student Profile | Facts",
+      "snapshotFile": "raw/0005-ee600a883fc8.html"
+    },
+    {
+      "url": "https://facts.stanford.edu/academics/undergraduate-education/other-undergraduate-education-facts",
+      "fetchedAt": "2026-10-07T06:19:10.814Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f7c1be6665b23df86938680e5999daeb732b58e41c5446adc4c6384bf416a0c8",
+      "title": "Other Undergraduate Education Facts | Facts",
+      "snapshotFile": "raw/0006-f7c1be6665b2.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/detail/20261_PSY-104",
+      "fetchedAt": "2026-10-07T06:19:12.918Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "502fb58193d8d1097feac9d8fbe71a6adde437ebdf65c315eac015930371fdb3",
+      "title": "The Making of Genius: Creativity, Purpose, and Extraordinary Achievement",
+      "snapshotFile": "raw/0007-502fb58193d8.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-format/show-on-campus",
+      "fetchedAt": "2026-10-07T06:19:14.798Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3b6d2eafe85975f2f094837e804d6112fc4940958da21b13e64cb9fce00fe0f2",
+      "title": "Courses By Format",
+      "snapshotFile": "raw/0008-3b6d2eafe859.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/detail/20261_SPT-15-H",
+      "fetchedAt": "2026-10-07T06:19:16.364Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2291b58a47dc8ddc0ae1c2b4a1f9a0e762033803cb7b64b67898a1486388254e",
+      "title": "Seeing the Game: A Basketball Masterclass",
+      "snapshotFile": "raw/0009-2291b58a47dc.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/auteur-cinema-six-directors-and-their-signature-styles/20261_FLM-172",
+      "fetchedAt": "2026-10-07T06:19:18.363Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e5970443b3e96d11abedfd1923e40c333392e309e37e36b8b0fb8eb494ee7b22",
+      "title": "Auteur Cinema: Six Directors and Their Signature Styles",
+      "snapshotFile": "raw/0010-e5970443b3e9.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/creative-writing/beyond-scene-the-secrets-to-writing-page-turning-summary/20261_CW-80",
+      "fetchedAt": "2026-10-07T06:19:20.367Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "21b0803e86608514c0109cb4914deab671e3d9b2aaca618cf5f0b016945119f1",
+      "title": "Beyond Scene: The Secrets to Writing Page-Turning Summary",
+      "snapshotFile": "raw/0011-21b0803e8660.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/dialogue-and-the-art-of-impossible-conversations/20261_COM-107",
+      "fetchedAt": "2026-10-07T06:19:22.373Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f613c51817d467e1369fd1c3b3a849cce780446c40e46af0d076f08a1b99205",
+      "title": "Dialogue and the Art of Impossible Conversations",
+      "snapshotFile": "raw/0012-5f613c51817d.html"
+    },
+    {
+      "url": "https://bulletin.stanford.edu/programs?KhCQH=Graduate&page=1&pq=",
+      "fetchedAt": "2026-10-07T06:19:26.277Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "1bc41ebaa9eb8703cb021f7b02a18b568cb9d7ba22ba87dc1a6c07f162d02168",
+      "title": "Programs | Stanford University Bulletin",
+      "snapshotFile": "raw/0013-1bc41ebaa9eb.html"
+    },
+    {
+      "url": "https://bulletin.stanford.edu/programs?KhCQH=Graduate&degreeDesignation=PHD%20-%20Doctor%20of%20Philosophy&page=1&pq=",
+      "fetchedAt": "2026-10-07T06:20:03.960Z",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "ce69947d6455e46d8da406572208bca0e94d5e3343a67dee6d174220cdf6353c",
+      "title": "Programs | Stanford University Bulletin",
+      "snapshotFile": "raw/0014-ce69947d6455.html"
+    },
+    {
+      "url": "https://applygrad.stanford.edu/portal/programs",
+      "fetchedAt": "2026-10-07T06:20:04.981Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "17d65ca5f7c770d58eb08e92b53a90847fb112b85c40156e63041b9ce63ae250",
+      "title": "Explore Graduate Programs",
+      "snapshotFile": "raw/0015-17d65ca5f7c7.html"
+    },
+    {
+      "url": "https://online.stanford.edu/courses/soe-ymls-machine-learning-specialization",
+      "fetchedAt": "2026-10-07T06:20:06.919Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cde1c0e23d95cb451087e6b0803eeb680f888024dabfcc7726ed94ccdb196ec6",
+      "title": null,
+      "snapshotFile": "raw/0016-cde1c0e23d95.html"
+    },
+    {
+      "url": "https://online.stanford.edu/courses/sohs-ystatslearningp-statistical-learning-python",
+      "fetchedAt": "2026-10-07T06:20:08.925Z",
+      "status": 202,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "28a1a8505bcd7965ced08d167a51ae1e799103098dd03a60507c8d7376628fb6",
+      "title": null,
+      "snapshotFile": "raw/0017-28a1a8505bcd.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-overview",
+      "fetchedAt": "2026-10-07T06:20:10.999Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0397ee7c16f93dadfcd424085b3d030f73b0dfee8b67ed9e532ca03919b5958c",
+      "title": "Courses - Overview",
+      "snapshotFile": "raw/0018-0397ee7c16f9.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-location",
+      "fetchedAt": "2026-10-07T06:20:13.427Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "97fd1ea530aef9273854c449f44e47108186cf02ff678476f6e200ae3ebaa129",
+      "title": "Courses By Location",
+      "snapshotFile": "raw/0019-97fd1ea530ae.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-format/show-online",
+      "fetchedAt": "2026-10-07T06:20:15.177Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3f4ddcea5ba8ce5438cd80c7884700a91988156d5e3db6464cc2ad1f9fda0e6a",
+      "title": "Courses By Format",
+      "snapshotFile": "raw/0020-3f4ddcea5ba8.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-category",
+      "fetchedAt": "2026-10-07T06:20:17.191Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9dd42530f7954daf44c878cc72bc1988dda8d0ff160fd3dd7fdcfe96f7e3e631",
+      "title": "Courses By Category",
+      "snapshotFile": "raw/0021-9dd42530f795.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-sciences",
+      "fetchedAt": "2026-10-07T06:20:19.182Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "db55444a876927d2cafc0b00d0a5e9d72635ab873996aec1de5684f9249a17b0",
+      "title": "Liberal Arts & Sciences",
+      "snapshotFile": "raw/0022-db55444a8769.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/creative-writing",
+      "fetchedAt": "2026-10-07T06:20:21.015Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dffd53b4dbfd7c03a3cbe2cba3f9c469ece655b2a3dde9dd83263d868aab21b1",
+      "title": "Creative Writing",
+      "snapshotFile": "raw/0023-dffd53b4dbfd.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/writing-certificate",
+      "fetchedAt": "2026-10-07T06:20:23.022Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ed0a40dc83ba366b0df02f34bcd78d38378887ccd978d564853476c613c4fbe3",
+      "title": "Writing Certificate",
+      "snapshotFile": "raw/0024-ed0a40dc83ba.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-personal-development",
+      "fetchedAt": "2026-10-07T06:20:25.205Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d1f98e9b3bb6d4e1f847a810b46812aa3b8d773567014b44bd276d14bcbe395d",
+      "title": "Professional & Personal Development",
+      "snapshotFile": "raw/0025-d1f98e9b3bb6.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-course-code",
+      "fetchedAt": "2026-10-07T06:20:27.212Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4fadbe4c72abd89c83ece4f1eea5892feb72f73d71a6ea28aaf508acefe11275",
+      "title": "Courses By Course Code",
+      "snapshotFile": "raw/0026-4fadbe4c72ab.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-day",
+      "fetchedAt": "2026-10-07T06:20:29.442Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7e09164fdaebf19427e5431fab5e457e8d19bf201e618ceb8763892d0dc3e526",
+      "title": "Courses By Start Day",
+      "snapshotFile": "raw/0027-7e09164fdaeb.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-department",
+      "fetchedAt": "2026-10-07T06:20:31.454Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5bf9db7fcd330cab06e3e84ddad479e09488d2ecef311f024b52e994b20971a5",
+      "title": "Courses By Department",
+      "snapshotFile": "raw/0028-5bf9db7fcd33.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-duration",
+      "fetchedAt": "2026-10-07T06:20:33.493Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "389d1982516cf4f3180e7e0802a75cbea7b6432ee43d1851fb1644ba53c2f057",
+      "title": "Courses By Duration",
+      "snapshotFile": "raw/0029-389d1982516c.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-duration-1-5-weeks",
+      "fetchedAt": "2026-10-07T06:20:35.234Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2aea59083c310ce250a6b48496a972371a68db7b1aa80aa97b84cffbf79f22fb",
+      "title": "Courses By Duration 1-5 Weeks",
+      "snapshotFile": "raw/0030-2aea59083c31.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-duration-6-10-weeks",
+      "fetchedAt": "2026-10-07T06:20:37.236Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e7af546c2b8256d3af833d96af14058b384dc98cec982dfe9ae16a95780cf5ce",
+      "title": "Courses By Duration 6-10 Weeks",
+      "snapshotFile": "raw/0031-e7af546c2b82.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/courses-by-start-date",
+      "fetchedAt": "2026-10-07T06:20:39.470Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "82710b5d7871a8cc21cc7a840fa3c4a35694b77deb2ad640c4dd5114ea00a682",
+      "title": "Courses By Start Date",
+      "snapshotFile": "raw/0032-82710b5d7871.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/registration-policies/course-cancellations",
+      "fetchedAt": "2026-10-07T06:20:41.061Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8611c6845d2712a480b44cc396bac7b20c6d27523fce3211fdef47aff6a0dc6f",
+      "title": "Registration - Course Cancellations",
+      "snapshotFile": "raw/0033-8611c6845d27.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/policies/course-locations",
+      "fetchedAt": "2026-10-07T06:20:43.070Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "06615511e4fbcc6623e33484c1172fd857782b0efe8e85404d082e113f3b0aae",
+      "title": "Course Locations",
+      "snapshotFile": "raw/0034-06615511e4fb.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/masters-program",
+      "fetchedAt": "2026-10-07T06:20:45.094Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7c6ae8d617c48c675f3f5d3d8e0747fffa7ce956214571e62980cce7e64eeadf",
+      "title": "Masters Program",
+      "snapshotFile": "raw/0035-7c6ae8d617c4.html"
+    },
+    {
+      "url": "https://facts.stanford.edu/academics/stanford-faculty",
+      "fetchedAt": "2026-10-07T06:21:15.800Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8d2dcbabb0970d7e1dc0fd8c55a3fb04403f60dbf78d71430186d810e46b2e27",
+      "title": "Stanford Faculty | Facts",
+      "snapshotFile": "raw/0036-8d2dcbabb097.html"
+    },
+    {
+      "url": "https://facts.stanford.edu/academics/stanford-faculty/faculty-profile",
+      "fetchedAt": "2026-10-07T06:21:45.496Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "471c161e07d88d952124b1a5ccb4e4ef657829e261130c66f99a7bcf4aefb528",
+      "title": "Faculty Profile | Facts",
+      "snapshotFile": "raw/0037-471c161e07d8.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/the-cantor-arts-center-a-story-of-art-architecture-and-resilience/20261_ARCH-05",
+      "fetchedAt": "2026-10-07T06:21:47.157Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "49ac9f8fdd34edf11090c274f48efc6e6c7d59e10eecdc6daf829e4103782b21",
+      "title": "The Cantor Arts Center: A Story of Art, Architecture, and Resilience",
+      "snapshotFile": "raw/0038-49ac9f8fdd34.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/drawing-flowers-an-introduction-to-botanical-art/20261_ART-20",
+      "fetchedAt": "2026-10-07T06:21:49.122Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "21053de740eaba33765b6491e0e1902e8fdb185989341ff57173781d84455971",
+      "title": "Drawing Flowers: An Introduction to Botanical Art",
+      "snapshotFile": "raw/0039-21053de740ea.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/wait-lists/20261_ART-20",
+      "fetchedAt": "2026-10-07T06:21:51.109Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "674845d34b27e261861410597c8b434d3fda469eb0f998090d0d53c9026d1937",
+      "title": "WAIT LISTS",
+      "snapshotFile": "raw/0040-674845d34b27.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/art-and-anatomy-drawing-the-human-hand/20261_ART-69",
+      "fetchedAt": "2026-10-07T06:21:53.142Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e02dc9b164125b16663e4962c8e34e04b32166233b1a5298b16a8f9d78a30fa3",
+      "title": "Art and Anatomy: Drawing the Human Hand",
+      "snapshotFile": "raw/0041-e02dc9b16412.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/wait-lists/20261_ART-69",
+      "fetchedAt": "2026-10-07T06:21:55.123Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "667d74a32ab1be003c2321ea91384cd6bdde8b151f913f9e072f2163a12e5109",
+      "title": "WAIT LISTS",
+      "snapshotFile": "raw/0042-667d74a32ab1.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/capturing-the-action-sports-photography/20261_PHOTO-209",
+      "fetchedAt": "2026-10-07T06:21:57.145Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c57cc810e945d1a4c84b700c3ec170ce3fa4c4518856f1115d955614fecf02f9",
+      "title": "Capturing the Action: Sports Photography",
+      "snapshotFile": "raw/0043-c57cc810e945.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/how-to-build-and-grow-a-saas-startup/20261_BUS-144",
+      "fetchedAt": "2026-10-07T06:21:59.161Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1b4db8bf8160390c2e64e4e759f4fbc56a6f1ee0cfef4d3d04dea97dff54a891",
+      "title": "How to Build and Grow a SaaS Startup",
+      "snapshotFile": "raw/0044-1b4db8bf8160.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/before-you-build-idea-validation-for-startups-and-innovation-teams/20261_BUS-211",
+      "fetchedAt": "2026-10-07T06:22:01.177Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d7eca6680cf05e133e9901ccff447b801e603a031cf4a4735646c27bcca58f08",
+      "title": "Before You Build: Idea Validation for Startups and Innovation Teams",
+      "snapshotFile": "raw/0045-d7eca6680cf0.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/navigate-the-workplace-managing-up-down-and-across/20261_BUS-126",
+      "fetchedAt": "2026-10-07T06:22:03.177Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "86c345653ca7bb04d933a9b4f08842122e433afbff82208750756be45ed622dc",
+      "title": "Navigate the Workplace: Managing Up, Down, and Across",
+      "snapshotFile": "raw/0046-86c345653ca7.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/ai-powered-leadership-transforming-impact-in-the-digital-age/20261_BUS-148",
+      "fetchedAt": "2026-10-07T06:22:05.429Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "71b6a21fb461789a29d7403e2c22236f31c88a8bc9505e02710b7dc84f268c43",
+      "title": "AI-Powered Leadership: Transforming Impact in the Digital Age",
+      "snapshotFile": "raw/0047-71b6a21fb461.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/agentic-ai-for-workplace-productivity/20261_BUS-162",
+      "fetchedAt": "2026-10-07T06:22:07.193Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c43d6e91b6cd8cc62a35dade57803b5f037a58844f5075ddf8dd87ba3e5f1a3e",
+      "title": "Agentic AI for Workplace Productivity",
+      "snapshotFile": "raw/0048-c43d6e91b6cd.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/develop-an-authentic-leadership-presence/20261_BUS-170",
+      "fetchedAt": "2026-10-07T06:22:09.208Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "749193617ec63f64ba1211054a1763d6ae06b161141e6ef86373520343c67ec6",
+      "title": "Develop an Authentic Leadership Presence",
+      "snapshotFile": "raw/0049-749193617ec6.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/wait-lists/20261_BUS-170",
+      "fetchedAt": "2026-10-07T06:22:11.181Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "22d7029a778728e1fb1b33e922534b614de67fd1d35410740a69460bad945f5f",
+      "title": "WAIT LISTS",
+      "snapshotFile": "raw/0050-22d7029a7787.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/women-leaders-mastering-organizational-strategy/20261_BUS-276",
+      "fetchedAt": "2026-10-07T06:22:13.220Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5979cd3df1c309f1cafad2ad725b85b4469354b02db40e0c33395a7dd89df30f",
+      "title": "Women Leaders: Mastering Organizational Strategy",
+      "snapshotFile": "raw/0051-5979cd3df1c3.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/work-smarter-systems-for-managing-complexity/20261_BUS-303",
+      "fetchedAt": "2026-10-07T06:22:15.228Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cf55d813f49bd9675ee88cdfab8dec313351968f8837c4295bd6ac1136a76ef5",
+      "title": "Work Smarter: Systems for Managing Complexity",
+      "snapshotFile": "raw/0052-cf55d813f49b.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/executive-presence-in-action/20261_BUS-307",
+      "fetchedAt": "2026-10-07T06:22:17.229Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6413968e3d468dab8073156ffa2bb9bf0a758eb5e454a07997d2ea571ab9ad98",
+      "title": "Executive Presence in Action",
+      "snapshotFile": "raw/0053-6413968e3d46.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/leadership-judgment-and-decision-making-in-the-age-of-ai/20261_BUS-310",
+      "fetchedAt": "2026-10-07T06:22:19.232Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8263a806ddbd56bbb08b5e3a35803bd006ea5afc4376a1d845d9c5823f7b91f5",
+      "title": "Leadership Judgment and Decision-Making in the Age of AI",
+      "snapshotFile": "raw/0054-8263a806ddbd.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/ai-powered-content-strategy-from-seo-to-geo/20261_BUS-308",
+      "fetchedAt": "2026-10-07T06:22:21.256Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "37bf912799ae8f1f3e6e5126073e1251ee7e29d74440fa8517a628f9361792e8",
+      "title": "AI-Powered Content Strategy: From SEO to GEO",
+      "snapshotFile": "raw/0055-37bf912799ae.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/wait-lists/20261_BUS-308",
+      "fetchedAt": "2026-10-07T06:22:23.224Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d0c018af53d0bd53d2a1d9007692551fe2c8dfab3e47a1465cf52186835f7850",
+      "title": "WAIT LISTS",
+      "snapshotFile": "raw/0056-d0c018af53d0.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/public-relations-playbook-media-messaging-and-reputation/20261_COM-97",
+      "fetchedAt": "2026-10-07T06:22:25.269Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "13a2ae6f7b9befd90319b10359e16395380f2c46b5df939846b4d722e44639ad",
+      "title": "Public Relations Playbook: Media, Messaging, and Reputation",
+      "snapshotFile": "raw/0057-13a2ae6f7b9b.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/ai-driven-product-development-workshop/20261_BUS-146",
+      "fetchedAt": "2026-10-07T06:22:27.264Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4e382ff269baff650b1b538849a377cebe0af57873af5b28b8ad3c9de5166042",
+      "title": "AI-Driven Product Development Workshop",
+      "snapshotFile": "raw/0058-4e382ff269ba.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/building-generative-and-agentic-ai-products-a-first-principles-guide-for-product-managers/20261_BUS-190",
+      "fetchedAt": "2026-10-07T06:22:29.267Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "92433bdf3ba6604e5503a1456d0db3cc0dcb12efb8e1b2ff9148e635bef7e82b",
+      "title": "Building Generative and Agentic AI Products: A First-Principles Guide for Product Managers",
+      "snapshotFile": "raw/0059-92433bdf3ba6.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/back-to-basics-understanding-latin-and-greek-roots-of-english-words/20261_LIN-16",
+      "fetchedAt": "2026-10-07T06:22:31.283Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6393762c9c40c60dda551a9d781212e1b52a27908d59ca798053a96c048e410b",
+      "title": "Back to Basics: Understanding Latin and Greek Roots of English Words",
+      "snapshotFile": "raw/0060-6393762c9c40.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/wait-lists/20261_COM-107",
+      "fetchedAt": "2026-10-07T06:22:33.258Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8fa18bbd9e704e28dbc23765c227efcd4185d056a19f6649d65de960ed1dda4b",
+      "title": "WAIT LISTS",
+      "snapshotFile": "raw/0061-8fa18bbd9e70.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/building-interpersonal-skills-an-experiential-workshop/20261_COM-19",
+      "fetchedAt": "2026-10-07T06:22:35.286Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dad846144236f3aee826c16ddddbc26cdd48624f55481a2643e234a591da003a",
+      "title": "Building Interpersonal Skills: An Experiential Workshop",
+      "snapshotFile": "raw/0062-dad846144236.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/wait-lists/20261_COM-19",
+      "fetchedAt": "2026-10-07T06:22:37.282Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "805ac51abccc75ddb97f4650470c685288c485b90bf3dd0ed0bdb95a751e5754",
+      "title": "WAIT LISTS",
+      "snapshotFile": "raw/0063-805ac51abccc.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/think-on-your-feet-an-improviser-s-guide-to-business-and-communication/20261_COM-66",
+      "fetchedAt": "2026-10-07T06:22:39.324Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e387b7ecf32522626a7bfe4fc65a7589220b23fcc980bc5a620c3fcf5d29a16d",
+      "title": "Think on Your Feet: An Improviser’s Guide to Business and Communication",
+      "snapshotFile": "raw/0064-e387b7ecf325.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/wait-lists/20261_COM-66",
+      "fetchedAt": "2026-10-07T06:22:41.310Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b4c7f7f24e33d2e5bd1f45332e90a63d8da76ba164fbc2b52559920dc48d246d",
+      "title": "WAIT LISTS",
+      "snapshotFile": "raw/0065-b4c7f7f24e33.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/how-to-use-storytelling-to-pitch-your-ideas/20261_COM-98",
+      "fetchedAt": "2026-10-07T06:22:43.343Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "db5bc0f39d5578019bf98df810db6a8d63c273374cea5f42e841f0c5f0a29ca2",
+      "title": "How to Use Storytelling to Pitch Your Ideas",
+      "snapshotFile": "raw/0066-db5bc0f39d55.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/american-wilderness-and-its-discontents-an-mla-style-course/20261_CLS-141",
+      "fetchedAt": "2026-10-07T06:22:45.352Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1ef9e61ae84ee3ea72567358f7886f6682d2d475f1b233e510a4ddba5e5c0a3e",
+      "title": "American Wilderness and Its Discontents (An MLA-Style Course)",
+      "snapshotFile": "raw/0067-1ef9e61ae84e.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/modern-odysseys-homer-in-the-20th-century-an-mla-style-course/20261_CLS-202",
+      "fetchedAt": "2026-10-07T06:22:47.357Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5349836f5d2f469dbcd8eefea5507c43bfee7b7aa93c684d92fe00b76978b450",
+      "title": "Modern Odysseys: Homer in the 20th Century (An MLA-Style Course)",
+      "snapshotFile": "raw/0068-5349836f5d2f.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/will-america-fail-the-midterms-the-state-of-democracy-at-home-and-abroad/20261_POL-72-H",
+      "fetchedAt": "2026-10-07T06:22:49.553Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ed465c5e6068b47b76b7277a46a202376d6ecd258e0a3f2c87e9d12910ec805d",
+      "title": "Will America Fail the Midterms? The State of Democracy at Home and Abroad",
+      "snapshotFile": "raw/0069-ed465c5e6068.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/introduction-to-hip-hop-dance/20261_DAN-33",
+      "fetchedAt": "2026-10-07T06:22:51.387Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6cf00b9198011b140d3d792e7565f42b6d658ba91f90e16c860394f759a5d64c",
+      "title": "Introduction to Hip Hop Dance",
+      "snapshotFile": "raw/0070-6cf00b919801.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/introduction-to-ballet/20261_DAN-40",
+      "fetchedAt": "2026-10-07T06:22:53.386Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d69ea13a6e0d60a3fcd2a6bd1ce9bfd5015c135088a350c32ddfc03dc48db232",
+      "title": "Introduction to Ballet",
+      "snapshotFile": "raw/0071-d69ea13a6e0d.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/your-next-life-chapter-a-design-thinking-and-behavioral-science-based-approach/20261_WELL-11",
+      "fetchedAt": "2026-10-07T06:22:55.401Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2eafda83725d5878532ac3a3cb85ea0e2c03be9e8f53cec4cd23ba17ddf2afd6",
+      "title": "Your Next Life Chapter: A Design Thinking and Behavioral Science–Based Approach",
+      "snapshotFile": "raw/0072-2eafda83725d.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/beginning-french-part-i/20261_FRN-01",
+      "fetchedAt": "2026-10-07T06:22:57.410Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "051b04a6120ca374f0e05e2fea0c89bf2cf9e93682767153c8cb8a79a783dbb0",
+      "title": "Beginning French: Part I",
+      "snapshotFile": "raw/0073-051b04a6120c.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/romantic-poetry-nature-consciousness-and-the-sublime/20261_LIT-91",
+      "fetchedAt": "2026-10-07T06:22:59.419Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3e75f4b94edf6d7884c65df48391ccf2c726fd8b81153862761f2aaae1a1675b",
+      "title": "Romantic Poetry: Nature, Consciousness, and the Sublime",
+      "snapshotFile": "raw/0074-3e75f4b94edf.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/introduction-to-anatomy-at-stanford-medicine-exploring-the-forearm-wrist-and-hand/20261_MED-30",
+      "fetchedAt": "2026-10-07T06:23:01.437Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f1c6076854d66102486baf737a868ec1f5e2677238b36aa11df18f1151a3467f",
+      "title": "Introduction to Anatomy at Stanford Medicine: Exploring the Forearm, Wrist, and Hand",
+      "snapshotFile": "raw/0075-f1c6076854d6.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/wait-lists/20261_MED-30",
+      "fetchedAt": "2026-10-07T06:23:03.407Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ebf2f987d772621c112d3922571baa62e2630f66086fefbd5b63b29658cb41fb",
+      "title": "WAIT LISTS",
+      "snapshotFile": "raw/0076-ebf2f987d772.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/creative-writing/between-memory-and-imagination-a-generative-retreat-for-fiction-and-memoir-writers/20261_CW-115",
+      "fetchedAt": "2026-10-07T06:23:05.439Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dbd47b33956181e862fdb90141bfe2b12ef55b5df129cf26f18dc676d1771bfc",
+      "title": "Between Memory and Imagination: A Generative Retreat for Fiction and Memoir Writers",
+      "snapshotFile": "raw/0077-dbd47b339561.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/play-the-acoustic-guitar-the-songs-of-the-rolling-stones-van-morrison-and-more/20261_MUS-202",
+      "fetchedAt": "2026-10-07T06:23:07.456Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c465e64789e96f32781d44bfdc2ff70eba95fb9e50a06da73eada64ac7a99cdb",
+      "title": "Play the Acoustic Guitar: The Songs of the Rolling Stones, Van Morrison, and More",
+      "snapshotFile": "raw/0078-c465e64789e9.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/creative-writing/fiction-club-a-guided-writing-group/20261_FICT-118",
+      "fetchedAt": "2026-10-07T06:23:09.458Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "59c51c21b5315dbe51b5b4080b53c3d2c2559deae74b6a7b6d9e8924029159ab",
+      "title": "Fiction Club: A Guided Writing Group",
+      "snapshotFile": "raw/0079-59c51c21b531.html"
+    },
+    {
+      "url": "https://continuingstudies.stanford.edu/courses/creative-writing/idea-to-book-deal-develop-the-nonfiction-book-that-only-you-can-write/20261_CNF-99",
+      "fetchedAt": "2026-10-07T06:23:11.472Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "33ebe82fd2e100387bf0ddb94f604e34bb703f68da30995e46abfa25256d1687",
+      "title": "Idea to Book Deal: Develop the Nonfiction Book That Only You Can Write",
+      "snapshotFile": "raw/0080-33ebe82fd2e1.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:23:11.542Z",
+    "seedUrls": [
+      "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/digital-photography-basics/20261_PHOTO-07",
+      "https://continuingstudies.stanford.edu/courses/detail/20261_PSY-104",
+      "https://continuingstudies.stanford.edu/courses/courses-by-format/show-on-campus",
+      "https://continuingstudies.stanford.edu/courses/detail/20261_SPT-15-H",
+      "https://continuingstudies.stanford.edu/courses/liberal-arts-and-sciences/auteur-cinema-six-directors-and-their-signature-styles/20261_FLM-172",
+      "https://continuingstudies.stanford.edu/courses/creative-writing/beyond-scene-the-secrets-to-writing-page-turning-summary/20261_CW-80",
+      "https://continuingstudies.stanford.edu/courses/professional-and-personal-development/dialogue-and-the-art-of-impossible-conversations/20261_COM-107",
+      "https://bulletin.stanford.edu/programs?KhCQH=Graduate&page=1&pq=",
+      "https://undergrad.stanford.edu/programs/bosp",
+      "https://bulletin.stanford.edu/programs?KhCQH=Graduate&degreeDesignation=PHD%20-%20Doctor%20of%20Philosophy&page=1&pq=",
+      "https://applygrad.stanford.edu/portal/programs",
+      "https://online.stanford.edu/courses/soe-ymls-machine-learning-specialization",
+      "https://online.stanford.edu/courses/sohs-ystatslearningp-statistical-learning-python",
+      "https://facts.stanford.edu/academics/undergraduate-education/class-2029-profile",
+      "https://www.stanford.edu/academics",
+      "https://www.stanford.edu/academics/schools",
+      "https://www.stanford.edu/academics/everyone",
+      "https://majors.stanford.edu/majors"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:25.070Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  }
+}

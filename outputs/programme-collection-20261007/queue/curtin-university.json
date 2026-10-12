@@ -1,0 +1,725 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "curtin-university",
+    "displayName": "Curtin University",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.curtin.edu.au/study/"
+    ],
+    "allowedHosts": [
+      "www.curtin.edu.au",
+      "curtin.edu.au"
+    ],
+    "discoveredUrls": 95,
+    "parsedProgrammes": 50,
+    "pagesRead": 120,
+    "warnings": [
+      "https://search.curtin.edu.au/results/courses/：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?q=：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=agriculture-environment-and-sustainability：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=architecture-and-construction：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=arts-and-creative-industries：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=business-innovation-management-and-law：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=culture-society-and-indigenous：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=education：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=health：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=physical-sciences-geoscience-and-mathematics：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=engineering-mining-and-surveying：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=information-technology：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-innovation--b-innovv1",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-commerce--b-comrcev5",
+      "https://search.curtin.edu.au/results/courses?q=graduate%20certificate：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?q=Graduate%20diploma：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses?q=Master：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "https://search.curtin.edu.au/results/courses：无法确认 robots.txt（HTTP 403），本来源停止抓取",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-commerce--b-comrcev8",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-innovation--b-innovv3",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-education-primary-education--b-edprv5",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-arts--b-artsv8",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-health-sciences--b-hthsciv1",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-psychology--b-psychv3",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-engineering-honours--bh-engrv5",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-science-science--b-scncev8",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-chinese-major-ba--mjru-chnsev2",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-creative-writing-major-ba--mjru-crwr1v1",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-digital-and-social-media-major-ba--mjru-netcmv3",
+      "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-advertising-and-design-major--mjru-advds/",
+      "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-design-and-fabrication-major--mjru-dinfb/",
+      "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-fashion-design-major--mjru-fashn/",
+      "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-graphic-design-major--mjru-grpds/",
+      "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-photography-major--mjru-photo/",
+      "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-design-innovation-and-fabrication-major--mjru-dinfb/",
+      "robots.txt 禁止抓取：https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-business-administration--b-busadmv3",
+      "HTTP 404：https://www.curtin.edu.au/study/offering/course-ug-international-business-major-bcom--mjru-intbu/"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/double-degrees/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?q=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=agriculture-environment-and-sustainability",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=architecture-and-construction",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=arts-and-creative-industries",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=business-innovation-management-and-law",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=culture-society-and-indigenous",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=health",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=physical-sciences-geoscience-and-mathematics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=engineering-mining-and-surveying",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?course_type=undergraduate-specialisation-minor&study_area=information-technology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-innovation--b-innovv1",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-commerce--b-comrcev5",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?q=graduate%20certificate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?q=Graduate%20diploma",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses?q=Master",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://search.curtin.edu.au/results/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-commerce--b-comrcev8",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-innovation--b-innovv3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-education-primary-education--b-edprv5",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-arts--b-artsv8",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-health-sciences--b-hthsciv1",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-psychology--b-psychv3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-engineering-honours--bh-engrv5",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-bachelor-of-science-science--b-scncev8",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-chinese-major-ba--mjru-chnsev2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-creative-writing-major-ba--mjru-crwr1v1",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://handbook.curtin.edu.au/courses/course-ug-digital-and-social-media-major-ba--mjru-netcmv3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/specialisations/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/applying/domestic/how-to-apply/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/applying/domestic/how-to-apply/undergraduate/tisc-applications/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/applying/domestic/how-to-apply/undergraduate/tisc-offer-rounds/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/early-offers/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/applying/domestic/how-to-apply/postgraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/high-school-resources/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/findu-quiz/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/honours/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/student-profile/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/atar-profile/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/uni-words/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/undergraduate/high-school-resources/?mute=1",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-commerce--b-comrce/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:13.911Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-innovation--b-innov/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:16.392Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-education-primary-education--b-edpr/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:18.864Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-arts--b-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:21.450Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-health-sciences--b-hthsci/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:23.806Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-psychology--b-psych/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:26.425Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-engineering-honours--bh-engr/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:28.987Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-science-science--b-scnce/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:31.482Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-chinese-major-ba--mjru-chnse/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:35.683Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-creative-writing-major-ba--mjru-crwr1/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:38.369Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-digital-and-social-media-major-ba--mjru-netcm/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:40.563Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-medicine-bachelor-of-surgery--b-mbbs/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:42.405Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-english-and-cultural-studies-major-ba--mjru-litcu/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:54.092Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-japanese-major-ba--mjru-japan/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:56.222Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-journalism-major-ba--mjru-journ/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:03:58.285Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-korean-studies-major-ba--mjru-kores/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:00.353Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-professional-writing-and-publishing-major-ba--mjru-prwr1/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:03.223Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-fine-art-major-bca--mjru-finar/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:05.550Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-screen-arts-major-bca--mjru-scra2/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:08.270Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-theatre-arts-major-bca--mjru-thtra/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:10.693Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-journalism-specialisation--spuc-jourl/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:12.881Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-web-media-specialisation--spuc-wmcom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:17.473Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-corporate-screen-production-specialisation--spuc-cspr1/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:20.034Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-digital-creative-industries--b-digci/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:22.506Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-animation-visual-effects-and-virtual-production-major--mjru-afxvp/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:24.633Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-game-design-and-art-major--mjru-gdart/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:26.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-immersive-user-experience-design-major--mjru-imuxd/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:28.858Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-design--b-design/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:31.314Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-business-administration--b-busadm/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:46.343Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-human-resource-management-major-bcom--mjru-hrmgm/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:55.367Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-management-major-bcom--mjru-mngmt/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:57.470Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-marketing-major-bcom--mjru-mrktg/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:04:59.600Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-tourism-and-hospitality-major--mjru-trhos/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:01.700Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-tourism-and-hospitality-global-major--mjru-trhog/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:03.791Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-accounting-major-bcom--mjru-accnt/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:05.922Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-accounting-and-audit-analytics-double-major-bcom--mjdu-acctc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:08.121Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-accounting-and-taxation-double-major-bcom--mjdu-acctx/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:10.625Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-economics-major-bcom--mjru-econs/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:12.773Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-finance-major-bcom--mjru-fince/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:15.097Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-finance-and-financial-planning-double-major-bcom--mjdu-finpl/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:17.867Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-property-investment-and-development-major--mjru-prpty/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:20.293Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-property-development-and-valuation-extension-bcom--mjxu-provl/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:22.461Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-business-information-systems-major--mjru-binfs/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:25.113Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-business-information-systems-extension-major-bcom--mjxu-busin/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:27.220Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-business-law-major-bcom--mjru-bslaw/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:29.341Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-logistics-and-supply-chain-management-major-bcom--mjru-lgscm/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:39.963Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-applied-geology-bachelor-of-commerce-finance--bb-glyfin/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:42.379Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-arts-bachelor-of-commerce--bb-artcom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:44.889Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-engineering-bachelor-of-commerce--bb-engcom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:47.435Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-university",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-laws-bachelor-of-commerce--bb-lawcom/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:49.919Z",
+      "error": null
+    }
+  ]
+}

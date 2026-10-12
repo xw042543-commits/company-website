@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-oxford",
+    "displayName": "University of Oxford",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.ox.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.ox.ac.uk",
+      "ox.ac.uk"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.ox.ac.uk/admissions/undergraduate/courses/undergraduate-course-listing-a-z：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

@@ -1,0 +1,17 @@
+{
+  "desc": "UDAJO 小程序公开页面索引规则",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "pages/home/index"
+    },
+    {
+      "action": "allow",
+      "page": "pages/universities/index"
+    },
+    {
+      "action": "disallow",
+      "page": "*"
+    }
+  ]
+}

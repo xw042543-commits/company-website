@@ -1,0 +1,77 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "kaplan-singapore",
+    "displayName": "Kaplan Singapore",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.kaplan.com.sg/"
+    ],
+    "allowedHosts": [
+      "www.kaplan.com.sg",
+      "kaplan.com.sg"
+    ],
+    "discoveredUrls": 8,
+    "parsedProgrammes": 8,
+    "pagesRead": 40,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "kaplan-singapore",
+      "url": "https://www.kaplan.com.sg/financial-certification/sca-preparatory-course-for-singapore-ca-qualification",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:46.479Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "kaplan-singapore",
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-1-elearning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:52.858Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "kaplan-singapore",
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-2-elearning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:54.992Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "kaplan-singapore",
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-3-elearning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:57.003Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "kaplan-singapore",
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-4-elearning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:01.533Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "kaplan-singapore",
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/certificate-in-english-level-5-elearning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:02.424Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "kaplan-singapore",
+      "url": "https://www.kaplan.com.sg/academic-levels/preparatory-courses/diploma-professional-business-english",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:04.380Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "kaplan-singapore",
+      "url": "https://www.kaplan.com.sg/preparatory-course/igcse-preparatory-course-for-cambridge-international-general-certificate-of-secondary-education-igcse-examination",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:08.770Z",
+      "error": null
+    }
+  ]
+}

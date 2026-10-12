@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "university-of-newcastle",
+    "displayName": "The University of Newcastle",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.newcastle.edu.au/degrees"
+    ],
+    "allowedHosts": [
+      "www.newcastle.edu.au",
+      "newcastle.edu.au"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.newcastle.edu.au/degrees：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

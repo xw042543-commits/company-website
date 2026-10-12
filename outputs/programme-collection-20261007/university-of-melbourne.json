@@ -1,0 +1,17 @@
+{
+  "region": "australia",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T03:57:20.093Z",
+  "sourceKey": "university-of-melbourne",
+  "sourceName": "The University of Melbourne",
+  "warnings": [
+    "https://study.unimelb.edu.au/study-with-us/undergraduate-courses：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T05:54:29.645Z"
+  }
+}

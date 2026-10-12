@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-10-08T02:21:49.533Z",
+  "universities": 80,
+  "universityMedia": 127,
+  "universitiesWithoutVisual": 0,
+  "programmes": 734,
+  "programmeSpecificImages": 537,
+  "programmeFallbackImages": 197,
+  "programmesWithoutVisual": 0,
+  "licensedUniversityMedia": 59,
+  "universityMediaPendingRightsReview": 68,
+  "pendingUrlRecheck": [
+    "california-institute-of-technology",
+    "new-york-university"
+  ]
+}

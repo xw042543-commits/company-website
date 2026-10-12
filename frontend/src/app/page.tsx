@@ -1,75 +1,74 @@
-type University = {
-  id: string | number;
-  name: string;
-  slug: string;
-  country: string;
-  popular: boolean;
-};
+import type { Metadata } from "next";
+import { redirect } from "next/navigation";
+import { PublicHome } from "@/components/public-home";
+import { SiteChrome } from "@/components/site-chrome";
+import { companyProfile } from "@/data/company-profile";
+import { chineseBrandMetadata } from "@/lib/brand-metadata";
+import { resolvePublicIndexing } from "@/lib/public-indexing";
+import { isRequestAuthenticated } from "@/lib/server-auth";
 
-type HomePageProps = {
-  searchParams: Promise<{
-    q?: string | string[];
-  }>;
-};
+export function generateMetadata(): Metadata {
+  const { origin } = resolvePublicIndexing(process.env);
+  return {
+    title: chineseBrandMetadata.title,
+    keywords: chineseBrandMetadata.keywords,
+    description: chineseBrandMetadata.description,
+    alternates: {
+      canonical: origin,
+      languages: {
+        "zh-CN": origin,
+        en: `${origin}/en`,
+        "x-default": origin,
+      },
+    },
+    openGraph: {
+      type: "website",
+      url: origin,
+      siteName: "洋豆角留学",
+      title: chineseBrandMetadata.title,
+      description: chineseBrandMetadata.description,
+      locale: "zh_CN",
+    },
+  };
+}
 
-export default async function Home({ searchParams }: HomePageProps) {
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+function BrandStructuredData() {
+  const { origin } = resolvePublicIndexing(process.env);
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${origin}/#website`,
+        url: origin,
+        name: "洋豆角留学",
+        alternateName: ["洋豆角教育", "洋豆角", "UDAJO"],
+        inLanguage: ["zh-CN", "en"],
+      },
+      {
+        "@type": "Organization",
+        "@id": `${origin}/#organization`,
+        url: origin,
+        name: "洋豆角留学",
+        alternateName: ["洋豆角教育", "洋豆角", "UDAJO"],
+        legalName: companyProfile.legalNameZh,
+        logo: `${origin}/brand/udajo-logo-transparent.png`,
+        email: companyProfile.publicEmail,
+      },
+    ],
+  };
 
-  if (!apiBaseUrl) {
-    throw new Error("NEXT_PUBLIC_API_BASE_URL is not configured");
-  }
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{
+    __html: JSON.stringify(data).replace(/</g, "\\u003c"),
+  }} />;
+}
 
-  const params = await searchParams;
-  const rawQuery = Array.isArray(params.q) ? params.q[0] : params.q;
-  const query = rawQuery?.trim() ?? "";
+export default async function Home() {
+  const signedIn = await isRequestAuthenticated();
+  if (signedIn) redirect("/zh");
 
-  const endpoint = query
-    ? `/api/search?q=${encodeURIComponent(query)}`
-    : "/api/universities";
-
-  const response = await fetch(`${apiBaseUrl}${endpoint}`, {
-    cache: "no-store",
-  });
-
-  if (!response.ok) {
-    throw new Error(`Backend request failed: ${response.status}`);
-  }
-
-  const universities = (await response.json()) as University[];
-
-  return (
-    <main>
-      <h1>院校搜索</h1>
-
-      <form action="/" method="get">
-        <label htmlFor="search">院校名称或国家</label>
-        <br />
-        <input
-          id="search"
-          name="q"
-          type="search"
-          defaultValue={query}
-          placeholder="例如：Malaysia"
-        />
-        <button type="submit">搜索</button>
-      </form>
-
-      <h2>{query ? `“${query}”的搜索结果` : "全部院校"}</h2>
-
-      {universities.length === 0 ? (
-        <p>没有找到符合条件的院校。</p>
-      ) : (
-        <ul>
-          {universities.map((university) => (
-            <li key={university.id}>
-              <strong>{university.name}</strong>
-              {" — "}
-              {university.country}
-              {university.popular ? "（热门）" : ""}
-            </li>
-          ))}
-        </ul>
-      )}
-    </main>
-  );
+  return <SiteChrome locale="zh" signedIn={false}>
+    <BrandStructuredData />
+    <PublicHome locale="zh" />
+  </SiteChrome>;
 }

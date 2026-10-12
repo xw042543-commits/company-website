@@ -1,0 +1,868 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "singapore-university-of-technology-and-design",
+    "displayName": "Singapore University of Technology and Design",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.sutd.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.sutd.edu.sg",
+      "sutd.edu.sg"
+    ],
+    "discoveredUrls": 121,
+    "parsedProgrammes": 1,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=23",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=1",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=4",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=22",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=21",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=5",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=20",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=6",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=19",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=7",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=18",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=8",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=17",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=9",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=16",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=10",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=15",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=11",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=14",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=12",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=13",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/overview/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-tec/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/overview/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=23",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/about/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/why/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/who-we-are/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/apply/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/special-track-pathway",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/academic-pathways/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/who-we-are/faculty/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/who-we-are/testimonials/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/faq/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/about/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/who-we-are/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/faq/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/sharp-programme-structure/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/honours-sessions/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/research/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/who-we-are/students/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/who-we-are/testimonials/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/application/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/financial/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/scholarships/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/overview/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/director-message/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/why/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/programme-structure/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/applications-fees-scholarships/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/student-achievements/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/overview/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/programme-structure/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/application-and-scholarship/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/01-018-design-thinking-project-i/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/01-019-design-thinking-project-ii/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/01-020-design-thinking-project-iii/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/01-101-technologies-for-sustainable-global-health/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/01-102-energy-systems-and-management/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/01-106-engineering-management/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/01-107-urban-transportation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/01-115-science-of-sound-acoustics-audio-music/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/01-119-nanoelectronics-and-technology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/education/undergraduate/capstone/for-students/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-001-global-humanities-literature-philosophy-and-ethics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-003-social-science-understanding-behaviour-culture-society/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-005-introduction-to-human-centred-design/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-102-ht-the-world-since-1400/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-104ts-the-history-of-international-development-in-asia-the-role-of-engineers-and-designers/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-105dh-sages-through-the-ages-readings-in-early-indian-and-chinese-religion-and-philosophy/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-108dh-modern-china-pluralism-and-beyond-territoriality/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-110dh-the-chinese-lyrical-tradition-arts-literature-and-landscape-design/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-120dh-history-of-traditional-chinese-short-fiction/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-121dh-the-question-of-being/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-124ht-the-modern-east-asian-nexus-a-history/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-128dh-classical-south-and-southeast-asian-literature-and-art/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-132dh-being-and-time/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-135ht-the-question-of-technology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-137dh-introduction-to-digital-humanities/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-140ts-shaping-futures-innovation-work-and-society/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-143-artificial-intelligence-and-ethics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-144dh-being-in-the-world-from-homer-and-heidegger-to-a-i/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/qualitative-quantitative-research-methods/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/sustainabiity-science-and-systems-thinking/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-146-financing-cities-of-the-future-theory-and-practice/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-147ts-interventions-in-design-technology-and-society/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-148ht-geographies-of-money-and-finance/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-151ht-digital-worlds-space-and-spatialities-geographical-perspectives-on-digitalisation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-152ts-urban-theory/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-153ts-a-history-of-nuclear-strategy-design-technology-and-society/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-156dh-games-of-histories/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-158dh-kings-monks-and-merchants-a-history-of-asia-before-1750/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-159ht-equitable-tech-reimagining-our-digital-infrastructures/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/02-163-international-trade-free-trade-governance-and-technology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/introduction-to-discrete-mathematics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/introduction-to-healthcare-technology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/introduction-to-machine-learning/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/introduction-to-probability-and-statistics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/introduction-to-programming/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/course/linear-algebra-multivariable-calculus/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "singapore-university-of-technology-and-design",
+      "url": "https://www.sutd.edu.sg/profile/khoo-peng-beng/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:32.643Z",
+      "error": null
+    }
+  ]
+}

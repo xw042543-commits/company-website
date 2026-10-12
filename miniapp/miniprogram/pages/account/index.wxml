@@ -1,0 +1,53 @@
+<view class="account-page">
+  <view class="account-hero" bindtap="openIdentity">
+    <view class="account-watermark" aria-hidden="true">U</view>
+    <view class="account-orbit account-orbit--one" aria-hidden="true" />
+    <view class="account-orbit account-orbit--two" aria-hidden="true" />
+    <button wx:if="{{session.status === 'authenticated'}}" class="avatar-button {{avatarUploading ? 'avatar-button-disabled' : ''}}"
+      open-type="chooseAvatar" bindchooseavatar="chooseAvatar" catchtap="noop"
+      disabled="{{avatarUploading}}" aria-label="选择微信头像">
+      <image wx:if="{{session.account && session.account.avatarUrl}}" class="avatar-image" src="{{session.account.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="avatar-placeholder">U</view>
+      <view class="avatar-edit">更换</view>
+    </button>
+    <view wx:else class="avatar-shell">
+      <image wx:if="{{session.account && session.account.avatarUrl}}" class="avatar-image" src="{{session.account.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="avatar-placeholder">U</view>
+    </view>
+    <view class="identity-copy">
+      <view class="identity-name">{{session.account ? session.account.displayName : '微信用户'}}</view>
+      <view class="identity-hint">
+        {{session.status === 'authenticated' ? '点击头像可使用微信头像' : '点击登录，开启留学之旅'}}
+      </view>
+    </view>
+    <view class="identity-arrow">›</view>
+  </view>
+
+  <view wx:if="{{session.status === 'authenticated'}}" class="overview-grid">
+    <view class="overview-item"><view class="overview-number">{{overview.favorites}}</view><text>专业收藏</text></view>
+    <view class="overview-item"><view class="overview-number">{{overview.plans}}</view><text>留学规划</text></view>
+    <view class="overview-item"><view class="overview-number">{{overview.consultations}}</view><text>咨询记录</text></view>
+  </view>
+
+  <view class="journey-heading">
+    <view class="journey-title">我的留学旅程</view>
+    <view class="journey-copy">收藏、规划与申请，都从这里继续。</view>
+  </view>
+  <view class="menu-card">
+    <view
+      wx:for="{{menuItems}}"
+      wx:key="key"
+      class="menu-row"
+      bindtap="openMenu"
+      data-key="{{item.key}}"
+    >
+      <view class="menu-marker menu-marker--{{item.tone}}" aria-hidden="true">{{item.mark}}</view>
+      <view class="menu-copy">
+        <view class="menu-label">{{item.label}}</view>
+        <view class="menu-caption">{{item.caption}}</view>
+      </view>
+      <view wx:if="{{item.key === 'orders' && overview.orders > 0}}" class="menu-count">{{overview.orders}}</view>
+      <view class="menu-arrow">›</view>
+    </view>
+  </view>
+</view>

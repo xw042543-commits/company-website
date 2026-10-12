@@ -1,0 +1,1024 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "rmit-university",
+    "displayName": "RMIT University",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.rmit.edu.au/study-with-us"
+    ],
+    "allowedHosts": [
+      "www.rmit.edu.au",
+      "rmit.edu.au"
+    ],
+    "discoveredUrls": 143,
+    "parsedProgrammes": 141,
+    "pagesRead": 120,
+    "warnings": [
+      "跳过非 HTML 内容：https://www.rmit.edu.au/assets/au/en/docs/study/level-of-study/courses/bp201-inton-selection-task.pdf"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/assets/au/en/docs/study/level-of-study/courses/bp201-inton-selection-task.pdf",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/online/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-business-bp343",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-international-studies-bp332",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-criminology-and-criminal-justice-bp023",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-criminology-and-psychology-bp295",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-aviation-pilot-training-bp345",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-science-biotechnologybachelor-of-biomedical-science-bp293",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-food-technology-and-nutritionbachelor-of-business-bp289",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-creative-writing-bp257",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-pharmaceutical-sciences-bp311",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-fashion-enterprise-bp327",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-information-technology-bp162",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-environmental-sciencebachelor-of-sustainability-and-environment-bp193",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-lawsbachelor-of-business-bp346",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-biomedical-science-bp231/bachelor-of-biomedical-science-bp231-general-plan",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-biomedical-science-bp231/bachelor-of-biomedical-science-bp231-osteopathy-plan",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-graphic-design-bp115",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-applied-science-aviation-bp070",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-design-animation-and-interactive-media-bp203",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-fashion-sustainability-bp326",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-medical-radiation-bp321",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-medical-radiation-bp321/bp321mip25ausbu",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-medical-radiation-bp321/bp321nmp25ausbu",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-medical-radiation-bp321/bp321rtp25ausbu",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-medical-radiation-bp321/bp321niausbu",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-business-professional-practice-bp344",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-applied-science-aviationbachelor-of-business-bp284",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-music-industry-bp047",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-food-technology-and-nutrition-bp199",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-fashion-design-bp328",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-architectural-design-bp250",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-software-engineering-professional-bp096",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-software-engineering-professional-bp096/bp096p23auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-landscape-architectural-design-bp256",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-data-science-professional-bp348",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-information-technology-professional-bp349",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-computer-science-professional-bp347",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-accountingbachelor-of-laws-bp352",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-accountingbachelor-of-business-bp353",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-professional-communication-bp354",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-cyber-security-bp355",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-cyber-security-professional-bp356",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-commerce-bp357/enterprise-ai-and-business-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-commerce-bp357/international-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-commerce-bp357/leadership-and-strategy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-commerce-bp357/marketing-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-commerce-bp357/quantitative-economics-and-finance",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-lawsbachelor-of-commerce-bp358",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-accountingbachelor-of-commerce-bp359",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-lawsbachelor-of-professional-communication-bp360",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-accounting-professional-practice-bp361",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-sustainability-and-environment-bp362",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-digital-design-bp366",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-lawsbachelor-of-criminology-and-criminal-justice-bp365",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-biomedical-science-osteopathy-bp231ost",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:12.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-education-bp320",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:16.287Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-business-administration-mc199",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-business-analytics-and-ai-strategy-mc274",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-business-information-technology-mc200",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-engineering-management-mc226",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-international-business-mc192",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-occupational-health-and-safety-mc282",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-professional-accounting-mc194",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-supply-chain-and-logistics-management-mc198",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-business-administration-gc047",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-business-administration-executive-gc129",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-business-information-technology-gc099",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-cloud-applications-in-business-gc214",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-digital-economy-gc180",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-human-resource-management-gc161",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-international-business-gc153",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-people-analytics-gc206",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-professional-accounting-gc119",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-supply-chain-and-logistics-management-gc055",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-supply-chain-automation-gc211",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-sustainable-finance-and-investment-gc219",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-fashion-entrepreneurship-gc166",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-diplomas/graduate-diploma-of-fashion-entrepreneurship-gd203",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-cyber-security-mc159",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-fashion-entrepreneurship-mc213",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-human-resource-management-mc263",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:46.213Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-business-bp343/bp343auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:49.887Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-global-studies-mc283",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:53.995Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-teaching-practice-primary-education-mc219",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:53.995Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-teaching-practice-secondary-education-mc220",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:53.995Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-international-studies-bp332/bp332p25auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:57.911Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-computer-science-bp094",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:00.384Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-foundation-of-artificial-intelligence-gc197",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:02.044Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-artificial-intelligence-mc271",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:02.044Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-information-technology-mc208",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:02.044Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-computer-science-bp094/bp094p23auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:05.928Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-dispute-resolution-gc218",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:10.081Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-domestic-and-family-violence-gc164",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:10.081Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-justice-and-criminology-gc195",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:10.081Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-justice-and-criminology-mc223",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:10.081Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-criminology-and-criminal-justice-bp023/bp023p26auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:13.920Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-clinical-psychology-mc002",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:16.373Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-social-work-mc150",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:18.117Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-criminology-and-psychology-bp295/bp295p16auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:19.924Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-fine-arts-bp201",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:22.871Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/vocational-study/diplomas/diploma-of-photography-and-digital-imaging-c5446",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:22.871Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-creative-and-cultural-production-gc213",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:24.124Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/online/events/mba-info-session",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:09.305Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/online/events/mba-fireside-chat",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:09.305Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/online/events/juris-doctor-info-session",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:09.305Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-fine-arts-bp201/bp201p26auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:26.271Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-psychology-bp154",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:28.717Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-psychology-bp154/bp154p23auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:34.293Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-transport-safety-investigation-gc165",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:38.328Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-diplomas/graduate-diploma-in-transport-safety-investigation-gd208",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:38.328Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-aviation-pilot-training-bp345/bp345p23auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:42.362Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-occupational-health-and-safety-gc035",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:46.478Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-diplomas/graduate-diploma-in-occupational-health-and-safety-gd052",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:46.478Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-applied-science-acupuncture-mc024",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:46.478Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-medical-physics-mc215",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:46.478Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-science-biotechnologybachelor-of-biomedical-science-bp293/bp293sbt25auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:48.398Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-food-science-and-technology-gc190",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:56.189Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-food-science-and-technology-mc237",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:56.189Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-laboratory-medicine-mc158",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:56.189Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-food-technology-and-nutritionbachelor-of-business-bp289/bp289ftnddauscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:01:58.626Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/honours-degrees/bachelor-of-media-and-communication-honours-bh066",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:02.716Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-diplomas/graduate-diploma-of-writing-and-publishing-gd199",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:02.716Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-communication-design-mc250",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:02.716Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-writing-and-publishing-mc262",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:02.716Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-creative-writing-bp257/bp257p27auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:06.542Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/honours-degrees/bachelor-of-pharmaceutical-sciences-honours-bh121",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:09.037Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/vocational-study/diplomas/diploma-of-laboratory-technology-c5434",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:09.037Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/honours-degrees/bachelor-of-health-and-biomedical-sciences-honours-bh058",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:09.037Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-diplomas/graduate-diploma-in-mental-health-nursing-gd158",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:10.852Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-clinical-osteopathy-mc284",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:10.852Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-mental-health-nursing-mc268",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:10.852Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-pharmaceutical-sciences-bp311/bp311p23ausbu",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:14.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-data-science-bp340",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:17.112Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/graduate-certificates/graduate-certificate-in-information-technology-gc188",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:18.832Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-data-science-bp340/bp340p23auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:22.677Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-fashion-enterprise-bp327/bp327p27ausbr",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:30.713Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-data-science-and-artificial-intelligence-mc292",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:34.891Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-engineering-telecommunication-and-network-engineering-mc234",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:34.891Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-information-technology-bp162/bp162p23auscy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:38.744Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-nursing-bp032",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:41.497Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-nursing-bp032/bp032p24d2ausbu",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:46.778Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "rmit-university",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-nursing-bp032/bp032p24ausbu",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:02:48.856Z",
+      "error": null
+    }
+  ]
+}

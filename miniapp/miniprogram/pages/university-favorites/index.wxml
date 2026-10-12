@@ -1,0 +1,21 @@
+<view class="favorites-page">
+  <view class="page-head"><view class="eyebrow">已保存院校</view><view class="heading">院校收藏</view><view class="copy">集中比较你正在考虑的学校。</view></view>
+  <view wx:if="{{state === 'ready'}}" class="cards">
+    <view wx:if="{{unavailableCount}}" class="notice">{{unavailableCount}} 所院校资料暂时无法读取，稍后可重新加载。</view>
+    <view wx:for="{{items}}" wx:key="slug" class="school-card">
+      <view class="cover" data-slug="{{item.slug}}" bindtap="open">
+        <image wx:if="{{item.imageUrl && !item.imageFailed}}" class="cover-image" src="{{item.imageUrl}}" mode="aspectFill" data-slug="{{item.slug}}" data-kind="image" binderror="imageError" />
+        <view wx:else class="cover-fallback"><image wx:if="{{item.logoUrl && !item.logoFailed}}" class="cover-logo" src="{{item.logoUrl}}" mode="aspectFit" data-slug="{{item.slug}}" data-kind="logo" binderror="imageError"/><text wx:else>{{item.logoLetter}}</text></view>
+        <view class="cover-shade"></view><view class="school-place">{{item.cityZh || item.countryNameZh || '院校位置待确认'}}</view>
+      </view>
+      <view class="card-body" data-slug="{{item.slug}}" bindtap="open"><view class="school-name">{{item.nameZh}}</view><view class="school-english">{{item.nameEn}}</view><view class="school-location">{{item.countryNameZh}}{{item.cityZh ? ' · ' + item.cityZh : ''}}</view></view>
+      <button class="remove-button" data-slug="{{item.slug}}" bindtap="remove">取消收藏</button>
+    </view>
+  </view>
+  <view wx:else class="state-wrap">
+    <app-state wx:if="{{state === 'loading'}}" kind="loading" title="正在读取收藏" description="正在同步已保存的院校。"/>
+    <app-state wx:elif="{{state === 'empty'}}" kind="empty" title="还没有收藏院校" description="浏览院校并点击收藏后，会显示在这里。"/>
+    <app-state wx:else kind="failed" title="院校收藏加载失败" description="请检查网络后重试。" retryable="{{true}}" bindretry="retry"/>
+    <button wx:if="{{state === 'empty'}}" class="browse-button" bindtap="browse">浏览院校</button>
+  </view>
+</view>

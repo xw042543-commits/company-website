@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T05:50:32.823Z",
+  "sourceKey": "university-of-oxford",
+  "sourceName": "University of Oxford",
+  "warnings": [
+    "https://www.ox.ac.uk/admissions/undergraduate/courses/undergraduate-course-listing-a-z：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+  ],
+  "university": null,
+  "programmes": [],
+  "pages": [],
+  "region": "united-kingdom",
+  "previousPass": {
+    "pages": 0,
+    "warnings": [
+      "https://www.ox.ac.uk/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:05:50.037Z"
+  }
+}

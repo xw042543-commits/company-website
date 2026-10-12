@@ -1,0 +1,118 @@
+export type Locale = "zh" | "en";
+
+export function isFocusedPortalPath(locale: Locale, pathname: string): boolean {
+  return [`/${locale}/login`, `/${locale}/register`, `/${locale}/forgot-password`].includes(pathname)
+    || pathname.startsWith(`/${locale}/adviser/`);
+}
+export const isLocale = (value: string): value is Locale => value === "zh" || value === "en";
+export const words = (locale: Locale, zh: string, en: string) => locale === "zh" ? zh : en;
+
+const ENGLISH_TITLE_SMALL_WORDS = new Set(["a", "an", "and", "as", "at", "by", "for", "from", "in", "of", "on", "or", "the", "to", "with"]);
+const ENGLISH_TITLE_ACRONYMS = new Map([
+  ["ai", "AI"], ["ba", "BA"], ["bba", "BBA"], ["bsc", "BSc"], ["cs", "CS"], ["it", "IT"],
+  ["llb", "LLB"], ["mba", "MBA"], ["md", "MD"], ["phd", "PhD"], ["tesl", "TESL"],
+]);
+
+export function formatEnglishDisplayText(value: string) {
+  const trimmed = value.trim();
+  const readable = trimmed.replaceAll("_", " ");
+  const letters = readable.replace(/[^A-Za-z]+/g, "");
+  if (!letters || letters !== letters.toUpperCase()) return readable;
+
+  return readable.toLocaleLowerCase("en").replace(/[A-Za-z]+(?:'[A-Za-z]+)?/g, (word, offset) => {
+    const acronym = ENGLISH_TITLE_ACRONYMS.get(word);
+    if (acronym) return acronym;
+    if (offset > 0 && ENGLISH_TITLE_SMALL_WORDS.has(word)) return word;
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+}
+export function isNavigationActive(pathname: string, locale: Locale, path: string) {
+  const target = `/${locale}${path ? `/${path}` : ""}`;
+  return path ? pathname === target || pathname.startsWith(`${target}/`) : pathname === target || pathname === `${target}/`;
+}
+export const publicNavigation = [
+  ["", "首页", "Home"], ["universities", "院校一览", "Universities"],
+  ["about", "关于我们", "About us"],
+] as const;
+export const memberNavigation = [
+  ["", "首页", "Home"], ["planning", "留学规划", "Study planning"],
+  ["universities", "院校一览", "Universities"], ["language", "语言学习", "Language learning"],
+  ["scholarships", "奖学金", "Scholarships"], ["news", "留学资讯", "Insights"],
+  ["about", "关于我们", "About us"],
+] as const;
+export const navigation = memberNavigation;
+export const levels = [
+  ["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor's"],
+  ["master", "硕士", "Master's"], ["doctorate", "博士", "Doctorate"],
+] as const;
+export const countries = [
+  ["GB", "英国", "United Kingdom"], ["US", "美国", "United States"],
+  ["AU", "澳大利亚", "Australia"], ["CA", "加拿大", "Canada"],
+  ["NZ", "新西兰", "New Zealand"], ["SG", "新加坡", "Singapore"],
+  ["JP", "日本", "Japan"], ["KR", "韩国", "South Korea"], ["MY", "马来西亚", "Malaysia"],
+] as const;
+export const continents = [
+  ["EU", "欧洲", "Europe"], ["NA", "北美洲", "North America"],
+  ["SA", "南美洲", "South America"], ["AS", "亚洲", "Asia"],
+  ["AF", "非洲", "Africa"], ["OC", "大洋洲", "Oceania"],
+] as const;
+export type Query = Record<string, string | string[] | undefined>;
+export const first = (query: Query, name: string) => {
+  const value = query[name];
+  return (Array.isArray(value) ? value[0] : value)?.trim() ?? "";
+};
+export const pageNumber = (value: string) => /^\d+$/.test(value) && Number.isSafeInteger(Number(value)) && Number(value) > 0 ? Number(value) : 1;
+export const boundedPage = (page: number, totalPages: number) => Math.min(
+  Math.max(1, page),
+  Math.max(1, totalPages),
+);
+
+const universitySearchParameters = [
+  ["q", false],
+  ["category", true],
+  ["level", true],
+  ["country", true],
+  ["mode", true],
+  ["language", true],
+  ["duration", false],
+  ["intake", false],
+  ["tuitionMin", false],
+  ["tuitionMax", false],
+] as const;
+
+export function buildUniversitySearchPath(query: Query) {
+  const params = new URLSearchParams();
+
+  for (const [name, acceptsMultiple] of universitySearchParameters) {
+    const rawValue = query[name];
+    const values = acceptsMultiple && Array.isArray(rawValue)
+      ? rawValue
+      : [Array.isArray(rawValue) ? rawValue[0] : rawValue];
+
+    for (const value of values) {
+      const normalized = value?.trim();
+      if (normalized) params.append(name, normalized);
+    }
+  }
+
+  params.set("page", String(pageNumber(first(query, "page"))));
+  params.set("size", "12");
+  params.set("sort", "relevance");
+
+  return `/api/v1/universities/search?${params.toString()}`;
+}
+
+export function pageLink(path: string, query: Query, page: number) {
+  const params = new URLSearchParams();
+  for (const key of Object.keys(query)) {
+    if (key === "page") continue;
+    const rawValue = query[key];
+    const values = Array.isArray(rawValue) ? rawValue : [rawValue];
+    for (const value of values) {
+      const normalized = value?.trim();
+      if (normalized) params.append(key, normalized);
+    }
+  }
+  params.set("page", String(page));
+  return `${path}?${params}`;
+}

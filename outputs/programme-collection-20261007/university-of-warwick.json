@@ -1,0 +1,1702 @@
+{
+  "region": "united-kingdom",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.549Z",
+  "sourceKey": "university-of-warwick",
+  "sourceName": "University of Warwick",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_650943be4aa85af8",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "University of Warwick",
+    "countryCode": null,
+    "countryRaw": "GB",
+    "cityZh": null,
+    "cityEn": "Coventry",
+    "descriptionZh": null,
+    "descriptionEn": "A leading UK university offering undergraduate and postgraduate programmes across arts, sciences, engineering and social sciences.",
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://warwick.ac.uk",
+    "logoSourceUrl": "https://warwick.ac.uk/static_war/render/id7/images/wordmark.svg.136055278947",
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:05:05.059Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://warwick.ac.uk/",
+        "sourcePageTitle": "University of Warwick - Study at a top 10 UK University",
+        "sourceHash": "08bdd30bc6342922c8f780f70cb631178f3f8cc899b24902f4d11abc5e3827bc",
+        "fetchedAt": "2026-10-07T04:05:05.059Z",
+        "field": "name",
+        "rawText": "University of Warwick"
+      },
+      {
+        "sourceUrl": "https://warwick.ac.uk/",
+        "sourcePageTitle": "University of Warwick - Study at a top 10 UK University",
+        "sourceHash": "08bdd30bc6342922c8f780f70cb631178f3f8cc899b24902f4d11abc5e3827bc",
+        "fetchedAt": "2026-10-07T04:05:05.059Z",
+        "field": "description",
+        "rawText": "A leading UK university offering undergraduate and postgraduate programmes across arts, sciences, engineering and social sciences."
+      },
+      {
+        "sourceUrl": "https://warwick.ac.uk/",
+        "sourcePageTitle": "University of Warwick - Study at a top 10 UK University",
+        "sourceHash": "08bdd30bc6342922c8f780f70cb631178f3f8cc899b24902f4d11abc5e3827bc",
+        "fetchedAt": "2026-10-07T04:05:05.059Z",
+        "field": "city",
+        "rawText": "Coventry"
+      },
+      {
+        "sourceUrl": "https://warwick.ac.uk/",
+        "sourcePageTitle": "University of Warwick - Study at a top 10 UK University",
+        "sourceHash": "08bdd30bc6342922c8f780f70cb631178f3f8cc899b24902f4d11abc5e3827bc",
+        "fetchedAt": "2026-10-07T04:05:05.059Z",
+        "field": "countryRaw",
+        "rawText": "GB"
+      }
+    ],
+    "institutionTypeRaw": null,
+    "selectionRank": 10,
+    "rankingAuthority": "QS World University Rankings",
+    "rankingYear": 2027,
+    "rankingUrl": "https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-universities-uk",
+    "media": [
+      {
+        "kind": "LOGO",
+        "assetUrl": "https://warwick.ac.uk/static_war/render/id7/images/wordmark.svg.136055278947",
+        "sourceUrl": "https://warwick.ac.uk/",
+        "sourceCheckedAt": "2026-10-07T04:05:05.059Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      },
+      {
+        "kind": "UNIVERSITY_IMAGE",
+        "assetUrl": "https://warwick.ac.uk/250188_og-image_creation_-_lavender.jpg",
+        "sourceUrl": "https://warwick.ac.uk/",
+        "sourceCheckedAt": "2026-10-07T04:05:05.059Z",
+        "licenceRaw": null,
+        "status": "DRAFT"
+      }
+    ]
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_fcccdf7e5f6f1635",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "心理治疗和辅导及精神疗法关系文学学士",
+      "nameEn": "Counselling and the Psychotherapeutic Relationship BA",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "A contemporary course grounded in relational principles, developing skills in counselling, psychotherapy, mental health awareness, research, and holistic therapeutic practice.",
+      "officialUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+      "sourceCheckedAt": "2026-10-07T06:10:39.966Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "A contemporary course grounded in relational principles, developing skills in counselling, psychotherapy, mental health awareness, research, and holistic therapeutic practice.",
+          "sortOrder": 0,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+          "sourceCheckedAt": "2026-10-07T06:10:39.966Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "ADMISSIONS",
+          "titleZh": "申请要求",
+          "titleEn": "Admissions",
+          "bodyZh": null,
+          "bodyEn": "Entry requirements are flexible. An academic qualification at level 3 (or equivalent) is preferred. Complete an enhanced Disclosure & Barring Service (DBS) check through Warwick. If during the processing of the DBS check it becomes clear that you have lived for six months or more in a different country in the past five years, then we will also add the condition to provide an original overseas police check from that country. The application form invites you to provide a reflective statement and, if invited to interview, you will be assessed in a group discussion exercise and a written task. If you have not studied for some time, we may require further evidence of your study skills in order to demonstrate your readiness for this BA (Hons) programme. The degree allows you to undertake some of your placement hours online or on the telephone. If you intend to do this, you must have a private and confidential space available from which to work. You will also need to arrange a private space from which to attend online training sessions on occasion. The degree is designed to be fully supportive to those who are new to university study, whatever your age or or background, and we welcome people who may have felt marginalised or excluded from higher education.",
+          "sortOrder": 10,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+          "sourceCheckedAt": "2026-10-07T06:10:39.966Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CAREER_OPPORTUNITIES",
+          "titleZh": "职业发展",
+          "titleEn": "Career opportunities",
+          "bodyZh": null,
+          "bodyEn": "Career pathways Careers support Alumni testimonials Career pathways This programme is a professional qualification and will qualify you for work in the counselling field. The clinical placements on the course are good preparation for this. Students have gained experience from placements in specialist agencies including domestic violence and sexual assault organisations, hospices, community-based charities (e.g. MIND), the criminal justice system, and student counselling services. Developments in counselling and mental health services mean they require practitioners with a varied and deep understanding of an increasing amount of mental health issues and awareness of techniques to support clients. This course enables you to develop those skills, and is designed to prepare you thoroughly for the opportunities and challenges emerging in counselling and allied professions. Career Pathways Some of our graduates go on to find employment at their placement agency, others have gained roles in school settings, the NHS, further and higher education, agencies, the voluntary sector and as independent practitioners. In the UK, many graduates enter professions where any degree would be acceptable and so alternative career pathways could include: Careers in Social Care - Social work, family support worker Advice work - Housing support worker, welfare advice worker Youth & Community work - Youth project worker, youth development lead, young person’s mentor Education - Learning mentor, student counsellor, schools' wellbeing advisor Charity - Community case worker, women’s refugee worker, charity graduate trainee Health - Sexual health adviser, wellbeing practitioner Community & Criminal Justice - Criminal justice support worker, probation officer Some of these roles may be accessed directly after completing your degree, as part of an employed graduate scheme, or may require further study and professional qualification. Careers support Helping you find the right career Our department has a dedicated professionally qualified Senior Careers Consultant who offers one-to-one impartial advice and guidance. Students also have access to a range of workshops and career events. Previous events have included careers with children and young people careers in not for profit careers in social justice Warwick careers fairs throughout the year effective CVs & applications. Find out more about careers support Link opens in a new window at Warwick. Alumni testimonials \"It's such an experiential course which I've not come across before, with its practice side. It really puts you in that frame of mind of what it's going to be like when you do have your own clients.\" Sara, current part-time Counselling and the Psychotherapeutic Relationship student",
+          "sortOrder": 40,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+          "sourceCheckedAt": "2026-10-07T06:10:39.966Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+          "sourcePageTitle": "Counselling and the Psychotherapeutic Relationship BA",
+          "sourceHash": "376958ee8777e8751553c55e6b661278ff106f8d9f6f874586ff99039ed7d973",
+          "fetchedAt": "2026-10-07T06:10:39.966Z",
+          "field": "name",
+          "rawText": "Counselling and the Psychotherapeutic Relationship BA"
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+          "sourcePageTitle": "Counselling and the Psychotherapeutic Relationship BA",
+          "sourceHash": "376958ee8777e8751553c55e6b661278ff106f8d9f6f874586ff99039ed7d973",
+          "fetchedAt": "2026-10-07T06:10:39.966Z",
+          "field": "description",
+          "rawText": "A contemporary course grounded in relational principles, developing skills in counselling, psychotherapy, mental health awareness, research, and holistic therapeutic practice."
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+          "sourcePageTitle": "Counselling and the Psychotherapeutic Relationship BA",
+          "sourceHash": "376958ee8777e8751553c55e6b661278ff106f8d9f6f874586ff99039ed7d973",
+          "fetchedAt": "2026-10-07T06:10:39.966Z",
+          "field": "detailSections.ADMISSIONS",
+          "rawText": "Entry requirements are flexible. An academic qualification at level 3 (or equivalent) is preferred. Complete an enhanced Disclosure & Barring Service (DBS) check through Warwick. If during the processing of the DBS check it becomes clear that you have lived for six months or more in a different country in the past five years, then we will also add the condition to provide an original overseas police check from that country. The application form invites you to provide a reflective statement and, if invited to interview, you will be assessed in a group discussion exercise and a written task. If you have not studied for some time, we may require further evidence of your study skills in order to demonstrate your readiness for this BA (Hons) programme. The degree allows you to undertake some of your placement hours online or on the telephone. If you intend to do this, you must have a private and confidential space available from which to work. You will also need to arrange a private space from which to attend online training sessions on occasion. The degree is designed to be fully supportive to those who are new to university study, whatever your age or or background, and we welcome people who may have felt marginalised or excluded from higher education."
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+          "sourcePageTitle": "Counselling and the Psychotherapeutic Relationship BA",
+          "sourceHash": "376958ee8777e8751553c55e6b661278ff106f8d9f6f874586ff99039ed7d973",
+          "fetchedAt": "2026-10-07T06:10:39.966Z",
+          "field": "detailSections.CAREER_OPPORTUNITIES",
+          "rawText": "Career pathways Careers support Alumni testimonials Career pathways This programme is a professional qualification and will qualify you for work in the counselling field. The clinical placements on the course are good preparation for this. Students have gained experience from placements in specialist agencies including domestic violence and sexual assault organisations, hospices, community-based charities (e.g. MIND), the criminal justice system, and student counselling services. Developments in counselling and mental health services mean they require practitioners with a varied and deep understanding of an increasing amount of mental health issues and awareness of techniques to support clients. This course enables you to develop those skills, and is designed to prepare you thoroughly for the opportunities and challenges emerging in counselling and allied professions. Career Pathways Some of our graduates go on to find employment at their placement agency, others have gained roles in school settings, the NHS, further and higher education, agencies, the voluntary sector and as independent practitioners. In the UK, many graduates enter professions where any degree would be acceptable and so alternative career pathways could include: Careers in Social Care - Social work, family support worker Advice work - Housing support worker, welfare advice worker Youth & Community work - Youth project worker, youth development lead, young person’s mentor Education - Learning mentor, student counsellor, schools' wellbeing advisor Charity - Community case worker, women’s refugee worker, charity graduate trainee Health - Sexual health adviser, wellbeing practitioner Community & Criminal Justice - Criminal justice support worker, probation officer Some of these roles may be accessed directly after completing your degree, as part of an employed graduate scheme, or may require further study and professional qualification. Careers support Helping you find the right career Our department has a dedicated professionally qualified Senior Careers Consultant who offers one-to-one impartial advice and guidance. Students also have access to a range of workshops and career events. Previous events have included careers with children and young people careers in not for profit careers in social justice Warwick careers fairs throughout the year effective CVs & applications. Find out more about careers support Link opens in a new window at Warwick. Alumni testimonials \"It's such an experiential course which I've not come across before, with its practice side. It really puts you in that frame of mind of what it's going to be like when you do have your own clients.\" Sara, current part-time Counselling and the Psychotherapeutic Relationship student"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_60349cc20c978fe1",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "幼儿文学学士",
+      "nameEn": "Early Childhood BA",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Gain the knowledge and skills to support children from pregnancy to age 8, advocate for families, promote equity, and build a rewarding career in early childhood development.",
+      "officialUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+      "sourceCheckedAt": "2026-10-07T06:10:56.526Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Gain the knowledge and skills to support children from pregnancy to age 8, advocate for families, promote equity, and build a rewarding career in early childhood development.",
+          "sortOrder": 0,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+          "sourceCheckedAt": "2026-10-07T06:10:56.526Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "ADMISSIONS",
+          "titleZh": "申请要求",
+          "titleEn": "Admissions",
+          "bodyZh": null,
+          "bodyEn": "NVQ Level 3 or prior academic/vocational study and experience is an advantage GCSE grade C or level 4 in English and maths is a distinct advantage A willingness to gain substantial and broad experience in one or more Early Years contexts, either as a volunteer or employee Suitable references EITHER one academic from someone who has taught you in a formal academic setting OR one Professional reference, from an individual who has line-managed you in a workplace environment OR two personal references from individuals who know you well and can write about your personality, ambitions and achievements. Personal references cannot come from family members If you are offered a place on the course, you will automatically be welcomed onto the Thrive+ Programme and it is free to attend. Thrive+ is an interactive, online personal development programme, designed to help build your confidence, resilience and agency ahead of you starting your academic studies on this Degree. An experienced team of facilitators will support you throughout the programme. Who is this programme for? How to apply Who is this programme for? Who is the Programme for? This programme offers people the chance to combine study with work and family commitments. The degree is designed to support people who are new to university study. It is for people who can: commit to attending one evening session per week and two Saturdays per term commit to gaining substantial and broad experience in one or more Early Years contexts, either as a volunteer or employee It is for people working in private or public contexts with responsibility for young children and families, including: Early years practitioners in childminder, private, voluntary and independent settings Teaching and learning support assistants, classroom assistants and early years educators working in schools and other educational settings Health workers, parents and grandparents involved in supporting children's learning, welfare and development Courses you might also be interested in BA (Hons) Child and Family: Mental Health How to apply Apply online . When you apply, the application page will show the course as full-time. Please be aware that during the interview, you can advise whether you wish to enrol on the full-time or part-time route. Your application will be reviewed, and you will be contacted to arrange a suitable time and date for your interview. The interview will consist of a short written task and a discussion with a member of the team, during which you are welcome to ask further questions about the course and student life. Before you apply Book onto an open call with our course teaching staff to find out if the course is the right option for you. Applications will close on Monday 14th September 2026.",
+          "sortOrder": 10,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+          "sourceCheckedAt": "2026-10-07T06:10:56.526Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CAREER_OPPORTUNITIES",
+          "titleZh": "职业发展",
+          "titleEn": "Career opportunities",
+          "bodyZh": null,
+          "bodyEn": "Career benefits of attending this course include: Achieve a University of Warwick degree Gain knowledge and understanding of early childhood Build up your confidence as a scholar and professional Some modules within this degree offer opportunities for you to obtain the Warwick Award , which helps you to get recognised for employability Your study with us opens up a number of avenues* for future career development in areas such as: Education: teaching, educational leadership, and management, allied services relating to Inclusion and SEN, safeguarding Health: Speech and language therapy and play therapy Social Justice and community engagement: Family support worker and social work Academia: early childhood education, FE education, and publication Arts and culture: children’s author, storyteller Further studies in Early Childhood at postgraduate level This video was filmed in July 2024. Our Early Childhood students who wish to progress into teaching are supported by the Centre for Lifelong Learning and the University. Students are guaranteed an interview for the Early Years or Primary Core (university-led) PGCE courses delivered in the Centre for Teacher Education as long as they achieve the entry requirements of the programme. *It is important to note that some of these may require further training/qualifications. Your course tutors and our dedicated careers team can support you with these. Hear from course director Charlotte how students can develop skills on the course. Your browser does not support the video tag. This video was filmed in July 2024. Our Early Childhood students who wish to progress into teaching are supported by the Centre for Lifelong Learning and the University. Students are guaranteed an interview for the Early Years or Primary Core (university-led) PGCE courses delivered in the Centre for Teacher Education as long as they achieve the entry requirements Link opens in a new window of the programme. Hear from our alumni Hear from our alumni \"Through University I have met some wonderful and inspiring people who I have learnt a lot from through their personal and professional development. The staff through my journey have been amazing -- especially my tutors who have supported through the highs and lows not only academically but on a personal level too.\" Helen, Early Childhood 2025 graduate",
+          "sortOrder": 40,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+          "sourceCheckedAt": "2026-10-07T06:10:56.526Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+          "sourcePageTitle": "Child and Family: Early Childhood BA",
+          "sourceHash": "6eb0e168de67dbf74b6a8278589accf7d4a07de6c2051d252332a8c34ce16705",
+          "fetchedAt": "2026-10-07T06:10:56.526Z",
+          "field": "name",
+          "rawText": "Early Childhood BA"
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+          "sourcePageTitle": "Child and Family: Early Childhood BA",
+          "sourceHash": "6eb0e168de67dbf74b6a8278589accf7d4a07de6c2051d252332a8c34ce16705",
+          "fetchedAt": "2026-10-07T06:10:56.526Z",
+          "field": "description",
+          "rawText": "Gain the knowledge and skills to support children from pregnancy to age 8, advocate for families, promote equity, and build a rewarding career in early childhood development."
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+          "sourcePageTitle": "Child and Family: Early Childhood BA",
+          "sourceHash": "6eb0e168de67dbf74b6a8278589accf7d4a07de6c2051d252332a8c34ce16705",
+          "fetchedAt": "2026-10-07T06:10:56.526Z",
+          "field": "detailSections.ADMISSIONS",
+          "rawText": "NVQ Level 3 or prior academic/vocational study and experience is an advantage GCSE grade C or level 4 in English and maths is a distinct advantage A willingness to gain substantial and broad experience in one or more Early Years contexts, either as a volunteer or employee Suitable references EITHER one academic from someone who has taught you in a formal academic setting OR one Professional reference, from an individual who has line-managed you in a workplace environment OR two personal references from individuals who know you well and can write about your personality, ambitions and achievements. Personal references cannot come from family members If you are offered a place on the course, you will automatically be welcomed onto the Thrive+ Programme and it is free to attend. Thrive+ is an interactive, online personal development programme, designed to help build your confidence, resilience and agency ahead of you starting your academic studies on this Degree. An experienced team of facilitators will support you throughout the programme. Who is this programme for? How to apply Who is this programme for? Who is the Programme for? This programme offers people the chance to combine study with work and family commitments. The degree is designed to support people who are new to university study. It is for people who can: commit to attending one evening session per week and two Saturdays per term commit to gaining substantial and broad experience in one or more Early Years contexts, either as a volunteer or employee It is for people working in private or public contexts with responsibility for young children and families, including: Early years practitioners in childminder, private, voluntary and independent settings Teaching and learning support assistants, classroom assistants and early years educators working in schools and other educational settings Health workers, parents and grandparents involved in supporting children's learning, welfare and development Courses you might also be interested in BA (Hons) Child and Family: Mental Health How to apply Apply online . When you apply, the application page will show the course as full-time. Please be aware that during the interview, you can advise whether you wish to enrol on the full-time or part-time route. Your application will be reviewed, and you will be contacted to arrange a suitable time and date for your interview. The interview will consist of a short written task and a discussion with a member of the team, during which you are welcome to ask further questions about the course and student life. Before you apply Book onto an open call with our course teaching staff to find out if the course is the right option for you. Applications will close on Monday 14th September 2026."
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+          "sourcePageTitle": "Child and Family: Early Childhood BA",
+          "sourceHash": "6eb0e168de67dbf74b6a8278589accf7d4a07de6c2051d252332a8c34ce16705",
+          "fetchedAt": "2026-10-07T06:10:56.526Z",
+          "field": "detailSections.CAREER_OPPORTUNITIES",
+          "rawText": "Career benefits of attending this course include: Achieve a University of Warwick degree Gain knowledge and understanding of early childhood Build up your confidence as a scholar and professional Some modules within this degree offer opportunities for you to obtain the Warwick Award , which helps you to get recognised for employability Your study with us opens up a number of avenues* for future career development in areas such as: Education: teaching, educational leadership, and management, allied services relating to Inclusion and SEN, safeguarding Health: Speech and language therapy and play therapy Social Justice and community engagement: Family support worker and social work Academia: early childhood education, FE education, and publication Arts and culture: children’s author, storyteller Further studies in Early Childhood at postgraduate level This video was filmed in July 2024. Our Early Childhood students who wish to progress into teaching are supported by the Centre for Lifelong Learning and the University. Students are guaranteed an interview for the Early Years or Primary Core (university-led) PGCE courses delivered in the Centre for Teacher Education as long as they achieve the entry requirements of the programme. *It is important to note that some of these may require further training/qualifications. Your course tutors and our dedicated careers team can support you with these. Hear from course director Charlotte how students can develop skills on the course. Your browser does not support the video tag. This video was filmed in July 2024. Our Early Childhood students who wish to progress into teaching are supported by the Centre for Lifelong Learning and the University. Students are guaranteed an interview for the Early Years or Primary Core (university-led) PGCE courses delivered in the Centre for Teacher Education as long as they achieve the entry requirements Link opens in a new window of the programme. Hear from our alumni Hear from our alumni \"Through University I have met some wonderful and inspiring people who I have learnt a lot from through their personal and professional development. The staff through my journey have been amazing -- especially my tutors who have supported through the highs and lows not only academically but on a personal level too.\" Helen, Early Childhood 2025 graduate"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_6b861f1dc0d6d115",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "幼儿学士(补上)",
+      "nameEn": "Early Childhood BA (top-up)",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Gain the knowledge and skills to support children from pregnancy to age 8, advocate for families, promote equity, and build a rewarding career in early childhood development.",
+      "officialUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+      "sourceCheckedAt": "2026-10-07T06:10:58.141Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Gain the knowledge and skills to support children from pregnancy to age 8, advocate for families, promote equity, and build a rewarding career in early childhood development.",
+          "sortOrder": 0,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+          "sourceCheckedAt": "2026-10-07T06:10:58.141Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "ADMISSIONS",
+          "titleZh": "申请要求",
+          "titleEn": "Admissions",
+          "bodyZh": null,
+          "bodyEn": "Foundation Degree in Early Childhood, either with us at the University of Warwick or with another institution completed within 5 years. For external Foundation Degrees and HNDs, we will review your record of previous learning. Who is this programme for? How to apply Who is this programme for? Who is the Programme for? The programme is for people working in private or public contexts with responsibility for young children and families, including Early years practitioners in childminder, private, voluntary and independent settings Teaching and learning support assistants, classroom assistants and early years educators working in schools and other educational settings Health workers, parents and grandparents involved in supporting children's learning, welfare and development It is for students who have been awarded the Foundation Degree in Early Childhood with us at University of Warwick, as well as applicants who have achieved a Foundation Degree or HND in Early Childhood at other Institutions. How to apply Closing date for applications - Monday, 22 February 2027. Before applying, check out our guidance page on How to Apply and Course Application Tips .",
+          "sortOrder": 10,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+          "sourceCheckedAt": "2026-10-07T06:10:58.141Z",
+          "status": "DRAFT"
+        },
+        {
+          "sectionType": "CAREER_OPPORTUNITIES",
+          "titleZh": "职业发展",
+          "titleEn": "Career opportunities",
+          "bodyZh": null,
+          "bodyEn": "Career Pathways Career Support Hear from our alumni Career Pathways Career benefits of attending this course include: Achieve a University of Warwick degree Gain knowledge and understanding of early childhood Build up your confidence as a scholar and professional Have the opportunity to apply to teacher training programmes Students are guaranteed an interview for the Early Years or Primary Core (university-led) PGCE courses delivered in the Centre for Teacher Education , as long as they achieve the entry requirements of the programme. Our Early Childhood students who wish to progress into teaching are supported by the Centre for Lifelong Learning and the University. Opportunities to progress in your career during and beyond the course, with your study with us opening up a number of avenues for future career development in areas such as: Education: teaching, educational leadership, and management, allied services relating to Inclusion and SEN, safeguarding Health: Children's mental health, speech and language therapy, play therapy Social Justice and community engagement: Family support worker, social work Academia: early childhood education and care research, publication Arts and culture: children’s author, storyteller Further studies in Early Childhood at postgraduate level Career Support The CLL Student Support Team supports the pastoral and academic needs of our diverse student body, including: Supporting the academic development of undergraduate and postgraduate students Ensuring a learning experience of the highest quality, both at the University and in partner colleges. Communicating with students in order to ensure a positive learning experience at CLL To do this, we support you in many areas, including: Study skills Student welfare Technology and e-learning Careers and development Hear from course director Charlotte how students can develop skills on the course. Your browser does not support the video tag. This video was filmed in July 2024. Hear from our alumni \"Through University I have met some wonderful and inspiring people who I have learnt a lot from through their personal and professional development. The staff through my journey have been amazing -- especially my tutors who have supported through the highs and lows not only academically but on a personal level too.\" Helen, Early Childhood 2025 graduate",
+          "sortOrder": 40,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+          "sourceCheckedAt": "2026-10-07T06:10:58.141Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+          "sourcePageTitle": "Early Childhood (top-up) BA",
+          "sourceHash": "1d090f52cc4e51ce3496a764827d67be6615ee2aa362c9c6c1a5cdfae11d0117",
+          "fetchedAt": "2026-10-07T06:10:58.141Z",
+          "field": "name",
+          "rawText": "Early Childhood BA (top-up)"
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+          "sourcePageTitle": "Early Childhood (top-up) BA",
+          "sourceHash": "1d090f52cc4e51ce3496a764827d67be6615ee2aa362c9c6c1a5cdfae11d0117",
+          "fetchedAt": "2026-10-07T06:10:58.141Z",
+          "field": "description",
+          "rawText": "Gain the knowledge and skills to support children from pregnancy to age 8, advocate for families, promote equity, and build a rewarding career in early childhood development."
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+          "sourcePageTitle": "Early Childhood (top-up) BA",
+          "sourceHash": "1d090f52cc4e51ce3496a764827d67be6615ee2aa362c9c6c1a5cdfae11d0117",
+          "fetchedAt": "2026-10-07T06:10:58.141Z",
+          "field": "detailSections.ADMISSIONS",
+          "rawText": "Foundation Degree in Early Childhood, either with us at the University of Warwick or with another institution completed within 5 years. For external Foundation Degrees and HNDs, we will review your record of previous learning. Who is this programme for? How to apply Who is this programme for? Who is the Programme for? The programme is for people working in private or public contexts with responsibility for young children and families, including Early years practitioners in childminder, private, voluntary and independent settings Teaching and learning support assistants, classroom assistants and early years educators working in schools and other educational settings Health workers, parents and grandparents involved in supporting children's learning, welfare and development It is for students who have been awarded the Foundation Degree in Early Childhood with us at University of Warwick, as well as applicants who have achieved a Foundation Degree or HND in Early Childhood at other Institutions. How to apply Closing date for applications - Monday, 22 February 2027. Before applying, check out our guidance page on How to Apply and Course Application Tips ."
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+          "sourcePageTitle": "Early Childhood (top-up) BA",
+          "sourceHash": "1d090f52cc4e51ce3496a764827d67be6615ee2aa362c9c6c1a5cdfae11d0117",
+          "fetchedAt": "2026-10-07T06:10:58.141Z",
+          "field": "detailSections.CAREER_OPPORTUNITIES",
+          "rawText": "Career Pathways Career Support Hear from our alumni Career Pathways Career benefits of attending this course include: Achieve a University of Warwick degree Gain knowledge and understanding of early childhood Build up your confidence as a scholar and professional Have the opportunity to apply to teacher training programmes Students are guaranteed an interview for the Early Years or Primary Core (university-led) PGCE courses delivered in the Centre for Teacher Education , as long as they achieve the entry requirements of the programme. Our Early Childhood students who wish to progress into teaching are supported by the Centre for Lifelong Learning and the University. Opportunities to progress in your career during and beyond the course, with your study with us opening up a number of avenues for future career development in areas such as: Education: teaching, educational leadership, and management, allied services relating to Inclusion and SEN, safeguarding Health: Children's mental health, speech and language therapy, play therapy Social Justice and community engagement: Family support worker, social work Academia: early childhood education and care research, publication Arts and culture: children’s author, storyteller Further studies in Early Childhood at postgraduate level Career Support The CLL Student Support Team supports the pastoral and academic needs of our diverse student body, including: Supporting the academic development of undergraduate and postgraduate students Ensuring a learning experience of the highest quality, both at the University and in partner colleges. Communicating with students in order to ensure a positive learning experience at CLL To do this, we support you in many areas, including: Study skills Student welfare Technology and e-learning Careers and development Hear from course director Charlotte how students can develop skills on the course. Your browser does not support the video tag. This video was filmed in July 2024. Hear from our alumni \"Through University I have met some wonderful and inspiring people who I have learnt a lot from through their personal and professional development. The staff through my journey have been amazing -- especially my tutors who have supported through the highs and lows not only academically but on a personal level too.\" Helen, Early Childhood 2025 graduate"
+        }
+      ]
+    },
+    {
+      "candidateId": "programme_3017f4ec89c56a19",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "教育研究",
+      "nameEn": "Education Studies",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": null,
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": "Our innovative Education Studies (BA) programme offers a comprehensive study of education from a variety of subject approaches. It addresses not only the theory and practice of teaching and learning, but also the related subjects of the marketisation of education, political perspectives on educational policy, creativity and culture, childhood and society, and psychological and philosophical perspectives on how children and adults learn.",
+      "officialUrl": "https://warwick.ac.uk/study/undergraduate/courses-2026/educationstudies/",
+      "sourceCheckedAt": "2026-10-07T06:11:10.380Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [
+        {
+          "sectionType": "OVERVIEW",
+          "titleZh": null,
+          "titleEn": "Overview",
+          "bodyZh": null,
+          "bodyEn": "Our innovative Education Studies (BA) programme offers a comprehensive study of education from a variety of subject approaches. It addresses not only the theory and practice of teaching and learning, but also the related subjects of the marketisation of education, political perspectives on educational policy, creativity and culture, childhood and society, and psychological and philosophical perspectives on how children and adults learn.",
+          "sortOrder": 0,
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-education/",
+          "sourceCheckedAt": "2026-10-07T06:11:10.380Z",
+          "status": "DRAFT"
+        }
+      ],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-education/",
+          "sourcePageTitle": "Education BA (UCAS X35B)",
+          "sourceHash": "2a0d578c65edc6ebf8fa3c40d50d74e8416b69cb809f28bb0a1b37c5d74e268e",
+          "fetchedAt": "2026-10-07T06:11:10.380Z",
+          "field": "name",
+          "rawText": "Education Studies"
+        },
+        {
+          "sourceUrl": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-education/",
+          "sourcePageTitle": "Education BA (UCAS X35B)",
+          "sourceHash": "2a0d578c65edc6ebf8fa3c40d50d74e8416b69cb809f28bb0a1b37c5d74e268e",
+          "fetchedAt": "2026-10-07T06:11:10.380Z",
+          "field": "description",
+          "rawText": "Our innovative Education Studies (BA) programme offers a comprehensive study of education from a variety of subject approaches. It addresses not only the theory and practice of teaching and learning, but also the related subjects of the marketisation of education, political perspectives on educational policy, creativity and culture, childhood and society, and psychological and philosophical perspectives on how children and adults learn."
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://warwick.ac.uk/",
+      "fetchedAt": "2026-10-07T04:05:05.059Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "08bdd30bc6342922c8f780f70cb631178f3f8cc899b24902f4d11abc5e3827bc",
+      "title": "University of Warwick - Study at a top 10 UK University",
+      "snapshotFile": "raw/0001-08bdd30bc634.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/open-days/",
+      "fetchedAt": "2026-10-07T04:05:07.512Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "869a9a69658acdf77ec56983b718b17a18418c1e4052d6f69464baad7bda3631",
+      "title": "Undergraduate Open Days at University of Warwick",
+      "snapshotFile": "raw/0002-869a9a69658a.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/",
+      "fetchedAt": "2026-10-07T04:05:08.984Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "aefefc27db04317d9532aca5990d3dc9c8c7f235b2e6c58fd46ce29bc4b1e8ca",
+      "title": "Undergraduate courses at University of Warwick",
+      "snapshotFile": "raw/0003-aefefc27db04.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/fees-and-funding/course-costs/",
+      "fetchedAt": "2026-10-07T04:05:11.007Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "623f03f7af95083a07f2ca794b4de71b2a372a746483c03c210a60f2d97132f2",
+      "title": "Fees and course costs at University of Warwick",
+      "snapshotFile": "raw/0004-623f03f7af95.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/teaching-excellence/faculty-of-arts/",
+      "fetchedAt": "2026-10-07T04:05:12.996Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ca6d6c8a8cfd68fe98f50a597857839b6e258c4e3108a0278bd7aa7ab35a2ea6",
+      "title": "Faculty of Arts | Teaching Excellence at Warwick",
+      "snapshotFile": "raw/0005-ca6d6c8a8cfd.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/teaching-excellence/faculty-of-science-engineering-medicine/",
+      "fetchedAt": "2026-10-07T04:05:15.016Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "42912e68245f87b9b9b5c724f8f0512234f9be11b34fea2a40275f5e4cf8bfa3",
+      "title": "Faculty of Science, Engineering and Medicine | Teaching Excellence at Warwick",
+      "snapshotFile": "raw/0006-42912e68245f.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/teaching-excellence/faculty-of-social-sciences/",
+      "fetchedAt": "2026-10-07T04:05:17.030Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "36ea8fffdd952ce25b8ae88b0d3049631f34a332b47faa4a0c8a9f8663daa76e",
+      "title": "Faculty of Social Sciences | Teaching Excellence at Warwick",
+      "snapshotFile": "raw/0007-36ea8fffdd95.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/",
+      "fetchedAt": "2026-10-07T04:05:19.039Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "61da5d9af628c4005ee1bc8437e973d4f4aeda6468e47ed428af2e7836ae07fc",
+      "title": "Undergraduate study at University of Warwick",
+      "snapshotFile": "raw/0008-61da5d9af628.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/",
+      "fetchedAt": "2026-10-07T04:05:21.292Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "92f66741f1e7ef422e166d1975d5916f2065e5bcc56134cfcc873d2c9866cb4f",
+      "title": "Undergraduate courses at the University of Warwick",
+      "snapshotFile": "raw/0009-92f66741f1e7.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance/",
+      "fetchedAt": "2026-10-07T04:05:23.376Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "75878551b0fd904f05916d847b0fe7b9762f2ad29f258f13cb75269a932482ca",
+      "title": "Accounting and Finance (UCAS NN34)",
+      "snapshotFile": "raw/0010-75878551b0fd.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance-foundation-year/",
+      "fetchedAt": "2026-10-07T04:05:25.389Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "6fe883ef7b8780abf29017372752080e99fb5b4837465c38c9514f6a47191639",
+      "title": "Accounting and Finance (with Foundation Year) (UCAS N4N4) at Warwick",
+      "snapshotFile": "raw/0011-6fe883ef7b87.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance-placement-year/",
+      "fetchedAt": "2026-10-07T04:05:27.423Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "2bc721232958feecd3e1541279605450342536ccdef0ca6530f09df53914511c",
+      "title": "Accounting and Finance with Placement Year (UCAS N40Y) at Warwick",
+      "snapshotFile": "raw/0012-2bc721232958.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-ancient-history-classical-archaeology/",
+      "fetchedAt": "2026-10-07T04:05:29.483Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "01dc3ab4c6f992aa2ae2e16a74d381037351e2c825903a6fe278fa97b6a53fa7",
+      "title": "Ancient History and Classical Archaeology (UCAS VV14)",
+      "snapshotFile": "raw/0013-01dc3ab4c6f9.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-part-time/",
+      "fetchedAt": "2026-10-07T04:05:31.183Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "0e9323cb8393eb3033917c7561d50ecd23a7681e4be2795d9f5ba07c3b7431ff",
+      "title": "BA (Hons) Classics",
+      "snapshotFile": "raw/0014-0e9323cb8393.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-ancient-history-classical-archaeology-study-in-europe/",
+      "fetchedAt": "2026-10-07T04:05:33.551Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a3381112d012c4f89fa75d6c95c86290cebd88674b4d83074fdf4bc7ab8bfc55",
+      "title": "Ancient History and Classical Archaeology with Study in Europe (UCAS VV18)",
+      "snapshotFile": "raw/0015-a3381112d012.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-automotive-engineering/",
+      "fetchedAt": "2026-10-07T04:05:35.478Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "f8475485b6bfa8f502b386e5a3ee6093ac1721af099b61050838d9ca3ff38371",
+      "title": "Automotive Engineering BEng (UCAS H330)",
+      "snapshotFile": "raw/0016-f8475485b6bf.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-automotive-engineering/",
+      "fetchedAt": "2026-10-07T04:05:37.520Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "dee4b5ac92fd3cad4db583daafa4c20f6c5a856adef3c749564eabcfab421bfa",
+      "title": "Automotive Engineering MEng (UCAS H335)",
+      "snapshotFile": "raw/0017-dee4b5ac92fd.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biochemistry/",
+      "fetchedAt": "2026-10-07T04:05:39.401Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a5c06d97e373af5aaeaa8e8ce970f45ffe3eccefb20b8f89558e4f1ebe9a27aa",
+      "title": "Biochemistry BSc (UCAS C700)",
+      "snapshotFile": "raw/0018-a5c06d97e373.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biochemistry/",
+      "fetchedAt": "2026-10-07T04:05:41.490Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4493cebc5941e4b7ef99723a1529060991c3522232b51e5aae879a31019410b4",
+      "title": "Biochemistry MBio (UCAS C1A2)",
+      "snapshotFile": "raw/0019-4493cebc5941.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biochemistry-industrial-placement/",
+      "fetchedAt": "2026-10-07T04:05:43.423Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "c3d3e0b8097a993da054f832416ee7ab11928458d50abdcedd973e9b8e5f8c5a",
+      "title": "Biochemistry with Industrial Placement MBio (UCAS C1A6)",
+      "snapshotFile": "raw/0020-c3d3e0b8097a.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biochemistry-placement-year/",
+      "fetchedAt": "2026-10-07T04:05:45.472Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "7b57e32c4af6dfacb3100b3940551ac37f77fc83b153df2cedc75df0187013bf",
+      "title": "Biochemistry with Placement Year BSc (UCAS C701)",
+      "snapshotFile": "raw/0021-7b57e32c4af6.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biological-sciences/",
+      "fetchedAt": "2026-10-07T04:05:47.512Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "8416defe6cab6a4b1dffbc44038505e1e365f6d9384e80834f2f7566d4b0a11e",
+      "title": "Biological Sciences BSc (UCAS C100)",
+      "snapshotFile": "raw/0022-8416defe6cab.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biological-sciences/",
+      "fetchedAt": "2026-10-07T04:05:49.497Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "85bcb8ccb0ab85af7cc8e6e8b2afd00703bb8e00c647c69fe1613a38708a640c",
+      "title": "Biological Sciences MBio (UCAS C1A3)",
+      "snapshotFile": "raw/0023-85bcb8ccb0ab.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biological-sciences-industrial-placement/",
+      "fetchedAt": "2026-10-07T04:05:51.515Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "766669edc64ebb812b768f990ac973f597781a80a5aa53007bf18fee448d433d",
+      "title": "Biological Sciences w. Industrial Placement MBio (UCAS C1A5)",
+      "snapshotFile": "raw/0024-766669edc64e.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biological-sciences-placement-year/",
+      "fetchedAt": "2026-10-07T04:05:53.522Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "6c972aebb1260c5543c89049d75aa39f33e236aa9342dbd51b423e47221fbf58",
+      "title": "Biological Sciences with Placement Year BSc (UCAS C101)",
+      "snapshotFile": "raw/0025-6c972aebb126.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biomedical-science/",
+      "fetchedAt": "2026-10-07T04:05:55.533Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "f9ff4e05a1e911f7782e6649036df735215b0478ee79a6779ffe429d0701812a",
+      "title": "Biomedical Science BSc (UCAS B900)",
+      "snapshotFile": "raw/0026-f9ff4e05a1e9.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biomedical-science/",
+      "fetchedAt": "2026-10-07T04:05:57.517Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "0414032513c6a79d2fb67dea838e203e4449f754dc7a793c9a06df7cad36e791",
+      "title": "Biomedical Science MBio (UCAS C1A3)",
+      "snapshotFile": "raw/0027-0414032513c6.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biomedical-science-industrial-placement/",
+      "fetchedAt": "2026-10-07T04:05:59.528Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "7a443eb89db8b137082e041b69f229bbc483d5de93fd1ad78c3ad6af5f9f5c99",
+      "title": "Biomedical Science with Industrial Placement MBio (UCAS C1A7)",
+      "snapshotFile": "raw/0028-7a443eb89db8.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biomedical-science-placement-year/",
+      "fetchedAt": "2026-10-07T04:06:01.562Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a2a83d2b1702f0a5057db2ce41c4f454db9cef705e473bf8da7d6965cd8f5e4d",
+      "title": "Biomedical Science with Placement Year BSc (UCAS CB19)",
+      "snapshotFile": "raw/0029-a2a83d2b1702.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-biomedical-systems-engineering/",
+      "fetchedAt": "2026-10-07T04:06:03.507Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "20c573e49c4720baf20fd34ceeaebc23a12eb5b4544f45ce629b1ec66a94e783",
+      "title": "Biomedical Systems Engineering BEng (UCAS H161)",
+      "snapshotFile": "raw/0030-20c573e49c47.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-biomedical-systems-engineering/",
+      "fetchedAt": "2026-10-07T04:06:05.639Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "7fde6b1f528508957f1f069d0f37505a2b10faf2471fdad1652e9d57bfafe5ec",
+      "title": "Biomedical Systems Engineering MEng (UCAS H163)",
+      "snapshotFile": "raw/0031-7fde6b1f5285.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-chemistry/",
+      "fetchedAt": "2026-10-07T04:06:07.517Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "51ec27849ac2ebe220f1c77475cb0228d911c306740b97bf09b06dfefd2edf16",
+      "title": "Chemistry BSc (UCAS F100)",
+      "snapshotFile": "raw/0032-51ec27849ac2.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry/",
+      "fetchedAt": "2026-10-07T04:06:09.574Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "5244b916f51f2c34cd661a6a67d380348aea2d69acbe29b279b35986c2540ef1",
+      "title": "Chemistry MChem (UCAS F105)",
+      "snapshotFile": "raw/0033-5244b916f51f.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-industrial-placement/",
+      "fetchedAt": "2026-10-07T04:06:11.641Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ff9a6d5d5f9f05372fcfba049cc39280f46743ce8889f8a6b2230cf4e507270f",
+      "title": "Chemistry with Industrial Placement MChem (UCAS F110)",
+      "snapshotFile": "raw/0034-ff9a6d5d5f9f.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-international-placement/",
+      "fetchedAt": "2026-10-07T04:06:13.638Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a443fea5ef186653c9330173968fac070ccf5d305f09487cee5773b2900a612b",
+      "title": "Chemistry with International Placement MChem (UCAS F109)",
+      "snapshotFile": "raw/0035-a443fea5ef18.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-chemistry-medicinal/",
+      "fetchedAt": "2026-10-07T04:06:15.591Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "46b368473ccc7747b81fab792f4c5ccb4ca12533c867d9cdf1e9a887618d759c",
+      "title": "Chemistry with Medicinal Chemistry BSc (UCAS F121)",
+      "snapshotFile": "raw/0036-46b368473ccc.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-medicinal/",
+      "fetchedAt": "2026-10-07T04:06:17.684Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "80f1cd1513e26572eee6398094185770664b4f6440afc5fbb7e307c3c9cf4938",
+      "title": "Chemistry with Medicinal Chemistry MChem (UCAS F125)",
+      "snapshotFile": "raw/0037-80f1cd1513e2.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-child-and-family-mental-health/",
+      "fetchedAt": "2026-10-07T04:06:19.491Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "76adf6c0d940e29b321b5439a3d2c76dd22ead155db6abc719fa14b0c80bc075",
+      "title": "Child and Family: Mental Health BA",
+      "snapshotFile": "raw/0038-76adf6c0d940.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-civil-engineering/",
+      "fetchedAt": "2026-10-07T04:06:21.695Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "0deadcbd329942fcc9ada0ba6e87df52c7bad7bb95d35f03145a3e82c3180518",
+      "title": "Civil Engineering BEng (UCAS H200)",
+      "snapshotFile": "raw/0039-0deadcbd3299.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-civil-engineering/",
+      "fetchedAt": "2026-10-07T04:06:23.655Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4729f7715d3c03f721f30733c94febb4eabe42128fb7a5fd4d4fd227aaf0dce6",
+      "title": "Civil Engineering MEng (UCAS H202)",
+      "snapshotFile": "raw/0040-4729f7715d3c.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/postgraduate/courses/",
+      "fetchedAt": "2026-10-07T06:09:09.367Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "03d28f2696cc91dc84603c0468e6df5f3d98c1c81a90160156f86bcb313dd716",
+      "title": "Postgraduate courses at University of Warwick",
+      "snapshotFile": "raw/0001-03d28f2696cc.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/",
+      "fetchedAt": "2026-10-07T06:09:11.385Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "aefefc27db04317d9532aca5990d3dc9c8c7f235b2e6c58fd46ce29bc4b1e8ca",
+      "title": "Undergraduate courses at University of Warwick",
+      "snapshotFile": "raw/0002-aefefc27db04.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/",
+      "fetchedAt": "2026-10-07T06:09:13.866Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "92f66741f1e7ef422e166d1975d5916f2065e5bcc56134cfcc873d2c9866cb4f",
+      "title": "Undergraduate courses at the University of Warwick",
+      "snapshotFile": "raw/0003-92f66741f1e7.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance/",
+      "fetchedAt": "2026-10-07T06:09:15.693Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "75878551b0fd904f05916d847b0fe7b9762f2ad29f258f13cb75269a932482ca",
+      "title": "Accounting and Finance (UCAS NN34)",
+      "snapshotFile": "raw/0004-75878551b0fd.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance-foundation-year/",
+      "fetchedAt": "2026-10-07T06:09:17.767Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "6fe883ef7b8780abf29017372752080e99fb5b4837465c38c9514f6a47191639",
+      "title": "Accounting and Finance (with Foundation Year) (UCAS N4N4) at Warwick",
+      "snapshotFile": "raw/0005-6fe883ef7b87.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance-placement-year/",
+      "fetchedAt": "2026-10-07T06:09:19.971Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "2bc721232958feecd3e1541279605450342536ccdef0ca6530f09df53914511c",
+      "title": "Accounting and Finance with Placement Year (UCAS N40Y) at Warwick",
+      "snapshotFile": "raw/0006-2bc721232958.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-ancient-history-classical-archaeology/",
+      "fetchedAt": "2026-10-07T06:09:21.824Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "01dc3ab4c6f992aa2ae2e16a74d381037351e2c825903a6fe278fa97b6a53fa7",
+      "title": "Ancient History and Classical Archaeology (UCAS VV14)",
+      "snapshotFile": "raw/0007-01dc3ab4c6f9.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-part-time/",
+      "fetchedAt": "2026-10-07T06:09:23.497Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "0e9323cb8393eb3033917c7561d50ecd23a7681e4be2795d9f5ba07c3b7431ff",
+      "title": "BA (Hons) Classics",
+      "snapshotFile": "raw/0008-0e9323cb8393.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-ancient-history-classical-archaeology-study-in-europe/",
+      "fetchedAt": "2026-10-07T06:09:25.860Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a3381112d012c4f89fa75d6c95c86290cebd88674b4d83074fdf4bc7ab8bfc55",
+      "title": "Ancient History and Classical Archaeology with Study in Europe (UCAS VV18)",
+      "snapshotFile": "raw/0009-a3381112d012.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-automotive-engineering/",
+      "fetchedAt": "2026-10-07T06:09:27.820Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "f8475485b6bfa8f502b386e5a3ee6093ac1721af099b61050838d9ca3ff38371",
+      "title": "Automotive Engineering BEng (UCAS H330)",
+      "snapshotFile": "raw/0010-f8475485b6bf.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-automotive-engineering/",
+      "fetchedAt": "2026-10-07T06:09:29.835Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "dee4b5ac92fd3cad4db583daafa4c20f6c5a856adef3c749564eabcfab421bfa",
+      "title": "Automotive Engineering MEng (UCAS H335)",
+      "snapshotFile": "raw/0011-dee4b5ac92fd.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biochemistry/",
+      "fetchedAt": "2026-10-07T06:09:31.883Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a5c06d97e373af5aaeaa8e8ce970f45ffe3eccefb20b8f89558e4f1ebe9a27aa",
+      "title": "Biochemistry BSc (UCAS C700)",
+      "snapshotFile": "raw/0012-a5c06d97e373.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biochemistry/",
+      "fetchedAt": "2026-10-07T06:09:33.894Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4493cebc5941e4b7ef99723a1529060991c3522232b51e5aae879a31019410b4",
+      "title": "Biochemistry MBio (UCAS C1A2)",
+      "snapshotFile": "raw/0013-4493cebc5941.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biochemistry-industrial-placement/",
+      "fetchedAt": "2026-10-07T06:09:35.826Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "c3d3e0b8097a993da054f832416ee7ab11928458d50abdcedd973e9b8e5f8c5a",
+      "title": "Biochemistry with Industrial Placement MBio (UCAS C1A6)",
+      "snapshotFile": "raw/0014-c3d3e0b8097a.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biochemistry-placement-year/",
+      "fetchedAt": "2026-10-07T06:09:37.866Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "7b57e32c4af6dfacb3100b3940551ac37f77fc83b153df2cedc75df0187013bf",
+      "title": "Biochemistry with Placement Year BSc (UCAS C701)",
+      "snapshotFile": "raw/0015-7b57e32c4af6.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biological-sciences/",
+      "fetchedAt": "2026-10-07T06:09:39.919Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "8416defe6cab6a4b1dffbc44038505e1e365f6d9384e80834f2f7566d4b0a11e",
+      "title": "Biological Sciences BSc (UCAS C100)",
+      "snapshotFile": "raw/0016-8416defe6cab.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biological-sciences/",
+      "fetchedAt": "2026-10-07T06:09:41.887Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "85bcb8ccb0ab85af7cc8e6e8b2afd00703bb8e00c647c69fe1613a38708a640c",
+      "title": "Biological Sciences MBio (UCAS C1A3)",
+      "snapshotFile": "raw/0017-85bcb8ccb0ab.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biological-sciences-industrial-placement/",
+      "fetchedAt": "2026-10-07T06:09:43.872Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "766669edc64ebb812b768f990ac973f597781a80a5aa53007bf18fee448d433d",
+      "title": "Biological Sciences w. Industrial Placement MBio (UCAS C1A5)",
+      "snapshotFile": "raw/0018-766669edc64e.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biological-sciences-placement-year/",
+      "fetchedAt": "2026-10-07T06:09:45.919Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "6c972aebb1260c5543c89049d75aa39f33e236aa9342dbd51b423e47221fbf58",
+      "title": "Biological Sciences with Placement Year BSc (UCAS C101)",
+      "snapshotFile": "raw/0019-6c972aebb126.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biomedical-science/",
+      "fetchedAt": "2026-10-07T06:09:47.844Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "f9ff4e05a1e911f7782e6649036df735215b0478ee79a6779ffe429d0701812a",
+      "title": "Biomedical Science BSc (UCAS B900)",
+      "snapshotFile": "raw/0020-f9ff4e05a1e9.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biomedical-science/",
+      "fetchedAt": "2026-10-07T06:09:49.868Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "0414032513c6a79d2fb67dea838e203e4449f754dc7a793c9a06df7cad36e791",
+      "title": "Biomedical Science MBio (UCAS C1A3)",
+      "snapshotFile": "raw/0021-0414032513c6.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biomedical-science-industrial-placement/",
+      "fetchedAt": "2026-10-07T06:09:51.918Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "7a443eb89db8b137082e041b69f229bbc483d5de93fd1ad78c3ad6af5f9f5c99",
+      "title": "Biomedical Science with Industrial Placement MBio (UCAS C1A7)",
+      "snapshotFile": "raw/0022-7a443eb89db8.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biomedical-science-placement-year/",
+      "fetchedAt": "2026-10-07T06:09:53.989Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a2a83d2b1702f0a5057db2ce41c4f454db9cef705e473bf8da7d6965cd8f5e4d",
+      "title": "Biomedical Science with Placement Year BSc (UCAS CB19)",
+      "snapshotFile": "raw/0023-a2a83d2b1702.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-biomedical-systems-engineering/",
+      "fetchedAt": "2026-10-07T06:09:55.959Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "20c573e49c4720baf20fd34ceeaebc23a12eb5b4544f45ce629b1ec66a94e783",
+      "title": "Biomedical Systems Engineering BEng (UCAS H161)",
+      "snapshotFile": "raw/0024-20c573e49c47.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-biomedical-systems-engineering/",
+      "fetchedAt": "2026-10-07T06:09:57.972Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "7fde6b1f528508957f1f069d0f37505a2b10faf2471fdad1652e9d57bfafe5ec",
+      "title": "Biomedical Systems Engineering MEng (UCAS H163)",
+      "snapshotFile": "raw/0025-7fde6b1f5285.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-chemistry/",
+      "fetchedAt": "2026-10-07T06:09:59.910Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "51ec27849ac2ebe220f1c77475cb0228d911c306740b97bf09b06dfefd2edf16",
+      "title": "Chemistry BSc (UCAS F100)",
+      "snapshotFile": "raw/0026-51ec27849ac2.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry/",
+      "fetchedAt": "2026-10-07T06:10:02.134Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "5244b916f51f2c34cd661a6a67d380348aea2d69acbe29b279b35986c2540ef1",
+      "title": "Chemistry MChem (UCAS F105)",
+      "snapshotFile": "raw/0027-5244b916f51f.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-industrial-placement/",
+      "fetchedAt": "2026-10-07T06:10:03.934Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ff9a6d5d5f9f05372fcfba049cc39280f46743ce8889f8a6b2230cf4e507270f",
+      "title": "Chemistry with Industrial Placement MChem (UCAS F110)",
+      "snapshotFile": "raw/0028-ff9a6d5d5f9f.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-international-placement/",
+      "fetchedAt": "2026-10-07T06:10:05.954Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a443fea5ef186653c9330173968fac070ccf5d305f09487cee5773b2900a612b",
+      "title": "Chemistry with International Placement MChem (UCAS F109)",
+      "snapshotFile": "raw/0029-a443fea5ef18.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-chemistry-medicinal/",
+      "fetchedAt": "2026-10-07T06:10:07.939Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "46b368473ccc7747b81fab792f4c5ccb4ca12533c867d9cdf1e9a887618d759c",
+      "title": "Chemistry with Medicinal Chemistry BSc (UCAS F121)",
+      "snapshotFile": "raw/0030-46b368473ccc.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-medicinal/",
+      "fetchedAt": "2026-10-07T06:10:10.097Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "80f1cd1513e26572eee6398094185770664b4f6440afc5fbb7e307c3c9cf4938",
+      "title": "Chemistry with Medicinal Chemistry MChem (UCAS F125)",
+      "snapshotFile": "raw/0031-80f1cd1513e2.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-child-and-family-mental-health/",
+      "fetchedAt": "2026-10-07T06:10:11.831Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "76adf6c0d940e29b321b5439a3d2c76dd22ead155db6abc719fa14b0c80bc075",
+      "title": "Child and Family: Mental Health BA",
+      "snapshotFile": "raw/0032-76adf6c0d940.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-civil-engineering/",
+      "fetchedAt": "2026-10-07T06:10:14.017Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "0deadcbd329942fcc9ada0ba6e87df52c7bad7bb95d35f03145a3e82c3180518",
+      "title": "Civil Engineering BEng (UCAS H200)",
+      "snapshotFile": "raw/0033-0deadcbd3299.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-civil-engineering/",
+      "fetchedAt": "2026-10-07T06:10:16.030Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4729f7715d3c03f721f30733c94febb4eabe42128fb7a5fd4d4fd227aaf0dce6",
+      "title": "Civil Engineering MEng (UCAS H202)",
+      "snapshotFile": "raw/0034-4729f7715d3c.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classical-civilisation/",
+      "fetchedAt": "2026-10-07T06:10:18.024Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "5af974d4fe2f516da9283b7479e7c05240ceebfda6ccd834597a46b3392ff5d8",
+      "title": "Classical Civilisation BA (UCAS Q820)",
+      "snapshotFile": "raw/0035-5af974d4fe2f.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classical-civilisation-study-in-europe/",
+      "fetchedAt": "2026-10-07T06:10:20.021Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "b9005d5c27604b6a8563dd692ab8f8d2dc13db9152a9f6dbfd76813d2505a0a8",
+      "title": "Classical Civilisation with Study in Europe BA (UCAS Q821)",
+      "snapshotFile": "raw/0036-b9005d5c2760.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-ancient-greek-study-in-europe/",
+      "fetchedAt": "2026-10-07T06:10:21.996Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "7d7ff5af29a0af2cd9ad1e63a603332b19c86ca33c6354f31ad6a04716919b1d",
+      "title": "Classics (Ancient Greek) with Study in Europe BA (UCAS Q801)",
+      "snapshotFile": "raw/0037-7d7ff5af29a0.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-latin-study-in-europe/",
+      "fetchedAt": "2026-10-07T06:10:24.008Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ca53f7759207658d24126ef16b07edc19debd9bea5eb50b970e23d0194812ea6",
+      "title": "Classics (Latin) with Study in Europe BA (UCAS Q802)",
+      "snapshotFile": "raw/0038-ca53f7759207.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-english/",
+      "fetchedAt": "2026-10-07T06:10:26.030Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "f4b99a3e057fe82af7c6b42601da5b297768fd61a7848d0d94187622cdcd78c7",
+      "title": "Classics and English BA (UCAS QQ36)",
+      "snapshotFile": "raw/0039-f4b99a3e057f.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics/",
+      "fetchedAt": "2026-10-07T06:10:28.010Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "84c94b38d80d10bbc04115686899c1059b14b34ee126e1459d0b8f17c127d7c4",
+      "title": "Classics BA (UCAS Q800)",
+      "snapshotFile": "raw/0040-84c94b38d80d.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-computer-science/",
+      "fetchedAt": "2026-10-07T06:10:29.966Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "047558c6af78ac3d65c9c2c29e93df0299bf4b788928cfea2ed6f306486a876e",
+      "title": "Computer Science BSc (UCAS G400)",
+      "snapshotFile": "raw/0041-047558c6af78.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-computer-science/",
+      "fetchedAt": "2026-10-07T06:10:32.121Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "cd115260500a314116284da7f84a01e12651ec0bf672763d562cc8b9aa1f8893",
+      "title": "Computer Science MEng (UCAS G403)",
+      "snapshotFile": "raw/0042-cd115260500a.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-computer-science-business/",
+      "fetchedAt": "2026-10-07T06:10:34.069Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "159bd0d0ba5639461123ec0dc11fa75f24f40a2b58c76e1ad2f7587dbe18726b",
+      "title": "Computer Science with Business Studies BSc (UCAS GN42)",
+      "snapshotFile": "raw/0043-159bd0d0ba56.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-computer-systems-engineering/",
+      "fetchedAt": "2026-10-07T06:10:36.080Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "e07f6b583c19ac50ee9c04c87cded2e966f72744351b854fd7b35eb995ea4b17",
+      "title": "Computer Systems Engineering BEng (UCAS G406)",
+      "snapshotFile": "raw/0044-e07f6b583c19.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-computer-systems-engineering/",
+      "fetchedAt": "2026-10-07T06:10:38.116Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ae027dad3d18b9439d8d6f73a7c80be55ab49a332070bfaf0b42a0fada724c52",
+      "title": "Computer Systems Engineering MEng (UCAS G408)",
+      "snapshotFile": "raw/0045-ae027dad3d18.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+      "fetchedAt": "2026-10-07T06:10:39.966Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "376958ee8777e8751553c55e6b661278ff106f8d9f6f874586ff99039ed7d973",
+      "title": "Counselling and the Psychotherapeutic Relationship BA",
+      "snapshotFile": "raw/0046-376958ee8777.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-cyber-security/",
+      "fetchedAt": "2026-10-07T06:10:42.043Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "39740a431c129ec1e3da5a8db7247cb9fd186a12f0b25a999ca5407ffc4410d5",
+      "title": "Cyber Security BSc (UCAS H651)",
+      "snapshotFile": "raw/0047-39740a431c12.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-data-science/",
+      "fetchedAt": "2026-10-07T06:10:44.059Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4033643d9133aa1094367cb62fc83ad01311b08337cd8730460b6156cb1a9ac9",
+      "title": "Data Science BSc (UCAS 7G73)",
+      "snapshotFile": "raw/0048-4033643d9133.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/msci-data-science/",
+      "fetchedAt": "2026-10-07T06:10:46.196Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "d0d25cb25bb82b6339d84c49899251a880e505725e13b17a8342a901b97192af",
+      "title": "Data Science MSci (UCAS G304)",
+      "snapshotFile": "raw/0049-d0d25cb25bb8.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-design-global-sustainable-development/",
+      "fetchedAt": "2026-10-07T06:10:48.134Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "946bc7e4200796f5100a31e6db0676e07ebf091df36b8e59e35fe6d62f981020",
+      "title": "Design and Global Sustainable Development BASc (UCAS H1L8)",
+      "snapshotFile": "raw/0050-946bc7e42007.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-design-for-sustainable-innovation/",
+      "fetchedAt": "2026-10-07T06:10:49.949Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "78a258077b0fcb17e08df6afa44ee8ed77478eae05dc7b21c8afea31b088b5cb",
+      "title": "Design for Sustainable Innovation BASc (UCAS W201)",
+      "snapshotFile": "raw/0051-78a258077b0f.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-discrete-mathematics/",
+      "fetchedAt": "2026-10-07T06:10:52.082Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "eadd631c73897adf9f75782e26002d6ba37265dda34712f61af55bf85ac5a5b2",
+      "title": "Discrete Mathematics BSc (UCAS G190)",
+      "snapshotFile": "raw/0052-eadd631c7389.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-discrete-mathematics/",
+      "fetchedAt": "2026-10-07T06:10:54.119Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "03cd99b82feaeeea9ee722f2183a914c0805324806d06f3e4fa800340f1bae81",
+      "title": "Discrete Mathematics MEng (UCAS G4G3)",
+      "snapshotFile": "raw/0053-03cd99b82fea.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+      "fetchedAt": "2026-10-07T06:10:56.526Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "6eb0e168de67dbf74b6a8278589accf7d4a07de6c2051d252332a8c34ce16705",
+      "title": "Child and Family: Early Childhood BA",
+      "snapshotFile": "raw/0054-6eb0e168de67.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+      "fetchedAt": "2026-10-07T06:10:58.141Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "1d090f52cc4e51ce3496a764827d67be6615ee2aa362c9c6c1a5cdfae11d0117",
+      "title": "Early Childhood (top-up) BA",
+      "snapshotFile": "raw/0055-1d090f52cc4e.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-economic-studies-global-sustainable-development/",
+      "fetchedAt": "2026-10-07T06:11:00.289Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ce98ba960896392f86a97fd6df8d0b65fa82c9811d1acae37a834b1829c26d2e",
+      "title": "Economic Studies and Global Sustainable Development BASc (UCAS L1L8)",
+      "snapshotFile": "raw/0056-ce98ba960896.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-economics-management/",
+      "fetchedAt": "2026-10-07T06:11:02.277Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "553fb620c11d52c122580f830f25a79f1289f48371dbc2cc9516be3aaf79228a",
+      "title": "Economics and Management BSc (UCAS LN12)",
+      "snapshotFile": "raw/0057-553fb620c11d.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-economics/",
+      "fetchedAt": "2026-10-07T06:11:04.255Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "10bbf03d404a2c6babe7fe5ae75bdbfd011bbb650220c2ec2cef67588d1dfad6",
+      "title": "Economics BSc (UCAS L100)",
+      "snapshotFile": "raw/0058-10bbf03d404a.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-bsc-economics-politics-international-studies/",
+      "fetchedAt": "2026-10-07T06:11:06.324Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "a6cccba8876981ccb11300fcd63b982ffcf6806eea41cd7defc632a8a8615584",
+      "title": "Economics, Politics and International Studies BSc or BA (UCAS LLD2)",
+      "snapshotFile": "raw/0059-a6cccba88769.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-bsc-economics-psychology-philosophy/",
+      "fetchedAt": "2026-10-07T06:11:08.276Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "073039bc0b307dcd9526eec12bd5998897e08491a68415b32f48f7f812e6eb2c",
+      "title": "Economics, Psychology and Philosophy (EPP) BA or BSc (UCAS L1CA)",
+      "snapshotFile": "raw/0060-073039bc0b30.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-education/",
+      "fetchedAt": "2026-10-07T06:11:10.380Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "2a0d578c65edc6ebf8fa3c40d50d74e8416b69cb809f28bb0a1b37c5d74e268e",
+      "title": "Education BA (UCAS X35B)",
+      "snapshotFile": "raw/0061-2a0d578c65ed.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-education-studies-global-sustainable-development/",
+      "fetchedAt": "2026-10-07T06:11:12.398Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "13d313dd7c9888c229b36187532684fa5d78e377701122a0748b693a31d7f0b3",
+      "title": "Education Studies and Global Sustainable Development BASc (UCAS XL38)",
+      "snapshotFile": "raw/0062-13d313dd7c98.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-electrical-electronic-engineering/",
+      "fetchedAt": "2026-10-07T06:11:14.363Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "d3db510eae0419c3ef2a7d2a615212f03bf73b6c15ed6776dc3f8dd5a7e40399",
+      "title": "Electrical and Electronic Engineering BEng (UCAS H605)",
+      "snapshotFile": "raw/0063-d3db510eae04.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-electrical-electronic-engineering/",
+      "fetchedAt": "2026-10-07T06:11:16.292Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "2666e4ada93df60954a8d19306ec0e06601c66399b5815d27e2d1f329b180970",
+      "title": "Electrical and Electronic Engineering MEng (UCAS H606)",
+      "snapshotFile": "raw/0064-2666e4ada93d.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-engineering-business-management/",
+      "fetchedAt": "2026-10-07T06:11:18.343Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "baaa73696bf25d4d004b162fc082c93dec99cfb92feeee63a773edd454dc5022",
+      "title": "Engineering Business Management BEng (UCAS HN12)",
+      "snapshotFile": "raw/0065-baaa73696bf2.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-engineering/",
+      "fetchedAt": "2026-10-07T06:11:20.339Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "e5683ac972189ace7397e553c4e76b1f9e09e1b24626dd634db72f4b25864063",
+      "title": "Engineering BEng (UCAS H100)",
+      "snapshotFile": "raw/0066-e5683ac97218.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-engineering/",
+      "fetchedAt": "2026-10-07T06:11:22.366Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "4c7bf4d5aa4a38e3e88fdc047a33a10798fd0cb5a9a957fb3d126e6e4b49df86",
+      "title": "Engineering MEng (UCAS H102)",
+      "snapshotFile": "raw/0067-4c7bf4d5aa4a.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-classical-civilisation/",
+      "fetchedAt": "2026-10-07T06:11:24.428Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "0afef0cc5488962da93f18ebd9bbda5e6057990a9296777f04e12e5ebd51c331",
+      "title": "English and Classical Civilisation BA (UCAS QQ39)",
+      "snapshotFile": "raw/0068-0afef0cc5488.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-cultural-studies/",
+      "fetchedAt": "2026-10-07T06:11:26.106Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "9121f7cc977d51459bdec769fa6c4cd7bee1f9842a7d424c9b211374f6ae5a9a",
+      "title": "English and Cultural Studies BA (Course Code: D-QQ00)",
+      "snapshotFile": "raw/0069-9121f7cc977d.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-french/",
+      "fetchedAt": "2026-10-07T06:11:28.358Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "adaaa25c94a0b548290879178ec224729c23e9ddbb2658e88b3659bf038ad45a",
+      "title": "English and French BA (UCAS QR31)",
+      "snapshotFile": "raw/0070-adaaa25c94a0.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-german/",
+      "fetchedAt": "2026-10-07T06:11:30.443Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "0a6f3e8171792b95233693823d67c450899f585ee70b3321704371556cddbc24",
+      "title": "English and German BA (UCAS QR32)",
+      "snapshotFile": "raw/0071-0a6f3e817179.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-hispanic-studies/",
+      "fetchedAt": "2026-10-07T06:11:32.408Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "abec57765c6cf9e974e53818a4931daed329274fe3b072e1867a3319ebedf85f",
+      "title": "English and Hispanic Studies BA (UCAS QR34)",
+      "snapshotFile": "raw/0072-abec57765c6c.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-history/",
+      "fetchedAt": "2026-10-07T06:11:34.464Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "7e58fc05da012b85cf65aad707da06ff3cb62f2bbfc0f95f7f4ead7265bb3d54",
+      "title": "English and History BA (UCAS VQ32)",
+      "snapshotFile": "raw/0073-7e58fc05da01.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-italian/",
+      "fetchedAt": "2026-10-07T06:11:36.387Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "523aa7d0270230b84a5f9209963c8f4eed9bd2a5761e7a25b993f3f0ec887f1b",
+      "title": "English and Italian BA (UCAS QR33)",
+      "snapshotFile": "raw/0074-523aa7d02702.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-theatre-studies/",
+      "fetchedAt": "2026-10-07T06:11:38.458Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "c5abb6534958976093b617d228cadb7b6e5ba5e1696ea124a51b6853c15f661e",
+      "title": "English and Theatre Studies BA (UCAS QW34)",
+      "snapshotFile": "raw/0075-c5abb6534958.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-language-linguistics-intercalated-year/",
+      "fetchedAt": "2026-10-07T06:11:40.480Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "efb79397f4ebee3718447909518cde9a2177e6839217c9f77be65eeea3c3e6df",
+      "title": "English Language and Linguistics BA (UCAS Q311)",
+      "snapshotFile": "raw/0076-efb79397f4eb.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-literature/",
+      "fetchedAt": "2026-10-07T06:11:42.412Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "6c52fd8bdbb77061914133fa156bffcc4fb03b08796c9d89c9513f17697b26d6",
+      "title": "English Literature BA (UCAS Q300)",
+      "snapshotFile": "raw/0077-6c52fd8bdbb7.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-literature-creative-writing/",
+      "fetchedAt": "2026-10-07T06:11:44.699Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "95ef57319b8d50e508b13a5e74259b6f30b352698f4b9588d891e28d58f0500a",
+      "title": "English Literature and Creative Writing BA (UCAS QW38)",
+      "snapshotFile": "raw/0078-95ef57319b8d.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-film-literature/",
+      "fetchedAt": "2026-10-07T06:11:46.611Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "b06f61e2dea68c3a56dd1c7fb2dd7cf007824a496c4c7a3ad645fa85019fbcb5",
+      "title": "Film and Literature BA (UCAS QW26)",
+      "snapshotFile": "raw/0079-b06f61e2dea6.html"
+    },
+    {
+      "url": "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-film-studies/",
+      "fetchedAt": "2026-10-07T06:11:48.459Z",
+      "status": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "16f410fc775ff4b77a77ba9eb50893389f61d4db16b1e8e3c0c0b75d1cf2b17a",
+      "title": "Film Studies BA (UCAS W620)",
+      "snapshotFile": "raw/0080-16f410fc775f.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:11:48.540Z",
+    "seedUrls": [
+      "https://warwick.ac.uk/study/postgraduate/courses/",
+      "https://warwick.ac.uk/study/undergraduate/courses/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance-foundation-year",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-accounting-finance-placement-year",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-ancient-history-classical-archaeology",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-part-time/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-ancient-history-classical-archaeology-study-in-europe",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-automotive-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-automotive-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biochemistry",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biochemistry",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biochemistry-industrial-placement",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biochemistry-placement-year",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biological-sciences",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biological-sciences",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biological-sciences-industrial-placement",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biological-sciences-placement-year",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biomedical-science",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biomedical-science",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mbio-biomedical-science-industrial-placement",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-biomedical-science-placement-year",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-biomedical-systems-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-biomedical-systems-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-chemistry",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-industrial-placement",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-international-placement",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-chemistry-medicinal",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/mchem-chemistry-medicinal",
+      "https://warwick.ac.uk/study/undergraduate/courses/ba-child-and-family-mental-health/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-civil-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-civil-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classical-civilisation",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classical-civilisation-study-in-europe",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-ancient-greek-study-in-europe",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-latin-study-in-europe",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics-english",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-classics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-computer-science",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-computer-science",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-computer-science-business",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-computer-systems-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-computer-systems-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses/ba-counselling-psychotherapeutic-relationship/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-cyber-security",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-data-science",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/msci-data-science",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-design-global-sustainable-development",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-design-for-sustainable-innovation/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-discrete-mathematics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-discrete-mathematics",
+      "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood/",
+      "https://warwick.ac.uk/study/undergraduate/courses/ba-early-childhood-top-up/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-economic-studies-global-sustainable-development",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-economics-management",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-economics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-bsc-economics-politics-international-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-bsc-economics-psychology-philosophy",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-education",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-education-studies-global-sustainable-development",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-electrical-electronic-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-electrical-electronic-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-engineering-business-management",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/beng-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/meng-engineering",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-classical-civilisation",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-cultural-studies/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-french",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-german",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-hispanic-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-history",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-italian",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-theatre-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-language-linguistics-intercalated-year",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-literature",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-english-literature-creative-writing",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-film-literature",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-film-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-economics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-history",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-theatre-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-french-studies-part-time/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-business-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-economics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-history",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-theatre",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-german-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-global-politics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-global-sustainable-development-business-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-global-sustainable-development",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-health-medical-sciences",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-hispanic-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-hispanic-studies-economics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-hispanic-studies-global-sustainable-development",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-hispanic-studies-history",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-hispanic-studies-theatre-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/basc-history-global-sustainable-development",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-italian",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-philosophy",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-politics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-sociology",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-part-time/",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-art",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-history-art-italian",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-human-social-political-sciences",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-integrated-natural-sciences",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/msci-integrated-natural-sciences",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-international-management",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-international-management-foundation-year",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/bsc-international-management-with-marketing",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-italian-classics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-italian-economics",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-italian-theatre-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-italian-studies",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/llb-law-4-years",
+      "https://warwick.ac.uk/study/undergraduate/courses-2026/ba-law-sociology"
+    ],
+    "pages": 80
+  },
+  "detailEnrichment": {
+    "enrichedAt": "2026-10-09T01:54:02.042Z",
+    "source": "saved official programme-page snapshots",
+    "rule": "Only visible source text is copied; missing fields remain null; status remains DRAFT."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.549Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

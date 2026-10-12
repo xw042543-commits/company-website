@@ -1,0 +1,129 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "university-of-texas-at-austin",
+    "displayName": "The University of Texas at Austin",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.utexas.edu/"
+    ],
+    "allowedHosts": [
+      "www.utexas.edu",
+      "utexas.edu"
+    ],
+    "discoveredUrls": 15,
+    "parsedProgrammes": 1,
+    "pagesRead": 120,
+    "warnings": [
+      "https://www.utexas.edu/cola/depts/sociology/undergraduate/sociological-insight/Overview.php：跳转超出允许域名: liberalarts.utexas.edu",
+      "https://undergraduates.utexas.edu/academics/facultystaff-awards/cale-mcdowell-award-innovation-undergraduate-studies：跳转超出允许域名: provost.utexas.edu"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs/programs/non-profits-social-entrepreneurship",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://undergraduates.utexas.edu/academics/post-graduate-programs/mcnair-scholars",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://compliance.utexas.edu/programs/dia",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://undergraduates.utexas.edu/academics/bridging-disciplines-programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://www.utexas.edu/academics/core/implementation-timeline",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://www.utexas.edu/academics/core/task-force-members",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://www.utexas.edu/academics/core/faqs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://undergraduates.utexas.edu/academics/undergraduate-research/about-undergraduate-research-0",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://undergraduates.utexas.edu/academics/undergraduate-research/why-conduct-research/publishing-work-journal",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://www.utexas.edu/academics/core",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://www.utexas.edu/academics/academic-experience",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://www.utexas.edu/academics/colleges-schools",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://www.utexas.edu/academics/texas-statement-academic-integrity",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://www.utexas.edu/academics/areas-of-study",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-texas-at-austin",
+      "url": "https://www.mccombs.utexas.edu/graduate/specialized-masters/ms-technology-commercialization/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:13.976Z",
+      "error": null
+    }
+  ]
+}

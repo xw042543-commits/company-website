@@ -1,0 +1,62 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:27:52.735Z",
+  "sourceKey": "singapore-institute-of-technology",
+  "sourceName": "Singapore Institute of Technology",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_392ad9c91e1b57f6",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Singapore Institute of Technology",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.singaporetech.edu.sg",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:27:52.734Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.singaporetech.edu.sg/",
+        "sourcePageTitle": null,
+        "sourceHash": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+        "fetchedAt": "2026-10-07T04:27:52.734Z",
+        "field": "name",
+        "rawText": "Singapore Institute of Technology"
+      }
+    ],
+    "institutionTypeRaw": "Autonomous university",
+    "selectionRank": 5,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": []
+  },
+  "programmes": [],
+  "pages": [
+    {
+      "url": "https://www.singaporetech.edu.sg/",
+      "fetchedAt": "2026-10-07T04:27:52.734Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+      "title": null,
+      "snapshotFile": "raw/0001-d02032286070.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:41:01.872Z"
+  }
+}

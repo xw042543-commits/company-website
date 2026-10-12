@@ -1,0 +1,1324 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-09T06:31:04.493Z",
+  "sourceKey": "singapore-university-of-technology-and-design",
+  "sourceName": "Singapore University of Technology and Design",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_8fcb6c478af6493d",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Singapore University of Technology and Design",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.sutd.edu.sg",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:26:52.308Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.sutd.edu.sg/",
+        "sourcePageTitle": "Singapore University of Technology and Design (SUTD)",
+        "sourceHash": "2db97d502aa20dfd14951ca6fab94b54d87739dfec8790838de91e6c685f226c",
+        "fetchedAt": "2026-10-07T04:26:52.308Z",
+        "field": "name",
+        "rawText": "Singapore University of Technology and Design"
+      }
+    ],
+    "institutionTypeRaw": "Autonomous university",
+    "selectionRank": 3,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": []
+  },
+  "programmes": [
+    {
+      "candidateId": "programme_b0b9001bcbb85a6f",
+      "programmeCode": null,
+      "universityCode": null,
+      "nameZh": "高彭本工程学学士",
+      "nameEn": "Khoo Peng Beng",
+      "subjectCategoryCode": null,
+      "subjectCategoryRaw": null,
+      "studyLevelCode": null,
+      "studyLevelRaw": "Undergraduate",
+      "courseModeCode": null,
+      "courseModeRaw": null,
+      "durationDisplay": null,
+      "durationMonths": null,
+      "descriptionZh": null,
+      "descriptionEn": null,
+      "officialUrl": "https://www.sutd.edu.sg/profile/khoo-peng-beng/",
+      "sourceCheckedAt": "2026-10-07T04:27:32.643Z",
+      "status": "DRAFT",
+      "tuition": {
+        "min": null,
+        "max": null,
+        "currency": null,
+        "display": null,
+        "feePeriod": "UNKNOWN",
+        "rmbMin": null,
+        "rmbMax": null,
+        "exchangeRate": null,
+        "exchangeRateDate": null,
+        "totalRmbMin": null,
+        "totalRmbMax": null
+      },
+      "languages": [],
+      "intakes": [],
+      "detailSections": [],
+      "specialisations": [],
+      "careers": [],
+      "fees": [],
+      "media": [],
+      "evidence": [
+        {
+          "sourceUrl": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=10",
+          "sourcePageTitle": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+          "sourceHash": "7bc50ff29243f059dfdc28f7d9b0e466228e5f4e011e81989760291c8af74012",
+          "fetchedAt": "2026-10-07T04:27:32.643Z",
+          "field": "name",
+          "rawText": "Khoo Peng Beng"
+        },
+        {
+          "sourceUrl": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=10",
+          "sourcePageTitle": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+          "sourceHash": "7bc50ff29243f059dfdc28f7d9b0e466228e5f4e011e81989760291c8af74012",
+          "fetchedAt": "2026-10-07T04:27:32.643Z",
+          "field": "detailUrl",
+          "rawText": "https://www.sutd.edu.sg/profile/khoo-peng-beng/"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.sutd.edu.sg/",
+      "fetchedAt": "2026-10-07T04:26:52.308Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2db97d502aa20dfd14951ca6fab94b54d87739dfec8790838de91e6c685f226c",
+      "title": "Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0001-2db97d502aa2.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses",
+      "fetchedAt": "2026-10-07T04:26:54.279Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "72c4aeb7e4815ede4e16a2df78d6a67160a938afad818d21869b07d3bcabd540",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0002-72c4aeb7e481.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?",
+      "fetchedAt": "2026-10-07T04:26:56.276Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "37bf7f84185c5b47db1810a40ba4065686f6f2b8d6739098d45effb23114fa61",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0003-37bf7f84185c.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=2",
+      "fetchedAt": "2026-10-07T04:26:58.554Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "95df7ff83296dcd3d16eabbff9acd611e1dffa7611c8e36baab26a3347e19eac",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0004-95df7ff83296.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=3",
+      "fetchedAt": "2026-10-07T04:27:00.320Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cbb273e9a9d55b036d45bf8bdbc5d3e09231d2cc7edeb8649bba6d4c48aa7895",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0005-cbb273e9a9d5.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=23",
+      "fetchedAt": "2026-10-07T04:27:02.525Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7942b809b035d6ced65ba3fb0f94f0a2b80843855fd28b711fd05039cdbd91eb",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0006-7942b809b035.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=1",
+      "fetchedAt": "2026-10-07T04:27:04.303Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "64df97f163669122eb41ab63189aa20a12fcc3a98a1babbfc6b05fa4d3cea0d3",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0007-64df97f16366.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=4",
+      "fetchedAt": "2026-10-07T04:27:06.493Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dc975ceca1a84eb5f61a157b37e657e08a8f1ae2bfa2a7f6a39bbe82f082b059",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0008-dc975ceca1a8.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=22",
+      "fetchedAt": "2026-10-07T04:27:08.481Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bbf0713b31ae23c8ba036595270af666521fdbed1c9f31172e35d1e45a7c27eb",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0009-bbf0713b31ae.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=21",
+      "fetchedAt": "2026-10-07T04:27:10.329Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "82afe2ff8b9b907c080f8c227ae6c445860d0a5bdd22dc455b217905e3fb1cb7",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0010-82afe2ff8b9b.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=5",
+      "fetchedAt": "2026-10-07T04:27:12.427Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "04ff6d4270455ef740e3f4df1818b896dda251915be3d03a852932c1b584df4e",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0011-04ff6d427045.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=20",
+      "fetchedAt": "2026-10-07T04:27:14.445Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3cdf63ae4335442457b5ddba99b3abc22e590696d5cf6bc8a7586550713bd7dd",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0012-3cdf63ae4335.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=6",
+      "fetchedAt": "2026-10-07T04:27:16.433Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "daa8963333989d4b69d270f6cae1e0f9393dccaef4ce19625a76743ce9855dcd",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0013-daa896333398.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=19",
+      "fetchedAt": "2026-10-07T04:27:18.507Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7392fbb8ba16bb6e35d6b451e7d27c5c95deb8799fcbfa58465f3c5b9f62f74f",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0014-7392fbb8ba16.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=7",
+      "fetchedAt": "2026-10-07T04:27:20.336Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b241e41cdc93c2bfabd379db69e92642ac9cae2a49cac1a723dab1549ee10e7b",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0015-b241e41cdc93.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=18",
+      "fetchedAt": "2026-10-07T04:27:22.405Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6cb5967e0093318e80337ad9776da2764062ecedffdb82ced27e113e8b5213e3",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0016-6cb5967e0093.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=8",
+      "fetchedAt": "2026-10-07T04:27:24.342Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "72620afd9a045f3eb790714edd5e1d9b54b4bfff542d7154aa8b00eb84d52b38",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0017-72620afd9a04.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=17",
+      "fetchedAt": "2026-10-07T04:27:26.422Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bc94f1823a2858d5f49814389dbf33b8f1280f94a93927bd8dd760d26e5c13a3",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0018-bc94f1823a28.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=9",
+      "fetchedAt": "2026-10-07T04:27:28.453Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d635fda0bd18d1b342b28caa2ea30a44a84e79c8c9e710b12bb78f13f0f15f5c",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0019-d635fda0bd18.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=16",
+      "fetchedAt": "2026-10-07T04:27:30.395Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "36192b195e12b242a5396588accb3e86a649e28d9b0828a93c3f464da4d65921",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0020-36192b195e12.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=10",
+      "fetchedAt": "2026-10-07T04:27:32.643Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7bc50ff29243f059dfdc28f7d9b0e466228e5f4e011e81989760291c8af74012",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0021-7bc50ff29243.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=15",
+      "fetchedAt": "2026-10-07T04:27:34.372Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bfe324887b2a9dd1d2c50b23053627ae580ebd1c1b571b3443e2e57efc5d856e",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0022-bfe324887b2a.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=11",
+      "fetchedAt": "2026-10-07T04:27:36.499Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "cc91e9268bf2289f0375b7b2198ba4153ecdfee04e863279e748e4caf34b6099",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0023-cc91e9268bf2.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=14",
+      "fetchedAt": "2026-10-07T04:27:38.451Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "09858fdf67a0f124035acb23158fbae716fdc859bd284f94b3d157f826e70add",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0024-09858fdf67a0.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=12",
+      "fetchedAt": "2026-10-07T04:27:40.416Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "581bc1e79901fe44c69f21ef9d84bcd9c9090a63e7d2614817d8e382278cc7f7",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0025-581bc1e79901.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=13",
+      "fetchedAt": "2026-10-07T04:27:42.535Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9bca3ec5b0cea90ffff79c62df18a031e2c7ca9f4f15a6895e0eda5e5e32430a",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0026-9bca3ec5b0ce.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/academic-calendar/overview/ay2024-onwards/",
+      "fetchedAt": "2026-10-07T04:27:45.630Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3b6e4b7274c6ad4962d5d263fd24daba0dbff862834acb1de5e326d2c6dda4c6",
+      "title": "AY2024 onwards - Singapore University of Technology and Design (SUTD) Academic Calendar | SUTD",
+      "snapshotFile": "raw/0027-3b6e4b7274c6.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/campus-life/students-opportunities-programme/upop",
+      "fetchedAt": "2026-10-07T04:27:46.875Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c6c90833b08d34c45f730d6ca4d5b26df1a1a5318e51cb33cb9faf5db9e41f18",
+      "title": "Undergraduate Practice Opportunities Programme - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0028-c6c90833b08d.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate",
+      "fetchedAt": "2026-10-07T04:27:48.834Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2e5a4cc1b906ee19afb2beb9dcb133c578c115ce761c772d1ff2255aad5743d9",
+      "title": "Undergraduate studies at SUTD - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0029-2e5a4cc1b906.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/",
+      "fetchedAt": "2026-10-07T04:27:50.411Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d3d1c6738ac7d82c8ab9c96ba7ec693c2934af1098bda4c50af0cb0945c3cc75",
+      "title": "Special programmes - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0030-d3d1c6738ac7.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/campus-life/students-opportunities-programme/innovation-and-research-opportunities-programme",
+      "fetchedAt": "2026-10-07T04:27:52.912Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8fcc68af75989a2ca9d71ea5c2ac0b35d3ef4d09ff0a446849cab9893676516b",
+      "title": "Innovation and Research Opportunities Programme (IROP) - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0031-8fcc68af7598.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/professional-practice-programme/",
+      "fetchedAt": "2026-10-07T04:27:54.464Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ee2822325f4b18c2c5f4dfc4a4fe11e8187cedbfdc124e8ea316a2a7f8279d28",
+      "title": "Professional Practice Programme - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0032-ee2822325f4b.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/",
+      "fetchedAt": "2026-10-07T04:27:56.774Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6aee6ea300f8dfc9e5f714385973bb234c570f333c2991589d90d1ab45c3dcf9",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0033-6aee6ea300f8.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/overview/",
+      "fetchedAt": "2026-10-07T04:27:58.477Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f7a7ecca408ec578ec5a0ac6831b20b91fcb491a16549c01bae645a3df9c0124",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0034-f7a7ecca408e.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-tec/",
+      "fetchedAt": "2026-10-07T04:28:00.412Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3e429259718afcb5d75cf34acf7eb2f2c8253ec55109d26680fcab4b0a36349f",
+      "title": "SUTD-Tianjin Eco-City (SUTD-TEC) Programme - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0035-3e429259718a.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/campus-life/students-opportunities-programme/utop/overview/",
+      "fetchedAt": "2026-10-07T04:28:03.545Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5bf2f17b33e928918edbd7a94729a28f2bc27815ffe0c7dd194379d15fbdbaec",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0036-5bf2f17b33e9.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/overview/",
+      "fetchedAt": "2026-10-07T04:28:04.529Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d4b5058c722c0b29e6a90a8fa9797821ffce9697c925c5055f999bf3b1ee534c",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0037-d4b5058c722c.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/overview/",
+      "fetchedAt": "2026-10-07T04:28:07.026Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5189e4178431ac20f2805ed9fde5b3a26eda62baa1f419eea656bf9e98067f14",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0038-5189e4178431.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/overview/",
+      "fetchedAt": "2026-10-07T04:28:09.109Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b3fe32187d35e7dd762a6d5098a654fb2ac0c53886f611bacdbead9f8ee96614",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0039-b3fe32187d35.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/overview/",
+      "fetchedAt": "2026-10-07T04:28:11.005Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "613c045ecb095e8043f9dd953f76586bae9ee561d510e2f5c89ac74762907cd1",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0040-613c045ecb09.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses",
+      "fetchedAt": "2026-10-07T06:40:03.818Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ea1b18dd876a1db1312c1842a3df5d1181360d54017adad0928a3e39a82e52fd",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0001-ea1b18dd876a.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?",
+      "fetchedAt": "2026-10-07T06:40:05.950Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5f49aa9cd06ee9d757c162182e95cf23f5c337d0b2b9b48dcea00f68b243f407",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0002-5f49aa9cd06e.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=2",
+      "fetchedAt": "2026-10-07T06:40:07.799Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "233fab0a45e73b475221f0285a7eb22b8339d9fea997036169b39e8d5ac304f6",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0003-233fab0a45e7.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=3",
+      "fetchedAt": "2026-10-07T06:40:09.771Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6e5eeb3ab23520d059bc0c5e49a754c2dc8b626ba5b9621439823844c2ca70ba",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0004-6e5eeb3ab235.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=23",
+      "fetchedAt": "2026-10-07T06:40:11.751Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "506b3e02433b331d948eefd3fa4754adf052e313e970e49ac46243e8c5582967",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0005-506b3e02433b.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=1",
+      "fetchedAt": "2026-10-07T06:40:14.090Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "37be732c5b68991c57d5c587f6825dd4c5098a8a182d30acf6f92d70e7a430d2",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0006-37be732c5b68.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=4",
+      "fetchedAt": "2026-10-07T06:40:15.833Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0194172008f21d125ff2d7a42a92b2bf80ba76c3a4dab201901d1b6363f107aa",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0007-0194172008f2.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=22",
+      "fetchedAt": "2026-10-07T06:40:17.920Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "977a37fa49c2ff0afc7a451ea4da30956e06957585d8c496f4f3283112c55f2d",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0008-977a37fa49c2.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=21",
+      "fetchedAt": "2026-10-07T06:40:19.823Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5851dafaf9213e07f5919831b7e75cef4a95d96bd7a9bba62b1036ebfadcbc1c",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0009-5851dafaf921.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=5",
+      "fetchedAt": "2026-10-07T06:40:21.960Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "afc4199a3fa5f7f7a7194b59aef6e117d8c8c89c02fb1088643c4ba5be95a18f",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0010-afc4199a3fa5.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=20",
+      "fetchedAt": "2026-10-07T06:40:24.035Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "06ca8eb4cb886942b21c3575a20f887c7a58c8111a8d71540372e78524ea2984",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0011-06ca8eb4cb88.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=6",
+      "fetchedAt": "2026-10-07T06:40:25.900Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3c10dde4b661acf3cb204f3e9446eacd26c1a4d711c15c5d7acd350572c83cf8",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0012-3c10dde4b661.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=19",
+      "fetchedAt": "2026-10-07T06:40:27.971Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b522089cbee24e14572288255813e2a78cb0d466f0b95be2b6a56a04ecfad8f0",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0013-b522089cbee2.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=7",
+      "fetchedAt": "2026-10-07T06:40:29.892Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f6b1460175cb1f5f45ea0c6d4a0cf1034b8099b427abaadaaf7e632274d3706b",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0014-f6b1460175cb.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=18",
+      "fetchedAt": "2026-10-07T06:40:31.957Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "08d45aaa42c13ec3981b593d4005b71d8cd4cee2678ef569e84f5cfca33f5bbc",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0015-08d45aaa42c1.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=8",
+      "fetchedAt": "2026-10-07T06:40:34.049Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "06c40b3ef6f7037bf6ef82f041ecf381e240dc5a0a7a4bbf361a78ff38ecb110",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0016-06c40b3ef6f7.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=17",
+      "fetchedAt": "2026-10-07T06:40:35.964Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "acdea1c21c50a4c282390d388a5f31be4e3817f49a23d12be232a4762d7d20b2",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0017-acdea1c21c50.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=9",
+      "fetchedAt": "2026-10-07T06:40:38.101Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "467b376fcd8df9108e72db459e65051520f578663040fdc7b9a4e22b4eba9c0a",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0018-467b376fcd8d.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=16",
+      "fetchedAt": "2026-10-07T06:40:40.034Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b95b9842537ae8d2ba6228eac426e603dafbe00073a94446e4de5945519f3fd9",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0019-b95b9842537a.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=10",
+      "fetchedAt": "2026-10-07T06:40:41.970Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "be5c6806a2229a914bfa68bb52988c4a2d0be27ac388d9e533852d300de5156b",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0020-be5c6806a222.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=15",
+      "fetchedAt": "2026-10-07T06:40:44.129Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b64d12cbf7037b7d760503731ad21a597c55c22f2ddf6829a49a3d56db46ddb0",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0021-b64d12cbf703.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=11",
+      "fetchedAt": "2026-10-07T06:40:46.068Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ff05b526163970c68958281147a6b3363dc185943518872d030c08ad61b654d5",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0022-ff05b5261639.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=14",
+      "fetchedAt": "2026-10-07T06:40:47.947Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "3f141859d0f26164a253a4bad179b266d63657e13a73aae1e4ed216a4d6448a4",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0023-3f141859d0f2.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=12",
+      "fetchedAt": "2026-10-07T06:40:50.092Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6feb8d5667bc2d20ea898e05ab7c0d9ecd63bcc1185e35f49d3e15ef1661a3f6",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0024-6feb8d5667bc.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses?paged=13",
+      "fetchedAt": "2026-10-07T06:40:52.008Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d9deb0b133ab51d486ddf15aac10c7d9dea64cf9ea4330998a4d2d4912243019",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0025-d9deb0b133ab.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/",
+      "fetchedAt": "2026-10-07T06:40:54.133Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4df911b537d437ffa890ad2da4b803e6e111f23a3f544166241923288403f8fc",
+      "title": "Special programmes - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0026-4df911b537d4.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/",
+      "fetchedAt": "2026-10-07T06:40:56.043Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6351fefa8b5297c87b0d834d194b5d9effe39e970e7aaf17a6cee8bd3c122ff7",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0027-6351fefa8b52.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/overview/",
+      "fetchedAt": "2026-10-07T06:40:57.995Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "eccffe559ca1147c4b2d3fe61f2ecadee37622f203a68e49ed2763146f2fd396",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0028-eccffe559ca1.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-tec/",
+      "fetchedAt": "2026-10-07T06:40:59.972Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f2489ad9f6d77f85b3de1f58075a713af76c5f431a7f823f3dcdb43a0c730d6c",
+      "title": "SUTD-Tianjin Eco-City (SUTD-TEC) Programme - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0029-f2489ad9f6d7.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/overview/",
+      "fetchedAt": "2026-10-07T06:41:02.075Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7c0cbe1f5a901893b9e35a11c8ab242a0ff44c59731d04a76b093cac76ba6f69",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0030-7c0cbe1f5a90.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/overview/",
+      "fetchedAt": "2026-10-07T06:41:04.705Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "60be4dc0c3216b067f9b2366fa1a5affb06300a622aee44a7129e4e4e8a3c21c",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0031-60be4dc0c321.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/overview/",
+      "fetchedAt": "2026-10-07T06:41:06.519Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ba887597ff6ecb7bd0c1c594f6f85e0bb78a61d62a12fba79c24b5543fba013c",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0032-ba887597ff6e.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/overview/",
+      "fetchedAt": "2026-10-07T06:41:08.683Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "60961ac693c6962792d113b7dea7b971c68482fb865dd4f9f4442ee11050dada",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0033-60961ac693c6.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?",
+      "fetchedAt": "2026-10-07T06:41:10.129Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "391dc01bd848bc3fdc22ace96a7cce866617c712e9b40200e90ef1bcfc2c2eb0",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0034-391dc01bd848.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=2",
+      "fetchedAt": "2026-10-07T06:41:12.030Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5542ef82a66698767f26132704296dcd16c71a96fa929be24dbf13fffe1123f6",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0035-5542ef82a666.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=3",
+      "fetchedAt": "2026-10-07T06:41:14.048Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1ac6770f59e95944abe1a8e018267ab9968528baac8e92407b6b55a6787d94ba",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0036-1ac6770f59e9.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=23",
+      "fetchedAt": "2026-10-07T06:41:16.360Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e49f069a259bea8872d38dc5e8ec5e9daac864a5d370fd80e46e893baf2fa699",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0037-e49f069a259b.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes",
+      "fetchedAt": "2026-10-07T06:41:18.069Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6ce6acaff8b2a296553eb1a49863a5a720a5ada4b6ec41d094a8815b0530bbd2",
+      "title": "Special programmes - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0038-6ce6acaff8b2.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/overview/",
+      "fetchedAt": "2026-10-07T06:41:20.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ace338609f060905a4703b55bc75c11d8451f72eee289a5f2a16bfd110da4a63",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0039-ace338609f06.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/about/",
+      "fetchedAt": "2026-10-07T06:41:22.108Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "71b4d752c7b3dbf6176cd2c74dd6560707ed8d1b4624447cd3934bc9ec5c6ef4",
+      "title": "About - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0040-71b4d752c7b3.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/why/",
+      "fetchedAt": "2026-10-07T06:41:24.053Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b5ba7223e8a5cf19f06ed9fec550374f21978a5a768cc908c554937470bd8643",
+      "title": "Why - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0041-b5ba7223e8a5.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/special-track-pathway/",
+      "fetchedAt": "2026-10-07T06:41:26.527Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b045cdbb9785a002742440ba8d49c720f3daf4e8e302fce00049ffac6cbcc6b0",
+      "title": "Special Track pathway - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0042-b045cdbb9785.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/who-we-are/faculty/",
+      "fetchedAt": "2026-10-07T06:41:28.531Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c289b5e03587e7da080692e8466c6c144b0bbdfa0d7b33a0acf67cd9bea28047",
+      "title": "Faculty - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0043-c289b5e03587.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/special-track-pathway",
+      "fetchedAt": "2026-10-07T06:41:30.203Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8893bdf55e75084f46e91e5a030b7be83abbccb0a2e3518a5709dc25217304f0",
+      "title": "Special Track pathway - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0044-8893bdf55e75.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/academic-pathways/",
+      "fetchedAt": "2026-10-07T06:41:32.082Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e099791beabdd579d4c1ba5ebd2f7790220b97622a0e607e21e32ae443981a73",
+      "title": "Academic pathways by programmes - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0045-e099791beabd.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/who-we-are/testimonials/",
+      "fetchedAt": "2026-10-07T06:41:34.705Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d996cf356517a89d6d4a4573dcf45dc7ae67de5ae81893ae101c54fd546eb748",
+      "title": "Testimonials - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0046-d996cf356517.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/overview/",
+      "fetchedAt": "2026-10-07T06:41:36.698Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7fcfc07bb6407b17fbcb11b8cc1f9378ce8bdad667a9693859a0f4f75ec7f393",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0047-7fcfc07bb640.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/about/",
+      "fetchedAt": "2026-10-07T06:41:38.063Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2e754679c9468340f5c34536aab05115063ef70949df0ca20215c58959b244b3",
+      "title": "About - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0048-2e754679c946.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/sharp-programme-structure/",
+      "fetchedAt": "2026-10-07T06:41:40.684Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "22806dcac1469cc96cee834d99fbe289444c4f92de5d0ae3233d973a7568afc0",
+      "title": "SHARP programme structure - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0049-22806dcac146.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/who-we-are/students/",
+      "fetchedAt": "2026-10-07T06:41:42.604Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d04a0596b8168159e5d510252299289cd932c995e3a23e8d6588286bdcd941f4",
+      "title": "Students & instructors - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0050-d04a0596b816.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/application/",
+      "fetchedAt": "2026-10-07T06:41:44.733Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "25a0a2d48d794ff675c48968ded92a9742fc86ccc5aef0fc97e0ac47815140f6",
+      "title": "Application - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0051-25a0a2d48d79.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/honours-sessions/",
+      "fetchedAt": "2026-10-07T06:41:46.121Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e047d4c1acef3342ca8022ad6999b2bd0b7fc079fa38d0460e8a05731b892b64",
+      "title": "Honours Sessions - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0052-e047d4c1acef.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/research/",
+      "fetchedAt": "2026-10-07T06:41:48.135Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "84280df95bf60784f330f9757201c761ad05fcabf8e62fc2e5d297375712ab90",
+      "title": "Research - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0053-84280df95bf6.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/who-we-are/testimonials/",
+      "fetchedAt": "2026-10-07T06:41:50.140Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e7e2ce3c56c6cba3329f8e1308d3813af6d8849eca00fb108855e0370dde1ad1",
+      "title": "Testimonials - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0054-e7e2ce3c56c6.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/financial/",
+      "fetchedAt": "2026-10-07T06:41:52.193Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "37675598c2bf2ccdf898fbcc9c005c00bf163981aaabd995c7cff65df6ed65f5",
+      "title": "Tuition fees - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0055-37675598c2bf.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/overview/",
+      "fetchedAt": "2026-10-07T06:41:54.740Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f273ccbe527802c78451c6e90a3c1da215a7a70917a7d5eac7256e52f54c0aae",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0056-f273ccbe5278.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/director-message/",
+      "fetchedAt": "2026-10-07T06:41:56.140Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5e6fdb133c8293f06c10494c4b146e45765d1541de2ff06ca3d1094a5fcb6f6d",
+      "title": "Director message - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0057-5e6fdb133c82.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/why/",
+      "fetchedAt": "2026-10-07T06:41:58.439Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "014f03b94fc966aa7304f50fe6ed0bf5439b92a26fb55a99e22b50482d6dcd73",
+      "title": "Why STEP - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0058-014f03b94fc9.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/programme-structure/",
+      "fetchedAt": "2026-10-07T06:42:00.179Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "068bba421ea7c56cfb8dffc7ec8e77d849ebb6cfa1c5b2cb310a302d560479cb",
+      "title": "Programme structure - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0059-068bba421ea7.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/student-achievements/",
+      "fetchedAt": "2026-10-07T06:42:02.518Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a170502fcb0a24d659b584f4f089245689c7318ef31ca168893fc7be458c2639",
+      "title": "Student activities and achievements - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0060-a170502fcb0a.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/overview/",
+      "fetchedAt": "2026-10-07T06:42:04.744Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c27e33479cef33be1446f6954afc3a11345fbae05b333744342d230cf7e3338b",
+      "title": "Overview - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0061-c27e33479cef.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/programme-structure/",
+      "fetchedAt": "2026-10-07T06:42:06.173Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4d5653167f897b7c876ee344ab96e093eb9fc2da11a605bbc994fe0844956473",
+      "title": "Programme structure - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0062-4d5653167f89.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=1",
+      "fetchedAt": "2026-10-07T06:42:08.286Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "23611925fd7982141dc145e4d063244458fc1aa569c85dfd4c39ce0ba6465632",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0063-23611925fd79.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=4",
+      "fetchedAt": "2026-10-07T06:42:10.308Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "94fa24c39c3c49e75ebe6387a3b5df78d1befa8a305ff9d40f5db511f443dcf7",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0064-94fa24c39c3c.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=22",
+      "fetchedAt": "2026-10-07T06:42:12.452Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "363ea895d2d86558514193befe714106c51db46d4fd2d3f533a575380227ace6",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0065-363ea895d2d8.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=21",
+      "fetchedAt": "2026-10-07T06:42:14.313Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "46ebd74661dc816ea00578ff92ea41dad3c88a5db1bddfea54b2d4ac6ea279a5",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0066-46ebd74661dc.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/special-track-pathway/",
+      "fetchedAt": "2026-10-07T06:42:16.743Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "40637526d1d8a4fc87304ebb5ae03de5639ab55aa380637634e19d06b34f8eca",
+      "title": "Special Track pathway - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0067-40637526d1d8.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/who-we-are/faculty/",
+      "fetchedAt": "2026-10-07T06:42:18.749Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fb6280011fbbdb19835dd65cf31eb762ba74b5d1ee9c3bd9633ed794ddda2ca4",
+      "title": "Faculty - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0068-fb6280011fbb.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/sharp-programme-structure/",
+      "fetchedAt": "2026-10-07T06:42:20.803Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d0e8461b3158d84a10862904a77ebf790f29678a9db59375ad245422b135296d",
+      "title": "SHARP programme structure - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0069-d0e8461b3158.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/who-we-are/students/",
+      "fetchedAt": "2026-10-07T06:42:22.714Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "29d6858907002f7d528273eaa8b7dc6fa199acf1443da7c085df14c274e0512f",
+      "title": "Students & instructors - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0070-29d685890700.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/application/",
+      "fetchedAt": "2026-10-07T06:42:24.874Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "770d80c2a8bb11a116b6b232e2804caf714d14a8fdec3737d81e5c14c3c7c46c",
+      "title": "Application - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0071-770d80c2a8bb.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=5",
+      "fetchedAt": "2026-10-07T06:42:26.362Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c25fcf0bd56a6978174d9c2d85e446abac4c066a9cb2fdabca67b68ff4f3c87b",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0072-c25fcf0bd56a.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=20",
+      "fetchedAt": "2026-10-07T06:42:28.331Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0a793690814df914768c57a5673e846a13a88ed3ca450dae28c72be03eba382a",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0073-0a793690814d.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=6",
+      "fetchedAt": "2026-10-07T06:42:30.303Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a4f864f8678e8b7bb06c0a0d21a9a314d6a74811d167e1dd750991deeb5aeb9f",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0074-a4f864f8678e.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=19",
+      "fetchedAt": "2026-10-07T06:42:32.383Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "43e8550df797c4016bd5f4be7e8663951f5f9073170e4d8710ad384384f69810",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0075-43e8550df797.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=7",
+      "fetchedAt": "2026-10-07T06:42:34.497Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1a68f0ce05b82c5796b7a707bc34ae7fdc297e7665189bac5a96f5c92942e170",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0076-1a68f0ce05b8.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=18",
+      "fetchedAt": "2026-10-07T06:42:36.352Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c8fa4e174e42b02ab6bd1f929a09e227b1871eed68916a3fb873dc48ca8aef10",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0077-c8fa4e174e42.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=8",
+      "fetchedAt": "2026-10-07T06:42:38.391Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c9ff96d4c523fba8bf138eee1dfba48c72482bda81bdfddf3af5c6d9cc7dd95c",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0078-c9ff96d4c523.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=17",
+      "fetchedAt": "2026-10-07T06:42:40.377Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6c7c411984600279ab8c6f743ff4a3f9573a0750b63f47079d6b30ba0c2fd1e2",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0079-6c7c41198460.html"
+    },
+    {
+      "url": "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=9",
+      "fetchedAt": "2026-10-07T06:42:42.374Z",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e3d24c31c08bb5e0cb426fe438ff07deaea330d6d22ef1b6fc46c8febd110e3d",
+      "title": "Undergraduate courses - Singapore University of Technology and Design (SUTD)",
+      "snapshotFile": "raw/0080-e3d24c31c08b.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "PROCESSED",
+    "checkedAt": "2026-10-07T06:42:42.481Z",
+    "seedUrls": [
+      "https://www.sutd.edu.sg/education/undergraduate/courses",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=2",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=3",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=23",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=1",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=4",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=22",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=21",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=5",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=20",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=6",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=19",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=7",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=18",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=8",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=17",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=9",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=16",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=10",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=15",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=11",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=14",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=12",
+      "https://www.sutd.edu.sg/education/undergraduate/courses?paged=13",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/",
+      "https://www.sutd.edu.sg/education/undergraduate/courses/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/overview/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-tec/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/overview/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/",
+      "https://www.sutd.edu.sg/education/undergraduate/courses/?",
+      "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=2",
+      "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=3",
+      "https://www.sutd.edu.sg/education/undergraduate/courses/?paged=23",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/about/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/why/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/who-we-are/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/apply/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/special-track-pathway",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/programme-structure/academic-pathways/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/who-we-are/faculty/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/who-we-are/testimonials/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sutd-duke-nus-special-track/faq/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/about/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/who-we-are/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/faq/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/sharp-programme-structure/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/honours-sessions/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/programme-structure/research/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/who-we-are/students/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/who-we-are/testimonials/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/application/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/financial/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/sharp/application-and-financing/scholarships/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/overview/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/director-message/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/why/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/programme-structure/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/applications-fees-scholarships/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/step/student-achievements/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/overview/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/programme-structure/",
+      "https://www.sutd.edu.sg/education/undergraduate/special-programmes/ustep/application-and-scholarship/",
+      "https://www.sutd.edu.sg/course/01-018-design-thinking-project-i/",
+      "https://www.sutd.edu.sg/course/01-019-design-thinking-project-ii/",
+      "https://www.sutd.edu.sg/course/01-020-design-thinking-project-iii/",
+      "https://www.sutd.edu.sg/course/01-101-technologies-for-sustainable-global-health/",
+      "https://www.sutd.edu.sg/course/01-102-energy-systems-and-management/",
+      "https://www.sutd.edu.sg/course/01-106-engineering-management/",
+      "https://www.sutd.edu.sg/course/01-107-urban-transportation/",
+      "https://www.sutd.edu.sg/course/01-115-science-of-sound-acoustics-audio-music/",
+      "https://www.sutd.edu.sg/course/01-119-nanoelectronics-and-technology/",
+      "https://www.sutd.edu.sg/education/undergraduate/capstone/for-students/",
+      "https://www.sutd.edu.sg/course/02-001-global-humanities-literature-philosophy-and-ethics/",
+      "https://www.sutd.edu.sg/course/02-003-social-science-understanding-behaviour-culture-society/",
+      "https://www.sutd.edu.sg/course/02-005-introduction-to-human-centred-design/",
+      "https://www.sutd.edu.sg/course/02-102-ht-the-world-since-1400/",
+      "https://www.sutd.edu.sg/course/02-104ts-the-history-of-international-development-in-asia-the-role-of-engineers-and-designers/",
+      "https://www.sutd.edu.sg/course/02-105dh-sages-through-the-ages-readings-in-early-indian-and-chinese-religion-and-philosophy/",
+      "https://www.sutd.edu.sg/course/02-108dh-modern-china-pluralism-and-beyond-territoriality/",
+      "https://www.sutd.edu.sg/course/02-110dh-the-chinese-lyrical-tradition-arts-literature-and-landscape-design/",
+      "https://www.sutd.edu.sg/course/02-120dh-history-of-traditional-chinese-short-fiction/",
+      "https://www.sutd.edu.sg/course/02-121dh-the-question-of-being/",
+      "https://www.sutd.edu.sg/course/02-124ht-the-modern-east-asian-nexus-a-history/",
+      "https://www.sutd.edu.sg/course/02-128dh-classical-south-and-southeast-asian-literature-and-art/",
+      "https://www.sutd.edu.sg/course/02-132dh-being-and-time/",
+      "https://www.sutd.edu.sg/course/02-135ht-the-question-of-technology/",
+      "https://www.sutd.edu.sg/course/02-137dh-introduction-to-digital-humanities/",
+      "https://www.sutd.edu.sg/course/02-140ts-shaping-futures-innovation-work-and-society/",
+      "https://www.sutd.edu.sg/course/02-143-artificial-intelligence-and-ethics/",
+      "https://www.sutd.edu.sg/course/02-144dh-being-in-the-world-from-homer-and-heidegger-to-a-i/",
+      "https://www.sutd.edu.sg/course/qualitative-quantitative-research-methods/",
+      "https://www.sutd.edu.sg/course/sustainabiity-science-and-systems-thinking/",
+      "https://www.sutd.edu.sg/course/02-146-financing-cities-of-the-future-theory-and-practice/",
+      "https://www.sutd.edu.sg/course/02-147ts-interventions-in-design-technology-and-society/",
+      "https://www.sutd.edu.sg/course/02-148ht-geographies-of-money-and-finance/",
+      "https://www.sutd.edu.sg/course/02-151ht-digital-worlds-space-and-spatialities-geographical-perspectives-on-digitalisation/",
+      "https://www.sutd.edu.sg/course/02-152ts-urban-theory/",
+      "https://www.sutd.edu.sg/course/02-153ts-a-history-of-nuclear-strategy-design-technology-and-society/",
+      "https://www.sutd.edu.sg/course/02-156dh-games-of-histories/",
+      "https://www.sutd.edu.sg/course/02-158dh-kings-monks-and-merchants-a-history-of-asia-before-1750/",
+      "https://www.sutd.edu.sg/course/02-159ht-equitable-tech-reimagining-our-digital-infrastructures/",
+      "https://www.sutd.edu.sg/course/02-163-international-trade-free-trade-governance-and-technology/",
+      "https://www.sutd.edu.sg/course/introduction-to-discrete-mathematics/",
+      "https://www.sutd.edu.sg/course/introduction-to-healthcare-technology/",
+      "https://www.sutd.edu.sg/course/introduction-to-machine-learning/",
+      "https://www.sutd.edu.sg/course/introduction-to-probability-and-statistics/",
+      "https://www.sutd.edu.sg/course/introduction-to-programming/",
+      "https://www.sutd.edu.sg/course/linear-algebra-multivariable-calculus/"
+    ],
+    "pages": 80
+  },
+  "snapshotRecovery": {
+    "recoveredAt": "2026-10-09T02:28:34.294Z",
+    "rule": "Explicit degree-title links and H1 headings from saved official pages only."
+  },
+  "nameTranslation": {
+    "translatedAt": "2026-10-09T06:31:04.493Z",
+    "method": "machine translation with education terminology normalisation",
+    "reviewStatus": "DRAFT"
+  }
+}

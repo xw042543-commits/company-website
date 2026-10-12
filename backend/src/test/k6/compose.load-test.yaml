@@ -1,0 +1,24 @@
+name: community-load-test
+services:
+  postgres:
+    image: postgres:17.11
+    environment:
+      POSTGRES_DB: community_load_test
+      POSTGRES_USER: community_load_test
+      POSTGRES_PASSWORD: isolated-load-only
+    ports: ["127.0.0.1:55432:5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U community_load_test -d community_load_test"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+  redis:
+    image: redis:8.2.9
+    ports: ["127.0.0.1:56379:6379"]
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.4.5
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    ports: ["127.0.0.1:19200:9200"]

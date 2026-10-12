@@ -1,0 +1,903 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-nottingham",
+    "displayName": "University of Nottingham",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.nottingham.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.nottingham.ac.uk",
+      "nottingham.ac.uk"
+    ],
+    "discoveredUrls": 126,
+    "parsedProgrammes": 13,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/research-courses-explained.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/distance-learning-online-courses.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/part-time-courses.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses-china-malaysia.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=A&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=B&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=C&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=D&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=E&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=F&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=G&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=H&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=I&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=K&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=L&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=M&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=N&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=O&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=P&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=Q&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=R&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=S&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=T&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=V&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=W&year=2027&studytype=&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=research",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Cancer-Sciences-BSc-Hons-U6UCNRSC.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Medicine-BMBS.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Medicine-with-a-Foundation-Year-BMBS.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Graduate-Entry-Medicine-BMBS.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Medicine-BMBS-U6UBMBSC3.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/2026/Medicine-with-a-Foundation-Year-BMBS.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?studytype=distance",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?studytype=part",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=A&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=B&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=C&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=D&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=E&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=F&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=G&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=H&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=I&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=K&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=L&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=M&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=N&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=O&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=P&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=Q&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=R&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=S&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=T&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=V&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?letter=W&year=2027&studytype=part&level=all&search_keywords=",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/accounting-and-finance-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:05.492Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/additive-manufacturing-and-3d-printing-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:07.551Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-architecture-design-march",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:10.604Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-building-performance-engineering-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:11.685Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-chemical-engineering-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:13.698Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-civil-engineering-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:15.886Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-clinical-practice-msc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:17.874Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-clinical-practitioner-degree-apprenticeship-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/computer-science-artificial-intelligence",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-electrical-and-electronic-engineering-with-extended-research-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-materials-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/ageingrehab",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/agricultural-systems-management-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/ai-and-digital-chemistry-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/american-and-canadian-studies-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/american-studies-mres",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/american-studies-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/american-studies-and-history-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/anatomy-physiology-nutrition-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/animal-nutrition-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/animal-sciences-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/applied-linguistics-ma",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/applied-linguistics-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/applied-linguistics-online-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/applied-linguistics-and-english-language-teaching-ma",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/applied-linguistics-and-english-language-teaching-online",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/applied-linguistics-with-teaching-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/appliedpsychology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/applied-sport-and-exercise-medicine-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/applied-translation-studies-ma",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/archaeology-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/archaeology-mres",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/archaeology-by-distance-learning-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/architecture-arb-riba-part-2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/architecture-science-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/architecture-social-science-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/architecture-and-sustainable-design-march",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/architecture-design-social-science-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/architecture-with-collaborative-practice-research-arb-riba-part-2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/art-history-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/art-history-mres",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/index.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/index.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/bmbs-landing-page.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/whats-the-difference.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/applying-to-medicine.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/applying-to-gem.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/undergraduate-selection-process.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/graduate-entry-selection-process.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/fitness-to-study.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/clinical-placements.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/support.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/postgraduate/index.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/business-consulting-and-analytics-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/classics-by-distance-learning-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/clinical-microbiology-distance-learning-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/education-online-msc",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/english-online-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/english-online-ma",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/history-by-distance-learning-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/modern-languages-distance-learning-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/music-by-distance-learning-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/research/philosophy-by-distance-learning-phd",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/pgstudy/course/taught/postgraduate-certificate-education-international-pgcei",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Cancer-Sciences-BSc-Hons.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:10.838Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Science-with-Foundation-Year-BSc-Hons-U6USCNCEY.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:10.838Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Science-with-Foundation-Year-MSci-Hons-U7USCNCE5.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:15:10.838Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/ugstudy/course/Nursing-(Adult)-BSc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:34.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/ugstudy/course/Nursing-(Child)-BSc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:34.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-nottingham",
+      "url": "https://www.nottingham.ac.uk/ugstudy/course/Nursing-(Mental-Health)-BSc",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:16:34.225Z",
+      "error": null
+    }
+  ]
+}

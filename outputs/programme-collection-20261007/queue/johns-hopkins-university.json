@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "johns-hopkins-university",
+    "displayName": "Johns Hopkins University",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.jhu.edu/"
+    ],
+    "allowedHosts": [
+      "www.jhu.edu",
+      "jhu.edu"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.jhu.edu/：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

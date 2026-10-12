@@ -1,0 +1,861 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "imperial-college-london",
+    "displayName": "Imperial College London",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.imperial.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.imperial.ac.uk",
+      "imperial.ac.uk"
+    ],
+    "discoveredUrls": 120,
+    "parsedProgrammes": 70,
+    "pagesRead": 160,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/compare/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/aeronautical-engineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1699807&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1215803&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1215804&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1215805&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/aeronautics-spacecraft-engineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1216182&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biochemistry-bsc/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1217781&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1217786&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1217791&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biochemistry-msci/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1608038&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biochemistry-language/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1256779&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1217825&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218384&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218392&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biochemistry-management/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1217806&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1217811&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biological-sciences/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218439&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218445&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218451&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biological-sciences-msci/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1608196&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biological-sciences-language/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1256861&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218461&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218468&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218476&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biological-sciences-management/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218407&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1218422&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biomaterials-tissue-engineering-meng/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1215943&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/2027/biomedical-engineering/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1216471&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1216473&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?addCourse=1216474&courseType=undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?courseType=undergraduate&page=2",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?courseType=undergraduate&page=3",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?courseType=undergraduate&page=4",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?courseType=undergraduate&page=5",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/?courseType=undergraduate&page=7",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:30.041Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/?addCourse=1699807",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:53.569Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/?addCourse=1215803",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:55.566Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/?addCourse=1215804",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:57.610Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/?addCourse=1215805",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:59.593Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautics-spacecraft-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:31.880Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautics-spacecraft-engineering/?addCourse=1216182",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:01.587Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-bsc/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:33.860Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-bsc/?addCourse=1217781",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:03.592Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-bsc/?addCourse=1217786",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:05.612Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-bsc/?addCourse=1217791",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:07.605Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-msci/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:35.693Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-msci/?addCourse=1608038",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:09.617Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:37.706Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-language/?addCourse=1256779",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:11.629Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-language/?addCourse=1217825",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:13.632Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-language/?addCourse=1218384",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:15.642Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-language/?addCourse=1218392",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:17.649Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:39.708Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-management/?addCourse=1217806",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:19.666Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-management/?addCourse=1217811",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:21.856Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:41.719Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences/?addCourse=1218439",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:23.683Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences/?addCourse=1218445",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:25.682Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences/?addCourse=1218451",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:27.703Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-msci/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:43.720Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-msci/?addCourse=1608196",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:29.704Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:45.733Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-language/?addCourse=1256861",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:31.711Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-language/?addCourse=1218461",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:33.731Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-language/?addCourse=1218468",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:35.731Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-language/?addCourse=1218476",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:37.728Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:47.741Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-management/?addCourse=1218407",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:39.732Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-management/?addCourse=1218422",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:41.738Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomaterials-tissue-engineering-meng/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:49.746Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomaterials-tissue-engineering-meng/?addCourse=1215943",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:43.740Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomedical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:50:51.763Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomedical-engineering/?addCourse=1216471",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:45.751Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomedical-engineering/?addCourse=1216473",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:47.756Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomedical-engineering/?addCourse=1216474",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:49.768Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/?removeCourse=1699807",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:51.817Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/?removeCourse=1215803",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:53.806Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/?removeCourse=1215804",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:55.793Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/?removeCourse=1215805",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:57.792Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautics-spacecraft-engineering/?removeCourse=1216182",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:51:59.805Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-bsc/?removeCourse=1217781",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:01.823Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-bsc/?removeCourse=1217786",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:03.816Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-bsc/?removeCourse=1217791",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:05.827Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-msci/?removeCourse=1608038",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:07.820Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-language/?removeCourse=1256779",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:09.825Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-language/?removeCourse=1217825",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:11.839Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-language/?removeCourse=1218384",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:13.844Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-language/?removeCourse=1218392",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:16.101Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-management/?removeCourse=1217806",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:17.855Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biochemistry-management/?removeCourse=1217811",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:19.862Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences/?removeCourse=1218439",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:22.048Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences/?removeCourse=1218445",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:23.877Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences/?removeCourse=1218451",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:25.880Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-msci/?removeCourse=1608196",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:27.891Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-language/?removeCourse=1256861",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:29.891Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-language/?removeCourse=1218461",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:31.897Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-language/?removeCourse=1218468",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:33.903Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-language/?removeCourse=1218476",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:35.916Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-management/?removeCourse=1218407",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:37.923Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biological-sciences-management/?removeCourse=1218422",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:39.933Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomaterials-tissue-engineering-meng/?removeCourse=1215943",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:41.943Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomedical-engineering/?removeCourse=1216471",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:43.959Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomedical-engineering/?removeCourse=1216473",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:45.964Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/biomedical-engineering/?removeCourse=1216474",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:52:47.983Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "imperial-college-london",
+      "url": "https://www.imperial.ac.uk/study/apply/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

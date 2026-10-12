@@ -1,0 +1,1631 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "nanyang-technological-university",
+    "displayName": "Nanyang Technological University, Singapore",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.ntu.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.ntu.edu.sg",
+      "ntu.edu.sg"
+    ],
+    "discoveredUrls": 229,
+    "parsedProgrammes": 148,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/30a0d6cf-ee5e-4d4c-8a90-e2b020aac53f%20'30a0d6cf-ee5e-4d4c-8a90-e2b020aac53f&",
+      "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/7e760edc-7798-4772-97d1-0e1c480f815c%20'7e760edc-7798-4772-97d1-0e1c480f815c&",
+      "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/1c77ad83-4a90-41f1-8172-8edec3caf93e%20'1c77ad83-4a90-41f1-8172-8edec3caf93e&",
+      "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/f7cfc941-a969-404f-931a-729a0abf3ef8%20'f7cfc941-a969-404f-931a-729a0abf3ef8&",
+      "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/101b8796-be55-4428-bb39-2d30e4e83917%20'101b8796-be55-4428-bb39-2d30e4e83917&",
+      "HTTP 400：https://www.ntu.edu.sg/education/undergraduate-programme/c71dad24-10d2-4dd3-89b3-8e22eeb9231b%20'c71dad24-10d2-4dd3-89b3-8e22eeb9231b&"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/hass/admissions/programmes/minors",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/eee/admissions/programmes/undergraduate-programmes/course-exemptions-(eee)",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/eee/admissions/programmes/undergraduate-programmes/internship",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/mae/admissions/current-students/undergraduate/special-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/ntupreneur/programmes/undergraduate-programmes/second-major-in-entrepreneurship",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/eee/admissions/programmes/undergraduate-programmes/curriculum-(eesu)",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/programme/bsftfd/programme-ay2026",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/programme/bsftfd/programme-ay2025",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/programme/bsftfd/programme-ay2024",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/programme/bsf/programme-(previous)",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/media/docs/librariesprovider117/admission/courses/em5109.pdf?sfvrsn=64b6c573_12",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/media/docs/librariesprovider117/admission/courses/em5103.pdf?sfvrsn=158b605_9",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/media/docs/librariesprovider117/admission/courses/eg1001.pdf?sfvrsn=61fdd71b_18",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/soh/admissions/undergraduate/philosophy/course-descriptions/major-prescribed-elective-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/media/docs/librariesprovider117/admission/courses/em5101.pdf?sfvrsn=fb4e2493_6",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/sbs/admissions/programmes/undergraduate/programme/bsf/programme-2022",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/programme/bsf/programme-2021",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/sbs/admissions/programmes/undergraduate/curriculum/bsf/bsfst-curriculum-ay2022",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/curriculum/bsf/curriculum-ay2020-onwards",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/curriculum/bsf/curriculum-ay2019",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/curriculum/bsf/curriculum-ay2018",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/curriculum/bsf/curriculum-ay2015-to-ay2017",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/curriculum/bsf/curriculum-ay2014",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/programmes/undergraduate/minor-in-life-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/eee/admissions/programmes/undergraduate-programmes/course-exemptions-(eee)",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/ntupreneur/programmes/undergraduate-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/ntupreneur/programmes/postgraduate-programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/ntupreneur/programmes/professional-development",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/ntupreneur/programmes/undergraduate-programmes/MiE",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/ntupreneur/programmes/undergraduate-programmes/other-electives",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/ntupreneur/programmes/undergraduate-programmes/OEP",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "http://ntu.edu.sg/ntupreneur/programmes/undergraduate-programmes/OEP",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/innovation/programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/ntupreneur/programmes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/cee/admissions/undergraduate/minor",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/soh/admissions/undergraduate/minor-second-major/minor-in-environmental-humanities",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/cee/admissions/undergraduate/ene/admission",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/cee/admissions/undergraduate/specialisation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/cee/admissions/undergraduate/environmental-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/double-degree-in-environmental-engineering-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:13.740Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:17.691Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-a-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:09.720Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-second-major-in-society-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:15.669Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:21.713Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-a-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:59.735Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/scholarships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/financial-aid",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-fees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/double-degree-in-electrical-and-electronic-engineering-and-social-sciences-(economics)",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-electrical-and-electronic-engineering-(eee)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:40.833Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-information-engineering-and-media-iem",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/mae/admissions/current-students/undergraduate/course-exemption",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/mae/admissions/current-students/undergraduate/course-registration",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/admissions/undergraduate/admission-guide/diploma-awarded-by-a-polytechnic-or-equivalent-institution-in-singapore",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-(environmental-engineering)-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:07.659Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-second-major-in-future-foods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:49.621Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/cee/admissions/undergraduate/cee/admission",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/cee/admissions/undergraduate/civil-engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-civil-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:18.701Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-civil-engineering-with-a-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:28.748Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-civil-engineering-with-a-second-major-in-society-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:19.749Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-civil-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:22.710Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-(civil)-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:26.733Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/double-degree-in-civil-engineering-and-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-chemistry-and-biological-chemistry",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-chemistry-and-biological-chemistry-with-second-major-in-data-analytics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-chemistry-and-biological-chemistry-with-second-major-in-environmental-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:23.436Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/cee/admissions/undergraduate/second-major",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-civil-engineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:01.708Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/admissions/undergraduate/admission-guide",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/double-degree-in-bachelor-of-engineering-(chemical-and-biomolecular-engineering)-and-bachelor-of-social-science-(economics)",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/chemical-biomolecular-engineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:04.635Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/chemical-and-biomolecular-engineering-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:14.665Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/chemical-and-biomolecular-engineering-with-second-major-in-business-(international-trading)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:12.657Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/chemical-and-biomolecular-engineering-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:10.650Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-chemical-biomolecular-engineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:06.688Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-chemical-and-biomolecular-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:04.574Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/undergraduate/curriculum/bsftfd/bsftfd-curriculum-ay2025-26",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/undergraduate/curriculum/bsftfd/bsftfd-curriculum-ay2024-25",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-bioengineering-with-second-major-in-pharmaceutical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:17.806Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-bioengineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:03.780Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/double-degree-in-bachelor-of-engineering-(bioengineering)-and-bachelor-of-social-science-(economics)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:58.192Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bioengineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:11.807Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-bioengineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:13.807Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bioengineering-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:09.797Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bioengineering-with-second-major-in-business-(international-trading)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:07.800Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bioengineering-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:05.783Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-computing-in-computer-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:43.528Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science-and-public-policy-and-global-affairs",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:41.765Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science-with-second-major-in-data-analytics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:36.406Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/soh/admissions/undergraduate/chinese/chinese-major-core/category-a-chinese-literature-and-culture",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/soh/admissions/undergraduate/chinese/chinese-major-core/general-education-requirement-(ger)",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/soh/admissions/undergraduate/linguistics-and-multilingual-studies/course-descriptions/major-prescribed-electives",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/soh/admissions/undergraduate/history/course-description/major-prescribed-electives-(mpe)",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/soh/admissions/undergraduate/history/course-description/major-prescribed-electives-(mpe)",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:33.742Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/sbs/admissions/undergraduate/curriculum/bsf/bsfst-curriculum-ay2021",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/ntu-nie-teaching-scholars-programme",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-(hons)-in-double-major-academic-major-and-education-major",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-arts-in-history-and-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-arts-in-malay-studies-and-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-arts-in-music-and-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-arts-in-tamil-studies-and-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-arts-in-english-literature-and-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-arts-in-english-language-and-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-arts-in-chinese-studies-and-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-arts-in-art-and-education",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:53.824Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-arts-in-geography-and-education",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:51.562Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/admissions/undergraduate/admission-guide/part-time-b",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://wcms-prod-admin.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-fees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://ntu.edu.sg/admissions/undergraduate/admission-guide",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/science/admissions/undergraduate/second-major-in-entrepreneurship",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-second-major-in-future-foods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:49.621Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-information-engineering-and-media-(iem)-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:51.730Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-information-engineering-and-media-(iem)-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:51.730Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-electrical---electronic-engineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:53.696Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-electrical---electronic-engineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:53.696Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-robotics-with-a-second-major-in-society-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:55.900Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-robotics-with-a-second-major-in-society-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:55.900Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-science-with-double-majors-in-process-engineering-and-synthetic-chemistry",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:57.321Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-science-with-double-majors-in-process-engineering-and-synthetic-chemistry",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:57.321Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-a-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:26:59.735Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-civil-engineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:01.708Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-chemistry-and-biological-chemistry-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:03.812Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-chemistry-and-biological-chemistry-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:03.812Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-mechanical-engineering-with-a-second-major-in-society-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:05.359Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-mechanical-engineering-with-a-second-major-in-society-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:05.359Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-(environmental-engineering)-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:07.659Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-a-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:09.720Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-electrical-electronic-engineering-with-second-major-in-society-and-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:11.690Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-electrical-electronic-engineering-with-second-major-in-society-and-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:11.690Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/double-degree-in-environmental-engineering-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:13.740Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-second-major-in-society-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:15.669Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:17.691Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-civil-engineering-with-a-second-major-in-society-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:19.749Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-environmental-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:21.713Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-chemistry-and-biological-chemistry-with-second-major-in-environmental-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:23.436Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-chemical---biomolecular-engineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:25.741Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-chemical---biomolecular-engineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:25.741Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-biological-sciences-with-second-major-in-future-foods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:27.452Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-biological-sciences-with-second-major-in-future-foods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:27.452Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-bioengineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:29.737Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-bioengineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:29.737Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-computing-(hons)-in-computer-science-with-a-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:31.761Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-computing-(hons)-in-computer-science-with-a-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:31.761Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:33.742Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:36.406Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:37.757Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-biological-sciences-with-second-major-in-food-science-and-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:39.503Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-biological-sciences-with-second-major-in-food-science-and-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:39.503Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science-and-public-policy-and-global-affairs",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:41.765Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:43.528Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/accountancy-for-future-leaders-bachelor-of-accountancy-in-sustainability-management-and-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:45.528Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/accountancy-for-future-leaders-bachelor-of-accountancy-in-sustainability-management-and-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:45.528Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-business-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:47.547Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-business-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:47.547Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-accountancy-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:49.560Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-accountancy-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:49.560Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-arts-in-geography-and-education",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:51.562Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-arts-in-art-and-education",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:53.824Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-electrical-and-electronic-engineering-(part-time)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:57.861Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-electrical-and-electronic-engineering-(part-time)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:27:57.861Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-business-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:49.782Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/business/education/undergraduate-programme/bachelor-of-business-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:49.782Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-(hons)-in-computer-engineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:52.030Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-(hons)-in-computer-engineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:52.030Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-science-with-double-majors-in-process-engineering-and-synthetic-chemistry",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:55.772Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-aerospace-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:57.746Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-aerospace-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:57.746Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-aerospace-engineering-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:59.756Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-aerospace-engineering-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:38:59.756Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-aerospace-engineering-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:01.767Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-aerospace-engineering-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:01.767Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-bioengineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:03.780Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bioengineering-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:05.783Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bioengineering-with-second-major-in-business-(international-trading)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:07.800Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bioengineering-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:09.797Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bioengineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:11.807Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-bioengineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:13.807Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-bioengineering-with-second-major-in-future-foods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:15.809Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-bioengineering-with-second-major-in-future-foods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:15.809Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-bioengineering-with-second-major-in-pharmaceutical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:17.806Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/adm/programmes/undergraduate-programmes/bachelor-of-fine-arts-programme-(admission-year-2026)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:25.870Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/adm/programmes/undergraduate-programmes/bachelor-of-fine-arts-programmes/bachelor-of-fine-arts-programmes",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:39.940Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bioengineering-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:46.168Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bioengineering-with-second-major-in-business-(international-trading)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:48.171Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bioengineering-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:49.962Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-bioengineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:52.270Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-bioengineering-with-second-major-in-future-foods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:54.210Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-bioengineering-with-second-major-in-pharmaceutical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:56.233Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/double-degree-in-bachelor-of-engineering-(bioengineering)-and-bachelor-of-social-science-(economics)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:58.192Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-bioengineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:39:59.971Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-chemical-and-biomolecular-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:04.574Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/chemical-biomolecular-engineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:04.635Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-chemical-biomolecular-engineering-with-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:06.688Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-chemical---biomolecular-engineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:08.650Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/chemical-and-biomolecular-engineering-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:10.650Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/chemical-and-biomolecular-engineering-with-second-major-in-business-(international-trading)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:12.657Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/chemical-and-biomolecular-engineering-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:14.665Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-chemical-and-biomolecular-engineering-with-second-major-in-future-foods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:16.677Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-chemical-and-biomolecular-engineering-with-second-major-in-future-foods",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:16.677Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-civil-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:18.701Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-civil-engineering-with-work-study-programme",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:20.717Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-civil-engineering-with-work-study-programme",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:20.717Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-civil-with-second-major-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:22.710Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-(civil)-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:26.733Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-civil-engineering-with-a-second-major-in-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:28.748Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-civil-engineering-with-a-second-major-in-society-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:30.771Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-civil-engineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:32.781Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-electrical---electronic-engineering-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:34.789Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-electrical---electronic-engineering-with-second-major-in-data-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:34.789Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-electrical-electronic-engineering-with-second-major-in-society-and-urban-systems",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:36.804Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-electrical---electronic-engineering-with-second-major-in-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:38.806Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-electrical-and-electronic-engineering-(eee)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:40.833Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-electrical-and-electronic-engineering-(part-time)",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:42.843Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-electrical-and-electronic-engineering-(eee)-and-second-major-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:44.907Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-electrical-and-electronic-engineering-(eee)-and-second-major-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:44.907Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-engineering-in-electrical-and-electronic-engineering-(eee)-and-second-major-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:46.851Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-electrical-and-electronic-engineering-(eee)-and-second-major-entrepreneurship",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:46.851Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/bachelor-of-engineering-in-environmental-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:48.877Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/double-degree-in-aerospace-engineering-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:52.859Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/double-degree-in-aerospace-engineering-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:52.859Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/double-degree-in-mechanical-engineering-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:54.874Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "nanyang-technological-university",
+      "url": "https://www.ntu.edu.sg/engineering/coe-programmes/undergraduate/coe-programme-detail/double-degree-in-mechanical-engineering-and-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:40:54.874Z",
+      "error": null
+    }
+  ]
+}

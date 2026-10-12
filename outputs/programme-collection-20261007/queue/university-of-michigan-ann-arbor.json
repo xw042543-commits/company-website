@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "university-of-michigan-ann-arbor",
+    "displayName": "University of Michigan-Ann Arbor",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://umich.edu/"
+    ],
+    "allowedHosts": [
+      "umich.edu",
+      "www.umich.edu"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "HTTP 403：https://umich.edu/"
+    ]
+  },
+  "queue": []
+}

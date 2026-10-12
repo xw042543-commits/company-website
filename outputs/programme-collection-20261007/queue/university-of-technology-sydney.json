@@ -1,0 +1,591 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "university-of-technology-sydney",
+    "displayName": "University of Technology Sydney",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.uts.edu.au/study"
+    ],
+    "allowedHosts": [
+      "www.uts.edu.au",
+      "uts.edu.au"
+    ],
+    "discoveredUrls": 80,
+    "parsedProgrammes": 33,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 404：https://www.uts.edu.au/for-students/experience-uts/undergraduate/~/link/ebcddf01964644f9a59d8c899fc1df19.aspx",
+      "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10359",
+      "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/2025/C10359",
+      "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c09057",
+      "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10228",
+      "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10143",
+      "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10122",
+      "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c20061",
+      "robots.txt 禁止抓取：https://coursehandbook.uts.edu.au/course/current/c10026"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors/business-accounting",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors/business-advertising-and-marketing-communications",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors/business-business-analytics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors/business-human-resource-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors/business-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors/business-finance",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors/business-international-business",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors/business-management",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors/business-marketing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-communication-in-digital-and-social-media-bachelor-of-creative-intelligence-and-innovation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:59:42.683Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-sport-and-exercise-science-honours",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:59:54.501Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-marine-biology-and-climate-change",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:59:56.524Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-information-technology-co-op",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:59:58.606Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-nursing",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:00.389Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/diploma-in-fashion-and-sustainability",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:06.539Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:00:10.808Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/master-of-pharmacy",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:20.554Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-design-in-fashion-and-textiles",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:22.676Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-engineering-honours-bachelor-of-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:24.747Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/master-of-data-science-and-innovation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:26.748Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-creative-intelligence-and-innovation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:28.805Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-design-in-fashion-and-textiles-bachelor-of-creative-intelligence-and-innovation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:30.778Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-design-in-visual-communication-bachelor-of-creative-intelligence-and-innovation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:33.009Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-sport-and-exercise-science-bachelor-of-creative-intelligence-and-innovation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:34.863Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/graduate-certificate-in-diabetes-education-and-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:36.813Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/doctor-of-philosophy-phd-thesis-orthoptics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:38.708Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-science-master-of-teaching-in-secondary-education",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:40.845Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/doctor-of-philosophy-phd-thesis-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:42.751Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-mathematical-sciences-honours",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:44.821Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-forensic-science-bachelor-of-creative-intelligence-and-innovation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:46.879Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-information-systems-bachelor-of-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:48.810Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/master-of-interaction-design-extension",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:50.692Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/doctor-of-philosophy-phd-thesis-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:52.711Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://handbook.uts.edu.au/courses/c10122",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-nursing-bachelor-of-creative-intelligence-and-innovation",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:56.862Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-nursing-honours",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:59:58.825Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-midwifery",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:00.795Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-economics-master-of-teaching-in-secondary-education",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:03.012Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/majors",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:07.238Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-business-bachelor-of-laws",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:08.872Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/undergraduate/faqs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/a-spark-of-determination-leads-to-a-passion-for-innovation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/what-its-really-like-to-be-a-fashion-designer",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/a-spark-of-science-added-to-the-roar-of-premiership-victory",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/living-a-childhood-dream-from-the-classroom-to-open-water",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/how-one-student-discovered-their-future-in-tech",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/a-different-path-a-clearer-purpose",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/~/link/ebcddf01964644f9a59d8c899fc1df19.aspx",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/startup-founders-share-their-top-tips-for-those-starting-out",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/careers-in-fashion-that-arent-being-a-designer",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/the-future-of-film-in-australia",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/parents-questions-uts-open-day",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/how-study-led-to-job-opportunities-before-graduation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/your-child-is-applying-for-university.-what-do-you-need-to-know",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/postgraduate/climate-solutions-need-diverse-skills.-heres-what-matters-most",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/postgraduate/heres-why-supply-chain-analysts-have-never-been-more-critical",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/why-communication-matters-and-simple-ways-to-get-better-at-it",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/how-to-study-like-an-elite-athlete",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/making-the-most-of-university--one-yes-at-a-time",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/what-uni-students-wish-their-parents-knew-before-they-started-university",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/what-practical-learning-really-means-for-your-time-at-university",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/experience-uts/undergraduate/finding-connection-and-community-at-uts",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://coursehandbook.uts.edu.au/course/current/c10359",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://coursehandbook.uts.edu.au/course/2025/C10359",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://coursehandbook.uts.edu.au/course/current/c09057",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://coursehandbook.uts.edu.au/course/current/c10228",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://coursehandbook.uts.edu.au/course/current/c10143",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://coursehandbook.uts.edu.au/course/current/c10122",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "http://www.uts.edu.au/future-students/undergraduate/high-school-students/year-12-adjustment-factor-scheme",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://coursehandbook.uts.edu.au/course/current/c20061",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://handbook.uts.edu.au/course/current/c10306",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://coursehandbook.uts.edu.au/course/current/c10026",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/for-students/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/master-of-business-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:36.256Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/graduate-certificate-in-business-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:38.443Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-technology-sydney",
+      "url": "https://www.uts.edu.au/courses/bachelor-of-business-honours",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:00:40.352Z",
+      "error": null
+    }
+  ]
+}

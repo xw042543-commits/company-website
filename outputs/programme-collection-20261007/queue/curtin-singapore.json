@@ -1,0 +1,406 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "curtin-singapore",
+    "displayName": "Curtin Singapore",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://curtin.edu.sg/"
+    ],
+    "allowedHosts": [
+      "curtin.edu.sg",
+      "www.curtin.edu.sg"
+    ],
+    "discoveredUrls": 55,
+    "parsedProgrammes": 27,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/study-areas/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/study-areas/business/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/study-areas/communications/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/study-areas/information-technology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/study-areas/health-sciences/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/diploma/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:52.497Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/english-courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/study-abroad/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/phd/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:00.660Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-predictive-analytics-data-science-major/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:02.546Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:29:59.258Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/accounting/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/international-business/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/logistics-and-supply-chain-management/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/marketing/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/accounting-and-finance/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance-and-management/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance-and-marketing/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/logistics-and-supply-chain-management-and-marketing/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management-and-human-resource-management/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management-and-marketing/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:26.891Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/journalism-and-marketing/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/journalism-and-web-media/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/communications/web-media-and-marketing/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:34.463Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-information-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:36.392Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:30:38.479Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/diploma/diploma-of-arts-and-creative-industries/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:06.807Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/diploma/diploma-of-commerce/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:08.660Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/diploma/diploma-of-computing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:11.000Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-business-fundamentals/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:12.690Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:14.041Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-supply-chain-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:15.344Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-supply-chain-management-professional/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:17.399Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-clinical-leadership/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:19.339Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-wound-ostomy-continence-practice/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:21.414Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:24.071Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/clinical-leadership-specialisation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-advanced-practice/wound-ostomy-and-continence-practice-specialisation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:30.052Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-artificial-intelligence-major/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:31.461Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-computer-science-major/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:32.919Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/master-of-computing-cyber-security-major/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:35.647Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:37.389Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-cyber-security/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:39.518Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-certificate-in-predictive-analytics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:41.598Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/postgraduate/graduate-diploma-in-predictive-analytics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:43.416Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/english-courses/english-for-academic-purposes/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:45.424Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/english-courses/academic-english-4/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "curtin-singapore",
+      "url": "https://www.curtin.edu.sg/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+<view class="detail-page">
+ <block wx:if="{{state === 'ready'}}">
+  <application-card application="{{detail.application}}" compact="{{true}}" />
+  <view class="detail-tabs"><button wx:for="{{tabs}}" wx:key="key" class="tab {{tab === item.key ? 'tab--active' : ''}}" data-key="{{item.key}}" bindtap="chooseTab">{{item.label}}</button></view>
+  <view wx:if="{{tab === 'progress'}}" class="timeline">
+   <view wx:for="{{steps}}" wx:key="number" wx:for-item="step" class="timeline-step {{step.current ? 'timeline-step--current' : ''}}">
+    <view class="track"><view class="node {{step.complete || step.current ? 'node--green' : ''}}">{{step.complete ? '✓' : step.number}}</view><view wx:if="{{step.number !== 8}}" class="connector"></view></view>
+    <view class="step-body"><button class="step-heading" data-number="{{step.number}}" bindtap="expand" aria-expanded="{{expanded === step.number}}"><view class="step-heading-copy"><view class="step-title">{{step.title}}</view><view wx:if="{{step.date}}" class="step-date">{{step.date}}</view><view wx:if="{{step.note}}" class="step-note">{{step.note}}</view></view><text class="disclosure">{{expanded === step.number ? '▾' : '▸'}}</text></button>
+     <view wx:if="{{expanded === step.number}}" class="stage-panel">
+      <view wx:if="{{step.total}}" class="panel-heading">材料进度 <text>{{step.approved}} / {{step.total}}</text></view>
+      <view wx:for="{{step.documents}}" wx:key="id" class="document-row"><text class="status-symbol status-symbol--{{item.tone}}">{{item.symbol}}</text><text class="document-name">{{item.title}}</text><text class="status-text status-text--{{item.tone}}">{{item.statusLabel}}</text></view>
+      <view wx:if="{{!step.total}}" class="quiet">此阶段暂无材料清单</view>
+      <view class="stage-fees"><text>费用状态</text><text wx:if="{{!step.fees.length}}">暂无费用记录</text></view><view wx:for="{{step.fees}}" wx:key="id" class="fee-row"><text>{{item.title}}</text><text>{{item.displayAmount}} · {{item.statusLabel}}</text></view>
+      <view class="stage-actions"><button wx:if="{{step.needsUpload}}" class="action-primary" bindtap="documents">补充材料</button><button class="action-secondary" data-number="{{step.number}}" bindtap="review">查看审核意见</button></view>
+     </view>
+    </view>
+   </view>
+  </view>
+  <view wx:elif="{{tab === 'documents'}}" class="documents-panel"><view class="section-copy">支持 PDF、JPG、PNG，每份文件不超过 1 MB。</view><view wx:if="{{!detail.documents.length}}" class="empty-copy">暂无材料清单，顾问添加后会在这里显示。</view><view wx:for="{{detail.documents}}" wx:key="id" class="document-card"><view class="document-row"><text class="document-name">{{item.title}}</text><text class="status-text status-text--{{item.tone}}">{{item.statusLabel}}</text></view><view wx:if="{{item.filename}}" class="filename">{{item.filename}}</view><view wx:if="{{item.reviewNote}}" class="review-note">{{item.reviewNote}}</view><button wx:if="{{item.editable}}" class="action-secondary upload" data-id="{{item.id}}" disabled="{{!!uploading}}" loading="{{uploading === item.id}}" bindtap="upload">{{item.filename ? '重新提交' : '补充材料'}}</button></view></view>
+  <view wx:elif="{{tab === 'fees'}}" class="fees-panel"><view wx:if="{{!detail.fees.length}}" class="empty-copy">暂无费用记录</view><view wx:for="{{detail.fees}}" wx:key="id" class="fee-card"><view class="document-row"><text class="document-name">{{item.title}}</text><text class="status-text">{{item.statusLabel}}</text></view><view class="amount">{{item.displayAmount}}</view></view></view>
+  <view wx:else class="history-panel"><view wx:if="{{!detail.history.length}}" class="empty-copy">暂无进度记录</view><view wx:for="{{detail.history}}" wx:key="id" class="history-event"><view class="event-date">{{item.date}}</view><view class="event-message">{{item.message}}</view></view></view>
+  <view wx:if="{{detail.application.note}}" class="notice"><text class="notice-icon">i</text><text>{{detail.application.note}}</text></view>
+ </block>
+ <app-state wx:elif="{{state === 'loading'}}" kind="loading" title="正在读取申请详情" />
+ <app-state wx:else kind="failed" title="{{state === 'login' ? '请先登录查看申请' : '暂时无法读取申请'}}" description="请检查网络与账号后重试。" retryable="{{true}}" bindretry="retry" />
+</view>

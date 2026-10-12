@@ -1,0 +1,195 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "university-of-sydney",
+    "displayName": "The University of Sydney",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html"
+    ],
+    "allowedHosts": [
+      "www.sydney.edu.au",
+      "sydney.edu.au"
+    ],
+    "discoveredUrls": 24,
+    "parsedProgrammes": 6,
+    "pagesRead": 120,
+    "warnings": [
+      "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/corporate/documents/study/guides/usyd-undergraduate-guide.pdf.coredownload.pdf",
+      "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/corporate/documents/study/guides/usyd-undergraduate-guide.pdf",
+      "HTTP 404：https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite/The%20MOOC%20is%20currently%20available%20here.",
+      "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/students/documents/enrolment/course-planning/course-planner.xlsx",
+      "跳过非 HTML 内容：https://www.sydney.edu.au/content/dam/students/documents/enrolment/course-planning/course-planner.docx"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-civil-engineering2.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:57:42.590Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-civil-engineering.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:57:44.530Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-professional-engineering-accelerated-civil-engineering.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:57:46.517Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/humanitarian-engineering-civil.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/computer-systems.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/engineering-data-science.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/geotechnical-engineering.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/innovation-and-entrepreneurship.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/integrated-building-engineering.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/project-management1.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/structures.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/transport1.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/subject-areas/spec/water-engineering.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-education-primary0.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:28.707Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-teaching-primary.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:30.535Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/search.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/atar-explained.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/selection-rank.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/recognised-qualifications.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite/massive-open-online-course-mooc-for-mathematics.html",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/mathematics-prerequisite/The%20MOOC%20is%20currently%20available%20here.",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-sydney",
+      "url": "https://www.sydney.edu.au/courses/courses/pc/master-of-engineering-civil-engineering0.html",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:08.830Z",
+      "error": null
+    }
+  ]
+}

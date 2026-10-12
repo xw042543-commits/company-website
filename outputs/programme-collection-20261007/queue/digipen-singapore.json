@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "digipen-singapore",
+    "displayName": "DigiPen Institute of Technology Singapore",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.digipen.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.digipen.edu.sg",
+      "digipen.edu.sg"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "robots.txt 禁止抓取：https://www.digipen.edu.sg/"
+    ]
+  },
+  "queue": []
+}

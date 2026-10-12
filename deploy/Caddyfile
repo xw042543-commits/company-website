@@ -1,0 +1,18 @@
+{
+	email {$CADDY_ACME_EMAIL}
+}
+
+{$CADDY_SITE_ADDRESSES} {
+	@www host www.yangdoujiao.com
+	redir @www https://yangdoujiao.com{uri} permanent
+
+	encode zstd gzip
+
+	reverse_proxy frontend:3000 {
+		header_up -Forwarded
+		header_up -X-Forwarded-*
+		header_up -X-Real-IP
+		header_up X-Forwarded-Proto https
+		header_up X-Forwarded-For {remote_host}
+	}
+}

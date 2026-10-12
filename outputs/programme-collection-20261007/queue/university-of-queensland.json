@@ -1,0 +1,862 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "university-of-queensland",
+    "displayName": "The University of Queensland",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://study.uq.edu.au/"
+    ],
+    "allowedHosts": [
+      "www.uq.edu.au",
+      "uq.edu.au",
+      "study.uq.edu.au"
+    ],
+    "discoveredUrls": 120,
+    "parsedProgrammes": 63,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-business-honours-2139",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:00.623Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-finance-and-economics-honours-2140",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:02.411Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:04.640Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-science-honours-2516",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:07.857Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-agribusiness-2007",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:09.735Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-agribusiness-5007",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:12.178Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-diploma-agribusiness-5736",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:14.608Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-agribusiness-5562",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:16.493Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-agribusiness-agricultural-science-2584",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:18.404Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-agricultural-science-2583",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:20.857Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-agricultural-science-5561",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:22.783Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-diploma-agricultural-science-5737",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:24.838Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-agricultural-science-5564",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:26.698Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-agricultural-science-honours-2450",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:28.245Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-animal-science-5565",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:30.622Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-animal-science-5571",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:31.093Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-applied-linguistics-5463",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:35.076Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-applied-linguistics-5592",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:37.544Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-architectural-design-2550",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:39.609Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-architecture-5429",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:41.677Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-arts-2000",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:44.434Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/diploma-arts-2320",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:47.306Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-arts-education-secondary-2066",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:50.536Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-arts-laws-honours-2142",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T03:58:53.513Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-arts-social-science-2505",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:30.616Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-arts-tourism-hospitality-and-event-management-2474",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:30.888Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-arts-honours-2052",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:32.794Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-arts-interpreting-5749",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:34.813Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-arts-translation-5750",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:36.882Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-diploma-arts-translation-and-interpreting-5751",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:40.335Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-biomedical-science-2546",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:40.861Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-biomedical-science-science-2547",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:42.937Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-biomedical-science-honours-2423",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:44.931Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-biotechnology-2456",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:46.908Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-biotechnology-honours-2457",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:50.765Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-built-environment-and-design-honours-2581",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:52.305Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-business-management-2171",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:53.011Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-business-management-arts-2175",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:54.949Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-business-management-commerce-2180",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:56.959Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-business-management-communication-2509",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:55:58.960Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-business-management-design-2554",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:01.043Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-business-management-diploma-languages-2543",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:05.329Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-business-management-economics-2181",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:05.554Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-business-management-education-secondary-2298",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:07.588Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-arts-translation-and-interpreting-5752",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:09.526Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-audiology-studies-5145",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:11.524Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-bioengineering-professional-5761",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:13.513Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-bioinformatics-5557",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:15.568Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-diploma-bioinformatics-5754",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:19.276Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-bioinformatics-5755",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:19.552Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-bioinformatics-research-extensive-5598",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:21.549Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-biostatistics-5497",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:23.623Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-diploma-biostatistics-5498",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:25.636Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-biostatistics-5500",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:27.562Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-biotechnology-5013",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:29.635Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-diploma-biotechnology-5119",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:31.615Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-biotechnology-5599",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:33.570Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-biotechnology-research-extensive-5627",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:35.629Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/graduate-certificate-business-5248",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:37.577Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-business-5583",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:39.657Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/doctor-philosophy-7516",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:41.583Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/master-philosophy-7500",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:43.596Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/doctor-veterinary-clinical-science-7603",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T05:56:45.605Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-arts-2000/aboriginal-and-torres-strait-islander-studies-aboric2000",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-journalism-arts-2102/aboriginal-and-torres-strait-islander-studies-aboric2102",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-business-management-arts-2175/aboriginal-and-torres-strait-islander-studies-aboric2175",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-arts-laws-honours-2142/aboriginal-and-torres-strait-islander-studies-aboric2142",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-economics-arts-2468/aboriginal-and-torres-strait-islander-studies-aboric2468",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-mathematics-arts-2503/aboriginal-and-torres-strait-islander-studies-aboric2503",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-music-arts-2537/aboriginal-and-torres-strait-islander-studies-aboric2537",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-criminology-and-criminal-justice-arts-2521/aboriginal-and-torres-strait-islander-studies-aboric2521",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-human-movement-and-nutrition-sciences-arts-2526/aboriginal-and-torres-strait-islander-studies-aboric2526",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-information-technology-arts-2574/aboriginal-and-torres-strait-islander-studies-aboric2574",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/diploma-arts-2320/aboriginal-and-torres-strait-islander-studies-aboric2320",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-commerce-arts-2337/aboriginal-and-torres-strait-islander-studies-aboric2337",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-engineering-honours-arts-2485/aboriginal-and-torres-strait-islander-studies-aboric2485",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-science-arts-2478/aboriginal-and-torres-strait-islander-studies-aboric2478",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-arts-tourism-hospitality-and-event-management-2474/aboriginal-and-torres-strait-islander-studies-aboric2474",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-communication-arts-2504/aboriginal-and-torres-strait-islander-studies-aboric2504",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-arts-social-science-2505/aboriginal-and-torres-strait-islander-studies-aboric2505",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-computer-science-arts-2562/aboriginal-and-torres-strait-islander-studies-aboric2562",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-business-honours-2139/accounting-accntc2139",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-commerce-science-2466/accounting-accntc2466",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-commerce-laws-honours-2465/accounting-accntc2465",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-engineering-honours-commerce-2488/accounting-accntc2488",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-mathematics-commerce-2499/accounting-accntc2499",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-commerce-information-technology-2572/accounting-accntc2572",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-commerce-economics-2338/accounting-accntc2338",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-business-management-commerce-2180/accounting-accntc2180",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-commerce-2336/accounting-accntc2336",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-commerce-arts-2337/accounting-accntc2337",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-commerce-diploma-languages-2542/accounting-accntc2542",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-computer-science-commerce-2564/accounting-accntc2564",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-business-honours-2139/business-analytics-busanc2139",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-business-honours-2139/business-information-systems-bisysc2139",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-business-honours-2139/finance-financ2139",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-business-honours-2139/international-business-inbusc2139",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-business-honours-2139/marketing-markec2139",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-finance-and-economics-honours-2140/economics-econoc2140",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-finance-and-economics-honours-2140/finance-financ2140",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-business-management-honours-2129",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-economics-honours-2132",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414/ancient-history-anciec2414",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414/art-history-arthic2414",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414/drama-dramac2414",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414/english-literature-enlitc2414",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414/history-histoc2414",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414/music-musicc2414",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414/philosophy-philoc2414",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414/religious-studies-relstc2414",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-humanities-laws-honours-2511?year=2027",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-humanities-honours-2414/western-civilisation-wscivd2414",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-international-studies-2316",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelors-humanities-laws-honours-2511",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-science-honours-2516/applied-mathematics-appmac2516",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-science-honours-2516/archaeological-science-archsc2516",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-science-honours-2516/biochemistry-and-molecular-biology-bimolc2516",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-science-honours-2516/bioinformatics-bioinc2516",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-science-honours-2516/biomedical-science-biomsc2516",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-queensland",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-advanced-science-honours-2516/cell-biology-celbic2516",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

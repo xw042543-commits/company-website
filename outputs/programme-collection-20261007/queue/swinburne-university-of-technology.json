@@ -1,0 +1,1375 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "swinburne-university-of-technology",
+    "displayName": "Swinburne University of Technology",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.swinburne.edu.au/courses/find-a-course/"
+    ],
+    "allowedHosts": [
+      "www.swinburne.edu.au",
+      "swinburne.edu.au"
+    ],
+    "discoveredUrls": 193,
+    "parsedProgrammes": 73,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 404：https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/politics,-power-and-technology",
+      "HTTP 404：https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/criminology-and-social-change"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/aviation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/built-environment-architecture",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/business",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/design",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/engineering",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/film-television",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/games-animation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/health",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/information-technology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/law",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/media-communication",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/nursing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/psychology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/trades-apprenticeships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/course-delivery-options/study-online/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/entry-into-university-from-vce",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/direct-entry-into-university",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/returning-to-study",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/vocational-education-tafe",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/early-entry-program",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/admission-requirements",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/switching-to-swinburne",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/pathways-from-the-workforce-recognition-of-prior-learning",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/study-abroad-in-melbourne",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/indigenous-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/university-pathways/guaranteed-pathways-from-tafe/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/short-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/pre-apprenticeships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/apprenticeships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/associate-degrees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/bachelor-degrees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/diplomas",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/double-degrees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/certificates",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/elicos",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/traineeships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/trades-short-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/doctor-of-philosophy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/master-degrees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/graduate-diploma-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained/graduate-certificate-courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/course-delivery-options/study-online",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/course-delivery-options/studying-outside-australia",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/course-delivery-options/studying-on-campus",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/fees/loans-discounts-local-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/fees/fees-for-international-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/fees/fees-for-local-students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/fees/student-services-amenities-fee",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/scholarships/scholarship-conditions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/scholarships/guide",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/scholarships/international-scholarships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/information-on-vtac",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/how-to-apply-international",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/how-to-apply-local-vocational-education",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/how-to-apply-local-undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/how-to-apply-local-postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/how-to-apply-research-degree",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/asylum-seeker-refugee-support",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/enrolling/how-to-enrol",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/enrolling/understanding-your-offer",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/enrolling/planning-your-course-structure",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/enrolling/setting-up-your-class-timetable",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/enrolling/how-to-enrol-phd-master-degree-student",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/scholarships/international-scholarships/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/fees/fees-for-international-students/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/visas/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/study-abroad-in-melbourne/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/application-portal",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/applied-innovation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/admission-requirements/informed-choices",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/career-practitioners",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/how-to-apply-local-undergraduate/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/how-to-apply-international/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/intakes/start-dates-intakes/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/supporting-documentation/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/application-portal/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/enrolling/understanding-your-offer/how-to-accept/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/climate-social-justice",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/criminology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/ethics-technology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/history",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/indigenous-studies",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/perspectives-globalisation",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/philosophy",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/politics-international-relations",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/politics-power-technology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/professional-creative-writing",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/screen-studies-popular-culture",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/sociology",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/arts-humanities-social-sciences/criminology/how-to-become-a-criminologist",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/download-course-guide/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/download-course-guide",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/early-entry-program/?siid=bnr_alt%7Ccamp_tim%7Csrcnam_cs%7Csrcloc_alt%7C495",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course/fee-free-uniready/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/admission-requirements/pearson-test-english",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/enrolling/credit-for-prior-study-experience",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/university-pathways",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/fees/fees-for-local-students/paying-your-fees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/fees/loans-discounts-local-students/hecs-help-loan",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/early-entry-program/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/how-to-apply-local/stat-test",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future/admission-requirements/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying/how-to-apply-local/stat-test/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/study/courses/units/Professional-Experience-in-Engineering-EAT20008/local",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/study/courses/units/Sport,-Media-and-Technology-SPO20004/local",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/study/courses/units/Sport-and-Sustainability-SPO30004/local",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/find-a-course",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/planning-your-future",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/study-levels-explained",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/course-delivery-options",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/fees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/scholarships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/applying",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/courses/enrolling",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:56.156Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:01:59.235Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-business/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:00.171Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:03.559Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:05.573Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-science/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:07.454Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/climate-and-social-justice/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:08.205Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/criminology-and-social-change/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:10.203Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/ethics-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:13.803Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/indigenous-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:15.774Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/literature-and-creative-writing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:17.664Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/perspectives-on-globalisation/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:18.283Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/politics-power-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:20.292Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/screen-studies-and-popular-culture/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:22.299Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:26.353Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:29.648Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-bachelor-of-arts/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:30.339Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:32.343Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:35.600Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:38.224Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/climate-and-social-justice/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:39.749Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/criminology-and-social-change/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:41.777Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/ethics-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:43.777Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/indigenous-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:45.825Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/literature-and-creative-writing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:47.778Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/perspectives-on-globalisation/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:49.765Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/screen-studies-and-popular-culture/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:54.160Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:54.732Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-business/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:02:56.866Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/climate-and-social-justice/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:00.080Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/ethics-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:04.006Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/indigenous-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:06.058Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/literature-and-creative-writing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:08.002Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/perspectives-on-globalisation/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:10.111Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/politics,-power-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:21.185Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/screen-studies-and-popular-culture/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:23.070Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:23.687Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/climate-and-social-justice/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:27.090Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/criminology-and-social-change/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:29.078Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/ethics-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:31.087Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/indigenous-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:33.113Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/literature-and-creative-writing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:35.108Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/perspectives-on-globalisation/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:37.271Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/politics,-power-and-technology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:39.051Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/screen-studies-and-popular-culture/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:41.415Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:41.918Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-science/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:43.921Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-science/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:45.915Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-arts/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:47.960Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-bachelor-of-arts/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:49.936Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/advertising/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:54.187Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/cinema-screen-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:54.687Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/content-creation/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:05:58.394Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/creative-writing-and-publishing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:01.208Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/immersive-media/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:04.357Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/journalism/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:06.292Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/public-relations/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:08.541Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/social-media/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:11.272Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:12.503Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication-bachelor-of-business/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:13.595Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-bachelor-of-media-and-communication/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:17.168Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-media-and-communication/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:17.611Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-media-and-communication/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:20.849Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication-bachelor-of-applied-innovation/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:21.612Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication-professional/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:23.782Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology/handbook/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:27.813Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminology-and-criminal-justice/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:30.965Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology-bachelor-of-applied-innovation/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:31.654Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-psychological-sciences-bachelor-of-criminal-justice-and-criminology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:33.652Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-criminal-justice-and-criminology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:35.655Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-forensic-psychological-sciences/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:39.859Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:43.858Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "swinburne-university-of-technology",
+      "url": "https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business/accounting/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:06:45.871Z",
+      "error": null
+    }
+  ]
+}

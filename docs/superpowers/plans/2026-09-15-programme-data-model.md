@@ -1,0 +1,662 @@
+# 院校与课程数据模型实施计划
+
+> **供智能开发工具使用：** 必须使用 `superpowers:subagent-driven-development`（推荐）或
+> `superpowers:executing-plans`，按任务逐项实施和审核。使用复选框跟踪进度。
+
+**目标：** 通过 Flyway V3 和 JPA 数据访问层建立院校、课程、学历层次、课程模式、
+授课语言及入学时间的数据基础，同时保留现有三条演示数据和旧接口。
+
+**架构：** PostgreSQL 是唯一正式数据源。V3 采用兼容式升级，新增表和院校字段但
+保留旧字段；Java 代码按 `catalog`、`university`、`programme` 业务模块组织，Repository
+只负责数据访问。
+
+**技术栈：** Java 21、Spring Boot 4.1.1、Hibernate ORM 7、Spring Data JPA、
+PostgreSQL 17.11、Flyway、JUnit 5、Testcontainers 2.0.5、Maven Wrapper。
+
+**设计文档：**
+`docs/superpowers/specs/2026-09-15-programme-data-model-design.md`
+
+## 全局约束
+
+- 不修改已经提交的 V1 和 V2 Flyway 迁移。
+- 不插入老板尚未提供的正式院校、课程或字典数据。
+- 现有 `universities.name` 和 `universities.country` 必须保留。
+- PostgreSQL 仍是唯一正式数据源；本计划不修改 Redis 或 Elasticsearch。
+- 实体不直接作为 API JSON 返回，不使用 Lombok `@Data`。
+- 关联默认使用懒加载，Repository 不包含业务判断。
+- 所有数据库集成测试使用 Testcontainers，不连接开发数据库。
+- 所有说明文档使用中文；代码标识符和数据库字段保持英文。
+- 每个提交只包含对应任务的文件，由用户执行提交和推送。
+
+---
+
+### 任务 1：用测试定义并创建 V3 数据库结构
+
+**文件：**
+
+- 新增：`backend/src/test/java/com/yangdoujiao/website/programme/V3MigrationCompatibilityTest.java`
+- 新增：`backend/src/test/java/com/yangdoujiao/website/programme/ProgrammeSchemaIntegrationTest.java`
+- 新增：`backend/src/main/resources/db/migration/V3__extend_universities_and_create_programmes.sql`
+
+**接口：**
+
+- 使用现有 V1 `universities`、V2 `countries` 和 `subject_categories`。
+- 产出 V3 表结构，供任务 2 至任务 5 的 JPA Entity 映射。
+
+- [ ] **步骤 1：编写 V2 到 V3 的兼容升级测试**
+
+`V3MigrationCompatibilityTest` 单独启动 `postgres:17.11`：
+
+```java
+@Test
+void upgradesPopulatedV2DatabaseWithoutChangingLegacyUniversity() {
+    try (PostgreSQLContainer postgres = new PostgreSQLContainer("postgres:17.11")
+            .withDatabaseName("company_website_v3_test")) {
+        postgres.start();
+
+        Flyway v2 = Flyway.configure()
+                .dataSource(postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword())
+                .target(MigrationVersion.fromVersion("2"))
+                .load();
+        v2.migrate();
+
+        JdbcTemplate jdbc = new JdbcTemplate(new DriverManagerDataSource(
+                postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword()));
+        jdbc.update("""
+                INSERT INTO universities (name, slug, country, popular)
+                VALUES ('University of Malaya', 'university-of-malaya', 'Malaysia', TRUE)
+                """);
+
+        Flyway v3 = Flyway.configure()
+                .dataSource(postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword())
+                .target(MigrationVersion.fromVersion("3"))
+                .load();
+        v3.migrate();
+
+        assertThat(v3.info().current().getVersion().getVersion()).isEqualTo("3");
+        assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM universities", Integer.class))
+                .isEqualTo(1);
+        assertThat(jdbc.queryForObject(
+                "SELECT name FROM universities WHERE slug = 'university-of-malaya'",
+                String.class)).isEqualTo("University of Malaya");
+    }
+}
+```
+
+- [ ] **步骤 2：运行兼容测试并确认红灯**
+
+运行：
+
+```bash
+cd backend
+./mvnw -Dtest=V3MigrationCompatibilityTest test
+```
+
+预期：失败，当前 Flyway 最高版本仍是 `2`。
+
+- [ ] **步骤 3：编写 V3 结构与约束测试**
+
+`ProgrammeSchemaIntegrationTest` 使用与现有目录测试相同的配置：
+
+```java
+@SpringBootTest
+@ActiveProfiles("test")
+@Import(TestContainersConfiguration.class)
+@Transactional
+class ProgrammeSchemaIntegrationTest {
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+}
+```
+
+建立独立测试方法并使用真实 SQL 验证：
+
+```text
+flywayCreatesProgrammeTables
+v3KeepsLegacyUniversityColumns
+acceptsValidDictionaryAndProgrammeRelations
+rejectsDuplicateDictionaryCode
+rejectsDictionaryWithoutAnyName
+rejectsNegativeSortOrder
+rejectsInvalidStatus
+rejectsDuplicateProgrammeCode
+rejectsDuplicateProgrammeSlugWithinUniversity
+rejectsNonPositiveDuration
+rejectsNegativeTuition
+rejectsTuitionMinimumAboveMaximum
+rejectsTuitionWithoutCurrency
+rejectsRmbTuitionWithoutExchangeRateAndDate
+rejectsDuplicateProgrammeLanguage
+rejectsIntakeWithoutDisplayText
+```
+
+每个拒绝测试使用以下断言形状，测试 SQL 中必须写出对应的非法字面值：
+
+```java
+assertThatThrownBy(() -> jdbcTemplate.update("""
+        INSERT INTO study_levels (code, status)
+        VALUES ('BACHELOR', 'DRAFT')
+        """))
+        .isInstanceOf(DataIntegrityViolationException.class);
+```
+
+- [ ] **步骤 4：创建完整 V3 迁移**
+
+迁移必须依次创建 `study_levels`、`course_modes`、`languages`，再扩展
+`universities`，最后依次创建 `programmes`、`programme_languages` 和
+`programme_intakes`。院校扩展语句为：
+
+```sql
+ALTER TABLE universities
+    ADD COLUMN university_code VARCHAR(64),
+    ADD COLUMN name_zh VARCHAR(200),
+    ADD COLUMN name_en VARCHAR(200),
+    ADD COLUMN city_zh VARCHAR(200),
+    ADD COLUMN city_en VARCHAR(200),
+    ADD COLUMN description_zh TEXT,
+    ADD COLUMN description_en TEXT,
+    ADD COLUMN country_id BIGINT,
+    ADD COLUMN status VARCHAR(20) NOT NULL DEFAULT 'DRAFT',
+    ADD COLUMN updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ADD COLUMN published_at TIMESTAMP WITH TIME ZONE;
+```
+
+三张字典表共同使用：
+
+```sql
+id BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+code VARCHAR(64) NOT NULL,
+name_zh VARCHAR(200),
+name_en VARCHAR(200),
+sort_order INTEGER NOT NULL DEFAULT 0,
+status VARCHAR(20) NOT NULL DEFAULT 'DRAFT',
+created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+```
+
+`languages.code` 使用 `VARCHAR(16)`。每张字典表分别添加唯一代码、名称至少一个、
+代码格式、非负排序和三种状态检查约束。
+
+字典表约束必须明确为：`UNIQUE (code)`、
+`CHECK (NULLIF(btrim(name_zh), '') IS NOT NULL OR NULLIF(btrim(name_en), '') IS NOT NULL)`、
+`CHECK (code ~ '^[A-Z][A-Z0-9_]*$')`、`CHECK (sort_order >= 0)` 和
+`CHECK (status IN ('DRAFT', 'PUBLISHED', 'ARCHIVED'))`。
+
+院校扩展字段必须添加：`UNIQUE (university_code)`、仅在代码非空时校验
+`university_code ~ '^[A-Z][A-Z0-9_]*$'`、`country_id` 到 `countries(id)` 的
+`ON DELETE RESTRICT` 外键、三种状态检查，以及 `country_id` 索引。由于兼容期仍以
+旧 `name` 字段为必填名称，V3 不强制 `name_zh` 或 `name_en` 非空。
+
+`programmes` 使用以下精确列：
+
+```sql
+id BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+programme_code VARCHAR(64) NOT NULL,
+university_id BIGINT NOT NULL,
+subject_category_id BIGINT NOT NULL,
+study_level_id BIGINT,
+course_mode_id BIGINT,
+slug VARCHAR(200) NOT NULL,
+name_zh VARCHAR(200),
+name_en VARCHAR(200),
+description_zh TEXT,
+description_en TEXT,
+duration_months INTEGER,
+duration_display VARCHAR(100),
+tuition_min NUMERIC(14, 2),
+tuition_max NUMERIC(14, 2),
+tuition_currency CHAR(3),
+tuition_display VARCHAR(200),
+tuition_rmb_min NUMERIC(14, 2),
+tuition_rmb_max NUMERIC(14, 2),
+exchange_rate NUMERIC(18, 8),
+exchange_rate_date DATE,
+status VARCHAR(20) NOT NULL DEFAULT 'DRAFT',
+created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+published_at TIMESTAMP WITH TIME ZONE
+```
+
+`programmes` 必须添加以下约束：
+
+- `UNIQUE (programme_code)` 和 `UNIQUE (university_id, slug)`；
+- 课程代码符合 `^[A-Z][A-Z0-9_]*$`；
+- `name_zh`、`name_en` 去掉首尾空格后至少一个非空；
+- `duration_months` 为空或大于 0；
+- 四个学费金额分别为空或大于等于 0；
+- 原币和人民币的最低金额分别不能高于对应最高金额；
+- 原币最低或最高金额存在时，币种必须存在且符合 `^[A-Z]{3}$`；
+- 人民币最低或最高金额存在时，`exchange_rate` 必须大于 0 且
+  `exchange_rate_date` 必须存在；
+- 状态只能是 `DRAFT`、`PUBLISHED` 或 `ARCHIVED`。
+
+`programmes` 的四个外键分别引用院校、专业分类、学历层次和课程模式，全部使用
+`ON DELETE RESTRICT`。为 `university_id`、`subject_category_id`、`study_level_id`、
+`course_mode_id` 分别建索引。
+
+`programme_languages` 对课程使用 `ON DELETE CASCADE`、对语言使用
+`ON DELETE RESTRICT`；`programme_intakes` 对课程使用 `ON DELETE CASCADE`。
+
+`programme_languages` 必须只有以下两列及约束：
+
+```sql
+programme_id BIGINT NOT NULL,
+language_id BIGINT NOT NULL,
+PRIMARY KEY (programme_id, language_id),
+FOREIGN KEY (programme_id) REFERENCES programmes(id) ON DELETE CASCADE,
+FOREIGN KEY (language_id) REFERENCES languages(id) ON DELETE RESTRICT
+```
+
+`programme_intakes` 必须使用以下精确列：
+
+```sql
+id BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+programme_id BIGINT NOT NULL,
+intake_date DATE,
+display_text VARCHAR(100) NOT NULL,
+created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (programme_id) REFERENCES programmes(id) ON DELETE CASCADE,
+CHECK (btrim(display_text) <> '')
+```
+
+另外为 `programme_intakes(programme_id, intake_date)` 建索引。V3 不为入学时间添加
+无法正确处理 `NULL` 的普通唯一约束；重复规则留到取得老板正式数据后再确定。
+同时为 `programme_languages(language_id)` 建索引；联合主键已经覆盖以
+`programme_id` 开头的查询，不重复创建相同索引。
+
+- [ ] **步骤 5：运行 V3 测试并确认绿灯**
+
+```bash
+./mvnw -Dtest=V3MigrationCompatibilityTest,ProgrammeSchemaIntegrationTest test
+```
+
+预期：所有 V3 迁移和约束测试通过，Flyway 当前版本为 `3`。
+
+- [ ] **步骤 6：变异验证关键约束**
+
+依次临时移除“课程代码唯一”“学费范围”“语言关系唯一”约束，运行对应测试并确认
+失败；每次立即恢复迁移。最后执行：
+
+```bash
+git diff --check
+git diff --exit-code HEAD -- \
+  backend/src/main/resources/db/migration/V1__create_universities_table.sql \
+  backend/src/main/resources/db/migration/V2__create_catalog_tables.sql
+```
+
+预期：V1、V2 无差异，临时变异没有残留。
+
+- [ ] **步骤 7：由用户提交**
+
+```bash
+git add backend/src/main/resources/db/migration/V3__extend_universities_and_create_programmes.sql \
+  backend/src/test/java/com/yangdoujiao/website/programme/V3MigrationCompatibilityTest.java \
+  backend/src/test/java/com/yangdoujiao/website/programme/ProgrammeSchemaIntegrationTest.java
+git commit -m "feat: 新增院校与课程数据库结构"
+```
+
+---
+
+### 任务 2：建立学历、课程模式和语言数据访问层
+
+**文件：**
+
+- 新增：`backend/src/main/java/com/yangdoujiao/website/catalog/StudyLevel.java`
+- 新增：`backend/src/main/java/com/yangdoujiao/website/catalog/StudyLevelRepository.java`
+- 新增：`backend/src/main/java/com/yangdoujiao/website/catalog/CourseMode.java`
+- 新增：`backend/src/main/java/com/yangdoujiao/website/catalog/CourseModeRepository.java`
+- 新增：`backend/src/main/java/com/yangdoujiao/website/catalog/Language.java`
+- 新增：`backend/src/main/java/com/yangdoujiao/website/catalog/LanguageRepository.java`
+- 新增：`backend/src/test/java/com/yangdoujiao/website/catalog/ProgrammeCatalogRepositoryIntegrationTest.java`
+
+**接口：**
+
+- 每个 Entity 提供 `getId()`、`getCode()`、双语名称、排序、状态和审计时间 Getter。
+- 每个 Repository 继承 `JpaRepository<Entity, Long>`，提供
+  `Optional<Entity> findByCode(String code)`。
+
+- [ ] **步骤 1：编写 Repository 失败测试**
+
+测试分别保存 `BACHELOR`、`ON_CAMPUS`、`EN`，调用 `flush` 和
+`EntityManager.clear()` 后按代码重新查询并断言中英文名称、排序和状态。
+
+运行：
+
+```bash
+./mvnw -Dtest=ProgrammeCatalogRepositoryIntegrationTest test
+```
+
+预期：编译失败，因为三个 Entity 和 Repository 尚不存在。
+
+- [ ] **步骤 2：实现三个明确的 JPA Entity**
+
+每个类使用：
+
+```java
+@Entity
+@Table(name = "对应表名")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class StudyLevel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 64, unique = true, updatable = false)
+    private String code;
+
+    @Column(name = "name_zh", length = 200)
+    private String nameZh;
+
+    @Column(name = "name_en", length = 200)
+    private String nameEn;
+
+    @Column(name = "sort_order", nullable = false)
+    private int sortOrder;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private CategoryStatus status;
+
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private OffsetDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at", nullable = false)
+    private OffsetDateTime updatedAt;
+}
+```
+
+`CourseMode` 使用相同字段并映射 `course_modes`；`Language` 的代码长度改为 16 并
+映射 `languages`。三个类都提供接收 `code`、`nameZh`、`nameEn`、`sortOrder`、
+`CategoryStatus` 的公开构造方法。
+
+- [ ] **步骤 3：实现三个 Repository**
+
+```java
+public interface StudyLevelRepository extends JpaRepository<StudyLevel, Long> {
+    Optional<StudyLevel> findByCode(String code);
+}
+```
+
+为 `CourseModeRepository` 和 `LanguageRepository` 使用相同接口形状和对应类型。
+
+- [ ] **步骤 4：验证并提交**
+
+```bash
+./mvnw -Dtest=ProgrammeCatalogRepositoryIntegrationTest test
+./mvnw test
+git diff --check
+```
+
+预期：Repository 测试和后端完整测试全部通过。
+
+```bash
+git add backend/src/main/java/com/yangdoujiao/website/catalog \
+  backend/src/test/java/com/yangdoujiao/website/catalog/ProgrammeCatalogRepositoryIntegrationTest.java
+git commit -m "feat: 新增课程筛选字典数据访问层"
+```
+
+---
+
+### 任务 3：兼容扩展院校 JPA 映射
+
+**文件：**
+
+- 修改：`backend/src/main/java/com/yangdoujiao/website/university/University.java`
+- 新增：`backend/src/test/java/com/yangdoujiao/website/university/UniversityV3MappingIntegrationTest.java`
+
+**接口：**
+
+- 保留现有 Getter 和序列化行为，旧 Controller、Service 与 Redis 缓存不改。
+- 新增 `Country getCountryReference()`，避免与旧 `String getCountry()` 冲突。
+- 新增 `CategoryStatus getStatus()` 和所有兼容字段 Getter。
+
+- [ ] **步骤 1：编写旧数据兼容失败测试**
+
+通过 `JdbcTemplate` 插入只包含 V1 字段的院校，清空 EntityManager 后使用
+`UniversityRepository.findById` 读取并断言：
+
+```java
+assertThat(stored.getName()).isEqualTo("University of Malaya");
+assertThat(stored.getCountry()).isEqualTo("Malaysia");
+assertThat(stored.getUniversityCode()).isNull();
+assertThat(stored.getCountryReference()).isNull();
+assertThat(stored.getStatus()).isEqualTo(CategoryStatus.DRAFT);
+```
+
+预期：编译失败，因为新 Getter 尚不存在。
+
+- [ ] **步骤 2：增加兼容字段映射**
+
+在 `University` 中增加 V3 对应字段。国家关系使用：
+
+```java
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "country_id")
+private Country countryReference;
+```
+
+状态使用：
+
+```java
+@Enumerated(EnumType.STRING)
+@Column(nullable = false, length = 20)
+private CategoryStatus status;
+```
+
+`universityCode` 设置 `updatable = false`，长度 64；`updatedAt` 使用
+`@UpdateTimestamp`；`publishedAt` 为可空 `OffsetDateTime`。不得重命名或删除旧
+`name`、`country` 字段。
+
+- [ ] **步骤 3：验证旧接口没有回归并提交**
+
+```bash
+./mvnw -Dtest=UniversityV3MappingIntegrationTest,UniversitySearchServiceTest test
+./mvnw test
+git diff --check
+```
+
+```bash
+git add backend/src/main/java/com/yangdoujiao/website/university/University.java \
+  backend/src/test/java/com/yangdoujiao/website/university/UniversityV3MappingIntegrationTest.java
+git commit -m "feat: 兼容扩展院校数据映射"
+```
+
+---
+
+### 任务 4：建立课程 Entity 与 Repository
+
+**文件：**
+
+- 新增：`backend/src/main/java/com/yangdoujiao/website/programme/Programme.java`
+- 新增：`backend/src/main/java/com/yangdoujiao/website/programme/ProgrammeRepository.java`
+- 新增：`backend/src/test/java/com/yangdoujiao/website/programme/ProgrammeRepositoryIntegrationTest.java`
+
+**接口：**
+
+- `ProgrammeRepository extends JpaRepository<Programme, Long>`。
+- 提供 `Optional<Programme> findByProgrammeCode(String programmeCode)`。
+- 提供 `Optional<Programme> findByUniversityIdAndSlug(Long universityId, String slug)`。
+
+- [ ] **步骤 1：编写失败测试**
+
+测试先用 Repository 建立字典和院校依赖，再保存课程。`flush`、`clear` 后按
+`programmeCode` 读取，断言所有外键稳定代码、名称、slug 和状态；另按
+`universityId + slug` 查询同一课程。
+
+运行：
+
+```bash
+./mvnw -Dtest=ProgrammeRepositoryIntegrationTest test
+```
+
+预期：编译失败，因为 `Programme` 和 `ProgrammeRepository` 尚不存在。
+
+- [ ] **步骤 2：实现 Programme 映射**
+
+`Programme` 使用保护级无参构造、Getter 和明确构造方法。关系全部懒加载：
+
+```java
+@ManyToOne(fetch = FetchType.LAZY, optional = false)
+@JoinColumn(name = "university_id", nullable = false)
+private University university;
+
+@ManyToOne(fetch = FetchType.LAZY, optional = false)
+@JoinColumn(name = "subject_category_id", nullable = false)
+private SubjectCategory subjectCategory;
+
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "study_level_id")
+private StudyLevel studyLevel;
+
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "course_mode_id")
+private CourseMode courseMode;
+```
+
+`programmeCode` 不可更新；状态使用 `CategoryStatus` 字符串；金额使用
+`BigDecimal`；汇率日期使用 `LocalDate`；审计时间使用 `OffsetDateTime`。构造方法
+只接收必需的代码、四个关联、slug、双语名称和状态；可选详情字段只做数据库映射，
+留给后续经过验证的导入 Service 更新，不在本任务增加公共 setter。
+
+- [ ] **步骤 3：验证并提交**
+
+```bash
+./mvnw -Dtest=ProgrammeRepositoryIntegrationTest test
+./mvnw test
+git diff --check
+```
+
+```bash
+git add backend/src/main/java/com/yangdoujiao/website/programme/Programme.java \
+  backend/src/main/java/com/yangdoujiao/website/programme/ProgrammeRepository.java \
+  backend/src/test/java/com/yangdoujiao/website/programme/ProgrammeRepositoryIntegrationTest.java
+git commit -m "feat: 新增课程核心数据访问层"
+```
+
+---
+
+### 任务 5：映射课程语言与入学时间
+
+**文件：**
+
+- 修改：`backend/src/main/java/com/yangdoujiao/website/programme/Programme.java`
+- 新增：`backend/src/main/java/com/yangdoujiao/website/programme/ProgrammeIntake.java`
+- 新增：`backend/src/main/java/com/yangdoujiao/website/programme/ProgrammeIntakeRepository.java`
+- 新增：`backend/src/test/java/com/yangdoujiao/website/programme/ProgrammeRelationsIntegrationTest.java`
+
+**接口：**
+
+- `Programme.addLanguage(Language language)` 添加授课语言。
+- `Programme.getLanguages()` 返回只读使用的懒加载集合。
+- `ProgrammeIntakeRepository.findByProgrammeIdOrderByIntakeDateAsc(Long programmeId)`
+  返回课程入学时间列表。
+
+- [ ] **步骤 1：编写失败测试**
+
+保存一门课程，关联 `EN` 和 `ZH` 两种语言，并保存两条入学时间。清空
+EntityManager 后重新读取，断言语言代码集合为 `EN`、`ZH`，入学日期按升序返回，
+原始显示文字保持不变。
+
+运行：
+
+```bash
+./mvnw -Dtest=ProgrammeRelationsIntegrationTest test
+```
+
+预期：编译失败，因为语言关系方法、入学时间 Entity 和 Repository 尚不存在。
+
+- [ ] **步骤 2：映射 programme_languages**
+
+在 `Programme` 中加入：
+
+```java
+@ManyToMany(fetch = FetchType.LAZY)
+@JoinTable(
+        name = "programme_languages",
+        joinColumns = @JoinColumn(name = "programme_id"),
+        inverseJoinColumns = @JoinColumn(name = "language_id")
+)
+private Set<Language> languages = new LinkedHashSet<>();
+
+public void addLanguage(Language language) {
+    languages.add(Objects.requireNonNull(language));
+}
+```
+
+不得使用 `CascadeType.REMOVE`，防止删除课程时误删语言字典。
+
+- [ ] **步骤 3：实现 ProgrammeIntake 与 Repository**
+
+`ProgrammeIntake` 映射 `programme_intakes`，包含 `id`、懒加载且必需的
+`Programme programme`、可空 `LocalDate intakeDate`、非空 `String displayText` 和
+不可更新的 `OffsetDateTime createdAt`。公开构造方法接收 programme、intakeDate、
+displayText。
+
+```java
+public interface ProgrammeIntakeRepository
+        extends JpaRepository<ProgrammeIntake, Long> {
+    List<ProgrammeIntake> findByProgrammeIdOrderByIntakeDateAsc(Long programmeId);
+}
+```
+
+- [ ] **步骤 4：验证并提交**
+
+```bash
+./mvnw -Dtest=ProgrammeRelationsIntegrationTest test
+./mvnw test
+git diff --check
+```
+
+```bash
+git add backend/src/main/java/com/yangdoujiao/website/programme \
+  backend/src/test/java/com/yangdoujiao/website/programme/ProgrammeRelationsIntegrationTest.java
+git commit -m "feat: 新增课程语言与入学时间映射"
+```
+
+---
+
+### 任务 6：更新中文文档并完成整分支验收
+
+**文件：**
+
+- 修改：`docs/DATABASE.md`
+- 如请求流程发生变化才修改：`docs/ARCHITECTURE.md`
+
+**接口：** 不新增运行时接口，只同步已经实现的数据结构和团队操作规则。
+
+- [ ] **步骤 1：更新数据库文档**
+
+在 `docs/DATABASE.md` 补充 V3 文件、三张字典表、院校兼容字段、课程表、课程语言、
+入学时间、主要约束和旧数据兼容说明。明确 V3 不包含老板正式数据和筛选 API。
+
+- [ ] **步骤 2：运行最终验证**
+
+```bash
+cd backend
+./mvnw clean test
+cd ..
+git diff --check
+git status --short
+git diff --exit-code main...HEAD -- \
+  backend/src/main/resources/db/migration/V1__create_universities_table.sql \
+  backend/src/main/resources/db/migration/V2__create_catalog_tables.sql
+git ls-files '.env' '**/.env'
+```
+
+预期：后端全部测试通过；格式检查无输出；V1、V2 无差异；没有 `.env` 被跟踪。
+
+- [ ] **步骤 3：由用户提交中文文档**
+
+```bash
+git add docs/DATABASE.md
+git commit -m "docs: 补充院校与课程数据结构说明"
+```
+
+- [ ] **步骤 4：整分支代码审核和 PR**
+
+对 `main...HEAD` 完成独立审核，修复所有 Critical 和 Important 问题。重新运行完整
+测试后，由用户推送 `feature/programme-data-model`，创建中文 PR，并由另一名组员
+正式提交 Approve 后才能合并。

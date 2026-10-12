@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "united-states",
+    "sourceKey": "princeton-university",
+    "displayName": "Princeton University",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.princeton.edu/"
+    ],
+    "allowedHosts": [
+      "www.princeton.edu",
+      "princeton.edu"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "HTTP 403：https://www.princeton.edu/"
+    ]
+  },
+  "queue": []
+}

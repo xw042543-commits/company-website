@@ -1,46 +1,59 @@
 # Project context
 
-## Product goal
+## Product goal and current scope
 
-This repository is the foundation for a company website serving prospective international students. Planned areas include the home page, company information, study-abroad services, countries, universities, programmes, success stories, articles, FAQ, contact and consultation forms, administration, and search.
+UDAJO serves prospective international students through a bilingual company
+website and a native WeChat miniapp. The repository includes university and
+programme discovery, planning, articles, consultations, website and miniapp
+authentication, application tracking, community features, and adviser tools.
+Implementation and production availability are separate: registration,
+consultation submission, community writes, and public indexing have independent
+configuration and release gates.
 
-Only a small vertical slice is implemented today: university listing, university search, and popular-university caching. Planned features must not be presented as complete.
+## Technical baseline
 
-## Confirmed technical baseline
+- Next.js, React, TypeScript, and Node.js 24 LTS for the website.
+- Native WXML, WXSS, and TypeScript for the miniapp.
+- Java 21 LTS, Spring Boot, and Maven Wrapper for the modular backend.
+- PostgreSQL is authoritative; Elasticsearch holds derived search indexes.
+- Redis supports caching, community hot snapshots, and community rate limits.
+- Docker Compose supplies local dependencies and the production topology.
 
-- Three-person development team using pull requests into `main`
-- Node.js 24 LTS; Next.js 16.3.5; React 19.2.8; TypeScript 5
-- Java 21 LTS; Spring Boot 4.1.1; Maven Wrapper
-- PostgreSQL 17.11
-- Spring Data Elasticsearch 6.1.1 with Elasticsearch 9.4.5
-- Redis 8.2.9
-- Docker Compose for local data services
+Read `frontend/package.json`, `miniapp/package.json`, `backend/pom.xml`, and the
+Compose files for exact dependency versions. Verify compatibility before
+upgrading Spring Boot, Spring Data Elasticsearch, or Elasticsearch.
 
-The Elasticsearch versions were aligned through Spring Boot dependency management. Do not independently upgrade the server without checking Spring Data compatibility and the resolved Java client version.
+## Local development and documentation
 
-## Current development state
+Follow [the README](../README.md) for setup and checks. Local frontend and backend
+defaults are `http://localhost:3000` and `http://localhost:8080`. Local data
+services bind to localhost. Flyway owns migrations and the default backend
+profile is `dev`. Real local credentials belong in the ignored root `.env`.
 
-- Frontend: `http://localhost:3000`
-- Backend: `http://localhost:8080`
-- PostgreSQL, Elasticsearch, and Redis bind only to localhost in development.
-- Flyway owns database migrations; Hibernate validates the schema.
-- The `dev` Spring profile is the local default.
-- Real credentials are loaded from the ignored root `.env` file.
+- [ARCHITECTURE.md](ARCHITECTURE.md): components and data flow.
+- [API.md](API.md): current HTTP contracts.
+- [DATABASE.md](DATABASE.md): schema guidance.
+- [Miniapp README](../miniapp/README.md): development, login, and release checks.
+- [DEPLOYMENT.md](DEPLOYMENT.md): deployment procedures.
+- [PUBLIC_LAUNCH_CHECKLIST.md](PUBLIC_LAUNCH_CHECKLIST.md): production gates.
+- [GIT_WORKFLOW.md](GIT_WORKFLOW.md): branches, commits, and review.
 
-## TBD: information required from the business owner
+## Business information and pending decisions
 
-- Official company and product names, contact information, legal entity, and footer details
-- Brand assets, colours, typography, tone of voice, and approved page copy
-- Final navigation, page hierarchy, supported countries, universities, and programmes
-- Consultation form fields, consent wording, lead ownership, notification recipients, and retention rules
-- Article, success-story, FAQ, and university content models
-- Administrator roles, permissions, authentication method, and content approval workflow
-- SEO requirements, analytics and cookie-consent requirements
-- Domain name and access to Alibaba Cloud, DNS, email, and other production accounts
-- Privacy policy, terms, regulatory requirements, and backup-retention policy
+Approved company information and contacts are maintained in
+`frontend/src/data/company-profile.ts`. Reviewed content and import packages
+exist in the repository, but their presence does not establish publication
+approval. Final university and programme data must follow owner approval as
+described in the README and data documentation.
 
-These decisions must be confirmed before their related production features are designed. Do not guess them.
+Record new unresolved requirements as `TBD` with their scope and owner. Check
+existing product specifications and runbooks before treating branding,
+contacts, authentication, or deployment as undecided. Do not invent missing
+business requirements or describe gated features as enabled.
 
 ## Resuming work
 
-In a new developer or AI session, first inspect `git status`, read `AGENTS.md` and all files in `docs/`, then verify the code. Documentation is a navigation aid, not a substitute for checking the implementation.
+Inspect `git status`, read `AGENTS.md` and the relevant documentation, then verify
+the implementation. Documentation is a navigation aid rather than a substitute
+for checking the code. Keep API, schema, configuration, and architecture guidance
+current when their implementation changes.

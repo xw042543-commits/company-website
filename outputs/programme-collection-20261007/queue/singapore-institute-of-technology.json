@@ -1,0 +1,20 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "singapore-institute-of-technology",
+    "displayName": "Singapore Institute of Technology",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://www.singaporetech.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.singaporetech.edu.sg",
+      "singaporetech.edu.sg"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 1,
+    "warnings": []
+  },
+  "queue": []
+}

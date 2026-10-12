@@ -1,12 +1,14 @@
 package com.yangdoujiao.website.common.api;
 
-import java.time.OffsetDateTime;
+import java.util.Map;
 
 public record ApiErrorResponse(
-        OffsetDateTime timestamp,
-        int status,
-        String error,
+        String code,
         String message,
-        String path
+        Map<String, String> fieldErrors,
+        String traceId
 ) {
+    public ApiErrorResponse {
+        fieldErrors = fieldErrors == null ? Map.of() : Map.copyOf(fieldErrors);
+    }
 }

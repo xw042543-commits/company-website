@@ -1,0 +1,22 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "macquarie-university",
+    "displayName": "Macquarie University",
+    "status": "BLOCKED",
+    "officialEntryUrls": [
+      "https://www.mq.edu.au/study/find-a-course"
+    ],
+    "allowedHosts": [
+      "www.mq.edu.au",
+      "mq.edu.au"
+    ],
+    "discoveredUrls": 0,
+    "parsedProgrammes": 0,
+    "pagesRead": 0,
+    "warnings": [
+      "https://www.mq.edu.au/study/find-a-course：无法确认 robots.txt（HTTP 403），本来源停止抓取"
+    ]
+  },
+  "queue": []
+}

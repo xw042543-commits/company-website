@@ -1,0 +1,62 @@
+{
+  "region": "singapore",
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-10-07T04:27:52.644Z",
+  "sourceKey": "singapore-management-university",
+  "sourceName": "Singapore Management University",
+  "warnings": [],
+  "university": {
+    "candidateId": "university_6227ecc4f2cdb3c2",
+    "universityCode": null,
+    "nameZh": null,
+    "nameEn": "Singapore Management University",
+    "countryCode": null,
+    "countryRaw": "Singapore",
+    "cityZh": null,
+    "cityEn": "Singapore",
+    "descriptionZh": null,
+    "descriptionEn": null,
+    "popular": null,
+    "status": "DRAFT",
+    "campusRaw": null,
+    "officialWebsite": "https://www.smu.edu.sg",
+    "logoSourceUrl": null,
+    "logoLicenceRaw": null,
+    "partnerInstitution": null,
+    "partnershipStatementRaw": null,
+    "lastCheckedAt": "2026-10-07T04:27:52.642Z",
+    "reviewer": null,
+    "evidence": [
+      {
+        "sourceUrl": "https://www.smu.edu.sg/",
+        "sourcePageTitle": null,
+        "sourceHash": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+        "fetchedAt": "2026-10-07T04:27:52.642Z",
+        "field": "name",
+        "rawText": "Singapore Management University"
+      }
+    ],
+    "institutionTypeRaw": "Autonomous university",
+    "selectionRank": 4,
+    "rankingAuthority": "High-confidence institutional selection (MOE/ICA/CPE and official sites)",
+    "rankingYear": 2026,
+    "rankingUrl": "https://www.ica.gov.sg/reside/LTVP/apply/graduate-from-an-institute-of-higher-learning-seeking-employment-in-singapore/list_ihl",
+    "media": []
+  },
+  "programmes": [],
+  "pages": [
+    {
+      "url": "https://www.smu.edu.sg/",
+      "fetchedAt": "2026-10-07T04:27:52.642Z",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+      "title": null,
+      "snapshotFile": "raw/0001-d02032286070.html"
+    }
+  ],
+  "courseEntryPass": {
+    "status": "NO_DISCOVERED_ENTRY",
+    "checkedAt": "2026-10-07T06:41:01.868Z"
+  }
+}

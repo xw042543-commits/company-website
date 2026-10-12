@@ -3,69 +3,55 @@
 ## System shape
 
 ```text
-Browser
-  -> Next.js (:3000)
-      -> REST API
-          -> Spring Boot (:8080)
-              -> PostgreSQL (source of truth)
-              -> Elasticsearch (search index only)
-              -> Redis (cache only)
+Browser -> Next.js -> Spring Boot REST API
+WeChat miniapp ------> Spring Boot REST API
+                           -> PostgreSQL (business data and website sessions)
+                           -> Elasticsearch (derived search indexes)
+                           -> Redis (cache, community snapshots and rate limits)
 ```
 
-This is a modular monolith, not a microservice system. The frontend and backend are separately runnable applications in one repository; the backend is one Spring Boot application.
+The backend is a modular monolith. Controllers handle HTTP input and DTOs,
+services own business logic and transactions, and repositories access persisted
+data. PostgreSQL is the source of truth. Flyway owns schema changes; Hibernate
+validates the schema rather than creating it.
 
-## PostgreSQL request flow
+## API and authentication
 
-For `GET /api/universities`:
+New clients use `/api/v1` for university and programme discovery, articles,
+consultations, authentication, applications, and community features. Legacy
+university endpoints remain for compatibility. Consult [API.md](API.md) for
+current routes and response contracts.
 
-```text
-UniversityController
-  -> UniversityService
-      -> UniversityRepository (Spring Data JPA)
-          -> PostgreSQL universities table
-  -> UniversityResponse DTO
-      -> JSON
-```
+Website authentication uses PostgreSQL-backed Spring Session and an HttpOnly
+`JSESSIONID` cookie, with CSRF protection for writes. The miniapp uses its own
+access and refresh token flow; see [the miniapp guide](../miniapp/README.md).
+Registration and other write features have independent configuration gates.
 
-The Controller handles HTTP and maps entities to DTOs. The Service owns read-only transaction and caching rules. The Repository performs database access. The JPA `University` entity is internal and is not the public API contract.
+## Search and cache
 
-## Search flow
+Legacy `UniversitySearchService` rebuilds the `universities` index from
+PostgreSQL on application startup. V1 discovery uses the services under
+`search/v4/`, including PostgreSQL projection loading and persisted
+`search_sync_jobs`. The synchronization worker claims jobs with lease tokens
+and records failures for retry. Elasticsearch remains derived data; never use
+it as the only copy of a business record.
 
-For `GET /api/search?q=Malaysia`:
+The legacy popular-university list uses the `popularUniversities` Redis cache
+with a configured ten-minute TTL. Community hot feeds and write rate limits
+also use Redis. Community writes fail closed when rate limiting is unavailable;
+latest feeds, details, and comments can continue to read PostgreSQL. The
+[community contract](community-read-contract.md) and miniapp guide describe
+the supported failure behavior.
 
-```text
-SearchController
-  -> request validation
-  -> UniversitySearchService
-      -> UniversitySearchRepository
-          -> Elasticsearch universities index
-  -> UniversitySearchResponse DTO
-      -> JSON
-```
+## Configuration and deployment
 
-At application startup, `UniversitySearchService.rebuildIndex()` reads every university from PostgreSQL, deletes the old Elasticsearch documents, and saves rebuilt documents. This simple strategy is suitable only for the current small development dataset. PostgreSQL remains authoritative even if Elasticsearch is empty or recreated.
+- `application.yml` and profile-specific files configure the backend.
+- `.env` contains ignored local values; `.env.example` contains safe examples.
+- `compose.yaml` runs local PostgreSQL, Redis, and Elasticsearch.
+- `compose.production.yaml` adds the frontend, backend, and HTTPS reverse proxy.
+- [DEPLOYMENT.md](DEPLOYMENT.md) and [BACKUP_AND_RESTORE.md](BACKUP_AND_RESTORE.md)
+  describe deployment and recovery.
 
-## Cache flow
-
-For `GET /api/universities/popular`:
-
-```text
-Request
-  -> Redis cache lookup: popularUniversities
-      -> hit: return cached list
-      -> miss: UniversityRepository -> PostgreSQL
-               -> cache result for 10 minutes
-               -> return result
-```
-
-Redis persistence in local Docker helps development convenience but does not make Redis a business database. Cache data may be deleted at any time.
-
-## Configuration boundaries
-
-- `application.yml`: shared settings, schema validation, caching, safe errors, and logging
-- `application-dev.yml`: local service connections and CORS origin
-- `.env`: real local values, ignored by Git
-- `.env.example`: safe onboarding template
-- `compose.yaml`: version-pinned local data services and named volumes
-
-Bean Validation rejects invalid requests before search logic runs. `GlobalExceptionHandler` returns stable error DTOs without exposing stack traces. CORS applies to `/api/**` and permits configured origins only. Elasticsearch security being disabled is strictly a local-development choice.
+Deployment configuration exists in the repository. A production feature is
+enabled only after its configuration and release checks pass; see the
+[public launch checklist](PUBLIC_LAUNCH_CHECKLIST.md).

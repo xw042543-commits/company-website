@@ -1,0 +1,604 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "sp-jain-singapore",
+    "displayName": "SP Jain School of Global Management Singapore",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.spjain.sg/"
+    ],
+    "allowedHosts": [
+      "www.spjain.sg",
+      "spjain.sg"
+    ],
+    "discoveredUrls": 81,
+    "parsedProgrammes": 19,
+    "pagesRead": 120,
+    "warnings": [
+      "HTTP 404：https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-1-aspirant",
+      "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/message-from-the-dean",
+      "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/careers",
+      "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/learning-outcomes",
+      "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/specialisations",
+      "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/projects",
+      "HTTP 404：https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options",
+      "HTTP 404：https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics",
+      "HTTP 404：https://www.spjain.sg/programs/undergraduate/bec/academics",
+      "HTTP 404：https://www.spjain.sg/programs/postgraduate/executive-mba",
+      "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business.",
+      "HTTP 404：https://www.spjain.sg/programs/postgraduate/emba/fees",
+      "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-management/message-from-program-director",
+      "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-management/brochure",
+      "HTTP 404：https://www.spjain.sg/programs/postgraduate/master-of-managementhttps://appforms.spjain.org/index.aspx"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/mgb/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/gmba/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/executive-mba/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/elo/executive-mba/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/admissions",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-management/admission-process",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:28:24.362Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/mgb",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:01.810Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/gmba",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:03.585Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/executive-mba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/elo/executive-mba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:28:26.397Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:28:27.655Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:11.597Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business.",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/why-spjain",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/learning-outcomes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/program-structure",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/specialisations",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics/study-abroad-program",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/fees",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:28:39.737Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/students/student-life",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/careers",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/scholarships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/entrance-test",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/faqs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/important-contacts-and-resources",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-1-aspirant",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options/are-you-a-year-2-3-transfer-student",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:28:51.149Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/gallery",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/london-study-option",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/open-day",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:28:56.422Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/emba/fees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/message-from-the-dean",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/why-spjain",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:29:00.032Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/learning-outcomes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/program-structure",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:29:04.368Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics/faculty",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:29:06.603Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/fees",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:29:08.570Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-achievements",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:29:09.870Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/student-life",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students/careers",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:29:13.873Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/careers",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/important-contacts-and-resources",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/gallery",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bds/fees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-management/message-from-program-director",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/why-spjain",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/learning-outcomes",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/specialisations",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/faculty",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/projects",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics/program-structure",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/fees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/important-contacts-and-resources",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:00.483Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-management/scholarships",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-management/brochure",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-management/important-contacts-resources",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-management/fees",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bba/flexible-learning-options",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-data-science/students",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/faculty",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:24.501Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bec/academics/learning-outcomes",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:29:52.649Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bec",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate/bec/academics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/programs",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/brochures/undergraduate/bba",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/brochures/undergraduate/bachelor-of-data-science",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/brochures/undergraduate/bachelor-of-economics",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.sg/brochures/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "sp-jain-singapore",
+      "url": "https://www.spjain.org/programs/postgraduate/master-of-artificial-intelligence-in-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:45:09.796Z",
+      "error": null
+    }
+  ]
+}

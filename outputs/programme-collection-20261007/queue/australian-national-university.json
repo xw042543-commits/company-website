@@ -1,0 +1,56 @@
+{
+  "school": {
+    "region": "australia",
+    "sourceKey": "australian-national-university",
+    "displayName": "The Australian National University",
+    "status": "NEEDS_ADAPTER",
+    "officialEntryUrls": [
+      "https://study.anu.edu.au/"
+    ],
+    "allowedHosts": [
+      "www.anu.edu.au",
+      "anu.edu.au",
+      "study.anu.edu.au"
+    ],
+    "discoveredUrls": 4,
+    "parsedProgrammes": 0,
+    "pagesRead": 160,
+    "warnings": [
+      "https://www.anu.edu.au/students/program-administration/fees-payments/undergraduate-commonwealth-supported-places：重定向次数超过 5 次",
+      "https://www.anu.edu.au/students/program-administration/fees-payments/sa-help：重定向次数超过 5 次",
+      "https://www.anu.edu.au/students/program-administration/fees-payments/help-loans-for-new-zealand-citizens：重定向次数超过 5 次",
+      "HTTP 404：https://www.anu.edu.au/current-students/program-administration/calendar/month",
+      "HTTP 404：https://www.anu.edu.au/study/accept/international-undergraduate-and-postgraduate-coursework-defer-or-decline"
+    ]
+  },
+  "queue": [
+    {
+      "universitySourceKey": "australian-national-university",
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/undergraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "australian-national-university",
+      "url": "https://programsandcourses.anu.edu.au/degree-builder/program-type/postgraduate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "australian-national-university",
+      "url": "https://programsandcourses.anu.edu.au/program/find",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "australian-national-university",
+      "url": "https://programsandcourses.anu.edu.au/program/compareandcreate",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    }
+  ]
+}

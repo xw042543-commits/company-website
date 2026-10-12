@@ -1,0 +1,13 @@
+{
+  "name": "yangdoujiao-crawler",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "crawl": "node src/cli.ts",
+    "check": "node --test"
+  }
+}

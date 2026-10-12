@@ -1,0 +1,567 @@
+{
+  "school": {
+    "region": "singapore",
+    "sourceKey": "psb-academy",
+    "displayName": "PSB Academy",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.psb-academy.edu.sg/"
+    ],
+    "allowedHosts": [
+      "www.psb-academy.edu.sg",
+      "psb-academy.edu.sg"
+    ],
+    "discoveredUrls": 78,
+    "parsedProgrammes": 76,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/Courses",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-administration",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-administration-accounting-and-finance",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-administration-digital-marketing",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-administration-human-resource-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-analytics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-studies-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-electrical-engineering-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-global-supply-chain",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-graphic-design-and-media",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-infocomm-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-mechanical-engineering-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-media-and-communications",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-sport-and-exercise-sciences",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-sport-and-exercise-sciences-sport-coaching",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-tourism-and-hospitality-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/postgraduate-diploma-in-cyber-security-elearning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:21.727Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-studies-accounting-and-finance-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-studies-business-analytics-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/edinburgh-napier-university/doctor-of-business-administration-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-studies-digital-marketing-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-business-studies-human-resource-management-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/university-of-hertfordshire/bachelor-of-arts-honours-business-administration-top-up-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/university-of-hertfordshire/master-of-business-administration-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/edinburgh-napier-university/bachelor-of-arts-hospitality-and-tourism-management-top-up-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-infocomm-technology-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-media-and-communications-e-learning",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:25.572Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/master-of-business-administration-in-finance",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-arts-with-honours-in-accounting-and-finance-for-international-business-top-up",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-science-with-honours-in-accounting-and-finance",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-science-with-honours-in-business-and-finance",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-food-and-nutrition",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/bachelor-of-food-and-nutrition",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/doctor-of-business-administration",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/master-of-business-administration-in-global-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/bachelor-of-business-marketing-international-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/university-of-hertfordshire/bachelor-of-arts-honours-business-administration-top-up",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/university-of-hertfordshire/bachelor-of-arts-honours-business-management-with-logistics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-arts-with-honours-in-global-business-top-up",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/edinburgh-napier-university/bachelor-of-arts-business-management-top-up",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/edinburgh-napier-university/bachelor-of-arts-business-management-with-human-resource-management-top-up",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-arts-with-honours-in-business-and-marketing",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/university-of-hertfordshire/master-of-business-administration",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/bachelor-of-business-management-marketing",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/bachelor-of-business-management-international-business",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-science-with-honours-in-quantity-surveying-and-commercial-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-cyber-security",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/master-of-science-in-cyber-security",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-science-with-honours-in-cyber-security",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-electrical-engineering-with-robotics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/master-of-science-in-renewable-energy-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/university-of-hertfordshire/bachelor-of-engineering-honours-in-robotics-and-artificial-intelligence",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-engineering-with-honours-in-electro-mechanical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/master-of-science-in-engineering-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-engineering-with-honours-in-mechanical-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-engineering-with-honours-in-electrical-and-electronic-engineering",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-arts-with-honours-in-international-hospitality-and-tourism-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-science-with-honours-in-artificial-intelligence",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/massey-university/bachelor-of-information-sciences-with-a-double-major-in-computer-science-and-information-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/bachelor-of-computer-science-artificial-intelligence",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/bachelor-of-science-applied-chemistry-and-molecular-biology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/bachelor-of-science-biotechnology-and-molecular-biology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/bachelor-of-science-molecular-biology-and-pharmaceutical-science",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/master-of-biotechnology-and-bioinformatics",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/psb-academy/diploma-in-global-supply-chain-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-arts-with-honours-in-digital-marketing",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-arts-with-honours-in-digital-media",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/la-trobe-university/master-of-nursing-leadership",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/edinburgh-napier-university/bachelor-of-science-sport-and-exercise-science-top-up",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:36.259Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/university-of-hertfordshire/bachelor-of-science-honours-diagnostic-radiography-and-imaging",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:49.512Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/disciplines/cyber-security-courses/diploma-courses",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:55.548Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "http://www.psb-academy.edu.sg/coventry-university/bachelor-of-arts-with-honours-in-international-hospitality-and-tourism-management",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:31:59.579Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/the-university-of-newcastle-australia/bachelor-of-information-technology",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:32:03.600Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/disciplines/life-sciences-courses/bachelors-degree",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:32:05.600Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/disciplines/media-communications-courses/bachelors-degree",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:32:11.623Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/coventry-university/bachelor-of-arts-with-honours-in-media-and-communications",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:32:11.623Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "psb-academy",
+      "url": "https://www.psb-academy.edu.sg/academic-levels/diploma-courses",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:32:21.963Z",
+      "error": null
+    }
+  ]
+}

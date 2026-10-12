@@ -1,0 +1,1799 @@
+{
+  "school": {
+    "region": "united-kingdom",
+    "sourceKey": "university-of-manchester",
+    "displayName": "The University of Manchester",
+    "status": "PARTIAL",
+    "officialEntryUrls": [
+      "https://www.manchester.ac.uk/"
+    ],
+    "allowedHosts": [
+      "www.manchester.ac.uk",
+      "manchester.ac.uk"
+    ],
+    "discoveredUrls": 254,
+    "parsedProgrammes": 228,
+    "pagesRead": 120,
+    "warnings": []
+  },
+  "queue": [
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/masters/courses/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/postgraduate-research/programmes/research-areas/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/postgraduate-research/programmes/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/basic/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07808/bsc-accounting/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:54.503Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/05151/baecon-accounting-and-finance/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:56.450Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09937/bsc-accounting-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07383/bsc-actuarial-science-and-mathematics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10971/bnurs-adult-nursing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:01.654Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03333/beng-aerospace-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03826/meng-aerospace-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12948/beng-meng-aerospace-engineering-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03827/meng-aerospace-engineering-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12037/ba-american-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/11806/ba-american-studies/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00169/ba-ancient-history/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00167/ba-ancient-history-and-archaeology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10353/ba-ancient-history-and-history/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00175/ba-archaeology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:21.879Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00043/ba-archaeology-and-anthropology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00178/ba-architecture/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:25.736Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21083/ba-architecture-with-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12152/ba-art-history-and-english-literature/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10356/ba-art-history-and-history/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:31.785Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21903/ba-art-history-and-modern-languages/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00521/bsc-biochemistry/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:35.787Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10110/msci-biochemistry/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00520/bsc-biochemistry-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18037/bsc-biochemistry-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00519/bsc-biochemistry-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22137/bsc-biochemistry-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00524/bsc-biology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:47.831Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10111/msci-biology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00527/bsc-biology-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18038/bsc-biology-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00526/bsc-biology-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22138/bsc-biology-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00532/bsc-biomedical-sciences/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10112/msci-biomedical-sciences/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/06245/bsc-biomedical-sciences-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18039/bsc-biomedical-sciences-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00531/bsc-biomedical-sciences-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22141/bsc-biomedical-sciences-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00456/biosciences-with-a-foundation-year/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/08662/bsc-biotechnology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:08:13.187Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10114/msci-biotechnology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18051/bsc-biotechnology-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/08669/bsc-biotechnology-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22142/bsc-biotechnology-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12812/bsc-business-accounting-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03340/beng-chemical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03848/meng-chemical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12951/beng-meng-chemical-engineering-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09050/meng-chemical-engineering-with-energy-and-environment/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03849/meng-chemical-engineering-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00544/bsc-chemistry/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:08:35.358Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/01449/mchem-chemistry/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12956/bsc-mchem-chemistry-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/01450/mchem-chemistry-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09453/mchem-chemistry-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00539/bsc-chemistry-with-medicinal-chemistry/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/01443/mchem-chemistry-with-medicinal-chemistry/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10972/bnurs-childrens-nursing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:08:49.333Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03858/meng-civil-and-structural-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21195/meng-civil-and-structural-engineering-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03343/beng-civil-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03869/meng-civil-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03873/meng-civil-engineering-enterprise/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12949/beng-meng-civil-engineering-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03875/meng-civil-engineering-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00183/ba-classical-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00184/ba-classics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:09:07.466Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/20942/bsc-cognitive-neuroscience-and-psychology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12806/ba-comparative-religion-and-social-anthropology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00560/bsc-computer-science/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:09:13.489Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00558/bsc-computer-science-and-mathematics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00490/bsc-computer-science-and-mathematics-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12952/bsc-computer-science-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00559/bsc-computer-science-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21803/ba-criminology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:09:23.428Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18108/bass-criminology-and-data-analytics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21808/ba-criminology-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21695/ba-cultural-creative-and-media-industries/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21873/baecon-data-science-and-economics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/20060/bsc-dental-hygiene-and-therapy/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00398/bds-dentistry-first-year-entry/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21197/ba-digital-media-culture-and-society/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00198/ba-drama/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/06613/ba-drama-and-english-literature/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12655/ba-drama-and-film-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12106/bsc-earth-and-planetary-sciences/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12107/mearthsci-earth-and-planetary-sciences/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12957/bsc-mearthsci-earth-and-planetary-sciences-with-an-integrated-foundation-year/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12788/mearthsci-earth-and-planetary-sciences-with-a-research-placement/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12109/mearthsci-earth-and-planetary-sciences-with-industrial-experience/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12111/mearthsci-earth-and-planetary-sciences-with-international-study/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09735/ba-east-asian-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12801/ba-east-asian-studies-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/05134/baecon-economics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10224/bsc-economics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/05136/baecon-economics-and-finance/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/08811/baecon-economics-and-philosophy/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/05137/baecon-economics-and-politics/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/05139/baecon-economics-and-sociology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12384/bsc-education/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07735/ugcert-egyptology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09116/ugdip-egyptology/",
+      "status": "DISCOVERED",
+      "lastCheckedAt": null,
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12950/beng-meng-electrical-electronic-and-mechatronic-engineering-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03363/beng-electrical-and-electronic-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03894/meng-electrical-and-electronic-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03364/beng-electrical-and-electronic-engineering-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03893/meng-electrical-and-electronic-engineering-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00212/ba-english-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10352/ba-english-language-and-english-literature/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00060/ba-english-literature/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07914/ba-english-literature-and-american-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10357/ba-english-literature-and-history/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21901/ba-english-literature-and-modern-languages/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09248/ba-english-literature-with-creative-writing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12385/bsc-environmental-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12662/bsc-environmental-management-with-professional-placement/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09665/bsc-fashion-buying-and-merchandising/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09662/bsc-fashion-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09663/bsc-fashion-marketing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21522/bsc-fashion-product-innovation/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/11788/ba-film-studies-and-east-asian-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/11789/ba-film-studies-and-english-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/11790/ba-film-studies-and-english-literature/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/11793/ba-film-studies-and-history/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/11794/ba-film-studies-and-history-of-art/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21906/ba-film-studies-and-modern-languages/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10120/msci-genetics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00573/bsc-genetics-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18042/bsc-genetics-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00572/bsc-genetics-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22144/bsc-genetics-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22123/ba-geography-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22124/bsc-geography-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22125/ba-geography-with-professional-placement/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22126/bsc-geography-with-professional-placement/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/20251/bsc-global-development/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21403/bsc-global-development-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09104/bsc-healthcare-science-audiology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07913/ba-history-and-american-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21905/ba-history-and-modern-languages/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00260/ba-history-and-sociology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/06246/bsc-information-technology-management-for-business/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/06247/bsc-information-technology-management-for-business-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09224/bsc-international-business-finance-and-economics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09963/bsc-international-business-finance-and-economics-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10113/bsc-international-disaster-management-and-humanitarian-response/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21902/bsc-international-disaster-management-and-humanitarian-response-and-modern-languages/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18515/bsc-international-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12451/llb-law-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/19115/ba-liberal-arts-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00585/bsc-life-sciences/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00584/bsc-life-sciences-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18043/bsc-life-sciences-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00583/bsc-life-sciences-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22145/bsc-life-sciences-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21900/ba-linguistics-and-modern-languages/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00289/ba-linguistics-and-sociology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09965/bsc-management-accounting-and-finance-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03520/bsc-management-accounting-and-finance/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03525/bsc-management-human-resources/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09966/bsc-management-human-resources-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/11245/bsc-management-innovation-strategy-and-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/11242/bsc-management-innovation-strategy-and-entrepreneurship-with-industrial---professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03527/bsc-management-international-business-economics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09967/bsc-management-international-business-economics-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03528/bsc-management-marketing/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09970/bsc-management-marketing-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09964/bsc-management-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09631/mpre-master-of-planning-with-real-estate/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09894/bsc-materials-science-and-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/09895/meng-materials-science-and-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12959/bsc-meng-materials-science-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/01688/mmath-mathematics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00595/bsc-mathematics-and-philosophy/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00592/bsc-mathematics-and-physics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07101/bsc-mathematics-and-statistics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07102/mmath-mathematics-and-statistics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12960/bsc-mathematics-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00495/bsc-mathematics-with-finance/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12645/bsc-mathematics-with-placement-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03389/beng-mechanical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03921/meng-mechanical-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12947/beng-meng-mechanical-engineering-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03919/meng-mechanical-engineering-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03394/beng-mechatronic-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03927/meng-mechatronic-engineering/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03395/beng-mechatronic-engineering-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/03928/meng-mechatronic-engineering-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00602/bsc-medical-biochemistry/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10121/msci-medical-biochemistry/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00600/bsc-medical-biochemistry-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22146/bsc-medical-biochemistry-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00643/bsc-medical-physiology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10127/msci-medical-physiology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00646/bsc-medical-physiology-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18047/bsc-medical-physiology-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00645/bsc-medical-physiology-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22154/bsc-medical-physiology-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10122/msci-microbiology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00608/bsc-microbiology-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18044/bsc-microbiology-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00607/bsc-microbiology-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22147/bsc-microbiology-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07729/ba-middle-eastern-studies/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00340/ba-modern-history-with-economics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21897/ba-modern-languages/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21899/ba-modern-languages-and-business-and-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10124/msci-neuroscience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00616/bsc-neuroscience-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18045/bsc-neuroscience-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00615/bsc-neuroscience-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22148/bsc-neuroscience-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21273/msci-optometry/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10125/msci-pharmacology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00633/bsc-pharmacology-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18046/bsc-pharmacology-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00632/bsc-pharmacology-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22149/bsc-pharmacology-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/01695/mpharm-pharmacy/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07958/mpharm-pharmacy-with-a-preparatory-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/13042/ba-philosophy-and-religion/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/02021/mphys-physics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12955/bsc-mphys-physics-with-an-integrated-foundation-year/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00639/bsc-physics-with-astrophysics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/02024/mphys-physics-with-astrophysics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/02026/mphys-physics-with-study-in-europe/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00642/bsc-physics-with-theoretical-physics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/02029/mphys-physics-with-theoretical-physics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12105/bsc-planning-and-real-estate/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/12663/bsc-planning-and-real-estate-with-professional-placement/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00154/ba-politics-philosophy-and-economics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00353/ba-politics-and-modern-history/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21898/ba-politics-and-modern-languages/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22002/bsc-psychology-of-education/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/19642/bsc-public-health-on-campus/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/17846/ba-religions-theology-and-ethics/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/21904/ba-sociology-and-modern-languages/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/11331/bsc-speech-and-language-therapy/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/10129/msci-zoology/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00665/bsc-zoology-with-a-modern-language/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/18049/bsc-zoology-with-entrepreneurship/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/00664/bsc-zoology-with-industrial-professional-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/22150/bsc-zoology-with-international-study/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:03:52.225Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/03829/meng-aerospace-engineering-with-management/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T04:04:08.623Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/03850/meng-chemical-engineering-with-study-in-europe/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:08:29.330Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/00490/bsc-computer-science-and-mathematics-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:09:19.463Z",
+      "error": null
+    },
+    {
+      "universitySourceKey": "university-of-manchester",
+      "url": "https://www.manchester.ac.uk/study/undergraduate/courses/2025/00559/bsc-computer-science-with-industrial-experience/",
+      "status": "PARSED",
+      "lastCheckedAt": "2026-10-07T06:09:19.463Z",
+      "error": null
+    }
+  ]
+}
