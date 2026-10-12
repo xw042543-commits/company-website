@@ -9,6 +9,12 @@ export interface UniversitySearchInput {
   readonly country?: string;
   readonly category?: string;
   readonly level?: string;
+  readonly mode?: string;
+  readonly language?: string;
+  readonly duration?: string;
+  readonly intake?: string;
+  readonly tuitionMin?: string;
+  readonly tuitionMax?: string;
   readonly page?: number;
   readonly size?: number;
 }
@@ -148,6 +154,12 @@ export function buildUniversitySearchPath(input: UniversitySearchInput): `/api/$
   addFilter(query, 'country', input.country);
   addFilter(query, 'category', input.category);
   addFilter(query, 'level', input.level);
+  addFilter(query, 'mode', input.mode);
+  addFilter(query, 'language', input.language);
+  addFilter(query, 'duration', input.duration);
+  addFilter(query, 'intake', input.intake);
+  addFilter(query, 'tuitionMin', input.tuitionMin);
+  addFilter(query, 'tuitionMax', input.tuitionMax);
   addFilter(query, 'page', String(input.page ?? 1));
   addFilter(query, 'size', String(input.size ?? 12));
   addFilter(query, 'sort', 'relevance');
