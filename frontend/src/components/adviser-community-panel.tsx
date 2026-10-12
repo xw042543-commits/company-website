@@ -19,7 +19,7 @@ import { type Locale, words } from "@/lib/site";
 
 type SelectedTarget = { targetType: ModerationTargetType; targetId: string };
 const initialFilters: QueueFilterDraft = { status: "PENDING", targetType: "", reasonCode: "", from: "", to: "" };
-const commands: ModerationCommand[] = ["HIDE", "RESTORE", "REJECT", "REJECT_REPORT", "MUTE", "BAN"];
+const commands: ModerationCommand[] = ["HIDE", "RESTORE", "REJECT", "REJECT_REPORT", "MUTE", "BAN", "RELEASE"];
 
 export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
   const router = useRouter();
@@ -126,7 +126,7 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
 
   async function submitAction() {
     if (!detail || !selected || submissionLock.current || !canSubmitModeration({ command, reasonCode,
-      version: detail.version, contentStatus: detail.status, confirmed, busy, needsReload, expiry })) return;
+      version: detail.version, contentStatus: detail.status, authorRestricted: detail.authorRestricted, confirmed, busy, needsReload, expiry })) return;
     const target = selected;
     const restrictionEndsAt = command === "MUTE" ? muteExpiry(expiry) : null;
     if (command === "MUTE" && restrictionEndsAt === null) { setDetailFailure({ status: "validation-error" }); return; }
@@ -226,6 +226,7 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
                 ? <span className="community-sla" role="note" data-sla-state={selectedQueueItem?.slaState} aria-label={detailWaitingHint.ariaLabel}>{detailWaitingHint.text}</span>
                 : w("等待状态暂不可用，请刷新队列。", "Waiting status unavailable. Refresh the queue.")}</dd></div>}
               <div><dt>{w("当前版本", "Current version")}</dt><dd>{detail.version}</dd></div>
+              <div><dt>{w("作者社区权限", "Author community access")}</dt><dd>{detail.authorRestricted === undefined ? w("状态暂不可用", "Status unavailable") : detail.authorRestricted ? w("已封禁或禁言", "Banned or muted") : w("无社区封禁或禁言", "No community restrictions")}</dd></div>
               {detail.postId && <div><dt>{w("所属帖子编号", "Parent post ID")}</dt><dd>{detail.postId}</dd></div>}
               {detail.parentCommentId && <div><dt>{w("回复评论编号", "Parent comment ID")}</dt><dd>{detail.parentCommentId}</dd></div>}</dl>
             <section className="community-detail-section" aria-label={w("完整内容", "Full content")}><h3>{w("完整内容", "Full content")}</h3>{detail.targetType === "POST" && <p className="community-post-context">{moderationPostContext(locale, detail)}</p>}{detail.title && <h4 className="community-post-title">{detail.title}</h4>}<p className="community-body">{detail.body}</p>{detail.targetType === "POST" && detail.status !== "DELETED" && <AdviserCommunityImages key={`${detail.targetId}:${detail.version}`} postId={detail.targetId} />}</section>
@@ -235,12 +236,13 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
             </section>
             <form className="community-action-form" onSubmit={(event) => { event.preventDefault(); void submitAction(); }}>
               <fieldset disabled={busy || needsReload}><legend>{w("处理决定", "Moderation decision")}</legend>
-                <div><label htmlFor="community-command">{w("处理操作", "Action")}</label><select id="community-command" value={command} onChange={(event) => { setCommand(event.target.value as ModerationCommand); setReasonCode(""); setConfirmed(false); setExpiry(""); }}>{commands.map((value) => <option key={value} value={value} disabled={value === "REJECT" && detail.status !== "PENDING_REVIEW"}>{commandLabel(value)}</option>)}</select></div>
+                <div><label htmlFor="community-command">{w("处理操作", "Action")}</label><select id="community-command" value={command} onChange={(event) => { setCommand(event.target.value as ModerationCommand); setReasonCode(""); setConfirmed(false); setExpiry(""); }}>{commands.map((value) => <option key={value} value={value} disabled={(value === "REJECT" && detail.status !== "PENDING_REVIEW") || (value === "RELEASE" && detail.authorRestricted !== true)}>{commandLabel(value)}</option>)}</select></div>
+                {command === "RELEASE" && <p>{w("解除此作者当前的社区封禁和禁言，不会恢复被隐藏或拒绝的内容。", "Lift this author's current community bans and mutes. Hidden or rejected content stays unchanged.")}</p>}
                 <div><label htmlFor="community-decision-reason">{w("处理原因（必选）", "Decision reason (required)")}</label><select id="community-decision-reason" required value={reasonCode} onChange={(event) => { setReasonCode(event.target.value); setConfirmed(false); }}><option value="">{w("请选择处理原因", "Choose a decision reason")}</option>{reasonsForCommand(command).map((reason) => <option key={reason} value={reason}>{reasonLabel(reason)}</option>)}</select></div>
                 {command === "MUTE" && <div><label htmlFor="community-expiry">{w("禁言到期时间（可选）", "Mute expiry (optional)")}</label><input id="community-expiry" type="datetime-local" value={expiry} aria-describedby="community-expiry-hint" onChange={(event) => setExpiry(event.target.value)} /><small id="community-expiry-hint">{w("留空则禁言 24 小时。自定义时间使用设备时区，须在未来 30 天内。", "Leave blank for a 24-hour mute. A custom time uses your device timezone and must be within the next 30 days.")}</small></div>}
                 {command === "MUTE" && muteExpiry(expiry) === null && <p className="adviser-error" role="alert">{moderationErrorText(locale, "validation-error")}</p>}
                 {(command === "HIDE" || command === "REJECT" || command === "BAN") && <div className="community-confirmation"><input id="community-confirm" type="checkbox" checked={confirmed} onChange={(event) => setConfirmed(event.target.checked)} /><label htmlFor="community-confirm">{command === "HIDE" ? w("确认隐藏此内容，使其不再公开显示。", "Confirm hiding this content from public view.") : command === "REJECT" ? w("确认拒绝发布此内容，并通知作者修改后重新提交。", "Confirm rejecting this content and notifying its author to revise and resubmit.") : w("确认封禁作者，限制其社区发布权限。", "Confirm banning the author from posting in the community.")}</label></div>}
-                <button type="submit" disabled={!canSubmitModeration({ command, reasonCode, version: detail.version, contentStatus: detail.status, confirmed, busy, needsReload, expiry })}>{saving ? w("正在保存…", "Saving…") : commandLabel(command)}</button>
+                <button type="submit" disabled={!canSubmitModeration({ command, reasonCode, version: detail.version, contentStatus: detail.status, authorRestricted: detail.authorRestricted, confirmed, busy, needsReload, expiry })}>{saving ? w("正在保存…", "Saving…") : commandLabel(command)}</button>
               </fieldset>
             </form>
             <section className="community-detail-section" aria-labelledby="community-history-title"><h3 id="community-history-title">{w("处理记录", "Action history")}</h3>

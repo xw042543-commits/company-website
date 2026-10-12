@@ -37,14 +37,14 @@ export function moderationCommandLabel(locale: Locale, command: string): string 
   const w = (zh: string, en: string) => words(locale, zh, en);
   return ({ HIDE: w("隐藏内容", "Hide content"), RESTORE: w("恢复内容", "Restore content"),
     REJECT: w("拒绝发布", "Reject content"), REJECT_REPORT: w("驳回举报", "Reject reports"), MUTE: w("禁言作者", "Mute author"), BAN: w("封禁作者", "Ban author"),
-    AUTO_HIDE: w("系统自动隐藏", "Automatically hidden"),
+    RELEASE: w("解除作者封禁／禁言", "Lift author restrictions"), AUTO_HIDE: w("系统自动隐藏", "Automatically hidden"),
   })[command] ?? w("未知操作", "Unknown action");
 }
 
 export const reportReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "OTHER"] as const;
 const enforcementReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "POLICY_VIOLATION"];
 export function reasonsForCommand(command: ModerationCommand): string[] {
-  return command === "RESTORE" ? ["APPEAL_ACCEPTED", "REVIEW_APPROVED"]
+  return command === "RELEASE" ? ["APPEAL_ACCEPTED"] : command === "RESTORE" ? ["APPEAL_ACCEPTED", "REVIEW_APPROVED"]
     : command === "REJECT_REPORT" ? ["REPORT_UNFOUNDED"] : enforcementReasons;
 }
 
@@ -56,12 +56,13 @@ export function muteExpiry(value: string, now = Date.now()): string | null {
 
 export function canSubmitModeration(input: {
   command: ModerationCommand; reasonCode: string; version: number; confirmed?: boolean;
-  busy?: boolean; needsReload?: boolean; expiry?: string; now?: number; contentStatus?: ModerationContentStatus;
+  busy?: boolean; needsReload?: boolean; expiry?: string; now?: number; contentStatus?: ModerationContentStatus; authorRestricted?: boolean;
 }): boolean {
   return !input.busy && !input.needsReload && Number.isSafeInteger(input.version) && input.version >= 0
     && input.version < Number.MAX_SAFE_INTEGER && reasonsForCommand(input.command).includes(input.reasonCode)
     && (!["HIDE", "REJECT", "BAN"].includes(input.command) || input.confirmed === true)
     && (input.command !== "REJECT" || input.contentStatus === "PENDING_REVIEW")
+    && (input.command !== "RELEASE" || input.authorRestricted === true)
     && (input.command !== "MUTE" || muteExpiry(input.expiry ?? "", input.now) !== null);
 }
 

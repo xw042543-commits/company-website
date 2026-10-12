@@ -3,7 +3,7 @@ import { adviserClient, type AdviserFailure } from "./adviser-consultation-api.t
 export type ModerationTargetType = "POST" | "COMMENT";
 export type ModerationContentStatus = "PENDING_REVIEW" | "PUBLISHED" | "HIDDEN" | "DELETED" | "REJECTED";
 export type ModerationSlaState = "ON_TIME" | "WARNING" | "OVERDUE";
-export type ModerationCommand = "HIDE" | "RESTORE" | "REJECT" | "REJECT_REPORT" | "MUTE" | "BAN";
+export type ModerationCommand = "HIDE" | "RESTORE" | "REJECT" | "REJECT_REPORT" | "MUTE" | "BAN" | "RELEASE";
 export type ModerationHistoryCommand = ModerationCommand | "AUTO_HIDE";
 export type ModerationAction = Readonly<{ command: ModerationCommand; reasonCode: string; version: number; restrictionEndsAt?: string | null }>;
 export type ModerationResult<T> = { status: "ready"; value: T } | AdviserFailure;
@@ -18,6 +18,7 @@ export type ModerationReportSummary = { reasonCode: string; status: "OPEN" | "RE
 export type ModerationHistoryAction = { id: string; command: ModerationHistoryCommand; reasonCode: string;
   previousStatus: ModerationContentStatus | null; nextStatus: ModerationContentStatus | null; createdAt: string };
 export type ModerationDetail = ModerationPostMetadata & {
+  authorRestricted?: boolean;
   targetType: ModerationTargetType; targetId: string; status: ModerationContentStatus; body: string;
   postId: string | null; parentCommentId: string | null; version: number; openReportCount: number;
   reports: ModerationReportSummary[]; actions: ModerationHistoryAction[]; actionsNextCursor: string | null;
@@ -31,7 +32,7 @@ const ROOT = "/api/v1/adviser/community/moderation";
 const { record, exact, integer, timestamp, endpoint, failure, readJson, read } = adviserClient;
 const contentStatuses = ["PENDING_REVIEW", "PUBLISHED", "HIDDEN", "DELETED", "REJECTED"];
 const slaStates = ["ON_TIME", "WARNING", "OVERDUE"];
-const commands = ["HIDE", "RESTORE", "REJECT", "REJECT_REPORT", "MUTE", "BAN"];
+const commands = ["HIDE", "RESTORE", "REJECT", "REJECT_REPORT", "MUTE", "BAN", "RELEASE"];
 const reportReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "OTHER"];
 const decisionReasons = ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "POLICY_VIOLATION",
   "APPEAL_ACCEPTED", "REVIEW_APPROVED", "REPORT_UNFOUNDED"];
@@ -84,7 +85,8 @@ function parseHistory(value: unknown): ModerationHistoryAction | null {
     ? value as ModerationHistoryAction : null;
 }
 function parseDetail(value: unknown): ModerationDetail | null {
-  if (!record(value) || !metadataFields(value, ["targetType", "targetId", "status", "body", "postId", "parentCommentId", "version", "openReportCount", "reports", "actions", "actionsNextCursor"])
+  if (!record(value) || !metadataFields(value, ["targetType", "targetId", "status", "body", "postId", "parentCommentId", "version", "openReportCount", "reports", "actions", "actionsNextCursor", ...(Object.hasOwn(value, "authorRestricted") ? ["authorRestricted"] : [])])
+    || (Object.hasOwn(value, "authorRestricted") && typeof value.authorRestricted !== "boolean")
     || !targetFields(value) || !bodyText(value.body, value.targetType === "POST" ? 2000 : 1000)
     || (value.targetType === "POST" ? value.postId !== null || value.parentCommentId !== null
       : !decimalId(value.postId) || !(value.parentCommentId === null || decimalId(value.parentCommentId)))
@@ -123,7 +125,8 @@ function validAction(value: unknown): value is ModerationAction {
     ? ["command", "reasonCode", "version", "restrictionEndsAt"] : ["command", "reasonCode", "version"])
     || !token(value.command, commands) || !token(value.reasonCode, decisionReasons)
     || !integer(value.version) || value.version === Number.MAX_SAFE_INTEGER) return false;
-  const reason = value.command === "RESTORE" ? ["APPEAL_ACCEPTED", "REVIEW_APPROVED"].includes(value.reasonCode)
+  const reason = value.command === "RELEASE" ? value.reasonCode === "APPEAL_ACCEPTED"
+    : value.command === "RESTORE" ? ["APPEAL_ACCEPTED", "REVIEW_APPROVED"].includes(value.reasonCode)
     : value.command === "REJECT_REPORT" ? value.reasonCode === "REPORT_UNFOUNDED"
       : ["SPAM", "HARASSMENT", "SCAM", "INAPPROPRIATE_CONTENT", "POLICY_VIOLATION"].includes(value.reasonCode);
   return reason && (value.command === "MUTE" ? timestamp(value.restrictionEndsAt)

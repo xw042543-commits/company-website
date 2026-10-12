@@ -51,6 +51,11 @@ export function createImageUploader(owner: number, session: UploadSession = sess
         if (!token) throw new Error('请重新登录后上传');
         const response = await transport(path, token); check();
         if (response.statusCode === 401 && attempt === 0) { await session.refresh(); check(); continue; }
+        if (response.statusCode === 403) {
+          let code: unknown;
+          try { code = JSON.parse(response.data)?.code; } catch { /* Keep an unknown denial generic. */ }
+          if (code === 'COMMUNITY_USER_RESTRICTED') throw new Error('社区权限受限，暂时无法上传图片，请联系管理员');
+        }
         if (response.statusCode === 507) throw new Error('图片空间暂时不足，请稍后重试');
         if (response.statusCode === 429) throw new Error('上传较多或服务繁忙，请稍后再试');
         if (response.statusCode < 200 || response.statusCode >= 300) throw new Error('图片上传失败，请重试');

@@ -13,6 +13,14 @@ function session() {
     refreshCount: () => refreshes,
   };
 }
+test('restricted upload explains permissions without exposing server messages or refreshing login', async () => {
+  const auth = session();
+  const uploader = createImageUploader(1, auth, async () => ({ statusCode: 403,
+    data: JSON.stringify({ code: 'COMMUNITY_USER_RESTRICTED', message: 'private server text' }) }));
+  await assert.rejects(uploader.upload('/image'), /社区权限受限.*管理员/);
+  assert.equal(auth.refreshCount(), 0);
+  uploader.dispose();
+});
 test('image upload refreshes bearer once and validates server image identity', async () => {
   const auth = session(); const tokens: string[] = [];
   const uploader = createImageUploader(1, auth, async (_path, token) => {

@@ -13,5 +13,6 @@
   "title": null,
   "category": "GENERAL",
   "universityId": null,
-  "universityName": null
+  "universityName": null,
+  "authorRestricted": false
 }
