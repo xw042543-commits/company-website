@@ -1,17 +1,12 @@
 <view class="page-shell circle-page">
-  <view class="circle-masthead">
-    <text class="masthead-monogram" aria-hidden="true">U</text>
-    <view class="masthead-copy"><view class="circle-title">U圈</view><view class="circle-subtitle">留学生的校园公共空间</view></view>
-    <button class="header-action" bindtap="openMine">我的内容<text class="header-arrow" aria-hidden="true">→</text></button>
-  </view>
   <view class="channel-switch" role="tablist" aria-label="社区范围">
-    <button class="mode-tab {{mode === 'plaza' ? 'active' : ''}}" aria-selected="{{mode === 'plaza'}}" data-mode="plaza" bindtap="switchMode"><text class="channel-index" aria-hidden="true">01</text><text>广场</text></button>
-    <button class="mode-tab {{mode === 'campus' ? 'active' : ''}}" aria-selected="{{mode === 'campus'}}" data-mode="campus" bindtap="switchMode"><text class="channel-index" aria-hidden="true">02</text><text>校园圈</text></button>
+    <button class="mode-tab {{mode === 'plaza' ? 'active' : ''}}" aria-selected="{{mode === 'plaza'}}" data-mode="plaza" bindtap="switchMode"><text>广场</text></button>
+    <button class="mode-tab {{mode === 'campus' ? 'active' : ''}}" aria-selected="{{mode === 'campus'}}" data-mode="campus" bindtap="switchMode"><text>校园圈</text></button>
+    <button class="header-action" bindtap="openMine">我的内容<text class="header-arrow" aria-hidden="true">›</text></button>
   </view>
   <button wx:if="{{mode === 'campus'}}" class="campus-selector" bindtap="openSchools" aria-label="选择校园"><view class="campus-pin" aria-hidden="true"><view class="campus-pin-dot"></view></view><view class="campus-copy"><text class="campus-label">正在浏览</text><text class="campus-name">{{universityName || '选择你的校园'}}</text></view><text class="campus-change">{{universityName ? '切换' : '选择'}} →</text></button>
   <scroll-view scroll-x="{{true}}" class="category-scroll" aria-label="生活分类"><view class="category-tabs"><button wx:for="{{boards}}" wx:key="code" class="category-tab {{category === item.code ? 'active' : ''}}" aria-pressed="{{category === item.code}}" data-category="{{item.code}}" bindtap="switchCategory">{{item.label}}</button></view></scroll-view>
   <view class="feed-heading">
-    <view><view class="feed-kicker">CAMPUS NOTES</view><view class="feed-title">正在发生</view></view>
     <view class="feed-tabs" role="tablist" aria-label="帖子排序"><button class="feed-tab {{sort === 'latest' ? 'feed-tab--active' : ''}}" data-sort="latest" bindtap="switchSort">最新</button><button class="feed-tab {{sort === 'hot' ? 'feed-tab--active' : ''}}" data-sort="hot" bindtap="switchSort">热门</button></view>
   </view>
   <view wx:if="{{state === 'loading'}}" class="feed-list" aria-label="正在加载帖子">
