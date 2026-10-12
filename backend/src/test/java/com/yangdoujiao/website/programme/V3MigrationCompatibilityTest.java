@@ -107,11 +107,11 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("27");
-            assertThat(latest.info().applied()).hasSize(27);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("28");
+            assertThat(latest.info().applied()).hasSize(28);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 27)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 28)
                             .mapToObj(Integer::toString).toList());
             assertThat(jdbcTemplate.queryForMap("""
                     SELECT body,title,category,university_id FROM community_posts WHERE id = ?
