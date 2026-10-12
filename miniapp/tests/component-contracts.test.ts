@@ -582,6 +582,61 @@ async function loadUniversityDetailPage(): Promise<UniversityDetailPageDefinitio
   return registered;
 }
 
+test('planning entry opens matching programmes and retains all route criteria', async () => {
+  const page = await loadUniversityDetailPage();
+  const context = {
+    data: structuredClone(page.data),
+    setData(update: Record<string, unknown>) { Object.assign(this.data, update); },
+    setupNavigation() {}, loadPage() {},
+  };
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: { getStorageSync: () => [] } });
+  try { page.onLoad.call(context, { slug: 'apu', planning: '1', q: encodeURIComponent('设计 & AI'), level: 'BACHELOR', category: 'COMPUTING', country: 'MY', mode: 'FULL_TIME', language: 'EN', duration: '36', intake: '2027-09', tuitionMin: '0', tuitionMax: '200000' }); }
+  finally { if (original) Object.defineProperty(globalThis, 'wx', original); else Reflect.deleteProperty(globalThis, 'wx'); }
+  assert.equal(context.data.activeSection, 'programmes');
+  assert.equal(context.data.planningEntry, true);
+  assert.deepEqual(context.data.planningFilters, { q: '设计 & AI', level: 'BACHELOR', category: 'COMPUTING', country: 'MY', mode: 'FULL_TIME', language: 'EN', duration: '36', intake: '2027-09', tuitionMin: '0', tuitionMax: '200000' });
+});
+
+test('planning profile sends filters on every programme page and exposes all matching categories', async () => {
+  const page = await loadUniversityDetailPage();
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  const queries: URLSearchParams[] = [];
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+    getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }),
+    setNavigationBarTitle() {},
+    request(options: { url: string; success(response: unknown): void }) {
+      const url = new URL(options.url);
+      let data: unknown;
+      if (url.pathname.endsWith('/programmes')) {
+        queries.push(url.searchParams);
+        const current = Number(url.searchParams.get('page'));
+        data = { items: [{ id: current, slug: `course-${current}`, nameZh: `匹配专业${current}`, nameEn: 'Course', categoryCode: current === 1 ? 'COMPUTING' : 'DESIGN' }], page: current, pageSize: 1, totalItems: 2, totalPages: 2 };
+      } else if (url.pathname.endsWith('/filter-options')) {
+        data = { countries: [], subjectCategories: [], studyLevels: [], courseModes: [], languages: [] };
+      } else data = { id: 1, slug: 'planning-school', nameZh: '测试大学', nameEn: 'Test', descriptionZh: '' };
+      options.success({ statusCode: 200, data, header: {}, cookies: [] });
+      return { abort() {} };
+    },
+  } });
+  try {
+    const context: UniversityDetailPageContext = {
+      data: { ...page.data, slug: 'planning-school', planningEntry: true, planningFilters: { q: 'AI', level: 'BACHELOR', tuitionMin: '0', country: 'MY' } },
+      setData(update) { Object.assign(this.data, update); },
+    };
+    await page.loadPage.call(context);
+    assert.equal(context.data.state, 'ready');
+    assert.equal(queries.length, 2);
+    for (const query of queries) {
+      assert.equal(query.get('level'), 'BACHELOR');
+      assert.equal(query.get('q'), 'AI');
+      assert.equal(query.get('tuitionMin'), '0');
+      assert.equal(query.get('country'), 'MY');
+    }
+    assert.deepEqual(context.data.visibleProgrammes.map(item => item.id), [1, 2]);
+  } finally { if (original) Object.defineProperty(globalThis, 'wx', original); else Reflect.deleteProperty(globalThis, 'wx'); }
+});
+
 test('university profile defaults to introduction and filters locally without losing tab or category state', async () => {
   const page = await loadUniversityDetailPage();
   assert.equal(page.data.activeSection, 'introduction');

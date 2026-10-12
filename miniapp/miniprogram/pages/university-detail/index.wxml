@@ -29,7 +29,7 @@
       <view class="school-meta">
         <view class="school-facts">
           <view class="school-location">{{location || '地点资料待补充'}}</view>
-          <view wx:if="{{programmeCount > 0}}" class="school-programme-count">已收录 {{programmeCount}} 个专业</view>
+          <view wx:if="{{programmeCount > 0}}" class="school-programme-count">{{planningEntry ? '符合你的筛选：' : '已收录 '}}{{programmeCount}} 个专业</view>
         </view>
         <button class="identity-favorite {{favorite ? 'identity-favorite--active' : ''}}" bindtap="toggleFavorite" aria-label="{{favorite ? '取消收藏' : '收藏院校'}}" hover-class="control--pressed">{{favorite ? '♥ 已收藏' : '♡ 收藏'}}</button>
       </view>
@@ -37,7 +37,7 @@
 
     <view class="section-tabs" aria-role="tablist" aria-label="院校资料">
       <button class="section-tab {{activeSection === 'introduction' ? 'section-tab--active' : ''}}" data-section="introduction" bindtap="selectSection" aria-role="tab" aria-selected="{{activeSection === 'introduction'}}" hover-class="control--pressed">院校简介</button>
-      <button class="section-tab {{activeSection === 'programmes' ? 'section-tab--active' : ''}}" data-section="programmes" bindtap="selectSection" aria-role="tab" aria-selected="{{activeSection === 'programmes'}}" hover-class="control--pressed">专业查询</button>
+      <button class="section-tab {{activeSection === 'programmes' ? 'section-tab--active' : ''}}" data-section="programmes" bindtap="selectSection" aria-role="tab" aria-selected="{{activeSection === 'programmes'}}" hover-class="control--pressed">{{planningEntry ? '匹配专业' : '专业查询'}}</button>
     </view>
 
     <view wx:if="{{activeSection === 'introduction'}}" class="introduction-panel" aria-role="tabpanel">
@@ -49,11 +49,12 @@
     </view>
 
     <view wx:else class="programmes-panel" aria-role="tabpanel">
-      <view wx:if="{{programmeCategories.length > 0}}" class="section-title">专业分类</view>
-        <view class="category-options" aria-label="按专业分类筛选">
+      <view wx:if="{{planningEntry}}" class="description-paragraph">已保留规划页筛选条件。点击专业查看详细资料，返回可调整选校条件。</view>
+      <view wx:if="{{!planningEntry && programmeCategories.length > 0}}" class="section-title">专业分类</view>
+        <view wx:if="{{!planningEntry}}" class="category-options" aria-label="按专业分类筛选">
           <button wx:for="{{programmeCategories}}" wx:key="code" class="category-chip {{activeCategory === item.code ? 'category-chip--active' : ''}}" data-code="{{item.code}}" bindtap="selectCategory" aria-pressed="{{activeCategory === item.code}}" hover-class="control--pressed">{{item.label || '未分类'}}</button>
         </view>
-      <view class="programme-heading">专业列表<text class="programme-total">{{visibleProgrammes.length}} 个专业</text></view>
+      <view class="programme-heading">{{planningEntry ? '符合条件的专业' : '专业列表'}}<text class="programme-total">{{visibleProgrammes.length}} 个专业</text></view>
       <view wx:if="{{visibleProgrammes.length > 0}}" class="programme-list">
         <button wx:for="{{visibleProgrammes}}" wx:key="id" class="programme-row" bindtap="openProgramme" data-id="{{item.id}}" aria-label="查看{{item.nameZh}}专业详情" hover-class="control--pressed">
           <view class="programme-content">
@@ -63,7 +64,7 @@
           <text class="programme-detail-link" aria-hidden="true">详情</text>
         </button>
       </view>
-      <view wx:else class="programme-empty">暂无已发布专业资料</view>
+      <view wx:else class="programme-empty">{{planningEntry ? '该校暂无符合这些条件的专业，请返回调整筛选条件。' : '暂无已发布专业资料'}}</view>
     </view>
 
     <view class="bottom-action">

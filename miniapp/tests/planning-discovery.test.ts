@@ -15,6 +15,27 @@ function mount<T extends { data: object }>(definition: T): T & { setData(patch: 
 }
 const event = (field: string, value: string) => ({ currentTarget: { dataset: { field } }, detail: { value } });
 
+test('opening a planning school carries applied criteria and leaves the result page intact', async () => {
+  const { createPlanningDiscoveryPage } = await import('../miniprogram/pages/planning-discovery/index.ts');
+  const page = mount(createPlanningDiscoveryPage());
+  Object.assign(page.data.applied, { q: '计算机 & AI', level: 'BACHELOR', category: 'COMPUTING', country: 'MY', tuitionMin: '0' });
+  page.data.keyword = '未提交的关键词';
+  const before = structuredClone(page.data);
+  let destination = '';
+  const previous = wx.navigateTo;
+  wx.navigateTo = (({ url }: { url: string }) => { destination = url; }) as typeof wx.navigateTo;
+  try { page.openUniversity({ currentTarget: { dataset: { slug: 'apu' } } }); }
+  finally { wx.navigateTo = previous; }
+  const url = new URL(destination, 'https://example.test');
+  assert.equal(url.pathname, '/pages/university-detail/index');
+  assert.equal(url.searchParams.get('planning'), '1');
+  assert.equal(url.searchParams.get('q'), '计算机 & AI');
+  assert.equal(url.searchParams.get('level'), 'BACHELOR');
+  assert.equal(url.searchParams.get('category'), 'COMPUTING');
+  assert.equal(url.searchParams.get('tuitionMin'), '0');
+  assert.deepEqual(page.data, before);
+});
+
 test('course expansion carries the same applied filters, never an unfiltered cached programme list', async () => {
   const { createPlanningDiscoveryService } = await import('../miniprogram/services/planning-discovery.ts');
   let requested = '';
