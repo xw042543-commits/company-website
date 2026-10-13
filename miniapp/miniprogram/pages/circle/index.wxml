@@ -2,7 +2,7 @@
   <view class="channel-switch" role="tablist" aria-label="社区范围">
     <button class="mode-tab {{mode === 'plaza' ? 'active' : ''}}" aria-selected="{{mode === 'plaza'}}" data-mode="plaza" bindtap="switchMode"><text>广场</text></button>
     <button class="mode-tab {{mode === 'campus' ? 'active' : ''}}" aria-selected="{{mode === 'campus'}}" data-mode="campus" bindtap="switchMode"><text>校园圈</text></button>
-    <button class="header-action" bindtap="openMine">我的内容<text class="header-arrow" aria-hidden="true">›</text></button>
+    <button class="header-action" hover-class="header-action--pressed" bindtap="openMine" aria-label="查看我的发布">我的发布<text class="header-arrow" aria-hidden="true">›</text></button>
   </view>
   <button wx:if="{{mode === 'campus'}}" class="campus-selector" bindtap="openSchools" aria-label="选择校园"><view class="campus-pin" aria-hidden="true"><view class="campus-pin-dot"></view></view><view class="campus-copy"><text class="campus-label">正在浏览</text><text class="campus-name">{{universityName || '选择你的校园'}}</text></view><text class="campus-change">{{universityName ? '切换' : '选择'}} →</text></button>
   <scroll-view scroll-x="{{true}}" class="category-scroll" aria-label="生活分类"><view class="category-tabs"><button wx:for="{{boards}}" wx:key="code" class="category-tab {{category === item.code ? 'active' : ''}}" aria-pressed="{{category === item.code}}" data-category="{{item.code}}" bindtap="switchCategory">{{item.label}}</button></view></scroll-view>

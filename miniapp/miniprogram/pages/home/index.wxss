@@ -20,7 +20,10 @@
 .search-entry { display: flex; box-sizing: border-box; height: 72rpx; padding: 0 20rpx; align-items: center; border: 1rpx solid #e1eae5; border-radius: 12rpx; background: #fff; }
 .search-icon { width: 30rpx; height: 30rpx; flex-shrink: 0; }
 .search-copy { margin-left: 16rpx; font-size: 23rpx; color: #68776f; }
-.feature-grid { display: flex; justify-content: space-between; margin-top: 26rpx; }
+.tools-heading { display: flex; align-items: center; gap: 20rpx; margin-top: 30rpx; }
+.tools-title { flex-shrink: 0; color: #153f36; font-size: 26rpx; font-weight: 600; line-height: 1.5; }
+.tools-rule { flex: 1; height: 1rpx; background: #e1eae5; }
+.feature-grid { display: flex; justify-content: space-between; margin-top: 20rpx; }
 .feature-item { flex: 1; min-width: 0; padding: 0 2rpx; text-align: center; }
 .feature-icon { display: flex; width: 88rpx; height: 88rpx; margin: 0 auto; align-items: center; justify-content: center; border-radius: 50%; background: #e9f7ef; }
 .feature-icon--orange { background: #fff3e8; }
