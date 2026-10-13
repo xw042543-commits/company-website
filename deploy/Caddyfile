@@ -1,10 +1,31 @@
 {
 	email {$CADDY_ACME_EMAIL}
+	log default {
+		exclude http.log.error.review_media
+	}
+	log review_media_errors {
+		include http.log.error.review_media
+		format filter {
+			request>uri replace /api/v1/community/image-review/media/REDACTED
+			request>headers delete
+			request>remote_ip delete
+			request>client_ip delete
+		}
+	}
 }
 
 {$CADDY_SITE_ADDRESSES} {
 	@www host www.yangdoujiao.com
 	redir @www https://yangdoujiao.com{uri} permanent
+	log review_media {
+		no_hostname
+		format filter {
+			request>uri replace /api/v1/community/image-review/media/REDACTED
+			request>headers delete
+			request>remote_ip delete
+			request>client_ip delete
+		}
+	}
 
 	encode zstd gzip
 
@@ -17,6 +38,7 @@
 		max_size 100KB
 	}
 	@communityReviewMedia path /api/v1/community/image-review/media/*
+	log_name @communityReviewMedia review_media
 	reverse_proxy @communityReviewMedia backend:8080 {
 		header_up -Forwarded
 		header_up -X-Forwarded-*
