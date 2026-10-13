@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { createMessagesPage } from '../miniprogram/pages/messages/index';
+import { createMessagesPage, foldSystemMessages } from '../miniprogram/pages/messages/index';
 import { createInboxStore } from '../miniprogram/stores/inbox';
 import type { InboxMessage } from '../miniprogram/services/messages';
 import type { SessionSnapshot } from '../miniprogram/stores/session';
@@ -8,6 +8,19 @@ import type { AccountSummary } from '../miniprogram/services/auth';
 import type { Result } from '../miniprogram/utils/result';
 
 const item: InboxMessage = { id: '9007199254740993', category: 'SYSTEM', title: '系统通知', body: '<b>完整正文</b>', createdAt: '2026-10-09T08:00:00Z', readAt: null, targetType: 'NONE', targetId: null };
+test('all inbox folds system messages while retaining other categories and counting only loaded unread system messages', () => {
+  const newer = { ...item, id: '2', createdAt: '2026-10-10T08:00:00Z', readAt: '2026-10-10T09:00:00Z' };
+  const community: InboxMessage = { ...item, id: '3', category: 'COMMUNITY' };
+  const application: InboxMessage = { ...item, id: '4', category: 'APPLICATION' };
+  const result = foldSystemMessages([item, community, newer, application], 'ALL');
+  assert.deepEqual(result.visibleItems.map(value => value.id), ['3', '4']);
+  assert.equal(result.systemSummary?.id, '2');
+  assert.equal(result.systemSummary?.loadedUnread, 1);
+  const expanded = foldSystemMessages([newer, item], 'SYSTEM');
+  assert.equal(expanded.systemSummary, null);
+  assert.equal(expanded.visibleItems.length, 2);
+  assert.equal(foldSystemMessages([], 'ALL').systemSummary, null);
+});
 const tick = async () => { for (let index = 0; index < 8; index++) await Promise.resolve(); };
 interface PageData extends Record<string, unknown> { detail: { body: string } | null; items: readonly unknown[]; state: string }
 interface PageHarness { data: PageData; setData(value: Record<string, unknown>, callback?: () => void): void }
