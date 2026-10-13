@@ -28,12 +28,16 @@
 .filter-icon--APPLICATION .filter-symbol::after { left: 5rpx; top: 10rpx; width: 13rpx; height: 7rpx; border: 0; border-top: 3rpx solid currentColor; border-bottom: 3rpx solid currentColor; transform: none; }
 
 .message-list { background: transparent; }
-.system-summary { display: flex; align-items: center; gap: 20rpx; width: 100%; margin: 12rpx 0; padding: 24rpx 16rpx; box-sizing: border-box; border-radius: 18rpx; background: #f7f8fa; text-align: left; line-height: 1.5; }
-.system-summary-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6rpx 16rpx; }
-.system-summary-title { flex: 1; color: var(--message-ink); font-size: 29rpx; font-weight: 650; }
-.system-summary-time { color: var(--message-muted); font-size: 20rpx; }
-.system-summary-preview { margin-top: 8rpx; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--message-muted); font-size: 24rpx; }
-.system-summary-caption { margin-top: 8rpx; color: #7962b3; font-size: 21rpx; }
+.system-entry { display: flex; align-items: center; width: 100%; min-height: 144rpx; padding: 24rpx 0; box-sizing: border-box; border-bottom: 1rpx solid #edf0ee; text-align: left; line-height: 1.5; }
+.system-entry--pressed { background: #f6faf7; }
+.system-entry-icon { position: relative; display: flex; flex: 0 0 88rpx; width: 88rpx; height: 88rpx; margin-right: 20rpx; align-items: center; justify-content: center; border-radius: 24rpx; background: #e8f4ee; color: #287453; }
+.system-entry-dot { position: absolute; top: -2rpx; right: -2rpx; width: 14rpx; height: 14rpx; border: 4rpx solid #fff; border-radius: 50%; background: #d76054; }
+.system-entry-copy { flex: 1; min-width: 0; }
+.system-entry-heading { display: flex; align-items: center; justify-content: space-between; }
+.system-entry-title { flex-shrink: 0; margin-right: 16rpx; color: #24282b; font-size: 29rpx; font-weight: 600; }
+.system-entry-time { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #8b9390; font-size: 19rpx; }
+.system-entry-preview { margin-top: 10rpx; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #707975; font-size: 24rpx; }
+.system-entry-arrow { flex-shrink: 0; margin-left: 16rpx; color: #a6b2ac; font-size: 32rpx; }
 .message-thread { position: relative; }
 .message-row { position: relative; display: flex; width: 100%; min-height: 148rpx; align-items: flex-start; gap: 22rpx; margin: 0; padding: 30rpx 0; border-bottom: 1rpx solid #e8eeeb; border-radius: 0; background: transparent; color: var(--color-ink); line-height: 1.5; text-align: left; }
 .message-row:active { background: #f6faf7; }
