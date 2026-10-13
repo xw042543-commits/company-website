@@ -23,6 +23,7 @@ export const REQUIRED_DEPLOYMENT_VARIABLES = [
   "APP_CONSULTATION_SUBMISSION_ENABLED",
   "APP_COMMUNITY_CURSOR_SECRET",
   "DEPLOYMENT_NETWORK_SUBNET",
+  "CADDY_INTERNAL_IP",
   "FRONTEND_INTERNAL_IP",
   "BACKEND_INTERNAL_IP",
 ];
@@ -282,17 +283,20 @@ export function validateDeploymentEnv(environment) {
   if (valueFor("DEPLOYMENT_NETWORK_SUBNET") && !network) {
     errors.push("DEPLOYMENT_NETWORK_SUBNET must be a network-aligned private IPv4 CIDR between /16 and /29.");
   }
+  const caddyAddress = ipv4Number(valueFor("CADDY_INTERNAL_IP"));
   const frontendAddress = ipv4Number(valueFor("FRONTEND_INTERNAL_IP"));
   const backendAddress = ipv4Number(valueFor("BACKEND_INTERNAL_IP"));
-  for (const [name, address] of [["FRONTEND_INTERNAL_IP", frontendAddress], ["BACKEND_INTERNAL_IP", backendAddress]]) {
+  for (const [name, address] of [["CADDY_INTERNAL_IP", caddyAddress], ["FRONTEND_INTERNAL_IP", frontendAddress],
+    ["BACKEND_INTERNAL_IP", backendAddress]]) {
     if (valueFor(name) && address === null) errors.push(`${name} must be a literal IPv4 address.`);
     else if (network && address !== null
         && (address <= network.address || address >= network.address + network.blockSize - 1)) {
       errors.push(`${name} must be a usable address inside DEPLOYMENT_NETWORK_SUBNET.`);
     }
   }
-  if (frontendAddress !== null && backendAddress !== null && frontendAddress === backendAddress) {
-    errors.push("FRONTEND_INTERNAL_IP and BACKEND_INTERNAL_IP must be different.");
+  const deploymentAddresses = [caddyAddress, frontendAddress, backendAddress].filter((address) => address !== null);
+  if (new Set(deploymentAddresses).size !== deploymentAddresses.length) {
+    errors.push("CADDY_INTERNAL_IP, FRONTEND_INTERNAL_IP and BACKEND_INTERNAL_IP must be different.");
   }
 
   const wechatEnabled = valueFor("APP_AUTH_WECHAT_ENABLED");

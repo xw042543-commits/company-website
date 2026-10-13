@@ -103,7 +103,7 @@ Replace every placeholder with a generated secret and the real HTTPS preview ori
 
 Set `CADDY_SITE_ADDRESSES=yangdoujiao.com, www.yangdoujiao.com` and provide a monitored address in `CADDY_ACME_EMAIL`. Allow inbound TCP ports 80 and 443 plus UDP port 443 in the VPS firewall. Caddy uses ports 80 and 443 for automatic HTTPS, certificate renewal, HTTP-to-HTTPS redirects, and HTTP/3.
 
-Set `DEPLOYMENT_NETWORK_SUBNET`, `FRONTEND_INTERNAL_IP`, and `BACKEND_INTERNAL_IP` to an unused RFC1918 private IPv4 range. Check existing Docker and VPN networks first; the preflight rejects public ranges and verifies address syntax and membership, while `docker compose ... config` and startup reveal host-level overlap.
+Set `DEPLOYMENT_NETWORK_SUBNET`, `CADDY_INTERNAL_IP`, `FRONTEND_INTERNAL_IP`, and `BACKEND_INTERNAL_IP` to an unused RFC1918 private IPv4 range. All three service addresses must be distinct usable members of that subnet. Check existing Docker and VPN networks first; the preflight rejects public ranges and verifies address syntax and membership, while `docker compose ... config` and startup reveal host-level overlap.
 
 微信登录在没有正式资质时必须保持 `APP_AUTH_WECHAT_ENABLED=false`。取得公司主体的微信开放平台
 网站应用资质后，再通过部署密钥存储配置 AppID、AppSecret 和 HTTPS 回调地址，并重新执行预检。
@@ -123,7 +123,7 @@ APP_COMMUNITY_CURSOR_SECRET=synthetic-compose-cursor-key-at-least-32-bytes \
 PUBLIC_SITE_URL=https://preview.example.test CORS_ALLOWED_ORIGINS=https://preview.example.test \
 APP_AUTH_PUBLIC_SITE_ORIGIN=https://preview.example.test \
 CADDY_SITE_ADDRESSES=:80 CADDY_ACME_EMAIL=ci@example.test \
-DEPLOYMENT_NETWORK_SUBNET=172.30.0.0/24 FRONTEND_INTERNAL_IP=172.30.0.10 BACKEND_INTERNAL_IP=172.30.0.20 \
+DEPLOYMENT_NETWORK_SUBNET=172.30.0.0/24 CADDY_INTERNAL_IP=172.30.0.5 FRONTEND_INTERNAL_IP=172.30.0.10 BACKEND_INTERNAL_IP=172.30.0.20 \
 docker compose --env-file .env.example -f compose.production.yaml config >/dev/null
 ```
 
@@ -160,7 +160,7 @@ If a run fails, inspect its Actions log. The server script automatically capture
 
 ## HTTPS proxy boundary
 
-The public Caddy HTTPS reverse proxy connects to the private `frontend:3000` service; never publish or proxy the frontend or backend port directly. Before forwarding a request, Caddy removes all client-supplied forwarded headers (`Forwarded` and `X-Forwarded-*`), sets exactly one `X-Forwarded-Proto: https` header, and sets exactly one `X-Forwarded-For` value from the direct client address. The frontend forwards that single client address to the backend from its fixed trusted address. This boundary preserves per-client rate limits without allowing clients to forge trusted proxy metadata.
+The public Caddy HTTPS reverse proxy normally connects to the private `frontend:3000` service. The only direct backend exception is the HMAC-signed, expiring `/api/v1/community/image-review/media/*` download used by WeChat's server-side media reviewer; Caddy sends that narrow route to `backend:8080` so an application proxy cannot rewrite the media response. Neither private service publishes a host port. Before forwarding a request, Caddy removes all client-supplied forwarded headers (`Forwarded` and `X-Forwarded-*`), sets exactly one `X-Forwarded-Proto: https` header, and sets exactly one `X-Forwarded-For` value from the direct client address. Caddy and the frontend each have distinct fixed addresses in the private deployment subnet, and only those exact addresses are trusted by the backend. This boundary preserves HTTPS enforcement and per-client rate limits without allowing clients to forge trusted proxy metadata.
 
 ## 2. Build and start
 

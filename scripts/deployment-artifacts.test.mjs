@@ -46,3 +46,14 @@ test("Caddy automatically serves the canonical domain without trusting client fo
   assert.match(caddyfile, /header_up X-Forwarded-Proto https/);
   assert.match(caddyfile, /header_up X-Forwarded-For \{remote_host\}/);
 });
+
+test("signed community review media bypasses the Next.js proxy", () => {
+  const caddyfile = read("deploy/Caddyfile");
+  const mediaMatcher = caddyfile.indexOf("@communityReviewMedia path /api/v1/community/image-review/media/*");
+  const backendProxy = caddyfile.indexOf("reverse_proxy @communityReviewMedia backend:8080");
+  const frontendProxy = caddyfile.indexOf("reverse_proxy frontend:3000");
+
+  assert.ok(mediaMatcher >= 0, "the signed review media path needs a dedicated matcher");
+  assert.ok(backendProxy > mediaMatcher, "the signed review media path needs a direct backend proxy");
+  assert.ok(frontendProxy > backendProxy, "the direct media route must be handled before the frontend proxy");
+});
