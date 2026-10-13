@@ -66,3 +66,39 @@
 .save-button--active { background:var(--color-mint); color:var(--color-ink); }
 .state-wrap { padding:80rpx 28rpx 40rpx; }
 .control--pressed { opacity:.75; }
+.detail-page { background:#fff; color:#20352f; }
+.school-summary { padding-right:32rpx; padding-left:32rpx; }
+.identity-row { display:block; }
+.school-logo { width:112rpx; height:112rpx; border:4rpx solid #fff; border-radius:12rpx; background:#fff; box-shadow:0 4rpx 16rpx rgba(20,60,45,.08); }
+.school-names { margin:20rpx 0 0; }
+.school-name { color:#20352f; font-size:38rpx; }
+.school-name-en { font-size:25rpx; line-height:1.6; }
+.summary-tags { gap:10rpx; }
+.summary-tag { background:#f5f7f6; color:#6a7771; padding:7rpx 14rpx; font-size:22rpx; }
+.summary-stats { gap:0; padding:18rpx 0; margin-top:20rpx; background:#fafcfb; border-radius:12rpx; }
+.summary-stat { min-height:86rpx; border:0; border-radius:0; }
+.summary-stat--wide { border-left:1rpx solid #e7eeea; }
+.summary-stat-value { color:#20352f; font-size:32rpx; }
+.summary-stat--wide .summary-stat-value { font-size:25rpx; }
+.summary-stat-label { font-size:22rpx; color:#7b8782; }
+.browse-programmes { min-height:86rpx; border-radius:12rpx; font-size:27rpx; }
+.section-tabs { background:#fff; border-color:#edf1ee; }
+.section-tab { min-height:88rpx; font-size:25rpx; }
+.section-title { color:#20352f; border:0; padding-bottom:0; font-size:32rpx; }
+.programmes-panel,.introduction-panel,.facts-panel { padding:32rpx; }
+.category-options { display:block; width:100%; white-space:nowrap; padding-bottom:16rpx; }
+.category-chip { display:inline-flex; width:auto; min-height:76rpx; margin:0 12rpx 0 0; padding:12rpx 24rpx; border:1rpx solid #e8eeea; border-radius:38rpx; background:#f6f9f7; font-size:24rpx; vertical-align:middle; }
+.category-chip--active { border-color:var(--color-action); background:var(--color-action); color:#fff; }
+.programme-heading { margin-top:26rpx; font-size:28rpx; color:#20352f; }
+.programme-total { font-size:23rpx; color:#7b8782; }
+.programme-list { background:#fff; border-radius:0; }
+.programme-row { min-height:144rpx; padding:28rpx 0; border-bottom:1rpx solid #e9efeb; border-radius:0; background:#fff; }
+.programme-name { color:#20352f; font-size:29rpx; line-height:1.6; font-weight:600; }
+.programme-name-en { margin-top:10rpx; color:#7b8782; font-size:23rpx; line-height:1.6; }
+.programme-detail-link { flex-shrink:0; margin-left:20rpx; padding:8rpx 14rpx; border:0; background:#f0f7f3; font-size:22rpx; }
+.university-facts-table { border:0; border-radius:0; box-shadow:none; }
+.university-fact-row { min-height:88rpx; border-color:#edf1ee; }
+.university-fact-label { background:transparent; color:#7b8782; font-weight:400; }
+.university-fact-value { font-weight:400; color:#20352f; }
+.bottom-action { background:#fff; border-color:#edf1ee; }
+.save-button,.consult-button { min-height:88rpx; font-size:26rpx; border-radius:12rpx; }
