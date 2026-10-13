@@ -131,8 +131,8 @@ test("production deploy validates and atomically stores supplied mini-program cr
 });
 
 test("production deploy validates configuration, health, and public launch", () => {
-  assert.match(script, /deployment-preflight\.mjs \.env\.production/);
-  assert.match(script, /parseEnv\(fs\.readFileSync\("\.env\.production", "utf8"\)\)\.PUBLIC_SITE_URL/);
+  assert.match(script, /deployment-preflight\.mjs \.env\.production < \/dev\/null/);
+  assert.match(script, /parseEnv\(fs\.readFileSync\("\.env\.production", "utf8"\)\)\.PUBLIC_SITE_URL[^\n]* < \/dev\/null\)"/);
   assert.ok(script.indexOf("[[ $public_site_url == https://* ]]") < script.indexOf("build --pull backend frontend"));
   assert.match(script, /compose\.production\.yaml config --quiet/);
   assert.match(script, /compose\.production\.yaml build --pull backend frontend/);
@@ -141,7 +141,7 @@ test("production deploy validates configuration, health, and public launch", () 
   assert.match(script, /exec -T --interactive=false backend curl --fail --silent --connect-timeout 10 --max-time 30[^\n]* < \/dev\/null/);
   assert.match(script, /\/healthz/);
   assert.match(script, /curl --fail-with-body --silent --connect-timeout 10 --max-time 30/);
-  assert.match(script, /launch-smoke\.mjs "\$public_site_url" --public --wechat/);
+  assert.match(script, /launch-smoke\.mjs "\$public_site_url" --public --wechat < \/dev\/null/);
   assert.doesNotMatch(script, /down --volumes|rm -v|\.env\.production.*cat/);
 });
 
@@ -157,7 +157,9 @@ test("production deploy creates and verifies a restricted database backup before
 });
 
 test("streamed deployment still runs public checks after a stdin-reading readiness child", () => {
-  const unsafeSource = script.replace(" --interactive=false", "").replace(" < /dev/null", "");
+  const unsafeSource = script
+    .replace("exec -T --interactive=false backend curl", "exec -T backend curl")
+    .replace("http://127.0.0.1:8080/actuator/health/readiness < /dev/null", "http://127.0.0.1:8080/actuator/health/readiness");
   const unsafe = runDeploymentCommands({ source: unsafeSource, consumeStdin: true });
   assert.equal(unsafe.status, 0, unsafe.stderr);
   assert.match(unsafe.stdout, /readiness\n$/);
