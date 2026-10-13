@@ -39,7 +39,8 @@
     <view class="search-entry" bindtap="openFeature" data-key="universities" role="button" aria-label="搜索院校或专业">
       <image class="search-icon" src="/assets/icons/search.png" aria-hidden="true" /><text class="search-copy">搜索院校、专业或关键词</text>
     </view>
-    <view class="feature-grid">
+    <view class="tools-heading"><view class="tools-title">留学工具</view><view class="tools-rule" aria-hidden="true"></view></view>
+    <view class="feature-grid" aria-label="留学工具">
       <view wx:for="{{featureEntries}}" wx:key="key" class="feature-item" bindtap="openFeature" data-key="{{item.key}}" role="button" aria-label="{{item.label}}">
         <view class="feature-icon feature-icon--{{item.tone}}"><image class="feature-symbol" src="{{item.icon}}" aria-hidden="true" /></view>
         <view class="feature-label">{{item.label}}</view>
