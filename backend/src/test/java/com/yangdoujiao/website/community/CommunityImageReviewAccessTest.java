@@ -1,19 +1,25 @@
 package com.yangdoujiao.website.community;
 
 import java.time.*;
+import java.net.URI;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CommunityImageReviewAccessTest {
     final Instant now=Instant.parse("2026-10-12T08:00:00Z");
     final String id="a".repeat(32);
-    @Test void signatureIsBoundToImageAndExpiry() {
+    @Test void generatedUrlUsesSignedJpegPathWithoutQueryParameters() {
         var access=new CommunityImageReviewAccess("https://example.com","test-secret-32-characters-minimum",Clock.fixed(now,ZoneOffset.UTC));
         String url=access.url(id);
-        assertTrue(url.startsWith("https://example.com/api/v1/community/image-review/media/"+id+"?expires="));
-        var query=url.substring(url.indexOf('?')+1).split("&");
-        long expires=Long.parseLong(query[0].substring("expires=".length()));
-        String signature=query[1].substring("signature=".length());
+        URI uri=URI.create(url);
+        assertNull(uri.getQuery());
+        assertTrue(uri.getPath().matches("/api/v1/community/image-review/media/"+id+"/1791795600/[0-9a-f]{64}\\.jpg"));
+    }
+
+    @Test void signatureIsBoundToImageAndExpiry() {
+        var access=new CommunityImageReviewAccess("https://example.com","test-secret-32-characters-minimum",Clock.fixed(now,ZoneOffset.UTC));
+        long expires=1791795600L;
+        String signature="99d5dfe8fddc9086c5e7303003443482b876f66815703557f6e22c0fa174362d";
         assertTrue(access.verify(id,expires,signature));
         assertFalse(access.verify("b".repeat(32),expires,signature));
         assertFalse(access.verify(id,expires+1,signature));

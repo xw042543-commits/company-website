@@ -93,9 +93,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.HEAD, "/api/v1/community/posts", "/api/v1/community/posts/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/community/images", "/api/v1/community/images/**").permitAll()
                         .requestMatchers(HttpMethod.HEAD, "/api/v1/community/images", "/api/v1/community/images/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/v1/community/image-review/callback", "/api/v1/community/image-review/media/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/community/image-review/callback", "/api/v1/community/image-review/media/**").permitAll()
                         // Review fetchers may probe metadata before GET; the controller still validates the signed URL.
-                        .requestMatchers(HttpMethod.HEAD, "/api/v1/community/image-review/media/*").permitAll()
+                        .requestMatchers(HttpMethod.HEAD, "/api/v1/community/image-review/media/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/community/image-review/callback").permitAll()
                         .requestMatchers("/api/v1/community/**").hasRole("USER")
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
