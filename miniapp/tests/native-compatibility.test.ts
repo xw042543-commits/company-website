@@ -45,12 +45,12 @@ test('account exposes registered C data pages and personal community navigation 
       sessionStore: { getSnapshot: () => ({ status: 'anonymous' }) },
       communityMeRoute: () => ({ ok: true, value: '/pages/circle-me/index' }),
     }),
-    wx: { navigateTo: ({ url }: { url: string }) => navigated.push(url), showToast: () => assert.fail('expected real navigation') },
+    wx: { navigateTo: ({ url }: { url: string }) => navigated.push(url), switchTab: ({ url }: { url: string }) => { assert.equal(url, '/pages/favorites-cart/index'); navigated.push(url); }, showToast: () => assert.fail('expected real navigation') },
   });
   const menu = (definition.data as { menuItems: Array<{ key: string }> }).menuItems;
   const openMenu = definition.openMenu as (event: { currentTarget: { dataset: { key: string } } }) => void;
   const app = JSON.parse(readFileSync(new URL('app.json', root), 'utf8')) as { pages: string[] };
-  for (const [key, page] of [['plans', 'plans'], ['favorites', 'favorites'], ['consultations', 'consultations'], ['community', 'circle-me'], ['settings', 'settings'], ['about', 'about']] as const) {
+  for (const [key, page] of [['plans', 'plans'], ['favorites', 'favorites-cart'], ['universityFavorites', 'favorites-cart'], ['consultations', 'consultations'], ['community', 'circle-me'], ['settings', 'settings'], ['about', 'about']] as const) {
     assert.ok(menu.some((item) => item.key === key));
     openMenu({ currentTarget: { dataset: { key } } });
     assert.equal(navigated.at(-1), `/pages/${page}/index`);

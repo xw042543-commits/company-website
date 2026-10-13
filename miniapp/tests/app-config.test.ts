@@ -14,7 +14,7 @@ function readAppConfig(): { pages: string[]; tabBar: { list: TabItem[] } } {
   };
 }
 
-test('registers the approved four tabs in order', () => {
+test('registers favorites before account in the five bottom tabs', () => {
   const app = readAppConfig();
 
   assert.deepEqual(
@@ -23,6 +23,7 @@ test('registers the approved four tabs in order', () => {
       ['pages/home/index', '首页'],
       ['pages/circle/index', 'U圈'],
       ['pages/messages/index', '消息'],
+      ['pages/favorites-cart/index', '收藏'],
       ['pages/account/index', '我的'],
     ],
   );

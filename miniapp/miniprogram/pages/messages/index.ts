@@ -13,10 +13,19 @@ type MessagePage = WechatMiniprogram.Page.TrivialInstance & { _inboxRuntime: Mes
 const runtime = (page: WechatMiniprogram.Page.TrivialInstance) => (page as MessagePage)._inboxRuntime;
 const view = (item: InboxMessage): MessageView => ({ ...item, displayTime: formatCommunityTime(item.createdAt), categoryLabel: labels[item.category] });
 
+export function foldSystemMessages(items: readonly InboxMessage[], category: string) {
+  const system = items.filter(item => item.category === 'SYSTEM');
+  const latest = [...system].sort((a, b) => b.createdAt.localeCompare(a.createdAt))[0];
+  return {
+    visibleItems: (category === 'ALL' ? items.filter(item => item.category !== 'SYSTEM') : items).map(view),
+    systemSummary: category === 'ALL' && latest ? { ...view(latest), loadedUnread: system.filter(item => !item.readAt).length } : null,
+  };
+}
+
 export function createMessagesPage(overrides: Partial<MessageDeps> = {}): WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> {
   const deps = { ...defaults, ...overrides };
   return {
-    data: { ...deps.store.getSnapshot(), items: [] as MessageView[], detail: null as MessageView | null, loggingIn: false,
+    data: { ...deps.store.getSnapshot(), items: [] as MessageView[], ...foldSystemMessages([], 'ALL'), detail: null as MessageView | null, loggingIn: false,
       filters: [{ key: 'ALL', label: '全部' }, { key: 'COMMUNITY', label: 'U圈' }, { key: 'SYSTEM', label: '系统' }, { key: 'APPLICATION', label: '申请' }] },
     onLoad() {
       const state: MessageRuntime = { active: true, generation: 0, unsubscribe: () => {}, category: this.data.category, loggingIn: false };
@@ -26,7 +35,7 @@ export function createMessagesPage(overrides: Partial<MessageDeps> = {}): Wechat
         state.category = snapshot.category;
         const detail = this.data.detail as MessageView | null;
         const retained = detail ? snapshot.items.find((item) => item.id === detail.id) : undefined;
-        this.setData({ ...snapshot, items: snapshot.items.map(view), detail: retained ? view(retained) : null });
+        this.setData({ ...snapshot, items: snapshot.items.map(view), ...foldSystemMessages(snapshot.items, snapshot.category), detail: retained ? view(retained) : null });
       };
       state.unsubscribe = deps.store.subscribe(render);
       render(deps.store.getSnapshot());

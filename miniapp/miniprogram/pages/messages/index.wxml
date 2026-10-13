@@ -12,8 +12,13 @@
   </view>
 
   <view wx:if="{{state === 'ready'}}" class="message-list">
+    <button wx:if="{{systemSummary}}" class="system-summary" data-category="SYSTEM" bindtap="selectCategory" aria-label="查看全部系统通知">
+      <view class="message-category-mark message-category-mark--SYSTEM" aria-hidden="true"><view class="mark-core"><view class="mark-line mark-line--top" /><view class="mark-line mark-line--bottom" /></view></view>
+      <view class="message-copy"><view class="system-summary-heading"><text class="system-summary-title">系统通知</text><text class="system-summary-time">{{systemSummary.displayTime}}</text></view><view class="system-summary-preview">{{systemSummary.title}}：{{systemSummary.body}}</view><view class="system-summary-caption">{{systemSummary.loadedUnread ? '已加载 ' + systemSummary.loadedUnread + ' 条未读 · ' : ''}}查看全部系统通知</view></view>
+      <view class="message-chevron" aria-hidden="true">›</view>
+    </button>
     <view class="message-thread">
-      <button wx:for="{{items}}" wx:key="id" class="message-row {{!item.readAt ? 'message-row--unread' : ''}} {{readingId ? 'message-row--busy' : ''}}" data-id="{{item.id}}" bindtap="openMessage" disabled="{{!!readingId}}" aria-label="{{item.readAt ? '已读' : '未读'}}，{{item.title}}，{{item.categoryLabel}}">
+      <button wx:for="{{visibleItems}}" wx:key="id" class="message-row {{!item.readAt ? 'message-row--unread' : ''}} {{readingId ? 'message-row--busy' : ''}}" data-id="{{item.id}}" bindtap="openMessage" disabled="{{!!readingId}}" aria-label="{{item.readAt ? '已读' : '未读'}}，{{item.title}}，{{item.categoryLabel}}">
         <view class="message-category-mark message-category-mark--{{item.category}}" aria-hidden="true"><view class="mark-core"><view class="mark-line mark-line--top" /><view class="mark-line mark-line--bottom" /></view></view>
         <view class="message-copy">
           <view class="message-meta"><text>{{item.categoryLabel}}</text><text>{{item.displayTime}}</text><text wx:if="{{readingId === item.id}}">正在打开…</text></view>
