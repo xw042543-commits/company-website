@@ -27,10 +27,11 @@ class CommunityImageReviewConfiguration {
         return new WechatImageCallbackCrypto(token,key,auth.wechatAppId());
     }
     @Bean WechatImageReviewGateway wechatImageReviewGateway(WechatAccessTokenProvider tokens,UserExternalIdentityRepository identities,
-            CommunityImageReviewAccess access,ObjectMapper json) {
+            CommunityImageReviewAccess access,ObjectMapper json,
+            @Value("${app.community.images.review-diagnostics-enabled:false}") boolean diagnostics) {
         var factory=new JdkClientHttpRequestFactory(HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(3)).build());
         factory.setReadTimeout(Duration.ofSeconds(5));
-        return new WechatImageReviewGateway(tokens,identities,access,json,RestClient.builder().requestFactory(factory).build());
+        return new WechatImageReviewGateway(tokens,identities,access,json,RestClient.builder().requestFactory(factory).build(),diagnostics);
     }
     @Bean @ConditionalOnProperty(name="app.community.images.review-worker-enabled",havingValue="true",matchIfMissing=true)
     CommunityImageReviewWorker communityImageReviewWorker(CommunityImageReviewJobs jobs,CommunityImageAttachments images,WechatImageReviewGateway gateway,Clock clock) {
