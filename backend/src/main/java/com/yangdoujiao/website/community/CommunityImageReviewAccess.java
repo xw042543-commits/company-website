@@ -21,7 +21,7 @@ final class CommunityImageReviewAccess {
     String url(String id) {
         if(!id.matches("[0-9a-f]{32}"))throw new IllegalArgumentException("Invalid image ID");
         long expires=clock.instant().getEpochSecond()+3600;
-        return origin+"/api/v1/community/image-review/media/"+id+"?expires="+expires+"&signature="+sign(id,expires);
+        return origin+"/api/v1/community/image-review/media/"+id+"/"+expires+"/"+sign(id,expires)+".jpg";
     }
     boolean verify(String id,long expires,String signature) {
         long now=clock.instant().getEpochSecond();

@@ -43,10 +43,13 @@ class CommunityImageReviewMediaHttpIntegrationTest {
             .andExpect(content().bytes(bytes));
         mvc.perform(head(signed)).andExpect(status().isOk()).andExpect(content().contentType("image/jpeg"));
         clearInvocations(images);
-        URI invalid=URI.create(signed.toString().replace("signature=","signature=invalid"));
+        String value=signed.toString();
+        int signatureEnd=value.length()-".jpg".length();
+        char replacement=value.charAt(signatureEnd-1)=='0'?'1':'0';
+        URI invalid=URI.create(value.substring(0,signatureEnd-1)+replacement+value.substring(signatureEnd));
         mvc.perform(head(invalid)).andExpect(status().isNotFound());
         mvc.perform(get(invalid)).andExpect(status().isNotFound());
-        mvc.perform(head("/api/v1/community/image-review/media/"+ID)).andExpect(status().isBadRequest());
+        mvc.perform(head("/api/v1/community/image-review/media/"+ID)).andExpect(status().isNotFound());
         mvc.perform(post(signed)).andExpect(status().isForbidden());
         verifyNoInteractions(images);
     }
