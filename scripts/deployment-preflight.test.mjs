@@ -27,6 +27,7 @@ const validEnvironment = {
   CADDY_SITE_ADDRESSES: ":80",
   CADDY_ACME_EMAIL: "ci@example.test",
   DEPLOYMENT_NETWORK_SUBNET: "172.30.0.0/24",
+  CADDY_INTERNAL_IP: "172.30.0.5",
   FRONTEND_INTERNAL_IP: "172.30.0.10",
   BACKEND_INTERNAL_IP: "172.30.0.20",
 };
@@ -261,7 +262,11 @@ test("content safety endpoint paths reject raw brackets while allowing escaped b
   }
 });
 
-test("requires distinct frontend and backend addresses inside the deployment subnet", () => {
+test("requires distinct proxy and backend addresses inside the deployment subnet", () => {
+  assert.match(validateDeploymentEnv({
+    ...validEnvironment,
+    CADDY_INTERNAL_IP: "172.31.0.5",
+  }).join("\n"), /CADDY_INTERNAL_IP.*DEPLOYMENT_NETWORK_SUBNET/);
   assert.match(validateDeploymentEnv({
     ...validEnvironment,
     FRONTEND_INTERNAL_IP: "172.31.0.10",
@@ -269,7 +274,11 @@ test("requires distinct frontend and backend addresses inside the deployment sub
   assert.match(validateDeploymentEnv({
     ...validEnvironment,
     BACKEND_INTERNAL_IP: "172.30.0.10",
-  }).join("\n"), /FRONTEND_INTERNAL_IP.*BACKEND_INTERNAL_IP.*different/);
+  }).join("\n"), /CADDY_INTERNAL_IP.*FRONTEND_INTERNAL_IP.*BACKEND_INTERNAL_IP.*different/);
+  assert.match(validateDeploymentEnv({
+    ...validEnvironment,
+    CADDY_INTERNAL_IP: "172.30.0.10",
+  }).join("\n"), /CADDY_INTERNAL_IP.*FRONTEND_INTERNAL_IP.*BACKEND_INTERNAL_IP.*different/);
   assert.match(validateDeploymentEnv({
     ...validEnvironment,
     DEPLOYMENT_NETWORK_SUBNET: "not-a-subnet",
