@@ -157,7 +157,9 @@ test("production deploy creates and verifies a restricted database backup before
 });
 
 test("streamed deployment still runs public checks after a stdin-reading readiness child", () => {
-  const unsafeSource = script.replace(" --interactive=false", "").replace(" < /dev/null", "");
+  const unsafeSource = script
+    .replace("exec -T --interactive=false backend curl", "exec -T backend curl")
+    .replace("http://127.0.0.1:8080/actuator/health/readiness < /dev/null", "http://127.0.0.1:8080/actuator/health/readiness");
   const unsafe = runDeploymentCommands({ source: unsafeSource, consumeStdin: true });
   assert.equal(unsafe.status, 0, unsafe.stderr);
   assert.match(unsafe.stdout, /readiness\n$/);
