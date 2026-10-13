@@ -86,5 +86,5 @@ jobs:
             -o UserKnownHostsFile="$known_hosts" \
             -p "$PRODUCTION_SSH_PORT" \
             "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
-            "bash -s -- '$release_sha'" \
+            "remote_script=\$(mktemp); trap 'rm -f \"\$remote_script\"' EXIT; cat > \"\$remote_script\"; chmod 700 \"\$remote_script\"; bash \"\$remote_script\" '$release_sha'" \
             < "$deploy_script"

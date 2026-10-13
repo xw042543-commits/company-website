@@ -88,7 +88,7 @@ test("manual production CD requires successful push CI for the exact release SHA
   assert.match(workflow, /\[\[ \$ci_conclusion == success \]\]/);
 });
 
-test("production CD verifies SSH identity and streams the exact release script", () => {
+test("production CD verifies SSH identity and stages the exact release script before execution", () => {
   for (const secret of [
     "PRODUCTION_SSH_HOST",
     "PRODUCTION_SSH_PORT",
@@ -101,7 +101,9 @@ test("production CD verifies SSH identity and streams the exact release script",
   assert.match(workflow, /StrictHostKeyChecking=yes/);
   assert.match(workflow, /actions\/checkout@v7/);
   assert.match(workflow, /ref: \$\{\{ steps\.release\.outputs\.sha \}\}/);
-  assert.match(workflow, /bash -s -- '\$release_sha'/);
+  assert.match(workflow, /remote_script=\\\$\(mktemp\)/);
+  assert.match(workflow, /cat > \\"\\\$remote_script\\"/);
+  assert.match(workflow, /bash \\"\\\$remote_script\\" '\$release_sha'/);
   assert.match(workflow, /printf 'export APP_MINIAPP_WECHAT_APP_ID=%q/);
   assert.match(workflow, /printf 'export APP_MINIAPP_WECHAT_APP_SECRET=%q/);
   assert.match(workflow, /cat scripts\/deploy-production\.sh/);
