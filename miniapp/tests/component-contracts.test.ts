@@ -629,7 +629,7 @@ test('planning profile sends filters on every programme page and exposes all mat
         data = { items: [{ id: current, slug: `course-${current}`, nameZh: `匹配专业${current}`, nameEn: 'Course', categoryCode: current === 1 ? 'COMPUTING' : 'DESIGN' }], page: current, pageSize: 1, totalItems: 2, totalPages: 2 };
       } else if (url.pathname.endsWith('/filter-options')) {
         data = { countries: [], subjectCategories: [], studyLevels: [], courseModes: [], languages: [] };
-      } else data = { id: 1, slug: 'planning-school', nameZh: '测试大学', nameEn: 'Test', descriptionZh: '' };
+      } else data = { id: 1, slug: 'planning-school', nameZh: '测试大学', nameEn: 'Test', descriptionZh: '', sections: [] };
       options.success({ statusCode: 200, data, header: {}, cookies: [] });
       return { abort() {} };
     },
@@ -712,7 +712,7 @@ test('university profile loads real catalogue labels and remains ready when cata
             } : path.endsWith('/programmes') ? {
               items: [{ id: 1, slug: 'computer-science', nameZh: '计算机科学学士', nameEn: 'Bachelor of Computer Science', categoryCode: 'COMPUTING' }],
               page: 1, pageSize: 50, totalItems: 1, totalPages: 1,
-            } : { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', cityZh: '吉隆坡', countryNameZh: '马来西亚', descriptionZh: '第一段\n\n第二段' };
+            } : { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', cityZh: '吉隆坡', countryNameZh: '马来西亚', descriptionZh: '第一段\n\n第二段', sections: [] };
             options.success({ statusCode: 200, data, header: {}, cookies: [] });
           }
           return { abort() {} };
@@ -827,7 +827,7 @@ test('university profile fetches every programme page sequentially before exposi
             const data = url.pathname.endsWith('/filter-options') ? {
               countries: [], subjectCategories: [{ code: 'BUSINESS', nameZh: '商科', nameEn: 'Business' }],
               studyLevels: [], courseModes: [], languages: [],
-            } : { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', descriptionZh: '' };
+            } : { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', descriptionZh: '', sections: [] };
             options.success({ statusCode: 200, data, header: {}, cookies: [] });
           }
           return { abort() {} };

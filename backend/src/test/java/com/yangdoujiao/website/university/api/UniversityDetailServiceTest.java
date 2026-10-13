@@ -35,6 +35,7 @@ import com.yangdoujiao.website.search.v4.api.UniversitySearchQuery;
 import com.yangdoujiao.website.search.v4.model.UniversitySearchCriteria;
 import com.yangdoujiao.website.university.University;
 import com.yangdoujiao.website.university.UniversityRepository;
+import com.yangdoujiao.website.university.UniversityProfileSectionRepository;
 
 @ExtendWith(MockitoExtension.class)
 class UniversityDetailServiceTest {
@@ -47,6 +48,7 @@ class UniversityDetailServiceTest {
     @Mock private UniversitySearchCriteriaFactory criteriaFactory;
     @Mock private SearchFilterCodeValidator filterCodeValidator;
     @Mock private MediaLookupRepository media;
+    @Mock private UniversityProfileSectionRepository universityProfileSections;
     @Mock private University university;
     @Mock private Programme programme;
     @Mock private ProgrammeDetailSection curriculumSection;
@@ -183,7 +185,8 @@ class UniversityDetailServiceTest {
                 programmeQuery,
                 criteriaFactory,
                 filterCodeValidator,
-                media
+                media,
+                universityProfileSections
         );
     }
 }

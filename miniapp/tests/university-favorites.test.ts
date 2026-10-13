@@ -8,7 +8,7 @@ const detail = (slug: string) => ({
   nameZh: slug === 'segi-university' ? '世纪大学' : '亚太科技大学',
   nameEn: slug === 'segi-university' ? 'SEGi University' : 'Asia Pacific University',
   countryCode: 'MY', countryNameZh: '马来西亚', cityZh: '吉隆坡',
-  descriptionZh: '院校简介', popular: true,
+  descriptionZh: '院校简介', popular: true, sections: [],
   imageUrl: `https://yangdoujiao.com/universities/${slug}-campus.jpg`,
   logoUrl: `https://yangdoujiao.com/universities/${slug}.png`,
 });

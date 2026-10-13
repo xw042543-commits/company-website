@@ -25,6 +25,7 @@ import com.yangdoujiao.website.search.v4.UniversitySearchCriteriaFactory;
 import com.yangdoujiao.website.search.v4.api.UniversitySearchQuery;
 import com.yangdoujiao.website.university.University;
 import com.yangdoujiao.website.university.UniversityRepository;
+import com.yangdoujiao.website.university.UniversityProfileSectionRepository;
 
 @Service
 public class UniversityDetailService {
@@ -37,6 +38,7 @@ public class UniversityDetailService {
     private final UniversitySearchCriteriaFactory criteriaFactory;
     private final SearchFilterCodeValidator filterCodeValidator;
     private final MediaLookupRepository media;
+    private final UniversityProfileSectionRepository universityProfileSections;
 
     public UniversityDetailService(
             UniversityRepository universities,
@@ -46,7 +48,8 @@ public class UniversityDetailService {
             UniversityProgrammeQueryRepository programmeQuery,
             UniversitySearchCriteriaFactory criteriaFactory,
             SearchFilterCodeValidator filterCodeValidator,
-            MediaLookupRepository media
+            MediaLookupRepository media,
+            UniversityProfileSectionRepository universityProfileSections
     ) {
         this.universities = universities;
         this.programmes = programmes;
@@ -56,6 +59,7 @@ public class UniversityDetailService {
         this.criteriaFactory = criteriaFactory;
         this.filterCodeValidator = filterCodeValidator;
         this.media = media;
+        this.universityProfileSections = universityProfileSections;
     }
 
     @Transactional(readOnly = true)
@@ -63,7 +67,9 @@ public class UniversityDetailService {
         University university = universities.findBySlugAndStatus(slug, CategoryStatus.PUBLISHED)
                 .orElseThrow(() -> new ResourceNotFoundException("University not found"));
         String imageUrl = media.findUniversityImageUrls(List.of(university.getId())).get(university.getId());
-        return UniversityDetailResponse.from(university, imageUrl);
+        return UniversityDetailResponse.from(university, imageUrl,
+                universityProfileSections.findAllByUniversity_IdAndStatusOrderBySortOrderAscIdAsc(
+                        university.getId(), CategoryStatus.PUBLISHED));
     }
 
     @Transactional(readOnly = true)

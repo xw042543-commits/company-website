@@ -31,6 +31,7 @@ Page({
     descriptionParagraphs: [] as string[],
     location: '',
     levelSummary: '待确认',
+    profileFacts: [] as BasicFact[],
     statusBarHeight: 20,
     navigationHeight: 44,
     navigationRight: 96,
@@ -166,6 +167,10 @@ Page({
       visibleProgrammes: this.data.planningEntry ? allProgrammes : filterProgrammes(allProgrammes, activeCategory),
       location: [detail.value.cityZh, detail.value.countryNameZh].filter(Boolean).join('，'),
       levelSummary: summarizeLevels(allProgrammes),
+      profileFacts: detail.value.sections.map((section) => ({
+        label: section.titleZh || section.titleEn,
+        value: section.bodyZh || section.bodyEn,
+      })).filter((fact) => fact.label && fact.value),
       descriptionParagraphs: detail.value.descriptionZh.split(/\r?\n/).map((paragraph) => paragraph.trim()).filter(Boolean),
       logoLetter: detail.value.nameEn.charAt(0).toUpperCase() || 'U',
       state: 'ready' as ViewState,
@@ -173,6 +178,8 @@ Page({
     wx.setNavigationBarTitle({ title: detail.value.nameZh });
   },
 });
+
+type BasicFact = { label: string; value: string };
 
 function summarizeLevels(programmes: readonly UniversityProgramme[]): string {
   const labels: Readonly<Record<string, string>> = {

@@ -59,6 +59,16 @@ export type UniversityDetail = {
   descriptionEn: string | null;
   popular: boolean;
   imageUrl?: string | null;
+  sections: UniversityProfileSection[];
+};
+
+export type UniversityProfileSection = {
+  type: string;
+  titleZh: string;
+  titleEn: string;
+  bodyZh: string;
+  bodyEn: string;
+  sortOrder: number;
 };
 
 export type UniversityProgramme = {
@@ -314,6 +324,12 @@ export function parseUniversityDetail(payload: unknown): UniversityDetail | null
     || !isNullableString(payload.descriptionZh)
     || !isNullableString(payload.descriptionEn)
     || typeof payload.popular !== "boolean"
+    || !Array.isArray(payload.sections)
+    || !payload.sections.every((section) => isRecord(section)
+      && typeof section.type === "string" && section.type.trim().length > 0
+      && typeof section.titleZh === "string" && typeof section.titleEn === "string"
+      && typeof section.bodyZh === "string" && typeof section.bodyEn === "string"
+      && isInteger(section.sortOrder))
     || (payload.imageUrl !== undefined && !isNullableString(payload.imageUrl))) {
     return null;
   }
