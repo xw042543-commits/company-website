@@ -41,7 +41,8 @@ test("Caddy automatically serves the canonical domain without trusting client fo
   assert.match(caddyfile, /redir @www https:\/\/yangdoujiao\.com\{uri\} permanent/);
   assert.match(caddyfile, /reverse_proxy frontend:3000/);
   assert.match(caddyfile, /header_up -Forwarded/);
-  assert.match(caddyfile, /header_up -X-Forwarded-\*/);
+  assert.doesNotMatch(caddyfile, /header_up -X-Forwarded-\*/);
+  assert.match(caddyfile, /header_up -X-Forwarded-Host/);
   assert.match(caddyfile, /header_up -X-Real-IP/);
   assert.match(caddyfile, /header_up X-Forwarded-Proto https/);
   assert.match(caddyfile, /header_up X-Forwarded-For \{remote_host\}/);
