@@ -68,6 +68,10 @@ Page({
 
   openMenu(event: WechatMiniprogram.BaseEvent) {
     const key = event.currentTarget.dataset.key as string | undefined;
+    if (key === 'favorites' || key === 'universityFavorites') {
+      wx.switchTab({ url: '/pages/favorites-cart/index' });
+      return;
+    }
     if (key === 'community') {
       const route = communityMeRoute();
       if (route.ok) wx.navigateTo({ url: route.value });

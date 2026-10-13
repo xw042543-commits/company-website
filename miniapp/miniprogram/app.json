@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/favorites-cart/index",
     "pages/universities/index",
     "pages/university-detail/index",
     "pages/programme-detail/index",
@@ -53,6 +54,12 @@
         "text": "消息",
         "iconPath": "assets/icons/messages.png",
         "selectedIconPath": "assets/icons/messages-green.png"
+      },
+      {
+        "pagePath": "pages/favorites-cart/index",
+        "text": "收藏",
+        "iconPath": "assets/icons/heart.png",
+        "selectedIconPath": "assets/icons/heart-active.png"
       },
       {
         "pagePath": "pages/account/index",

@@ -1,0 +1,25 @@
+<view class="cart-page">
+  <view class="cart-heading">心仪院校与专业</view>
+  <view class="cart-caption">把喜欢的选择放在一起，慢慢比较。</view>
+  <view wx:if="{{loginNeeded}}" class="notice"><text>登录后查看账号收藏的专业</text><button bindtap="login">登录</button></view>
+  <view wx:if="{{failed || detailsFailed}}" class="notice"><text>{{failed ? '专业收藏加载失败' : '部分院校资料暂不可用'}}</text><button bindtap="retry">重试</button></view>
+  <app-state wx:if="{{loading}}" kind="loading" title="正在整理你的收藏" description="" />
+  <view wx:elif="{{!groups.length && !failed}}" class="empty"><view class="empty-title">还没有收藏的院校或专业</view><text>看到心仪的选择，点一下爱心就能保存在这里。</text><button bindtap="browse">去找院校和专业</button></view>
+  <view wx:else class="groups">
+    <view wx:for="{{groups}}" wx:for-item="group" wx:key="slug" class="school-group">
+      <button class="school-cover" data-slug="{{group.slug}}" bindtap="openSchool" aria-label="查看{{group.name}}">
+        <image wx:if="{{group.cover}}" class="cover-image" src="{{group.cover}}" mode="aspectFill" data-slug="{{group.slug}}" binderror="imageError" />
+        <view class="cover-shade"></view><text wx:if="{{group.location}}" class="location">{{group.location}}</text>
+        <view class="school-name-row"><image wx:if="{{group.logo}}" class="logo" src="{{group.logo}}" mode="aspectFit" data-slug="{{group.slug}}" data-kind="logo" binderror="imageError" /><text class="school-name">{{group.name}}</text><text>›</text></view>
+      </button>
+      <view class="group-toolbar"><button class="select-control" disabled="{{!group.courses.length}}" data-slug="{{group.slug}}" bindtap="toggleGroup" aria-label="选择{{group.name}}的全部收藏专业" aria-pressed="{{group.checked}}"><text class="check {{group.checked || group.partial ? 'check--on' : ''}}">{{group.checked ? '✓' : group.partial ? '−' : ''}}</text><text>已收藏 {{group.courses.length}} 个专业</text></button><button wx:if="{{group.saved}}" class="remove" data-slug="{{group.slug}}" bindtap="removeSchool">取消院校收藏</button></view>
+      <view wx:for="{{group.courses}}" wx:for-item="course" wx:key="id" class="course-row">
+        <button class="course-check" data-id="{{course.id}}" bindtap="toggleCourse" aria-label="选择{{course.name}}" aria-pressed="{{course.checked}}"><text class="check {{course.checked ? 'check--on' : ''}}">{{course.checked ? '✓' : ''}}</text></button>
+        <button class="course-info" data-slug="{{group.slug}}" data-id="{{course.id}}" bindtap="openCourse"><text class="course-name">{{course.name}}</text><text class="course-link">查看专业详情 ›</text></button>
+        <button class="remove" data-id="{{course.id}}" bindtap="removeCourse" disabled="{{removing > 0}}">{{removing === course.id ? '处理中' : '取消收藏'}}</button>
+      </view>
+      <view wx:if="{{!group.courses.length}}" class="school-empty">{{failed ? '专业收藏待加载，请重试' : '还没有收藏这所院校的专业'}}</view>
+    </view>
+  </view>
+  <view class="cart-footer"><button class="select-control" bindtap="toggleAll" disabled="{{loading || !groups.length}}" aria-pressed="{{allChecked}}"><text class="check {{allChecked ? 'check--on' : ''}}">{{allChecked ? '✓' : ''}}</text>全选</button><text class="selected-summary">已选 <text class="count">{{selectedCount}}</text> 个专业</text><button class="checkout" disabled="{{!selectedCount}}" bindtap="checkout">确定申请</button></view>
+</view>
