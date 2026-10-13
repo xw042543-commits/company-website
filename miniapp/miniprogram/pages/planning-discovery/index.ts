@@ -16,7 +16,7 @@ type School = UniversitySummary & { logoUrl: string | null; imageFailed: boolean
   expanded: boolean; courses: Course[]; courseState: 'idle' | 'loading' | 'ready' | 'failed'; coursePage: number; coursePages: number };
 type Group = { field: Field; title: string; options: FilterOption[]; index: number; selected: string };
 const blank = (): Filters => ({ q: '', level: '', category: '', country: '', mode: '', language: '', duration: '', intake: '', tuitionMin: '', tuitionMax: '' });
-const labels: Record<Field, string> = { q: '专业', level: '学历', category: '领域', country: '地区', mode: '学习模式', language: '授课语言', duration: '学制（月）', intake: '入学时间', tuitionMin: '最低学费', tuitionMax: '最高学费' };
+const labels: Record<Field, string> = { q: '专业', level: '学历', category: '专业', country: '国家', mode: '学习模式', language: '授课语言', duration: '学制（月）', intake: '入学时间', tuitionMin: '最低学费', tuitionMax: '最高学费' };
 const groups = [['level', 'studyLevels'], ['category', 'subjectCategories'], ['country', 'countries'], ['language', 'languages'], ['mode', 'courseModes']] as const;
 const runtime = new WeakMap<object, { generation: number; alive: boolean }>();
 function state(page: object) { let value = runtime.get(page); if (!value) { value = { generation: 0, alive: true }; runtime.set(page, value); } return value; }
