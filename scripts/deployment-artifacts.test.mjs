@@ -57,3 +57,11 @@ test("signed community review media bypasses the Next.js proxy", () => {
   assert.ok(backendProxy > mediaMatcher, "the signed review media path needs a direct backend proxy");
   assert.ok(frontendProxy > backendProxy, "the direct media route must be handled before the frontend proxy");
 });
+
+test("community review media access diagnostics expose no signed URL or client metadata", () => {
+  const caddyfile = read("deploy/Caddyfile");
+  assert.match(caddyfile, /log default \{[\s\S]*?exclude http\.log\.error\.review_media[\s\S]*?\}/);
+  assert.match(caddyfile, /log review_media_errors \{[\s\S]*?include http\.log\.error\.review_media[\s\S]*?request>uri replace \/api\/v1\/community\/image-review\/media\/REDACTED[\s\S]*?request>headers delete[\s\S]*?request>remote_ip delete[\s\S]*?request>client_ip delete[\s\S]*?\}/);
+  assert.match(caddyfile, /log review_media \{[\s\S]*?no_hostname[\s\S]*?request>uri replace \/api\/v1\/community\/image-review\/media\/REDACTED[\s\S]*?request>headers delete[\s\S]*?request>remote_ip delete[\s\S]*?request>client_ip delete[\s\S]*?\}/);
+  assert.match(caddyfile, /log_name @communityReviewMedia review_media/);
+});
