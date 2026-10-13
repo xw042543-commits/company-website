@@ -101,18 +101,44 @@ class V3MigrationCompatibilityTest {
                     INSERT INTO community_posts(author_account_id,body,status,published_at)
                     VALUES (?, 'Legacy campus conversation', 'PUBLISHED', NOW()) RETURNING id
                     """, Long.class, accountId);
+            Long publishableUniversityId = jdbcTemplate.queryForObject("""
+                    INSERT INTO universities(name,slug,country,status)
+                    VALUES ('Publishable university', 'publishable-university', 'Malaysia', 'DRAFT')
+                    RETURNING id
+                    """, Long.class);
+            Long publishableProgrammeId = jdbcTemplate.queryForObject("""
+                    INSERT INTO programmes(
+                        programme_code,university_id,subject_category_id,slug,name_en,official_url,status
+                    ) VALUES ('PUBLISHABLE', ?, ?, 'publishable-programme', 'Computer Science',
+                              'https://example.test/publishable-programme', 'PUBLISHED')
+                    RETURNING id
+                    """, Long.class, publishableUniversityId, subjectId);
 
             Flyway latest = Flyway.configure()
                     .dataSource(postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword())
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("29");
-            assertThat(latest.info().applied()).hasSize(29);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("31");
+            assertThat(latest.info().applied()).hasSize(31);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 29)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 31)
                             .mapToObj(Integer::toString).toList());
+            assertThat(jdbcTemplate.queryForMap("""
+                    SELECT status, published_at IS NOT NULL AS has_published_at
+                    FROM universities WHERE id = ?
+                    """, publishableUniversityId)).containsExactlyInAnyOrderEntriesOf(Map.of(
+                    "status", "PUBLISHED", "has_published_at", true
+            ));
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT count(*) FROM programme_detail_sections
+                    WHERE programme_id = ? AND status = 'PUBLISHED'
+                      AND section_type IN ('CAREER_OPPORTUNITIES', 'CURRICULUM')
+                    """, Integer.class, publishableProgrammeId)).isEqualTo(2);
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT status FROM universities WHERE id = ?
+                    """, String.class, universityId)).isEqualTo("DRAFT");
             assertThat(jdbcTemplate.queryForMap("""
                     SELECT body,title,category,university_id FROM community_posts WHERE id = ?
                     """, legacyPostId)).containsEntry("body", "Legacy campus conversation")
