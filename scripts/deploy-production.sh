@@ -53,6 +53,16 @@ docker run --rm --mount "type=bind,source=$PWD,target=/app,readonly" -w /app nod
 public_site_url="$(docker run --rm --mount "type=bind,source=$PWD,target=/app,readonly" -w /app node:24-bookworm-slim node --input-type=module -e 'import fs from "node:fs"; import { parseEnv } from "./scripts/deployment-preflight.mjs"; process.stdout.write(parseEnv(fs.readFileSync(".env.production", "utf8")).PUBLIC_SITE_URL ?? "")')"
 [[ $public_site_url == https://* ]] || { echo "PUBLIC_SITE_URL must be HTTPS" >&2; exit 68; }
 docker compose --env-file .env.production -f compose.production.yaml config --quiet
+
+# Every release may contain a forward-only Flyway migration. Capture and verify
+# a restricted PostgreSQL archive before replacing either application image.
+install -d -m 700 backups
+backup_file="backups/postgres-$(date -u +%Y%m%dT%H%M%SZ)-pre-${release_sha:0:12}.dump"
+docker compose --env-file .env.production -f compose.production.yaml exec -T postgres sh -c 'pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' > "$backup_file"
+chmod 600 "$backup_file"
+docker compose --env-file .env.production -f compose.production.yaml exec -T postgres pg_restore --list < "$backup_file" > /dev/null
+test -s "$backup_file"
+
 # Retain the running images before a host build overwrites the configured tags.
 for service in frontend backend; do
   container_id="$(docker compose --env-file .env.production -f compose.production.yaml ps --status running -q "$service")"

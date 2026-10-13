@@ -11,7 +11,7 @@ const workflow = readFileSync(new URL("../.github/workflows/deploy-production.ym
 // Docker/HTTP operations. The readiness double deliberately reads inherited
 // stdin so this catches commands being swallowed, even with a successful exit.
 function runDeploymentCommands({ source = script, runningServices = "frontend backend", failTag = "", consumeStdin = false } = {}) {
-  const start = source.indexOf("\ndocker compose --env-file .env.production -f compose.production.yaml config --quiet\n");
+  const start = source.indexOf("\n# Retain the running images before a host build overwrites the configured tags.\n");
   assert.notEqual(start, -1, "the deployment commands must be exercised");
   const bash = process.platform === "win32" ? "C:\\msys64\\usr\\bin\\bash.exe" : "bash";
   return spawnSync(bash, ["-s"], {
@@ -143,6 +143,17 @@ test("production deploy validates configuration, health, and public launch", () 
   assert.match(script, /curl --fail-with-body --silent --connect-timeout 10 --max-time 30/);
   assert.match(script, /launch-smoke\.mjs "\$public_site_url" --public --wechat/);
   assert.doesNotMatch(script, /down --volumes|rm -v|\.env\.production.*cat/);
+});
+
+test("production deploy creates and verifies a restricted database backup before building", () => {
+  const backup = script.indexOf('backup_file="backups/postgres-');
+  const build = script.indexOf("build --pull backend frontend");
+  assert.ok(backup > 0 && backup < build);
+  assert.match(script, /install -d -m 700 backups/);
+  assert.match(script, /pg_dump.*-Fc/);
+  assert.match(script, /chmod 600 "\$backup_file"/);
+  assert.match(script, /pg_restore --list < "\$backup_file" > \/dev\/null/);
+  assert.match(script, /test -s "\$backup_file"/);
 });
 
 test("streamed deployment still runs public checks after a stdin-reading readiness child", () => {
