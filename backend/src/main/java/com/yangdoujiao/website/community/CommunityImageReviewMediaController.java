@@ -12,6 +12,13 @@ class CommunityImageReviewMediaController {
     private final CommunityImageReviewAccess access;
     private final CommunityImageAttachments images;
     CommunityImageReviewMediaController(CommunityImageReviewAccess access,CommunityImageAttachments images){this.access=access;this.images=images;}
+    // Keep already-issued review links valid across a rolling deployment.
+    @GetMapping("/api/v1/community/image-review/media/{id}")
+    ResponseEntity<byte[]> readLegacy(@PathVariable String id,
+            @RequestParam(defaultValue="0") long expires,
+            @RequestParam(defaultValue="") String signature)throws IOException {
+        return read(id,expires,signature);
+    }
     @GetMapping("/api/v1/community/image-review/media/{id}/{expires}/{signature}.jpg")
     ResponseEntity<byte[]> read(@PathVariable String id,@PathVariable long expires,@PathVariable String signature)throws IOException {
         if(!access.verify(id,expires,signature))throw new ApiException(HttpStatus.NOT_FOUND,"COMMUNITY_IMAGE_NOT_FOUND","Image unavailable");

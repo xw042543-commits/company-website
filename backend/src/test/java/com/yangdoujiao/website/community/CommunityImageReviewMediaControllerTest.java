@@ -13,6 +13,21 @@ class CommunityImageReviewMediaControllerTest {
     static final CommunityImageReviewAccess ACCESS=new CommunityImageReviewAccess(
         "https://example.com","test-review-signature-secret-32-characters",Clock.systemUTC());
 
+    @Test void legacySignedLinksRemainReadableDuringDeployment() throws Exception {
+        var images=mock(CommunityImageAttachments.class);
+        byte[] bytes={(byte)0xff,(byte)0xd8,(byte)0xff,(byte)0xd9};
+        when(images.read(ID,false,null,true)).thenReturn(bytes);
+        var mvc=MockMvcBuilders.standaloneSetup(new CommunityImageReviewMediaController(ACCESS,images))
+            .setControllerAdvice(new com.yangdoujiao.website.common.exception.GlobalExceptionHandler()).build();
+        String[] parts=URI.create(ACCESS.url(ID)).getPath().split("/");
+        String legacy="/api/v1/community/image-review/media/"+ID;
+        mvc.perform(get(legacy).param("expires",parts[7]).param("signature",parts[8].replace(".jpg","")))
+            .andExpect(status().isOk()).andExpect(content().bytes(bytes));
+        mvc.perform(head(legacy)).andExpect(status().isNotFound());
+        mvc.perform(get(legacy).param("expires",parts[7]).param("signature","bad"))
+            .andExpect(status().isNotFound());
+    }
+
     @Test void signedJpegPathServesImageForGetAndHead() throws Exception {
         var images=mock(CommunityImageAttachments.class);
         byte[] bytes={(byte)0xff,(byte)0xd8,(byte)0xff,(byte)0xd9};
