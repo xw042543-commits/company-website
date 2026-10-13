@@ -17,9 +17,9 @@
         <text wx:else aria-hidden="true">{{logoLetter}}</text>
       </view>
       <view class="identity-copy">
+        <view class="university-name">{{programme.universityNameZh}}</view>
         <view class="programme-title" aria-role="heading" aria-level="1">{{programme.nameZh}}</view>
         <view class="programme-title-en">{{programme.nameEn}}</view>
-        <view class="university-name">{{programme.universityNameZh}}</view>
       </view>
     </view>
 
@@ -33,17 +33,15 @@
     </view>
 
     <view class="section-directory" aria-role="navigation" aria-label="专业详情目录">
-      <view class="directory-heading">专业资料</view>
-      <view class="directory-list">
+      <scroll-view class="directory-list" scroll-x enhanced show-scrollbar="{{false}}">
         <button wx:for="{{documentSections}}" wx:key="key" class="directory-item" data-target="section-{{item.key}}" bindtap="scrollToSection" hover-class="directory-item--pressed">
-          <text class="directory-dot" aria-hidden="true"></text>
           <text class="directory-label">{{item.title}}</text>
         </button>
-      </view>
+      </scroll-view>
     </view>
 
     <view wx:for="{{documentSections}}" wx:key="key" wx:for-item="section" id="section-{{section.key}}" class="document-section document-section--{{section.key}}">
-      <view class="section-title" aria-role="heading" aria-level="2">{{section.title}}</view>
+      <view class="section-title" aria-role="heading" aria-level="2"><text class="section-number">{{index + 1 < 10 ? '0' : ''}}{{index + 1}}</text>{{section.title}}</view>
       <view wx:if="{{section.key === 'BASIC_INFORMATION'}}" class="facts-table" aria-role="table" aria-label="专业基本信息">
         <view wx:for="{{basicFacts}}" wx:key="label" aria-role="row" class="fact-row">
           <view class="fact-label" aria-role="rowheader">{{item.label}}</view>
