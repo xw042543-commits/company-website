@@ -31,6 +31,17 @@ class WechatImageReviewGatewayTest {
         server.expect(requestTo("https://api.weixin.qq.com/wxa/media_check_async?access_token=fixture-token"))
             .andExpect(method(HttpMethod.POST)).andExpect(header("Content-Type","application/json"))
             .andExpect(content().json("{\"media_type\":2,\"version\":2,\"scene\":3,\"openid\":\"fixture-openid\"}"))
+            .andExpect(request -> {
+                var body=json.readTree(((org.springframework.mock.http.client.MockClientHttpRequest)request).getBodyAsBytes());
+                var media=java.net.URI.create(body.path("media_url").asText());
+                assertEquals("https",media.getScheme());
+                assertEquals("example.com",media.getHost());
+                assertNull(media.getQuery());
+                String[] parts=media.getPath().split("/");
+                assertEquals("a".repeat(32),parts[6]);
+                assertTrue(parts[8].endsWith(".jpg"));
+                assertTrue(access.verify(parts[6],Long.parseLong(parts[7]),parts[8].replace(".jpg","")));
+            })
             .andRespond(withSuccess("{\"errcode\":0,\"trace_id\":\"trace-fixture\"}",MediaType.APPLICATION_JSON));
         assertEquals(Optional.of("trace-fixture"),gateway.submit(42L,"a".repeat(32)));server.verify();
     }

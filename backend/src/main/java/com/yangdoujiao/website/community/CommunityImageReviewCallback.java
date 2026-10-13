@@ -65,8 +65,8 @@ public class CommunityImageReviewCallback {
         }catch(IllegalArgumentException|tools.jackson.core.JacksonException e){throw rejected();}
         // A database failure must propagate so WeChat retries; do not acknowledge lost events.
         jobs.receive(trace,verdict,clock.instant());
-        LOG.info("community image review callback providerCode={} suggestion={} reason={} verdict={}",
-            providerCode,suggestion,reason,verdict);
+        LOG.info("community image review callback providerCode={} suggestion={} reason={} verdict={} traceHash={}",
+            providerCode,suggestion,reason,verdict,WechatImageReviewGateway.traceHash(trace));
         return "success";
     }
     private static ApiException rejected(){return new ApiException(HttpStatus.BAD_REQUEST,"INVALID_REVIEW_CALLBACK","Invalid callback");}
