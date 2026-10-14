@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import type { ProgrammeCandidate, ReviewBundle } from "./types.ts";
+import { validateOfficialCurriculum } from "./curriculum.ts";
 
 type ExistingProgramme = {
   programmeCode: string;
@@ -13,6 +14,8 @@ type ExistingProgramme = {
   tuitionCurrency: string | null;
   tuitionDisplay: string | null;
   officialUrl?: string | null;
+  studyLevelCode?: string | null;
+  categoryCode?: string | null;
 };
 
 const args = process.argv.slice(2);
@@ -114,6 +117,24 @@ const conflicts = matched.flatMap(({ candidate, existing: current }) => {
 const usable = matched.filter(({ candidate }) => detailEvidence(candidate) !== undefined);
 if (usable.length === 0) throw new Error("没有带详情页证据的唯一匹配记录，拒绝生成空迁移");
 
+const rejectedSections: Array<{ programmeCode: string; type: string; reason: string }> = [];
+for (const { candidate, existing: current } of usable) {
+  candidate.sections = candidate.sections.filter((section) => {
+    if (section.type !== "CURRICULUM") return true;
+    try {
+      section.bodyRaw = validateOfficialCurriculum(section.bodyRaw).join("\n");
+      return true;
+    } catch (error) {
+      rejectedSections.push({
+        programmeCode: current.programmeCode,
+        type: section.type,
+        reason: error instanceof Error ? error.message : String(error),
+      });
+      return false;
+    }
+  });
+}
+
 function assertMax(label: string, value: string | null | undefined, max: number) {
   if (value && value.length > max) throw new Error(`${label} 超过数据库长度限制 ${max}`);
 }
@@ -214,7 +235,9 @@ ON CONFLICT (programme_id, section_type) DO UPDATE SET
   body_zh=CASE WHEN ${generatedSection} THEN NULL ELSE programme_detail_sections.body_zh END,
   title_en=EXCLUDED.title_en, body_en=EXCLUDED.body_en, source_url=EXCLUDED.source_url,
   source_checked_at=EXCLUDED.source_checked_at, status='PUBLISHED', updated_at=CURRENT_TIMESTAMP
-WHERE ${generatedSection} OR NULLIF(BTRIM(programme_detail_sections.body_en), '') IS NULL;
+WHERE ${generatedSection} OR NULLIF(BTRIM(programme_detail_sections.body_en), '') IS NULL
+  OR (programme_detail_sections.source_url = EXCLUDED.source_url
+      AND programme_detail_sections.source_checked_at <= EXCLUDED.source_checked_at);
 
 CREATE TEMP TABLE ${intakesTable} (
   programme_code varchar(64), display_text varchar(100), source_url varchar(1000), source_checked_at timestamptz,
@@ -251,6 +274,7 @@ const report = {
   ambiguous: ambiguous.map((item) => ({ candidateId: item.candidate.candidateId, nameEn: item.candidate.nameEn, programmeCodes: item.matches.map((match) => match.programmeCode) })),
   conflicts,
   generatedRows: { programmes: programmeRows.length, sections: sectionRows.length, intakes: intakeRows.length },
+  rejectedSections,
 };
 const destination = path.resolve(outputRoot);
 await mkdir(destination, { recursive: true });

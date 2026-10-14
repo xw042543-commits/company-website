@@ -52,7 +52,8 @@ export function parseOfficialCurriculumItems(body: string): string[] {
 }
 
 function curriculumBoilerplate(value: string) {
-  return /^(?:\[?select\]?|note:?|#?pre-?requisite|speciali[sz]ation elective courses|choose\s+\d+\s+electives?\b|\*{1,2}(?:taken|pass)\b)/i.test(value)
+  return /^(?:\d{1,3}[.)]\s*)?(?:\[?select\]?|note:?|next\s*:|year\s*\d+\b|semester\s*\d+\b|option\s*\d+\s*:|#?pre-?requisite|students?\b|compulsory university courses?\b|programme course elective\b|speciali[sz]ation(?:\s*\/| modules?\b| electives?\b)|(?:programme?|program|core|university|univerity|faculty|faculty open|free|open|external faculty|department|clinical) electives?\b|elective(?: courses?)?\b|kursus elektif\b|pilih\b|flexible studies\b|\*{1,2}(?:taken|pass)\b)/i.test(value)
+    || /(?:\bchoose\s+(?:any\s+)?(?:one|two|three|four|five|seven|\d+)\b|\brefer to (?:the )?(?:attached )?list\b|\bstudents? (?:are )?required\b|\bsubject to availability\b|\bpilih\b|\brujuk\b|\bsila\b|\bsahaja\b|\bentry requirements?\b|\bminimum (?:average|score|cgpa|grade)\b|\b(?:ielts|toefl|muet)\b|\d+\s*%)/i.test(value)
     || /^参考学习领域|^参考课程结构|^illustrative study areas/i.test(value);
 }
 

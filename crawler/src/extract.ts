@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { decodeHtml, jsonLdOf, plainText } from "./html.ts";
+import { extractOfficialCourseTitles } from "./curriculum.ts";
 import type { Evidence, PageSnapshot, ProgrammeCandidate, SourceDefinition, UniversityCandidate } from "./types.ts";
 
 type JsonObject = Record<string, unknown>;
@@ -57,14 +58,15 @@ function extractUmDetail(page: PageSnapshot, source: SourceDefinition): Programm
   const overviewText = structuredText(overviewHtml);
   const durationDisplay = overviewText.match(/Duration:\s*([^\n]+)/i)?.[1]?.trim() ?? null;
   let descriptionText = overviewText.replace(/Duration:\s*[^\n]+/i, "").trim();
-  let curriculum = structuredText(umSection(page.html, "Programme Structure") ?? "");
+  const curriculumHtml = umSection(page.html, "Programme Structure") ?? "";
+  let curriculum = extractOfficialCourseTitles(curriculumHtml).join("\n");
   // A small number of UM pages place the year-by-year structure inside the
   // overview block without a Programme Structure heading. Keep that official
   // material, but do not mix it into the programme description.
   if (!curriculum) {
     const embeddedStructure = descriptionText.match(/\n(?=Year\s+1(?:\s+Year\s+2)+\b)/i);
     if (embeddedStructure?.index !== undefined) {
-      curriculum = descriptionText.slice(embeddedStructure.index + 1).trim();
+      curriculum = extractOfficialCourseTitles(overviewHtml).join("\n");
       descriptionText = descriptionText.slice(0, embeddedStructure.index).trim();
     }
   }
@@ -124,7 +126,8 @@ function extractTaylorsDetail(page: PageSnapshot, source: SourceDefinition): Pro
   if (!name || !/\b(?:Bachelor|Diploma|American Degree Transfer Program|Intensive English)\b/i.test(name)) return [];
   const candidate = programmeFromExplicitPage({ name, description: null, studyLevelRaw: "Undergraduate", detailUrl: page.url }, page, source, 0);
   const overview = structuredText(htmlSectionById(page.html, "overview") ?? "");
-  const curriculum = cleanSectionHeading(structuredText(htmlSectionById(page.html, "programme-structure") ?? ""), "Programme Structure");
+  const curriculumHtml = htmlSectionById(page.html, "programme-structure") ?? "";
+  const curriculum = extractOfficialCourseTitles(curriculumHtml).join("\n");
   const admissions = cleanSectionHeading(structuredText(htmlSectionById(page.html, "entry-requirements") ?? ""), "Entry Requirements");
   const career = cleanSectionHeading(structuredText(htmlSectionById(page.html, "future-careers") ?? ""), "Future Careers");
   const duration = overview.match(/(?:^|\n)Duration\n([^\n]+)/i)?.[1]?.trim() ?? null;

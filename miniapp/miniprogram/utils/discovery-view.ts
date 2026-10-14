@@ -70,7 +70,7 @@ export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDoc
   const curriculumItems = parseCurriculumItems(officialCurriculum);
   const careerBlocks = parseLabelledBlocks(career);
   const careerOfficial = Boolean(careerSection?.sourceUrl);
-  const curriculumOfficial = Boolean(curriculumSection?.sourceUrl && officialCurriculum);
+  const curriculumOfficial = Boolean(curriculumSection?.sourceUrl && curriculumItems.length);
   return [
     documentSection('INTRODUCTION', 'INTRODUCTION', '专业介绍', introduction),
     documentSection('BASIC_INFORMATION', 'BASIC_INFORMATION', '专业基本信息', '', true),
@@ -78,7 +78,7 @@ export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDoc
       contentBlocks: careerBlocks, official: careerOfficial,
       notice: career ? (careerOfficial ? '学校官网资料' : '一般职业建议，非院校官方说明') : '',
       sourceUrl: careerSection?.sourceUrl || '', sourceCheckedLabel: checkedLabel(careerSection?.sourceCheckedAt) },
-    { ...documentSection('CURRICULUM', 'CURRICULUM', '专业课程', officialCurriculum || '暂无官方课程资料', curriculumOfficial),
+    { ...documentSection('CURRICULUM', 'CURRICULUM', '专业课程', curriculumOfficial ? officialCurriculum : '暂无官方课程资料', curriculumOfficial),
       curriculumItems, official: curriculumOfficial,
       notice: curriculumOfficial ? '课程名称来自学校官网' : '',
       sourceUrl: curriculumSection?.sourceUrl || '', sourceCheckedLabel: checkedLabel(curriculumSection?.sourceCheckedAt) },
@@ -108,7 +108,8 @@ export function parseCurriculumItems(body: string): ProgrammeCurriculumItem[] {
 }
 
 function curriculumBoilerplate(value: string): boolean {
-  return /^(?:\[?select\]?|note:?|#?pre-?requisite|speciali[sz]ation elective courses|choose\s+\d+\s+electives?\b|\*{1,2}(?:taken|pass)\b)/i.test(value)
+  return /^(?:\d{1,3}[.)]\s*)?(?:\[?select\]?|note:?|next\s*:|year\s*\d+\b|semester\s*\d+\b|option\s*\d+\s*:|#?pre-?requisite|students?\b|compulsory university courses?\b|programme course elective\b|speciali[sz]ation(?:\s*\/| modules?\b| electives?\b)|(?:programme?|program|core|university|univerity|faculty|faculty open|free|open|external faculty|department|clinical) electives?\b|elective(?: courses?)?\b|kursus elektif\b|pilih\b|flexible studies\b|\*{1,2}(?:taken|pass)\b)/i.test(value)
+    || /(?:\bchoose\s+(?:any\s+)?(?:one|two|three|four|five|seven|\d+)\b|\brefer to (?:the )?(?:attached )?list\b|\bstudents? (?:are )?required\b|\bsubject to availability\b|\bpilih\b|\brujuk\b|\bsila\b|\bsahaja\b|\bentry requirements?\b|\bminimum (?:average|score|cgpa|grade)\b|\b(?:ielts|toefl|muet)\b|\d+\s*%)/i.test(value)
     || /^参考学习领域|^参考课程结构|^illustrative study areas/i.test(value);
 }
 

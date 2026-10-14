@@ -172,6 +172,10 @@ test('official curriculum builds a deduplicated vertical list and ignores old ge
   assert.equal(curriculumSection?.notice, '课程名称来自学校官网');
   assert.equal(curriculumSection?.sourceCheckedLabel, '2026-10-14');
   assert.equal(curriculumSection?.curriculumItems.length, 2);
+  assert.deepEqual(parseCurriculumItems('Programming\nMinimum average of 65%\nKursus Elektif: Pilih satu kursus sahaja\n1. Elective Course 1\nSoftware Requirements Engineering'), [
+    { number: '01', nameZh: '', nameEn: 'Programming' },
+    { number: '02', nameZh: '', nameEn: 'Software Requirements Engineering' },
+  ]);
   const generated = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 40, {
     bodyZh: '参考学习领域，非官方课程表\n01|程序设计基础|Programming Fundamentals',
   })] }))[3];
