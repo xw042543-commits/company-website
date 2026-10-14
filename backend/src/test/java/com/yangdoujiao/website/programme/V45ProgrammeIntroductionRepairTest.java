@@ -26,7 +26,7 @@ class V45ProgrammeIntroductionRepairTest {
                     postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword()));
             seedAuditedPublishedProgrammes(jdbc);
             jdbc.update("DELETE FROM programmes WHERE programme_code = 'APU_BACHELOR_PDF_026'");
-            flyway(postgres, null).migrate();
+            flyway(postgres, "45").migrate();
 
             assertThat(jdbc.queryForObject(
                     "SELECT count(*) FROM programmes WHERE status = 'PUBLISHED'", Integer.class))
