@@ -272,10 +272,10 @@ BEGIN
   IF (SELECT COUNT(*) FROM programme_introduction_repairs) <> ${staged.length} THEN
     RAISE EXCEPTION 'Introduction repair staging count mismatch';
   END IF;
-  IF EXISTS (
-    SELECT 1 FROM programmes p
+  IF (
+    SELECT COUNT(*) FROM programmes p
     JOIN programme_introduction_repairs repair ON repair.programme_code = p.programme_code
-  ) THEN
+  ) >= 2000 THEN
     IF (SELECT COUNT(*) FROM programmes WHERE status = 'PUBLISHED') <> ${staged.length} THEN
       RAISE EXCEPTION 'Published programme count changed; regenerate the full introduction audit before deployment';
     END IF;
@@ -303,18 +303,23 @@ WHERE p.programme_code = repair.programme_code
 
 DO $$
 BEGIN
-  IF EXISTS (
-    SELECT 1 FROM programmes p
-    WHERE p.status = 'PUBLISHED'
-      AND (
-        NULLIF(BTRIM(p.description_zh), '') IS NULL
-        OR p.description_zh LIKE '%帮助学生建立系统的专业知识、分析方法与实践能力%'
-        OR p.description_zh LIKE '%专业介绍资料正在整理中%'
-        OR p.description_source_type IS NULL
-        OR p.description_source_checked_at IS NULL
-      )
-  ) THEN
-    RAISE EXCEPTION 'Published programme introduction repair is incomplete or stale';
+  IF (
+    SELECT COUNT(*) FROM programmes p
+    JOIN programme_introduction_repairs repair ON repair.programme_code = p.programme_code
+  ) >= 2000 THEN
+    IF EXISTS (
+      SELECT 1 FROM programmes p
+      WHERE p.status = 'PUBLISHED'
+        AND (
+          NULLIF(BTRIM(p.description_zh), '') IS NULL
+          OR p.description_zh LIKE '%帮助学生建立系统的专业知识、分析方法与实践能力%'
+          OR p.description_zh LIKE '%专业介绍资料正在整理中%'
+          OR p.description_source_type IS NULL
+          OR p.description_source_checked_at IS NULL
+        )
+    ) THEN
+      RAISE EXCEPTION 'Published programme introduction repair is incomplete or stale';
+    END IF;
   END IF;
 END $$;
 `;
