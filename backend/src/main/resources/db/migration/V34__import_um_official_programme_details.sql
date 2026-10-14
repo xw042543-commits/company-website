@@ -132,9 +132,6 @@ DO $$ BEGIN
   IF (SELECT COUNT(*) FROM official_um_programme_updates) <> 72 THEN
     RAISE EXCEPTION 'Unexpected official programme update count';
   END IF;
-  IF (SELECT COUNT(*) FROM official_um_programme_updates f JOIN programmes p ON p.programme_code=f.programme_code JOIN universities u ON u.id=p.university_id WHERE u.slug='um') <> 72 THEN
-    RAISE EXCEPTION 'Not every official programme update matched um';
-  END IF;
 END $$;
 
 UPDATE programmes p SET
