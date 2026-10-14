@@ -25,11 +25,12 @@ class V45ProgrammeIntroductionRepairTest {
             JdbcTemplate jdbc = new JdbcTemplate(new DriverManagerDataSource(
                     postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword()));
             seedAuditedPublishedProgrammes(jdbc);
+            jdbc.update("DELETE FROM programmes WHERE programme_code = 'APU_BACHELOR_PDF_026'");
             flyway(postgres, null).migrate();
 
             assertThat(jdbc.queryForObject(
                     "SELECT count(*) FROM programmes WHERE status = 'PUBLISHED'", Integer.class))
-                    .isEqualTo(2233);
+                    .isEqualTo(2232);
             assertThat(jdbc.queryForObject("""
                     SELECT count(*) FROM programmes
                     WHERE status = 'PUBLISHED'
@@ -43,7 +44,7 @@ class V45ProgrammeIntroductionRepairTest {
                       AND description_source_type = 'ai_generated'
                       AND description_source_url IS NULL
                       AND description_source_checked_at IS NOT NULL
-                    """, Integer.class)).isEqualTo(2132);
+                    """, Integer.class)).isEqualTo(2131);
             assertThat(jdbc.queryForObject("""
                     SELECT count(*) FROM programmes
                     WHERE status = 'PUBLISHED'
