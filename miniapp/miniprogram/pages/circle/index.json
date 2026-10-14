@@ -2,7 +2,6 @@
   "navigationBarTitleText": "U圈",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "app-state": "/components/app-state/index",
     "community-post-card": "/components/community-post-card/index"
   }
 }
