@@ -10,6 +10,23 @@
     "es6": true,
     "minified": true,
     "postcss": true,
-    "useCompilerPlugins": ["typescript"]
+    "useCompilerPlugins": [
+      "typescript"
+    ],
+    "minifyWXML": true,
+    "minifyWXSS": true
+  },
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "file",
+        "value": "assets/README.md"
+      },
+      {
+        "type": "folder",
+        "value": "components/university-card"
+      }
+    ],
+    "include": []
   }
 }

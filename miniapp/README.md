@@ -85,7 +85,15 @@ npm run check
 - 可被新查询替代的读取请求必须传稳定的 `requestKey`；页面收到 `REQUEST_SUPERSEDED` 时保持当前状态，不显示失败提示。
 - 筛选项统一来自 `services/catalogue.ts`；“全部”只在页面展示，发请求时省略，禁止在页面硬编码数据库 code。
 - 院校与专业详情地址统一使用 `utils/routes.ts`；目标页面注册完成前不得导航。
-- 远程院校图统一使用 `university-card` 的失败回退，页面不得重复维护图片错误状态。
+- 远程院校图必须提供加载失败时的回退展示；旧 `university-card` 组件目前未被页面引用，保留源文件但不上传。
+
+### 包体积与启动检查
+
+- `app.json` 使用 `lazyCodeLoading: "requiredComponents"`，只注入当前页面依赖；页面 JSON 不声明未使用的组件。
+- 上传配置开启 `minified`、`minifyWXML`、`minifyWXSS`。本地真实 AppID 和开发者工具个人设置不要混入公共配置提交。
+- 单个本地图片/音视频资源控制在 200 KiB 内；品牌透明 Logo 已压缩，底部导航图标仍保留本地资源。
+- `packOptions.ignore` 排除资源说明文档和未使用的旧院校卡片组件，不删除源文件。
+- 在 `miniapp` 目录运行 `node --import tsx --test tests/package-quality.test.ts` 检查这些约束。修改后仍须在微信开发者工具重新编译、运行代码质量扫描，并真机验证页面切换、收藏、U圈及登录；静态测试不能替代运行时验收。
 
 - U圈使用真实 PostgreSQL 帖子、评论、点赞、举报和审核 API，容量验收数据集为 5,000 个合成账号。
 
