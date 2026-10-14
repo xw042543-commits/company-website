@@ -111,7 +111,8 @@ BEGIN
   FROM programmes p
   JOIN universities u ON u.id=p.university_id
   WHERE u.slug IN ('monash','nottingham','southampton','uum','city')
-    AND p.status='PUBLISHED';
+    AND p.status='PUBLISHED'
+    AND p.name_en !~ '^[A-Z0-9]+_';
   SELECT COUNT(*) INTO matched_count
   FROM group_d_verified_facts f JOIN universities u ON u.slug=f.university_slug
   JOIN programmes p ON p.university_id=u.id AND UPPER(BTRIM(p.name_en))=UPPER(BTRIM(f.name_en))
@@ -203,5 +204,6 @@ SELECT p.id,'ADMISSIONS','录取要求','Entry requirements',s.body_zh,NULL,20,s
 FROM group_d_admissions_source s JOIN universities u ON u.slug=s.university_slug
 JOIN programmes p ON p.university_id=u.id AND p.status='PUBLISHED'
 WHERE NOT EXISTS (SELECT 1 FROM programme_detail_sections d WHERE d.programme_id=p.id AND d.section_type='ADMISSIONS');
+
 
 
