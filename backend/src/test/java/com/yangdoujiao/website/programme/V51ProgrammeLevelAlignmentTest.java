@@ -7,11 +7,11 @@ import java.nio.charset.StandardCharsets;
 
 import org.junit.jupiter.api.Test;
 
-class V44ProgrammeLevelAlignmentTest {
+class V51ProgrammeLevelAlignmentTest {
 
     @Test
     void onlyAiGeneratedContentIsAlignedAndEveryResearchLevelIsExplicit() throws IOException {
-        String migration = resource("/db/migration/V44__align_ai_programme_content_with_study_level.sql");
+        String migration = resource("/db/migration/V51__align_ai_programme_content_with_study_level.sql");
 
         assertThat(migration).contains("section.source_type = 'ai_generated'");
         assertThat(migration).contains("FOUNDATION|PRE_UNIVERSITY|CERT");
@@ -28,7 +28,7 @@ class V44ProgrammeLevelAlignmentTest {
     }
 
     private static String resource(String path) throws IOException {
-        try (var stream = V44ProgrammeLevelAlignmentTest.class.getResourceAsStream(path)) {
+        try (var stream = V51ProgrammeLevelAlignmentTest.class.getResourceAsStream(path)) {
             if (stream == null) throw new IOException("Missing resource " + path);
             return new String(stream.readAllBytes(), StandardCharsets.UTF_8);
         }
