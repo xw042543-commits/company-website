@@ -80,6 +80,7 @@ class V38MalaysiaCurriculumRepairTest {
                     JOIN programmes programme ON programme.id = section.programme_id
                     JOIN universities university ON university.id = programme.university_id
                     WHERE university.slug IN ('um', 'taylor')
+                      AND section.section_type = 'CURRICULUM'
                     """, Integer.class)).isEqualTo(101);
             assertThat(jdbc.queryForObject("""
                     SELECT sum(array_length(regexp_split_to_array(section.body_en, E'\\n'), 1))
@@ -87,12 +88,14 @@ class V38MalaysiaCurriculumRepairTest {
                     JOIN programmes programme ON programme.id = section.programme_id
                     JOIN universities university ON university.id = programme.university_id
                     WHERE university.slug IN ('um', 'taylor')
+                      AND section.section_type = 'CURRICULUM'
                     """, Integer.class)).isEqualTo(5156);
             assertThat(jdbc.queryForObject("""
                     SELECT count(*) FROM programme_detail_sections section
                     JOIN programmes programme ON programme.id = section.programme_id
                     JOIN universities university ON university.id = programme.university_id
                     WHERE university.slug IN ('um', 'taylor')
+                      AND section.section_type = 'CURRICULUM'
                       AND (
                        section.status <> 'PUBLISHED'
                        OR section.source_url NOT LIKE 'https://%'

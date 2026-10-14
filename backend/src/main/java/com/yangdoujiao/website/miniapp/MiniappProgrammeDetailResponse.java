@@ -45,12 +45,13 @@ public record MiniappProgrammeDetailResponse(
             String bodyEn,
             int sortOrder,
             String sourceUrl,
-            OffsetDateTime sourceCheckedAt
+            OffsetDateTime sourceCheckedAt,
+            String sourceType
     ) {
         static DetailSection from(ProgrammeDetailSection section) {
             return new DetailSection(section.getSectionType().name(), section.getTitleZh(), section.getTitleEn(),
                     section.getBodyZh(), section.getBodyEn(), section.getSortOrder(), section.getSourceUrl(),
-                    section.getSourceCheckedAt());
+                    section.getSourceCheckedAt(), section.getSourceType());
         }
     }
 
