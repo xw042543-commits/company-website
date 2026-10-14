@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -38,7 +39,33 @@ import com.yangdoujiao.website.TestContainersConfiguration;
 class MiniappAuthHttpIntegrationTest {
     @Autowired private MockMvc mvc;
     @Autowired private JdbcTemplate jdbc;
+    @Autowired private com.yangdoujiao.website.auth.external.UserExternalIdentityRepository identities;
     @MockitoBean private MiniappIdentityProvider provider;
+    @MockitoBean private com.yangdoujiao.website.community.CommunityRiskPolicy nicknameSafety;
+
+    @Test
+    void nicknameIsAuthenticatedAndSurvivesReloginWithoutChangingAccountName() throws Exception {
+        mvc.perform(put("/api/v1/miniapp/account/nickname").contentType(MediaType.APPLICATION_JSON)
+                .content("{\"displayName\":\"测试昵称\"}")).andExpect(status().isUnauthorized());
+        when(provider.exchange("nickname-code")).thenReturn(new MiniappProviderIdentity("test-miniapp", "nickname-" + UUID.randomUUID(), null));
+        Session session = login("nickname-code");
+        when(nicknameSafety.classify(session.accountId(), "测试昵称"))
+                .thenReturn(com.yangdoujiao.website.community.CommunityRiskPolicy.RiskDecision.PUBLISH);
+        mvc.perform(put("/api/v1/miniapp/account/nickname").header(HttpHeaders.AUTHORIZATION, "Bearer " + session.accessToken())
+                .contentType(MediaType.APPLICATION_JSON).content("{\"displayName\":\" 测试昵称 \"}"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.displayName").value("测试昵称"));
+        Session again = login("nickname-code");
+        mvc.perform(get("/api/v1/miniapp/account").header(HttpHeaders.AUTHORIZATION, "Bearer " + again.accessToken()))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.displayName").value("测试昵称"));
+        assertThat(jdbc.queryForObject("SELECT full_name FROM user_accounts WHERE id=?", String.class, session.accountId())).isEqualTo("微信用户");
+        jdbc.update("""
+                INSERT INTO user_external_identities (user_account_id, provider, provider_client_id, provider_subject,
+                    display_name, created_at, last_login_at)
+                VALUES (?, 'WECHAT', 'website-test', ?, '网页登录昵称', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP + INTERVAL '1 day')
+                """, session.accountId(), "website-" + UUID.randomUUID());
+        assertThat(identities.findProfilesByAccountIds(java.util.List.of(session.accountId())).getFirst().getDisplayName())
+                .isEqualTo("测试昵称");
+    }
 
     @Test
     void loginReusesExternalAccountAndBearerCanReadAccount() throws Exception {

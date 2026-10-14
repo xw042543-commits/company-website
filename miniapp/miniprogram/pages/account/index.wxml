@@ -15,12 +15,32 @@
       <view wx:else class="avatar-placeholder">U</view>
     </view>
     <view class="identity-copy">
-      <view class="identity-name">{{session.account ? session.account.displayName : '微信用户'}}</view>
+      <view class="identity-name" catchtap="editNickname" aria-role="button" aria-label="修改昵称">{{session.account ? session.account.displayName : '微信用户'}}<text wx:if="{{session.status === 'authenticated'}}" class="nickname-edit-mark">编辑</text></view>
       <view class="identity-hint">
-        {{session.status === 'authenticated' ? '点击头像可使用微信头像' : '点击登录，开启留学之旅'}}
+        {{session.status === 'authenticated' ? '点击昵称修改 · 点击头像更换' : '点击登录，开启留学之旅'}}
       </view>
     </view>
     <view class="identity-arrow">›</view>
+  </view>
+
+  <view wx:if="{{nicknameOpen}}" class="nickname-backdrop" catchtap="closeNickname" catchtouchmove="noop">
+    <view class="nickname-dialog {{nicknameKeyboardHeight > 0 ? 'nickname-dialog--typing' : ''}}" style="bottom:{{nicknameKeyboardHeight}}px;" catchtap="noop" aria-role="dialog" aria-label="修改昵称">
+      <view class="nickname-header">
+        <view class="nickname-heading">修改昵称</view>
+        <button class="nickname-close" bindtap="closeNickname" disabled="{{nicknameSaving}}" aria-label="关闭昵称编辑">×</button>
+      </view>
+      <view class="nickname-description">输入昵称，或选择微信昵称</view>
+      <form bindsubmit="saveNickname">
+        <view class="nickname-input-row {{nicknameError ? 'nickname-input-row--error' : ''}}">
+          <input class="nickname-field" type="nickname" name="nickname" value="{{nicknameDraft}}" maxlength="32" placeholder="填写昵称" bindinput="nicknameInput" bindblur="nicknameInput" bindkeyboardheightchange="nicknameKeyboard" adjust-position="{{false}}" disabled="{{nicknameSaving}}" aria-label="昵称" />
+          <text class="nickname-count">{{nicknameCount}}/32</text>
+        </view>
+        <view class="nickname-feedback"><text wx:if="{{nicknameError}}" class="nickname-error">{{nicknameError}}</text></view>
+        <view class="nickname-actions">
+          <button class="nickname-save" form-type="submit" loading="{{nicknameSaving}}" disabled="{{nicknameSaving}}">保存</button>
+        </view>
+      </form>
+    </view>
   </view>
 
   <view wx:if="{{session.status === 'authenticated'}}" class="overview-grid">

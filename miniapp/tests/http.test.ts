@@ -17,6 +17,13 @@ function transportReturning(statusCode: number, data: unknown): HttpTransport {
   };
 }
 
+test('nickname errors expose only known codes and not server details', async () => {
+  const client = createHttpClient(resolveRuntimeConfig('production'), transportReturning(422,
+    { code: 'NICKNAME_NOT_APPROVED', message: 'private diagnostic', traceId: 'secret' }));
+  assert.deepEqual(await client.request({ method: 'PUT', path: '/api/v1/miniapp/account/nickname' }),
+    { ok: false, error: { kind: 'validation', code: 'NICKNAME_NOT_APPROVED' } });
+});
+
 test('rejects path traversal before dispatching a request', async () => {
   let dispatched = false;
   const client = createHttpClient(resolveRuntimeConfig('production'), (options) => {
