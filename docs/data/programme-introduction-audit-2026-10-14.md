@@ -18,7 +18,7 @@
 | 乱码 | 0 |
 | 纯英文或中文字符不足 | 0（空白记录另计） |
 
-迁移 `V44__repair_published_programme_introductions.sql` 修复全部 2,233 条。来源分布为：
+迁移 `V45__repair_published_programme_introductions.sql` 修复全部 2,233 条。来源分布为：
 
 | 来源类型 | 记录数 | 处理方式 |
 | --- | ---: | --- |
