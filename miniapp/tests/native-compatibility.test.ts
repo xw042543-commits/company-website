@@ -34,7 +34,7 @@ test('native templates do not call JavaScript array methods', () => {
   inspect(fileURLToPath(root));
 });
 
-test('account exposes registered C data pages and personal community navigation together', () => {
+test('account exposes the unified favorites, personal posts and adviser actions without duplicate legacy menu entries', () => {
   let definition: Record<string, unknown> = {};
   const navigated: string[] = [];
   const source = readFileSync(new URL('pages/account/index.ts', root), 'utf8');
@@ -50,12 +50,20 @@ test('account exposes registered C data pages and personal community navigation 
   const menu = (definition.data as { menuItems: Array<{ key: string }> }).menuItems;
   const openMenu = definition.openMenu as (event: { currentTarget: { dataset: { key: string } } }) => void;
   const app = JSON.parse(readFileSync(new URL('app.json', root), 'utf8')) as { pages: string[] };
-  for (const [key, page] of [['plans', 'plans'], ['favorites', 'favorites-cart'], ['universityFavorites', 'favorites-cart'], ['consultations', 'consultations'], ['community', 'circle-me'], ['settings', 'settings'], ['about', 'about']] as const) {
+  for (const key of ['plans', 'favorites', 'universityFavorites', 'community']) assert.equal(menu.some((item) => item.key === key), false);
+  for (const [key, page] of [['orders', 'orders'], ['consultations', 'consultations'], ['settings', 'settings'], ['about', 'about']] as const) {
     assert.ok(menu.some((item) => item.key === key));
     openMenu({ currentTarget: { dataset: { key } } });
     assert.equal(navigated.at(-1), `/pages/${page}/index`);
     assert.ok(app.pages.includes(`pages/${page}/index`));
   }
+  for (const [key, page] of [['favorites', 'favorites-cart'], ['community', 'circle-me'], ['adviser', 'consultation']] as const) {
+    openMenu({ currentTarget: { dataset: { key } } });
+    assert.equal(navigated.at(-1), `/pages/${page}/index`);
+    assert.ok(app.pages.includes(`pages/${page}/index`));
+  }
+  const template=readFileSync(new URL('pages/account/index.wxml',root),'utf8');
+  for(const label of ['我的收藏','我的发布','咨询顾问'])assert.match(template,new RegExp(label));
 });
 
 test('planning locks duplicate saves before authentication and blocks edits while loading', async () => {

@@ -13,6 +13,14 @@ public class StudentApplicationController {
     public StudentApplicationController(ApplicationService service) { this.service=service; }
     @GetMapping public ResponseEntity<Page> list(@AuthenticationPrincipal UserPrincipal actor,@RequestParam(defaultValue="0") int page,@RequestParam(required=false) Status status) { return response(service.list(actor.userId(),false,status,page)); }
     @GetMapping("/{id}") public ResponseEntity<Detail> detail(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id) { return response(service.detail(actor.userId(),false,id)); }
+    @PostMapping("/checkout") public ResponseEntity<Checkout> checkout(@AuthenticationPrincipal UserPrincipal actor,
+        @RequestHeader("Idempotency-Key") String idempotencyKey,@Valid @RequestBody CheckoutRequest value) {
+        return ResponseEntity.status(HttpStatus.CREATED).cacheControl(CacheControl.noStore().cachePrivate())
+            .body(service.checkout(actor.userId(),idempotencyKey,value));
+    }
+    @PostMapping("/{id}/payment") public ResponseEntity<Payment> payment(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id) {
+        return response(service.preparePayment(actor.userId(),id));
+    }
     @GetMapping("/{id}/documents/{document}") public ResponseEntity<File> file(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@PathVariable UUID document) { return response(service.file(actor.userId(),false,id,document)); }
     
     @PutMapping("/{id}/documents/{document}") public ResponseEntity<Detail> upload(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@PathVariable UUID document,@Valid @RequestBody Upload value) { return response(service.upload(actor.userId(),id,document,value)); }

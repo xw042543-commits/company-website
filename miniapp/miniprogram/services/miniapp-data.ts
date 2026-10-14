@@ -56,7 +56,7 @@ export interface ConsultationRecord {
   readonly referenceCode: string; readonly intendedSchool: string; readonly intendedCourse: string;
   readonly qualification: string; readonly status: string; readonly submittedAt: string;
 }
-export type ApplicationOrderStatus = 'IN_PROGRESS' | 'NEEDS_DOCUMENTS' | 'COMPLETED' | 'CANCELLED';
+export type ApplicationOrderStatus = 'UNPAID' | 'PAID' | 'IN_PROGRESS' | 'NEEDS_DOCUMENTS' | 'COMPLETED' | 'CANCELLED';
 export interface ApplicationOrderSummary {
   readonly referenceCode: string; readonly universityName: string; readonly programmeName: string;
   readonly qualification: string; readonly status: ApplicationOrderStatus; readonly statusLabel: string;
@@ -271,7 +271,7 @@ function secureUrl(value: unknown): string | null { return typeof value === 'str
 function slug(value: string): boolean { return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value); }
 function positiveId(value: string): boolean { return /^[1-9]\d*$/.test(value); }
 function orderStatus(value: unknown): value is ApplicationOrderStatus {
-  return value === 'IN_PROGRESS' || value === 'NEEDS_DOCUMENTS' || value === 'COMPLETED' || value === 'CANCELLED';
+  return value === 'UNPAID' || value === 'PAID' || value === 'IN_PROGRESS' || value === 'NEEDS_DOCUMENTS' || value === 'COMPLETED' || value === 'CANCELLED';
 }
 function dateLabel(value: string): string { return /^\d{4}-\d{2}-\d{2}/.test(value) ? value.slice(0, 10) : ''; }
 function nullValue<T>(value: T | null): value is null { return value === null; }

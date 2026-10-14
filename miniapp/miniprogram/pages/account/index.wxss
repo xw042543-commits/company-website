@@ -84,7 +84,8 @@
   border-radius: 0 28rpx 28rpx 28rpx;
   background: #f0f7f3;
 }
-.overview-item { position: relative; display: flex; min-height: 92rpx; align-items: center; justify-content: center; flex-direction: column; }
+.overview-item { position: relative; display: flex; min-height: 92rpx; align-items: center; justify-content: center; flex-direction: column; margin: 0; padding: 0; border-radius: 0; background: transparent; line-height: normal; }
+.overview-item::after { border: 0; }
 .overview-item + .overview-item::before { position: absolute; top: 13rpx; bottom: 13rpx; left: 0; width: 1rpx; background: #d4e4dc; content: ""; }
 .overview-number { color: #087c49; font-size: 36rpx; font-weight: 800; line-height: 1.1; }
 .overview-item text { margin-top: 8rpx; color: var(--account-muted); font-size: 20rpx; letter-spacing: 1rpx; }

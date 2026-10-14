@@ -8,7 +8,7 @@ import jakarta.validation.constraints.*;
 
 public final class ApplicationModels {
     private ApplicationModels() {}
-    public enum Status { IN_PROGRESS, NEEDS_DOCUMENTS, SUBMITTED, COMPLETED, CANCELLED }
+    public enum Status { UNPAID, PAID, IN_PROGRESS, NEEDS_DOCUMENTS, SUBMITTED, COMPLETED, CANCELLED }
     public enum DocumentStatus { MISSING, SUBMITTED, APPROVED, REJECTED }
     public enum FeeStatus { DUE, PAID, WAIVED }
     public record Summary(UUID id, String reference, String universitySlug, String universityName,
@@ -17,8 +17,14 @@ public final class ApplicationModels {
         String filename, OffsetDateTime updatedAt) {}
     public record Fee(UUID id, String title, BigDecimal amount, String currency, FeeStatus status, int stage) {}
     public record Event(UUID id, int stage, String message, OffsetDateTime createdAt) {}
-    public record Detail(Summary application, List<Document> documents, List<Fee> fees, List<Event> history) {}
+    public record Payment(UUID orderId, String reference, String status, Long amountFen, String currency,
+        boolean ready, List<String> missingConfiguration) {}
+    public record Detail(Summary application, List<Document> documents, List<Fee> fees, List<Event> history,
+        Payment payment) {}
     public record Page(List<Summary> items, boolean hasMore) {}
+    public record CheckoutRequest(@NotEmpty @Size(max=20) List<@NotNull @Positive Long> programmeIds) {}
+    public record Checkout(UUID orderId, String reference, String status, Long amountFen, String currency,
+        List<Detail> applications, List<String> missingConfiguration) {}
     public record Create(@NotNull @Positive Long userId, @NotNull @Positive Long programmeId) {}
     public record Progress(@NotNull Status status, @Min(1) @Max(8) int stage, @NotBlank @Size(max=2000) String note) {}
     public record DocumentRequest(@NotBlank @Size(max=120) String title, @Min(1) @Max(8) int stage) {}

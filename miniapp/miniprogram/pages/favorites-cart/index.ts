@@ -4,19 +4,20 @@ import { getUniversityDetail } from '../../services/universities';
 import { universityCampusUrl, universityLogoUrl } from '../../services/university-media';
 import { sessionStore } from '../../stores/session';
 import { programmeDetailRoute, universityDetailRoute } from '../../utils/routes';
+import { createApplicationCheckout } from '../../services/applications';
 
 type Event = { currentTarget: { dataset: Record<string, unknown> } };
 type Group = { slug: string; name: string; location: string; cover: string | null; logo: string | null;
   saved: boolean; checked: boolean; partial: boolean; courses: Array<ProgrammeFavorite & { checked: boolean }> };
 const dependencies = { favourites: getProgrammeFavorites, remove: removeProgrammeFavorite, schools: favoriteUniversities,
-  detail: getUniversityDetail, session: sessionStore };
+  detail: getUniversityDetail, session: sessionStore, checkout: createApplicationCheckout };
 function nativePage<T>(options: T & ThisType<T & { setData(patch: Record<string, unknown>): void }>): T { return options; }
 
 export function createFavoritesCartPage(deps = dependencies) {
   return nativePage({
     generation: 0,
     data: { groups: [] as Group[], selected: [] as number[], selectedCount: 0, allChecked: false,
-      loading: true, failed: false, loginNeeded: false, detailsFailed: false, removing: 0 },
+      loading: true, failed: false, loginNeeded: false, detailsFailed: false, removing: 0, checkingOut: false, checkoutKey: '' },
     onShow() { void this.load(); },
     onHide() { this.generation++; this.setData({ groups: [], selected: [], selectedCount: 0, allChecked: false }); },
     onUnload() { this.generation++; },
@@ -32,6 +33,7 @@ export function createFavoritesCartPage(deps = dependencies) {
         return { ...group, courses, checked: courses.length > 0 && count === courses.length, partial: count > 0 && count < courses.length };
       });
       this.setData({ groups, selected, selectedCount: selected.length, allChecked: available.size > 0 && selected.length === available.size });
+      this.setData({ checkoutKey: '' });
     },
     toggleCourse(event: Event) {
       const id = Number(event.currentTarget.dataset.id);
@@ -44,7 +46,22 @@ export function createFavoritesCartPage(deps = dependencies) {
       this.refreshSelection(group.checked ? this.data.selected.filter(id => !ids.includes(id)) : [...this.data.selected, ...ids]);
     },
     toggleAll() { this.refreshSelection(this.data.allChecked ? [] : this.data.groups.flatMap(group => group.courses.map(course => course.id))); },
-    checkout() { wx.showToast({ title: this.data.selectedCount ? '申请功能筹备中' : '请先选择专业', icon: 'none' }); },
+    async checkout() {
+      if (!this.data.selectedCount || this.data.checkingOut) { if (!this.data.selectedCount) wx.showToast({ title: '请先选择专业', icon: 'none' }); return; }
+      const auth=await deps.session.ensureAuthenticated(); if(!auth.ok){wx.showToast({title:'请先登录',icon:'none'});return;}
+      const confirmed=await new Promise<boolean>(resolve=>wx.showModal({title:`确认申请 ${this.data.selectedCount} 个专业`,
+        content:'服务费用由后台核算；当前价格及微信支付尚待配置。确认后会保留未支付申请，可从“我的申请”继续。',
+        confirmText:'确认申请',success:result=>resolve(result.confirm),fail:()=>resolve(false)}));
+      if(!confirmed)return;
+      const key=this.data.checkoutKey||`mini_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,12)}`;
+      this.setData({checkingOut:true,checkoutKey:key});
+      const result=await deps.checkout(this.data.selected,key);
+      this.setData({checkingOut:false});
+      if(!result.ok){wx.showToast({title:'申请创建失败，请重试',icon:'none'});return;}
+      this.setData({checkoutKey:''});
+      wx.showModal({title:'申请已创建',content:`已生成 ${result.value.applications.length} 条未支付申请。微信支付配置完成前不会扣款。`,
+        showCancel:false,success:()=>wx.navigateTo({url:'/pages/orders/index'})});
+    },
     openSchool(event: Event) { const route = universityDetailRoute(String(event.currentTarget.dataset.slug)); if (route.ok) wx.navigateTo({ url: route.value }); },
     openCourse(event: Event) { const route = programmeDetailRoute(String(event.currentTarget.dataset.slug), Number(event.currentTarget.dataset.id)); if (route.ok) wx.navigateTo({ url: route.value }); },
     imageError(event: Event) {

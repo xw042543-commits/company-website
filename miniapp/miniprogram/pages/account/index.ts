@@ -9,13 +9,9 @@ Page({
     overview: { favorites: 0, plans: 0, consultations: 0, orders: 0 } as UserOverview,
     avatarUploading: false,
     menuItems: [
-      { key: 'orders', mark: '申', tone: 'forest', label: '我的订单', caption: '查看申请进度、材料与费用' },
+      { key: 'orders', mark: '申', tone: 'forest', label: '我的申请', caption: '查看未支付、材料与申请进度' },
       { key: 'wallet', mark: '积', tone: 'amber', label: '会员积分', caption: '管理账户余额、积分与使用记录' },
-      { key: 'plans', mark: '计', tone: 'mint', label: '我的规划', caption: '管理留学目标、背景和预算' },
-      { key: 'favorites', mark: '专', tone: 'sage', label: '专业收藏', caption: '查看已保存的专业' },
-      { key: 'universityFavorites', mark: '校', tone: 'sky', label: '院校收藏', caption: '比较已保存的院校' },
       { key: 'consultations', mark: '询', tone: 'amber', label: '咨询记录', caption: '查看已提交的咨询' },
-      { key: 'community', mark: '圈', tone: 'forest', label: '我的U圈', caption: '管理发布的帖子和评论' },
       { key: 'settings', mark: '设', tone: 'stone', label: '设置', caption: '账号与隐私设置' },
       { key: 'about', mark: '洋', tone: 'mint', label: '关于我们', caption: '了解洋豆角' },
     ],
@@ -77,8 +73,9 @@ Page({
       if (route.ok) wx.navigateTo({ url: route.value });
       return;
     }
+    if (key === 'adviser') { wx.navigateTo({ url: '/pages/consultation/index' }); return; }
     const routes: Record<string, string> = {
-      orders: '/pages/orders/index', plans: '/pages/plans/index', favorites: '/pages/favorites/index',
+      orders: '/pages/orders/index', favorites: '/pages/favorites/index',
       universityFavorites: '/pages/university-favorites/index',
       wallet: '/pages/wallet/index',
       consultations: '/pages/consultations/index',
