@@ -58,8 +58,8 @@
       {
         "pagePath": "pages/favorites-cart/index",
         "text": "收藏",
-        "iconPath": "assets/icons/heart.png",
-        "selectedIconPath": "assets/icons/heart-active.png"
+        "iconPath": "assets/icons/favorites.png",
+        "selectedIconPath": "assets/icons/favorites-green.png"
       },
       {
         "pagePath": "pages/account/index",
