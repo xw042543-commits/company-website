@@ -73,7 +73,7 @@ class V38MalaysiaCurriculumRepairTest {
             Long ukProgramme = programme(jdbc, ukUniversityId, subjectId, "GB_UNREVIEWED_001");
             contaminatedCurriculum(jdbc, ukProgramme);
 
-            flyway(postgres, null).migrate();
+            flyway(postgres, "38").migrate();
 
             assertThat(jdbc.queryForObject("""
                     SELECT count(*) FROM programme_detail_sections section

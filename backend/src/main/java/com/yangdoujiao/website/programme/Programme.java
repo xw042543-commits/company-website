@@ -92,6 +92,12 @@ public class Programme {
     @Column(name = "official_url", length = 1000)
     private String officialUrl;
 
+    @Column(name = "source_type", length = 20)
+    private String sourceType;
+
+    @Column(name = "source_url", length = 1000)
+    private String sourceUrl;
+
     @Column(name = "source_checked_at")
     private OffsetDateTime sourceCheckedAt;
 

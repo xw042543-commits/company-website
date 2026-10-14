@@ -1,5 +1,12 @@
 # 数据库说明
 
+专业名称审核新增迁移 `V39__audit_malaysia_programme_taxonomy.sql`：在已有
+`official_url`、`source_checked_at` 基础上新增 `source_type` 和 `source_url`。
+`source_type` 允许 `official`、`third_party`、`ai_generated`，旧记录允许为空。
+本次更新范围为审核快照中明确列出的马来西亚专业编号；不处理其他国家或新增的未审核编号。
+专业待审核使用现有 `DRAFT` 状态，不删除记录、收藏或课程关联。
+详见 [本次审核记录](data/malaysia-programme-taxonomy-audit-2026-10-14.md)。
+
 ## 数据库职责
 
 PostgreSQL 是本项目的主数据库，也是业务数据的唯一真实来源（Source of Truth）。

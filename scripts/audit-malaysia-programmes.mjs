@@ -111,6 +111,8 @@ async function main() {
           tuitionCurrency: programme.tuitionCurrency,
           tuitionDisplay: programme.tuitionDisplay,
           officialUrl: programme.officialUrl,
+          sourceType: programme.sourceType,
+          sourceUrl: programme.sourceUrl,
           sourceCheckedAt: programme.sourceCheckedAt,
           sectionTypes: Array.isArray(programme.sections) ? programme.sections.map((section) => section.type) : [],
         })),
