@@ -21,6 +21,28 @@ import com.yangdoujiao.website.programme.ProgrammeRepository;
 
 class MiniappUserDataServiceTest {
     @Test
+    void returnsSubmittedNotesOnlyFromTheAuthenticatedUsersConsultations() {
+        ConsultationEnquiryRepository consultations = mock(ConsultationEnquiryRepository.class);
+        MiniappUserDataService service = new MiniappUserDataService(mock(MiniappProgrammeFavoriteRepository.class),
+                mock(MiniappStudyPlanRepository.class), consultations, mock(ProgrammeRepository.class),
+                mock(ApplicationRepository.class), mock(MiniappWalletRepository.class));
+        ConsultationEnquiry enquiry = mock(ConsultationEnquiry.class);
+        when(enquiry.getReferenceCode()).thenReturn(UUID.fromString("c4d29e18-b266-4f6a-8e24-7cc312388174"));
+        when(enquiry.getStatus()).thenReturn(ConsultationStatus.NEW);
+        when(enquiry.getNotes()).thenReturn("亚太科技大学：计算机\n双威大学：商科");
+        when(consultations.findAllByUserAccountIdOrderByCreatedAtDescIdDesc(7L)).thenReturn(List.of(enquiry));
+
+        var json = tools.jackson.databind.json.JsonMapper.builder().build().valueToTree(service.consultations(7L));
+        org.assertj.core.api.Assertions.assertThat(json.path(0).path("notes").asText())
+                .isEqualTo("亚太科技大学：计算机\n双威大学：商科");
+        org.assertj.core.api.Assertions.assertThat(json.path(0).has("contact")).isFalse();
+        org.assertj.core.api.Assertions.assertThat(json.path(0).has("statusUpdatedByUserId")).isFalse();
+        org.assertj.core.api.Assertions.assertThat(service.consultations(8L)).isEmpty();
+        verify(consultations).findAllByUserAccountIdOrderByCreatedAtDescIdDesc(7L);
+        verify(consultations).findAllByUserAccountIdOrderByCreatedAtDescIdDesc(8L);
+    }
+
+    @Test
     void neverDeletesAnotherUsersPlan() {
         MiniappProgrammeFavoriteRepository favorites = mock(MiniappProgrammeFavoriteRepository.class);
         MiniappStudyPlanRepository plans = mock(MiniappStudyPlanRepository.class);

@@ -18,7 +18,6 @@ Page({
     featureEntries: [
       { key: 'planning', label: '专业定位', icon: '/assets/icons/planning.png', tone: 'mint' },
       { key: 'universities', label: '院校清单', icon: '/assets/icons/university-green.png', tone: 'mint' },
-      { key: 'ai', label: 'AI规划', icon: '/assets/icons/ai.png', tone: 'mint' },
       { key: 'visa', label: '签证查询', icon: '/assets/icons/visa.png', tone: 'orange' },
     ],
     previewState: 'loading' as PreviewState,

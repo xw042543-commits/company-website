@@ -9,16 +9,17 @@ const qualifications: Array<{ label: string; value: Qualification }> = [
 Page({
   data: {
     form: { name: '', contact: '', intendedSchool: '', intendedCourse: '', qualification: '', notes: '', privacyConsent: false } as ConsultationDraft,
-    qualifications, qualificationIndex: 0, qualificationLabel: '尚未确定', submitting: false, receipt: '',
+    qualifications, qualificationIndex: 0, qualificationLabel: '尚未确定', submitting: false, receipt: '', applicationIntent: false,
   },
   onLoad(options: Record<string, string | undefined>) {
     try {
       const qualification = decode(options.qualification);
       const qualificationIndex = Math.max(0, qualifications.findIndex((item) => item.value === qualification));
       const account = sessionStore.getSnapshot().account;
-      this.setData({ qualificationIndex, qualificationLabel: qualifications[qualificationIndex]?.label ?? '尚未确定', form: { ...this.data.form,
+      this.setData({ applicationIntent: options.intent === 'application', qualificationIndex, qualificationLabel: qualifications[qualificationIndex]?.label ?? '尚未确定', form: { ...this.data.form,
         name: account?.displayName === '微信用户' ? '' : account?.displayName ?? '',
         intendedSchool: decode(options.school), intendedCourse: decode(options.course),
+        notes: decode(options.notes),
         qualification: qualifications[qualificationIndex]?.value ?? '',
       } });
     } catch { wx.showToast({ title: '咨询资料无法读取', icon: 'none' }); }

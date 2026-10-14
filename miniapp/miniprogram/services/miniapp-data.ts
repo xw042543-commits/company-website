@@ -56,6 +56,7 @@ export interface StudyPlan {
 export interface ConsultationRecord {
   readonly referenceCode: string; readonly intendedSchool: string; readonly intendedCourse: string;
   readonly qualification: string; readonly status: string; readonly submittedAt: string;
+  readonly notes: string;
 }
 export type ApplicationOrderStatus = 'UNPAID' | 'PAID' | 'IN_PROGRESS' | 'NEEDS_DOCUMENTS' | 'COMPLETED' | 'CANCELLED';
 export interface ApplicationOrderSummary {
@@ -215,7 +216,7 @@ function mapConsultation(raw: unknown): ConsultationRecord | null {
   if (!object(raw) || !text(raw.referenceCode) || !text(raw.status)) return null;
   return { referenceCode: raw.referenceCode, intendedSchool: optional(raw.intendedSchool),
     intendedCourse: optional(raw.intendedCourse), qualification: optional(raw.qualification),
-    status: raw.status, submittedAt: optional(raw.submittedAt) };
+    status: raw.status, submittedAt: optional(raw.submittedAt), notes: optional(raw.notes) };
 }
 
 export function mapApplicationOrder(raw: unknown): ApplicationOrderSummary | null {

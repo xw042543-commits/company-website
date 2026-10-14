@@ -3,7 +3,7 @@ import test from 'node:test';
 import { readFileSync } from 'node:fs';
 
 test('home visa entry opens a registered guide and copying handles success and failure', async () => {
-  type Definition = { openFeature?(event: { currentTarget: { dataset: { key: string } } }): void; copyLink?(): void };
+  type Definition = { data: { featureEntries?: Array<{ key: string }> }; openFeature?(event: { currentTarget: { dataset: { key: string } } }): void; copyLink?(): void };
   let page: Definition | undefined;
   const routes: string[] = [];
   const notices: string[] = [];
@@ -21,6 +21,12 @@ test('home visa entry opens a registered guide and copying handles success and f
     assert.deepEqual(routes, ['/pages/visa/index']);
     const app = JSON.parse(readFileSync('miniprogram/app.json', 'utf8'));
     assert.ok(app.pages.includes('pages/visa/index'));
+    for (const entry of page?.data.featureEntries ?? []) {
+      routes.length = 0;
+      page?.openFeature?.({ currentTarget: { dataset: { key: entry.key } } });
+      assert.equal(routes.length, 1, `${entry.key} must open a usable page`);
+      assert.ok(app.pages.includes(routes[0]?.slice(1)), `${entry.key} must have a registered destination`);
+    }
     await import('../miniprogram/pages/visa/index');
     assert.equal(copies.length, 0);
     page?.copyLink?.();

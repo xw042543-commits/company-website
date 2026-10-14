@@ -67,6 +67,15 @@ test('consultation routes reject oversized or unsupported context', () => {
   ]) assert.equal(consultationRoute(context).ok, false);
 });
 
+test('application intention route preserves selected programmes and rejects overflow instead of dropping data', () => {
+  const route = consultationRoute({ notes: '亚太：计算机\n双威：商科', intent: 'application' });
+  assert.ok(route.ok);
+  const query = new URL(route.value, 'https://example.test').searchParams;
+  assert.equal(query.get('notes'), '亚太：计算机\n双威：商科');
+  assert.equal(query.get('intent'), 'application');
+  assert.equal(consultationRoute({ notes: 'a'.repeat(2001), intent: 'application' }).ok, false);
+});
+
 test('rejects blank and malformed university slugs with the route validation result', () => {
   for (const result of [
     universityDetailRoute(' '),

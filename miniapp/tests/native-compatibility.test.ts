@@ -51,8 +51,8 @@ test('account exposes the unified favorites, personal posts and adviser actions 
   const openMenu = definition.openMenu as (event: { currentTarget: { dataset: { key: string } } }) => void;
   const app = JSON.parse(readFileSync(new URL('app.json', root), 'utf8')) as { pages: string[] };
   for (const key of ['plans', 'favorites', 'universityFavorites', 'community']) assert.equal(menu.some((item) => item.key === key), false);
-  assert.equal(menu.some((item) => item.key === 'consultations'), false);
-  for (const [key, page] of [['orders', 'orders'], ['settings', 'settings'], ['about', 'about']] as const) {
+  assert.equal(menu.filter((item) => item.key === 'consultations').length, 1);
+  for (const [key, page] of [['consultations', 'consultations'], ['orders', 'orders'], ['settings', 'settings'], ['about', 'about']] as const) {
     assert.ok(menu.some((item) => item.key === key));
     openMenu({ currentTarget: { dataset: { key } } });
     assert.equal(navigated.at(-1), `/pages/${page}/index`);
