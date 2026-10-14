@@ -40,6 +40,36 @@ test("extracts Taylor's ordinary HTML programme cards without assigning formal c
   assert.equal(programme.studyLevelCode, null); assert.equal(programme.tuition.min, null);
 });
 
+test("deduplicates structured and ordinary candidates by canonical official URL", () => {
+  const taylors = { ...source, sourceKey: "taylors-university" };
+  const detailUrl = "https://example.edu/en/study/explore-all-programmes/computing/undergraduate/bachelor-of-computing.html";
+  const listing = { ...page, html: `
+    <script type="application/ld+json">{"@type":"Course","name":"Bachelor of Computing","url":"${detailUrl}?source=listing","timeToComplete":"3 years"}</script>
+    <a href="${detailUrl}#overview"><h4>Bachelor of Computing</h4><p>Official card description.</p></a>` };
+  const programmes = extractProgrammes(listing, taylors);
+  assert.equal(programmes.length, 1);
+  assert.equal(programmes[0].durationDisplay, "3 years");
+  assert.equal(programmes[0].descriptionEn, "Official card description.");
+});
+
+test("extracts Taylor's official detail sections and international fee", () => {
+  const taylors = { ...source, sourceKey: "taylors-university" };
+  const detail = { ...page,
+    url: "https://example.edu/en/study/explore-all-programmes/computing/undergraduate/bachelor-of-computing.html",
+    title: "Bachelor of Computing",
+    html: `<script type="application/ld+json">{"@type":"Course","name":"Bachelor of Computing","url":"https://example.edu/en/study/explore-all-programmes/computing/undergraduate/bachelor-of-computing.html","offers":{"price":"120000","priceCurrency":"MYR"}}</script>
+      <section id="overview"><h3>Overview</h3><p>Duration</p><h5>3 Years, Full time</h5><p>Fees</p><h5>MYR 120,000 (Local)</h5><h5>USD 35,000 (International)</h5></section>
+      <section id="programme-structure"><h3>Programme Structure</h3><ul><li>Programming</li><li>Data Structures</li></ul></section>
+      <section id="entry-requirements"><h3>Entry Requirements</h3><p>A-Level: BBC</p></section>
+      <section id="future-careers"><h3>Future Careers</h3><ul><li>Software Engineer</li></ul></section>` };
+  const [programme] = extractProgrammes(detail, taylors);
+  assert.equal(programme.durationMonths, 36);
+  assert.equal(programme.tuition.min, 35000);
+  assert.equal(programme.tuition.currency, "USD");
+  assert.equal(programme.tuition.display, "USD 35,000 (International)");
+  assert.match(programme.sections.find((section) => section.type === "CURRICULUM")?.bodyRaw ?? "", /Programming\nData Structures/);
+});
+
 test("extracts UM faculty course cards and keeps the faculty as raw classification", () => {
   const um = { ...source, sourceKey: "university-of-malaya" };
   const listing = { ...page, html: `<li class="my-bc-item my-bc-active"><a href="faculty-of-computer-science"><i></i>Faculty of Computer Science</a></li><div class="course-card coursework" data-mode="fulltime"><a href="bachelor-of-computer-science-data-science">Bachelor of Computer Science (Data Science)</a></div>` };
@@ -47,6 +77,47 @@ test("extracts UM faculty course cards and keeps the faculty as raw classificati
   assert.equal(programme.nameEn, "Bachelor of Computer Science (Data Science)");
   assert.equal(programme.subjectCategoryRaw, "Faculty of Computer Science");
   assert.equal(programme.subjectCategoryCode, null); assert.equal(programme.courseModeRaw, null);
+});
+
+test("extracts reviewed UM detail fields with official evidence", () => {
+  const um = { ...source, sourceKey: "university-of-malaya" };
+  const detail = { ...page, url: "https://example.edu/bachelor-of-computing", html: `
+    <h3><strong>BACHELOR OF COMPUTING</strong></h3>
+    <h4 class="title-2">Programme Overview</h4><div><p>Official overview.</p><p><strong>Duration: 3.5 Years (7 Semesters), Full time (Coursework)</strong></p></div>
+    <h4 class="title-2">Programme Structure</h4><div><ol><li>Programming Fundamentals</li><li>Data Structures</li></ol></div>
+    <h4 class="title-2">Career Prospects</h4><div><p>Software Engineer</p></div>
+    <h4 class="title-2">Tuition Fee</h4><div><h4>Local</h4><p>RM 10,000</p><h4>International</h4><p>RM 70,000</p></div>
+    <h4 class="title-2">Intake</h4><div><p>October Intake</p></div>
+    <h4 class="title-2">Entry Requirement</h4><div>Local requirement<!-- INTERNATIONAL --><div id="info2"><h5>Senior High School Certificate</h5><ul><li>Minimum average of 65%</li></ul></div></div>
+    <h4 class="title-2">English Language Requirements</h4><div><div id="english1">Local English</div><div id="english2"><ul><li>IELTS 5.5</li></ul></div></div>
+    </section>`,
+  };
+  const [programme] = extractProgrammes(detail, um);
+  assert.equal(programme.nameEn, "BACHELOR OF COMPUTING");
+  assert.equal(programme.descriptionEn, "Official overview.");
+  assert.equal(programme.durationMonths, 42);
+  assert.equal(programme.tuition.min, 70000);
+  assert.equal(programme.tuition.currency, "MYR");
+  assert.equal(programme.officialUrl, detail.url);
+  assert.match(programme.sections.find((section) => section.type === "CURRICULUM")?.bodyRaw ?? "", /Programming Fundamentals\nData Structures/);
+  assert.match(programme.sections.find((section) => section.type === "ADMISSIONS")?.bodyRaw ?? "", /Minimum average of 65%[\s\S]*IELTS 5\.5/);
+  assert.ok(programme.evidence.every((item) => item.sourceUrl === detail.url));
+});
+
+test("separates UM curriculum embedded in the programme overview", () => {
+  const um = { ...source, sourceKey: "university-of-malaya" };
+  const detail = { ...page, url: "https://example.edu/bachelor-of-arts", html: `
+    <h3><strong>BACHELOR OF ARTS</strong></h3>
+    <h4 class="title-2">Programme Overview</h4><div>
+      <p>Official overview text.</p><div>Year 1 Year 2 Year 3</div><ul><li>Research Methods</li><li>Industrial Training</li></ul>
+      <p><strong>Duration: 3 Years, Full time (Coursework)</strong></p>
+    </div>
+    <h4 class="title-2">Career Prospects</h4><p>Researcher</p>
+    </section>`,
+  };
+  const [programme] = extractProgrammes(detail, um);
+  assert.equal(programme.descriptionEn, "Official overview text.");
+  assert.match(programme.sections.find((section) => section.type === "CURRICULUM")?.bodyRaw ?? "", /Year 1 Year 2 Year 3[\s\S]*Research Methods/);
 });
 
 test("honours the longest robots rule", () => {

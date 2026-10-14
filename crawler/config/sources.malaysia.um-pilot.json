@@ -1,0 +1,14 @@
+{
+  "userAgent": "YangdoujiaoResearchBot/0.2 (contact: bertram@staff.udajo.com)",
+  "requestDelayMs": 2000,
+  "maxPagesPerSource": 140,
+  "sources": [
+    {
+      "sourceKey": "university-of-malaya",
+      "displayName": "Universiti Malaya",
+      "seedUrls": ["https://study.um.edu.my/programmes"],
+      "allowedHosts": ["study.um.edu.my"],
+      "countryRaw": "Malaysia"
+    }
+  ]
+}

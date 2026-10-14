@@ -1,5 +1,6 @@
 const ENTITIES: Record<string, string> = {
   amp: "&", apos: "'", gt: ">", lt: "<", nbsp: " ", quot: "\"",
+  hellip: "…", ldquo: "“", lsquo: "‘", mdash: "—", ndash: "–", rdquo: "”", rsquo: "’",
 };
 
 export function decodeHtml(value: string): string {
