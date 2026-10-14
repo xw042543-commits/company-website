@@ -110,6 +110,8 @@ async function main() {
           tuitionMax: programme.tuitionMax,
           tuitionCurrency: programme.tuitionCurrency,
           tuitionDisplay: programme.tuitionDisplay,
+          officialUrl: programme.officialUrl,
+          sourceCheckedAt: programme.sourceCheckedAt,
           sectionTypes: Array.isArray(programme.sections) ? programme.sections.map((section) => section.type) : [],
         })),
       });

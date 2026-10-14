@@ -12,6 +12,7 @@ type ExistingProgramme = {
   tuitionMax: number | null;
   tuitionCurrency: string | null;
   tuitionDisplay: string | null;
+  officialUrl?: string | null;
 };
 
 const args = process.argv.slice(2);
@@ -72,13 +73,19 @@ const audit = JSON.parse(await readFile(path.resolve(auditPath), "utf8"));
 const university = audit.universities?.find((item: { slug: string }) => item.slug === universitySlug);
 if (!university || !Array.isArray(university.records)) throw new Error(`审计报告中没有院校或完整记录：${universitySlug}`);
 const existing = university.records as ExistingProgramme[];
-const matched: Array<{ candidate: ProgrammeCandidate; existing: ExistingProgramme; method: "canonical-name" | "unique-prefix" }> = [];
+type MatchMethod = "official-url" | "canonical-name" | "unique-prefix";
+const matched: Array<{ candidate: ProgrammeCandidate; existing: ExistingProgramme; method: MatchMethod }> = [];
 const unmatched: ProgrammeCandidate[] = [];
 const ambiguous: Array<{ candidate: ProgrammeCandidate; matches: ExistingProgramme[] }> = [];
 for (const candidate of bundle.programmes) {
   const key = normalizedName(candidate.nameEn);
-  let method: "canonical-name" | "unique-prefix" = "canonical-name";
-  let matches = key ? existing.filter((programme) => normalizedName(programme.nameEn) === key) : [];
+  const official = canonicalUrl(candidate.officialUrl);
+  let method: MatchMethod = "official-url";
+  let matches = official ? existing.filter((programme) => canonicalUrl(programme.officialUrl) === official) : [];
+  if (matches.length === 0) {
+    method = "canonical-name";
+    matches = key ? existing.filter((programme) => normalizedName(programme.nameEn) === key) : [];
+  }
   if (matches.length === 0 && key.length >= 24) {
     matches = existing.filter((programme) => {
       const current = normalizedName(programme.nameEn);
