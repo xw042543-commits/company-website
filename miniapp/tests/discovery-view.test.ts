@@ -8,6 +8,7 @@ import {
   buildProgrammeDocument,
   deriveProgrammeCategories,
   filterProgrammes,
+  parseCurriculumItems,
 } from '../miniprogram/utils/discovery-view.ts';
 
 function programme(id: number, categoryCode: string): UniversityProgramme {
@@ -85,7 +86,7 @@ function detail(overrides: Partial<ProgrammeDetail> = {}): ProgrammeDetail {
     ...programme(1, 'COMPUTING'), programmeCode: 'CS', universitySlug: 'apu',
     universityNameZh: '亚太科技大学', universityNameEn: 'APU', cityZh: '吉隆坡',
     universityLogoUrl: null,
-    descriptionZh: '专业描述正文', courseModeCode: 'ON_CAMPUS', languageCodes: ['EN'],
+    descriptionZh: '专业描述正文', descriptionEn: 'Programme description', courseModeCode: 'ON_CAMPUS', languageCodes: ['EN'],
     studyPaceDisplay: '全日制', sections: [], imageUrl: null, ...overrides,
   };
 }
@@ -110,9 +111,11 @@ test('programme document always exposes the four canonical detail blocks in prod
   ]);
   assert.deepEqual(document[0], {
     key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: '专业描述正文', available: true,
+    contentBlocks: [], curriculumItems: [], notice: '',
   });
   assert.deepEqual(document[1], {
     key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true,
+    contentBlocks: [], curriculumItems: [], notice: '',
   });
   assert.deepEqual(document.slice(2).map(({ title, body, available }) => ({ title, body, available })), [
     { title: '专业前景', body: 'CAREER_OPPORTUNITIES正文', available: true },
@@ -148,11 +151,22 @@ test('programme document accepts legacy aliases and English body fallback', () =
   assert.equal(document[3]?.body, 'English curriculum');
 });
 
-test('programme document keeps all four blocks with explicit pending copy when data is missing', () => {
+test('programme document keeps canonical blocks without inventing pending content', () => {
   assert.deepEqual(buildProgrammeDocument(detail({ descriptionZh: '' })), [
-    { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: '专业介绍资料正在整理中，请咨询顾问确认。', available: false },
-    { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true },
-    { key: 'CAREER_PROSPECTS', type: 'CAREER_PROSPECTS', title: '专业前景', body: '专业前景资料正在整理中，请咨询顾问确认。', available: false },
-    { key: 'CURRICULUM', type: 'CURRICULUM', title: '专业课程', body: '专业课程资料正在整理中，请咨询顾问确认。', available: false },
+    { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '' },
+    { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true, contentBlocks: [], curriculumItems: [], notice: '' },
+    { key: 'CAREER_PROSPECTS', type: 'CAREER_PROSPECTS', title: '专业前景', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '' },
+    { key: 'CURRICULUM', type: 'CURRICULUM', title: '专业课程', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '' },
   ]);
+});
+
+test('curriculum parser builds an ordered bilingual vertical list only from explicit rows', () => {
+  const body = '参考学习领域，非官方课程表\n01|程序设计基础|Programming Fundamentals\n02|数据库系统|Database Systems\n说明：以官方教学大纲为准。';
+  assert.deepEqual(parseCurriculumItems(body), [
+    { number: '01', nameZh: '程序设计基础', nameEn: 'Programming Fundamentals' },
+    { number: '02', nameZh: '数据库系统', nameEn: 'Database Systems' },
+  ]);
+  const curriculumSection = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 40, { bodyZh: body })] }))[3];
+  assert.equal(curriculumSection?.notice, '参考学习领域，非官方课程表');
+  assert.equal(curriculumSection?.curriculumItems.length, 2);
 });

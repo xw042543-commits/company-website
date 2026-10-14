@@ -82,3 +82,30 @@
 .fact-label,.fact-value { padding:22rpx 4rpx; font-size:26rpx; font-weight:400; }
 .fact-label { width:32%; background:transparent; color:#7b8782; }
 .fact-value { color:#20352f; }
+
+/* Programme content: calm green cards and a vertical bilingual study-area list. */
+.document-section--INTRODUCTION,.document-section--CAREER_PROSPECTS,.document-section--CURRICULUM { padding-top:48rpx; }
+.section-heading { display:flex; align-items:baseline; justify-content:space-between; gap:20rpx; }
+.section-meta { flex-shrink:0; color:#819088; font-size:22rpx; }
+.section-body--INTRODUCTION { box-sizing:border-box; max-width:none; padding:30rpx 30rpx 32rpx; border:1rpx solid #e1ece6; border-radius:20rpx; background:linear-gradient(145deg,#f7fbf8 0%,#fff 72%); color:#3f5750; font-size:28rpx; line-height:2; box-shadow:0 14rpx 34rpx rgba(22,91,63,.06); }
+.career-grid { display:grid; grid-template-columns:1fr; gap:16rpx; }
+.career-card { box-sizing:border-box; padding:26rpx 28rpx; border:1rpx solid #e2ece7; border-radius:18rpx; background:#fbfdfc; }
+.career-card:first-child { border-color:#cfe5d9; background:#f2f9f5; }
+.career-label { margin-bottom:10rpx; color:#087a4e; font-size:23rpx; font-weight:700; letter-spacing:1rpx; }
+.career-copy { color:#405850; font-size:27rpx; line-height:1.82; overflow-wrap:break-word; word-break:break-word; }
+.curriculum-card { overflow:hidden; border:1rpx solid #dce9e2; border-radius:20rpx; background:#fff; box-shadow:0 16rpx 38rpx rgba(22,91,63,.07); }
+.curriculum-notice { display:flex; align-items:center; padding:22rpx 26rpx; background:#eef8f3; color:#246a4d; font-size:24rpx; font-weight:600; line-height:1.55; }
+.notice-mark { display:flex; width:34rpx; height:34rpx; flex-shrink:0; align-items:center; justify-content:center; margin-right:14rpx; border-radius:50%; background:#0b8755; color:#fff; font-size:21rpx; font-weight:700; }
+.curriculum-list { padding:0 26rpx; }
+.curriculum-row { display:flex; min-height:116rpx; align-items:center; border-bottom:1rpx solid #e8efeb; }
+.curriculum-row:last-child { border-bottom:0; }
+.curriculum-number { width:68rpx; flex-shrink:0; color:#0a8754; font-size:25rpx; font-weight:700; font-variant-numeric:tabular-nums; }
+.curriculum-copy { min-width:0; flex:1; padding:20rpx 0; }
+.curriculum-name-zh { color:#203d32; font-size:28rpx; font-weight:650; line-height:1.48; overflow-wrap:break-word; word-break:break-word; }
+.curriculum-name-en { margin-top:7rpx; color:#7b8983; font-size:22rpx; line-height:1.5; overflow-wrap:break-word; word-break:break-word; }
+.curriculum-footnote { padding:22rpx 26rpx 24rpx; border-top:1rpx solid #e8efeb; background:#fafcfb; color:#7a8882; font-size:22rpx; line-height:1.65; }
+
+@media (min-width:600px) {
+  .career-grid { grid-template-columns:1fr 1fr; }
+  .curriculum-row { min-height:106rpx; }
+}

@@ -34,7 +34,13 @@ export interface ProgrammeDocumentSection {
   readonly title: string;
   readonly body: string;
   readonly available: boolean;
+  readonly contentBlocks: readonly ProgrammeContentBlock[];
+  readonly curriculumItems: readonly ProgrammeCurriculumItem[];
+  readonly notice: string;
 }
+
+export interface ProgrammeContentBlock { readonly label: string; readonly text: string }
+export interface ProgrammeCurriculumItem { readonly number: string; readonly nameZh: string; readonly nameEn: string }
 
 function sectionBody(section: ProgrammeDetailSection): string {
   return section.bodyZh.trim() ? section.bodyZh : section.bodyEn;
@@ -55,10 +61,39 @@ export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDoc
   const career = firstSection(programme.sections, ['CAREER_OPPORTUNITIES', 'CAREER_OUTLOOK']);
   const curriculum = firstSection(programme.sections, ['CURRICULUM', 'COURSE_STRUCTURE']);
 
+  const curriculumItems = parseCurriculumItems(curriculum);
+  const careerBlocks = parseLabelledBlocks(career);
   return [
-    { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: introduction || '专业介绍资料正在整理中，请咨询顾问确认。', available: Boolean(introduction) },
-    { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true },
-    { key: 'CAREER_PROSPECTS', type: 'CAREER_PROSPECTS', title: '专业前景', body: career || '专业前景资料正在整理中，请咨询顾问确认。', available: Boolean(career) },
-    { key: 'CURRICULUM', type: 'CURRICULUM', title: '专业课程', body: curriculum || '专业课程资料正在整理中，请咨询顾问确认。', available: Boolean(curriculum) },
+    documentSection('INTRODUCTION', 'INTRODUCTION', '专业介绍', introduction),
+    documentSection('BASIC_INFORMATION', 'BASIC_INFORMATION', '专业基本信息', '', true),
+    { ...documentSection('CAREER_PROSPECTS', 'CAREER_PROSPECTS', '专业前景', career), contentBlocks: careerBlocks },
+    { ...documentSection('CURRICULUM', 'CURRICULUM', '专业课程', curriculum), curriculumItems,
+      notice: curriculumItems.length ? '参考学习领域，非官方课程表' : '' },
   ];
+}
+
+function documentSection(key: string, type: string, title: string, body: string, available = Boolean(body)): ProgrammeDocumentSection {
+  return { key, type, title, body, available, contentBlocks: [], curriculumItems: [], notice: '' };
+}
+
+export function parseCurriculumItems(body: string): ProgrammeCurriculumItem[] {
+  const items: ProgrammeCurriculumItem[] = [];
+  for (const line of body.split(/\r?\n/)) {
+    const match = line.trim().match(/^(\d{2})\|([^|]+)\|([^|]+)$/);
+    if (!match) continue;
+    const [, number, nameZh, nameEn] = match;
+    if (!number || !nameZh || !nameEn) continue;
+    items.push({ number, nameZh: nameZh.trim(), nameEn: nameEn.trim() });
+  }
+  return items;
+}
+
+function parseLabelledBlocks(body: string): ProgrammeContentBlock[] {
+  const blocks: ProgrammeContentBlock[] = [];
+  for (const paragraph of body.split(/\n\s*\n/)) {
+    const match = paragraph.trim().match(/^([^：:]{2,12})[：:]\s*(.+)$/s);
+    const label = match?.[1]; const text = match?.[2];
+    if (label && text) blocks.push({ label: label.trim(), text: text.trim() });
+  }
+  return blocks.length >= 3 ? blocks : [];
 }
