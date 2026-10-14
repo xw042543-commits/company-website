@@ -35,6 +35,8 @@ public record MiniappProgrammeDetailResponse(
         String tuitionDisplay,
         List<String> intakeDisplayTexts,
         List<DetailSection> sections,
+        String officialUrl,
+        OffsetDateTime sourceCheckedAt,
         String imageUrl
 ) {
     public record DetailSection(
@@ -45,12 +47,13 @@ public record MiniappProgrammeDetailResponse(
             String bodyEn,
             int sortOrder,
             String sourceUrl,
-            OffsetDateTime sourceCheckedAt
+            OffsetDateTime sourceCheckedAt,
+            String sourceType
     ) {
         static DetailSection from(ProgrammeDetailSection section) {
             return new DetailSection(section.getSectionType().name(), section.getTitleZh(), section.getTitleEn(),
                     section.getBodyZh(), section.getBodyEn(), section.getSortOrder(), section.getSourceUrl(),
-                    section.getSourceCheckedAt());
+                    section.getSourceCheckedAt(), section.getSourceType());
         }
     }
 
@@ -67,6 +70,7 @@ public record MiniappProgrammeDetailResponse(
                 programme.getStudyPaceDisplay(), programme.getDurationMonths(), programme.getDurationDisplay(),
                 programme.getTuitionMin(), programme.getTuitionMax(), programme.getTuitionCurrency(),
                 programme.getTuitionDisplay(), intakes.stream().map(ProgrammeIntake::getDisplayText).toList(),
-                sections.stream().map(DetailSection::from).toList(), imageUrl);
+                sections.stream().map(DetailSection::from).toList(), programme.getOfficialUrl(),
+                programme.getSourceCheckedAt(), imageUrl);
     }
 }

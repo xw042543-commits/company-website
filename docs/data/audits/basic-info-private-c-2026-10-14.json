@@ -1,0 +1,5305 @@
+{
+  "generatedAt": "2026-10-14T00:00:00+08:00",
+  "scope": [
+    "segi",
+    "utar",
+    "nilai",
+    "mahsa",
+    "help"
+  ],
+  "publishedProgrammesChecked": 173,
+  "programmeRowsChangedByMigration": 172,
+  "rowsWithOfficialFactUpdates": 82,
+  "admissionsSectionsAddedOrUpdated": 4,
+  "rowsWithTuitionDisplayClarified": 172,
+  "rowsWithAtLeastOneUnresolvedField": 173,
+  "schemaLimitations": [
+    "programmes has no per-programme campus column",
+    "programmes and programme_detail_sections have source URL/time but no source_type column"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "university": "utar",
+      "url": "https://study.utar.edu.my/documents/251120_UG_-_Oct_2025_Intake_Onwards_latest.pdf",
+      "checkedAt": "2026-10-14T00:00:00+08:00"
+    },
+    {
+      "type": "official",
+      "university": "segi",
+      "url": "https://university.segi.edu.my/zh/course/bachelor-of-business-management-honours/",
+      "checkedAt": "2026-10-14T00:00:00+08:00"
+    },
+    {
+      "type": "official",
+      "university": "segi",
+      "url": "https://colleges.segi.edu.my/subangjaya/course/master-of-business-administration-general-management/",
+      "checkedAt": "2026-10-14T00:00:00+08:00"
+    },
+    {
+      "type": "official",
+      "university": "segi",
+      "url": "https://www.segi.edu.my/brochures/Postgraduate%20Studies.pdf",
+      "checkedAt": "2026-10-14T00:00:00+08:00"
+    },
+    {
+      "type": "official",
+      "university": "mahsa",
+      "url": "https://www.mahsa.edu.my/faculties/Engineering/bachelor-information-technology.php",
+      "checkedAt": "2026-10-14T00:00:00+08:00"
+    },
+    {
+      "type": "third_party",
+      "university": "nilai",
+      "description": "existing reviewed PDF import; current official page not confirmed",
+      "checkedAt": "2026-10-14T00:00:00+08:00"
+    },
+    {
+      "type": "third_party",
+      "university": "help",
+      "description": "existing reviewed PDF import; programme-specific current values retained",
+      "checkedAt": "2026-10-14T00:00:00+08:00"
+    }
+  ],
+  "failures": [
+    {
+      "university": "utar",
+      "programmeCode": "UTAR_BACHELOR_001",
+      "reason": "category heading imported as a published programme; no objective programme facts exist; retained because deletion/archive is outside scope"
+    },
+    {
+      "university": "nilai",
+      "reason": "official search exposed a 2023 international fee PDF, older than the existing reviewed import; values were not overwritten"
+    },
+    {
+      "university": "mahsa",
+      "reason": "three legacy computing programme names were not present in the current official undergraduate directory; objective values remain marked pending"
+    },
+    {
+      "university": "help",
+      "reason": "current official pages do not expose a consistent international-student fee category for every one of the 46 published records"
+    }
+  ],
+  "records": [
+    {
+      "universitySlug": "segi",
+      "programmeCode": "SEGI_MASTER_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition_display",
+        "official_url",
+        "source_checked_at",
+        "admissions"
+      ],
+      "unresolved": [
+        "tuition_student_category_or_current_fee",
+        "programme_specific_intake"
+      ]
+    },
+    {
+      "universitySlug": "segi",
+      "programmeCode": "SEGI_BACHELOR_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition_display",
+        "official_url",
+        "source_checked_at",
+        "admissions"
+      ],
+      "unresolved": [
+        "tuition_student_category_or_current_fee",
+        "programme_specific_intake"
+      ]
+    },
+    {
+      "universitySlug": "segi",
+      "programmeCode": "SEGI_MASTER_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition_display",
+        "official_url",
+        "source_checked_at",
+        "admissions"
+      ],
+      "unresolved": [
+        "tuition_student_category_or_current_fee",
+        "programme_specific_intake"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "UNRESOLVED",
+      "sourceType": "unverified",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "not_a_programme_category_heading_imported_as_programme",
+        "duration",
+        "tuition"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_019",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_020",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_029",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_021",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_022",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_030",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_031",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_028",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_071",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_068",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_004",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_005",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_006",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_007",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_008",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_009",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_064",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_072",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_048",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_065",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_073",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_010",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_023",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_032",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_024",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_025",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_049",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_033",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_034",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_011",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_016",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_074",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_066",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_067",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_017",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_012",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_050",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_051",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_052",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_053",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_054",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_055",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_018",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_075",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_076",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_077",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_035",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_046",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_047",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_014",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_057",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_037",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_058",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_069",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_038",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_043",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_039",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_040",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_061",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_044",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_045",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_059",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_041",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_036",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_015",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_042",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_070",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_079",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_060",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_056",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_027",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_026",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_062",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_063",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_078",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "utar",
+      "programmeCode": "UTAR_BACHELOR_013",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration",
+        "tuition",
+        "official_url",
+        "source_checked_at"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_008",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DIPLOMA_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_MASTER_PDF_007",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DIPLOMA_PDF_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_012",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_014",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_013",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_MASTER_PDF_006",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_FOUNDATION_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DIPLOMA_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DOCTOR_PDF_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_MASTER_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_MASTER_PDF_004",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_MASTER_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_MASTER_PDF_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_004",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_006",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_007",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_005",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_MASTER_PDF_009",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_MASTER_PDF_008",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DIPLOMA_PDF_007",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_018",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DOCTOR_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_MASTER_PDF_005",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_011",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DIPLOMA_PDF_005",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_017",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_010",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_FOUNDATION_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DOCTOR_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DIPLOMA_PDF_004",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_015",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_016",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DIPLOMA_PDF_006",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_BACHELOR_PDF_009",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DIPLOMA_PDF_008",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "nilai",
+      "programmeCode": "NILAI_DIPLOMA_PDF_009",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "current_official_source",
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "mahsa",
+      "programmeCode": "MAHSA_BACHELOR_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration_display",
+        "tuition_display"
+      ],
+      "unresolved": [
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category",
+        "current_official_programme_page"
+      ]
+    },
+    {
+      "universitySlug": "mahsa",
+      "programmeCode": "MAHSA_BACHELOR_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "official",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration_display",
+        "tuition_display",
+        "official_url",
+        "source_checked_at",
+        "admissions"
+      ],
+      "unresolved": [
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "mahsa",
+      "programmeCode": "MAHSA_BACHELOR_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration_display",
+        "tuition_display"
+      ],
+      "unresolved": [
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category",
+        "current_official_programme_page"
+      ]
+    },
+    {
+      "universitySlug": "mahsa",
+      "programmeCode": "MAHSA_BACHELOR_004",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "duration_display",
+        "tuition_display"
+      ],
+      "unresolved": [
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category",
+        "current_official_programme_page"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_006",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_012",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_007",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_010",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_016",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_011",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_013",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_018",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_019",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_014",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_009",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_005",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_015",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_008",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_020",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_017",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_DIPLOMA_PDF_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_DIPLOMA_PDF_004",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_DIPLOMA_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_DIPLOMA_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_DIPLOMA_PDF_005",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_DOCTOR_PDF_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_DOCTOR_PDF_004",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_DOCTOR_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_DOCTOR_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_FOUNDATION_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_FOUNDATION_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_005",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_003",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_001",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_012",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_006",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_011",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_004",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_010",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_002",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_008",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_015",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification",
+        "duration_display_typo"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_014",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_013",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_007",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_MASTER_PDF_009",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    },
+    {
+      "universitySlug": "help",
+      "programmeCode": "HELP_BACHELOR_PDF_004",
+      "checked": true,
+      "fieldsChecked": [
+        "university",
+        "campus",
+        "study_level",
+        "duration",
+        "course_mode",
+        "tuition",
+        "intakes",
+        "language_requirement",
+        "admission_requirement"
+      ],
+      "status": "REPAIRED_OR_PRESERVED",
+      "sourceType": "third_party",
+      "sourceCheckedAt": "2026-10-14T00:00:00+08:00",
+      "changes": [
+        "tuition_display_clarification"
+      ],
+      "unresolved": [
+        "programme_specific_admission",
+        "programme_specific_language_threshold",
+        "programme_specific_intake",
+        "programme_campus",
+        "tuition_student_category"
+      ]
+    }
+  ]
+}

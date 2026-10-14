@@ -37,11 +37,12 @@ public record UniversityProgrammeResponse(
         List<String> intakeMonths,
         List<String> intakeDisplayTexts,
         List<DetailSection> sections,
-        String imageUrl,
         String officialUrl,
-        String sourceType,
-        String sourceUrl,
-        OffsetDateTime sourceCheckedAt
+        OffsetDateTime sourceCheckedAt,
+        String imageUrl,
+        String taxonomySourceType,
+        String taxonomySourceUrl,
+        OffsetDateTime taxonomySourceCheckedAt
 ) {
     public record DetailSection(
             String type,
@@ -51,12 +52,13 @@ public record UniversityProgrammeResponse(
             String bodyEn,
             int sortOrder,
             String sourceUrl,
-            OffsetDateTime sourceCheckedAt
+            OffsetDateTime sourceCheckedAt,
+            String sourceType
     ) {
         static DetailSection from(ProgrammeDetailSection section) {
             return new DetailSection(section.getSectionType().name(), section.getTitleZh(), section.getTitleEn(),
                     section.getBodyZh(), section.getBodyEn(), section.getSortOrder(), section.getSourceUrl(),
-                    section.getSourceCheckedAt());
+                    section.getSourceCheckedAt(), section.getSourceType());
         }
     }
 
@@ -113,11 +115,12 @@ public record UniversityProgrammeResponse(
                         .map(ProgrammeIntake::getDisplayText)
                         .toList(),
                 sections.stream().map(DetailSection::from).toList(),
-                imageUrl,
                 programme.getOfficialUrl(),
-                programme.getSourceType(),
-                programme.getSourceUrl(),
-                programme.getSourceCheckedAt()
+                programme.getSourceCheckedAt(),
+                imageUrl,
+                programme.getTaxonomySourceType(),
+                programme.getTaxonomySourceUrl(),
+                programme.getTaxonomySourceCheckedAt()
         );
     }
 }

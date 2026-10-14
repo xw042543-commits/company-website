@@ -13,12 +13,14 @@ test("finds the earliest matching published section and localizes its content", 
     body: "核心模块",
     sourceUrl: "https://example.edu/programme",
     sourceCheckedAt: "2026-10-14T00:00:00Z",
+    sourceType: null,
   });
   assert.deepEqual(findProgrammeSection(sections, ["CURRICULUM"], "en"), {
     title: "Curriculum",
     body: "Core modules",
     sourceUrl: "https://example.edu/programme",
     sourceCheckedAt: "2026-10-14T00:00:00Z",
+    sourceType: null,
   });
 });
 

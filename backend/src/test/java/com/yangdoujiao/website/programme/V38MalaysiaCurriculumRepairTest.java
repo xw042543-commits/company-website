@@ -80,6 +80,7 @@ class V38MalaysiaCurriculumRepairTest {
                     JOIN programmes programme ON programme.id = section.programme_id
                     JOIN universities university ON university.id = programme.university_id
                     WHERE university.slug IN ('um', 'taylor')
+                      AND section.section_type = 'CURRICULUM'
                     """, Integer.class)).isEqualTo(101);
             assertThat(jdbc.queryForObject("""
                     SELECT sum(array_length(regexp_split_to_array(section.body_en, E'\\n'), 1))
@@ -87,12 +88,14 @@ class V38MalaysiaCurriculumRepairTest {
                     JOIN programmes programme ON programme.id = section.programme_id
                     JOIN universities university ON university.id = programme.university_id
                     WHERE university.slug IN ('um', 'taylor')
+                      AND section.section_type = 'CURRICULUM'
                     """, Integer.class)).isEqualTo(5156);
             assertThat(jdbc.queryForObject("""
                     SELECT count(*) FROM programme_detail_sections section
                     JOIN programmes programme ON programme.id = section.programme_id
                     JOIN universities university ON university.id = programme.university_id
                     WHERE university.slug IN ('um', 'taylor')
+                      AND section.section_type = 'CURRICULUM'
                       AND (
                        section.status <> 'PUBLISHED'
                        OR section.source_url NOT LIKE 'https://%'
@@ -100,11 +103,14 @@ class V38MalaysiaCurriculumRepairTest {
                        OR section.body_en ~* '(entry requirements?|minimum (average|score|cgpa|grade)|ielts|toefl|muet|[0-9]+\\s*%)'
                       )
                     """, Integer.class)).isZero();
+            assertThat(jdbc.queryForMap("""
+                    SELECT status, source_type, body_zh LIKE '参考学习领域，非官方课程表%' AS labelled_fallback
+                    FROM programme_detail_sections WHERE programme_id = ? AND section_type = 'CURRICULUM'
+                    """, unreviewedMalaysiaProgramme)).containsAllEntriesOf(java.util.Map.of(
+                            "status", "PUBLISHED", "source_type", "ai_generated", "labelled_fallback", true));
             assertThat(jdbc.queryForObject("""
-                    SELECT status FROM programme_detail_sections WHERE programme_id = ?
-                    """, String.class, unreviewedMalaysiaProgramme)).isEqualTo("ARCHIVED");
-            assertThat(jdbc.queryForObject("""
-                    SELECT status FROM programme_detail_sections WHERE programme_id = ?
+                    SELECT status FROM programme_detail_sections
+                    WHERE programme_id = ? AND section_type = 'CURRICULUM'
                     """, String.class, ukProgramme)).isEqualTo("PUBLISHED");
         }
     }

@@ -1,9 +1,10 @@
 # API 接口说明
 
-院校专业列表及单个专业响应补充 `officialUrl`、`sourceType`、`sourceUrl`、
-`sourceCheckedAt`。`sourceType` 为 `official`、`third_party` 或 `ai_generated`；
-未审核的旧记录允许为空。英文专业原名继续通过 `nameEn` 返回，中文名通过 `nameZh` 返回。
-公开接口继续只返回 `PUBLISHED` 专业，待审核草稿不会出现在列表或详情接口。
+院校专业列表及单个专业响应保留 `officialUrl`、`sourceCheckedAt`，新增
+`taxonomySourceType`、`taxonomySourceUrl`、`taxonomySourceCheckedAt`，专门记录名称、学历及分类的核对来源。
+类型为 `official`、`third_party` 或 `ai_generated`；未审核记录允许为空。
+英文原名通过 `nameEn` 返回，中文名通过 `nameZh` 返回。
+公开接口只返回 `PUBLISHED` 专业，待审核草稿不会出现在列表或详情接口。
 
 ## 基本约定
 

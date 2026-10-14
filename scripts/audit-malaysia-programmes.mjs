@@ -10,6 +10,7 @@ const baseUrl = new URL(valueOf("--base-url", "https://yangdoujiao.com"));
 const output = path.resolve(valueOf("--output", ".data/audits/malaysia-programmes.json"));
 const universityFilter = valueOf("--university", "");
 const auditDetails = args.includes("--details");
+const basicInfoAudit = args.includes("--basic-info");
 
 function hasText(value) {
   return typeof value === "string" && value.trim().length > 0;
@@ -53,8 +54,38 @@ function missingFields(programme, includeSections) {
   return missing;
 }
 
+function basicInfoIssues(programme) {
+  const issues = [];
+  const section = (programme.sections ?? []).find((item) => item.type === "ADMISSIONS");
+  const duration = String(programme.durationDisplay ?? "").trim();
+  const tuition = String(programme.tuitionDisplay ?? "").trim();
+  const names = `${programme.nameZh ?? ""} ${programme.nameEn ?? ""}`;
+  if (!hasText(programme.studyLevelCode)) issues.push("missing_study_level");
+  if (!hasText(programme.courseModeCode)) issues.push("missing_course_mode");
+  if (!Number.isInteger(programme.durationMonths) && !duration) issues.push("missing_duration");
+  if (/^\d+$/.test(duration)) issues.push("ambiguous_numeric_duration");
+  if (!hasText(programme.tuitionCurrency) && (programme.tuitionMin != null || programme.tuitionMax != null)) {
+    issues.push("missing_tuition_currency");
+  }
+  if (!tuition && programme.tuitionMin == null && programme.tuitionMax == null) issues.push("missing_tuition");
+  if (tuition && !/(国际|本地|international|malaysian|待核实)/i.test(tuition)) {
+    issues.push("tuition_student_category_unspecified");
+  }
+  if (tuition && !/(每年|\/年|per year|每学期|学期|总学费|全课程|待核实)/i.test(tuition)) {
+    issues.push("tuition_period_unspecified");
+  }
+  if (!Array.isArray(programme.languageCodes) || programme.languageCodes.length === 0) issues.push("missing_language");
+  if (!Array.isArray(programme.intakeDisplayTexts) || programme.intakeDisplayTexts.length === 0) issues.push("missing_intake");
+  if (!section || (!hasText(section.bodyZh) && !hasText(section.bodyEn))) issues.push("missing_admissions");
+  if (section && !hasText(section.bodyZh)) issues.push("admissions_not_simplified_chinese");
+  if (!hasText(programme.officialUrl)) issues.push("missing_programme_source");
+  if (!programme.sourceCheckedAt) issues.push("missing_source_checked_at");
+  if (/(CGPA|GPA|\d+\s*%|雅思|IELTS|入学要求)/i.test(names)) issues.push("possible_requirement_in_name");
+  return [...new Set(issues)];
+}
+
 async function addProgrammeDetails(slug, programmes) {
-  if (!auditDetails) return programmes;
+  if (!auditDetails && !basicInfoAudit) return programmes;
   const detailed = [];
   for (const programme of programmes) {
     const url = new URL(`/api/v1/universities/${encodeURIComponent(slug)}/programmes/${programme.id}`, baseUrl);
@@ -80,10 +111,23 @@ async function main() {
       const programmes = await addProgrammeDetails(university.slug, pages.flatMap((item) => item.items ?? []));
       const missing = Object.create(null);
       const incomplete = [];
+      const basicInfoIssueCounts = Object.create(null);
+      const basicInfoRecords = [];
       for (const programme of programmes) {
-        const fields = missingFields(programme, auditDetails);
+        const fields = missingFields(programme, auditDetails || basicInfoAudit);
         for (const field of fields) missing[field] = (missing[field] ?? 0) + 1;
         if (fields.length) incomplete.push({ id: programme.id, programmeCode: programme.programmeCode, nameZh: programme.nameZh, nameEn: programme.nameEn, missing: fields });
+        if (basicInfoAudit) {
+          const issues = basicInfoIssues(programme);
+          for (const issue of issues) basicInfoIssueCounts[issue] = (basicInfoIssueCounts[issue] ?? 0) + 1;
+          if (issues.length) basicInfoRecords.push({
+            id: programme.id,
+            programmeCode: programme.programmeCode,
+            nameZh: programme.nameZh,
+            nameEn: programme.nameEn,
+            issues,
+          });
+        }
       }
       universities.push({
         id: university.id,
@@ -95,6 +139,8 @@ async function main() {
         completeProgrammes: programmes.length - incomplete.length,
         missing,
         incomplete,
+        basicInfoIssueCounts,
+        basicInfoRecords,
         records: programmes.map((programme) => ({
           id: programme.id,
           programmeCode: programme.programmeCode,
@@ -111,9 +157,15 @@ async function main() {
           tuitionCurrency: programme.tuitionCurrency,
           tuitionDisplay: programme.tuitionDisplay,
           officialUrl: programme.officialUrl,
-          sourceType: programme.sourceType,
-          sourceUrl: programme.sourceUrl,
+          taxonomySourceType: programme.taxonomySourceType,
+          taxonomySourceUrl: programme.taxonomySourceUrl,
+          taxonomySourceCheckedAt: programme.taxonomySourceCheckedAt,
           sourceCheckedAt: programme.sourceCheckedAt,
+          languageCodes: programme.languageCodes,
+          intakeDisplayTexts: programme.intakeDisplayTexts,
+          admissions: Array.isArray(programme.sections)
+            ? programme.sections.filter((section) => section.type === "ADMISSIONS")
+            : [],
           sectionTypes: Array.isArray(programme.sections) ? programme.sections.map((section) => section.type) : [],
         })),
       });
@@ -129,6 +181,7 @@ async function main() {
     publishedUniversities: directory.totalItems,
     auditedUniversities: universities.length,
     detailAudit: auditDetails,
+    basicInfoAudit,
     publishedProgrammes: universities.reduce((sum, item) => sum + item.publishedProgrammes, 0),
     universities,
     failures,
