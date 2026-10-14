@@ -12,6 +12,9 @@ class V51ProgrammeLevelAlignmentTest {
     @Test
     void onlyAiGeneratedContentIsAlignedAndEveryResearchLevelIsExplicit() throws IOException {
         String migration = resource("/db/migration/V51__align_ai_programme_content_with_study_level.sql");
+        String appliedV44 = resource("/db/migration/V44__align_ai_programme_content_with_study_level.sql");
+
+        assertThat(appliedV44).isEqualTo(migration);
 
         assertThat(migration).contains("section.source_type = 'ai_generated'");
         assertThat(migration).contains("FOUNDATION|PRE_UNIVERSITY|CERT");
