@@ -1,0 +1,2729 @@
+{
+  "generatedAt": "2026-10-14T00:00:00+08:00",
+  "scope": [
+    "monash",
+    "nottingham",
+    "southampton",
+    "uum",
+    "city"
+  ],
+  "publishedProgrammes": 231,
+  "officialVerifiedSources": [
+    "https://www.monash.edu.my/study/undergraduate/fees",
+    "https://www.monash.edu.my/study/postgraduate-and-research/fees",
+    "https://www.nottingham.edu.my/study/undergraduate-courses/tuition-fees.aspx",
+    "https://www.nottingham.edu.my/Study/Postgraduate-courses/Tuition-fees.aspx",
+    "https://cdn.southampton.ac.uk/my/undergraduate/courses.page",
+    "https://cdn.southampton.ac.uk/my/undergraduate/apply/entry_requirements.page",
+    "https://www.uum.edu.my/admissions/application-guidelines/undergraduate-international",
+    "https://city.edu.my/programmes/bachelor/"
+  ],
+  "records": [
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_023",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": null,
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_duration",
+        "missing_tuition",
+        "possible_requirement_in_name"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_032",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "55680/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_001",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "46080/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_003",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "46080/year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_005",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "48000 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_006",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "50880/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_007",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "48000/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_008",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "48000/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_010",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "60000 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_011",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "60000/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_018",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "50880/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_020",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "50400 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_019",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "50880 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_009",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": null,
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_duration",
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_002",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "46080/year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_013",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "60000/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_017",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": null,
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_duration",
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_033",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "55680/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_024",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "55680 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_012",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": null,
+      "issues": [
+        "ambiguous_semester_count",
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_014",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "60000/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_034",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "55680/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_022",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "10",
+      "tuitionDisplay": "128640/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_023",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "55200 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_029",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "55680 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_030",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "55680 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_028",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "66760/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_025",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "46080 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_026",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "48000 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_027",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "47520/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_015",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "60000 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_035",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "55680/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_031",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "55680/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_BACHELOR_016",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "60000 / year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_DOCTOR_003",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "50,880/year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_007",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "60480/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_010",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3",
+      "tuitionDisplay": "68160",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_015",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4",
+      "tuitionDisplay": "50880/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_017",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": null,
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_duration",
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_011",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3",
+      "tuitionDisplay": "68160/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_016",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": null,
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_duration",
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_002",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3",
+      "tuitionDisplay": "61200/year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_012",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3",
+      "tuitionDisplay": "68160/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_005",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3",
+      "tuitionDisplay": "68400/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_008",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4",
+      "tuitionDisplay": "50880/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_006",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3",
+      "tuitionDisplay": "68400/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_019",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4",
+      "tuitionDisplay": "50,880/year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_014",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4",
+      "tuitionDisplay": "80640/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_020",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4",
+      "tuitionDisplay": "50,880/year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_018",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": null,
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_duration",
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_004",
+      "studyLevel": "DIPLOMA",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "44160/ year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_DOCTOR_007",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "50,880/year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_022",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4",
+      "tuitionDisplay": "50,880/year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_DOCTOR_006",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "50,880/year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_BACHELOR_PDF_002",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3年",
+      "tuitionDisplay": "国际学生 RM 47,000/年",
+      "issues": []
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_BACHELOR_PDF_003",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3年",
+      "tuitionDisplay": "国际学生 RM 47,380/年",
+      "issues": []
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_BACHELOR_PDF_004",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3年",
+      "tuitionDisplay": "国际学生 RM 47,000/年",
+      "issues": []
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_BACHELOR_PDF_001",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": null,
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_duration",
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_BACHELOR_PDF_005",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3年",
+      "tuitionDisplay": "国际学生 RM 50,340/年",
+      "issues": []
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_BACHELOR_PDF_006",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3年",
+      "tuitionDisplay": "国际学生 RM 47,380/年",
+      "issues": []
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_FOUNDATION_PDF_003",
+      "studyLevel": "FOUNDATION",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1年",
+      "tuitionDisplay": "国际学生 RM 31,440/年",
+      "issues": []
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_FOUNDATION_PDF_002",
+      "studyLevel": "FOUNDATION",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1年",
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_DOCTOR_PDF_001",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": null,
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_duration",
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_FOUNDATION_PDF_001",
+      "studyLevel": "FOUNDATION",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1年",
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_MASTER_PDF_002",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2+2 / 4+0（来源表述）",
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_MASTER_PDF_003",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2+2 / 4+0（来源表述）",
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "southampton",
+      "programmeCode": "SOUTHAMPTON_MASTER_PDF_001",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2+2 / 4+0（来源表述）",
+      "tuitionDisplay": null,
+      "issues": [
+        "missing_tuition"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_018",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM44,900 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_037",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM53,800 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_035",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM53,800 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_039",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "RM60,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_001",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM48,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_002",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM48,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_006",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM48,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_021",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "RM57,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_022",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "RM57,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_023",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "RM61,100 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_029",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM49,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_030",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM50,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_019",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM46,800 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_020",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM46,800 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_016",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM35,600 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_024",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "RM61,100 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_007",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM35,500 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_008",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM35,500 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_036",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM49,500 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_003",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM35,500 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_005",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM45,500 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_011",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM43,200 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_010",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM43,200 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_012",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM39,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_009",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM44,500 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_013",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM43,300 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_014",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM43,300 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_015",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM43,300 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_004",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM49,400 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_026",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM49,950 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_025",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM48,500 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_027",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "RM57,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_028",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "RM57,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_034",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM46,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_038",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM55,500 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_032",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM48,400 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_033",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM48,400 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_031",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM49,000 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_BACHELOR_017",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "RM35,600 per year",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_006",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_002",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_020",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,200",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_013",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM58,630 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_031",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,630 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_032",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,630",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_006",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_017",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_018",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_003",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM68,365",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_001",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM45,900 /Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_002",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_010",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM51,865 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_027",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM51,865 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_028",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM51,865 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_007",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_009",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1 - 2 S",
+      "tuitionDisplay": "RM19,500",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_008",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM39,100",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_004",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_007",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,700",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_012",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_014",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM51,865*/ Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_033",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM51,865*/ Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_004",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM63,000",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_019",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,200",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_021",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM61,700",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_022",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM53,130",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_005",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,700",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_025",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM56,900",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_011",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "Molecular (per year): RM74,415 / Non-molecular (per year): RM58,630",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_029",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "Molecular (per year): RM74,415 / Non-molecular (per year): RM58,630",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_008",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "Molecular (per year): RM74,415, Non-molecular (per year): RM58,630",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_024",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "Molecular (per year): RM74,415, Non-molecular (per year): RM58,630",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_023",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "MRes: Molecular (per year): RM60,000, Non-molecular (pear year): RM58,630",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_016",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,900",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_011",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,700",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_010",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,700",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_014",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM46,900",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_001",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM57,000",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_003",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_005",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_015",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM45,900 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_013",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM46,900",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_009",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM58,630 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_026",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM58,630 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_DOCTOR_012",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "6",
+      "tuitionDisplay": "RM51,865 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "nottingham",
+      "programmeCode": "NOTTINGHAM_MASTER_030",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2",
+      "tuitionDisplay": "RM51,865 / Y",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_011",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "40000",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_010",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "40000",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_035",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_015",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_024",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_019",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_001",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "37600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_006",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "37600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_033",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_004",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "7",
+      "tuitionDisplay": "32900",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_027",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "7",
+      "tuitionDisplay": "29400",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_022",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_032",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_013",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_030",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_020",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_029",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "7",
+      "tuitionDisplay": "29400",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_028",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_018",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_017",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "40000",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_021",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_002",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "7",
+      "tuitionDisplay": "32900",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_025",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_026",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "7",
+      "tuitionDisplay": "29400",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_016",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_012",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_014",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_007",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_009",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_008",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_005",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "7",
+      "tuitionDisplay": "32900",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_003",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "7",
+      "tuitionDisplay": "32900",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_034",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_023",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "uum",
+      "programmeCode": "UUM_BACHELOR_031",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "8",
+      "tuitionDisplay": "33600",
+      "issues": [
+        "ambiguous_semester_count",
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_009",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3.6Y/10S",
+      "tuitionDisplay": "RM53,800",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_020",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM52,080",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_014",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4Y/11S",
+      "tuitionDisplay": "RM92,500",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_007",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM50,080",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_021",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4Y/8S",
+      "tuitionDisplay": "RM62,160",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_004",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM52,095",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_006",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM50,100",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_005",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM52,000",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_012",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM50,050",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_019",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM52,000",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_018",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM52,020",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_008",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM50,040",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_015",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4Y/11S",
+      "tuitionDisplay": "RM63,100",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_002",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM70,200",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_001",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM52,080",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_017",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM69,840",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_011",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM50,050",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_024",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3.1/2Y/11S",
+      "tuitionDisplay": "RM54,450",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_022",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4Y/8S",
+      "tuitionDisplay": "RM62,395",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_003",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM52,010",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_016",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4Y/8S",
+      "tuitionDisplay": "RM53,250",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_013",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "4Y/11S",
+      "tuitionDisplay": "RM92,500",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_010",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM50,890",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_BACHELOR_023",
+      "studyLevel": "BACHELOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3Y/9S",
+      "tuitionDisplay": "RM55,350",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_DOCTOR_001",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3 years (9 Sem)",
+      "tuitionDisplay": "RM47,740",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_DOCTOR_002",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3 years (9 Sem)",
+      "tuitionDisplay": "RM47,760",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_DOCTOR_009",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3 years (9 Sem)",
+      "tuitionDisplay": "RM47,760",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_DOCTOR_003",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3 years (9 Sem)",
+      "tuitionDisplay": "RM47,760",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_DOCTOR_004",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3 years (9 Sem)",
+      "tuitionDisplay": "RM47,760",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_DOCTOR_005",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3 years (9 Sem)",
+      "tuitionDisplay": "RM47,760",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_DOCTOR_006",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3 years (9 Sem)",
+      "tuitionDisplay": "RM47,760",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_DOCTOR_008",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3 years (9 Sem)",
+      "tuitionDisplay": "RM47,800",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_DOCTOR_007",
+      "studyLevel": "DOCTOR",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "3 years (9 Sem)",
+      "tuitionDisplay": "RM47,800",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_004",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1 Year ( 3 Sem)",
+      "tuitionDisplay": "RM33,460",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_010",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1 Year ( 3 Sem)",
+      "tuitionDisplay": "RM33,480",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_006",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2 years (4 Sem)",
+      "tuitionDisplay": "RM33,480",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_001",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1 year (3 Sem)",
+      "tuitionDisplay": "RM33,460",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_009",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1 Year ( 3 Sem)",
+      "tuitionDisplay": "RM33,480",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_005",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1 Year ( 3 Sem)",
+      "tuitionDisplay": "RM33,480",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_003",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1 years (3 Sem)",
+      "tuitionDisplay": "RM33,480",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_007",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "1 Year ( 3 Sem)",
+      "tuitionDisplay": "RM33,480",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_002",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2 years (6 Sem)",
+      "tuitionDisplay": "RM33,480",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    },
+    {
+      "university": "city",
+      "programmeCode": "CITY_MASTER_008",
+      "studyLevel": "MASTER",
+      "courseMode": "ON_CAMPUS",
+      "durationDisplay": "2 years (6 Sem)",
+      "tuitionDisplay": "RM33,480",
+      "issues": [
+        "tuition_student_category_unspecified"
+      ]
+    }
+  ]
+}
