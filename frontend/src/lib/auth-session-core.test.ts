@@ -32,6 +32,15 @@ test("loads authenticated adviser capabilities through an uncached cookie-bound 
   }
 });
 
+test("session capability parsing tolerates additive backend fields", async () => {
+  const request = (async () => Response.json({
+    authenticated: true, userId: 7, fullName: "Administrator", adviser: false, admin: true,
+    futureCapability: "ignored",
+  })) as typeof fetch;
+  assert.deepEqual(await loadSessionAccess("http://backend:8080", "JSESSIONID=session", request),
+    { authenticated: true, adviser: false, admin: true });
+});
+
 test("adviser session access fails closed for anonymous and malformed session contracts", async () => {
   for (const payload of [
     { authenticated: false, userId: null, fullName: null, adviser: false, admin: false },

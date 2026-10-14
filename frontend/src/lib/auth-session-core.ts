@@ -7,8 +7,11 @@ export async function loadSessionAccess(
   request: typeof fetch = fetch, clientAddress?: string | null,
 ): Promise<SessionAccess> {
   const payload = await sessionPayload(apiBaseUrl, cookieHeader, request, clientAddress);
-  // Adviser authorization requires the complete current backend session contract.
-  if (!payload || Object.keys(payload).sort().join(",") !== "admin,adviser,authenticated,fullName,userId"
+  // Authorization requires every known capability field, while allowing future
+  // backend releases to add fields without breaking an already-open frontend.
+  if (!payload
+    || !["admin", "adviser", "authenticated", "fullName", "userId"]
+      .every((key) => Object.prototype.hasOwnProperty.call(payload, key))
     || typeof payload.authenticated !== "boolean" || typeof payload.adviser !== "boolean" || typeof payload.admin !== "boolean"
     || payload.authenticated !== true
     || typeof payload.userId !== "number" || !Number.isSafeInteger(payload.userId) || payload.userId <= 0
