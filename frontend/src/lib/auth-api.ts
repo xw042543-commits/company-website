@@ -78,6 +78,10 @@ function hasExactKeys(value: Record<string, unknown>, keys: readonly string[]): 
   return actual.length === expected.length && actual.every((key, index) => key === expected[index]);
 }
 
+function hasRequiredKeys(value: Record<string, unknown>, keys: readonly string[]): boolean {
+  return keys.every((key) => Object.prototype.hasOwnProperty.call(value, key));
+}
+
 function isNullableString(value: unknown): value is string | null {
   return value === null || typeof value === "string";
 }
@@ -113,7 +117,7 @@ function parseCsrf(payload: unknown): { headerName: string; token: string } | nu
 
 function parseSession(payload: unknown): AuthSession | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["authenticated", "userId", "fullName", "adviser", "admin"])
+    || !hasRequiredKeys(payload, ["authenticated", "userId", "fullName", "adviser", "admin"])
     || typeof payload.adviser !== "boolean"
     || typeof payload.admin !== "boolean"
     || typeof payload.authenticated !== "boolean"

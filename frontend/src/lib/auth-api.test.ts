@@ -62,9 +62,13 @@ test("accepts backend adviser and administrator session capabilities", async () 
     requestQueue([jsonResponse(anonymous)]).request), { status: "ready", session: anonymous });
 });
 
-test("rejects malformed capabilities and unexpected fields in backend sessions", async () => {
+test("rejects malformed capabilities while allowing additive backend session fields", async () => {
+  assert.deepEqual(await getSession("http://localhost:8080",
+    requestQueue([jsonResponse({ ...session, futureCapability: true })]).request),
+  { status: "ready", session });
   for (const payload of [
-    { ...session, adviser: "true" }, { ...session, admin: null }, { ...session, role: "ADVISER" },
+    { ...session, adviser: "true" }, { ...session, admin: null },
+    { authenticated: true, userId: 7, fullName: "Wang Xin", adviser: false },
     { authenticated: false, userId: null, fullName: null, adviser: true, admin: false },
   ]) {
     assert.deepEqual(await getSession("http://localhost:8080", requestQueue([jsonResponse(payload)]).request),
