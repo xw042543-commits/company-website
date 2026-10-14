@@ -27,6 +27,7 @@ class ApplicationHttpTest {
  @Autowired WebApplicationContext context;
  @MockitoBean UserAccountDetailsService accounts;
  @MockitoBean ApplicationRepository repository;
+ @MockitoBean ApplicationCheckoutRepository checkouts;
  MockMvc mvc;
  UserPrincipal student;
  UserPrincipal adviser;

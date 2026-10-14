@@ -29,3 +29,10 @@ test('validates fees and preserves currency without implying free service',()=>{
  const result=mapApplicationDetail({application,documents:[],fees:[fee],history:[]});assert.ok(result.ok);assert.equal(result.value.fees[0]?.displayAmount,'MYR 100.00');
  for(const patch of [{amount:-1},{amount:Infinity},{currency:'BAD-CODE'},{status:'FAKE'}])assert.equal(mapApplicationDetail({application,documents:[],fees:[{...fee,...patch}],history:[]}).ok,false);
 });
+test('accepts unpaid applications and exposes only server-reported payment readiness',()=>{
+ const unpaid={...application,status:'UNPAID'};
+ const payment={orderId:id,reference:'PAY-TEST',status:'UNPAID',amountFen:null,currency:'CNY',ready:false,missingConfiguration:['微信支付商户号']};
+ const result=mapApplicationDetail({application:unpaid,documents:[],fees:[],history:[],payment});assert.ok(result.ok);
+ assert.equal(result.value.application.statusLabel,'未支付');assert.equal(result.value.payment?.ready,false);
+ assert.deepEqual(result.value.payment?.missingConfiguration,['微信支付商户号']);
+});

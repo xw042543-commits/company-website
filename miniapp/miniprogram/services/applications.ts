@@ -2,10 +2,10 @@ import { request } from './http';
 import type { Result } from '../utils/result';
 import { universityLogoUrl } from './university-media';
 
-export const STATUS_LABELS = { IN_PROGRESS: '进行中', NEEDS_DOCUMENTS: '待补充材料', SUBMITTED: '已递交', COMPLETED: '已完成', CANCELLED: '已取消' } as const;
+export const STATUS_LABELS = { UNPAID: '未支付', PAID: '已支付/待处理', IN_PROGRESS: '进行中', NEEDS_DOCUMENTS: '待补充材料', SUBMITTED: '已递交', COMPLETED: '已完成', CANCELLED: '已取消' } as const;
 export type ApplicationStatus = keyof typeof STATUS_LABELS;
 export const STAGES = ['材料准备', '材料初审', '申请递交', '院校审核', '录取结果', '签证办理', '入学报到', '结案'];
-export const FILTERS = [{ value: '', label: '全部申请' }, { value: 'IN_PROGRESS', label: '进行中' }, { value: 'NEEDS_DOCUMENTS', label: '待补充材料' }, { value: 'COMPLETED', label: '已完成' }, { value: 'CANCELLED', label: '已取消' }];
+export const FILTERS = [{ value: '', label: '全部申请' }, { value: 'UNPAID', label: '未支付' }, { value: 'PAID', label: '已支付/待处理' }, { value: 'IN_PROGRESS', label: '进行中' }, { value: 'NEEDS_DOCUMENTS', label: '待补充材料' }, { value: 'SUBMITTED', label: '已递交院校' }, { value: 'COMPLETED', label: '已完成' }, { value: 'CANCELLED', label: '已取消' }];
 export interface ApplicationSummary {
   id: string; reference: string; universitySlug: string; universityName: string; programmeName: string;
   level: string; subject: string; status: ApplicationStatus; stage: number; note: string; createdAt: string;
@@ -17,8 +17,12 @@ export interface ApplicationDocument {
 }
 export interface ApplicationFee { id: string; title: string; amount: number; currency: string; status: 'DUE' | 'PAID' | 'WAIVED'; stage: number; displayAmount: string; statusLabel: string }
 export interface ApplicationEvent { id: string; stage: number; message: string; createdAt: string; date: string }
-export interface ApplicationDetail { application: ApplicationSummary; documents: ApplicationDocument[]; fees: ApplicationFee[]; history: ApplicationEvent[] }
+export interface ApplicationPayment { orderId: string; reference: string; status: string; amountFen: number | null;
+  currency: string; ready: boolean; missingConfiguration: string[] }
+export interface ApplicationDetail { application: ApplicationSummary; documents: ApplicationDocument[]; fees: ApplicationFee[]; history: ApplicationEvent[]; payment: ApplicationPayment | null }
 export interface ApplicationPage { items: ApplicationSummary[]; hasMore: boolean }
+export interface ApplicationCheckout { orderId: string; reference: string; status: string; amountFen: number | null;
+  currency: string; applications: ApplicationDetail[]; missingConfiguration: string[] }
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 export function validApplicationId(id: string): boolean { return UUID.test(id); }
 const record = (value: unknown): value is Record<string, unknown> => !!value && typeof value === 'object' && !Array.isArray(value);
@@ -33,7 +37,7 @@ export function mapSummary(raw: unknown): ApplicationSummary | null {
   return { id: raw.id, reference: String(raw.reference), universitySlug: String(raw.universitySlug), universityName: String(raw.universityName),
     programmeName: String(raw.programmeName), level: String(raw.level), subject: String(raw.subject), status, stage: raw.stage,
     note: String(raw.note), createdAt: raw.createdAt, date: raw.createdAt.slice(0,10), statusLabel: STATUS_LABELS[status],
-    tone: status === 'NEEDS_DOCUMENTS' ? 'warning' : status === 'CANCELLED' || status === 'SUBMITTED' ? 'muted' : 'green', logo: universityLogoUrl(String(raw.universitySlug)) };
+    tone: status === 'UNPAID' || status === 'NEEDS_DOCUMENTS' ? 'warning' : status === 'CANCELLED' || status === 'SUBMITTED' ? 'muted' : 'green', logo: universityLogoUrl(String(raw.universitySlug)) };
 }
 export function mapApplicationPage(raw: unknown): Result<ApplicationPage> {
   if (!record(raw) || !Array.isArray(raw.items) || typeof raw.hasMore !== 'boolean') return invalid();
@@ -66,7 +70,9 @@ export function mapApplicationDetail(raw: unknown): Result<ApplicationDetail> {
     if (!record(e) || !text(e.id) || !UUID.test(e.id) || !stage(e.stage) || !text(e.message) || !date(e.createdAt)) return invalid();
     history.push({ id:e.id,stage:e.stage,message:e.message,createdAt:e.createdAt,date:e.createdAt.slice(0,16).replace('T',' ') });
   }
-  return { ok:true,value:{application,documents,fees,history} };
+  const payment = raw.payment == null ? null : mapPayment(raw.payment);
+  if (raw.payment != null && !payment) return invalid();
+  return { ok:true,value:{application,documents,fees,history,payment} };
 }
 export async function getApplications(status: string, page: number): Promise<Result<ApplicationPage>> {
   const response = await request<unknown>({ method:'GET',path:`/api/v1/miniapp/me/applications?page=${page}${status ? `&status=${encodeURIComponent(status)}` : ''}`,authenticated:true });
@@ -81,4 +87,34 @@ export async function submitApplicationDocument(id: string, document: string, fi
   if (!validApplicationId(id) || !validApplicationId(document)) return invalid();
   const response = await request<unknown>({method:'PUT',path:`/api/v1/miniapp/me/applications/${id}/documents/${document}`,data:{filename,contentBase64},authenticated:true});
   return response.ok ? mapApplicationDetail(response.value) : response;
+}
+export async function createApplicationCheckout(programmeIds: number[], idempotencyKey: string): Promise<Result<ApplicationCheckout>> {
+  if (!programmeIds.length || programmeIds.length > 20 || new Set(programmeIds).size !== programmeIds.length
+    || programmeIds.some(id => !Number.isSafeInteger(id) || id < 1) || !/^[A-Za-z0-9_-]{16,80}$/.test(idempotencyKey)) return invalid();
+  const response = await request<unknown>({method:'POST',path:'/api/v1/miniapp/me/applications/checkout',data:{programmeIds},
+    authenticated:true,idempotencyKey});
+  if (!response.ok) return response;
+  return mapCheckout(response.value);
+}
+export async function prepareApplicationPayment(id: string): Promise<Result<ApplicationPayment>> {
+  if (!validApplicationId(id)) return invalid();
+  const response = await request<unknown>({method:'POST',path:`/api/v1/miniapp/me/applications/${id}/payment`,authenticated:true});
+  if (!response.ok) return response;
+  const payment=mapPayment(response.value); return payment?{ok:true,value:payment}:invalid();
+}
+function mapPayment(raw: unknown): ApplicationPayment | null {
+  if (!record(raw) || !text(raw.orderId) || !UUID.test(raw.orderId) || !text(raw.reference) || !text(raw.status)
+    || !(raw.amountFen === null || (Number.isSafeInteger(raw.amountFen) && Number(raw.amountFen) >= 0))
+    || raw.currency !== 'CNY' || typeof raw.ready !== 'boolean' || !Array.isArray(raw.missingConfiguration)
+    || !raw.missingConfiguration.every(text)) return null;
+  return {orderId:raw.orderId,reference:raw.reference,status:raw.status,amountFen:raw.amountFen as number|null,
+    currency:raw.currency,ready:raw.ready,missingConfiguration:[...raw.missingConfiguration] as string[]};
+}
+function mapCheckout(raw: unknown): Result<ApplicationCheckout> {
+  if (!record(raw) || !Array.isArray(raw.applications) || !Array.isArray(raw.missingConfiguration)) return invalid();
+  const payment=mapPayment({...raw,ready:false}); if(!payment)return invalid();
+  const applications:ApplicationDetail[]=[];
+  for(const item of raw.applications){const mapped=mapApplicationDetail(item);if(!mapped.ok)return invalid();applications.push(mapped.value);}
+  return {ok:true,value:{orderId:payment.orderId,reference:payment.reference,status:payment.status,amountFen:payment.amountFen,
+    currency:payment.currency,applications,missingConfiguration:payment.missingConfiguration}};
 }

@@ -19,6 +19,7 @@ function setup(fail = false) {
     favourites: async () => fail ? { ok: false, error: { kind: 'unavailable', code: 'FAILED' } } : { ok: true, value: courses },
     detail: async () => ({ ok: false, error: { kind: 'unavailable', code: 'FAILED' } }),
     remove: async () => ({ ok: true, value: undefined }),
+    checkout: async () => ({ ok: false, error: { kind: 'unavailable', code: 'FAILED' } }),
   });
   return Object.assign(definition, { setData(patch: object) { Object.assign(definition.data, patch); } });
 }

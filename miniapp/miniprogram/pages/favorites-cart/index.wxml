@@ -21,5 +21,5 @@
       <view wx:if="{{!group.courses.length}}" class="school-empty">{{failed ? '专业收藏待加载，请重试' : '还没有收藏这所院校的专业'}}</view>
     </view>
   </view>
-  <view class="cart-footer"><button class="select-control" bindtap="toggleAll" disabled="{{loading || !groups.length}}" aria-pressed="{{allChecked}}"><text class="check {{allChecked ? 'check--on' : ''}}">{{allChecked ? '✓' : ''}}</text>全选</button><text class="selected-summary">已选 <text class="count">{{selectedCount}}</text> 个专业</text><button class="checkout" disabled="{{!selectedCount}}" bindtap="checkout">确定申请</button></view>
+  <view class="cart-footer"><button class="select-control" bindtap="toggleAll" disabled="{{loading || !groups.length || checkingOut}}" aria-pressed="{{allChecked}}"><text class="check {{allChecked ? 'check--on' : ''}}">{{allChecked ? '✓' : ''}}</text>全选</button><text class="selected-summary">已选 <text class="count">{{selectedCount}}</text> 个专业</text><button class="checkout" loading="{{checkingOut}}" disabled="{{!selectedCount || checkingOut}}" bindtap="checkout">{{checkingOut ? '创建中' : '确定申请'}}</button></view>
 </view>

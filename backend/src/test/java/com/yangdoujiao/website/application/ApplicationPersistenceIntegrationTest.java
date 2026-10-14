@@ -33,4 +33,19 @@ class ApplicationPersistenceIntegrationTest {
   app=service.fee(adviser,id,UUID.randomUUID(),new FeeRequest("Application fee",new BigDecimal("100.00"),"MYR",FeeStatus.DUE,3));assertThat(app.fees()).hasSize(1);
   app=service.progress(adviser,id,new Progress(Status.SUBMITTED,3,"Sent to university"));assertThat(service.list(owner,false,Status.IN_PROGRESS,0).items()).hasSize(1);assertThat(app.history()).hasSize(6);
  }
+ @Test void studentCheckoutCreatesIndependentUnpaidApplicationsAndIsIdempotent(){
+  long owner=account();String suffix=UUID.randomUUID().toString().replace("-","");
+  long category=jdbc.queryForObject("INSERT INTO subject_categories(code,name_en) VALUES(?, 'Computing') RETURNING id",Long.class,"PAY_"+suffix.toUpperCase());
+  long university=jdbc.queryForObject("INSERT INTO universities(name,slug,country,name_zh,status) VALUES('Checkout School',?,'Malaysia','结算院校','PUBLISHED') RETURNING id",Long.class,"checkout-"+suffix);
+  long first=jdbc.queryForObject("INSERT INTO programmes(programme_code,university_id,subject_category_id,slug,name_zh,status) VALUES(?,?,?,?,'专业一','PUBLISHED') RETURNING id",Long.class,"PAY_A_"+suffix.toUpperCase(),university,category,"checkout-a-"+suffix);
+  long second=jdbc.queryForObject("INSERT INTO programmes(programme_code,university_id,subject_category_id,slug,name_zh,status) VALUES(?,?,?,?,'专业二','PUBLISHED') RETURNING id",Long.class,"PAY_B_"+suffix.toUpperCase(),university,category,"checkout-b-"+suffix);
+  String key="checkout_"+suffix;
+  var created=service.checkout(owner,key,new CheckoutRequest(List.of(first,second)));
+  assertThat(created.status()).isEqualTo("UNPAID");assertThat(created.amountFen()).isNull();assertThat(created.applications()).hasSize(2);
+  assertThat(created.applications()).allMatch(item->item.application().status()==Status.UNPAID && item.payment()!=null && !item.payment().ready());
+  var retried=service.checkout(owner,key,new CheckoutRequest(List.of(second,first)));
+  assertThat(retried.orderId()).isEqualTo(created.orderId());
+  assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM student_applications WHERE payment_order_id=?",Long.class,created.orderId())).isEqualTo(2);
+  assertThatThrownBy(()->service.checkout(owner,key,new CheckoutRequest(List.of(first)))).isInstanceOf(ApiException.class);
+ }
 }

@@ -43,10 +43,10 @@
     </view>
   </view>
 
-  <view wx:if="{{session.status === 'authenticated'}}" class="overview-grid">
-    <view class="overview-item"><view class="overview-number">{{overview.favorites}}</view><text>专业收藏</text></view>
-    <view class="overview-item"><view class="overview-number">{{overview.plans}}</view><text>留学规划</text></view>
-    <view class="overview-item"><view class="overview-number">{{overview.consultations}}</view><text>咨询记录</text></view>
+  <view class="overview-grid">
+    <button class="overview-item" data-key="favorites" bindtap="openMenu"><view class="overview-number">{{session.status === 'authenticated' ? overview.favorites : '♡'}}</view><text>我的收藏</text></button>
+    <button class="overview-item" data-key="community" bindtap="openMenu"><view class="overview-number">发</view><text>我的发布</text></button>
+    <button class="overview-item" data-key="adviser" bindtap="openMenu"><view class="overview-number">询</view><text>咨询顾问</text></button>
   </view>
 
   <view class="journey-heading">
