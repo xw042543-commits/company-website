@@ -385,9 +385,9 @@ test("maps a V1 result to a localized card with at most three programmes", () =>
     cityEn: "Kuala Lumpur",
     matchedProgrammeCount: 4,
     matchedCourses: [
-      { id: "11", name: "计算机科学学士", level: "BACHELOR", language: "EN" },
-      { id: "12", name: "专业 12", level: "BACHELOR", language: "EN" },
-      { id: "13", name: "专业 13", level: "BACHELOR", language: "EN" },
+      { id: "11", name: "计算机科学学士", level: "本科", language: "EN" },
+      { id: "12", name: "专业 12", level: "本科", language: "EN" },
+      { id: "13", name: "专业 13", level: "本科", language: "EN" },
     ],
   });
 });
@@ -536,7 +536,7 @@ test("maps university details and programmes to localized display data", () => {
         secondaryName: "Bachelor of Computer Science",
         description: "课程中文介绍",
         category: "COMPUTING",
-        level: "BACHELOR",
+        level: "本科",
         mode: "ON_CAMPUS",
         languages: "EN",
         duration: "3 years",

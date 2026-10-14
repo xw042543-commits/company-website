@@ -12,6 +12,7 @@ import { programmeDetailPath } from "@/lib/programme-routes";
 import { findProgrammeSection } from "@/lib/programme-detail-sections";
 import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { formatEnglishDisplayText, isLocale, words } from "@/lib/site";
+import { studyLevelDisplayName } from "@/lib/study-level-display";
 import { getUniversityProgramme, type UniversityProgramme, type UniversityProgrammeDetailSection } from "@/lib/university-api";
 
 type ProgrammePageProps = {
@@ -92,13 +93,14 @@ function remoteProgrammeDetail(
 }
 
 function levelName(locale: "zh" | "en", level: string) {
-  const values: Record<string, [string, string]> = {
-    bachelor: ["本科", "Bachelor's"],
-    master: ["硕士", "Master's"],
-    doctorate: ["博士", "Doctorate"],
+  if (locale === "zh") return studyLevelDisplayName(locale, { code: level, nameEn: level });
+  const names: Record<string, string> = {
+    diploma: "Diploma",
+    bachelor: "Bachelor's",
+    master: "Master's",
+    doctorate: "Doctorate",
   };
-  const value = values[level];
-  return value ? words(locale, value[0], value[1]) : level;
+  return names[level] ?? formatEnglishDisplayText(level);
 }
 
 function programmeIntroduction({
