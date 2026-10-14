@@ -61,6 +61,9 @@ public class ProgrammeDetailSection {
     @Column(name = "source_checked_at")
     private OffsetDateTime sourceCheckedAt;
 
+    @Column(name = "source_type", length = 20)
+    private String sourceType;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private CategoryStatus status;

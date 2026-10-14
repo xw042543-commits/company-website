@@ -142,12 +142,13 @@ public class AdminCatalogRepository {
         }
         jdbc.update("""
                 INSERT INTO programme_detail_sections(programme_id,section_type,title_zh,title_en,body_zh,body_en,sort_order,
-                    source_url,source_checked_at,status)
-                VALUES (?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP,'PUBLISHED')
+                    source_url,source_checked_at,source_type,status)
+                VALUES (?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP,CASE WHEN ? IS NULL THEN 'ai_generated' ELSE 'official' END,'PUBLISHED')
                 ON CONFLICT (programme_id,section_type) DO UPDATE SET title_zh=EXCLUDED.title_zh,title_en=EXCLUDED.title_en,
                     body_zh=EXCLUDED.body_zh,body_en=EXCLUDED.body_en,sort_order=EXCLUDED.sort_order,
-                    source_url=EXCLUDED.source_url,source_checked_at=CURRENT_TIMESTAMP,status='PUBLISHED',updated_at=CURRENT_TIMESTAMP
-                """, programmeId, type, titleZh, titleEn, blank(bodyZh), blank(bodyEn), sortOrder, blank(sourceUrl));
+                    source_url=EXCLUDED.source_url,source_checked_at=CURRENT_TIMESTAMP,source_type=EXCLUDED.source_type,
+                    status='PUBLISHED',updated_at=CURRENT_TIMESTAMP
+                """, programmeId, type, titleZh, titleEn, blank(bodyZh), blank(bodyEn), sortOrder, blank(sourceUrl), blank(sourceUrl));
     }
 
     public int setUniversityStatus(long id, boolean enabled) {
