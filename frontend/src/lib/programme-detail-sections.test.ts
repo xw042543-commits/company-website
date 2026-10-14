@@ -35,4 +35,7 @@ test("only returns curriculum with an official source and parses official module
   assert.deepEqual(parseOfficialCurriculumItems("Year 1 Year 2 Fundamentals of Programming\nDatabase\nDatabase\nNote:"), [
     "Fundamentals of Programming", "Database",
   ]);
+  assert.deepEqual(parseOfficialCurriculumItems("Programming\nMinimum average of 65%\nCore Elective (Choose 1)\n1. Elective Course 1\nSoftware Requirements Engineering"), [
+    "Programming", "Software Requirements Engineering",
+  ]);
 });

@@ -126,11 +126,11 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("37");
-            assertThat(latest.info().applied()).hasSize(37);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("38");
+            assertThat(latest.info().applied()).hasSize(38);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 37)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 38)
                             .mapToObj(Integer::toString).toList());
             assertThat(jdbcTemplate.queryForMap("""
                     SELECT status, published_at IS NOT NULL AS has_published_at
@@ -163,6 +163,20 @@ class V3MigrationCompatibilityTest {
                     WHERE s.section_type IN ('CURRICULUM', 'COURSE_STRUCTURE')
                       AND s.status = 'PUBLISHED'
                       AND NULLIF(BTRIM(s.source_url), '') IS NULL
+                    """, Integer.class)).isZero();
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT count(*)
+                    FROM programme_detail_sections s
+                    JOIN programmes p ON p.id = s.programme_id
+                    JOIN universities u ON u.id = p.university_id
+                    JOIN countries c ON c.id = u.country_id
+                    WHERE c.code = 'MY'
+                      AND s.section_type IN ('CURRICULUM', 'COURSE_STRUCTURE')
+                      AND s.status = 'PUBLISHED'
+                      AND (
+                        s.body_en ~* '(^|\\n)(note([ :]|$)|next\\s*:|year\\s*[0-9]+([ :]|$)|semester\\s*[0-9]+([ :]|$)|choose([ :]|$)|students?([ :]|$)|elective courses?([ :0-9(]|$)|speciali[sz]ation elective([ :0-9(]|$)|programme course elective([ :#]|$)|faculty open elective([ :]|$)|kursus elektif([ :]|$)|pilih([ :]|$))'
+                        OR s.body_en ~* '(entry requirements?|minimum (average|score|cgpa|grade)|ielts|toefl|muet|[0-9]+\\s*%)'
+                      )
                     """, Integer.class)).isZero();
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT status FROM universities WHERE id = ?

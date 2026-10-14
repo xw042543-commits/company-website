@@ -3,6 +3,7 @@ import test from "node:test";
 import { extractProgrammes, extractUniversity } from "../src/extract.ts";
 import { isPrivateAddress } from "../src/network.ts";
 import { mayFetch, parseRobots } from "../src/robots.ts";
+import { extractOfficialCourseTitles, validateOfficialCurriculum } from "../src/curriculum.ts";
 import type { PageSnapshot, SourceDefinition } from "../src/types.ts";
 
 const source: SourceDefinition = { sourceKey: "example-u", displayName: "Example U", seedUrls: ["https://example.edu/programmes"], allowedHosts: ["example.edu"], countryRaw: "Malaysia" };
@@ -70,6 +71,38 @@ test("extracts Taylor's official detail sections and international fee", () => {
   assert.match(programme.sections.find((section) => section.type === "CURRICULUM")?.bodyRaw ?? "", /Programming\nData Structures/);
 });
 
+test("keeps only official course titles from mixed Taylor curriculum markup", () => {
+  assert.deepEqual(extractOfficialCourseTitles(`
+    <p>Programme introduction and description.</p>
+    <p>• Database Systems</p><p>• Data Structures and Algorithms</p>
+    <p>Note: All information is subject to change.</p>
+    <a href="#entry-requirements">NEXT: ENTRY REQUIREMENTS</a>
+  `), ["Database Systems", "Data Structures and Algorithms"]);
+});
+
+test("keeps leaf UM modules and excludes selection instructions and admissions text", () => {
+  assert.deepEqual(extractOfficialCourseTitles(`
+    <ol><li>Fundamentals of Programming</li><li>Choose 2 electives:<ol>
+      <li>Machine Learning</li><li>Computer Vision</li>
+    </ol></li></ol>
+    <p>Minimum average of 65%</p>
+  `), ["Fundamentals of Programming", "Machine Learning", "Computer Vision"]);
+});
+
+test("rejects curriculum bodies contaminated with requirements or percentages", () => {
+  assert.throws(() => validateOfficialCurriculum("Programming\nMinimum average of 65%"), /非课程标题/);
+  assert.throws(() => validateOfficialCurriculum("Programming\nKursus Elektif: Pilih satu kursus sahaja"), /非课程标题/);
+  assert.throws(() => validateOfficialCurriculum("Programming\nCore Elective (Choose 1)"), /非课程标题/);
+  assert.throws(() => validateOfficialCurriculum("Programming\n7. Elective Courses: Faculty Open Elective"), /非课程标题/);
+  assert.deepEqual(validateOfficialCurriculum("Programming\nData Structures"), ["Programming", "Data Structures"]);
+  assert.deepEqual(validateOfficialCurriculum("1. Programming\n2. Data Structures"), ["Programming", "Data Structures"]);
+  assert.deepEqual(validateOfficialCurriculum("Elective Courses: Faculty Course - Arabic Language for Health and Sports"), ["Arabic Language for Health and Sports"]);
+  assert.deepEqual(validateOfficialCurriculum("Elective University Courses (Student Holistic Empowerment): Thinking Matters: Mind and Intellect"), ["Thinking Matters: Mind and Intellect"]);
+  assert.throws(() => validateOfficialCurriculum("Elective Course 1"), /非课程标题/);
+  assert.throws(() => validateOfficialCurriculum("GQX0056 (KIAR) Integrity And"), /非课程标题/);
+  assert.deepEqual(validateOfficialCurriculum("Software Requirements Engineering"), ["Software Requirements Engineering"]);
+});
+
 test("extracts UM faculty course cards and keeps the faculty as raw classification", () => {
   const um = { ...source, sourceKey: "university-of-malaya" };
   const listing = { ...page, html: `<li class="my-bc-item my-bc-active"><a href="faculty-of-computer-science"><i></i>Faculty of Computer Science</a></li><div class="course-card coursework" data-mode="fulltime"><a href="bachelor-of-computer-science-data-science">Bachelor of Computer Science (Data Science)</a></div>` };
@@ -117,7 +150,7 @@ test("separates UM curriculum embedded in the programme overview", () => {
   };
   const [programme] = extractProgrammes(detail, um);
   assert.equal(programme.descriptionEn, "Official overview text.");
-  assert.match(programme.sections.find((section) => section.type === "CURRICULUM")?.bodyRaw ?? "", /Year 1 Year 2 Year 3[\s\S]*Research Methods/);
+  assert.equal(programme.sections.find((section) => section.type === "CURRICULUM")?.bodyRaw, "Research Methods\nIndustrial Training");
 });
 
 test("honours the longest robots rule", () => {
