@@ -29,7 +29,7 @@ Page({
     if (key) this.setData({ activeTab: key });
   },
   supplement() {
-    wx.showModal({ title: '补充材料', content: '顾问会根据院校要求通知具体材料。请在咨询记录中确认联系方式并等待顾问联系。', showCancel: false });
+    wx.showModal({ title: '补充材料', content: '顾问会根据院校要求通知具体材料。请确认联系方式并等待顾问联系。', showCancel: false });
   },
   showReview() {
     wx.showModal({ title: '当前进度说明', content: this.data.detail?.currentMessage || '暂无审核意见。', showCancel: false });

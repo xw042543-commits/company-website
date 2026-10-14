@@ -17,7 +17,6 @@ export function createAccountPage(overrides: Partial<AccountDeps> = {}) {
     menuItems: [
       { key: 'orders', mark: '申', tone: 'forest', label: '我的申请', caption: '查看未支付、材料与申请进度' },
       { key: 'wallet', mark: '积', tone: 'amber', label: '会员积分', caption: '管理账户余额、积分与使用记录' },
-      { key: 'consultations', mark: '询', tone: 'amber', label: '咨询记录', caption: '查看已提交的咨询' },
       { key: 'settings', mark: '设', tone: 'stone', label: '设置', caption: '账号与隐私设置' },
       { key: 'about', mark: '洋', tone: 'mint', label: '关于我们', caption: '了解洋豆角' },
     ],
@@ -114,7 +113,6 @@ export function createAccountPage(overrides: Partial<AccountDeps> = {}) {
       orders: '/pages/orders/index', favorites: '/pages/favorites/index',
       universityFavorites: '/pages/university-favorites/index',
       wallet: '/pages/wallet/index',
-      consultations: '/pages/consultations/index',
       settings: '/pages/settings/index',
       about: '/pages/about/index',
     };

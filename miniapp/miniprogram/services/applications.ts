@@ -2,13 +2,18 @@ import { request } from './http';
 import type { Result } from '../utils/result';
 import { universityLogoUrl } from './university-media';
 
-export const STATUS_LABELS = { UNPAID: '未支付', PAID: '已支付/待处理', IN_PROGRESS: '进行中', NEEDS_DOCUMENTS: '待补充材料', SUBMITTED: '已递交', COMPLETED: '已完成', CANCELLED: '已取消' } as const;
+export const STATUS_LABELS = { UNPAID: '未支付', PAID: '进行中', IN_PROGRESS: '进行中', NEEDS_DOCUMENTS: '材料待补充', SUBMITTED: '进行中', COMPLETED: '待评价', CANCELLED: '已取消' } as const;
 export type ApplicationStatus = keyof typeof STATUS_LABELS;
+export type ApplicationDisplayStatus = 'UNPAID' | 'IN_PROGRESS' | 'NEEDS_DOCUMENTS' | 'PENDING_REVIEW' | 'CANCELLED';
 export const STAGES = ['材料准备', '材料初审', '申请递交', '院校审核', '录取结果', '签证办理', '入学报到', '结案'];
-export const FILTERS = [{ value: '', label: '全部申请' }, { value: 'UNPAID', label: '未支付' }, { value: 'PAID', label: '已支付/待处理' }, { value: 'IN_PROGRESS', label: '进行中' }, { value: 'NEEDS_DOCUMENTS', label: '待补充材料' }, { value: 'SUBMITTED', label: '已递交院校' }, { value: 'COMPLETED', label: '已完成' }, { value: 'CANCELLED', label: '已取消' }];
+export const FILTERS: ReadonlyArray<{ value: '' | ApplicationDisplayStatus; label: string }> = [
+  { value: '', label: '全部申请' }, { value: 'UNPAID', label: '未支付' },
+  { value: 'IN_PROGRESS', label: '进行中' }, { value: 'NEEDS_DOCUMENTS', label: '材料待补充' },
+  { value: 'PENDING_REVIEW', label: '待评价' }, { value: 'CANCELLED', label: '已取消' },
+];
 export interface ApplicationSummary {
   id: string; reference: string; universitySlug: string; universityName: string; programmeName: string;
-  level: string; subject: string; status: ApplicationStatus; stage: number; note: string; createdAt: string;
+  level: string; subject: string; status: ApplicationStatus; displayStatus: ApplicationDisplayStatus; stage: number; note: string; createdAt: string;
   statusLabel: string; tone: string; date: string; logo: string | null;
 }
 export interface ApplicationDocument {
@@ -35,7 +40,7 @@ export function mapSummary(raw: unknown): ApplicationSummary | null {
     || !stage(raw.stage) || !date(raw.createdAt) || !['reference','universitySlug','universityName','programmeName','level','subject','note'].every((key) => text(raw[key]))) return null;
   const status = raw.status as ApplicationStatus;
   return { id: raw.id, reference: String(raw.reference), universitySlug: String(raw.universitySlug), universityName: String(raw.universityName),
-    programmeName: String(raw.programmeName), level: String(raw.level), subject: String(raw.subject), status, stage: raw.stage,
+    programmeName: String(raw.programmeName), level: String(raw.level), subject: String(raw.subject), status, displayStatus: displayStatus(status), stage: raw.stage,
     note: String(raw.note), createdAt: raw.createdAt, date: raw.createdAt.slice(0,10), statusLabel: STATUS_LABELS[status],
     tone: status === 'UNPAID' || status === 'NEEDS_DOCUMENTS' ? 'warning' : status === 'CANCELLED' || status === 'SUBMITTED' ? 'muted' : 'green', logo: universityLogoUrl(String(raw.universitySlug)) };
 }
@@ -75,8 +80,15 @@ export function mapApplicationDetail(raw: unknown): Result<ApplicationDetail> {
   return { ok:true,value:{application,documents,fees,history,payment} };
 }
 export async function getApplications(status: string, page: number): Promise<Result<ApplicationPage>> {
-  const response = await request<unknown>({ method:'GET',path:`/api/v1/miniapp/me/applications?page=${page}${status ? `&status=${encodeURIComponent(status)}` : ''}`,authenticated:true });
+  const apiStatus = status === 'PENDING_REVIEW' ? 'COMPLETED' : status;
+  const response = await request<unknown>({ method:'GET',path:`/api/v1/miniapp/me/applications?page=${page}${apiStatus ? `&status=${encodeURIComponent(apiStatus)}` : ''}`,authenticated:true });
   return response.ok ? mapApplicationPage(response.value) : response;
+}
+
+export function displayStatus(status: ApplicationStatus): ApplicationDisplayStatus {
+  if (status === 'PAID' || status === 'IN_PROGRESS' || status === 'SUBMITTED') return 'IN_PROGRESS';
+  if (status === 'COMPLETED') return 'PENDING_REVIEW';
+  return status;
 }
 export async function getApplication(id: string): Promise<Result<ApplicationDetail>> {
   if (!validApplicationId(id)) return invalid();

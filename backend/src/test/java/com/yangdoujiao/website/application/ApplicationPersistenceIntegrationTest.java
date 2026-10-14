@@ -24,6 +24,8 @@ class ApplicationPersistenceIntegrationTest {
   long programme=jdbc.queryForObject("INSERT INTO programmes(programme_code,university_id,subject_category_id,slug,name_zh,status) VALUES(?,?,?,?,'测试专业','PUBLISHED') RETURNING id",Long.class,"APP_"+suffix.toUpperCase(),university,category,"application-"+suffix);
   var app=service.create(adviser,new Create(owner,programme));UUID id=app.application().id();
   assertThat(service.list(owner,false,null,0).items()).hasSize(1);
+  app=service.progress(adviser,id,new Progress(Status.PAID,1,"Payment confirmed"));
+  assertThat(service.list(owner,false,Status.IN_PROGRESS,0).items()).extracting(Summary::status).containsExactly(Status.PAID);
   assertThat(service.list(outsider,false,null,0).items()).isEmpty();
   assertThatThrownBy(()->service.detail(outsider,false,id)).isInstanceOf(ApiException.class);
   app=service.addDocument(adviser,id,new DocumentRequest("Passport",2));UUID doc=app.documents().getFirst().id();
@@ -31,7 +33,7 @@ class ApplicationPersistenceIntegrationTest {
   assertThat(service.file(owner,false,id,doc).contentBase64()).isEqualTo("JVBERi0=");
   app=service.review(adviser,id,doc,new Review(DocumentStatus.APPROVED,"Checked"));assertThat(app.documents().getFirst().status()).isEqualTo(DocumentStatus.APPROVED);
   app=service.fee(adviser,id,UUID.randomUUID(),new FeeRequest("Application fee",new BigDecimal("100.00"),"MYR",FeeStatus.DUE,3));assertThat(app.fees()).hasSize(1);
-  app=service.progress(adviser,id,new Progress(Status.SUBMITTED,3,"Sent to university"));assertThat(service.list(owner,false,Status.IN_PROGRESS,0).items()).hasSize(1);assertThat(app.history()).hasSize(6);
+  app=service.progress(adviser,id,new Progress(Status.SUBMITTED,3,"Sent to university"));assertThat(service.list(owner,false,Status.IN_PROGRESS,0).items()).hasSize(1);assertThat(app.history()).hasSize(7);
  }
  @Test void studentCheckoutCreatesIndependentUnpaidApplicationsAndIsIdempotent(){
   long owner=account();String suffix=UUID.randomUUID().toString().replace("-","");

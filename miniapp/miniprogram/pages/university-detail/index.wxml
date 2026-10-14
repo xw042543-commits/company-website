@@ -32,20 +32,12 @@
         </view>
         <button class="identity-favorite {{favorite ? 'identity-favorite--active' : ''}}" bindtap="toggleFavorite" aria-label="{{favorite ? '取消收藏' : '收藏院校'}}" hover-class="control--pressed">{{favorite ? '♥ 已收藏' : '♡ 收藏'}}</button>
       </view>
-      <view wx:if="{{featuredCategories.length > 0}}" class="summary-tags" aria-label="热门专业分类">
-        <text wx:for="{{featuredCategories}}" wx:key="code" class="summary-tag">{{item.label}}</text>
-      </view>
-      <view class="summary-stats">
-        <view class="summary-stat"><text class="summary-stat-value">{{programmeCount}}</text><text class="summary-stat-label">{{planningEntry ? '匹配专业' : '个专业'}}</text></view>
-        <view class="summary-stat summary-stat--wide"><text class="summary-stat-value">{{levelSummary}}</text><text class="summary-stat-label">学历层次</text></view>
-      </view>
-      <button class="browse-programmes" bindtap="showProgrammes" hover-class="control--pressed">查看专业</button>
     </view>
 
     <view id="university-sections" class="section-tabs" aria-role="tablist" aria-label="院校资料">
+      <button class="section-tab {{activeSection === 'programmes' ? 'section-tab--active' : ''}}" data-section="programmes" bindtap="selectSection" aria-role="tab" aria-selected="{{activeSection === 'programmes'}}" hover-class="control--pressed">热门专业</button>
       <button class="section-tab {{activeSection === 'introduction' ? 'section-tab--active' : ''}}" data-section="introduction" bindtap="selectSection" aria-role="tab" aria-selected="{{activeSection === 'introduction'}}" hover-class="control--pressed">院校简介</button>
       <button class="section-tab {{activeSection === 'facts' ? 'section-tab--active' : ''}}" data-section="facts" bindtap="selectSection" aria-role="tab" aria-selected="{{activeSection === 'facts'}}" hover-class="control--pressed">基本信息</button>
-      <button class="section-tab {{activeSection === 'programmes' ? 'section-tab--active' : ''}}" data-section="programmes" bindtap="selectSection" aria-role="tab" aria-selected="{{activeSection === 'programmes'}}" hover-class="control--pressed">{{planningEntry ? '匹配专业' : '热门专业'}}</button>
     </view>
 
     <view wx:if="{{activeSection === 'introduction'}}" class="introduction-panel" aria-role="tabpanel">
@@ -76,11 +68,7 @@
 
     <view wx:else class="programmes-panel" aria-role="tabpanel">
       <view wx:if="{{planningEntry}}" class="description-paragraph">已保留规划页筛选条件。点击专业查看详细资料，返回可调整选校条件。</view>
-      <view wx:if="{{!planningEntry && programmeCategories.length > 0}}" class="section-title">专业分类</view>
-        <scroll-view wx:if="{{!planningEntry}}" class="category-options" scroll-x enhanced show-scrollbar="{{false}}" aria-label="按专业分类筛选，可横向滑动">
-          <button wx:for="{{programmeCategories}}" wx:key="code" class="category-chip {{activeCategory === item.code ? 'category-chip--active' : ''}}" data-code="{{item.code}}" bindtap="selectCategory" aria-pressed="{{activeCategory === item.code}}" hover-class="control--pressed">{{item.label || '未分类'}}</button>
-        </scroll-view>
-      <view class="programme-heading">{{planningEntry ? '符合条件的专业' : '专业列表'}}<text class="programme-total">{{visibleProgrammes.length}} 个专业</text></view>
+      <view class="programme-heading">{{planningEntry ? '符合条件的专业' : '热门专业'}}</view>
       <view wx:if="{{visibleProgrammes.length > 0}}" class="programme-list">
         <button wx:for="{{visibleProgrammes}}" wx:key="id" class="programme-row" bindtap="openProgramme" data-id="{{item.id}}" aria-label="查看{{item.nameZh}}专业详情" hover-class="control--pressed">
           <view class="programme-content">

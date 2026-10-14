@@ -534,16 +534,13 @@ test('university profile has safe custom navigation, independent media fallbacks
   assert.match(markup, /院校简介/);
   assert.match(markup, /基本信息/);
   assert.match(markup, /热门专业/);
-  assert.match(markup, /class="summary-stats"/);
-  assert.match(markup, /bindtap="showProgrammes"/);
+  assert.doesNotMatch(markup, /class="summary-stats"|bindtap="showProgrammes"|class="summary-tags"/);
   assert.match(markup, /class="profile-facts-grid"/);
   assert.match(markup, /class="university-facts-table"/);
   assert.match(markup, /正在审核整理中，可在专业查询中查看已发布专业/);
   assert.doesNotMatch(markup, /programmeIntakeDisplays|item\.tuitionDisplay|item\.durationDisplay/);
   assert.match(markup, /class="programme-detail-link"[^>]*>详情/);
-  assert.match(styles, /\.category-options[^}]+flex-wrap:wrap/);
-  assert.match(markup, /wx:for="\{\{programmeCategories\}\}"/);
-  assert.match(markup, /bindtap="selectCategory"/);
+  assert.doesNotMatch(markup, /programmeCategories|selectCategory|\{\{visibleProgrammes\.length\}\}/);
   assert.match(markup, /wx:for="\{\{visibleProgrammes\}\}"/);
   assert.match(markup, /bindtap="openProgramme"/);
   assert.match(markup, /bindtap="toggleFavorite"/);
@@ -556,8 +553,7 @@ test('university profile has safe custom navigation, independent media fallbacks
 
 interface UniversityDetailPageContext {
   data: {
-    activeSection: string; activeCategory: string;
-    programmeCategories: Array<{ code: string; label: string }>;
+    activeSection: string;
     programmes: Array<Record<string, unknown>>; visibleProgrammes: Array<Record<string, unknown>>;
     imageFailed: boolean; logoFailed: boolean;
     [key: string]: unknown;
@@ -576,7 +572,6 @@ interface UniversityDetailPageDefinition {
   back(this: UniversityDetailPageContext): void;
   consult(this: UniversityDetailPageContext): void;
   selectSection(this: UniversityDetailPageContext, event: unknown): void;
-  selectCategory(this: UniversityDetailPageContext, event: unknown): void;
   imageError(this: UniversityDetailPageContext): void;
   logoError(this: UniversityDetailPageContext): void;
 }
@@ -652,34 +647,21 @@ test('planning profile sends filters on every programme page and exposes all mat
   } finally { if (original) Object.defineProperty(globalThis, 'wx', original); else Reflect.deleteProperty(globalThis, 'wx'); }
 });
 
-test('university profile defaults to introduction and filters locally without losing tab or category state', async () => {
+test('university profile defaults to popular programmes and preserves tab state', async () => {
   const page = await loadUniversityDetailPage();
-  assert.equal(page.data.activeSection, 'introduction');
-  assert.equal(page.data.activeCategory, '');
+  assert.equal(page.data.activeSection, 'programmes');
   const programmes = [{ id: 1, categoryCode: 'BUSINESS' }, { id: 2, categoryCode: 'UNLISTED' }];
   const context: UniversityDetailPageContext = {
-    data: { ...page.data, programmes, visibleProgrammes: [...programmes], programmeCategories: [
-      { code: 'BUSINESS', label: '商科' }, { code: 'UNLISTED', label: 'UNLISTED' },
-    ] },
+    data: { ...page.data, programmes, visibleProgrammes: [...programmes] },
     setData(update) { Object.assign(this.data, update); },
   };
   const event = (dataset: Record<string, unknown>) => ({ currentTarget: { dataset } });
-  page.selectSection.call(context, event({ section: 'programmes' }));
-  page.selectCategory.call(context, event({ code: 'UNLISTED' }));
-  assert.equal(context.data.activeSection, 'programmes');
-  assert.equal(context.data.activeCategory, 'UNLISTED');
-  assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [2]);
   page.selectSection.call(context, event({ section: 'introduction' }));
+  assert.equal(context.data.activeSection, 'introduction');
   page.selectSection.call(context, event({ section: 'programmes' }));
-  assert.equal(context.data.activeCategory, 'UNLISTED');
-  page.selectCategory.call(context, event({ code: 'INVALID' }));
   page.selectSection.call(context, event({ section: 'INVALID' }));
-  assert.equal(context.data.activeCategory, 'UNLISTED');
   assert.equal(context.data.activeSection, 'programmes');
-  page.selectCategory.call(context, event({ code: 'ALL' }));
-  assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [2]);
-  page.selectCategory.call(context, event({ code: 'BUSINESS' }));
-  assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [1]);
+  assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [1, 2]);
   assert.deepEqual(context.data.programmes, programmes);
   page.imageError.call(context);
   assert.equal(context.data.imageFailed, true);
@@ -688,14 +670,11 @@ test('university profile defaults to introduction and filters locally without lo
   assert.equal(context.data.logoFailed, true);
 });
 
-test('university profile loads real catalogue labels and remains ready when catalogue fails', async () => {
+test('university profile loads programmes without requesting category catalogue data', async () => {
   const page = await loadUniversityDetailPage();
-  const { resetFilterOptionsCache } = await import('../miniprogram/services/catalogue.ts');
   const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
   try {
-    for (const catalogueAvailable of [true, false]) {
-      resetFilterOptionsCache();
-      const slug = catalogueAvailable ? 'contract-labels' : 'contract-fallback';
+      const slug = 'contract-programmes';
       const paths: string[] = [];
       Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
         getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }),
@@ -703,18 +682,11 @@ test('university profile loads real catalogue labels and remains ready when cata
         request(options: { url: string; success(response: unknown): void; fail(response: unknown): void }) {
           const path = new URL(options.url).pathname;
           paths.push(path);
-          if (path.endsWith('/filter-options') && !catalogueAvailable) {
-            options.fail({ errMsg: 'offline' });
-          } else {
-            const data = path.endsWith('/filter-options') ? {
-              countries: [], subjectCategories: [{ code: 'COMPUTING', nameZh: '计算机科学', nameEn: 'Computing' }],
-              studyLevels: [], courseModes: [], languages: [],
-            } : path.endsWith('/programmes') ? {
+            const data = path.endsWith('/programmes') ? {
               items: [{ id: 1, slug: 'computer-science', nameZh: '计算机科学学士', nameEn: 'Bachelor of Computer Science', categoryCode: 'COMPUTING' }],
               page: 1, pageSize: 50, totalItems: 1, totalPages: 1,
             } : { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', cityZh: '吉隆坡', countryNameZh: '马来西亚', descriptionZh: '第一段\n\n第二段', sections: [] };
             options.success({ statusCode: 200, data, header: {}, cookies: [] });
-          }
           return { abort() {} };
         },
       } });
@@ -724,16 +696,11 @@ test('university profile loads real catalogue labels and remains ready when cata
       };
       await page.loadPage.call(context);
       assert.equal(context.data.state, 'ready');
-      assert.deepEqual(context.data.programmeCategories, [
-        { code: 'COMPUTING', label: catalogueAvailable ? '计算机科学' : 'COMPUTING' },
-      ]);
       assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [1]);
       assert.equal(context.data.location, '吉隆坡，马来西亚');
       assert.deepEqual(context.data.descriptionParagraphs, ['第一段', '第二段']);
-      assert.ok(paths.includes('/api/v1/catalog/filter-options'));
-    }
+      assert.equal(paths.includes('/api/v1/catalog/filter-options'), false);
   } finally {
-    resetFilterOptionsCache();
     if (original) Object.defineProperty(globalThis, 'wx', original);
     else Reflect.deleteProperty(globalThis, 'wx');
   }
@@ -784,13 +751,11 @@ test('university profile clears the capsule and preserves favourites and validat
   }
 });
 
-test('university profile fetches every programme page sequentially before exposing complete categories and counts', async () => {
+test('university profile fetches every programme page sequentially before exposing the complete list', async () => {
   const page = await loadUniversityDetailPage();
-  const { resetFilterOptionsCache } = await import('../miniprogram/services/catalogue.ts');
   const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
   try {
     for (const outcome of ['complete', 'offline', 'incomplete'] as const) {
-      resetFilterOptionsCache();
       const slug = `contract-pagination-${outcome}`;
       const requestedPages: number[] = [];
       let inFlight = 0;
@@ -824,10 +789,7 @@ test('university profile fetches every programme page sequentially before exposi
               options.success({ statusCode: 200, data: { items, page: pageNumber, pageSize: 48, totalItems: 101, totalPages: 3 }, header: {}, cookies: [] });
             });
           } else {
-            const data = url.pathname.endsWith('/filter-options') ? {
-              countries: [], subjectCategories: [{ code: 'BUSINESS', nameZh: '商科', nameEn: 'Business' }],
-              studyLevels: [], courseModes: [], languages: [],
-            } : { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', descriptionZh: '', sections: [] };
+            const data = { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', descriptionZh: '', sections: [] };
             options.success({ statusCode: 200, data, header: {}, cookies: [] });
           }
           return { abort() {} };
@@ -851,23 +813,12 @@ test('university profile fetches every programme page sequentially before exposi
         continue;
       }
       assert.equal(context.data.state, 'ready');
-      assert.deepEqual(readySnapshots, [{ count: 101, rows: 48 }]);
+      assert.deepEqual(readySnapshots, [{ count: 101, rows: 101 }]);
       assert.equal(context.data.programmes.length, 101);
       assert.deepEqual(context.data.programmes.map((item) => item.id), Array.from({ length: 101 }, (_, index) => index + 1));
-      assert.deepEqual(context.data.programmeCategories, [
-        { code: 'BUSINESS', label: '商科' }, { code: 'NEW_CATEGORY', label: 'NEW_CATEGORY' },
-      ]);
-      assert.equal(context.data.activeCategory, 'BUSINESS');
-      page.selectCategory.call(context, { currentTarget: { dataset: { code: 'NEW_CATEGORY' } } });
-      assert.equal(context.data.visibleProgrammes.length, 53);
-      assert.equal(context.data.visibleProgrammes[0]?.id, 49);
-      page.selectCategory.call(context, { currentTarget: { dataset: { code: 'ALL' } } });
-      assert.equal(context.data.visibleProgrammes.length, 53);
-      page.selectCategory.call(context, { currentTarget: { dataset: { code: 'BUSINESS' } } });
-      assert.equal(context.data.visibleProgrammes.length, 48);
+      assert.equal(context.data.visibleProgrammes.length, 101);
     }
   } finally {
-    resetFilterOptionsCache();
     if (original) Object.defineProperty(globalThis, 'wx', original);
     else Reflect.deleteProperty(globalThis, 'wx');
   }
