@@ -46,7 +46,7 @@ Redis 不可用时，社区写入和热门快照按接口契约返回不可用�
 - `V24__community_feed_scope_indexes.sql`：增加按院校和分类读取社区列表的索引。
 - `V39` 至 `V43`：记录专业前景与课程章节的来源类型，并完成分片审计。
 - `V44` 至 `V47`：按院校分组增量核对马来西亚已发布专业的基本信息，保留无法确认的客观字段为待核实。
-- `V49__add_basic_info_source_provenance.sql`：为专业、入学时间和入学条件补充来源类型与来源说明；来源类型仅允许 `official`、`third_party` 或 `ai_generated`。
+- `V50__add_basic_info_source_provenance.sql`：为专业、入学时间和入学条件补充来源类型与来源说明；来源类型仅允许 `official`、`third_party` 或 `ai_generated`。
 
 已经在任何环境执行过的迁移文件不能直接修改。后续需要调整结构时，应新增
 新的顺序版本迁移，确保三名开发人员、CI 和服务器按相同顺序升级数据库。
@@ -293,4 +293,3 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 - `miniapp_account_avatars`：保存用户主动选择上传的头像。
 
 详细字段、约束和索引以对应迁移文件为准；文档中的迁移清单不表示服务器已经执行这些迁移。
-

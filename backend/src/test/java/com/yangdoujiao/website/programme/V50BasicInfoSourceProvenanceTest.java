@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 import org.junit.jupiter.api.Test;
 
-class V49BasicInfoSourceProvenanceTest {
+class V50BasicInfoSourceProvenanceTest {
 
     @Test
     void recordsTheThreeAllowedSourceTypesAndAuditsOnlyPublishedMalaysiaProgrammes() throws IOException {
@@ -32,13 +32,12 @@ class V49BasicInfoSourceProvenanceTest {
     }
 
     private static String migration() throws IOException {
-        try (var stream = V49BasicInfoSourceProvenanceTest.class.getResourceAsStream(
-                "/db/migration/V49__add_basic_info_source_provenance.sql")) {
+        try (var stream = V50BasicInfoSourceProvenanceTest.class.getResourceAsStream(
+                "/db/migration/V50__add_basic_info_source_provenance.sql")) {
             if (stream == null) {
-                throw new IOException("V49 migration resource is missing");
+                throw new IOException("V50 migration resource is missing");
             }
             return new String(stream.readAllBytes(), StandardCharsets.UTF_8);
         }
     }
 }
-

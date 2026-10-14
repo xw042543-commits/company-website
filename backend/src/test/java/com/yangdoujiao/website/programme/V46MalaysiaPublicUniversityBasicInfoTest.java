@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.Test;
 
-class V45MalaysiaPublicUniversityBasicInfoTest {
+class V46MalaysiaPublicUniversityBasicInfoTest {
 
     private static final Pattern OFFICIAL_ROW = Pattern.compile("(?m)^    \\('(UM_[A-Z]+_\\d+)',");
 
@@ -39,11 +39,10 @@ class V45MalaysiaPublicUniversityBasicInfoTest {
     }
 
     private static String migration() throws IOException {
-        try (var stream = V45MalaysiaPublicUniversityBasicInfoTest.class.getResourceAsStream(
-                "/db/migration/V45__repair_my_public_university_basic_information.sql")) {
-            if (stream == null) throw new IOException("V45 migration resource is missing");
+        try (var stream = V46MalaysiaPublicUniversityBasicInfoTest.class.getResourceAsStream(
+                "/db/migration/V46__repair_my_public_university_basic_information.sql")) {
+            if (stream == null) throw new IOException("V46 migration resource is missing");
             return new String(stream.readAllBytes(), StandardCharsets.UTF_8);
         }
     }
 }
-

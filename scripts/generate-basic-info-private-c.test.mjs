@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const migrationPath = new URL("../backend/src/main/resources/db/migration/V47__repair_private_malaysia_programme_basic_info.sql", import.meta.url);
+const migrationPath = new URL("../backend/src/main/resources/db/migration/V48__repair_private_malaysia_programme_basic_info.sql", import.meta.url);
 const auditPath = new URL("../docs/data/audits/basic-info-private-c-2026-10-14.json", import.meta.url);
 
 test("task C audit covers every published programme in the five assigned universities", async () => {
@@ -26,4 +26,3 @@ test("V41 changes basic information only and protects the expected production sc
   assert.doesNotMatch(sql, /section_type[^\n]*'(?:CURRICULUM|CAREER_OPPORTUNITIES)'/i);
   assert.match(sql, /'ADMISSIONS'/);
 });
-
