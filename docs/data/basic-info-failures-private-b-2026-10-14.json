@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-10-14T00:00:00+08:00",
+  "scope": [
+    "taylor",
+    "ucsi",
+    "inti",
+    "sunway",
+    "apu"
+  ],
+  "failures": [
+    {
+      "slug": "ucsi",
+      "reason": "官网 robots.txt 请求返回 403，未将未抓取字段标为 official",
+      "fallback": "仅保留并标记已有可靠资料，客观缺失项待核实"
+    },
+    {
+      "slug": "inti",
+      "reason": "官网 robots.txt 请求返回 403，未将未抓取字段标为 official",
+      "fallback": "仅保留并标记已有可靠资料，客观缺失项待核实"
+    },
+    {
+      "slug": "sunway",
+      "reason": "官网页面未被通用解析器识别为结构化课程数据",
+      "fallback": "使用已提供的 2026 课程概括，仅修复确定的币种错位"
+    },
+    {
+      "slug": "apu",
+      "reason": "官网页面已采集但现有数据库课程缺少可可靠关联的官方 URL；未猜测匹配",
+      "fallback": "使用已审核 2026 国际生手册，未补造缺失字段"
+    },
+    {
+      "slug": "taylor",
+      "reason": "45 个已发布专业中仅 29 个与官网详情页可靠匹配",
+      "fallback": "29 个使用 official，其余保留既有资料并标待核实"
+    },
+    {
+      "slug": "all",
+      "reason": "现有数据库没有 source_type 字段，且 programmes 没有 programme-level campus 字段",
+      "fallback": "复用 source_url/source_checked_at；source type 写入机器审计，不重复建表"
+    }
+  ]
+}
