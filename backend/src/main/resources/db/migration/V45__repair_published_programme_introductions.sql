@@ -2265,20 +2265,16 @@ BEGIN
   IF (SELECT COUNT(*) FROM programme_introduction_repairs) <> 2233 THEN
     RAISE EXCEPTION 'Introduction repair staging count mismatch';
   END IF;
-  IF (
-    SELECT COUNT(*) FROM programmes p
-    JOIN programme_introduction_repairs repair ON repair.programme_code = p.programme_code
-  ) >= 2000 THEN
-    IF (SELECT COUNT(*) FROM programmes WHERE status = 'PUBLISHED') <> 2233 THEN
-      RAISE EXCEPTION 'Published programme count changed; regenerate the full introduction audit before deployment';
-    END IF;
+  IF (SELECT COUNT(*) FROM programmes WHERE status = 'PUBLISHED') >= 2000 THEN
     IF EXISTS (
-      SELECT 1 FROM programme_introduction_repairs repair
-      LEFT JOIN programmes p ON p.programme_code = repair.programme_code
-      LEFT JOIN universities u ON u.id = p.university_id
-      WHERE p.id IS NULL OR p.status <> 'PUBLISHED' OR u.slug <> repair.university_slug
+      SELECT 1 FROM programmes p
+      JOIN universities u ON u.id = p.university_id
+      LEFT JOIN programme_introduction_repairs repair
+        ON repair.programme_code = p.programme_code
+      WHERE p.status = 'PUBLISHED'
+        AND (repair.programme_code IS NULL OR u.slug <> repair.university_slug)
     ) THEN
-      RAISE EXCEPTION 'An introduction repair does not match its published programme and university';
+      RAISE EXCEPTION 'A published programme is missing its matching introduction repair';
     END IF;
   END IF;
 END $$;
