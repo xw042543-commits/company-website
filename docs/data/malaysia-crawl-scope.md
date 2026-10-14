@@ -1,6 +1,6 @@
 # 马来西亚院校第一批采集范围
 
-核对日期：2026-09-21
+核对日期：2026-10-14
 
 ## 结论
 
@@ -25,13 +25,13 @@
 | 马来西亚私立大学 | Asia Pacific University of Technology & Innovation | 亚太科技大学 | 已核对 |
 | 马来西亚私立大学 | SEGi University | 世纪大学 | 已核对；网站偶发超时 |
 | 马来西亚私立大学 | Universiti Tunku Abdul Rahman | 拉曼大学 | 已核对 |
-| 马来西亚私立大学 | Tunku Abdul Rahman University of Management and Technology | 拉曼理工大学 | 官网会跨到旧 `tarc.edu.my` 子站，需单独适配 |
+| 马来西亚私立大学 | Nilai University | 汝来大学 | 已核对 |
+| 马来西亚私立大学 | MAHSA University | 玛莎大学 | 已核对；robots.txt 当前返回 403，停止自动抓取 |
+| 马来西亚私立大学 | HELP University | 精英大学 | 已核对 |
+| 马来西亚私立大学 | City University Malaysia | 马来西亚城市大学 | 已核对；课程入口当前返回 403，停止自动抓取 |
 | 外国大学马来西亚校区 | Monash University Malaysia | 莫纳什大学马来西亚分校 | 已核对 |
 | 外国大学马来西亚校区 | University of Nottingham Malaysia | 诺丁汉大学马来西亚分校 | 已核对 |
 | 外国大学马来西亚校区 | University of Southampton Malaysia | 南安普顿大学马来西亚分校 | 已核对；以 `southampton.ac.uk/my` 为主入口 |
-| 外国大学马来西亚校区 | Heriot-Watt University Malaysia | 赫瑞-瓦特大学马来西亚分校 | 已核对 |
-| 外国大学马来西亚校区 | Curtin University Malaysia | 科廷大学马来西亚分校 | 已核对 |
-| 外国大学马来西亚校区 | University of Reading Malaysia | 雷丁大学马来西亚分校 | 已核对 |
 
 ## 核验层级
 
@@ -48,9 +48,9 @@
 - 官网数据与 MQA 不一致时不自动覆盖，记录冲突并交人工审核。
 - 学费必须同时保留适用人群（本地或国际学生）和原始计费文字；当前模型不能表达时先保留在审核包。
 - 外国大学只采集马来西亚校区实际开设的专业，不能把英国或澳大利亚主校区课程混入。
-- TAR UMT 的 `tarumt.edu.my` 与 `tarc.edu.my`、UPM 的多个官方子域需要建立明确的跨域来源规则。
+- UPM 的多个官方子域需要建立明确的跨域来源规则。
 - 首轮不抓取需要登录、验证码或申请账号才能看到的页面。
 
 ## 配置文件
 
-可执行来源配置位于 `crawler/config/sources.malaysia.phase1.json`。运行前必须把 `userAgent` 中的 `REPLACE_BEFORE_RUN` 替换为真实、可联系的爬虫说明地址或邮箱。
+与当前数据库院校一致的可执行来源配置位于 `crawler/config/sources.malaysia.current.json`，其中使用真实、可联系的爬虫说明邮箱。旧的 `sources.malaysia.phase1.json` 仅保留为历史清单。

@@ -1,0 +1,646 @@
+{
+  "generatedAt": "2026-10-14T06:17:26.167Z",
+  "universitySlug": "um",
+  "sourceKey": "university-of-malaya",
+  "officialCandidates": 79,
+  "matchedCandidates": 76,
+  "matchMethods": {
+    "canonical-name": 75,
+    "unique-prefix": 1
+  },
+  "matches": [
+    {
+      "candidateId": "programme_dc5b0e6da372e14d",
+      "programmeCode": "UM_BACHELOR_002",
+      "officialNameEn": "Bachelor of Muamalat Management",
+      "existingNameEn": "BACHELOR OF MUAMALAT MANAGEMENT",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-muamalat-management"
+    },
+    {
+      "candidateId": "programme_70dee67fd3cfa1bf",
+      "programmeCode": "UM_BACHELOR_004",
+      "officialNameEn": "Bachelor of Al-Quran and Al-Hadith",
+      "existingNameEn": "BACHELOR OF AL-QURAN AND AL-HADITH",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-al-quran-and-al-hadith"
+    },
+    {
+      "candidateId": "programme_b546b4548889e47d",
+      "programmeCode": "UM_BACHELOR_005",
+      "officialNameEn": "Bachelor of Shariah and Law",
+      "existingNameEn": "BACHELOR OF SHARIAH AND LAW",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-shariah-and-law"
+    },
+    {
+      "candidateId": "programme_9e2433765924b234",
+      "programmeCode": "UM_BACHELOR_001",
+      "officialNameEn": "Bachelor of Shariah",
+      "existingNameEn": "BACHELOR OF SHARIAH",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-shariah"
+    },
+    {
+      "candidateId": "programme_b501f7a6b2b04525",
+      "programmeCode": "UM_BACHELOR_003",
+      "officialNameEn": "Bachelor of Usuluddin",
+      "existingNameEn": "BACHELOR OF USULUDDIN",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-usuluddin"
+    },
+    {
+      "candidateId": "programme_edef6f0de0937e6f",
+      "programmeCode": "UM_BACHELOR_006",
+      "officialNameEn": "Bachelor of Professional Malay Language",
+      "existingNameEn": "BACHELOR OF PROFESSIONAL MALAY LANGUAGE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-proffesional-malay-language"
+    },
+    {
+      "candidateId": "programme_a5881dd39ed9017f",
+      "programmeCode": "UM_BACHELOR_007",
+      "officialNameEn": "Bachelor of Malay Linguistics",
+      "existingNameEn": "BACHELOR OF MALAY LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-malay-linguistic"
+    },
+    {
+      "candidateId": "programme_f46d030338a2e63b",
+      "programmeCode": "UM_BACHELOR_008",
+      "officialNameEn": "Bachelor of Malay Literature",
+      "existingNameEn": "BACHELOR OF MALAY LITERATURE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-malay-literature"
+    },
+    {
+      "candidateId": "programme_e33a334b00f2c7ba",
+      "programmeCode": "UM_BACHELOR_009",
+      "officialNameEn": "Bachelor of Malay Studies",
+      "existingNameEn": "BACHELOR OF MALAY STUDIES",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-malay-studies"
+    },
+    {
+      "candidateId": "programme_6fc26d89410608c3",
+      "programmeCode": "UM_BACHELOR_011",
+      "officialNameEn": "Bachelor of Arts Anthropology and Sociology",
+      "existingNameEn": "BACHELOR OF ARTS ANTHROPOLOGY AND SOCIOLOGY",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-arts-anthropology-and-sociology"
+    },
+    {
+      "candidateId": "programme_4e95733b87864427",
+      "programmeCode": "UM_BACHELOR_018",
+      "officialNameEn": "Bachelor of Geography",
+      "existingNameEn": "BACHELOR OF GEOGRAPHY",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-geography"
+    },
+    {
+      "candidateId": "programme_f17d2b2d304f841e",
+      "programmeCode": "UM_BACHELOR_019",
+      "officialNameEn": "Bachelor of Environmental Studies",
+      "existingNameEn": "BACHELOR OF ENVIRONMENTAL STUDIES",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-environmental-studies"
+    },
+    {
+      "candidateId": "programme_c1ae7822a4d894c1",
+      "programmeCode": "UM_BACHELOR_012",
+      "officialNameEn": "Bachelor of Arts International and Strategic Studies",
+      "existingNameEn": "BACHELOR OF ARTS INTERNATIONAL AND STRATEGIC STUDIES",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-arts-international-and-strategic-studies"
+    },
+    {
+      "candidateId": "programme_a02abbd2790aa9aa",
+      "programmeCode": "UM_BACHELOR_013",
+      "officialNameEn": "Bachelor of Arts Southeast Asian Studies",
+      "existingNameEn": "BACHELOR OF ARTS SOUTHEAST ASIAN STUDIES",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-arts-southeast-asians-studies"
+    },
+    {
+      "candidateId": "programme_821e3d0def2677ef",
+      "programmeCode": "UM_BACHELOR_014",
+      "officialNameEn": "Bachelor of East Asian Studies",
+      "existingNameEn": "BACHELOR OF EAST ASIAN STUDIES",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-east-asian-studies"
+    },
+    {
+      "candidateId": "programme_9922362933eec54d",
+      "programmeCode": "UM_BACHELOR_016",
+      "officialNameEn": "Bachelor of Social Administration",
+      "existingNameEn": "BACHELOR OF SOCIAL ADMINISTRATION",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-social-administration"
+    },
+    {
+      "candidateId": "programme_44adf0e05306b799",
+      "programmeCode": "UM_BACHELOR_015",
+      "officialNameEn": "Bachelor of Arts History",
+      "existingNameEn": "BACHELOR OF ARTS HISTORY",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-arts-history"
+    },
+    {
+      "candidateId": "programme_94c79d03b96837ce",
+      "programmeCode": "UM_BACHELOR_020",
+      "officialNameEn": "Bachelor of Arts Indian Studies",
+      "existingNameEn": "BACHELOR OF ARTS INDIAN STUDIES",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-arts-indian-studies"
+    },
+    {
+      "candidateId": "programme_d9c90e0054136f96",
+      "programmeCode": "UM_BACHELOR_021",
+      "officialNameEn": "Bachelor of Arts Chinese Studies",
+      "existingNameEn": "BACHELOR OF ARTS CHINESE STUDIES",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-arts-chinese-studies"
+    },
+    {
+      "candidateId": "programme_52eaf4f6d39dbf2a",
+      "programmeCode": "UM_BACHELOR_010",
+      "officialNameEn": "Bachelor of Arts English",
+      "existingNameEn": "BACHELOR OF ARTS ENGLISH",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-arts-english"
+    },
+    {
+      "candidateId": "programme_66861f8f5f22c24d",
+      "programmeCode": "UM_BACHELOR_017",
+      "officialNameEn": "Bachelor of Media Studies",
+      "existingNameEn": "BACHELOR OF MEDIA STUDIES",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-media-studies"
+    },
+    {
+      "candidateId": "programme_fd4fe8f826e60175",
+      "programmeCode": "UM_BACHELOR_022",
+      "officialNameEn": "Bachelor of Science in Architecture",
+      "existingNameEn": "BACHELOR OF SCIENCE IN ARCHITECTURE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-architecture"
+    },
+    {
+      "candidateId": "programme_a9e5d2535fae268f",
+      "programmeCode": "UM_BACHELOR_023",
+      "officialNameEn": "Bachelor of Building Surveying",
+      "existingNameEn": "BACHELOR OF BUILDING SURVEYING",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-building-surveying"
+    },
+    {
+      "candidateId": "programme_304fcebb019f64a4",
+      "programmeCode": "UM_BACHELOR_024",
+      "officialNameEn": "Bachelor of Quantity Surveying",
+      "existingNameEn": "BACHELOR OF QUANTITY SURVEYING",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-quantity-surveying"
+    },
+    {
+      "candidateId": "programme_247a6cd586358650",
+      "programmeCode": "UM_BACHELOR_025",
+      "officialNameEn": "Bachelor of Urban and Regional",
+      "existingNameEn": "BACHELOR OF URBAN AND REGIONAL PLANNING",
+      "method": "unique-prefix",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-urban-and-regional-planning"
+    },
+    {
+      "candidateId": "programme_478c0c352801ed9a",
+      "programmeCode": "UM_BACHELOR_026",
+      "officialNameEn": "Bachelor of Real Estate",
+      "existingNameEn": "BACHELOR OF REAL ESTATE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-real-estate"
+    },
+    {
+      "candidateId": "programme_e4bc76250ef162ed",
+      "programmeCode": "UM_BACHELOR_029",
+      "officialNameEn": "Bachelor of Business Administration",
+      "existingNameEn": "BACHELOR OF BUSINESS ADMINISTRATION",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-business-administration"
+    },
+    {
+      "candidateId": "programme_d7c791091acd9a2c",
+      "programmeCode": "UM_BACHELOR_028",
+      "officialNameEn": "Bachelor in Accounting",
+      "existingNameEn": "BACHELOR OF ACCOUNTING",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-in-accounting"
+    },
+    {
+      "candidateId": "programme_4845a81404a21c85",
+      "programmeCode": "UM_BACHELOR_030",
+      "officialNameEn": "Bachelor of Finance",
+      "existingNameEn": "BACHELOR OF FINANCE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-finance"
+    },
+    {
+      "candidateId": "programme_b206bb088f30e230",
+      "programmeCode": "UM_BACHELOR_031",
+      "officialNameEn": "Bachelor of Economics",
+      "existingNameEn": "BACHELOR OF ECONOMICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-economics"
+    },
+    {
+      "candidateId": "programme_eaf56c7ea1f78188",
+      "programmeCode": "UM_BACHELOR_033",
+      "officialNameEn": "Bachelor of Computer Science (AI)",
+      "existingNameEn": "BACHELOR OF COMPUTER SCIENCE (ARTIFICIAL INTELLIGENCE)",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-computer-science-artificial-intelligence"
+    },
+    {
+      "candidateId": "programme_41013007ff78f8e1",
+      "programmeCode": "UM_BACHELOR_035",
+      "officialNameEn": "Bachelor of Computer Science (Software Engineering)",
+      "existingNameEn": "BACHELOR OF COMPUTER SCIENCE (SOFTWARE ENGINEERING)",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-computer-science-software-engineering"
+    },
+    {
+      "candidateId": "programme_d5ad67ae7e944050",
+      "programmeCode": "UM_BACHELOR_032",
+      "officialNameEn": "Bachelor of Computer Science (Computer System and Network)",
+      "existingNameEn": "BACHELOR OF COMPUTER SCIENCE (COMPUTER SYSTEM AND NETWORK)",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-computer-science-computer-system-and-network"
+    },
+    {
+      "candidateId": "programme_f8b00ce7124f63e0",
+      "programmeCode": "UM_BACHELOR_036",
+      "officialNameEn": "Bachelor of Computer Science (Multimedia Computing)",
+      "existingNameEn": "BACHELOR OFCOMPUTER SCIENCE (MULTIMEDIA COMPUTING)",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-computer-science-multimedia-computing"
+    },
+    {
+      "candidateId": "programme_04a3a01b3b4373ef",
+      "programmeCode": "UM_BACHELOR_037",
+      "officialNameEn": "Bachelor of Computer Science (Data Science)",
+      "existingNameEn": "BACHELOR OF COMPUTER SCIENCE (DATA SCIENCE)",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-computer-science-data-science"
+    },
+    {
+      "candidateId": "programme_813c78306e218801",
+      "programmeCode": "UM_BACHELOR_034",
+      "officialNameEn": "Bachelor of Computer Science (Information System)",
+      "existingNameEn": "BACHELOR OF COMPUTER SCIENCE (INFORMATION SYSTEMS)",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-computer-science-information-system"
+    },
+    {
+      "candidateId": "programme_3cc922a8cbdda129",
+      "programmeCode": "UM_BACHELOR_041",
+      "officialNameEn": "Bachelor of Dance",
+      "existingNameEn": "BACHELOR OF DANCE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-dance"
+    },
+    {
+      "candidateId": "programme_0a8dddcc9fa5f688",
+      "programmeCode": "UM_BACHELOR_039",
+      "officialNameEn": "Bachelor of Drama",
+      "existingNameEn": "BACHELOR OF DRAMA",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-drama"
+    },
+    {
+      "candidateId": "programme_7d84ba1cb4294d46",
+      "programmeCode": "UM_BACHELOR_038",
+      "officialNameEn": "Bachelor of Music",
+      "existingNameEn": "BACHELOR OF MUSIC",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-music"
+    },
+    {
+      "candidateId": "programme_434e71b004edac93",
+      "programmeCode": "UM_BACHELOR_040",
+      "officialNameEn": "Bachelor of Performing Arts",
+      "existingNameEn": "BACHELOR OF PERFORMING ARTS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-performing-arts"
+    },
+    {
+      "candidateId": "programme_6f3223d1b79ef177",
+      "programmeCode": "UM_BACHELOR_043",
+      "officialNameEn": "Bachelor of Dental Surgery",
+      "existingNameEn": "BACHELOR OF DENTAL SURGERY",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-dental-surgery"
+    },
+    {
+      "candidateId": "programme_1fe6c6a4b9c77354",
+      "programmeCode": "UM_BACHELOR_044",
+      "officialNameEn": "Bachelor of Counseling",
+      "existingNameEn": "BACHELOR OF COUNSELLING",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-counseling"
+    },
+    {
+      "candidateId": "programme_16e1abd53331c785",
+      "programmeCode": "UM_BACHELOR_045",
+      "officialNameEn": "Bachelor of Education TESL",
+      "existingNameEn": "BACHELOR OF EDUCATION TEACHING ENGLISH AS A SECOND LANGUAGE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-teaching-english-as-second-language"
+    },
+    {
+      "candidateId": "programme_c56e65eb57713f30",
+      "programmeCode": "UM_BACHELOR_046",
+      "officialNameEn": "Bachelor of Early Childhood Education",
+      "existingNameEn": "BACHELOR OF EARLY CHILDHOOD EDUCATION",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-childhood-education"
+    },
+    {
+      "candidateId": "programme_ebed9b9b3cce0f5d",
+      "programmeCode": "UM_BACHELOR_047",
+      "officialNameEn": "Bachelor of Civil Engineering",
+      "existingNameEn": "BACHELOR OF CIVIL ENGINEERING",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-civil-engineering"
+    },
+    {
+      "candidateId": "programme_9178689c4bbe06dc",
+      "programmeCode": "UM_BACHELOR_048",
+      "officialNameEn": "Bachelor of Biomedical Engineering",
+      "existingNameEn": "BACHELOR OF BIOMEDICAL ENGINEERING",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-biomedical-engineering"
+    },
+    {
+      "candidateId": "programme_87d43cba15bd0ab7",
+      "programmeCode": "UM_BACHELOR_050",
+      "officialNameEn": "Bachelor of Mechanical Engineering",
+      "existingNameEn": "BACHELOR OF MECHANICAL ENGINEERING",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-mechanical-engineering"
+    },
+    {
+      "candidateId": "programme_7e2b218c40962571",
+      "programmeCode": "UM_BACHELOR_049",
+      "officialNameEn": "Bachelor of Electrical Engineering",
+      "existingNameEn": "BACHELOR OF ELECTRICAL ENGINEERING",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-electrical-engineering"
+    },
+    {
+      "candidateId": "programme_429e93760e06f8df",
+      "programmeCode": "UM_BACHELOR_051",
+      "officialNameEn": "Bachelor of Chemical Engineering",
+      "existingNameEn": "BACHELOR OF CHEMICAL ENGINEERING",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-chemical-engineering"
+    },
+    {
+      "candidateId": "programme_0c15f59d8f51f160",
+      "programmeCode": "UM_BACHELOR_060",
+      "officialNameEn": "Bachelor of English Language and Linguistics",
+      "existingNameEn": "BACHELOR OF ENGLISH LANGUAGE AND LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-english-language-and-linguistics"
+    },
+    {
+      "candidateId": "programme_55229e8fcbca2b07",
+      "programmeCode": "UM_BACHELOR_054",
+      "officialNameEn": "Bachelor of Chinese Language and Linguistics",
+      "existingNameEn": "BACHELOR OF CHINESE LANGUAGE AND LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-chinese-language-and-linguistics"
+    },
+    {
+      "candidateId": "programme_b4d6a2f78d72572f",
+      "programmeCode": "UM_BACHELOR_052",
+      "officialNameEn": "Bachelor of Arabic Language and Linguistics",
+      "existingNameEn": "BACHELOR OF ARABIC LANGUAGE AND LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-arabic-language-and-linguistics"
+    },
+    {
+      "candidateId": "programme_dd0faea0a455242b",
+      "programmeCode": "UM_BACHELOR_055",
+      "officialNameEn": "Bachelor of Tamil Language and Linguistics",
+      "existingNameEn": "BACHELOR OF TAMIL LANGUAGE AND LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-tamil-language-and-linguistics"
+    },
+    {
+      "candidateId": "programme_029f1a24a26c97f1",
+      "programmeCode": "UM_BACHELOR_053",
+      "officialNameEn": "Bachelor of Japanese Language and Linguistics",
+      "existingNameEn": "BACHELOR OF JAPANESE LANGUAGE AND LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-japanese-language-and-linguistic"
+    },
+    {
+      "candidateId": "programme_a6a5baaf588853c5",
+      "programmeCode": "UM_BACHELOR_056",
+      "officialNameEn": "Bachelor of French Language and Linguistics",
+      "existingNameEn": "BACHELOR OF FRENCH LANGUAGE AND LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-french-language-and-linguistics"
+    },
+    {
+      "candidateId": "programme_1e7bd03aa4fe7aff",
+      "programmeCode": "UM_BACHELOR_057",
+      "officialNameEn": "Bachelor of German Language and Linguistics",
+      "existingNameEn": "BACHELOR OF GERMAN LANGUAGE AND LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-german-language-and-linguistics"
+    },
+    {
+      "candidateId": "programme_63cddeab6bdd523d",
+      "programmeCode": "UM_BACHELOR_058",
+      "officialNameEn": "Bachelor of Spanish Language and Linguistics",
+      "existingNameEn": "BACHELOR OF SPANISH LANGUAGE AND LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-spanish-language-and-linguistics"
+    },
+    {
+      "candidateId": "programme_6087cf07eaa081d4",
+      "programmeCode": "UM_BACHELOR_059",
+      "officialNameEn": "Bachelor of Italian Language and Linguistics",
+      "existingNameEn": "BACHELOR OF ITALIAN LANGUAGE AND LINGUISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-italian-language-and-linguistics"
+    },
+    {
+      "candidateId": "programme_fe0599339c0233dc",
+      "programmeCode": "UM_BACHELOR_080",
+      "officialNameEn": "Bachelor of Laws",
+      "existingNameEn": "BACHELOR OF LAWS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/Bachelor-of-laws"
+    },
+    {
+      "candidateId": "programme_d04b29dab11957ae",
+      "programmeCode": "UM_BACHELOR_062",
+      "officialNameEn": "Bachelor of Medicine and Bachelor of Surgery",
+      "existingNameEn": "BACHELOR OF MEDICINE AND BACHELOR OF SURGERY (MBBS)",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/Bachelor-of-Medicine-and-Bachelor-of-Surgery"
+    },
+    {
+      "candidateId": "programme_89e6d58f70f0c49d",
+      "programmeCode": "UM_BACHELOR_063",
+      "officialNameEn": "Bachelor of Biomedical Science",
+      "existingNameEn": "BACHELOR OF BIOMEDICAL SCIENCE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/Bachelor-of-Biomedical-Science"
+    },
+    {
+      "candidateId": "programme_528522891a1c63c4",
+      "programmeCode": "UM_BACHELOR_064",
+      "officialNameEn": "Bachelor of Nursing Science",
+      "existingNameEn": "BACHELOR OF NURSING SCIENCE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/Bachelor-of-Nursing-Science"
+    },
+    {
+      "candidateId": "programme_3e5b7d1439aab954",
+      "programmeCode": "UM_BACHELOR_065",
+      "officialNameEn": "Bachelor of Pharmacy with Honours",
+      "existingNameEn": "BACHELOR OF PHARMACY (HONS.)",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-pharmacy-with-honours"
+    },
+    {
+      "candidateId": "programme_60a2164fc6472bd6",
+      "programmeCode": "UM_BACHELOR_066",
+      "officialNameEn": "Bachelor of Science in Chemistry",
+      "existingNameEn": "BACHELOR OF SCIENCE IN CHEMISTRY",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-chemistry"
+    },
+    {
+      "candidateId": "programme_c3844160335870c1",
+      "programmeCode": "UM_BACHELOR_067",
+      "officialNameEn": "Bachelor of Science in Ecology and Biodiversity",
+      "existingNameEn": "BACHELOR OF SCIENCE IN ECOLOGY AND BIODIVERSITY",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-ecology"
+    },
+    {
+      "candidateId": "programme_b383ab3bd283d308",
+      "programmeCode": "UM_BACHELOR_068",
+      "officialNameEn": "Bachelor of Science in Physics",
+      "existingNameEn": "BACHELOR OF SCIENCE IN PHYSICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-physics"
+    },
+    {
+      "candidateId": "programme_59f546dc7f2e53ec",
+      "programmeCode": "UM_BACHELOR_076",
+      "officialNameEn": "Bachelor of Science in Environmental Management",
+      "existingNameEn": "BACHELOR OF SCIENCE IN ENVIRONMENTAL MANAGEMENT",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-environment"
+    },
+    {
+      "candidateId": "programme_2004cb118ed7724b",
+      "programmeCode": "UM_BACHELOR_069",
+      "officialNameEn": "Bachelor of Science in Applied Geology",
+      "existingNameEn": "BACHELOR OF SCIENCE IN APPLIED GEOLOGY",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-applied-geology"
+    },
+    {
+      "candidateId": "programme_721d0048234d1c05",
+      "programmeCode": "UM_BACHELOR_070",
+      "officialNameEn": "Bachelor of Science in Biochemistry",
+      "existingNameEn": "BACHELOR OF SCIENCE IN BIOCHEMISTRY",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-biochemistry"
+    },
+    {
+      "candidateId": "programme_d7c0def437912636",
+      "programmeCode": "UM_BACHELOR_071",
+      "officialNameEn": "Bachelor of Science in Mathematics",
+      "existingNameEn": "BACHELOR OF SCIENCE IN MATHEMATICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-of-mathematics"
+    },
+    {
+      "candidateId": "programme_7c50d9f36208ad13",
+      "programmeCode": "UM_BACHELOR_072",
+      "officialNameEn": "Bachelor of Science in Biotechnology",
+      "existingNameEn": "BACHELOR OF SCIENCE IN BIOTECHNOLOGY",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-biotechnology"
+    },
+    {
+      "candidateId": "programme_38b059e9421da916",
+      "programmeCode": "UM_BACHELOR_073",
+      "officialNameEn": "Bachelor of Actuarial Science",
+      "existingNameEn": "BACHELOR OF ACTUARIAL SCIENCE",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-actuarial-science"
+    },
+    {
+      "candidateId": "programme_df68175b7ae396bc",
+      "programmeCode": "UM_BACHELOR_074",
+      "officialNameEn": "Bachelor of Science in Microbiology and Molecular Genetics",
+      "existingNameEn": "BACHELOR OF SCIENCE IN MICROBIOLOGY AND MOLECULAR GENETICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-microbiology-and-molecular-genetics"
+    },
+    {
+      "candidateId": "programme_d46241a006a1ce0f",
+      "programmeCode": "UM_BACHELOR_075",
+      "officialNameEn": "Bachelor of Science in Statistics",
+      "existingNameEn": "BACHELOR OF SCIENCE IN STATISTICS",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-in-statistics"
+    },
+    {
+      "candidateId": "programme_168a39f9203cf526",
+      "programmeCode": "UM_BACHELOR_077",
+      "officialNameEn": "Bachelor of Sports Management",
+      "existingNameEn": "BACHELOR OF SPORTS MANAGEMENT",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-sports-management"
+    },
+    {
+      "candidateId": "programme_2ff9c93480267319",
+      "programmeCode": "UM_BACHELOR_078",
+      "officialNameEn": "Bachelor of Sports Science (Exercise Science)",
+      "existingNameEn": "BACHELOR OF SPORTS SCIENCE (EXERCISE SCIENCE)",
+      "method": "canonical-name",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-sport-sciences"
+    }
+  ],
+  "usableOfficialMatches": 72,
+  "unmatched": [
+    {
+      "candidateId": "programme_2e15a58bbb0e77b7",
+      "nameEn": "Bachelor of Islamic Studies and Science",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-islamic-studies-and-science"
+    },
+    {
+      "candidateId": "programme_790ac498924d45aa",
+      "nameEn": "Bachelor of Islamic Education",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-islamic-education"
+    },
+    {
+      "candidateId": "programme_cb6d7035a1bbe7cd",
+      "nameEn": "Bachelor of Science with Education",
+      "officialUrl": "https://study.um.edu.my/bachelor-of-science-with-education"
+    }
+  ],
+  "ambiguous": [],
+  "conflicts": [],
+  "generatedRows": {
+    "programmes": 72,
+    "sections": 216,
+    "intakes": 132
+  }
+}

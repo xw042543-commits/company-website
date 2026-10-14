@@ -21,6 +21,7 @@ miniapp/project.private.config.json
 crawler/.data/
 crawler/node_modules/
 crawler/coverage/
+/.data/
 
 # Java / Maven
 backend/target/

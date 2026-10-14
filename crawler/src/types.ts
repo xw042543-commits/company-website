@@ -36,6 +36,7 @@ export type ProgrammeCandidate = {
   durationMonths: number | null;
   descriptionZh: string | null;
   descriptionEn: string | null;
+  officialUrl: string;
   status: "DRAFT";
   tuition: {
     min: number | null;
@@ -52,6 +53,13 @@ export type ProgrammeCandidate = {
   };
   languages: Array<{ code: null; rawText: string }>;
   intakes: Array<{ displayText: string; date: string | null }>;
+  sections: Array<{
+    type: "ADMISSIONS" | "CURRICULUM" | "CAREER_OPPORTUNITIES";
+    titleRaw: string;
+    bodyRaw: string;
+    sourceUrl: string;
+    sourceCheckedAt: string;
+  }>;
   evidence: Evidence[];
 };
 

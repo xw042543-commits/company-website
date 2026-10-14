@@ -8,6 +8,8 @@
   },
   "scripts": {
     "crawl": "node src/cli.ts",
+    "reprocess": "node src/reprocess.ts",
+    "reconcile": "node src/reconcile.ts",
     "check": "node --test"
   }
 }
