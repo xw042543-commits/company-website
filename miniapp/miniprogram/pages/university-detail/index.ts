@@ -10,6 +10,7 @@ import { favoriteUniversities } from '../../stores/favorites';
 import { loadFilterOptions } from '../../services/catalogue';
 import { deriveProgrammeCategories, filterProgrammes, type ProgrammeCategory } from '../../utils/discovery-view';
 import { consultationRoute, programmeDetailRoute } from '../../utils/routes';
+import { uniqueStudyLevelNamesZh } from '../../utils/study-level-display';
 
 type ViewState = 'loading' | 'ready' | 'failed' | 'offline';
 type DetailSection = 'introduction' | 'facts' | 'programmes';
@@ -176,9 +177,6 @@ Page({
 type BasicFact = { label: string; value: string };
 
 function summarizeLevels(programmes: readonly UniversityProgramme[]): string {
-  const labels: Readonly<Record<string, string>> = {
-    FOUNDATION: '预科', DIPLOMA: '文凭', BACHELOR: '本科', MASTER: '硕士', DOCTORATE: '博士',
-  };
-  const levels = [...new Set(programmes.map((programme) => labels[programme.studyLevelCode] || programme.studyLevelCode).filter(Boolean))];
+  const levels = uniqueStudyLevelNamesZh(programmes.map(programme => ({ code: programme.studyLevelCode })));
   return levels.join('、') || '待确认';
 }

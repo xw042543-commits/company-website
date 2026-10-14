@@ -110,6 +110,12 @@ test('maps application order summaries and details from authenticated API data',
   }
 });
 
+test('legacy application order detail normalizes English qualification labels', () => {
+  const order = { referenceCode: 'c4d29e18-b266-4f6a-8e24-7cc312388174', universityName: '世纪大学',
+    programmeName: '研究课程', qualification: 'PhD', status: 'IN_PROGRESS', statusLabel: '进行中', submittedAt: '' };
+  assert.equal(mapApplicationOrder(order)?.qualification, '博士');
+});
+
 test('rejects malformed application order payloads', () => {
   assert.equal(mapApplicationOrder({ referenceCode: '../admin', status: 'IN_PROGRESS', statusLabel: '进行中' }), null);
   assert.equal(mapApplicationOrderDetail({}).ok, false);

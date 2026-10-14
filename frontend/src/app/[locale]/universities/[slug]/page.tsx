@@ -21,6 +21,7 @@ import {
   getUniversityProgrammesWithFallback,
 } from "@/lib/universities";
 import { boundedPage, first, isLocale, pageLink, type Query, words } from "@/lib/site";
+import { canonicalStudyLevelOptions } from "@/lib/study-level-display";
 
 type DetailProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -170,7 +171,7 @@ export default async function Detail({ params, searchParams }: DetailProps) {
             <div className="programme-filter-row">
               {availableLevels.length > 0 && <nav className="programme-level-filters" aria-label={words(locale, "按学历层次筛选", "Filter by study level")}>
                 <Link scroll={false} aria-current={!selectedLevel ? "page" : undefined} href={programmeLevelLink(detailPath, query, "")}>{words(locale, "全部", "All")}</Link>
-                {[["bachelor", "本科", "Bachelor's"], ["master", "硕士", "Master's"], ["doctorate", "博士", "Doctorate"]].filter(([level]) => availableLevels.includes(level as "bachelor" | "master" | "doctorate")).map(([level, zh, en]) => <Link scroll={false} key={level} aria-current={selectedLevel === level ? "page" : undefined} href={programmeLevelLink(detailPath, query, level)}>{words(locale, zh, en)}</Link>)}
+                {canonicalStudyLevelOptions().filter(({ code }) => availableLevels.includes(code)).map(({ code, nameZh, nameEn }) => <Link scroll={false} key={code} aria-current={selectedLevel === code ? "page" : undefined} href={programmeLevelLink(detailPath, query, code)}>{words(locale, nameZh, nameEn)}</Link>)}
               </nav>}
               {programmeKeyword && <Link scroll={false} className="programme-search-clear" href={programmeLevelLink(detailPath, { level: selectedLevel }, selectedLevel)}>{words(locale, "清除搜索", "Clear search")}</Link>}
             </div>

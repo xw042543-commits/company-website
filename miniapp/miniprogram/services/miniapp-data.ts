@@ -1,5 +1,6 @@
 import { request } from './http';
 import type { Result } from '../utils/result';
+import { studyLevelNameZh } from '../utils/study-level-display';
 import { createExpiringCache } from '../utils/expiring-cache';
 import { universityLogoUrl } from './university-media';
 
@@ -223,7 +224,7 @@ export function mapApplicationOrder(raw: unknown): ApplicationOrderSummary | nul
     || !text(raw.statusLabel)) return null;
   const submittedAt = optional(raw.submittedAt);
   return { referenceCode: raw.referenceCode, universityName: optional(raw.universityName),
-    programmeName: optional(raw.programmeName), qualification: optional(raw.qualification), status: raw.status,
+    programmeName: optional(raw.programmeName), qualification: studyLevelNameZh({ code: optional(raw.qualification) }), status: raw.status,
     statusLabel: raw.statusLabel, submittedAt, submittedDate: dateLabel(submittedAt) };
 }
 

@@ -1,6 +1,7 @@
 import { request } from './http';
 import type { Result } from '../utils/result';
 import { universityLogoUrl } from './university-media';
+import { studyLevelNameZh } from '../utils/study-level-display';
 
 export const STATUS_LABELS = { UNPAID: '未支付', PAID: '进行中', IN_PROGRESS: '进行中', NEEDS_DOCUMENTS: '材料待补充', SUBMITTED: '进行中', COMPLETED: '待评价', CANCELLED: '已取消' } as const;
 export type ApplicationStatus = keyof typeof STATUS_LABELS;
@@ -40,7 +41,7 @@ export function mapSummary(raw: unknown): ApplicationSummary | null {
     || !stage(raw.stage) || !date(raw.createdAt) || !['reference','universitySlug','universityName','programmeName','level','subject','note'].every((key) => text(raw[key]))) return null;
   const status = raw.status as ApplicationStatus;
   return { id: raw.id, reference: String(raw.reference), universitySlug: String(raw.universitySlug), universityName: String(raw.universityName),
-    programmeName: String(raw.programmeName), level: String(raw.level), subject: String(raw.subject), status, displayStatus: displayStatus(status), stage: raw.stage,
+    programmeName: String(raw.programmeName), level: studyLevelNameZh({ code: String(raw.level) }), subject: String(raw.subject), status, displayStatus: displayStatus(status), stage: raw.stage,
     note: String(raw.note), createdAt: raw.createdAt, date: raw.createdAt.slice(0,10), statusLabel: STATUS_LABELS[status],
     tone: status === 'UNPAID' || status === 'NEEDS_DOCUMENTS' ? 'warning' : status === 'CANCELLED' || status === 'SUBMITTED' ? 'muted' : 'green', logo: universityLogoUrl(String(raw.universitySlug)) };
 }

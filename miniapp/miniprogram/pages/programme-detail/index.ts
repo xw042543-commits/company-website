@@ -8,6 +8,7 @@ import {
 import { sessionStore } from '../../stores/session';
 import { buildProgrammeDocument, type ProgrammeDocumentSection } from '../../utils/discovery-view';
 import { consultationRoute } from '../../utils/routes';
+import { canonicalStudyLevel, studyLevelNameZh } from '../../utils/study-level-display';
 
 type ViewState = 'loading' | 'ready' | 'offline' | 'failed';
 type BasicFact = { label: string; value: string };
@@ -114,7 +115,7 @@ Page({
 
 function buildBasicFacts(programme: ProgrammeDetail): BasicFact[] {
   return [
-    { label: '学历', value: localizedCode(programme.studyLevelCode, { BACHELOR: '本科', MASTER: '硕士', DOCTORATE: '博士' }) },
+    { label: '学历', value: studyLevelNameZh({ code: programme.studyLevelCode }) || '待确认' },
     { label: '学制', value: programme.durationDisplay || '待确认' },
     { label: '模式／方式', value: programme.studyPaceDisplay || localizedCode(programme.courseModeCode, { ON_CAMPUS: '校内授课', ONLINE: '在线授课', HYBRID: '混合授课' }) },
     { label: '授课语言', value: programme.languageCodes.map((code) => localizedCode(code, {
@@ -131,6 +132,6 @@ function localizedCode(code: string, labels: Readonly<Record<string, string>>): 
 }
 
 function normalizeQualification(value: string): string {
-  const normalized = value.trim().toLowerCase();
-  return ['foundation', 'bachelor', 'master', 'doctorate'].includes(normalized) ? normalized : '';
+  const normalized = canonicalStudyLevel({ code: value });
+  return normalized && normalized !== 'diploma' ? normalized : '';
 }

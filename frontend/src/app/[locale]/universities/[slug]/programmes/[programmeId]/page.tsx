@@ -12,7 +12,7 @@ import { programmeDetailPath } from "@/lib/programme-routes";
 import { findProgrammeSection } from "@/lib/programme-detail-sections";
 import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { formatEnglishDisplayText, isLocale, words } from "@/lib/site";
-import { studyLevelDisplayName } from "@/lib/study-level-display";
+import { canonicalStudyLevelCode, studyLevelDisplayName } from "@/lib/study-level-display";
 import { getUniversityProgramme, type UniversityProgramme, type UniversityProgrammeDetailSection } from "@/lib/university-api";
 
 type ProgrammePageProps = {
@@ -51,12 +51,7 @@ function optionLabel(options: FilterOption[] | undefined, code: string | null, l
 }
 
 function normalizedLevel(code: string | null) {
-  const levels: Record<string, string> = {
-    BACHELOR: "bachelor",
-    MASTER: "master",
-    DOCTORATE: "doctorate",
-  };
-  return levels[code?.toUpperCase() ?? ""] ?? code?.toLocaleLowerCase("en") ?? "";
+  return canonicalStudyLevelCode({ code }) ?? code?.toLocaleLowerCase("en") ?? "";
 }
 
 function remoteProgrammeDetail(
@@ -93,14 +88,7 @@ function remoteProgrammeDetail(
 }
 
 function levelName(locale: "zh" | "en", level: string) {
-  if (locale === "zh") return studyLevelDisplayName(locale, { code: level, nameEn: level });
-  const names: Record<string, string> = {
-    diploma: "Diploma",
-    bachelor: "Bachelor's",
-    master: "Master's",
-    doctorate: "Doctorate",
-  };
-  return names[level] ?? formatEnglishDisplayText(level);
+  return studyLevelDisplayName(locale, { code: level, nameEn: level });
 }
 
 function programmeIntroduction({

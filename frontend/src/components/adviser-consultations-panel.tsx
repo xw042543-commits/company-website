@@ -10,6 +10,7 @@ import { abortableRequest, consultationCollectionState, consultationConflictMess
 import { getSession } from "@/lib/auth-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
+import { studyLevelDisplayName } from "@/lib/study-level-display";
 
 const statuses: ConsultationStatus[] = ["NEW", "IN_PROGRESS", "COMPLETED"];
 
@@ -47,9 +48,9 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
   const missing = words(locale, "未填写", "Not provided");
   const date = (value: string) => new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB",
     { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kuala_Lumpur" }).format(new Date(value));
-  const qualification = (value: string | null) => value === "foundation" ? words(locale, "预科", "Foundation")
-    : value === "bachelor" ? words(locale, "本科", "Bachelor") : value === "master" ? words(locale, "硕士", "Master")
-      : value === "doctorate" ? words(locale, "博士", "Doctorate") : missing;
+  const qualification = (value: string | null) => value
+    ? studyLevelDisplayName(locale, { code: value, nameEn: value }) || missing
+    : missing;
   const errorText = (value: AdviserFailure["status"]) => {
     if (value === "forbidden") return words(locale, "无权访问此咨询。", "Access denied for this consultation.");
     if (value === "unauthorized") return words(locale, "登录已过期，请重新登录。", "Your session expired. Please sign in again.");

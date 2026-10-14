@@ -3,6 +3,7 @@ import { LOCAL_PROGRAMMES, type LocalProgrammeRecord } from "./local-programmes.
 import type { UniversityProgrammePage } from "../lib/university-api.ts";
 import { boundedPage, first, formatEnglishDisplayText, pageNumber, type Query } from "../lib/site.ts";
 import type { FilterOptions } from "../lib/filter-options-api.ts";
+import { canonicalStudyLevelOptions, studyLevelKeys } from "../lib/study-level-display.ts";
 
 const PAGE_SIZE = 12;
 
@@ -59,11 +60,7 @@ export function localFilterOptions(): FilterOptions {
       ...SUBJECT_GROUPS.map(([code, nameZh, nameEn]) => ({ code, nameZh, nameEn })),
       { code: "other", nameZh: "其他专业", nameEn: "Other subjects" },
     ],
-    studyLevels: [
-      { code: "bachelor", nameZh: "本科", nameEn: "Bachelor's" },
-      { code: "master", nameZh: "硕士", nameEn: "Master's" },
-      { code: "doctorate", nameZh: "博士", nameEn: "Doctorate" },
-    ],
+    studyLevels: canonicalStudyLevelOptions().filter(({ code }) => ["bachelor", "master", "doctorate"].includes(code)),
     courseModes: [
       { code: "coursework", nameZh: "授课型", nameEn: "Coursework" },
       { code: "research", nameZh: "研究型", nameEn: "Research" },
@@ -300,7 +297,7 @@ export function findLocalProgrammeBySlug(universitySlug: string, programmeSlug: 
 export function localProgrammeLevels(slug: string) {
   const university = findUniversityBySlug(slug);
   if (!university) return [];
-  return ["bachelor", "master", "doctorate"].filter((level) =>
+  return studyLevelKeys.filter((level) =>
     LOCAL_PROGRAMMES.some((record) => record.universityId === university.id && record.level === level),
   );
 }

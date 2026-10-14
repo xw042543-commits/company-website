@@ -100,7 +100,7 @@ class FilterOptionsServiceIntegrationTest {
         );
         assertThat(response.studyLevels()).containsExactly(
                 new FilterOptionResponse("BACHELOR", "本科", "Bachelor"),
-                new FilterOptionResponse("DIPLOMA", "文凭", "Diploma"),
+                new FilterOptionResponse("DIPLOMA", "大专", "Diploma"),
                 new FilterOptionResponse("MASTER", "硕士", "Master")
         );
         assertThat(response.courseModes()).containsExactly(

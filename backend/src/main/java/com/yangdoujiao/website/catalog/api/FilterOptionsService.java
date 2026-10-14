@@ -52,7 +52,9 @@ public class FilterOptionsService {
                         .findAllByStatusOrderBySortOrderAscCodeAsc(CategoryStatus.PUBLISHED)
                         .stream()
                         .map(level -> new FilterOptionResponse(
-                                level.getCode(), level.getNameZh(), level.getNameEn()
+                                level.getCode(), StudyLevelDisplayNames.chineseName(
+                                        level.getCode(), level.getNameZh(), level.getNameEn()
+                                ), level.getNameEn()
                         ))
                         .toList(),
                 courseModeRepository

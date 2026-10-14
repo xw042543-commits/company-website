@@ -1,3 +1,7 @@
+import { canonicalStudyLevelOptions } from "./study-level-display.ts";
+
+export { formatEnglishDisplayText } from "./display-text.ts";
+
 export type Locale = "zh" | "en";
 
 export function isFocusedPortalPath(locale: Locale, pathname: string): boolean {
@@ -7,25 +11,6 @@ export function isFocusedPortalPath(locale: Locale, pathname: string): boolean {
 export const isLocale = (value: string): value is Locale => value === "zh" || value === "en";
 export const words = (locale: Locale, zh: string, en: string) => locale === "zh" ? zh : en;
 
-const ENGLISH_TITLE_SMALL_WORDS = new Set(["a", "an", "and", "as", "at", "by", "for", "from", "in", "of", "on", "or", "the", "to", "with"]);
-const ENGLISH_TITLE_ACRONYMS = new Map([
-  ["ai", "AI"], ["ba", "BA"], ["bba", "BBA"], ["bsc", "BSc"], ["cs", "CS"], ["it", "IT"],
-  ["llb", "LLB"], ["mba", "MBA"], ["md", "MD"], ["phd", "PhD"], ["tesl", "TESL"],
-]);
-
-export function formatEnglishDisplayText(value: string) {
-  const trimmed = value.trim();
-  const readable = trimmed.replaceAll("_", " ");
-  const letters = readable.replace(/[^A-Za-z]+/g, "");
-  if (!letters || letters !== letters.toUpperCase()) return readable;
-
-  return readable.toLocaleLowerCase("en").replace(/[A-Za-z]+(?:'[A-Za-z]+)?/g, (word, offset) => {
-    const acronym = ENGLISH_TITLE_ACRONYMS.get(word);
-    if (acronym) return acronym;
-    if (offset > 0 && ENGLISH_TITLE_SMALL_WORDS.has(word)) return word;
-    return word.charAt(0).toUpperCase() + word.slice(1);
-  });
-}
 export function isNavigationActive(pathname: string, locale: Locale, path: string) {
   const target = `/${locale}${path ? `/${path}` : ""}`;
   return path ? pathname === target || pathname.startsWith(`${target}/`) : pathname === target || pathname === `${target}/`;
@@ -41,10 +26,9 @@ export const memberNavigation = [
   ["about", "关于我们", "About us"],
 ] as const;
 export const navigation = memberNavigation;
-export const levels = [
-  ["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor's"],
-  ["master", "硕士", "Master's"], ["doctorate", "博士", "Doctorate"],
-] as const;
+export const levels = canonicalStudyLevelOptions()
+  .filter(({ code }) => code !== "diploma")
+  .map(({ code, nameZh, nameEn }) => [code, nameZh, nameEn] as const);
 export const countries = [
   ["GB", "英国", "United Kingdom"], ["US", "美国", "United States"],
   ["AU", "澳大利亚", "Australia"], ["CA", "加拿大", "Canada"],
