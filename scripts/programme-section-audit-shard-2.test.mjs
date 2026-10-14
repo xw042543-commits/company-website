@@ -20,11 +20,11 @@ test('shard 2 migration only writes career and curriculum sections', () => {
   assert.doesNotMatch(migration, /'ADMISSIONS'|'INTRODUCTION'|'LEARNING_OUTCOMES'/);
 });
 
-test('generated content is explicit and verified sources cannot be overwritten', () => {
+test('generated content is explicit and published verified sources cannot be overwritten', () => {
   assert.match(migration, /参考学习领域，非官方课程表/);
   assert.match(migration, /AI 辅助/);
   assert.match(migration, /'ai_generated'/);
-  assert.match(migration, /WHERE programme_detail_sections\.source_type = 'ai_generated'/);
+  assert.match(migration, /WHERE \(programme_detail_sections\.source_type = 'ai_generated' OR programme_detail_sections\.status <> 'PUBLISHED'\)/);
   assert.doesNotMatch(migration, /source_type\s*=\s*'official'/);
   assert.doesNotMatch(migration, /source_type\s*=\s*'third_party'/);
 });

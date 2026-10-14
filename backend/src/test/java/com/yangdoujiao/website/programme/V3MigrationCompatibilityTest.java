@@ -126,11 +126,11 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("40");
-            assertThat(latest.info().applied()).hasSize(40);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("43");
+            assertThat(latest.info().applied()).hasSize(43);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 40)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 43)
                             .mapToObj(Integer::toString).toList());
             assertThat(jdbcTemplate.queryForMap("""
                     SELECT status, published_at IS NOT NULL AS has_published_at
@@ -142,12 +142,12 @@ class V3MigrationCompatibilityTest {
                     SELECT count(*) FROM programme_detail_sections
                     WHERE programme_id = ? AND status = 'PUBLISHED'
                       AND section_type IN ('CAREER_OPPORTUNITIES', 'CURRICULUM')
-                    """, Integer.class, publishableProgrammeId)).isEqualTo(1);
+                    """, Integer.class, publishableProgrammeId)).isEqualTo(2);
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT count(*) FROM programme_detail_sections
                     WHERE programme_id = ? AND status = 'ARCHIVED'
                       AND section_type = 'CURRICULUM' AND source_url IS NULL
-                    """, Integer.class, publishableProgrammeId)).isEqualTo(1);
+                    """, Integer.class, publishableProgrammeId)).isZero();
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT body_en FROM programme_detail_sections
                     WHERE programme_id = ? AND section_type = 'CAREER_OPPORTUNITIES'
@@ -163,6 +163,8 @@ class V3MigrationCompatibilityTest {
                     WHERE s.section_type IN ('CURRICULUM', 'COURSE_STRUCTURE')
                       AND s.status = 'PUBLISHED'
                       AND NULLIF(BTRIM(s.source_url), '') IS NULL
+                      AND (s.source_type <> 'ai_generated'
+                           OR s.body_zh NOT LIKE '参考学习领域，非官方课程表%')
                     """, Integer.class)).isZero();
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT count(*)

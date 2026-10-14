@@ -127,7 +127,7 @@ SET title_zh = EXCLUDED.title_zh,
     source_type = 'ai_generated',
     status = 'PUBLISHED',
     updated_at = CURRENT_TIMESTAMP
-WHERE programme_detail_sections.source_type = 'ai_generated'
+WHERE (programme_detail_sections.source_type = 'ai_generated' OR programme_detail_sections.status <> 'PUBLISHED')
   AND (
     (EXCLUDED.section_type = 'CAREER_OPPORTUNITIES' AND (
       NULLIF(BTRIM(programme_detail_sections.body_zh), '') IS NULL
