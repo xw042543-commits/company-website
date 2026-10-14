@@ -11,7 +11,9 @@ public interface UserExternalIdentityRepository extends JpaRepository<UserExtern
     @Query("""
             select identity from UserExternalIdentity identity join fetch identity.userAccount
             where identity.userAccount.id in :ids
-            order by identity.lastLoginAt desc, identity.id desc
+            order by case when identity.provider = com.yangdoujiao.website.auth.external.ExternalIdentityProvider.WECHAT_MINI_PROGRAM
+                and identity.displayName is not null and trim(identity.displayName) <> '' then 0 else 1 end,
+                identity.lastLoginAt desc, identity.id desc
             """)
     List<UserExternalIdentity> findProfilesByAccountIds(List<Long> ids);
 

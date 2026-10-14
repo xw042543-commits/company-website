@@ -186,6 +186,11 @@ function mapResponse<T>(response: TransportSuccess, path: string): Result<T> {
     const error = communityError(response);
     if (error) return error;
   }
+  if (path === '/api/v1/miniapp/account/nickname' && response.data && typeof response.data === 'object' && 'code' in response.data) {
+    const code = response.data.code;
+    if ((response.statusCode === 400 && code === 'INVALID_NICKNAME')
+      || (response.statusCode === 422 && code === 'NICKNAME_NOT_APPROVED')) return failure('validation', code);
+  }
   if (response.statusCode === 400) return failure('validation', 'REQUEST_REJECTED');
   if (response.statusCode === 401) return failure('unauthorized', 'AUTHENTICATION_REQUIRED');
   if (response.statusCode === 403) return failure('forbidden', 'ACCESS_DENIED');

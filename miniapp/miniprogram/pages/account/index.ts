@@ -2,12 +2,18 @@ import { sessionStore } from '../../stores/session';
 import { getUserOverview, type UserOverview } from '../../services/miniapp-data';
 import { communityMeRoute } from '../../utils/routes';
 import { updateAvatar } from '../../services/avatar';
+import { updateNickname } from '../../services/nickname';
 
-Page({
+type AccountDeps = { session: typeof sessionStore; saveNickname: typeof updateNickname; toast: (title: string) => void };
+export function createAccountPage(overrides: Partial<AccountDeps> = {}) {
+  const deps: AccountDeps = { session: sessionStore, saveNickname: updateNickname,
+    toast: (title) => wx.showToast({ title, icon: 'success' }), ...overrides };
+  const definition: WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> = {
   data: {
-    session: sessionStore.getSnapshot(),
+    session: deps.session.getSnapshot(),
     overview: { favorites: 0, plans: 0, consultations: 0, orders: 0 } as UserOverview,
     avatarUploading: false,
+    nicknameOpen: false, nicknameDraft: '', nicknameSaving: false, nicknameError: '', nicknameCount: 0, nicknameKeyboardHeight: 0,
     menuItems: [
       { key: 'orders', mark: '申', tone: 'forest', label: '我的申请', caption: '查看未支付、材料与申请进度' },
       { key: 'wallet', mark: '积', tone: 'amber', label: '会员积分', caption: '管理账户余额、积分与使用记录' },
@@ -19,12 +25,12 @@ Page({
 
   onLoad() {
     const page = this as typeof this & { unsubscribeSession?: () => void };
-    page.unsubscribeSession = sessionStore.subscribe((session) => this.setData({ session }));
+    page.unsubscribeSession = deps.session.subscribe((session) => this.setData({ session }));
   },
 
   onShow() {
-    this.setData({ session: sessionStore.getSnapshot() });
-    if (sessionStore.getSnapshot().status === 'authenticated') void this.loadOverview();
+    this.setData({ session: deps.session.getSnapshot() });
+    if (deps.session.getSnapshot().status === 'authenticated') void this.loadOverview();
   },
 
   onUnload() {
@@ -33,9 +39,9 @@ Page({
   },
 
   async openIdentity() {
-    if (sessionStore.getSnapshot().status === 'authenticated') return;
+    if (deps.session.getSnapshot().status === 'authenticated') return;
     wx.showLoading({ title: '登录中', mask: true });
-    const result = await sessionStore.ensureAuthenticated();
+    const result = await deps.session.ensureAuthenticated();
     wx.hideLoading();
     if (!result.ok) wx.showToast({ title: '登录未完成，请重试', icon: 'none' });
     else void this.loadOverview();
@@ -43,9 +49,39 @@ Page({
 
   noop() {},
 
+  async editNickname() {
+    if (deps.session.getSnapshot().status !== 'authenticated') { await this.openIdentity(); return; }
+    if (this.data.avatarUploading) return;
+    const nicknameDraft = deps.session.getSnapshot().account?.displayName ?? '';
+    this.setData({ nicknameOpen: true, nicknameDraft, nicknameCount: Array.from(nicknameDraft).length, nicknameKeyboardHeight: 0, nicknameError: '' });
+  },
+  closeNickname() { if (!this.data.nicknameSaving) this.setData({ nicknameOpen: false, nicknameKeyboardHeight: 0, nicknameError: '' }); },
+  nicknameInput(event: WechatMiniprogram.Input) { this.setData({ nicknameDraft: event.detail.value, nicknameCount: Array.from(event.detail.value).length, nicknameError: '' }); },
+  nicknameKeyboard(event: WechatMiniprogram.CustomEvent<{ height: number }>) {
+    if (this.data.nicknameOpen) this.setData({ nicknameKeyboardHeight: Math.max(0, event.detail.height || 0) });
+  },
+  async saveNickname(event: WechatMiniprogram.CustomEvent<{ value: { nickname?: string } }>) {
+    if (this.data.nicknameSaving) return;
+    const accountId = deps.session.getSnapshot().account?.id;
+    if (!accountId) { this.setData({ nicknameError: '请先登录' }); return; }
+    const value = event.detail.value.nickname ?? '';
+    this.setData({ nicknameSaving: true, nicknameDraft: value, nicknameCount: Array.from(value).length, nicknameError: '' });
+    const result = await deps.saveNickname(value);
+    this.setData({ nicknameSaving: false });
+    if (deps.session.getSnapshot().account?.id !== accountId) { this.setData({ nicknameOpen: false }); return; }
+    if (!result.ok) {
+      this.setData({ nicknameError: result.error.code === 'INVALID_NICKNAME' ? '请输入 1–32 个字符的昵称，不含换行'
+        : result.error.code === 'NICKNAME_NOT_APPROVED' ? '昵称暂未通过校验，请修改后重试' : '保存失败，请稍后重试' });
+      return;
+    }
+    deps.session.updateAccount(result.value);
+    this.setData({ session: deps.session.getSnapshot(), nicknameOpen: false });
+    deps.toast('昵称已更新');
+  },
+
   async chooseAvatar(event: WechatMiniprogram.CustomEvent<{ avatarUrl?: string }>) {
     const filePath = event.detail.avatarUrl;
-    if (!filePath || this.data.avatarUploading) return;
+    if (!filePath || this.data.avatarUploading || this.data.nicknameSaving) return;
     this.setData({ avatarUploading: true });
     wx.showLoading({ title: '正在保存头像', mask: true });
     const result = await updateAvatar(filePath);
@@ -58,7 +94,7 @@ Page({
       });
       return;
     }
-    sessionStore.updateAccount(result.value);
+    deps.session.updateAccount(result.value);
     wx.showToast({ title: '头像已更新', icon: 'success' });
   },
 
@@ -90,4 +126,7 @@ Page({
     const result = await getUserOverview();
     if (result.ok) this.setData({ overview: result.value });
   },
-});
+};
+  return definition;
+}
+if (typeof Page === 'function') Page(createAccountPage());

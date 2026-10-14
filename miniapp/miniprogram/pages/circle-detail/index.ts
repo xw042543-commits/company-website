@@ -74,11 +74,14 @@ export function createCircleDetailPage(overrides: Partial<DetailDeps> = {}): Wec
       requestScope: deps.createScope(), commentsGeneration: 0, postGeneration: 0, repliesEpoch: 0,
       replyGenerations: new Map(), active: true, sessionStatus: initial.status, unsubscribe: null };
     (this as DetailPage)._communityRuntime = state;
+    let profileName = initial.account?.displayName;
     state.unsubscribe = deps.session.subscribe((session) => {
       if (!state.active) return;
       const becameAuthenticated = state.sessionStatus !== 'authenticated' && session.status === 'authenticated';
+      const nicknameChanged = session.status === 'authenticated' && profileName !== session.account?.displayName;
+      profileName = session.account?.displayName;
       state.sessionStatus = session.status;
-      if (becameAuthenticated) { void this.loadPost(); void this.loadComments(true); }
+      if (becameAuthenticated || nicknameChanged) { void this.loadPost(); void this.loadComments(true); }
     });
     if (!/^[1-9]\d*$/.test(state.postId)) { this.setData({ postState: 'not-found', commentsState: 'failed' }); return; }
     void this.loadPost(); void this.loadComments(true);

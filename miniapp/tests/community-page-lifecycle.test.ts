@@ -18,6 +18,25 @@ function context(definition: any, data = {}) {
 
 const tap = (dataset: Record<string, string>) => ({ currentTarget: { dataset } });
 const anonymousSession = { getSnapshot: () => ({ status: 'anonymous', account: null }), subscribe: () => () => {}, ensureAuthenticated: async () => ok({}) };
+test('nickname update refreshes existing community feed, post and comments without logging in again', async () => {
+  const { createCirclePage } = await import('../miniprogram/pages/circle/index.ts');
+  const { createCircleDetailPage } = await import('../miniprogram/pages/circle-detail/index.ts');
+  let name = '旧昵称'; const listeners: any[] = [];
+  const session: any = { getSnapshot: () => ({ status: 'authenticated', account: { id: 1, displayName: name } }),
+    subscribe: (fn: any) => { listeners.push(fn); return () => {}; } };
+  const post = () => ({ id: '42', authorName: name, body: '内容', publishedAt: '2026-10-08T00:00:00Z' });
+  const feed = context(createCirclePage({ session, listPosts: async () => ok({ items: [post()], nextCursor: null }) } as any));
+  const detail = context(createCircleDetailPage({ session, loadPost: async () => ok(post()),
+    listComments: async () => ok({ items: [{ id: '3', authorName: name, authorAvatarUrl: null, body: '评论', createdAt: '2026-10-08T00:00:00Z', replies: [], ownedByMe: true, likeCount: 0, likedByMe: false, replyCount: 0, parentCommentId: null, status: 'PUBLISHED' }], nextCursor: null }) } as any));
+  feed.onLoad(); detail.onLoad({ id: '42' });
+  for (let i = 0; i < 8; i++) await Promise.resolve();
+  name = '新昵称'; listeners.forEach(fn => fn(session.getSnapshot()));
+  for (let i = 0; i < 8; i++) await Promise.resolve();
+  assert.equal(feed.data.posts[0].authorName, '新昵称');
+  assert.equal(detail.data.post.authorName, '新昵称');
+  assert.equal(detail.data.comments[0].authorName, '新昵称');
+  feed.onUnload(); detail.onUnload();
+});
 test('composer blocks while uploading and submits image IDs after upload succeeds', async () => {
   const { createCircleComposePage } = await import('../miniprogram/pages/circle-compose/index.ts');
   const upload = deferred<any>(); const writes: any[] = [];

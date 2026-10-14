@@ -35,12 +35,15 @@ export function createCirclePage(overrides: Partial<CircleDeps> = {}): WechatMin
       schoolGeneration: 0, schoolCommittedQuery: '', search: deps.searchUniversities ?? createUniversitySearchService(undefined, `feed-schools:${requestScope}`).search };
     (this as FeedPage)._communityRuntime = state;
     this.setData({ session: initial });
+    let profileName = initial.account?.displayName;
     state.unsubscribe = deps.session.subscribe((session) => {
       if (!state.active) return;
       const becameAuthenticated = state.sessionStatus !== 'authenticated' && session.status === 'authenticated';
+      const nicknameChanged = session.status === 'authenticated' && profileName !== session.account?.displayName;
+      profileName = session.account?.displayName;
       state.sessionStatus = session.status;
       this.setData({ session });
-      if (becameAuthenticated) void this.loadFeed(true);
+      if (becameAuthenticated || nicknameChanged) void this.loadFeed(true);
     });
     void this.loadFeed(true);
   },
