@@ -139,7 +139,10 @@ class UniversityDetailHttpIntegrationTest {
                 .andExpect(jsonPath("$.id").value(programmeId))
                 .andExpect(jsonPath("$.programmeCode").value("DETAIL_MSC_DATA"))
                 .andExpect(jsonPath("$.slug").value("msc-data-science"))
-                .andExpect(jsonPath("$.nameEn").value("MSc Data Science"));
+                .andExpect(jsonPath("$.nameEn").value("MSc Data Science"))
+                .andExpect(jsonPath("$.sections[0].type").value("CURRICULUM"))
+                .andExpect(jsonPath("$.sections[0].sourceUrl").value("https://example.edu/msc-data-science"))
+                .andExpect(jsonPath("$.sections[0].sourceCheckedAt").value("2026-10-14T00:00:00Z"));
 
         mockMvc.perform(get(
                         "/api/v1/universities/{slug}/programmes/{programmeIdentifier}",
@@ -319,6 +322,13 @@ class UniversityDetailHttpIntegrationTest {
                 VALUES (?, DATE '2027-09-01', 'September 2027'),
                        (?, DATE '2027-01-01', 'January 2027')
                 """, programmeId, programmeId);
+        jdbc.update("""
+                INSERT INTO programme_detail_sections(
+                    programme_id, section_type, title_en, body_en, sort_order,
+                    source_url, source_checked_at, status
+                ) VALUES (?, 'CURRICULUM', 'Programme structure', 'Data Engineering', 40,
+                          'https://example.edu/msc-data-science', TIMESTAMPTZ '2026-10-14T00:00:00Z', 'PUBLISHED')
+                """, programmeId);
         return programmeId;
     }
 

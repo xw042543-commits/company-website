@@ -126,11 +126,11 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("35");
-            assertThat(latest.info().applied()).hasSize(35);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("36");
+            assertThat(latest.info().applied()).hasSize(36);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 35)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 36)
                             .mapToObj(Integer::toString).toList());
             assertThat(jdbcTemplate.queryForMap("""
                     SELECT status, published_at IS NOT NULL AS has_published_at
@@ -142,7 +142,12 @@ class V3MigrationCompatibilityTest {
                     SELECT count(*) FROM programme_detail_sections
                     WHERE programme_id = ? AND status = 'PUBLISHED'
                       AND section_type IN ('CAREER_OPPORTUNITIES', 'CURRICULUM')
-                    """, Integer.class, publishableProgrammeId)).isEqualTo(2);
+                    """, Integer.class, publishableProgrammeId)).isEqualTo(1);
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT count(*) FROM programme_detail_sections
+                    WHERE programme_id = ? AND status = 'ARCHIVED'
+                      AND section_type = 'CURRICULUM' AND source_url IS NULL
+                    """, Integer.class, publishableProgrammeId)).isEqualTo(1);
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT body_en FROM programme_detail_sections
                     WHERE programme_id = ? AND section_type = 'CAREER_OPPORTUNITIES'
@@ -154,15 +159,10 @@ class V3MigrationCompatibilityTest {
                            OR NULLIF(BTRIM(p.description_en), '') IS NULL)
                     """, Integer.class)).isZero();
             assertThat(jdbcTemplate.queryForObject("""
-                    SELECT count(*) FROM programmes p
-                    WHERE p.status = 'PUBLISHED' AND EXISTS (
-                        SELECT 1 FROM (VALUES ('CAREER_OPPORTUNITIES'), ('CURRICULUM')) required(section_type)
-                        WHERE NOT EXISTS (
-                            SELECT 1 FROM programme_detail_sections s
-                            WHERE s.programme_id = p.id AND s.section_type = required.section_type
-                              AND s.status = 'PUBLISHED' AND NULLIF(BTRIM(s.body_zh), '') IS NOT NULL
-                        )
-                    )
+                    SELECT count(*) FROM programme_detail_sections s
+                    WHERE s.section_type IN ('CURRICULUM', 'COURSE_STRUCTURE')
+                      AND s.status = 'PUBLISHED'
+                      AND NULLIF(BTRIM(s.source_url), '') IS NULL
                     """, Integer.class)).isZero();
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT status FROM universities WHERE id = ?

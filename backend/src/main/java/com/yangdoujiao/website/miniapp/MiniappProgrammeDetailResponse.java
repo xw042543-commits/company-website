@@ -1,6 +1,7 @@
 package com.yangdoujiao.website.miniapp;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import com.yangdoujiao.website.programme.Programme;
@@ -42,11 +43,14 @@ public record MiniappProgrammeDetailResponse(
             String titleEn,
             String bodyZh,
             String bodyEn,
-            int sortOrder
+            int sortOrder,
+            String sourceUrl,
+            OffsetDateTime sourceCheckedAt
     ) {
         static DetailSection from(ProgrammeDetailSection section) {
             return new DetailSection(section.getSectionType().name(), section.getTitleZh(), section.getTitleEn(),
-                    section.getBodyZh(), section.getBodyEn(), section.getSortOrder());
+                    section.getBodyZh(), section.getBodyEn(), section.getSortOrder(), section.getSourceUrl(),
+                    section.getSourceCheckedAt());
         }
     }
 

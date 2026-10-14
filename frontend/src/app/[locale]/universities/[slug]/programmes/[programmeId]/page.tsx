@@ -9,7 +9,7 @@ import { backendUniversitySlug, findUniversityBySlug, localizeUniversity } from 
 import { universityProfile } from "@/data/university-profiles";
 import { getFilterOptions, type FilterOption, type FilterOptions } from "@/lib/filter-options-api";
 import { programmeDetailPath } from "@/lib/programme-routes";
-import { findProgrammeSection } from "@/lib/programme-detail-sections";
+import { findOfficialProgrammeSection, findProgrammeSection, parseOfficialCurriculumItems } from "@/lib/programme-detail-sections";
 import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { formatEnglishDisplayText, isLocale, words } from "@/lib/site";
 import { studyLevelDisplayName } from "@/lib/study-level-display";
@@ -179,8 +179,9 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   const detailPath = programmeDetailPath(locale, university.slug, programme.routeIdentifier);
   const universityPath = `/${locale}/universities/${encodeURIComponent(university.slug)}`;
   const admissionsSection = findProgrammeSection(programme.sections, ["ADMISSIONS", "ADMISSION_REQUIREMENTS"], locale);
-  const curriculumSection = findProgrammeSection(programme.sections, ["CURRICULUM", "COURSE_STRUCTURE"], locale);
+  const curriculumSection = findOfficialProgrammeSection(programme.sections, ["CURRICULUM", "COURSE_STRUCTURE"], locale);
   const careerSection = findProgrammeSection(programme.sections, ["CAREER_OPPORTUNITIES", "CAREER_OUTLOOK"], locale);
+  const curriculumItems = curriculumSection ? parseOfficialCurriculumItems(curriculumSection.body) : [];
   const localizedDescription = locale === "zh"
     ? programme.descriptionZh.trim() || programme.descriptionEn.trim()
     : programme.descriptionEn.trim() || programme.descriptionZh.trim();
@@ -331,7 +332,12 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
         <details className="programme-info-panel" id="careers" open>
           <summary>{words(locale, "专业前景", "Career prospects")}</summary>
           <div className="programme-info-body">
-            {careerSection ? <p className="programme-section-copy">{careerSection.body}</p> : isVerifiedTaylorsBusiness ? <>
+            {careerSection ? <>
+              <p className="programme-section-copy">{careerSection.body}</p>
+              <p className="programme-source-note">{careerSection.sourceUrl
+                ? <>{words(locale, "以上职业方向来自学校官网。", "The career directions above come from the university website.")} <a href={careerSection.sourceUrl} target="_blank" rel="noreferrer">{words(locale, "查看官网来源", "View official source")}</a></>
+                : words(locale, "以上为一般职业建议，非院校官方就业说明。", "The information above is general career guidance, not an official university statement.")}</p>
+            </> : isVerifiedTaylorsBusiness ? <>
               <p>{words(locale, "以下职业方向由Taylor’s University官方课程页列出。实际职位取决于所选专业方向、经验与当地专业要求。", "These career directions are listed on Taylor’s University’s official programme page. Actual roles depend on the chosen specialisation, experience, and local professional requirements.")}</p>
               <ul className="programme-career-list">{verifiedCareers.map((career) => <li key={career}>{career}</li>)}</ul>
             </> : <div className="programme-structure-pending">
@@ -345,16 +351,14 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
         <details className="programme-info-panel" id="programme-curriculum" open>
           <summary>{words(locale, "专业课程", "Programme curriculum")}</summary>
           <div className="programme-info-body">
-            {curriculumSection ? <p className="programme-section-copy">{curriculumSection.body}</p> : isVerifiedTaylorsBusiness ? <>
-              <p>{words(locale, "课程先建立商业运营、管理、营销、金融与数据分析基础，再让学生选择一个专业方向，并包括实习或行业沉浸学习。", "The programme builds a foundation in business operations, management, marketing, finance, and analytics before students select one specialisation. It also includes an internship or industry immersion experience.")}</p>
-              <div className="programme-structure-grid">
-                <div><h3>{words(locale, "共同核心课程", "Common core")}</h3><ul><li>{words(locale, "非专业会计", "Accounting for Non-Specialists")}</li><li>{words(locale, "管理学导论", "Introduction to Management")}</li><li>{words(locale, "市场营销原理", "Principles of Marketing")}</li><li>{words(locale, "商业经济学", "Business Economics")}</li><li>{words(locale, "金融学导论", "Introduction to Finance")}</li><li>{words(locale, "商业定量方法", "Quantitative Methods for Business")}</li></ul></div>
-                <div><h3>{words(locale, "后期学习", "Later study")}</h3><ul><li>{words(locale, "国际商务导论", "Introduction to International Business")}</li><li>{words(locale, "创业基础", "Understanding Entrepreneurialism")}</li><li>{words(locale, "战略管理", "Strategic Management")}</li><li>{words(locale, "实习或行业沉浸", "Internship or Industry Immersion")}</li><li>{words(locale, "所选专业方向课程", "Selected specialisation modules")}</li></ul></div>
-              </div>
+            {curriculumSection ? <>
+              {curriculumItems.length > 0
+                ? <ol className="programme-official-curriculum">{curriculumItems.map((item) => <li key={item}>{item}</li>)}</ol>
+                : <p className="programme-section-copy">{curriculumSection.body}</p>}
+              <p className="programme-source-note">{words(locale, "课程名称来自学校官网；课程安排以院校最新教学大纲为准。", "Course names come from the university website; consult the latest official handbook for the current structure.")} <a href={curriculumSection.sourceUrl!} target="_blank" rel="noreferrer">{words(locale, "查看官网来源", "View official source")}</a>{curriculumSection.sourceCheckedAt ? ` · ${words(locale, "采集时间", "Checked")} ${curriculumSection.sourceCheckedAt.slice(0, 10)}` : ""}</p>
             </> : <div className="programme-structure-pending">
-              <strong>{words(locale, "需要顾问确认", "Confirmation required")}</strong>
-              <p>{words(locale, "具体课程模块、选修方向与考核方式请在申请前向顾问索取大学最新课程说明。", "For confirmed modules, electives and assessment details, request the university's latest course guide before applying.")}</p>
-              <Link className="text-link" href={adviserPath}>{words(locale, "申请前确认最新资料", "Confirm current details")}</Link>
+              <strong>{words(locale, "暂无官方课程资料", "No official curriculum available")}</strong>
+              <p>{words(locale, "学校官网尚未提供可核验的课程表，页面不会根据专业名称生成模拟课程。", "The university website has not provided a verifiable curriculum. This page does not generate simulated modules from the programme name.")}</p>
             </div>}
           </div>
         </details>

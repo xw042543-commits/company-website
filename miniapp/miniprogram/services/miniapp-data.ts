@@ -12,6 +12,8 @@ export interface ProgrammeDetailSection {
   readonly bodyZh: string;
   readonly bodyEn: string;
   readonly sortOrder: number;
+  readonly sourceUrl: string | null;
+  readonly sourceCheckedAt: string | null;
 }
 
 export interface ProgrammeDetail {
@@ -168,11 +170,13 @@ export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
   const sections: ProgrammeDetailSection[] = [];
   for (const section of raw.sections) {
     if (!object(section) || !text(section.type) || !integerOrZero(section.sortOrder)
-      || !['titleZh', 'titleEn', 'bodyZh', 'bodyEn'].every((field) => section[field] == null || typeof section[field] === 'string')) {
+      || !['titleZh', 'titleEn', 'bodyZh', 'bodyEn', 'sourceUrl', 'sourceCheckedAt']
+        .every((field) => section[field] == null || typeof section[field] === 'string')) {
       return invalid('INVALID_PROGRAMME_DETAIL_RESPONSE');
     }
     sections.push({ type: section.type, titleZh: optional(section.titleZh), titleEn: optional(section.titleEn),
-      bodyZh: optional(section.bodyZh), bodyEn: optional(section.bodyEn), sortOrder: section.sortOrder });
+      bodyZh: optional(section.bodyZh), bodyEn: optional(section.bodyEn), sortOrder: section.sortOrder,
+      sourceUrl: secureUrl(section.sourceUrl), sourceCheckedAt: nullableText(section.sourceCheckedAt) });
   }
   return { ok: true, value: {
     id: raw.id, programmeCode: optional(raw.programmeCode), slug: raw.slug, nameZh: raw.nameZh, nameEn: optional(raw.nameEn),
@@ -267,6 +271,10 @@ function mapped<T>(raw: unknown, mapper: (item: unknown) => T | null, code: stri
 function object(value: unknown): value is Record<string, unknown> { return typeof value === 'object' && value !== null && !Array.isArray(value); }
 function text(value: unknown): value is string { return typeof value === 'string' && value.trim().length > 0; }
 function optional(value: unknown): string { return typeof value === 'string' ? value.trim() : ''; }
+function nullableText(value: unknown): string | null {
+  const normalized = optional(value);
+  return normalized || null;
+}
 function integer(value: unknown): value is number { return typeof value === 'number' && Number.isSafeInteger(value) && value > 0; }
 function integerOrZero(value: unknown): value is number { return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0; }
 function stringList(value: unknown): string[] { return Array.isArray(value) ? value.filter(text) : []; }
