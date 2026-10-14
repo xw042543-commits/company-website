@@ -18,6 +18,11 @@ export function canonicalProgrammeName(name) {
     .replace(/\bbachelor in\b/g, 'bachelor of')
     .replace(/\b(?:hons|honours|honors)\b/g, '').replace(/[^a-z0-9]/g, '');
 }
+export function chineseProgrammeLabel(name) {
+  return String(name ?? '').replace(/\s*[-–—]\s*BComm\s*\(Hons\)\s*$/i, '')
+    .replace(/\s*[（(](?:DBA|MBA|MBBS|MEng|TESL|TESOL)[）)]/gi, '')
+    .replace(/\bExecutive\b/g, '').trim();
+}
 function normalizedEvidence(row) {
   const evidence = row.evidence ?? {};
   return {
@@ -50,7 +55,7 @@ export function normalizeAuditRecord(row, current) {
       categoryCode: current.categoryCode, courseModeCode: current.courseModeCode },
     verified: row.verified === true,
     outcome: row.verified ? 'verified' : typeof outcome === 'string' ? outcome.toLowerCase() : 'needs_review',
-    nameZh: row.accurateNameZh ?? row.nameZh ?? current.nameZh,
+    nameZh: chineseProgrammeLabel(row.accurateNameZh ?? row.nameZh ?? current.nameZh),
     nameEn: row.officialNameEn ?? row.nameEn ?? current.nameEn,
     studyLevelCode: row.level ?? row.studyLevelCode ?? current.studyLevelCode,
     categoryCode: row.category ?? row.categoryCode ?? current.categoryCode,

@@ -3,7 +3,7 @@
     "total": 2233,
     "verified": 1359,
     "needsReview": 874,
-    "changed": 873,
+    "changed": 874,
     "duplicatePendingReview": 118,
     "byUniversity": {
       "apu": {
@@ -534,7 +534,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "工商管理博士学位课程（DBA）",
+      "nameZh": "工商管理博士学位课程",
       "nameEn": "Doctor of Business Administration",
       "studyLevelCode": "DOCTOR",
       "categoryCode": "BUSINESS_MANAGEMENT",
@@ -552,7 +552,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "工商管理学硕士学位（MBA）",
+      "nameZh": "工商管理学硕士学位",
       "nameEn": "Master of Business Administration",
       "studyLevelCode": "MASTER",
       "categoryCode": "BUSINESS_MANAGEMENT",
@@ -4386,7 +4386,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "医学学士、外科学士（MBBS）",
+      "nameZh": "医学学士、外科学士",
       "nameEn": "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
       "studyLevelCode": "BACHELOR",
       "categoryCode": "MEDICINE",
@@ -10128,7 +10128,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "教育学学士（英语作为第二语言教学） (TESL)",
+      "nameZh": "教育学学士（英语作为第二语言教学）",
       "nameEn": "Bachelor of Education with Honours in Teaching English as a Second Language",
       "studyLevelCode": "BACHELOR",
       "categoryCode": "EDUCATION",
@@ -14160,7 +14160,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "航空航天工程硕士（MEng）",
+      "nameZh": "航空航天工程硕士",
       "nameEn": "MEng Aeronautics and Astronautics",
       "studyLevelCode": "MASTER",
       "categoryCode": "ENGINEERING",
@@ -14178,7 +14178,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "电子与电气工程硕士（MEng）",
+      "nameZh": "电子与电气工程硕士",
       "nameEn": "MEng Electrical and Electronic Engineering",
       "studyLevelCode": "MASTER",
       "categoryCode": "ENGINEERING",
@@ -14196,7 +14196,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "机械工程硕士（MEng）",
+      "nameZh": "机械工程硕士",
       "nameEn": "MEng Mechanical Engineering",
       "studyLevelCode": "MASTER",
       "categoryCode": "ENGINEERING",
@@ -14214,7 +14214,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "会计与金融荣誉商学士 - BComm (Hons)",
+      "nameZh": "会计与金融荣誉商学士",
       "nameEn": "Bachelor of Commerce (Honours) Accounting and Finance",
       "studyLevelCode": "BACHELOR",
       "categoryCode": "ACCOUNTING_FINANCE",
@@ -15312,7 +15312,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "市场营销荣誉商学士 - BComm (Hons)",
+      "nameZh": "市场营销荣誉商学士",
       "nameEn": "Bachelor of Commerce (Honours) Marketing",
       "studyLevelCode": "BACHELOR",
       "categoryCode": "BUSINESS_MANAGEMENT",
@@ -31188,7 +31188,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "教育硕士（英语作为第二语言教学（TESL）",
+      "nameZh": "教育硕士（英语作为第二语言教学",
       "nameEn": "Master in Education Specialization : Teaching English as a Second Language",
       "studyLevelCode": "MASTER",
       "categoryCode": "EDUCATION",
@@ -32070,7 +32070,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "职业安全与健康管理执行硕士Executive",
+      "nameZh": "职业安全与健康管理执行硕士",
       "nameEn": "Master Occupational Safety and Health Management",
       "studyLevelCode": "MASTER",
       "categoryCode": "ALLIED_HEALTH",
@@ -32826,7 +32826,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": true,
-      "nameZh": "教育学学士（TESOL）荣誉学位",
+      "nameZh": "教育学学士荣誉学位",
       "nameEn": "Bachelor of Education (TESOL) with Honours",
       "studyLevelCode": "BACHELOR",
       "categoryCode": "EDUCATION",
@@ -38820,7 +38820,7 @@
         "courseModeCode": "ON_CAMPUS"
       },
       "verified": false,
-      "nameZh": "教育学博士（TESOL）--教育研究学院 ED.D (TESOL) - SCHOOL OF EDUCATIONAL STUDIES",
+      "nameZh": "教育学博士--教育研究学院 ED.D - SCHOOL OF EDUCATIONAL STUDIES",
       "nameEn": null,
       "studyLevelCode": "DOCTOR",
       "categoryCode": "EDUCATION",
