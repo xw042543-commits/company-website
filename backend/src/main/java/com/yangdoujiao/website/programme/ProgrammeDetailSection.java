@@ -66,7 +66,6 @@ public class ProgrammeDetailSection {
 
     @Column(name = "source_reference", length = 1000)
     private String sourceReference;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private CategoryStatus status;

@@ -7,7 +7,6 @@ ALTER TABLE programme_intakes
     ADD COLUMN source_reference VARCHAR(1000);
 
 ALTER TABLE programme_detail_sections
-    ADD COLUMN source_type VARCHAR(20),
     ADD COLUMN source_reference VARCHAR(1000);
 
 ALTER TABLE programmes
@@ -16,10 +15,6 @@ ALTER TABLE programmes
 
 ALTER TABLE programme_intakes
     ADD CONSTRAINT ck_programme_intakes_source_type
-        CHECK (source_type IS NULL OR source_type IN ('official', 'third_party', 'ai_generated'));
-
-ALTER TABLE programme_detail_sections
-    ADD CONSTRAINT ck_programme_detail_sections_source_type
         CHECK (source_type IS NULL OR source_type IN ('official', 'third_party', 'ai_generated'));
 
 -- The 20 Malaysian universities were audited on 2026-10-14. A non-empty

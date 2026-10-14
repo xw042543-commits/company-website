@@ -9,7 +9,7 @@ const argument = (name) => {
 };
 const baselinePath = path.resolve(argument("--baseline") ?? path.join(root, "outputs/basic-info-private-c/baseline.json"));
 const baseUrl = new URL(argument("--base-url") ?? "https://yangdoujiao.com");
-const migrationPath = path.join(root, "backend/src/main/resources/db/migration/V41__repair_private_malaysia_programme_basic_info.sql");
+const migrationPath = path.join(root, "backend/src/main/resources/db/migration/V46__repair_private_malaysia_programme_basic_info.sql");
 const auditPath = path.join(root, "docs/data/audits/basic-info-private-c-2026-10-14.json");
 const targetSlugs = new Set(["segi", "utar", "nilai", "mahsa", "help"]);
 const checkedAt = "2026-10-14T00:00:00+08:00";
