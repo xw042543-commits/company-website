@@ -29,6 +29,8 @@ interface MessageDefinition {
   onLoad(this: PageHarness): void; onShow(this: PageHarness): void;
   onHide(this: PageHarness): void;
   retry(this: PageHarness): void; login(this: PageHarness): Promise<void>;
+  backToMessages(this: PageHarness): void;
+  selectCategory(this: PageHarness, event: { currentTarget: { dataset: { category: string } } }): void;
   openMessage(this: PageHarness, event: { currentTarget: { dataset: { id: string } } }): Promise<void>;
 }
 function fixture(message = item, initial = 'authenticated', loginResult?: Promise<Result<AccountSummary>>) {
@@ -43,6 +45,19 @@ function fixture(message = item, initial = 'authenticated', loginResult?: Promis
   return { definition, page, routes, errors, scrolls, rendered, reads: () => reads, logins: () => logins, logout() { auth = { status: 'anonymous', account: null }; listeners.forEach((listener) => listener(auth)); } };
 }
 const event = (id = item.id) => ({ currentTarget: { dataset: { id } } });
+
+test('message back closes detail first then restores the folded all-messages list', async () => {
+  const f = fixture(); await tick();
+  f.definition.selectCategory.call(f.page, { currentTarget: { dataset: { category: 'SYSTEM' } } }); await tick();
+  await f.definition.openMessage.call(f.page, event());
+  f.definition.backToMessages.call(f.page);
+  assert.equal(f.page.data.detail, null);
+  assert.equal(f.page.data.category, 'SYSTEM');
+  f.definition.backToMessages.call(f.page); await tick();
+  assert.equal(f.page.data.category, 'ALL');
+  assert.ok(f.page.data.systemSummary);
+  assert.deepEqual(f.page.data.visibleItems, []);
+});
 
 test('generic moderation result opens as SYSTEM text without linking rejected or hidden content', async () => {
   for (const body of ['你的帖子已通过审核，可在“我的内容”查看。', '你的评论未通过审核，请修改后重新提交。', '你的帖子已隐藏，可在“我的内容”查看当前状态。']) {

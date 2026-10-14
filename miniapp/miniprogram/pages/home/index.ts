@@ -34,6 +34,10 @@ Page({
 
   openFeature(event: WechatMiniprogram.BaseEvent) {
     const key = event.currentTarget.dataset.key as string | undefined;
+    if (key === 'visa') {
+      wx.navigateTo({ url: '/pages/visa/index' });
+      return;
+    }
     if (key === 'universities') {
       wx.navigateTo({ url: '/pages/universities/index' });
       return;

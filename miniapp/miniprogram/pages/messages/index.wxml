@@ -1,4 +1,7 @@
 <view class="page-shell messages-page">
+  <view wx:if="{{detail || category !== 'ALL'}}" class="messages-back-bar">
+    <button class="messages-back" bindtap="backToMessages" aria-label="{{detail ? '返回消息列表' : '返回全部消息'}}"><text aria-hidden="true">‹</text><text>{{detail ? '返回列表' : '全部消息'}}</text></button>
+  </view>
   <view class="message-filters" role="tablist">
     <button wx:for="{{filters}}" wx:key="key" class="message-filter {{category === item.key ? 'message-filter--active' : ''}}" data-category="{{item.key}}" bindtap="selectCategory" aria-label="{{item.label}}消息" aria-selected="{{category === item.key}}"><view class="filter-icon filter-icon--{{item.key}}" aria-hidden="true"><view class="filter-symbol" /></view><text>{{item.label}}</text></button>
   </view>

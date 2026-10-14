@@ -1,0 +1,18 @@
+<view class="visa-page">
+  <view class="visa-heading">
+    <text class="visa-eyebrow">马来西亚 · 学生签证</text>
+    <view class="visa-title">查看你的申请进度</view>
+    <view class="visa-intro">前往 EMGS 官方网站，查询已提交的学生签证申请。</view>
+  </view>
+  <view class="visa-guide">
+    <view class="guide-title">查询前，准备好这两项</view>
+    <view class="guide-fields"><view>护照号码</view><view>护照所示国籍</view></view>
+    <view class="visa-step"><text class="step-number">1</text><view><view class="step-title">复制链接，在浏览器打开</view><view class="step-copy">点击下方按钮，再到手机浏览器地址栏粘贴。</view></view></view>
+    <view class="visa-step"><text class="step-number">2</text><view><view class="step-title">在 EMGS 官网填写资料</view><view class="step-copy">输入申请时使用的护照号码，选择国籍，阅读并确认官网条款。</view></view></view>
+    <view class="visa-step"><text class="step-number">3</text><view><view class="step-title">查看官方结果</view><view class="step-copy">点击 Track My Application。进度与说明以 EMGS 显示为准。</view></view></view>
+    <button class="visa-copy" bindtap="copyLink">复制 EMGS 官方查询链接</button>
+    <text class="visa-url" selectable="{{true}}">{{emgsUrl}}</text>
+  </view>
+  <view class="visa-note">洋豆角仅提供查询指引，不代表 EMGS。本页不收集或保存护照号码，也不会自动读取签证进度。</view>
+  <view class="visa-note">若官网没有查询记录，请先向申请院校确认资料是否已提交，以及护照号码和国籍是否一致。</view>
+</view>
