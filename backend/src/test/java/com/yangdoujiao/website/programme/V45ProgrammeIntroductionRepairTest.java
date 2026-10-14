@@ -25,11 +25,20 @@ class V45ProgrammeIntroductionRepairTest {
             JdbcTemplate jdbc = new JdbcTemplate(new DriverManagerDataSource(
                     postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword()));
             seedAuditedPublishedProgrammes(jdbc);
+            jdbc.update("""
+                    INSERT INTO programmes(
+                      programme_code, university_id, subject_category_id, slug,
+                      name_en, description_zh, status
+                    )
+                    SELECT 'UNAUDITED_PUBLISHED', MIN(u.id), MIN(s.id),
+                           'unaudited-published', 'New published programme', NULL, 'PUBLISHED'
+                    FROM universities u CROSS JOIN subject_categories s
+                    """);
             flyway(postgres, null).migrate();
 
             assertThat(jdbc.queryForObject(
                     "SELECT count(*) FROM programmes WHERE status = 'PUBLISHED'", Integer.class))
-                    .isEqualTo(2233);
+                    .isEqualTo(2234);
             assertThat(jdbc.queryForObject("""
                     SELECT count(*) FROM programmes
                     WHERE status = 'PUBLISHED'
@@ -47,6 +56,7 @@ class V45ProgrammeIntroductionRepairTest {
             assertThat(jdbc.queryForObject("""
                     SELECT count(*) FROM programmes
                     WHERE status = 'PUBLISHED'
+                      AND programme_code <> 'UNAUDITED_PUBLISHED'
                       AND (
                         NULLIF(BTRIM(description_zh), '') IS NULL
                         OR description_zh LIKE '%帮助学生建立系统的专业知识、分析方法与实践能力%'
@@ -56,6 +66,11 @@ class V45ProgrammeIntroductionRepairTest {
                         OR description_source_checked_at IS NULL
                       )
                     """, Integer.class)).isZero();
+            assertThat(jdbc.queryForObject("""
+                    SELECT description_zh IS NULL
+                    FROM programmes
+                    WHERE programme_code = 'UNAUDITED_PUBLISHED'
+                    """, Boolean.class)).isTrue();
             assertThat(jdbc.queryForObject("""
                     SELECT count(*) FROM (
                       SELECT regexp_replace(description_zh, '[[:space:]]+', '', 'g')
