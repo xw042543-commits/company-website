@@ -43,6 +43,7 @@ public final class UserPrincipal implements UserDetails, CredentialsContainer, S
     public String phone() { return phone; }
 
     public boolean isAdviser() { return role == UserAccountRole.ADVISER; }
+    public boolean isAdmin() { return role == UserAccountRole.ADMIN; }
 
     @Override
     public String getUsername() { return "user:" + userId; }
@@ -57,6 +58,9 @@ public final class UserPrincipal implements UserDetails, CredentialsContainer, S
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (isAdviser()) {
             return List.of(new SimpleGrantedAuthority("ROLE_USER"), new SimpleGrantedAuthority("ROLE_ADVISER"));
+        }
+        if (isAdmin()) {
+            return List.of(new SimpleGrantedAuthority("ROLE_USER"), new SimpleGrantedAuthority("ROLE_ADMIN"));
         }
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }

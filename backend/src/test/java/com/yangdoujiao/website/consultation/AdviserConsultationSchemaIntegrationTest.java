@@ -33,12 +33,13 @@ class AdviserConsultationSchemaIntegrationTest {
     }
 
     @Test
-    void existingAccountsDefaultToUserAndAdviserIsAllowed() {
+    void existingAccountsDefaultToUserAndPrivilegedRolesAreAllowed() {
         Long id = insertAccount();
         assertThat(jdbc.queryForObject("SELECT role FROM user_accounts WHERE id = ?", String.class, id))
                 .isEqualTo("USER");
         assertThat(jdbc.update("UPDATE user_accounts SET role = 'ADVISER' WHERE id = ?", id)).isEqualTo(1);
-        assertThatThrownBy(() -> jdbc.update("UPDATE user_accounts SET role = 'ADMIN' WHERE id = ?", id))
+        assertThat(jdbc.update("UPDATE user_accounts SET role = 'ADMIN' WHERE id = ?", id)).isEqualTo(1);
+        assertThatThrownBy(() -> jdbc.update("UPDATE user_accounts SET role = 'OWNER' WHERE id = ?", id))
                 .isInstanceOf(DataIntegrityViolationException.class);
         assertThatThrownBy(() -> jdbc.update("UPDATE user_accounts SET role = NULL WHERE id = ?", id))
                 .isInstanceOf(DataIntegrityViolationException.class);

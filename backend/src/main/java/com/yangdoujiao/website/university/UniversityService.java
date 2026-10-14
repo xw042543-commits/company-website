@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.yangdoujiao.website.catalog.CategoryStatus;
 
 @Service
 @Transactional(readOnly = true)
@@ -17,11 +18,11 @@ public class UniversityService {
     }
 
     public List<University> getAllUniversities() {
-        return universityRepository.findAll();
+        return universityRepository.findAllByStatus(CategoryStatus.PUBLISHED);
     }
 
     @Cacheable(cacheNames = "popularUniversities")
     public List<University> getPopularUniversities() {
-        return universityRepository.findByPopularTrue();
+        return universityRepository.findByPopularTrueAndStatus(CategoryStatus.PUBLISHED);
     }
 }

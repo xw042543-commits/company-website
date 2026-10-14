@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import com.yangdoujiao.website.university.University;
 import com.yangdoujiao.website.university.UniversityRepository;
+import com.yangdoujiao.website.catalog.CategoryStatus;
 
 @Service
 public class UniversitySearchService {
@@ -31,7 +32,7 @@ public class UniversitySearchService {
     @EventListener(ApplicationReadyEvent.class)
     @Transactional(readOnly = true)
     public void rebuildIndex() {
-        List<UniversitySearchDocument> documents = universityRepository.findAll()
+        List<UniversitySearchDocument> documents = universityRepository.findAllByStatus(CategoryStatus.PUBLISHED)
                 .stream()
                 .map(this::toSearchDocument)
                 .toList();

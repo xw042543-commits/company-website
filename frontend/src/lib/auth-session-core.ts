@@ -1,6 +1,6 @@
 import { requestInternalApi } from "./internal-api-request.ts";
 
-export type SessionAccess = { authenticated: boolean; adviser: boolean };
+export type SessionAccess = { authenticated: boolean; adviser: boolean; admin?: boolean };
 
 export async function loadSessionAccess(
   apiBaseUrl: string | undefined, cookieHeader: string | null | undefined,
@@ -8,14 +8,14 @@ export async function loadSessionAccess(
 ): Promise<SessionAccess> {
   const payload = await sessionPayload(apiBaseUrl, cookieHeader, request, clientAddress);
   // Adviser authorization requires the complete current backend session contract.
-  if (!payload || Object.keys(payload).sort().join(",") !== "adviser,authenticated,fullName,userId"
-    || typeof payload.authenticated !== "boolean" || typeof payload.adviser !== "boolean"
+  if (!payload || Object.keys(payload).sort().join(",") !== "admin,adviser,authenticated,fullName,userId"
+    || typeof payload.authenticated !== "boolean" || typeof payload.adviser !== "boolean" || typeof payload.admin !== "boolean"
     || payload.authenticated !== true
     || typeof payload.userId !== "number" || !Number.isSafeInteger(payload.userId) || payload.userId <= 0
     || typeof payload.fullName !== "string" || !payload.fullName.trim()) {
-    return { authenticated: false, adviser: false };
+    return { authenticated: false, adviser: false, admin: false };
   }
-  return { authenticated: true, adviser: payload.adviser };
+  return { authenticated: true, adviser: payload.adviser, admin: payload.admin };
 }
 
 async function sessionPayload(

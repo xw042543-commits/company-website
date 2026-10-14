@@ -2,6 +2,8 @@ export type AuthSession = {
   authenticated: boolean;
   userId: number | null;
   fullName: string | null;
+  adviser: boolean;
+  admin: boolean;
 };
 
 export type AccountProfile = {
@@ -111,19 +113,19 @@ function parseCsrf(payload: unknown): { headerName: string; token: string } | nu
 
 function parseSession(payload: unknown): AuthSession | null {
   if (!isRecord(payload)
-    || !(hasExactKeys(payload, ["authenticated", "userId", "fullName"])
-      || (hasExactKeys(payload, ["authenticated", "userId", "fullName", "adviser"])
-        && typeof payload.adviser === "boolean"))
+    || !hasExactKeys(payload, ["authenticated", "userId", "fullName", "adviser", "admin"])
+    || typeof payload.adviser !== "boolean"
+    || typeof payload.admin !== "boolean"
     || typeof payload.authenticated !== "boolean"
     || !isNullableString(payload.fullName)) return null;
 
   if (payload.authenticated) {
     if (!isPositiveInteger(payload.userId) || !payload.fullName?.trim()) return null;
-  } else if (payload.userId !== null || payload.fullName !== null || payload.adviser === true) {
+  } else if (payload.userId !== null || payload.fullName !== null || payload.adviser === true || payload.admin === true) {
     return null;
   }
   return { authenticated: payload.authenticated, userId: payload.userId as number | null,
-    fullName: payload.fullName };
+    fullName: payload.fullName, adviser: payload.adviser, admin: payload.admin };
 }
 
 function parseAccount(payload: unknown): AccountProfile | null {

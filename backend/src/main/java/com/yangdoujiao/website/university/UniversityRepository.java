@@ -12,6 +12,10 @@ public interface UniversityRepository extends JpaRepository<University, Long> {
 
     List<University> findByPopularTrue();
 
+    List<University> findAllByStatus(CategoryStatus status);
+
+    List<University> findByPopularTrueAndStatus(CategoryStatus status);
+
     @EntityGraph(attributePaths = "countryReference")
     Optional<University> findByIdAndStatus(Long id, CategoryStatus status);
 

@@ -9,12 +9,18 @@ const protectedSections = new Set([
   "news",
   "review",
   "adviser",
+  "admin",
 ]);
 const accountSections = new Set(["login", "register", "forgot-password"]);
 
 export function isAdviserPath(pathname: string) {
   const [locale, section] = pathSegments(pathname);
   return (locale === "en" || locale === "zh") && section === "adviser";
+}
+
+export function isAdminPath(pathname: string) {
+  const [locale, section] = pathSegments(pathname);
+  return (locale === "en" || locale === "zh") && section === "admin";
 }
 
 function pathSegments(pathname: string) {

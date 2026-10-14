@@ -1079,6 +1079,58 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .comparison-tray-clear { grid-column: 1 / -1; justify-self: start; min-height: 24px; }
 }
 
+/* Catalog administration */
+.admin-console { min-height: 70vh; padding-block: clamp(34px, 5vw, 72px); }
+.admin-console-header { display: flex; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.admin-console-header h1 { margin: 12px 0 8px; font-size: clamp(2rem, 4vw, 3.5rem); }
+.admin-console-header p { max-width: 68ch; margin: 0; color: var(--muted); }
+.admin-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+.admin-tabs button.active { background: var(--brand-deep); }
+.admin-toolbar { display: grid; grid-template-columns: minmax(220px, 1.4fr) minmax(150px, .6fr) minmax(220px, 1fr) auto; align-items: end; gap: 14px; padding: 18px; border: 1px solid #c7d7d1; border-radius: 14px; background: #f1f6f3; }
+.admin-toolbar label, .admin-editor label { display: flex; min-width: 0; flex-direction: column; gap: 7px; color: var(--brand-deep); font-size: .84rem; font-weight: 720; }
+.admin-toolbar input, .admin-toolbar select, .admin-editor input, .admin-editor select, .admin-editor textarea { width: 100%; }
+.admin-notice { margin: 14px 0; padding: 12px 15px; border-left: 4px solid var(--brand); border-radius: 6px; background: #edf5f1; color: var(--brand-deep); }
+.admin-table-wrap { margin-top: 18px; overflow-x: auto; border: 1px solid #c7d7d1; border-radius: 14px; background: #fffefb; box-shadow: 0 12px 30px rgb(18 63 54 / 6%); }
+.admin-table { width: 100%; min-width: 840px; border-collapse: collapse; }
+.admin-table th, .admin-table td { padding: 15px 16px; border-bottom: 1px solid #dbe5e1; text-align: left; vertical-align: middle; }
+.admin-table th { background: #e9f1ed; color: var(--support-navy); font-size: .82rem; letter-spacing: .02em; }
+.admin-table tbody tr:last-child td { border-bottom: 0; }
+.admin-table td strong, .admin-table td small { display: block; }
+.admin-table td small { margin-top: 4px; color: var(--muted); font-size: .75rem; }
+.admin-table td:last-child { white-space: nowrap; }
+.admin-table td:last-child button { min-height: 36px; margin-right: 8px; padding: 7px 11px; font-size: .78rem; }
+.admin-status { display: inline-flex; padding: 5px 9px; border-radius: 999px; font-size: .75rem; font-weight: 780; }
+.admin-status.published { background: #dcefe6; color: #176047; }
+.admin-status.archived { background: #f3e4df; color: #8a3e2a; }
+.admin-status.draft { background: #eee9d8; color: #705c20; }
+.admin-empty { padding: 34px; text-align: center; color: var(--muted); }
+.admin-pagination { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px; }
+.admin-modal { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 22px; background: rgb(9 35 29 / 52%); backdrop-filter: blur(5px); }
+.admin-editor { width: min(920px, 100%); max-height: calc(100vh - 44px); overflow: auto; border: 1px solid #bad0c7; border-radius: 16px; background: #fffefb; box-shadow: 0 28px 90px rgb(4 29 23 / 28%); }
+.admin-editor-large { width: min(1100px, 100%); }
+.admin-editor > header, .admin-editor > footer { position: sticky; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 22px; background: #fffefb; }
+.admin-editor > header { top: 0; border-bottom: 1px solid #d5e1dc; }
+.admin-editor > footer { bottom: 0; justify-content: flex-end; border-top: 1px solid #d5e1dc; }
+.admin-editor h2 { margin: 0; }
+.admin-editor header button { min-width: 42px; padding: 7px 10px; font-size: 1.3rem; }
+.admin-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px 20px; padding: 22px; }
+.admin-form-grid .admin-wide { grid-column: 1 / -1; }
+.admin-editor textarea { resize: vertical; line-height: 1.6; }
+
+@media (max-width: 850px) {
+  .admin-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-toolbar > button { width: 100%; }
+}
+@media (max-width: 600px) {
+  .admin-console { padding-block: 28px; }
+  .admin-tabs, .admin-toolbar { grid-template-columns: minmax(0, 1fr); }
+  .admin-tabs { display: grid; }
+  .admin-form-grid { grid-template-columns: minmax(0, 1fr); padding: 16px; }
+  .admin-form-grid .admin-wide { grid-column: auto; }
+  .admin-modal { padding: 0; }
+  .admin-editor { width: 100%; max-height: 100dvh; border-radius: 0; }
+}
+
 @media (max-width: 460px) {
   .comparison-tray { grid-template-columns: minmax(0, 1fr) auto auto; }
   .comparison-tray-schools { display: none; }
