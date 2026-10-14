@@ -2,6 +2,11 @@ name: Deploy production
 
 on:
   workflow_dispatch:
+    inputs:
+      admin_identifier:
+        description: Existing active account email or phone to promote after deployment (optional)
+        required: false
+        type: string
 
 concurrency:
   group: production-deployment
@@ -64,6 +69,7 @@ jobs:
           PRODUCTION_SSH_KNOWN_HOSTS: ${{ secrets.PRODUCTION_SSH_KNOWN_HOSTS }}
           APP_MINIAPP_WECHAT_APP_ID: ${{ secrets.APP_MINIAPP_WECHAT_APP_ID }}
           APP_MINIAPP_WECHAT_APP_SECRET: ${{ secrets.APP_MINIAPP_WECHAT_APP_SECRET }}
+          ADMIN_IDENTIFIER: ${{ inputs.admin_identifier }}
         run: |
           umask 077
           deploy_key="$RUNNER_TEMP/production_deploy_key"
@@ -72,9 +78,18 @@ jobs:
           trap 'rm -f "$deploy_key" "$known_hosts" "$deploy_script"' EXIT
           printf '%s\n' "$PRODUCTION_SSH_PRIVATE_KEY" > "$deploy_key"
           printf '%s\n' "$PRODUCTION_SSH_KNOWN_HOSTS" > "$known_hosts"
+          admin_identifier_b64=""
+          if [[ -n $ADMIN_IDENTIFIER ]]; then
+            [[ $ADMIN_IDENTIFIER =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$ || $ADMIN_IDENTIFIER =~ ^\+?[0-9][0-9[:space:]-]{5,20}$ ]] || {
+              echo "Admin identifier must be an email address or phone number" >&2
+              exit 64
+            }
+            admin_identifier_b64="$(printf '%s' "$ADMIN_IDENTIFIER" | base64 -w0)"
+          fi
           {
             printf 'export APP_MINIAPP_WECHAT_APP_ID=%q\n' "$APP_MINIAPP_WECHAT_APP_ID"
             printf 'export APP_MINIAPP_WECHAT_APP_SECRET=%q\n' "$APP_MINIAPP_WECHAT_APP_SECRET"
+            printf 'export ADMIN_IDENTIFIER_B64=%q\n' "$admin_identifier_b64"
             cat scripts/deploy-production.sh
           } > "$deploy_script"
           chmod 600 "$deploy_key" "$known_hosts" "$deploy_script"

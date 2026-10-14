@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { isAdviserPath, isProtectedPath, safeReturnTo, signedInLoginDestination } from "./access-policy.ts";
+import { isAdminPath, isAdviserPath, isProtectedPath, safeReturnTo, signedInLoginDestination } from "./access-policy.ts";
 
 test("keeps company, authentication support, and contact pages public", () => {
   for (const path of [
@@ -17,6 +17,14 @@ test("keeps company, authentication support, and contact pages public", () => {
   ]) {
     assert.equal(isProtectedPath(path), false, path);
   }
+});
+
+test("protects localized administration routes only", () => {
+  for (const path of ["/zh/admin", "/en/admin/universities"]) {
+    assert.equal(isProtectedPath(path), true, path);
+    assert.equal(isAdminPath(path), true, path);
+  }
+  for (const path of ["/zh/administrator", "/admin", "/en/forbidden"]) assert.equal(isAdminPath(path), false, path);
 });
 
 test("protects both localized adviser route trees while leaving forbidden public", () => {

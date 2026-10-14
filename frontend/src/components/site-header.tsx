@@ -15,6 +15,7 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [authenticated, setAuthenticated] = useState(signedIn);
+  const [admin, setAdmin] = useState(false);
   const [signingOut, setSigningOut] = useState(false);
   const [signedOut, setSignedOut] = useState(false);
   const other = locale === "zh" ? "en" : "zh";
@@ -27,7 +28,10 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
   useEffect(() => {
     let active = true;
     void getSession(browserApiBaseUrl()).then((result) => {
-      if (active) setAuthenticated(result.status === "ready" ? result.session.authenticated : signedIn);
+      if (active) {
+        setAuthenticated(result.status === "ready" ? result.session.authenticated : signedIn);
+        setAdmin(result.status === "ready" && result.session.admin);
+      }
     });
     return () => { active = false; };
   }, [pathname, signedIn]);
@@ -65,6 +69,7 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
       </Link>
       <nav id="primary-navigation" className={`navigation${menuOpen ? " navigation-open" : ""}`} aria-label={words(locale, "主导航", "Main navigation")}>
         {visibleNavigation.map(([path, zh, en]) => <Link onClick={() => setMenuOpen(false)} key={path} href={`/${locale}${path ? `/${path}` : ""}`} aria-current={isNavigationActive(pathname, locale, path) ? "page" : undefined}>{words(locale, zh, en)}</Link>)}
+        {admin && <Link onClick={() => setMenuOpen(false)} href={`/${locale}/admin`} aria-current={isNavigationActive(pathname, locale, "admin") ? "page" : undefined}>{words(locale, "管理后台", "Admin")}</Link>}
         {!authenticated && <Link className="navigation-register" onClick={() => setMenuOpen(false)} href={`/${locale}/login?mode=register`}>{words(locale, "注册账户", "Create account")}</Link>}
       </nav>
       <div className="header-actions">

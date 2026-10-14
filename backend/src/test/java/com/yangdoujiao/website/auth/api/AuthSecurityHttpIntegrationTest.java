@@ -49,7 +49,8 @@ class AuthSecurityHttpIntegrationTest {
         mockMvc.perform(get("/api/v1/auth/session"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.authenticated").value(false))
-                .andExpect(jsonPath("$.adviser").value(false));
+                .andExpect(jsonPath("$.adviser").value(false))
+                .andExpect(jsonPath("$.admin").value(false));
     }
 
     @Test
@@ -58,7 +59,8 @@ class AuthSecurityHttpIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.authenticated").value(true))
                 .andExpect(jsonPath("$.userId").value(42))
-                .andExpect(jsonPath("$.adviser").value(false));
+                .andExpect(jsonPath("$.adviser").value(false))
+                .andExpect(jsonPath("$.admin").value(false));
     }
 
     @Test
@@ -69,6 +71,25 @@ class AuthSecurityHttpIntegrationTest {
                 .andExpect(jsonPath("$.userId").value(42))
                 .andExpect(jsonPath("$.fullName").value("Test User"))
                 .andExpect(jsonPath("$.adviser").value(true));
+    }
+
+    @Test
+    void administratorSessionExposesOnlyAdministratorCapability() throws Exception {
+        mockMvc.perform(get("/api/v1/auth/session").with(user(principal(UserAccountRole.ADMIN))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.authenticated").value(true))
+                .andExpect(jsonPath("$.adviser").value(false))
+                .andExpect(jsonPath("$.admin").value(true));
+    }
+
+    @Test
+    void adminCatalogRejectsOrdinaryUsersAndAllowsAdministrators() throws Exception {
+        mockMvc.perform(get("/api/v1/admin/catalog/options").with(user(principal(UserAccountRole.USER))))
+                .andExpect(status().isForbidden());
+        mockMvc.perform(get("/api/v1/admin/catalog/options").with(user(principal(UserAccountRole.ADMIN))))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.countries").isArray())
+                .andExpect(jsonPath("$.studyLevels").isArray());
     }
 
     private UserPrincipal principal(UserAccountRole role) {

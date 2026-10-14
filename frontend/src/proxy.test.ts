@@ -20,24 +20,31 @@ test("adviser redirects distinguish anonymous, ordinary members and advisers", (
     "/zh/login?returnTo=%2Fzh%2Fadviser%2Fconsultations");
 });
 
+test("administrator routes fail closed for every non-admin session", () => {
+  assert.equal(proxyRedirectPath("/zh/admin", "", { authenticated: false, adviser: false, admin: false }),
+    "/zh/login?returnTo=%2Fzh%2Fadmin");
+  assert.equal(proxyRedirectPath("/en/admin", "", { authenticated: true, adviser: true, admin: false }), "/en/forbidden");
+  assert.equal(proxyRedirectPath("/zh/admin", "", { authenticated: true, adviser: false, admin: true }), null);
+});
+
 test("demo cookies grant ordinary development access but never adviser capabilities", async () => {
   let calls = 0;
   const request = (async () => {
     calls++;
-    return Response.json({ authenticated: false, userId: null, fullName: null, adviser: false });
+    return Response.json({ authenticated: false, userId: null, fullName: null, adviser: false, admin: false });
   }) as typeof fetch;
   const cookie = "udajo_demo_session=1";
   assert.deepEqual(await loadProxySessionAccess("/zh/planning", "http://backend:8080", cookie,
-    "development", request), { authenticated: true, adviser: false });
+    "development", request), { authenticated: true, adviser: false, admin: false });
   assert.equal(calls, 0);
   assert.deepEqual(await loadProxySessionAccess("/zh/adviser/consultations", "http://backend:8080", cookie,
-    "development", request), { authenticated: false, adviser: false });
+    "development", request), { authenticated: false, adviser: false, admin: false });
   assert.equal(calls, 1);
   assert.deepEqual(await loadProxySessionAccess("/zh/planning", "http://backend:8080", cookie,
-    "production", request), { authenticated: false, adviser: false });
+    "production", request), { authenticated: false, adviser: false, admin: false });
   assert.equal(calls, 2);
   assert.deepEqual(await loadProxySessionAccess("/zh/about", "http://backend:8080", cookie,
-    "development", request), { authenticated: false, adviser: false });
+    "development", request), { authenticated: false, adviser: false, admin: false });
   assert.equal(calls, 2);
 });
 

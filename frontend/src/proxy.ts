@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { isAdviserPath } from "@/lib/access-policy";
+import { isAdminPath, isAdviserPath } from "@/lib/access-policy";
 import { loadProxySessionAccess, proxyRedirectPath } from "@/lib/proxy-policy";
 import { resolveApiBaseUrl } from "@/lib/runtime-config-core";
 
@@ -21,7 +21,7 @@ export async function proxy(request: NextRequest) {
   const response = redirectPath
     ? NextResponse.redirect(new URL(redirectPath, request.url))
     : NextResponse.next();
-  if (isAdviserPath(request.nextUrl.pathname)) response.headers.set("Cache-Control", "private, no-store");
+  if (isAdviserPath(request.nextUrl.pathname) || isAdminPath(request.nextUrl.pathname)) response.headers.set("Cache-Control", "private, no-store");
   return response;
 }
 
