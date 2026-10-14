@@ -105,12 +105,20 @@ FROM (VALUES
 
 DO $$
 DECLARE matched_count INTEGER;
+DECLARE target_count INTEGER;
 BEGIN
+  SELECT COUNT(*) INTO target_count
+  FROM programmes p
+  JOIN universities u ON u.id=p.university_id
+  WHERE u.slug IN ('monash','nottingham','southampton','uum','city')
+    AND p.status='PUBLISHED';
   SELECT COUNT(*) INTO matched_count
   FROM group_d_verified_facts f JOIN universities u ON u.slug=f.university_slug
   JOIN programmes p ON p.university_id=u.id AND UPPER(BTRIM(p.name_en))=UPPER(BTRIM(f.name_en))
   WHERE p.status='PUBLISHED';
-  IF matched_count < 80 THEN
+  -- Fresh-schema CI has no group-D catalogue rows. Once the assigned production
+  -- cohort is present, fail closed if the expected verified names stop matching.
+  IF target_count >= 80 AND matched_count < 80 THEN
     RAISE EXCEPTION 'Expected at least 80 verified group-D programme matches, found %', matched_count;
   END IF;
 END $$;

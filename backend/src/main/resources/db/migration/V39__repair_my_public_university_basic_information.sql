@@ -300,10 +300,10 @@ UPDATE programme_intakes pi SET
   display_text = CASE
     WHEN pi.display_text IN ('9月', 'September', 'September Intake') THEN '10月（第一学期）'
     WHEN pi.display_text IN ('3月', 'March', 'March Intake') THEN '3月（第二学期）'
-    ELSE pi.display_tex
+    ELSE pi.display_text
   END,
-  source_url = f.source_url,
-  source_checked_at = f.source_checked_a
+  source_url = f.official_url,
+  source_checked_at = f.source_checked_at
 FROM programmes p
 JOIN universities u ON u.id = p.university_id
 JOIN official_um_programme_updates f ON f.programme_code = p.programme_code
@@ -317,7 +317,7 @@ SELECT p.id, NULL,
   CASE
     WHEN i.display_text LIKE '%October%' THEN '10月（第一学期）'
     WHEN i.display_text LIKE '%March%' THEN '3月（第二学期）'
-    ELSE i.display_tex
+    ELSE i.display_text
   END,
   i.source_url, i.source_checked_at, CURRENT_TIMESTAMP
 FROM official_um_programme_intakes i
@@ -331,7 +331,7 @@ WHERE u.slug = 'um'
       AND existing.display_text = CASE
         WHEN i.display_text LIKE '%October%' THEN '10月（第一学期）'
         WHEN i.display_text LIKE '%March%' THEN '3月（第二学期）'
-        ELSE i.display_tex
+        ELSE i.display_text
       END
   );
 
