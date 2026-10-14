@@ -83,6 +83,32 @@ BEGIN
     ) THEN
         RAISE EXCEPTION 'Published programme provenance or unsupported-claim audit failed';
     END IF;
+
+    IF EXISTS (
+        SELECT 1
+        FROM programme_detail_sections section
+        JOIN programmes programme ON programme.id = section.programme_id
+        JOIN study_levels study_level ON study_level.id = programme.study_level_id
+        WHERE programme.status = 'PUBLISHED'
+          AND section.status = 'PUBLISHED'
+          AND section.source_type = 'ai_generated'
+          AND (
+            (section.section_type = 'CAREER_OPPORTUNITIES'
+             AND study_level.code ~* 'FOUNDATION|PRE_UNIVERSITY|CERT'
+             AND (section.body_zh NOT LIKE '%发展路径：%' OR section.body_zh LIKE '%具体就业岗位：%'))
+            OR (section.section_type = 'CURRICULUM'
+                AND study_level.code ~* 'FOUNDATION|PRE_UNIVERSITY|CERT'
+                AND section.body_zh NOT LIKE '%学术英语与沟通%')
+            OR (section.section_type = 'CURRICULUM'
+                AND study_level.code ~* 'MASTER|POSTGRAD'
+                AND section.body_zh NOT LIKE '%专业高级理论%')
+            OR (section.section_type = 'CURRICULUM'
+                AND study_level.code ~* 'PHD|DOCTOR'
+                AND section.body_zh NOT LIKE '%博士研究与学位论文%')
+          )
+    ) THEN
+        RAISE EXCEPTION 'AI programme content study-level alignment audit failed';
+    END IF;
 END $$;
 
 SELECT 0 AS unresolved_programmes;
