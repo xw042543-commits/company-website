@@ -1735,6 +1735,10 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .programme-structure-pending p { max-width: 70ch; margin: 0 0 10px; color: var(--muted); line-height: 1.75; }
 .programme-source-note { margin-top: 20px; padding: 13px 15px; border: 1px solid #e4d5a3; border-radius: var(--radius-sm); background: #fbf6e9; font-size: .9rem; }
 .programme-source-note a { color: var(--brand-action); font-weight: 750; }
+.programme-official-curriculum { display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; border: 1px solid #dce9e2; border-radius: var(--radius-sm); background: #fff; list-style: none; counter-reset: official-course; overflow: hidden; }
+.programme-official-curriculum li { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); align-items: center; min-height: 64px; padding: 12px 18px; border-bottom: 1px solid #e8efeb; color: var(--brand-deep); line-height: 1.55; counter-increment: official-course; }
+.programme-official-curriculum li:last-child { border-bottom: 0; }
+.programme-official-curriculum li::before { color: var(--brand-action); font-weight: 800; content: counter(official-course, decimal-leading-zero); }
 .programme-table-wrap { margin: 22px 0 26px; overflow-x: auto; border-block: 1px solid #cfd6d2; }
 .programme-data-table { width: 100%; border-collapse: collapse; color: #26312d; }
 .programme-data-table tr + tr { border-top: 1px solid #dde2df; }

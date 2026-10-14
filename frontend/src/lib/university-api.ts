@@ -110,6 +110,8 @@ export type UniversityProgrammeDetailSection = {
   bodyZh: string | null;
   bodyEn: string | null;
   sortOrder: number;
+  sourceUrl?: string | null;
+  sourceCheckedAt?: string | null;
 };
 
 export type UniversityProgrammePage = {
@@ -284,7 +286,9 @@ function isUniversityProgrammeDetailSection(value: unknown): value is University
     && isNullableString(value.titleEn)
     && isNullableString(value.bodyZh)
     && isNullableString(value.bodyEn)
-    && isInteger(value.sortOrder);
+    && isInteger(value.sortOrder)
+    && (value.sourceUrl === undefined || isNullableString(value.sourceUrl))
+    && (value.sourceCheckedAt === undefined || isNullableString(value.sourceCheckedAt));
 }
 
 export function parseUniversityProgramme(payload: unknown): UniversityProgramme | null {

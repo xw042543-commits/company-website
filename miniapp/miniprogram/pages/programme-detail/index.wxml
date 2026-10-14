@@ -41,7 +41,7 @@
     </view>
 
     <view wx:for="{{documentSections}}" wx:key="key" wx:for-item="section" id="section-{{section.key}}" class="document-section document-section--{{section.key}}">
-      <view class="section-heading"><view class="section-title" aria-role="heading" aria-level="2"><text class="section-number">{{index + 1 < 10 ? '0' : ''}}{{index + 1}}</text>{{section.title}}</view><text wx:if="{{section.key === 'CURRICULUM' && curriculumCount}}" class="section-meta">{{curriculumCount}} 个参考领域</text></view>
+      <view class="section-heading"><view class="section-title" aria-role="heading" aria-level="2"><text class="section-number">{{index + 1 < 10 ? '0' : ''}}{{index + 1}}</text>{{section.title}}</view><text wx:if="{{section.key === 'CURRICULUM' && curriculumCount}}" class="section-meta">{{curriculumCount}} 门官网课程</text></view>
       <view wx:if="{{section.key === 'BASIC_INFORMATION'}}" class="facts-table" aria-role="table" aria-label="专业基本信息">
         <view wx:for="{{basicFacts}}" wx:key="label" aria-role="row" class="fact-row">
           <view class="fact-label" aria-role="rowheader">{{item.label}}</view>
@@ -49,14 +49,13 @@
         </view>
       </view>
       <view wx:elif="{{section.key === 'CURRICULUM' && section.curriculumItems.length}}" class="curriculum-card">
-        <view class="curriculum-notice"><text class="notice-mark">i</text><text>{{section.notice}}</text></view>
-        <view class="curriculum-list" aria-label="参考学习领域">
+        <view class="curriculum-list" aria-label="学校官网课程">
           <view wx:for="{{section.curriculumItems}}" wx:key="number" class="curriculum-row">
             <text class="curriculum-number">{{item.number}}</text>
-            <view class="curriculum-copy"><view class="curriculum-name-zh">{{item.nameZh}}</view><view class="curriculum-name-en">{{item.nameEn}}</view></view>
+            <view class="curriculum-copy"><view wx:if="{{item.nameZh}}" class="curriculum-name-zh">{{item.nameZh}}</view><view class="curriculum-name-en {{item.nameZh ? '' : 'curriculum-name-en--primary'}}">{{item.nameEn}}</view></view>
           </view>
         </view>
-        <view class="curriculum-footnote">课程名称、学分及必修或选修安排以院校最新官方教学大纲为准。</view>
+        <view class="curriculum-footnote">课程名称来自学校官网；学分及必修、选修安排请以院校最新教学大纲为准。</view>
       </view>
       <view wx:elif="{{section.key === 'CAREER_PROSPECTS' && section.contentBlocks.length}}" class="career-grid">
         <view wx:for="{{section.contentBlocks}}" wx:key="label" class="career-card">
@@ -64,6 +63,10 @@
         </view>
       </view>
       <view wx:else class="section-body section-body--{{section.key}} {{section.available ? '' : 'section-body--pending'}}">{{section.body}}</view>
+      <view wx:if="{{section.notice}}" class="section-provenance">
+        <view class="provenance-copy"><text class="notice-mark">i</text><text>{{section.notice}}{{section.sourceCheckedLabel ? ' · 采集于 ' + section.sourceCheckedLabel : ''}}</text></view>
+        <button wx:if="{{section.sourceUrl}}" class="source-button" data-source-url="{{section.sourceUrl}}" bindtap="copySourceUrl" hover-class="control--pressed">复制官网链接</button>
+      </view>
     </view>
 
   </view>

@@ -41,6 +41,11 @@ Page({
   retry() { void this.loadPage(); },
   imageError() { this.setData({ imageFailed: true }); },
   coverError() { this.setData({ coverFailed: true }); },
+  copySourceUrl(event: WechatMiniprogram.BaseEvent) {
+    const sourceUrl = event.currentTarget.dataset.sourceUrl;
+    if (typeof sourceUrl !== 'string' || !sourceUrl.startsWith('https://')) return;
+    wx.setClipboardData({ data: sourceUrl, success: () => wx.showToast({ title: '官网链接已复制', icon: 'none' }) });
+  },
   scrollToSection(event: WechatMiniprogram.BaseEvent) {
     const target = event.currentTarget.dataset.target;
     if (typeof target !== 'string' || !/^section-[A-Z_]+$/.test(target)) return;

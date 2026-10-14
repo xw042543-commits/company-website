@@ -37,6 +37,9 @@ export interface ProgrammeDocumentSection {
   readonly contentBlocks: readonly ProgrammeContentBlock[];
   readonly curriculumItems: readonly ProgrammeCurriculumItem[];
   readonly notice: string;
+  readonly sourceUrl: string;
+  readonly sourceCheckedLabel: string;
+  readonly official: boolean;
 }
 
 export interface ProgrammeContentBlock { readonly label: string; readonly text: string }
@@ -46,46 +49,73 @@ function sectionBody(section: ProgrammeDetailSection): string {
   return section.bodyZh.trim() ? section.bodyZh : section.bodyEn;
 }
 
-function firstSection(sections: readonly ProgrammeDetailSection[], types: readonly string[]): string {
+function firstSection(sections: readonly ProgrammeDetailSection[], types: readonly string[]): ProgrammeDetailSection | undefined {
   const aliases = new Set(types);
   return [...sections]
     .sort((left, right) => left.sortOrder - right.sortOrder)
     .filter((section) => aliases.has(section.type))
-    .map(sectionBody)
-    .find((body) => body.trim()) || '';
+    .find((section) => sectionBody(section).trim());
 }
 
 export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDocumentSection[] {
+  const introductionSection = firstSection(programme.sections, ['INTRODUCTION']);
+  const careerSection = firstSection(programme.sections, ['CAREER_OPPORTUNITIES', 'CAREER_OUTLOOK']);
+  const curriculumSection = firstSection(programme.sections, ['CURRICULUM', 'COURSE_STRUCTURE']);
   const introduction = programme.descriptionZh.trim()
-    || firstSection(programme.sections, ['INTRODUCTION']);
-  const career = firstSection(programme.sections, ['CAREER_OPPORTUNITIES', 'CAREER_OUTLOOK']);
-  const curriculum = firstSection(programme.sections, ['CURRICULUM', 'COURSE_STRUCTURE']);
+    || (introductionSection ? sectionBody(introductionSection) : '');
+  const career = careerSection ? sectionBody(careerSection) : '';
+  const officialCurriculum = curriculumSection && curriculumSection.sourceUrl
+    ? sectionBody(curriculumSection) : '';
 
-  const curriculumItems = parseCurriculumItems(curriculum);
+  const curriculumItems = parseCurriculumItems(officialCurriculum);
   const careerBlocks = parseLabelledBlocks(career);
+  const careerOfficial = Boolean(careerSection?.sourceUrl);
+  const curriculumOfficial = Boolean(curriculumSection?.sourceUrl && officialCurriculum);
   return [
     documentSection('INTRODUCTION', 'INTRODUCTION', '专业介绍', introduction),
     documentSection('BASIC_INFORMATION', 'BASIC_INFORMATION', '专业基本信息', '', true),
-    { ...documentSection('CAREER_PROSPECTS', 'CAREER_PROSPECTS', '专业前景', career), contentBlocks: careerBlocks },
-    { ...documentSection('CURRICULUM', 'CURRICULUM', '专业课程', curriculum), curriculumItems,
-      notice: curriculumItems.length ? '参考学习领域，非官方课程表' : '' },
+    { ...documentSection('CAREER_PROSPECTS', 'CAREER_PROSPECTS', '专业前景', career),
+      contentBlocks: careerBlocks, official: careerOfficial,
+      notice: career ? (careerOfficial ? '学校官网资料' : '一般职业建议，非院校官方说明') : '',
+      sourceUrl: careerSection?.sourceUrl || '', sourceCheckedLabel: checkedLabel(careerSection?.sourceCheckedAt) },
+    { ...documentSection('CURRICULUM', 'CURRICULUM', '专业课程', officialCurriculum || '暂无官方课程资料', curriculumOfficial),
+      curriculumItems, official: curriculumOfficial,
+      notice: curriculumOfficial ? '课程名称来自学校官网' : '',
+      sourceUrl: curriculumSection?.sourceUrl || '', sourceCheckedLabel: checkedLabel(curriculumSection?.sourceCheckedAt) },
   ];
 }
 
 function documentSection(key: string, type: string, title: string, body: string, available = Boolean(body)): ProgrammeDocumentSection {
-  return { key, type, title, body, available, contentBlocks: [], curriculumItems: [], notice: '' };
+  return { key, type, title, body, available, contentBlocks: [], curriculumItems: [], notice: '',
+    sourceUrl: '', sourceCheckedLabel: '', official: false };
 }
 
 export function parseCurriculumItems(body: string): ProgrammeCurriculumItem[] {
   const items: ProgrammeCurriculumItem[] = [];
+  const seen = new Set<string>();
   for (const line of body.split(/\r?\n/)) {
-    const match = line.trim().match(/^(\d{2})\|([^|]+)\|([^|]+)$/);
-    if (!match) continue;
-    const [, number, nameZh, nameEn] = match;
-    if (!number || !nameZh || !nameEn) continue;
-    items.push({ number, nameZh: nameZh.trim(), nameEn: nameEn.trim() });
+    const explicit = line.trim().match(/^(\d{2})\|([^|]+)\|([^|]+)$/);
+    const nameZh = explicit?.[2]?.trim() || '';
+    let nameEn = explicit?.[3]?.trim() || line.trim();
+    nameEn = nameEn.replace(/^(?:Year\s+\d+(?:\s*-\s*Year\s+\d+)?\s*)+/i, '').trim();
+    if (!nameEn || curriculumBoilerplate(nameEn)) continue;
+    const dedupeKey = `${nameZh}\u0000${nameEn}`.toLocaleLowerCase('en');
+    if (seen.has(dedupeKey)) continue;
+    seen.add(dedupeKey);
+    items.push({ number: String(items.length + 1).padStart(2, '0'), nameZh, nameEn });
   }
   return items;
+}
+
+function curriculumBoilerplate(value: string): boolean {
+  return /^(?:\[?select\]?|note:?|#?pre-?requisite|speciali[sz]ation elective courses|choose\s+\d+\s+electives?\b|\*{1,2}(?:taken|pass)\b)/i.test(value)
+    || /^参考学习领域|^参考课程结构|^illustrative study areas/i.test(value);
+}
+
+function checkedLabel(value: string | null | undefined): string {
+  if (!value) return '';
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return match ? `${match[1]}-${match[2]}-${match[3]}` : '';
 }
 
 function parseLabelledBlocks(body: string): ProgrammeContentBlock[] {

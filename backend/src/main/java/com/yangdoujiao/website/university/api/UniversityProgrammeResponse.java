@@ -2,6 +2,7 @@ package com.yangdoujiao.website.university.api;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.time.YearMonth;
 import java.util.Comparator;
 import java.util.List;
@@ -44,11 +45,14 @@ public record UniversityProgrammeResponse(
             String titleEn,
             String bodyZh,
             String bodyEn,
-            int sortOrder
+            int sortOrder,
+            String sourceUrl,
+            OffsetDateTime sourceCheckedAt
     ) {
         static DetailSection from(ProgrammeDetailSection section) {
             return new DetailSection(section.getSectionType().name(), section.getTitleZh(), section.getTitleEn(),
-                    section.getBodyZh(), section.getBodyEn(), section.getSortOrder());
+                    section.getBodyZh(), section.getBodyEn(), section.getSortOrder(), section.getSourceUrl(),
+                    section.getSourceCheckedAt());
         }
     }
 
