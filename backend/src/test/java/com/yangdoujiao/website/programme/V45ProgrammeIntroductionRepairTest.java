@@ -14,7 +14,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 
-class V44ProgrammeIntroductionRepairTest {
+class V45ProgrammeIntroductionRepairTest {
 
     @Test
     void repairsEveryPublishedIntroductionAndRecordsProvenance() throws IOException {
@@ -70,9 +70,9 @@ class V44ProgrammeIntroductionRepairTest {
 
     private static void seedAuditedPublishedProgrammes(JdbcTemplate jdbc) throws IOException {
         String migration;
-        try (var stream = V44ProgrammeIntroductionRepairTest.class.getResourceAsStream(
-                "/db/migration/V44__repair_published_programme_introductions.sql")) {
-            if (stream == null) throw new IOException("V44 migration resource is missing");
+        try (var stream = V45ProgrammeIntroductionRepairTest.class.getResourceAsStream(
+                "/db/migration/V45__repair_published_programme_introductions.sql")) {
+            if (stream == null) throw new IOException("V46 migration resource is missing");
             migration = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
         }
         int tableStart = migration.indexOf("CREATE TEMP TABLE programme_introduction_repairs");

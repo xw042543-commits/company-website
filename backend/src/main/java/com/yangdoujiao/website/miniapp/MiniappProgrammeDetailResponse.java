@@ -35,6 +35,8 @@ public record MiniappProgrammeDetailResponse(
         String tuitionDisplay,
         List<String> intakeDisplayTexts,
         List<DetailSection> sections,
+        String officialUrl,
+        OffsetDateTime sourceCheckedAt,
         String imageUrl
 ) {
     public record DetailSection(
@@ -68,6 +70,7 @@ public record MiniappProgrammeDetailResponse(
                 programme.getStudyPaceDisplay(), programme.getDurationMonths(), programme.getDurationDisplay(),
                 programme.getTuitionMin(), programme.getTuitionMax(), programme.getTuitionCurrency(),
                 programme.getTuitionDisplay(), intakes.stream().map(ProgrammeIntake::getDisplayText).toList(),
-                sections.stream().map(DetailSection::from).toList(), imageUrl);
+                sections.stream().map(DetailSection::from).toList(), programme.getOfficialUrl(),
+                programme.getSourceCheckedAt(), imageUrl);
     }
 }

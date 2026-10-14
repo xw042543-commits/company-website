@@ -7,7 +7,7 @@ Redis 用于缓存、社区热门快照和社区写入限流，Elasticsearch 用
 业务记录必须保存在 PostgreSQL 中，搜索投影和缓存可根据主数据库重建。
 Redis 不可用时，社区写入和热门快照按接口契约返回不可用状态，不能绕过限流写入。
 
-当前迁移已到 V24，包含院校、课程、媒体、用户认证、咨询处理、小程序收藏与规划、
+当前迁移已到 V48，包含院校、课程、媒体、用户认证、咨询处理、小程序收藏与规划、
 社区、钱包、消息、申请进度和头像的数据结构。
 仓库内的数据整理及导入资料包不等于正式发布批准；发布仍须依据业务负责人确认的资料。
 数据库集成测试使用临时测试容器，不连接真实业务数据库。
@@ -44,6 +44,9 @@ Redis 不可用时，社区写入和热门快照按接口契约返回不可用�
 - `V22__create_miniapp_account_avatars.sql`：创建小程序账号头像存储表。
 - `V23__community_boards.sql`：为帖子增加标题、分类和所属院校。
 - `V24__community_feed_scope_indexes.sql`：增加按院校和分类读取社区列表的索引。
+- `V39` 至 `V43`：记录专业前景与课程章节的来源类型，并完成分片审计。
+- `V44` 至 `V47`：按院校分组增量核对马来西亚已发布专业的基本信息，保留无法确认的客观字段为待核实。
+- `V50__add_basic_info_source_provenance.sql`：为专业、入学时间和入学条件补充来源类型与来源说明；来源类型仅允许 `official`、`third_party` 或 `ai_generated`。
 
 已经在任何环境执行过的迁移文件不能直接修改。后续需要调整结构时，应新增
 新的顺序版本迁移，确保三名开发人员、CI 和服务器按相同顺序升级数据库。
@@ -140,6 +143,7 @@ languages ── programme_languages
 - `tuition_rmb_min`、`tuition_rmb_max`、`exchange_rate`、`exchange_rate_date`：人民币参考值及其换算依据。
 - `tuition_fee_period`：原学费的计费周期，可为每年、每学期、全课程或未知。
 - `tuition_total_rmb_min`、`tuition_total_rmb_max`：可直接用于搜索筛选的全课程人民币总学费区间。
+- `official_url`、`source_checked_at`、`source_type`、`source_reference`：基本信息来源、核对时间、来源类型及来源说明；历史记录没有保留具体出处时必须明确标为待核实，不得伪装成官网资料。
 - `status`、`created_at`、`updated_at`、`published_at`：发布和审计信息。
 
 数据库会阻止负数学费、最小值大于最大值、无币种的学费金额、无汇率依据的人民币

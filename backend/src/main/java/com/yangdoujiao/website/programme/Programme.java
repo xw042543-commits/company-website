@@ -95,6 +95,12 @@ public class Programme {
     @Column(name = "source_checked_at")
     private OffsetDateTime sourceCheckedAt;
 
+    @Column(name = "source_type", length = 20)
+    private String sourceType;
+
+    @Column(name = "source_reference", length = 1000)
+    private String sourceReference;
+
     @Column(name = "study_pace_display", length = 100)
     private String studyPaceDisplay;
 

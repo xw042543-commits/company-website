@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-10-14T00:00:00+08:00",
+  "failures": [
+    {
+      "university": "monash",
+      "programmeCode": "MONASH_MASTER_023",
+      "field": "name_zh",
+      "reason": "CGPA和百分比条件被写入专业名称；本任务禁止修改专业名称，已保留并列为后续名称清洗阻塞项"
+    },
+    {
+      "university": "group_d",
+      "field": "objective_facts",
+      "reason": "官网未逐项给出的学费、开学日期或专业附加门槛保留为待核实，未生成或猜测"
+    }
+  ],
+  "productionDatabase": "Migration V42 must be deployed before changes exist in production"
+}

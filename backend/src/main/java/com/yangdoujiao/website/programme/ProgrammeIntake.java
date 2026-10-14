@@ -50,6 +50,12 @@ public class ProgrammeIntake {
     @Column(name = "source_checked_at")
     private OffsetDateTime sourceCheckedAt;
 
+    @Column(name = "source_type", length = 20)
+    private String sourceType;
+
+    @Column(name = "source_reference", length = 1000)
+    private String sourceReference;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;

@@ -37,6 +37,8 @@ public record UniversityProgrammeResponse(
         List<String> intakeMonths,
         List<String> intakeDisplayTexts,
         List<DetailSection> sections,
+        String officialUrl,
+        OffsetDateTime sourceCheckedAt,
         String imageUrl
 ) {
     public record DetailSection(
@@ -110,6 +112,8 @@ public record UniversityProgrammeResponse(
                         .map(ProgrammeIntake::getDisplayText)
                         .toList(),
                 sections.stream().map(DetailSection::from).toList(),
+                programme.getOfficialUrl(),
+                programme.getSourceCheckedAt(),
                 imageUrl
         );
     }
