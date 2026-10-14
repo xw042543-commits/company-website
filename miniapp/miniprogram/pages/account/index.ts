@@ -15,7 +15,8 @@ export function createAccountPage(overrides: Partial<AccountDeps> = {}) {
     avatarUploading: false,
     nicknameOpen: false, nicknameDraft: '', nicknameSaving: false, nicknameError: '', nicknameCount: 0, nicknameKeyboardHeight: 0,
     menuItems: [
-      { key: 'orders', mark: '申', tone: 'forest', label: '我的申请', caption: '查看未支付、材料与申请进度' },
+      { key: 'consultations', mark: '询', tone: 'mint', label: '申请意向与咨询', caption: '查看已提交的意向与顾问跟进状态' },
+      { key: 'orders', mark: '申', tone: 'forest', label: '我的申请', caption: '查看已有申请、材料与办理进度' },
       { key: 'wallet', mark: '积', tone: 'amber', label: '会员积分', caption: '管理账户余额、积分与使用记录' },
       { key: 'settings', mark: '设', tone: 'stone', label: '设置', caption: '账号与隐私设置' },
       { key: 'about', mark: '洋', tone: 'mint', label: '关于我们', caption: '了解洋豆角' },
@@ -111,6 +112,7 @@ export function createAccountPage(overrides: Partial<AccountDeps> = {}) {
     if (key === 'adviser') { wx.navigateTo({ url: '/pages/consultation/index' }); return; }
     const routes: Record<string, string> = {
       orders: '/pages/orders/index', favorites: '/pages/favorites/index',
+      consultations: '/pages/consultations/index',
       universityFavorites: '/pages/university-favorites/index',
       wallet: '/pages/wallet/index',
       settings: '/pages/settings/index',

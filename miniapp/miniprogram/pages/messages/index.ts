@@ -52,6 +52,10 @@ export function createMessagesPage(overrides: Partial<MessageDeps> = {}): Wechat
       if (isInboxCategory(category)) { this.setData({ detail: null }); void deps.store.selectCategory(category); }
     },
     closeDetail() { this.setData({ detail: null }); },
+    backToMessages() {
+      if (this.data.detail) { this.setData({ detail: null }); return; }
+      void deps.store.selectCategory('ALL');
+    },
     async login() {
       const state = runtime(this);
       if (state.loggingIn) return;

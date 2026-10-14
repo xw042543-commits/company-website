@@ -10,6 +10,10 @@
   background: #fff;
 }
 
+.messages-back-bar { padding-top: 12rpx; }
+.messages-back { display: flex; align-items: center; gap: 12rpx; width: fit-content; min-height: 44px; margin: 0; padding: 0 18rpx 0 4rpx; background: transparent; color: var(--color-action); font-size: 26rpx; line-height: 44px; }
+.messages-back text:first-child { font-size: 42rpx; }
+.messages-back::after { border: 0; }
 .messages-unread { padding: 12rpx 0; color: #087c49; font-size: 22rpx; }
 .message-filters { display: flex; justify-content: space-between; gap: 16rpx; margin: 0 0 12rpx; padding: 30rpx 0 32rpx; border-bottom: 1rpx solid #edf0ee; }
 .message-filter { display: flex; flex: 1; flex-direction: column; align-items: center; gap: 14rpx; min-height: 44px; margin: 0; padding: 0; background: transparent; color: #62696e; font-size: 24rpx; line-height: 1.5; }

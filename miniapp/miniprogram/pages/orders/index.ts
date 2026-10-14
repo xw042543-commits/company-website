@@ -1,4 +1,4 @@
-import { FILTERS, getApplications, prepareApplicationPayment, type ApplicationSummary } from '../../services/applications';
+import { FILTERS, getApplications, type ApplicationSummary } from '../../services/applications';
 import { sessionStore } from '../../stores/session';
 type State = 'loading' | 'ready' | 'empty' | 'failed' | 'login';
 Page({
@@ -12,14 +12,8 @@ Page({
   more(){void this.load(true);},
   choose(event:WechatMiniprogram.BaseEvent){const filter=String(event.currentTarget.dataset.value ?? '');if(filter===this.data.filter)return;this.setData({filter});void this.load();},
   open(event:WechatMiniprogram.BaseEvent){wx.navigateTo({url:`/pages/application-detail/index?id=${event.currentTarget.dataset.id}`});},
-  async pay(event:WechatMiniprogram.BaseEvent){
-    const id=String(event.currentTarget.dataset.id??''); if(this.data.paying)return;
-    this.setData({paying:id}); const result=await prepareApplicationPayment(id); this.setData({paying:''});
-    if(!result.ok){wx.showToast({title:'暂时无法读取支付状态',icon:'none'});return;}
-    if(!result.value.ready){wx.showModal({title:'微信支付尚未接通',content:`待配置：${result.value.missingConfiguration.join('、')}。申请记录会继续保留。`,showCancel:false});return;}
-    wx.showModal({title:'暂时无法支付',content:'服务端尚未返回合法的微信支付参数，请稍后再试。',showCancel:false});
-  },
-  browse(){wx.switchTab({url:'/pages/universities/index'});},
+  openIntentRecords(){wx.navigateTo({url:'/pages/consultations/index'});},
+  browse(){wx.navigateTo({url:'/pages/universities/index'});},
   async load(append=false){
     if(append && (this.data.loadingMore || !this.data.hasMore))return;
     const generation=++this.generation;

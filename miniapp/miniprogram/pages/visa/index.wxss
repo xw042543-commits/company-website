@@ -1,0 +1,17 @@
+.visa-page { min-height: 100vh; box-sizing: border-box; padding: 40rpx 32rpx calc(48rpx + env(safe-area-inset-bottom)); background: var(--color-wash); color: var(--color-ink); }
+.visa-heading { padding: 12rpx 4rpx 36rpx; }
+.visa-eyebrow { color: var(--color-action); font-size: 23rpx; font-weight: 600; }
+.visa-title { margin-top: 18rpx; font-size: 42rpx; font-weight: 700; line-height: 1.4; }
+.visa-intro { margin-top: 16rpx; color: var(--color-muted); font-size: 27rpx; line-height: 1.75; }
+.visa-guide { padding: 32rpx; border-radius: 24rpx; background: #fff; }
+.guide-title { font-size: 29rpx; font-weight: 600; }
+.guide-fields { display: flex; flex-wrap: wrap; gap: 16rpx; margin: 24rpx 0 32rpx; }
+.guide-fields view { padding: 12rpx 20rpx; border-radius: 10rpx; background: var(--color-wash); color: var(--color-action); font-size: 25rpx; }
+.visa-step { display: flex; align-items: flex-start; gap: 18rpx; margin-top: 28rpx; }
+.step-number { flex: 0 0 40rpx; height: 40rpx; border-radius: 50%; background: var(--color-wash); color: var(--color-action); font-size: 23rpx; line-height: 40rpx; text-align: center; }
+.step-title { font-size: 27rpx; font-weight: 600; line-height: 1.5; }
+.step-copy { margin-top: 8rpx; color: var(--color-muted); font-size: 24rpx; line-height: 1.75; }
+.visa-copy { min-height: 48px; margin: 36rpx 0 0; padding: 20rpx 16rpx; border-radius: 14rpx; background: var(--color-action); color: #fff; font-size: 27rpx; font-weight: 600; line-height: 1.6; }
+.visa-copy::after { border: 0; }
+.visa-url { display: block; margin-top: 20rpx; color: var(--color-muted); font-size: 22rpx; line-height: 1.6; word-break: break-all; }
+.visa-note { margin: 24rpx 8rpx 0; color: var(--color-muted); font-size: 23rpx; line-height: 1.8; }

@@ -19,11 +19,24 @@ function setup(fail = false) {
     favourites: async () => fail ? { ok: false, error: { kind: 'unavailable', code: 'FAILED' } } : { ok: true, value: courses },
     detail: async () => ({ ok: false, error: { kind: 'unavailable', code: 'FAILED' } }),
     remove: async () => ({ ok: true, value: undefined }),
-    checkout: async () => ({ ok: false, error: { kind: 'unavailable', code: 'FAILED' } }),
   });
   return Object.assign(definition, { setData(patch: object) { Object.assign(definition.data, patch); } });
 }
 const event = (data: Record<string, unknown>) => ({ currentTarget: { dataset: data } });
+
+test('selected programmes open an intention form with complete school-course pairs, without creating orders', async () => {
+  const urls: string[] = [];
+  Object.assign(globalThis, { wx: { navigateTo: ({ url }: { url: string }) => urls.push(url), showToast() {} } });
+  const page = setup(); await page.load(); page.toggleAll();
+  await page.checkout();
+  assert.equal(urls.length, 1);
+  const url = new URL(urls[0]!, 'https://example.test');
+  assert.equal(url.pathname, '/pages/consultation/index');
+  assert.equal(url.searchParams.get('intent'), 'application');
+  assert.match(url.searchParams.get('notes') ?? '', /亚太科技大学：计算机/);
+  assert.match(url.searchParams.get('notes') ?? '', /亚太科技大学：设计/);
+  assert.match(url.searchParams.get('notes') ?? '', /双威大学：商科/);
+});
 
 test('groups saved schools and programme-only schools, retaining favourites when details fail', async () => {
   const page = setup(); await page.load();

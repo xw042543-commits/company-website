@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/visa/index",
     "pages/favorites-cart/index",
     "pages/universities/index",
     "pages/university-detail/index",

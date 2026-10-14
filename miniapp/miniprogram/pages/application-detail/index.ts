@@ -1,4 +1,4 @@
-import {getApplication,prepareApplicationPayment,submitApplicationDocument,validApplicationId,type ApplicationDetail} from '../../services/applications';
+import {getApplication,submitApplicationDocument,validApplicationId,type ApplicationDetail} from '../../services/applications';
 import {applicationTimeline} from '../../utils/application-timeline';
 import {sessionStore} from '../../stores/session';
 type State='loading'|'ready'|'failed'|'login';
@@ -14,7 +14,6 @@ Page({
   expand(event:WechatMiniprogram.BaseEvent){const number=Number(event.currentTarget.dataset.number);this.setData({expanded:this.data.expanded===number?0:number});},
   documents(){this.setData({tab:'documents'});},
   review(event:WechatMiniprogram.BaseEvent){const step=this.data.steps.find((s)=>s.number===Number(event.currentTarget.dataset.number));wx.showModal({title:'审核意见',content:step?.reviewNotes||'暂无审核意见',showCancel:false});},
-  async pay(){if(this.data.paying)return;this.setData({paying:true});const result=await prepareApplicationPayment(this.data.id);this.setData({paying:false});if(!result.ok){wx.showToast({title:'暂时无法读取支付状态',icon:'none'});return;}if(!result.value.ready){wx.showModal({title:'微信支付尚未接通',content:`待配置：${result.value.missingConfiguration.join('、')}。申请记录会继续保留。`,showCancel:false});return;}wx.showModal({title:'暂时无法支付',content:'服务端尚未返回合法的微信支付参数，请稍后再试。',showCancel:false});},
   apply(detail:ApplicationDetail){this.setData({detail,steps:applicationTimeline(detail),state:'ready' as State,expanded:this.data.expanded||detail.application.stage});},
   async load(){
     if(this.data.uploading)return;

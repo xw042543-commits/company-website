@@ -20,12 +20,16 @@ export function applicationOrderRoute(referenceCode: string): Result<string> {
   return { ok: true, value: `/pages/order-detail/index?referenceCode=${encodeURIComponent(normalized)}` };
 }
 
-export function consultationRoute(context: { school?: string; course?: string; qualification?: string }): Result<string> {
+export function consultationRoute(context: { school?: string; course?: string; qualification?: string; notes?: string; intent?: 'application' }): Result<string> {
   const school = context.school?.trim() ?? '';
   const course = context.course?.trim() ?? '';
   const qualification = context.qualification?.trim().toLowerCase() ?? '';
   if (school.length > 200 || course.length > 200 || (qualification && !QUALIFICATIONS.has(qualification))) return invalidRoute();
+  const notes = context.notes?.trim() ?? '';
+  if (notes.length > 2000) return invalidRoute();
   const query: string[] = [];
+  if (notes) query.push(`notes=${encodeURIComponent(notes)}`);
+  if (context.intent === 'application') query.push('intent=application');
   if (school) query.push(`school=${encodeURIComponent(school)}`);
   if (course) query.push(`course=${encodeURIComponent(course)}`);
   if (qualification) query.push(`qualification=${encodeURIComponent(qualification)}`);

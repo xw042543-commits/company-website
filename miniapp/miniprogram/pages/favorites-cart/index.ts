@@ -3,14 +3,13 @@ import { favoriteUniversities } from '../../stores/favorites';
 import { getUniversityDetail } from '../../services/universities';
 import { universityCampusUrl, universityLogoUrl } from '../../services/university-media';
 import { sessionStore } from '../../stores/session';
-import { programmeDetailRoute, universityDetailRoute } from '../../utils/routes';
-import { createApplicationCheckout } from '../../services/applications';
+import { programmeDetailRoute, universityDetailRoute, consultationRoute } from '../../utils/routes';
 
 type Event = { currentTarget: { dataset: Record<string, unknown> } };
 type Group = { slug: string; name: string; location: string; cover: string | null; logo: string | null;
   saved: boolean; checked: boolean; partial: boolean; courses: Array<ProgrammeFavorite & { checked: boolean }> };
 const dependencies = { favourites: getProgrammeFavorites, remove: removeProgrammeFavorite, schools: favoriteUniversities,
-  detail: getUniversityDetail, session: sessionStore, checkout: createApplicationCheckout };
+  detail: getUniversityDetail, session: sessionStore };
 function nativePage<T>(options: T & ThisType<T & { setData(patch: Record<string, unknown>): void }>): T { return options; }
 
 export function createFavoritesCartPage(deps = dependencies) {
@@ -48,19 +47,12 @@ export function createFavoritesCartPage(deps = dependencies) {
     toggleAll() { this.refreshSelection(this.data.allChecked ? [] : this.data.groups.flatMap(group => group.courses.map(course => course.id))); },
     async checkout() {
       if (!this.data.selectedCount || this.data.checkingOut) { if (!this.data.selectedCount) wx.showToast({ title: '请先选择专业', icon: 'none' }); return; }
-      const auth=await deps.session.ensureAuthenticated(); if(!auth.ok){wx.showToast({title:'请先登录',icon:'none'});return;}
-      const confirmed=await new Promise<boolean>(resolve=>wx.showModal({title:`确认申请 ${this.data.selectedCount} 个专业`,
-        content:'服务费用由后台核算；当前价格及微信支付尚待配置。确认后会保留未支付申请，可从“我的申请”继续。',
-        confirmText:'确认申请',success:result=>resolve(result.confirm),fail:()=>resolve(false)}));
-      if(!confirmed)return;
-      const key=this.data.checkoutKey||`mini_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,12)}`;
-      this.setData({checkingOut:true,checkoutKey:key});
-      const result=await deps.checkout(this.data.selected,key);
-      this.setData({checkingOut:false});
-      if(!result.ok){wx.showToast({title:'申请创建失败，请重试',icon:'none'});return;}
-      this.setData({checkoutKey:''});
-      wx.showModal({title:'申请已创建',content:`已生成 ${result.value.applications.length} 条未支付申请。微信支付配置完成前不会扣款。`,
-        showCancel:false,success:()=>wx.navigateTo({url:'/pages/orders/index'})});
+      const choices = this.data.groups.flatMap(group => group.courses.filter(course => this.data.selected.includes(course.id))
+        .map(course => `${group.name}：${course.name}`));
+      if (!choices.length) return;
+      const route = consultationRoute({ intent: 'application', notes: `申请意向（待顾问确认，尚未向院校递交）：\n${choices.join('\n')}` });
+      if (!route.ok) { wx.showToast({ title: '所选内容过长，请分批提交意向', icon: 'none' }); return; }
+      wx.navigateTo({ url: route.value });
     },
     openSchool(event: Event) { const route = universityDetailRoute(String(event.currentTarget.dataset.slug)); if (route.ok) wx.navigateTo({ url: route.value }); },
     openCourse(event: Event) { const route = programmeDetailRoute(String(event.currentTarget.dataset.slug), Number(event.currentTarget.dataset.id)); if (route.ok) wx.navigateTo({ url: route.value }); },
