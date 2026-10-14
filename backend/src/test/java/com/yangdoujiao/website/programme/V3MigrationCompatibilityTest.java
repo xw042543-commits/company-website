@@ -245,4 +245,3 @@ class V3MigrationCompatibilityTest {
     }
 
 }
-

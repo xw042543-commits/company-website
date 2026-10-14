@@ -204,6 +204,3 @@ SELECT p.id,'ADMISSIONS','录取要求','Entry requirements',s.body_zh,NULL,20,s
 FROM group_d_admissions_source s JOIN universities u ON u.slug=s.university_slug
 JOIN programmes p ON p.university_id=u.id AND p.status='PUBLISHED'
 WHERE NOT EXISTS (SELECT 1 FROM programme_detail_sections d WHERE d.programme_id=p.id AND d.section_type='ADMISSIONS');
-
-
-
