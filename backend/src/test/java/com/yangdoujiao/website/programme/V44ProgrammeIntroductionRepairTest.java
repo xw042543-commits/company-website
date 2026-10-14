@@ -14,14 +14,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 
-class V39ProgrammeIntroductionRepairTest {
+class V44ProgrammeIntroductionRepairTest {
 
     @Test
     void repairsEveryPublishedIntroductionAndRecordsProvenance() throws IOException {
         try (PostgreSQLContainer postgres = new PostgreSQLContainer("postgres:17.11")
                 .withDatabaseName("programme_introduction_repair_test")) {
             postgres.start();
-            flyway(postgres, "38").migrate();
+            flyway(postgres, "43").migrate();
             JdbcTemplate jdbc = new JdbcTemplate(new DriverManagerDataSource(
                     postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword()));
             seedAuditedPublishedProgrammes(jdbc);
@@ -70,9 +70,9 @@ class V39ProgrammeIntroductionRepairTest {
 
     private static void seedAuditedPublishedProgrammes(JdbcTemplate jdbc) throws IOException {
         String migration;
-        try (var stream = V39ProgrammeIntroductionRepairTest.class.getResourceAsStream(
-                "/db/migration/V39__repair_published_programme_introductions.sql")) {
-            if (stream == null) throw new IOException("V39 migration resource is missing");
+        try (var stream = V44ProgrammeIntroductionRepairTest.class.getResourceAsStream(
+                "/db/migration/V44__repair_published_programme_introductions.sql")) {
+            if (stream == null) throw new IOException("V44 migration resource is missing");
             migration = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
         }
         int tableStart = migration.indexOf("CREATE TEMP TABLE programme_introduction_repairs");

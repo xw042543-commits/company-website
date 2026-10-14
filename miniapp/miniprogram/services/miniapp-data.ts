@@ -15,6 +15,7 @@ export interface ProgrammeDetailSection {
   readonly sortOrder: number;
   readonly sourceUrl: string | null;
   readonly sourceCheckedAt: string | null;
+  readonly sourceType?: 'official' | 'third_party' | 'ai_generated' | null;
 }
 
 export interface ProgrammeDetail {
@@ -172,13 +173,14 @@ export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
   const sections: ProgrammeDetailSection[] = [];
   for (const section of raw.sections) {
     if (!object(section) || !text(section.type) || !integerOrZero(section.sortOrder)
-      || !['titleZh', 'titleEn', 'bodyZh', 'bodyEn', 'sourceUrl', 'sourceCheckedAt']
+      || !['titleZh', 'titleEn', 'bodyZh', 'bodyEn', 'sourceUrl', 'sourceCheckedAt', 'sourceType']
         .every((field) => section[field] == null || typeof section[field] === 'string')) {
       return invalid('INVALID_PROGRAMME_DETAIL_RESPONSE');
     }
     sections.push({ type: section.type, titleZh: optional(section.titleZh), titleEn: optional(section.titleEn),
       bodyZh: optional(section.bodyZh), bodyEn: optional(section.bodyEn), sortOrder: section.sortOrder,
-      sourceUrl: secureUrl(section.sourceUrl), sourceCheckedAt: nullableText(section.sourceCheckedAt) });
+      sourceUrl: secureUrl(section.sourceUrl), sourceCheckedAt: nullableText(section.sourceCheckedAt),
+      sourceType: provenance(section.sourceType) });
   }
   return { ok: true, value: {
     id: raw.id, programmeCode: optional(raw.programmeCode), slug: raw.slug, nameZh: raw.nameZh, nameEn: optional(raw.nameEn),
@@ -281,6 +283,9 @@ function integer(value: unknown): value is number { return typeof value === 'num
 function integerOrZero(value: unknown): value is number { return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0; }
 function stringList(value: unknown): string[] { return Array.isArray(value) ? value.filter(text) : []; }
 function secureUrl(value: unknown): string | null { return typeof value === 'string' && value.startsWith('https://') ? value : null; }
+function provenance(value: unknown): 'official' | 'third_party' | 'ai_generated' | null {
+  return value === 'official' || value === 'third_party' || value === 'ai_generated' ? value : null;
+}
 function slug(value: string): boolean { return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value); }
 function positiveId(value: string): boolean { return /^[1-9]\d*$/.test(value); }
 function orderStatus(value: unknown): value is ApplicationOrderStatus {

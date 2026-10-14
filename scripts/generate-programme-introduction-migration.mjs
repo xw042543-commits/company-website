@@ -3,7 +3,7 @@ import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
 const auditPath = path.resolve(process.argv[2] || path.join(root, ".data/audits/published-programme-introductions.json"));
-const outputPath = path.resolve(process.argv[3] || path.join(root, "backend/src/main/resources/db/migration/V39__repair_published_programme_introductions.sql"));
+const outputPath = path.resolve(process.argv[3] || path.join(root, "backend/src/main/resources/db/migration/V44__repair_published_programme_introductions.sql"));
 const checkedAt = "2026-10-14T00:00:00+08:00";
 
 const levelNames = { FOUNDATION: "预科", DIPLOMA: "大专", BACHELOR: "本科", MASTER: "硕士", DOCTOR: "博士" };

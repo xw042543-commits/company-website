@@ -112,6 +112,7 @@ export type UniversityProgrammeDetailSection = {
   sortOrder: number;
   sourceUrl?: string | null;
   sourceCheckedAt?: string | null;
+  sourceType?: "official" | "third_party" | "ai_generated" | null;
 };
 
 export type UniversityProgrammePage = {
@@ -288,6 +289,7 @@ function isUniversityProgrammeDetailSection(value: unknown): value is University
     && isNullableString(value.bodyEn)
     && isInteger(value.sortOrder)
     && (value.sourceUrl === undefined || isNullableString(value.sourceUrl))
+    && (value.sourceType === undefined || value.sourceType === null || ["official", "third_party", "ai_generated"].includes(value.sourceType as string))
     && (value.sourceCheckedAt === undefined || isNullableString(value.sourceCheckedAt));
 }
 
