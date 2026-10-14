@@ -198,15 +198,13 @@ test("footer offers bilingual navigation, social links, and direct contact detai
 test("university details expose programme level filters and a data review note", () => {
   const detail = read("../app/[locale]/universities/[slug]/page.tsx");
   assert.match(detail, /programme-level-filters/);
-  assert.match(detail, /本科/);
-  assert.match(detail, /硕士/);
-  assert.match(detail, /博士/);
+  assert.match(detail, /canonicalStudyLevelOptions/);
   assert.match(detail, /费用与入学要求可能调整/);
   assert.match(detail, /programme-search/);
   assert.match(detail, /搜索此院校的课程/);
   assert.match(detail, /programme-requirements/);
   assert.match(detail, /<Link scroll=\{false\}[^>]*aria-current=\{!selectedLevel/);
-  assert.match(detail, /<Link scroll=\{false\} key=\{level\}/);
+  assert.match(detail, /<Link scroll=\{false\} key=\{code\}/);
   assert.match(detail, /university-detail-header/);
   assert.match(detail, /university-detail-nav/);
   assert.match(detail, /What to prepare/);

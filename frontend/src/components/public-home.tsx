@@ -5,6 +5,7 @@ import { companyProfile, contactTelephoneHref, publicAdvisers } from "@/data/com
 import { UNIVERSITY_CATALOG } from "@/data/university-catalog";
 import { universityProfile } from "@/data/university-profiles";
 import { type Locale, words } from "@/lib/site";
+import { canonicalStudyLevelOptions } from "@/lib/study-level-display";
 
 const modernUmCampus = "/universities/campuses/um-modern-campus.webp";
 
@@ -13,11 +14,10 @@ export function PublicHome({ locale }: { locale: Locale }) {
   const loginHref = `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/planning`)}`;
   const malaysiaAdviser = publicAdvisers.find(adviser => adviser.region === "MY") ?? publicAdvisers[0];
   const levels = [
-    ["bachelor", "本科", "Bachelor's"],
-    ["master", "硕士", "Master's"],
-    ["doctorate", "博士", "Doctorate"],
-    ["language", "语言课程", "Language courses"],
-  ] as const;
+    ...canonicalStudyLevelOptions().filter(({ code }) => ["bachelor", "master", "doctorate"].includes(code))
+      .map(({ code, nameZh, nameEn }) => [code, nameZh, nameEn] as const),
+    ["language", "语言课程", "Language courses"] as const,
+  ];
   const tools = [
     ["校", "查询院校与专业", "Explore universities and programmes", "按学历、专业和地点查找经过审核的资料。", "Search reviewed information by qualification, subject and location."],
     ["比", "比较适合的选择", "Compare your options", "集中比较课程方向、费用和入学安排。", "Compare subject areas, fees and intake dates in one place."],

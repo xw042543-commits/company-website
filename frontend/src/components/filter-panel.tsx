@@ -5,7 +5,7 @@ import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
 import type { FilterOptions } from "@/lib/filter-options-api";
 import { Locale, Query, first, words } from "@/lib/site";
-import { studyLevelDisplayName } from "@/lib/study-level-display";
+import { normalizeStudyLevelOptions } from "@/lib/study-level-display";
 type Option = readonly [string, string, string];
 export function FilterPanel({ locale, query, options, directory = false }: { locale: Locale; query: Query; options?: FilterOptions; directory?: boolean }) {
   const [expanded, setExpanded] = useState(false);
@@ -19,7 +19,7 @@ export function FilterPanel({ locale, query, options, directory = false }: { loc
   const optionTuples = (items: FilterOptions[keyof FilterOptions] | undefined): Option[] =>
     items?.map((item) => [item.code, item.nameZh, item.nameEn]) ?? [];
   const studyLevelTuples = (items: FilterOptions["studyLevels"] | undefined): Option[] =>
-    items?.map((item) => [item.code, studyLevelDisplayName("zh", item), item.nameEn]) ?? [];
+    normalizeStudyLevelOptions(items ?? []).map((item) => [item.code, item.nameZh ?? "", item.nameEn ?? ""]);
   const withoutFilter = (name: string) => {
     const next = new URLSearchParams();
     Object.entries(query).forEach(([key, value]) => {

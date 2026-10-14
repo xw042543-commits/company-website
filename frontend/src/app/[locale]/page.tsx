@@ -11,6 +11,7 @@ import { chineseBrandMetadata } from "@/lib/brand-metadata";
 import { resolvePublicIndexing } from "@/lib/public-indexing";
 import { isRequestAuthenticated } from "@/lib/server-auth";
 import { isLocale, words } from "@/lib/site";
+import { canonicalStudyLevelOptions } from "@/lib/study-level-display";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -115,7 +116,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <div className="member-search-support">
         <Link className="text-link" href={`/${locale}/about#enquiry`}>{words(locale, "需要协助？联系顾问", "Need guidance? Contact an adviser")} <span aria-hidden="true">→</span></Link>
         <div className="shortcuts" aria-label={words(locale, "按学历或方向查询", "Search by study level or subject")}>
-          {[["foundation", "预科", "Foundation"], ["bachelor", "本科", "Bachelor's"], ["master", "硕士", "Master's"], ["doctorate", "博士", "Doctorate"], ["mba", "MBA", "MBA"], ["medicine", "医学", "Medicine"]].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
+          {[...canonicalStudyLevelOptions().filter(({ code }) => code !== "diploma").map(({ code, nameZh, nameEn }) => [code, nameZh, nameEn] as const), ["mba", "MBA", "MBA"] as const, ["medicine", "医学", "Medicine"] as const].map(([key, zh, en]) => <Link key={key} href={`/${locale}/planning?${key === "mba" || key === "medicine" ? "q" : "level"}=${encodeURIComponent(key === "mba" ? "MBA" : key === "medicine" ? words(locale, "医学", "Medicine") : key)}`}>{words(locale, zh, en)}</Link>)}
         </div>
       </div>
     </div></section>

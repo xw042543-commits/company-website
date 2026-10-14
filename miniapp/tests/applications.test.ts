@@ -13,6 +13,10 @@ test('empty orders are a valid result, malformed data is an error',()=>{
  assert.deepEqual(mapApplicationPage({items:[],hasMore:false}),{ok:true,value:{items:[],hasMore:false}});
  assert.equal(mapApplicationPage({items:null,hasMore:false}).ok,false);
 });
+test('application cards use the shared Chinese study-level display',()=>{
+ const result=mapApplicationPage({items:[{...application,level:'Doctoral Degree'}],hasMore:false});assert.ok(result.ok);
+ assert.equal(result.value.items[0]?.level,'博士');
+});
 test('builds the eight-stage timeline with real document counts and review notes',()=>{
  const result=mapApplicationDetail({application,documents:[document],fees:[],history:[]});assert.ok(result.ok);
  const steps=applicationTimeline(result.value);assert.equal(steps.length,8);assert.equal(steps[1]?.current,true);assert.equal(steps[1]?.total,1);assert.equal(steps[1]?.approved,0);assert.equal(steps[1]?.needsUpload,true);assert.match(steps[1]?.reviewNotes??'',/语言成绩/);

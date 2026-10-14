@@ -4,6 +4,7 @@ import type { UniversitySummary, UniversityProgramme } from '../../services/univ
 import { buildUniversitySearchPath } from '../../services/universities';
 import { universityLogoUrl } from '../../services/university-media';
 import { universityDetailRoute, programmeDetailRoute } from '../../utils/routes';
+import { normalizeStudyLevelOptions, studyLevelNameZh } from '../../utils/study-level-display';
 
 const fields = ['q', 'level', 'category', 'country', 'mode', 'language', 'duration', 'intake', 'tuitionMin', 'tuitionMax'] as const;
 type Field = typeof fields[number];
@@ -24,7 +25,9 @@ function isField(value: unknown): value is Field { return fields.some(field => f
 function nativePage<T>(options: T & ThisType<T & { setData(patch: Record<string, unknown>): void }>): T { return options; }
 function optionGroups(options: FilterOptions | null, filters: Filters): Group[] {
   return groups.map(([field, source]) => {
-    const values = [{ code: '', nameZh: '不限', nameEn: 'Any' }, ...(options?.[source] ?? [])];
+    const sourceOptions = options?.[source] ?? [];
+    const values = [{ code: '', nameZh: '不限', nameEn: 'Any' },
+      ...(source === 'studyLevels' ? normalizeStudyLevelOptions(sourceOptions) : sourceOptions)];
     const index = Math.max(0, values.findIndex(option => option.code === filters[field]));
     return { field, title: labels[field], options: values, index, selected: values[index]!.nameZh || values[index]!.nameEn };
   });
@@ -153,8 +156,10 @@ export function createPlanningDiscoveryPage(overrides: Partial<ReturnType<typeof
         const result = await deps.programmes(slug, this.data.applied, school.coursePage + 1);
         if (!local.alive || generation !== local.generation) return;
         if (!result.ok) { this.patchSchool(slug, { courseState: 'failed' }); return; }
-        const courses = result.value.items.map(item => ({ ...item,
-          levelLabel: this.data.catalogue?.studyLevels.find(option => option.code === item.studyLevelCode)?.nameZh || item.studyLevelCode }));
+        const courses = result.value.items.map(item => {
+          const option = this.data.catalogue?.studyLevels.find(candidate => candidate.code === item.studyLevelCode);
+          return { ...item, levelLabel: studyLevelNameZh({ code: item.studyLevelCode, nameZh: option?.nameZh, nameEn: option?.nameEn }) };
+        });
         this.patchSchool(slug, { courses: [...school.courses, ...courses], courseState: 'ready', coursePage: result.value.page, coursePages: result.value.totalPages });
       } catch { if (local.alive && generation === local.generation) this.patchSchool(slug, { courseState: 'failed' }); }
     },

@@ -18,6 +18,7 @@ import {
 import { boundedPage, first, formatEnglishDisplayText, pageNumber, type Locale, type Query } from "./site.ts";
 import { requestInternalApi } from "./internal-api-request.ts";
 import type { FilterOptions } from "./filter-options-api.ts";
+import { canonicalStudyLevelCode } from "./study-level-display.ts";
 
 export type SchoolSummary = {
   id: string;
@@ -235,10 +236,7 @@ export async function getUniversityProgrammeWithFallback(
   if (remoteResult.status !== "ready") return remoteResult;
 
   const remote = remoteResult.programme;
-  const normalizedLevel = remote.studyLevelCode?.trim().toLocaleLowerCase("en");
-  const level: LocalProgrammeDetail["level"] = normalizedLevel === "master" || normalizedLevel === "doctorate"
-    ? normalizedLevel
-    : "bachelor";
+  const level: LocalProgrammeDetail["level"] = canonicalStudyLevelCode({ code: remote.studyLevelCode }) ?? "bachelor";
   return {
     status: "ready",
     programme: {
