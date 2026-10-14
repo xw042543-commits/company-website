@@ -51,7 +51,8 @@ test('account exposes the unified favorites, personal posts and adviser actions 
   const openMenu = definition.openMenu as (event: { currentTarget: { dataset: { key: string } } }) => void;
   const app = JSON.parse(readFileSync(new URL('app.json', root), 'utf8')) as { pages: string[] };
   for (const key of ['plans', 'favorites', 'universityFavorites', 'community']) assert.equal(menu.some((item) => item.key === key), false);
-  for (const [key, page] of [['orders', 'orders'], ['consultations', 'consultations'], ['settings', 'settings'], ['about', 'about']] as const) {
+  assert.equal(menu.some((item) => item.key === 'consultations'), false);
+  for (const [key, page] of [['orders', 'orders'], ['settings', 'settings'], ['about', 'about']] as const) {
     assert.ok(menu.some((item) => item.key === key));
     openMenu({ currentTarget: { dataset: { key } } });
     assert.equal(navigated.at(-1), `/pages/${page}/index`);
@@ -64,6 +65,18 @@ test('account exposes the unified favorites, personal posts and adviser actions 
   }
   const template=readFileSync(new URL('pages/account/index.wxml',root),'utf8');
   for(const label of ['我的收藏','我的发布','咨询顾问'])assert.match(template,new RegExp(label));
+});
+
+test('about page keeps complete service copy and independent contact actions', () => {
+  const template = readFileSync(new URL('pages/about/index.wxml', root), 'utf8');
+  const source = readFileSync(new URL('pages/about/index.ts', root), 'utf8');
+  for (const copy of ['让留学变得更简单', '留学生境外一站式服务平台', '院校查询', '留学规划', '签证办理', '落地注册', 'U圈交流', '实习就业', '继续深造']) {
+    assert.match(template, new RegExp(copy));
+  }
+  for (const contact of ['15589913695', 'bertram@staff.udajo.com', 'udajo005', 'udajo002', 'udajo006']) assert.match(source, new RegExp(contact.replace('.', '\\.')));
+  assert.match(template, /bindtap="callPhone"/);
+  assert.equal((template.match(/class="copy-button"/g) ?? []).length, 1, '微信号通过循环为每个账号生成独立复制按钮');
+  assert.match(template, /data-value="\{\{item\}\}"[^>]+bindtap="copyContact"/);
 });
 
 test('planning locks duplicate saves before authentication and blocks edits while loading', async () => {

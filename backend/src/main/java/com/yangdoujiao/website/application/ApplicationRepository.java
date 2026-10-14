@@ -23,7 +23,7 @@ public class ApplicationRepository {
     public long countByUser(long userId) { return jdbc.queryForObject("SELECT COUNT(*) FROM student_applications WHERE user_account_id=:user",Map.of("user",userId),Long.class); }
     public List<Summary> list(long actor, boolean adviser, String status, int page) {
         String owner=adviser?"a.adviser_id":"a.user_account_id";
-        return jdbc.query(SUMMARY+" WHERE "+owner+"=:actor "+(status==null?"":status.equals("IN_PROGRESS")?"AND a.status IN ('IN_PROGRESS','SUBMITTED') ":"AND a.status=:status ")+
+        return jdbc.query(SUMMARY+" WHERE "+owner+"=:actor "+(status==null?"":status.equals("IN_PROGRESS")?"AND a.status IN ('PAID','IN_PROGRESS','SUBMITTED') ":"AND a.status=:status ")+
             "ORDER BY a.created_at DESC,a.id DESC LIMIT 21 OFFSET :offset",
             new org.springframework.jdbc.core.namedparam.MapSqlParameterSource().addValue("actor",actor).addValue("status",status).addValue("offset",page*20),this::summary);
     }

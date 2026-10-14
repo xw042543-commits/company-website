@@ -7,8 +7,6 @@ import {
 } from '../../services/universities';
 import { createPlanningDiscoveryService } from '../../services/planning-discovery';
 import { favoriteUniversities } from '../../stores/favorites';
-import { loadFilterOptions } from '../../services/catalogue';
-import { deriveProgrammeCategories, filterProgrammes, type ProgrammeCategory } from '../../utils/discovery-view';
 import { consultationRoute, programmeDetailRoute } from '../../utils/routes';
 
 type ViewState = 'loading' | 'ready' | 'failed' | 'offline';
@@ -23,10 +21,7 @@ Page({
     university: null as UniversityDetail | null,
     programmes: [] as UniversityProgramme[],
     programmeCount: 0,
-    activeSection: 'introduction' as DetailSection,
-    activeCategory: '',
-    programmeCategories: [] as ProgrammeCategory[],
-    featuredCategories: [] as ProgrammeCategory[],
+    activeSection: 'programmes' as DetailSection,
     visibleProgrammes: [] as UniversityProgramme[],
     descriptionParagraphs: [] as string[],
     location: '',
@@ -58,7 +53,7 @@ Page({
       this.setData({ state: 'failed' as ViewState });
       return;
     }
-    this.setData({ slug, planningEntry, planningFilters, activeSection: planningEntry ? 'programmes' : 'introduction', favorite: favoriteUniversities.has(slug) });
+    this.setData({ slug, planningEntry, planningFilters, activeSection: 'programmes', favorite: favoriteUniversities.has(slug) });
     void this.loadPage();
   },
   onShow() {
@@ -85,15 +80,6 @@ Page({
     const section: unknown = event.currentTarget.dataset.section;
     if (section !== 'introduction' && section !== 'facts' && section !== 'programmes') return;
     this.setData({ activeSection: section });
-  },
-  showProgrammes() {
-    this.setData({ activeSection: 'programmes' as DetailSection });
-    wx.pageScrollTo({ selector: '#university-sections', duration: 240 });
-  },
-  selectCategory(event: WechatMiniprogram.BaseEvent) {
-    const code: unknown = event.currentTarget.dataset.code;
-    if (typeof code !== 'string' || !this.data.programmeCategories.some((category) => category.code === code)) return;
-    this.setData({ activeCategory: code, visibleProgrammes: filterProgrammes(this.data.programmes, code) });
   },
   retry() { void this.loadPage(); },
   toggleFavorite() {
@@ -125,10 +111,9 @@ Page({
     const loadProgrammes = (page: number) => this.data.planningEntry
       ? createPlanningDiscoveryService().programmes(this.data.slug, this.data.planningFilters, page)
       : getUniversityProgrammes(this.data.slug, page, 48);
-    const [detail, programmes, catalogue] = await Promise.all([
+    const [detail, programmes] = await Promise.all([
       getUniversityDetail(this.data.slug),
       loadProgrammes(1),
-      loadFilterOptions(),
     ]);
     if (!detail.ok || !programmes.ok) {
       const error = !detail.ok ? detail.error : (!programmes.ok ? programmes.error : null);
@@ -151,20 +136,11 @@ Page({
       this.setData({ state: 'failed' as ViewState });
       return;
     }
-    const labels = new Map(catalogue.ok
-      ? catalogue.value.subjectCategories.map((category) => [category.code, category.nameZh]) : []);
-    const programmeCategories = deriveProgrammeCategories(allProgrammes, labels)
-      .filter((category) => category.code !== 'ALL');
-    const activeCategory = this.data.planningEntry ? '' : programmeCategories.some((category) => category.code === this.data.activeCategory)
-      ? this.data.activeCategory : programmeCategories[0]?.code ?? '';
     this.setData({
       university: detail.value,
       programmes: allProgrammes,
       programmeCount: programmes.value.totalItems,
-      programmeCategories,
-      featuredCategories: programmeCategories.slice(0, 4),
-      activeCategory,
-      visibleProgrammes: this.data.planningEntry ? allProgrammes : filterProgrammes(allProgrammes, activeCategory),
+      visibleProgrammes: allProgrammes,
       location: [detail.value.cityZh, detail.value.countryNameZh].filter(Boolean).join('，'),
       levelSummary: summarizeLevels(allProgrammes),
       profileFacts: detail.value.sections.map((section) => ({

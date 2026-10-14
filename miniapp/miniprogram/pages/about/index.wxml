@@ -1,18 +1,25 @@
 <view class="about-page">
   <view class="brand-card">
     <image class="brand-logo" src="/assets/brand/udajo-logo-transparent.png" mode="aspectFit" aria-label="洋豆角 UDAJO" />
-    <view class="brand-title">让留学选择更简单</view>
-    <view class="brand-copy">洋豆角为学生提供院校与专业查询、留学规划、申请进度管理和真实经验交流服务。</view>
+    <view class="brand-title">让留学变得更简单</view>
+    <view class="brand-subtitle">留学生境外一站式服务平台</view>
   </view>
+
   <view class="about-card">
     <view class="section-title">我们提供</view>
-    <view class="service-row"><text class="service-dot">1</text><view><view>院校与专业查询</view><text>按国家、学历和专业方向筛选资料</text></view></view>
-    <view class="service-row"><text class="service-dot">2</text><view><view>申请进度管理</view><text>集中查看材料、费用和录取阶段</text></view></view>
-    <view class="service-row"><text class="service-dot">3</text><view><view>U圈交流</view><text>分享真实的留学问题和经验</text></view></view>
+    <view class="service-row"><text class="service-dot">01</text><view class="service-copy"><view>院校查询</view><text>根据个人需求在线查找筛选专业信息，锁定目标院校</text></view></view>
+    <view class="service-row"><text class="service-dot">02</text><view class="service-copy"><view>留学规划</view><text>AI规划与专业规划师双重保障</text></view></view>
+    <view class="service-row"><text class="service-dot">03</text><view class="service-copy"><view>签证办理</view><text>全程签证代办，专业团队保障</text></view></view>
+    <view class="service-row"><text class="service-dot">04</text><view class="service-copy"><view>落地注册</view><text>留学生落地海外之后的注册接机及注册报道办理</text></view></view>
+    <view class="service-row"><text class="service-dot">05</text><view class="service-copy"><view>U圈交流</view><text>留学生分享留学经验和问题，在线租房、交流学业、交友平台</text></view></view>
+    <view class="service-row"><text class="service-dot">06</text><view class="service-copy"><view>实习就业</view><text>实习就业一站式信息共享平台，让求职更近一步</text></view></view>
+    <view class="service-row"><text class="service-dot">07</text><view class="service-copy"><view>继续深造</view><text>洋豆角提供学历继续深造服务，帮优秀的人获得更好的机会</text></view></view>
   </view>
+
   <view class="about-card contact-card">
-    <view><view class="section-title">联系我们</view><view class="contact-email">{{email}}</view></view>
-    <button bindtap="copyEmail">复制邮箱</button>
+    <view class="section-title">联系我们</view>
+    <button class="contact-row" bindtap="callPhone" aria-label="拨打电话 {{phone}}"><view><text class="contact-label">电话</text><text class="contact-value">{{phone}}</text></view><text class="contact-action">拨号</text></button>
+    <button class="contact-row" data-value="{{email}}" bindtap="copyContact" aria-label="复制邮箱 {{email}}"><view><text class="contact-label">邮箱</text><text class="contact-value">{{email}}</text></view><text class="contact-action">复制</text></button>
+    <view wx:for="{{wechatAccounts}}" wx:key="*this" class="contact-row contact-row--static"><view><text class="contact-label">微信号{{index + 1}}</text><text class="contact-value">{{item}}</text></view><button class="copy-button" data-value="{{item}}" bindtap="copyContact" aria-label="复制微信号 {{item}}">复制</button></view>
   </view>
-  <view class="version-copy">UDAJO 小程序 · 版本 {{version}}</view>
 </view>

@@ -1,1 +1,23 @@
-.about-page{box-sizing:border-box;min-height:100vh;padding:28rpx;background:var(--color-wash)}.brand-card,.about-card{border-radius:26rpx;background:#fff;box-shadow:var(--shadow-card)}.brand-card{padding:42rpx 32rpx;text-align:center}.brand-logo{width:260rpx;height:104rpx}.brand-title{margin-top:22rpx;color:var(--color-action);font-size:36rpx;font-weight:800}.brand-copy{margin-top:18rpx;color:var(--color-muted);font-size:25rpx;line-height:1.75}.about-card{margin-top:24rpx;padding:30rpx}.section-title{color:var(--color-ink);font-size:30rpx;font-weight:800}.service-row{display:flex;align-items:flex-start;margin-top:26rpx}.service-dot{display:flex;width:46rpx;height:46rpx;flex:0 0 auto;align-items:center;justify-content:center;margin-right:18rpx;border-radius:50%;background:var(--color-mint);color:var(--color-action);font-weight:800}.service-row view view{color:var(--color-ink);font-weight:700}.service-row view text{display:block;margin-top:6rpx;color:var(--color-muted);font-size:23rpx}.contact-card{display:flex;align-items:center;justify-content:space-between}.contact-email{margin-top:10rpx;color:var(--color-muted);font-size:23rpx}.contact-card button{margin:0;padding:12rpx 22rpx;border-radius:999rpx;background:var(--color-action);color:#fff;font-size:23rpx}.contact-card button::after{border:0}.version-copy{padding:34rpx 0;color:var(--color-muted);font-size:21rpx;text-align:center}
+.about-page{min-height:100vh;box-sizing:border-box;padding:28rpx 26rpx calc(44rpx + env(safe-area-inset-bottom));background:var(--color-wash)}
+.brand-card,.about-card{border:1rpx solid var(--color-line);border-radius:28rpx;background:var(--color-paper);box-shadow:var(--shadow-card)}
+.brand-card{padding:44rpx 30rpx 40rpx;text-align:center;background:linear-gradient(150deg,var(--color-paper),var(--color-mint))}
+.brand-logo{width:250rpx;height:96rpx}
+.brand-title{margin-top:20rpx;color:var(--color-action);font-size:39rpx;font-weight:800;line-height:1.35}
+.brand-subtitle{margin-top:12rpx;color:var(--color-muted);font-size:25rpx;line-height:1.6}
+.about-card{margin-top:24rpx;padding:30rpx}
+.section-title{margin-bottom:4rpx;color:var(--color-navy);font-size:31rpx;font-weight:800;line-height:1.5}
+.service-row{display:flex;align-items:flex-start;padding:25rpx 0;border-bottom:1rpx solid var(--color-line)}
+.service-row:last-child{border-bottom:0;padding-bottom:4rpx}
+.service-dot{display:flex;width:54rpx;height:54rpx;flex:0 0 auto;align-items:center;justify-content:center;margin-right:18rpx;border-radius:50%;background:var(--color-mint);color:var(--color-action);font-size:21rpx;font-weight:800}
+.service-copy{flex:1;min-width:0}
+.service-copy view{color:var(--color-ink);font-size:27rpx;font-weight:700;line-height:1.5}
+.service-copy text{display:block;margin-top:7rpx;color:var(--color-muted);font-size:24rpx;line-height:1.7;overflow-wrap:anywhere}
+.contact-card{padding-bottom:14rpx}
+.contact-row{display:flex;box-sizing:border-box;width:100%;min-height:100rpx;align-items:center;justify-content:space-between;margin:0;padding:20rpx 0;border-radius:0;border-bottom:1rpx solid var(--color-line);background:transparent;text-align:left;line-height:1.4}
+.contact-row::after,.copy-button::after{border:0}
+.contact-row--static{padding:20rpx 0}
+.contact-row>view,.contact-row--static>view{display:flex;min-width:0;flex:1;flex-direction:column}
+.contact-label{color:var(--color-muted);font-size:22rpx}
+.contact-value{margin-top:7rpx;color:var(--color-ink);font-size:26rpx;overflow-wrap:anywhere}
+.contact-action,.copy-button{flex-shrink:0;margin-left:18rpx;color:var(--color-action);font-size:24rpx;font-weight:700}
+.copy-button{min-width:108rpx;min-height:68rpx;margin-top:0;margin-right:0;margin-bottom:0;padding:0 22rpx;border:1rpx solid var(--color-action);border-radius:999rpx;background:var(--color-paper);line-height:66rpx}
