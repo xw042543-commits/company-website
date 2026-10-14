@@ -9,7 +9,9 @@ public record MiniappAccountResponse(
         String avatarUrl,
         String bindingStatus) {
     public static MiniappAccountResponse from(UserAccount account, UserExternalIdentity identity) {
-        return new MiniappAccountResponse(account.getId(), account.getFullName(),
+        String name = identity != null && identity.getDisplayName() != null && !identity.getDisplayName().isBlank()
+                ? identity.getDisplayName() : account.getFullName();
+        return new MiniappAccountResponse(account.getId(), name,
                 identity == null ? null : identity.getAvatarUrl(), identity == null ? "UNLINKED" : "LINKED");
     }
 }

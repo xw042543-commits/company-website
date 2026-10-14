@@ -23,12 +23,23 @@ public class MiniappAccountController {
     private final UserAccountRepository accounts;
     private final UserExternalIdentityRepository identities;
     private final MiniappAvatarService avatars;
+    private final MiniappNicknameService nicknames;
 
     public MiniappAccountController(UserAccountRepository accounts, UserExternalIdentityRepository identities,
-            MiniappAvatarService avatars) {
+            MiniappAvatarService avatars, MiniappNicknameService nicknames) {
         this.accounts = accounts;
         this.identities = identities;
         this.avatars = avatars;
+        this.nicknames = nicknames;
+    }
+
+    public record NicknameRequest(String displayName) {}
+
+    @PutMapping("/nickname")
+    public MiniappAccountResponse nickname(@AuthenticationPrincipal UserPrincipal principal,
+            @RequestBody NicknameRequest request) {
+        if (principal == null) throw unauthorized();
+        return nicknames.update(principal.userId(), request == null ? null : request.displayName());
     }
 
     @PutMapping("/avatar")
