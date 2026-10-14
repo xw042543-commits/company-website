@@ -113,17 +113,24 @@ class V3MigrationCompatibilityTest {
                               'https://example.test/publishable-programme', 'PUBLISHED')
                     RETURNING id
                     """, Long.class, publishableUniversityId, subjectId);
+            jdbcTemplate.update("""
+                    INSERT INTO programme_detail_sections(
+                        programme_id, section_type, title_en, body_en, sort_order, source_url, status
+                    ) VALUES (?, 'CAREER_OPPORTUNITIES', 'Verified careers',
+                              'Verified programme-specific career evidence', 30,
+                              'https://example.test/official-careers', 'PUBLISHED')
+                    """, publishableProgrammeId);
 
             Flyway latest = Flyway.configure()
                     .dataSource(postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword())
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("32");
-            assertThat(latest.info().applied()).hasSize(32);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("33");
+            assertThat(latest.info().applied()).hasSize(33);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 32)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 33)
                             .mapToObj(Integer::toString).toList());
             assertThat(jdbcTemplate.queryForMap("""
                     SELECT status, published_at IS NOT NULL AS has_published_at
@@ -136,6 +143,27 @@ class V3MigrationCompatibilityTest {
                     WHERE programme_id = ? AND status = 'PUBLISHED'
                       AND section_type IN ('CAREER_OPPORTUNITIES', 'CURRICULUM')
                     """, Integer.class, publishableProgrammeId)).isEqualTo(2);
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT body_en FROM programme_detail_sections
+                    WHERE programme_id = ? AND section_type = 'CAREER_OPPORTUNITIES'
+                    """, String.class, publishableProgrammeId)).isEqualTo("Verified programme-specific career evidence");
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT count(*) FROM programmes p
+                    WHERE p.status = 'PUBLISHED'
+                      AND (NULLIF(BTRIM(p.description_zh), '') IS NULL
+                           OR NULLIF(BTRIM(p.description_en), '') IS NULL)
+                    """, Integer.class)).isZero();
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT count(*) FROM programmes p
+                    WHERE p.status = 'PUBLISHED' AND EXISTS (
+                        SELECT 1 FROM (VALUES ('CAREER_OPPORTUNITIES'), ('CURRICULUM')) required(section_type)
+                        WHERE NOT EXISTS (
+                            SELECT 1 FROM programme_detail_sections s
+                            WHERE s.programme_id = p.id AND s.section_type = required.section_type
+                              AND s.status = 'PUBLISHED' AND NULLIF(BTRIM(s.body_zh), '') IS NOT NULL
+                        )
+                    )
+                    """, Integer.class)).isZero();
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT status FROM universities WHERE id = ?
                     """, String.class, universityId)).isEqualTo("DRAFT");

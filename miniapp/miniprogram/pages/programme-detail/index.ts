@@ -18,6 +18,7 @@ Page({
     universitySlug: '', programmeId: '', state: 'loading' as ViewState,
     programme: null as ProgrammeDetail | null,
     documentSections: [] as ProgrammeDocumentSection[], basicFacts: [] as BasicFact[], headlineFacts: [] as BasicFact[],
+    curriculumCount: 0,
     universityLogoUrl: null as string | null, logoLetter: 'U',
     statusBarHeight: 20, navigationHeight: 44, navigationRight: 96,
     favorite: false, saving: false, imageFailed: false, coverFailed: false,
@@ -90,9 +91,12 @@ Page({
     }
     const programme = result.value;
     const basicFacts = buildBasicFacts(programme);
+    const documentSections = buildProgrammeDocument(programme);
+    const curriculumCount = documentSections.find((section) => section.key === 'CURRICULUM')?.curriculumItems.length ?? 0;
     this.setData({
       programme,
-      documentSections: buildProgrammeDocument(programme),
+      documentSections,
+      curriculumCount,
       basicFacts,
       headlineFacts: basicFacts.filter((fact) => ['学历', '学制', '授课语言', '学习地点'].includes(fact.label)),
       universityLogoUrl: programme.universityLogoUrl,

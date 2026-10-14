@@ -26,6 +26,7 @@ export interface ProgrammeDetail {
   readonly universityLogoUrl: string | null;
   readonly cityZh: string;
   readonly descriptionZh: string;
+  readonly descriptionEn: string;
   readonly categoryCode: string;
   readonly studyLevelCode: string;
   readonly courseModeCode: string;
@@ -159,6 +160,8 @@ function authenticated<T>(method: 'GET' | 'POST' | 'DELETE', path: `/api/${strin
 export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
   if (!object(raw) || !integer(raw.id) || !text(raw.slug) || !text(raw.nameZh)
     || (raw.nameEn != null && typeof raw.nameEn !== 'string')
+    || (raw.descriptionZh != null && typeof raw.descriptionZh !== 'string')
+    || (raw.descriptionEn != null && typeof raw.descriptionEn !== 'string')
     || !text(raw.universitySlug) || !text(raw.universityNameZh) || !Array.isArray(raw.sections)) {
     return invalid('INVALID_PROGRAMME_DETAIL_RESPONSE');
   }
@@ -176,7 +179,7 @@ export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
     universitySlug: raw.universitySlug, universityNameZh: raw.universityNameZh,
     universityNameEn: optional(raw.universityNameEn), cityZh: optional(raw.cityZh),
     universityLogoUrl: universityLogoUrl(raw.universitySlug),
-    descriptionZh: optional(raw.descriptionZh), categoryCode: optional(raw.categoryCode),
+    descriptionZh: optional(raw.descriptionZh), descriptionEn: optional(raw.descriptionEn), categoryCode: optional(raw.categoryCode),
     studyLevelCode: optional(raw.studyLevelCode), courseModeCode: optional(raw.courseModeCode),
     languageCodes: stringList(raw.languageCodes).map((value) => value.trim()), studyPaceDisplay: optional(raw.studyPaceDisplay),
     durationDisplay: optional(raw.durationDisplay), tuitionDisplay: optional(raw.tuitionDisplay),
