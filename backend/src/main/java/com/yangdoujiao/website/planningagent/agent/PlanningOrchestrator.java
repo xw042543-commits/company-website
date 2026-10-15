@@ -18,9 +18,15 @@ public class PlanningOrchestrator implements PlanningWorker.Runner {
     private final ModelInputSanitizer sanitizer;
     private final ObjectMapper json;
     private final Clock clock;
+    private final java.util.function.Consumer<RunInput> beforeCall;
     public PlanningOrchestrator(PlanningModel model,ToolDispatcher dispatcher,PlanValidator validator,
             ModelInputSanitizer sanitizer,ObjectMapper json,Clock clock) {
+        this(model,dispatcher,validator,sanitizer,json,clock,input->{});
+    }
+    public PlanningOrchestrator(PlanningModel model,ToolDispatcher dispatcher,PlanValidator validator,
+            ModelInputSanitizer sanitizer,ObjectMapper json,Clock clock,java.util.function.Consumer<RunInput> beforeCall) {
         this.model=model;this.dispatcher=dispatcher;this.validator=validator;this.sanitizer=sanitizer;this.json=json;this.clock=clock;
+        this.beforeCall=beforeCall;
     }
     public record Response(String type,List<String> questions,ValidatedPlan plan) {}
     @Override public String execute(RunInput input,PlanningWorker.Guard leaseGuard) throws Exception {
@@ -47,7 +53,7 @@ public class PlanningOrchestrator implements PlanningWorker.Runner {
             // The server deadline overrides any sanitizer/provider deadline change.
             context=new ModelContext(context.redactedMessages(),context.confirmedProfile(),context.results(),deadline);
             AgentReply reply;
-            try { reply=next(context,guard,deadline); }
+            try { reply=next(input,context,guard,deadline); }
             catch(InvalidReply invalid) { if(repairs++>=1) throw invalid;continue; }
             if(!shape(reply)) {
                 if(repairs++>=1) throw new InvalidReply();
@@ -65,12 +71,12 @@ public class PlanningOrchestrator implements PlanningWorker.Runner {
             for(ToolCall call:reply.calls()) { guard.check();dispatcher.dispatch(call,state); }
         }
     }
-    private AgentReply next(ModelContext context,PlanningWorker.Guard guard,Instant deadline) throws Exception {
+    private AgentReply next(RunInput input,ModelContext context,PlanningWorker.Guard guard,Instant deadline) throws Exception {
         ExecutorService executor=Executors.newVirtualThreadPerTaskExecutor();
         Future<AgentReply> pending=null;
         try {
             guard.check();
-            pending=executor.submit(()->{guard.check();return model.next(context);});
+            pending=executor.submit(()->{guard.check();beforeCall.accept(input);guard.check();return model.next(context);});
             long remaining=Duration.between(clock.instant(),deadline).toNanos();
             if(remaining<=0) throw new PlanningWorker.RunExpired();
             AgentReply reply=pending.get(remaining,TimeUnit.NANOSECONDS);

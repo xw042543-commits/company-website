@@ -28,6 +28,7 @@ import static com.yangdoujiao.website.planningagent.session.PlanningDtos.*;
 class PlanningSessionIntegrationTest {
     @Autowired PlanningSessionService service;
     @Autowired PlanningSessionRepository repository;
+    @Autowired com.yangdoujiao.website.planningagent.security.PlanningLimits limits;
     @Autowired JdbcTemplate jdbc;
     @Autowired MockMvc mvc;
     long owner;
@@ -65,7 +66,7 @@ class PlanningSessionIntegrationTest {
         assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_sessions WHERE owner_id=?",Integer.class,other)).isZero();
     }
     @Test void disabledFeatureRejectsRequestsBeforeCreatingPersistentState() {
-        var disabled=new PlanningSessionService(repository,Clock.systemUTC(),false,"planning-v1");
+        var disabled=new PlanningSessionService(repository,Clock.systemUTC(),false,"planning-v1",limits);
         code("PLANNING_DISABLED",() -> disabled.create(owner,new CreateSession("AGE_18_PLUS","planning-v1")));
         assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_sessions WHERE owner_id=?",Integer.class,owner)).isZero();
     }

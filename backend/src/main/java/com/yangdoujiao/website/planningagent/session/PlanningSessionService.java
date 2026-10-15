@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import com.yangdoujiao.website.common.exception.ApiException;
+import com.yangdoujiao.website.planningagent.security.PlanningLimits;
 
 @Service
 public class PlanningSessionService {
@@ -21,10 +22,12 @@ public class PlanningSessionService {
     private final Clock clock;
     private final boolean enabled;
     private final String privacyVersion;
+    private final PlanningLimits limits;
     public PlanningSessionService(PlanningSessionRepository repository,Clock clock,
             @Value("${app.planning-agent.enabled:false}") boolean enabled,
-            @Value("${app.planning-agent.privacy-version:}") String privacyVersion) {
+            @Value("${app.planning-agent.privacy-version:}") String privacyVersion,PlanningLimits limits) {
         this.repository=repository; this.clock=clock; this.enabled=enabled; this.privacyVersion=privacyVersion;
+        this.limits=limits;
     }
     public SessionCreated create(long owner,CreateSession request) {
         available();
@@ -32,7 +35,12 @@ public class PlanningSessionService {
             throw error(HttpStatus.FORBIDDEN,"AGE_RESTRICTED");
         if(privacyVersion.isBlank() || privacyVersion.length()>50 || !privacyVersion.equals(request.privacyVersion()))
             throw error(HttpStatus.FORBIDDEN,"PRIVACY_CONSENT_REQUIRED");
-        UUID id=UUID.randomUUID(); repository.create(owner,id,request,clock.instant()); return new SessionCreated(id);
+        return repository.transaction(()->{
+            repository.lockActiveOwner(owner);
+            UUID id=UUID.randomUUID();
+            repository.create(owner,id,request,clock.instant());
+            return new SessionCreated(id);
+        });
     }
     public RunAccepted message(long owner,UUID session,MessageRequest request) {
         available();
@@ -40,7 +48,9 @@ public class PlanningSessionService {
             throw error(HttpStatus.BAD_REQUEST,"INVALID_MESSAGE");
         String hash=hash(request.intent().name()+"\n"+request.text());
         return repository.transaction(() -> {
+            repository.lockActiveOwner(owner);
             long version=require(owner,session,true);
+            if(!repository.currentConsent(owner,session,privacyVersion)) throw error(HttpStatus.FORBIDDEN,"PRIVACY_CONSENT_REQUIRED");
             var previous=repository.existing(owner,session,request.requestKey());
             if(previous.isPresent()) {
                 var old=previous.get();
@@ -49,6 +59,7 @@ public class PlanningSessionService {
             }
             if(repository.active(owner,session)) throw error(HttpStatus.CONFLICT,"RUN_ACTIVE");
             if(request.intent()==Intent.GENERATE && version==0) throw error(HttpStatus.CONFLICT,"PROFILE_CONFIRMATION_REQUIRED");
+            limits.admit(owner,request.intent()==Intent.GENERATE);
             UUID run=UUID.randomUUID(); repository.enqueue(owner,session,run,request,hash,version,clock.instant());
             return new RunAccepted(run,"QUEUED");
         });
@@ -56,6 +67,7 @@ public class PlanningSessionService {
     public ProfileConfirmed confirm(long owner,UUID session,ProfileConfirmation request) {
         available();
         return repository.transaction(() -> {
+            repository.lockActiveOwner(owner);
             long current=require(owner,session,true);
             if(request==null || request.version()!=current) throw error(HttpStatus.CONFLICT,"PROFILE_VERSION_CONFLICT");
             if(request.facts()==null || request.facts().isEmpty() || !PROFILE_FIELDS.containsAll(request.facts().keySet())

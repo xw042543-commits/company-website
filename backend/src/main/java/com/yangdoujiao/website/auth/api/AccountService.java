@@ -18,6 +18,7 @@ import com.yangdoujiao.website.auth.password.PasswordResetTokenRepository;
 import com.yangdoujiao.website.auth.session.UserSessionService;
 import com.yangdoujiao.website.auth.verification.UserVerificationTokenRepository;
 import com.yangdoujiao.website.common.exception.ApiException;
+import com.yangdoujiao.website.planningagent.session.PlanningCleanup;
 
 @Service
 public class AccountService {
@@ -27,16 +28,19 @@ public class AccountService {
     private final PasswordResetTokenRepository resetTokens;
     private final UserSessionService sessions;
     private final UserExternalIdentityRepository externalIdentities;
+    private final PlanningCleanup planningCleanup;
 
     public AccountService(UserAccountRepository accounts, PasswordEncoder passwords,
             UserVerificationTokenRepository verificationTokens, PasswordResetTokenRepository resetTokens,
-            UserSessionService sessions, UserExternalIdentityRepository externalIdentities) {
+            UserSessionService sessions, UserExternalIdentityRepository externalIdentities,
+            PlanningCleanup planningCleanup) {
         this.accounts = accounts;
         this.passwords = passwords;
         this.verificationTokens = verificationTokens;
         this.resetTokens = resetTokens;
         this.sessions = sessions;
         this.externalIdentities = externalIdentities;
+        this.planningCleanup = planningCleanup;
     }
 
     @Transactional(readOnly = true)
@@ -64,6 +68,7 @@ public class AccountService {
         verificationTokens.invalidateActive(userId, AccountIdentifierType.PHONE, now);
         resetTokens.invalidateActive(userId, now);
         sessions.revokeAll(userId);
+        planningCleanup.purgeOwner(userId);
     }
 
     private boolean available(UserAccount account) {

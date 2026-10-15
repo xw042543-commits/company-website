@@ -59,6 +59,8 @@ public class PlanningWorker {
                 repository.finish(lease,clock.instant(),"FAILED",null,"RUNNER_UNAVAILABLE");
             } else if(execution.getCause() instanceof RunExpired) {
                 repository.finish(lease,lease.input().deadline(),"TIMED_OUT",null,"DEADLINE_EXCEEDED");
+            } else if(execution.getCause() instanceof com.yangdoujiao.website.common.exception.ApiException api) {
+                repository.finish(lease,clock.instant(),"FAILED",null,api.getCode());
             } else if(!(execution.getCause() instanceof LeaseLost)) {
                 repository.finish(lease,clock.instant(),"FAILED",null,"RUN_FAILED");
             }

@@ -22,15 +22,31 @@ public class PlanningSessionRepository {
         this.jdbc=jdbc; this.transactions=transactions; this.json=json; this.clock=clock;
     }
     public <T> T transaction(java.util.function.Supplier<T> action) { return transactions.execute(status -> action.get()); }
+    /** Same account-before-session order as account deletion, preventing post-purge resurrection. */
+    public void lockActiveOwner(long owner) {
+        if(jdbc.queryForList("SELECT id FROM user_accounts WHERE id=? AND status='ACTIVE' AND deleted_at IS NULL FOR UPDATE",Long.class,owner).isEmpty())
+            throw new com.yangdoujiao.website.common.exception.ApiException(org.springframework.http.HttpStatus.UNAUTHORIZED,
+                    "AUTH_REQUIRED","Authentication required");
+    }
     public void create(long owner,UUID id,CreateSession request,Instant now) {
         jdbc.update("INSERT INTO planning_sessions(id,owner_id,age_band,privacy_version,created_at) VALUES(?,?,?,?,?)",id,owner,request.ageBand(),request.privacyVersion(),ts(now));
     }
     public Optional<Long> version(long owner,UUID session,boolean lock) {
         return jdbc.query("SELECT profile_version FROM planning_sessions WHERE owner_id=? AND id=?"+(lock ? " FOR UPDATE" : ""),(r,i) -> r.getLong(1),owner,session).stream().findFirst();
     }
+    public boolean currentConsent(long owner,UUID session,String privacyVersion) {
+        return Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM planning_sessions WHERE owner_id=? AND id=? AND privacy_version=?)",Boolean.class,owner,session,privacyVersion));
+    }
     public Optional<RunView> run(long owner,UUID session,UUID run) {
         return jdbc.query("SELECT r.id,r.status,r.result,r.error_code FROM planning_runs r JOIN planning_sessions s ON s.id=r.session_id WHERE s.owner_id=? AND s.id=? AND r.id=?",
                 (r,i) -> new RunView(r.getObject(1,UUID.class),r.getString(2),r.getString(3),r.getString(4)),owner,session,run).stream().findFirst();
+    }
+    public boolean matchingGeneration(long owner,UUID session,UUID run,long version) {
+        return Boolean.TRUE.equals(jdbc.queryForObject("""
+                SELECT EXISTS(SELECT 1 FROM planning_runs r JOIN planning_sessions s ON s.id=r.session_id
+                WHERE s.owner_id=? AND s.id=? AND r.id=? AND r.intent='GENERATE'
+                AND r.profile_version=? AND r.status='SUCCEEDED')
+                """,Boolean.class,owner,session,run,version));
     }
     public record Existing(UUID id,String hash,String status) {}
     public Optional<Existing> existing(long owner,UUID session,String key) {
