@@ -2,6 +2,7 @@ package com.yangdoujiao.website.planningagent.catalog;
 
 import java.util.List;
 import java.util.Set;
+import java.util.Optional;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,20 @@ public class PlanningCatalogue {
     private static final String PUBLISHED_MY = "p.status='PUBLISHED' AND u.status='PUBLISHED' AND c.code='MY'";
     private final JdbcTemplate jdbc;
     public PlanningCatalogue(JdbcTemplate jdbc) { this.jdbc = jdbc; }
+
+    public record ProgrammeDisplay(long programmeId,String programmeNameZh,String programmeNameEn,
+            String universityNameZh,String universityNameEn) {}
+
+    public Optional<ProgrammeDisplay> display(long programmeId) {
+        return jdbc.query("""
+                SELECT p.id,p.name_zh,p.name_en,u.name_zh AS university_zh,
+                    COALESCE(NULLIF(BTRIM(u.name_en),''),u.name) AS university_en
+                FROM programmes p JOIN universities u ON u.id=p.university_id
+                JOIN countries c ON c.id=u.country_id WHERE p.id=? AND %s
+                """.formatted(PUBLISHED_MY),(row,index)->new ProgrammeDisplay(row.getLong("id"),
+                row.getString("name_zh"),row.getString("name_en"),row.getString("university_zh"),row.getString("university_en")),
+                programmeId).stream().findFirst();
+    }
 
     /** Zero-based, twenty rows, stable id ordering; subject is an exact code or localized category name. */
     public List<Long> search(String level, String subject, String city, int page) {

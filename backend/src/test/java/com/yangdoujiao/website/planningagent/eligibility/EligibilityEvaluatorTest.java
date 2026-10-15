@@ -114,6 +114,15 @@ class EligibilityEvaluatorTest {
         assertThat(result.alternatives().getFirst().getFirst().status()).isEqualTo(Status.EVIDENCE_MISSING);
     }
 
+    @Test void feesEvidenceCannotEstablishAdmissionsEligibility() {
+        Evidence good=official();
+        Evidence fee=new Evidence(7,1,"FEES",good.sourceUrl(),good.sourceType(),good.studentScope(),
+                good.intake(),good.checkedAt(),good.expiresAt(),good.reviewStatus(),good.reviewerId(),good.excerpt(),false);
+        var result=evaluate(Map.of("x","yes"),true,List.of(List.of(condition("x","EQ","yes",null))),fee);
+        assertThat(result.eligible()).isFalse();
+        assertThat(result.alternatives().getFirst().getFirst().status()).isEqualTo(Status.EVIDENCE_MISSING);
+    }
+
     @Test void unsupportedExceptionsAndMalformedRuleValuesAreUnknown() {
         for (var condition : List.of(condition("x", "EXCEPTION", "yes", null),
                 condition("x", "GTE", "invalid", "100"), condition("x", "GTE", "80", null),

@@ -9,6 +9,15 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import static com.yangdoujiao.website.planningagent.session.PlanningDtos.*;
 
 class PlanningWorkerTest extends PlanningSessionIntegrationTest {
+    @org.springframework.beans.factory.annotation.Autowired
+    com.yangdoujiao.website.planningagent.agent.PlanningOrchestrator orchestrator;
+
+    @Test void registeredOrchestratorWithoutProviderFailsAsUnavailable() {
+        UUID id=session(); var accepted=service.message(owner,id,chat("no-provider","hello"));
+        new PlanningWorker(repository,Clock.systemUTC(),orchestrator).runOnce();
+        assertThat(service.run(owner,id,accepted.runId()).errorCode()).isEqualTo("RUNNER_UNAVAILABLE");
+        assertThat(service.get(owner,id).messages()).hasSize(1);
+    }
     @Test void competingWorkersExecuteOnlyOnePersistedRun() throws Exception {
         UUID id=session(); var accepted=service.message(owner,id,chat("claim-once","hello"));
         var executions=new CopyOnWriteArrayList<UUID>(); var gate=new CountDownLatch(1);

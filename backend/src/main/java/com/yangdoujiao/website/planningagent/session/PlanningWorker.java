@@ -54,6 +54,14 @@ public class PlanningWorker {
             repository.finish(lease,lease.input().deadline(),"TIMED_OUT",null,"DEADLINE_EXCEEDED");
         } catch(LeaseLost lost) {
             // Another worker or deletion invalidated this execution. It owns no further writes.
+        } catch(ExecutionException execution) {
+            if(execution.getCause() instanceof com.yangdoujiao.website.planningagent.agent.PlanningOrchestrator.ModelUnavailable) {
+                repository.finish(lease,clock.instant(),"FAILED",null,"RUNNER_UNAVAILABLE");
+            } else if(execution.getCause() instanceof RunExpired) {
+                repository.finish(lease,lease.input().deadline(),"TIMED_OUT",null,"DEADLINE_EXCEEDED");
+            } else if(!(execution.getCause() instanceof LeaseLost)) {
+                repository.finish(lease,clock.instant(),"FAILED",null,"RUN_FAILED");
+            }
         } catch(InterruptedException interrupted) {
             Thread.currentThread().interrupt(); repository.finish(lease,clock.instant(),"FAILED",null,"RUN_INTERRUPTED");
         } catch(Exception failed) {

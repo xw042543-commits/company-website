@@ -24,6 +24,7 @@ public class EligibilityEvaluator {
             Instant now, String intake) {
         Evidence source = evidence.get(condition.evidenceId());
         if (source == null || source.id() != condition.evidenceId() || source.programmeId() != rules.programmeId()
+                || !"ADMISSIONS".equals(source.factType())
                 || evidencePolicy.assess(source, now, intake) != EvidenceState.VERIFIED
                 || blank(condition.field()) || blank(condition.expected())
                 || !("EQ".equals(condition.operator()) || "GTE".equals(condition.operator()))) {

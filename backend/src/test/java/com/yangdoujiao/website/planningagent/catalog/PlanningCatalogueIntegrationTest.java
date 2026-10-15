@@ -108,6 +108,14 @@ class PlanningCatalogueIntegrationTest {
         assertThat(catalogue.isPublishedMalaysianProgramme(-1)).isFalse();
         assertThat(catalogue.isPublishedMalaysianProgramme(Long.MAX_VALUE)).isFalse();
     }
+    @Test void displayUsesPersistedNamesAndDisappearsOnUnpublication() {
+        long id=programme(my,"PUBLISHED");
+        var display=catalogue.display(id).orElseThrow();
+        assertThat(display.programmeNameEn()).isEqualTo("Planning course");
+        assertThat(display.universityNameEn()).isEqualTo("Planning school");
+        jdbc.update("UPDATE programmes SET status='DRAFT' WHERE id=?",id);
+        assertThat(catalogue.display(id)).isEmpty();
+    }
     @Test void toolsLoadAmountsAndEvidenceFromPersistenceAndFailClosedAfterRevocation() {
         long p = programme(my,"PUBLISHED");
         long e = evidence(p);
