@@ -91,6 +91,18 @@ class AdminImportIntegrationTest {
         mvc.perform(multipart("/api/v1/admin/imports").file(valid).param("type","UNIVERSITY").with(user(principal(UserAccountRole.ADMIN))).with(csrf())).andExpect(status().isOk()).andExpect(jsonPath("$.batch.draftRows").value(1));
         var result=service.upload(EntityType.UNIVERSITY,"invalid.xlsx",new byte[]{1,2,3},actor);assertThat(result.batch().status()).isEqualTo("FAILED");assertThat(result.batch().failureReason()).isNotBlank();
     }
+    @Test void invalidCourseRowsCommitAsEditableErrorsWithoutRollingBackUpload()throws Exception{
+        var u=service.upload(EntityType.UNIVERSITY,"U.xlsx",workbook(EntityType.UNIVERSITY,List.of(university(prefix))),actor);
+        service.publish(u.batch().id(),List.of(service.rows(u.batch().id()).getFirst().id()));
+        var p=Map.<String,Object>of("programmeCode",prefix+"P","universityCode",prefix,"nameZh","课程导入专业"+prefix,"categoryCode",prefix+"CAT","studyLevelCode",prefix+"LEVEL");
+        var programme=service.upload(EntityType.PROGRAMME,"P.xlsx",workbook(EntityType.PROGRAMME,List.of(p)),actor);
+        assertThat(service.publish(programme.batch().id(),List.of(service.rows(programme.batch().id()).getFirst().id())).publishedCount()).isEqualTo(1);
+        var invalid=Map.<String,Object>of("programmeCode",prefix+"P","nameZh","课程名称","sourceType","学校官网");
+        var result=service.upload(EntityType.COURSE,"错误课程.xlsx",workbook(EntityType.COURSE,List.of(invalid)),actor);
+        assertThat(service.batch(result.batch().id()).invalidRows()).isEqualTo(1);
+        assertThat(service.rows(result.batch().id()).getFirst().errorMessage()).contains("来源链接");
+    }
+
     private UserPrincipal principal(UserAccountRole role){var account=UserAccount.external("Test","v1","v1");ReflectionTestUtils.setField(account,"id",actor);ReflectionTestUtils.setField(account,"role",role);return UserPrincipal.from(account);}
     private long countUniversities(String code){return jdbc.queryForObject("SELECT COUNT(*) FROM universities WHERE university_code=?",Long.class,code);}
     private Map<String,Object> university(String code){return new HashMap<>(Map.of("universityCode",code,"slug",code.toLowerCase(),"nameZh","导入测试大学"+UUID.nameUUIDFromBytes(code.getBytes()),"nameEn","Import University "+UUID.nameUUIDFromBytes(code.getBytes()),"countryCode","MY"));}

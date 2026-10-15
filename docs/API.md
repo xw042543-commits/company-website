@@ -429,3 +429,13 @@ APP_TRUSTED_PROXIES=
 筛选先于LIMIT/OFFSET；省略country保持已有请求兼容。不改变字典、数据结构或公开搜索接口。
 切换国家重置到第1页，翻页、编辑保存和取消编辑保留当前国家及其他筛选；编辑后当前页
 超出剩余页数时自动回到最后有效页。前端忽略过期请求，避免快速切换国家时旧响应覆盖新结果。
+
+## 工作人员导入与删除管理（V54）
+
+导入模板支持 UNIVERSITY、PROGRAMME、COURSE。国家、关联院校、学历、分类可使用已有中文/英文名称或编码；内部编码和页面地址可留空，上传预览会显示固定生成结果。重复记录复用已有编码并保持不导入、不覆盖。课程 programmeCode 指向所属专业，courseCode 是内部编码，officialCode 是学校课程代码。
+
+管理员 `/api/v1/admin/catalog/courses` 支持 GET（q/programmeId/status/page/size）、POST、PUT /{id}、PATCH /{id}/status；GET /programmes 返回可关联专业。POST/PUT 字段为 courseCode（选填）、programmeId、nameZh、nameEn、officialCode、descriptionZh、sourceUrl、sourceType（official/third_party/ai_generated）、sortOrder。已有课程的编码及所属专业不可变。
+
+院校、专业及课程列表 status=TRASH 表示回收站，其他列表默认排除回收站。所有写请求仍需管理员登录与 CSRF。
+
+`/api/v1/admin/catalog/lifecycle`：GET /capabilities 返回 permanentDelete；GET /audit?page=1&size=20 返回操作记录；POST /preview 预览关联影响；POST 根路径执行。请求为 {type: UNIVERSITY|PROGRAMME|COURSE, ids: [正整数，1至100条], action: TRASH|RESTORE|PURGE, confirmation: 确认或永久删除}。预览不需要 confirmation。PURGE 每次检查当前数据库高级管理员授权，只可清理回收站中无关联数据。任一记录不符合条件则整批回滚；停用和回收站均不破坏原申请。详见 [操作与授权指南](ADMIN_STAFF_IMPORT_GUIDE.md)。

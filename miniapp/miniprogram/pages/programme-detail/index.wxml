@@ -62,6 +62,8 @@
           </view>
         </view>
         <view class="curriculum-footnote">课程名称为平台中文译名；未核实的介绍、代码、学分等不补写。学校原文和官网来源可复制核验。</view>
+        <view wx:if="{{section.referenceBody}}" class="curriculum-footnote">参考学习领域，非官方课程表
+{{section.referenceBody}}</view>
       </view>
       <view wx:elif="{{section.key === 'CAREER_PROSPECTS' && section.contentBlocks.length}}" class="career-grid">
         <view wx:for="{{section.contentBlocks}}" wx:key="label" class="career-card">

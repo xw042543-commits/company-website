@@ -18,7 +18,10 @@ class AdminCatalogServiceTest {
     @BeforeEach
     void setUp() {
         repository = mock(AdminCatalogRepository.class);
-        service = new AdminCatalogService(repository);
+        var identities=mock(CatalogIdentityService.class);
+        when(identities.university(any(),any())).thenAnswer(i->i.getArgument(0));
+        when(identities.programme(any(),any())).thenAnswer(i->i.getArgument(0));
+        service = new AdminCatalogService(repository,identities);
     }
 
     @Test
@@ -55,14 +58,14 @@ class AdminCatalogServiceTest {
                 null, null, null, null, "javascript:alert(1)", null);
         when(repository.countryExists("MY")).thenReturn(true);
         assertThatThrownBy(() -> service.createUniversity(university))
-                .isInstanceOf(ApiException.class).hasMessageContaining("HTTP(S)");
+                .isInstanceOf(ApiException.class).hasMessageContaining("https://");
         verify(repository, never()).createUniversity(any());
 
         ProgrammeInput programme = new ProgrammeInput("TEST_P", 99L, "test-programme", "测试专业", null,
                 1L, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
         when(repository.universityExists(99L)).thenReturn(false);
         assertThatThrownBy(() -> service.createProgramme(programme))
-                .isInstanceOf(ApiException.class).hasMessageContaining("University");
+                .isInstanceOf(ApiException.class).hasMessageContaining("院校");
         verify(repository, never()).createProgramme(any());
     }
 

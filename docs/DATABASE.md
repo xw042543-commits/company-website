@@ -7,7 +7,7 @@ Redis 用于缓存、社区热门快照和社区写入限流，Elasticsearch 用
 业务记录必须保存在 PostgreSQL 中，搜索投影和缓存可根据主数据库重建。
 Redis 不可用时，社区写入和热门快照按接口契约返回不可用状态，不能绕过限流写入。
 
-当前迁移已到 V48，包含院校、课程、媒体、用户认证、咨询处理、小程序收藏与规划、
+当前迁移已到 V54，包含院校、课程、媒体、用户认证、咨询处理、小程序收藏与规划、
 社区、钱包、消息、申请进度和头像的数据结构。
 仓库内的数据整理及导入资料包不等于正式发布批准；发布仍须依据业务负责人确认的资料。
 数据库集成测试使用临时测试容器，不连接真实业务数据库。
@@ -315,3 +315,7 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 发布采用 PostgreSQL 事务与 SHARE ROW EXCLUSIVE 表锁，和其他管理员 INSERT/UPDATE 互斥，
 在锁内重新查重后仅 INSERT 新记录，搜索同步入队与发布状态同事务提交。没有永久删除正式数据的路径。
 新增校区与别名为空时兼容历史记录；历史校区未知的同名专业按疑似重复交给管理员核对。
+
+## V54 工作人员导入与回收站
+
+新增 `catalog_code_reservations`（编码预留及永久删除编码退休）、`catalog_courses`（课程管理投影；学校课程代码仍保存在模块 JSON 的 courseCode）、`catalog_advanced_administrators`（单独授权永久删除）、`catalog_operation_audit`（操作快照）。院校和专业仅增加 deleted_at/previous_status。旧数据状态、编码、申请关系保持不变。课程投影从既有 CURRICULUM JSON 初始化，触发器兼容后续官网采集更新；导入类型扩展为 COURSE。详见 [工作人员指南](ADMIN_STAFF_IMPORT_GUIDE.md)。
