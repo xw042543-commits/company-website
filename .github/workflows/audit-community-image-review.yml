@@ -54,3 +54,8 @@ jobs:
             -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
             -p "$PRODUCTION_SSH_PORT" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
             "cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml logs --since 2h caddy 2>&1 | grep 'image-review/media/REDACTED' | grep -Eo 'status[^0-9]*[0-9]{3}' | sort | uniq -c"
+          echo 'Sanitized review-media method and transfer-size counts (last two hours)'
+          ssh -i "$audit_key" -o BatchMode=yes -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
+            -p "$PRODUCTION_SSH_PORT" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
+            "cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml logs --since 2h caddy 2>&1 | grep 'image-review/media/REDACTED' | grep -Eo 'method[^A-Z]*(GET|HEAD)|size[^0-9]*[0-9]+' | sort | uniq -c"
