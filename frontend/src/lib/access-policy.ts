@@ -57,3 +57,8 @@ export function loginRedirectPath(pathname: string, search: string) {
 export function signedInLoginDestination(authenticated: boolean, locale: Locale) {
   return authenticated ? `/${locale}/account` : null;
 }
+
+export function isAccountManagementPath(pathname: string) {
+  const parts = pathSegments(pathname);
+  try { return isAdminPath(pathname) && decodeURIComponent(parts[2] ?? "") === "accounts"; } catch { return false; }
+}

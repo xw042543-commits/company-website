@@ -126,11 +126,11 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("54");
-            assertThat(latest.info().applied()).hasSize(54);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("55");
+            assertThat(latest.info().applied()).hasSize(55);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 54)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 55)
                             .mapToObj(Integer::toString).toList());
             assertThat(jdbcTemplate.queryForMap("""
                     SELECT status, published_at IS NOT NULL AS has_published_at
