@@ -1,0 +1,46 @@
+name: Audit production community image review
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: production
+      url: https://yangdoujiao.com
+
+    steps:
+      - name: Check out audited release
+        uses: actions/checkout@v7
+
+      - name: Read aggregate review states and bounded review diagnostics
+        shell: bash
+        env:
+          PRODUCTION_SSH_HOST: ${{ secrets.PRODUCTION_SSH_HOST }}
+          PRODUCTION_SSH_PORT: ${{ secrets.PRODUCTION_SSH_PORT }}
+          PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
+          PRODUCTION_SSH_PRIVATE_KEY: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+          PRODUCTION_SSH_KNOWN_HOSTS: ${{ secrets.PRODUCTION_SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          umask 077
+          audit_key="$RUNNER_TEMP/production_audit_key"
+          known_hosts="$RUNNER_TEMP/production_known_hosts"
+          trap 'rm -f "$audit_key" "$known_hosts"' EXIT
+          printf '%s\n' "$PRODUCTION_SSH_PRIVATE_KEY" > "$audit_key"
+          printf '%s\n' "$PRODUCTION_SSH_KNOWN_HOSTS" > "$known_hosts"
+          remote='cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml exec -T postgres sh -c '\''psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$POSTGRES_DB"'\'''
+          ssh -i "$audit_key" -o BatchMode=yes -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
+            -p "$PRODUCTION_SSH_PORT" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" "$remote" \
+            < backend/scripts/audit-community-image-review.sql
+          ssh -i "$audit_key" -o BatchMode=yes -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
+            -p "$PRODUCTION_SSH_PORT" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
+            "cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml exec -T backend sh -c 'printf \"image_review_enabled=%s worker_enabled=%s\\n\" \"\$APP_COMMUNITY_IMAGES_REVIEW_ENABLED\" \"\${APP_COMMUNITY_IMAGES_REVIEW_WORKER_ENABLED:-true}\"'"
