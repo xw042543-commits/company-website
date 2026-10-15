@@ -14,7 +14,9 @@ import {
 function programme(id: number, categoryCode: string): UniversityProgramme {
   return {
     id, categoryCode, slug: `programme-${id}`, nameZh: '专业', nameEn: 'Programme',
-    studyLevelCode: 'BACHELOR', durationDisplay: '3年', tuitionDisplay: '待确认',
+    studyLevelCode: 'BACHELOR', durationDisplay: '3年',
+    tuitionMin: null, tuitionMax: null, tuitionCurrency: '', tuitionFeePeriod: '',
+    tuitionTotalRmbMin: null, tuitionTotalRmbMax: null, tuitionDisplay: '待确认',
     intakeDisplayTexts: [],
   };
 }
