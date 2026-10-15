@@ -46,6 +46,32 @@ class CommunityImageReviewJobsIntegrationTest {
         assertEquals("PASS",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
         assertTrue(jobs.claim(now.plusSeconds(400)).isEmpty());
     }
+    @Test void downloadFailureRetriesWithNewTraceAndPassingResultPublishes() {
+        var first=jobs.claim(now).orElseThrow();
+        jobs.acknowledge(first,"fixture-download-1",now);
+        jobs.receiveDownloadFailure("fixture-download-1",now.plusSeconds(1));
+        assertEquals("PENDING",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
+        assertTrue(jobs.claim(now.plusSeconds(5)).isEmpty());
+        var second=jobs.claim(now.plusSeconds(6)).orElseThrow();
+        assertEquals(2,second.attempt());
+        jobs.acknowledge(second,"fixture-download-2",now.plusSeconds(6));
+        jobs.receive("fixture-download-1","PASS",now.plusSeconds(7));
+        assertEquals("PENDING",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
+        jobs.receive("fixture-download-2","PASS",now.plusSeconds(7));
+        images.reconcile();
+        assertEquals("PUBLISHED",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
+    }
+    @Test void downloadFailureBeforeAcknowledgementRetriesAndStopsAfterThreeAttempts() {
+        for(int attempt=1;attempt<=3;attempt++) {
+            Instant at=now.plusSeconds(attempt*10L);
+            var claim=jobs.claim(at).orElseThrow();
+            String trace="fixture-download-early-"+attempt;
+            jobs.receiveDownloadFailure(trace,at);
+            jobs.acknowledge(claim,trace,at);
+            assertEquals(attempt==3?"REVIEW":"PENDING",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
+        }
+        assertTrue(jobs.claim(now.plusSeconds(100)).isEmpty());
+    }
     @Test void expiredLeaseCanRecoverButStaleAcknowledgementCannotWin() {
         var old=jobs.claim(now).orElseThrow();
         var fresh=jobs.claim(now.plusSeconds(121)).orElseThrow();
@@ -82,5 +108,15 @@ class CommunityImageReviewJobsIntegrationTest {
         assertEquals("PUBLISHED",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
         worker.tick();
         assertEquals(1L,jdbc.queryForObject("SELECT count(*) FROM inbox_notifications WHERE recipient_account_id=?",Long.class,owner));
+    }
+    @Test void passingCallbackPublishesWithoutWaitingForWorkerTick() throws Exception {
+        var claim=jobs.claim(now).orElseThrow();
+        jobs.acknowledge(claim,"fixture-instant",now);
+        var crypto=org.mockito.Mockito.mock(WechatImageCallbackCrypto.class);
+        org.mockito.Mockito.when(crypto.decrypt("signature","1","2","ciphertext")).thenReturn(
+            "{\"Event\":\"wxa_media_check\",\"trace_id\":\"fixture-instant\",\"errcode\":0,\"result\":{\"suggest\":\"pass\"}}");
+        var callback=new CommunityImageReviewCallback(crypto,jobs,images,new tools.jackson.databind.ObjectMapper(),Clock.fixed(now,ZoneOffset.UTC));
+        callback.receive("signature","1","2",new java.io.ByteArrayInputStream("{\"Encrypt\":\"ciphertext\"}".getBytes(java.nio.charset.StandardCharsets.UTF_8)));
+        assertEquals("PUBLISHED",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
     }
 }

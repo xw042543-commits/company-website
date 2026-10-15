@@ -22,7 +22,8 @@ class CommunityImageReviewMediaController {
     @GetMapping("/api/v1/community/image-review/media/{id}/{expires}/{signature}.jpg")
     ResponseEntity<byte[]> read(@PathVariable String id,@PathVariable long expires,@PathVariable String signature)throws IOException {
         if(!access.verify(id,expires,signature))throw new ApiException(HttpStatus.NOT_FOUND,"COMMUNITY_IMAGE_NOT_FOUND","Image unavailable");
+        byte[] image=images.read(id,false,null,true);
         return ResponseEntity.ok().cacheControl(CacheControl.noStore()).contentType(MediaType.IMAGE_JPEG)
-            .header("X-Content-Type-Options","nosniff").body(images.read(id,false,null,true));
+            .contentLength(image.length).header("X-Content-Type-Options","nosniff").body(image);
     }
 }
