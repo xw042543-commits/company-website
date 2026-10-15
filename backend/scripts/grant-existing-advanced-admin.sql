@@ -2,12 +2,12 @@
 \if :{?identifier}
 \else
 \echo 'An existing administrator email is required.'
-\quit 2
+DO $$ BEGIN RAISE EXCEPTION 'Required authorization parameters are missing'; END $$;
 \endif
 \if :{?approved_by}
 \else
 \echo 'An approval reference is required.'
-\quit 2
+DO $$ BEGIN RAISE EXCEPTION 'Required authorization parameters are missing'; END $$;
 \endif
 
 BEGIN;
@@ -19,7 +19,7 @@ SELECT to_regclass('catalog_advanced_administrators') IS NOT NULL AS schema_read
 \else
 ROLLBACK;
 \echo 'V54 must already be deployed; no changes were made.'
-\quit 3
+DO $$ BEGIN RAISE EXCEPTION 'Advanced administrator schema is not deployed'; END $$;
 \endif
 
 SELECT COUNT(*) = 1 AS account_found FROM user_accounts
@@ -47,10 +47,10 @@ WHERE u.id=:'target_account_id'::bigint;
 \else
 ROLLBACK;
 \echo 'Grant verification failed; no changes were committed.'
-\quit 4
+DO $$ BEGIN RAISE EXCEPTION 'Durable advanced administrator grant verification failed'; END $$;
 \endif
 \else
 ROLLBACK;
 \echo 'No single active existing ADMIN matched; no changes were made.'
-\quit 5
+DO $$ BEGIN RAISE EXCEPTION 'No single active existing ADMIN matched'; END $$;
 \endif
