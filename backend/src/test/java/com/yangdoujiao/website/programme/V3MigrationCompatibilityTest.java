@@ -126,12 +126,24 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("55");
-            assertThat(latest.info().applied()).hasSize(55);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("61");
+            assertThat(latest.info().applied()).hasSize(61);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 55)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 61)
                             .mapToObj(Integer::toString).toList());
+            assertThat(jdbcTemplate.queryForList("""
+                    SELECT table_name FROM information_schema.tables WHERE table_schema='public'
+                      AND table_name IN ('planning_evidence','planning_rule_sets','planning_fees',
+                        'planning_sessions','planning_profiles','planning_runs','planning_saved_plans')
+                    """,String.class)).containsExactlyInAnyOrder("planning_evidence","planning_rule_sets","planning_fees",
+                            "planning_sessions","planning_profiles","planning_runs","planning_saved_plans");
+            // Legacy catalogue rows remain unverified; migrations never manufacture admissions proof.
+            assertThat(jdbcTemplate.queryForObject("SELECT count(*) FROM planning_evidence",Integer.class)).isZero();
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT is_nullable FROM information_schema.columns
+                    WHERE table_schema='public' AND table_name='planning_sessions' AND column_name='last_activity_at'
+                    """,String.class)).isEqualTo("NO");
             assertThat(jdbcTemplate.queryForMap("""
                     SELECT status, published_at IS NOT NULL AS has_published_at
                     FROM universities WHERE id = ?

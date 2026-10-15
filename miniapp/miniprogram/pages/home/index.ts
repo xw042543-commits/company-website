@@ -10,7 +10,8 @@ interface UniversityEvent extends WechatMiniprogram.BaseEvent {
   detail: { slug?: string };
 }
 
-Page({
+export function createHomePage(): WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> {
+  return {
   data: {
     statusBarHeight: 20,
     heroIndex: 0,
@@ -18,6 +19,7 @@ Page({
     featureEntries: [
       { key: 'planning', label: '专业定位', icon: '/assets/icons/planning.png', tone: 'mint' },
       { key: 'universities', label: '院校清单', icon: '/assets/icons/university-green.png', tone: 'mint' },
+      { key: 'ai', label: 'AI规划', icon: '/assets/icons/ai.png', tone: 'mint' },
       { key: 'visa', label: '签证查询', icon: '/assets/icons/visa.png', tone: 'orange' },
     ],
     previewState: 'loading' as PreviewState,
@@ -33,6 +35,10 @@ Page({
 
   openFeature(event: WechatMiniprogram.BaseEvent) {
     const key = event.currentTarget.dataset.key as string | undefined;
+    if (key === 'ai') {
+      wx.navigateTo({ url: '/pages/planning-agent/index' });
+      return;
+    }
     if (key === 'visa') {
       wx.navigateTo({ url: '/pages/visa/index' });
       return;
@@ -64,7 +70,7 @@ Page({
 
   syncFavorites() {
     const saved = new Set(favoriteUniversities.list());
-    this.setData({ universities: this.data.universities.map((item) => ({
+    this.setData({ universities: this.data.universities.map((item: HomeUniversity) => ({
       ...item, favorite: saved.has(item.slug),
     })) });
   },
@@ -101,4 +107,6 @@ Page({
       previewState: universities.length > 0 ? 'ready' as PreviewState : 'empty' as PreviewState,
     });
   },
-});
+  };
+}
+Page(createHomePage());

@@ -1,12 +1,34 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, mkdtempSync, rmSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
 const root = new URL('../miniprogram/', import.meta.url);
+const wxmlCompiler = process.env.WXML_COMPILER ?? '/Applications/wechatwebdevtools.app/Contents/Resources/app.asar.unpacked/node_modules/wcc-exec/wcc';
+test('all shipped WXML templates compile with the native WeChat compiler', { skip: !existsSync(wxmlCompiler) && 'Set WXML_COMPILER to enable native WeChat compilation' }, () => {
+  const files: string[] = [];
+  const collect = (directory: string) => {
+    for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      const path = join(directory, entry.name);
+      if (entry.isDirectory()) collect(path);
+      else if (path.endsWith('.wxml')) files.push(path);
+    }
+  };
+  collect(fileURLToPath(root));
+  assert.ok(files.length > 0);
+  const scratch = mkdtempSync(join(tmpdir(), 'udajo-wxml-test-'));
+  try {
+    const result = spawnSync(wxmlCompiler, ['-o', join(scratch, 'compiled.js'), ...files], { encoding: 'utf8' });
+    assert.equal(result.status, 0, result.error?.message ?? result.stderr ?? result.stdout);
+  } finally {
+    rmSync(scratch, { recursive: true, force: true });
+  }
+});
 test('component styles avoid native-unsupported type and attribute selectors', () => {
   for (const component of ['app-state', 'community-post-card']) {
     const css = readFileSync(new URL(`components/${component}/index.wxss`, root), 'utf8');
