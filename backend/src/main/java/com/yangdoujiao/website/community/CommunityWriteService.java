@@ -74,7 +74,7 @@ public class CommunityWriteService {
                     HttpStatus.BAD_REQUEST, "INVALID_COMMUNITY_UNIVERSITY", "University does not exist");
             limiter.checkPost(actorId, address);
             var post = posts.saveAndFlush(CommunityPost.create(actorId, body, metadata, status,
-                    status == CommunityContentStatus.PENDING_REVIEW ? "RISK_REVIEW" : null, now()));
+                    status == CommunityContentStatus.PENDING_REVIEW ? (imageIds.isEmpty() ? "RISK_REVIEW" : "IMAGE_REVIEW") : null, now()));
             images.bind(actorId, post.getId(), imageIds, textStatus == CommunityContentStatus.PUBLISHED);
             return new CommunityCreationResponse(post.getId().toString(), null, null, post.getBody(), post.getStatus(),
                     post.getCreatedAt(), post.getPublishedAt());

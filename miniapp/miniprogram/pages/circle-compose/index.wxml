@@ -21,7 +21,7 @@
       </view>
       <button wx:if="{{images.length < 9}}" class="add-image" disabled="{{submitting || choosingImages}}" bindtap="addImages"><view class="add-mark"></view><text>{{choosingImages ? '正在处理…' : '添加图片'}}</text></button>
     </view>
-    <view class="image-hint">支持 JPEG / PNG，最多9张。图片会在审核后公开。</view>
+    <view class="image-hint">支持 JPEG / PNG，最多9张。带图帖子须经管理员审核后才会公开；纯文字帖通常可直接发布。</view>
   </view>
   <view class="post-settings">
     <picker mode="selector" range="{{categoryLabels}}" value="{{categoryIndex}}" disabled="{{submitting}}" bindchange="changeCategory"><view class="setting-row"><text class="setting-label">发布到</text><text class="setting-value">{{categoryLabels[categoryIndex]}}</text><view class="setting-chevron"></view></view></picker>
@@ -31,7 +31,7 @@
   </view>
   <view wx:if="{{notice}}" class="notice" role="alert">{{notice}}</view>
   <view class="review-note">请勿发布联系方式、隐私资料或未经核实的信息。需要人工确认的内容会进入审核队列，结果可在消息中查看。</view>
-  <view class="publish-dock"><text class="draft-hint">{{imagesBusy ? '图片上传完成后即可发布' : '返回时会保留当前账号的草稿'}}</text><button class="publish-button" disabled="{{submitting || choosingImages || imagesBusy}}" bindtap="submit">{{submitting ? '正在提交…' : '发布到U圈'}}</button></view>
+  <view class="publish-dock"><text class="draft-hint">{{imagesBusy ? '请等待图片上传完成' : (images.length ? '带图帖子提交后等待管理员审核' : '纯文字帖符合规则后立即发布')}}</text><button class="publish-button" disabled="{{submitting || choosingImages || imagesBusy}}" bindtap="submit">{{submitting ? '正在提交…' : (images.length ? '提交审核' : '发布到U圈')}}</button></view>
 </view>
 <view wx:if="{{schoolOpen}}" class="school-overlay">
   <view class="school-dialog" role="dialog" aria-label="选择院校">

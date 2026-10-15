@@ -71,16 +71,17 @@ class CommunityImageReviewJobsIntegrationTest {
         jobs.receive("fixture-late","PASS",now.plusSeconds(36*60+1));
         assertEquals("REVIEW",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
     }
-    @Test void workerWaitsForCallbackBeforePublishing() {
+    @Test void workerNeverPublishesWithoutAdministratorApproval() {
         var gateway=org.mockito.Mockito.mock(WechatImageReviewGateway.class);
         org.mockito.Mockito.when(gateway.submit(owner,id)).thenReturn(Optional.of("fixture-worker"));
-        var worker=new CommunityImageReviewWorker(jobs,images,gateway,Clock.fixed(now,ZoneOffset.UTC));
+        var worker=new CommunityImageReviewWorker(jobs,gateway,Clock.fixed(now,ZoneOffset.UTC));
         worker.tick();
         assertEquals("PENDING_REVIEW",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
         jobs.receive("fixture-worker","PASS",now.plusSeconds(1));
         worker.tick();
-        assertEquals("PUBLISHED",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
+        assertEquals("PENDING_REVIEW",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
+        assertTrue(images.readyForManualApproval(post));
         worker.tick();
-        assertEquals(1L,jdbc.queryForObject("SELECT count(*) FROM inbox_notifications WHERE recipient_account_id=?",Long.class,owner));
+        assertEquals(0L,jdbc.queryForObject("SELECT count(*) FROM inbox_notifications WHERE recipient_account_id=?",Long.class,owner));
     }
 }

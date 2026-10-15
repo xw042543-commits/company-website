@@ -46,12 +46,14 @@ class CommunityImageAttachmentsIntegrationTest {
         assertThrows(ApiException.class,()->new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner+1,post,List.of(first),true)));
         assertNull(jdbc.queryForObject("SELECT post_id FROM community_images WHERE id=?",Long.class,first));
     }
-    @Test void needsAllImagesAndTextBeforeAutomaticPublication() {
+    @Test void passingEveryImageStillNeedsAdministratorApproval() {
         bind(List.of(first,second),true);
         media.recordResult(first,"PASS");
         assertEquals("PENDING_REVIEW",status());
+        assertFalse(media.readyForManualApproval(post));
         media.recordResult(second,"PASS");
-        assertEquals("PUBLISHED",status());
+        assertEquals("PENDING_REVIEW",status());
+        assertTrue(media.readyForManualApproval(post));
     }
     @Test void doesNotOverrideTextReviewOrManualState() {
         bind(List.of(first),false);
@@ -61,12 +63,21 @@ class CommunityImageAttachmentsIntegrationTest {
         media.recordResult(first,"PASS");
         assertEquals("HIDDEN",status());
     }
+    @Test void rejectedOrUncheckedImageCannotBeApproved() {
+        bind(List.of(first,second),true);
+        assertFalse(media.readyForManualApproval(post));
+        media.recordResult(first,"REJECTED");
+        media.recordResult(second,"PASS");
+        assertFalse(media.readyForManualApproval(post));
+        assertEquals("PENDING_REVIEW",status());
+    }
     @Test void rejectsDuplicateAndTooManyIds() {
         assertThrows(ApiException.class,()->CommunityImageAttachments.parse(json.valueToTree(List.of(first,first))));
         assertThrows(ApiException.class,()->CommunityImageAttachments.parse(json.valueToTree(java.util.stream.IntStream.range(0,10).mapToObj(i->String.format("%032x",i)).toList())));
     }
     @Test void publicMetadataDisappearsWhenPostIsHidden() {
         bind(List.of(first),true);media.recordResult(first,"PASS");
+        jdbc.update("UPDATE community_posts SET status='PUBLISHED' WHERE id=?",post);
         assertEquals(1,media.forPosts(List.of(post),null,false).get(Long.toString(post)).size());
         jdbc.update("UPDATE community_posts SET status='HIDDEN',version=version+1 WHERE id=?",post);
         assertTrue(media.forPosts(List.of(post),null,false).isEmpty());

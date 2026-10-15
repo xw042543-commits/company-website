@@ -61,6 +61,41 @@ class CommunityImagePostHttpIntegrationTest {
         mvc.perform(get("/api/v1/community/images").param("postIds",postId).with(user(UserPrincipal.from(actor))))
             .andExpect(status().isOk()).andExpect(jsonPath("$['"+postId+"'][0].id").value(image));
     }
+    @Test void ordinaryTextPublishesImmediatelyWhilePhotoNeedsManualApproval() throws Exception {
+        publish("text-only","{\"body\":\"Campus update\"}")
+            .andExpect(status().isCreated()).andExpect(jsonPath("$.status").value("PUBLISHED"));
+        String result=publish("photo-manual",json.writeValueAsString(Map.of("body","Campus photo","imageIds",List.of(image))))
+            .andExpect(status().isCreated()).andExpect(jsonPath("$.status").value("PENDING_REVIEW"))
+            .andReturn().getResponse().getContentAsString();
+        String postId=json.readTree(result).path("id").asText();
+        jdbc.update("UPDATE community_images SET status='PASS' WHERE id=?",image);
+        assertThat(jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,Long.valueOf(postId)))
+            .isEqualTo("PENDING_REVIEW");
+        var reviewer=accounts.saveAndFlush(UserAccount.external("Administrator","admin-photo","admin-photo"));
+        reviewerId=reviewer.getId();
+        ReflectionTestUtils.setField(reviewer,"role",UserAccountRole.ADMIN);
+        jdbc.update("UPDATE user_accounts SET role='ADMIN' WHERE id=?",reviewerId);
+        mvc.perform(post("/api/v1/adviser/community/moderation/POST/"+postId+"/actions")
+            .with(user(UserPrincipal.from(reviewer))).with(csrf()).contentType("application/json")
+            .content("{\"command\":\"RESTORE\",\"reasonCode\":\"REVIEW_APPROVED\",\"version\":0}"))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.status").value("PUBLISHED"));
+    }
+    @Test void rejectedImageCannotBeApproved() throws Exception {
+        String result=publish("photo-rejected",json.writeValueAsString(Map.of("body","Campus photo","imageIds",List.of(image))))
+            .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
+        String postId=json.readTree(result).path("id").asText();
+        jdbc.update("UPDATE community_images SET status='REJECTED' WHERE id=?",image);
+        var reviewer=accounts.saveAndFlush(UserAccount.external("Administrator","admin-reject","admin-reject"));
+        reviewerId=reviewer.getId();
+        ReflectionTestUtils.setField(reviewer,"role",UserAccountRole.ADMIN);
+        jdbc.update("UPDATE user_accounts SET role='ADMIN' WHERE id=?",reviewerId);
+        mvc.perform(post("/api/v1/adviser/community/moderation/POST/"+postId+"/actions")
+            .with(user(UserPrincipal.from(reviewer))).with(csrf()).contentType("application/json")
+            .content("{\"command\":\"RESTORE\",\"reasonCode\":\"REVIEW_APPROVED\",\"version\":0}"))
+            .andExpect(status().isConflict());
+        assertThat(jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,Long.valueOf(postId)))
+            .isEqualTo("PENDING_REVIEW");
+    }
     @Test void foreignImagesCannotBeAttachedAndLeaveNoPost() throws Exception {
         var other=accounts.saveAndFlush(UserAccount.external("Other","v1","v1"));
         otherId=other.getId();

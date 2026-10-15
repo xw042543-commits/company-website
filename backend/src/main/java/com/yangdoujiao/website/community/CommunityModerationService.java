@@ -21,13 +21,15 @@ public class CommunityModerationService {
     private final CommunityCursorCodec cursors;
     private final CommunityAuditLogger audit;
     private final CommunityNotificationPublisher notifications;
+    private final CommunityImageAttachments images;
     private final Clock clock;
     CommunityModerationService(CommunityModerationTargets targets,CommunityModerationQueryRepository query,CommunityReportRepository reports,
             CommunityModerationActionRepository actions,CommunityUserRestrictionRepository restrictions,UserAccountRepository accounts,
-            CommunityCursorCodec cursors,CommunityAuditLogger audit,CommunityNotificationPublisher notifications,Clock clock) {
+            CommunityCursorCodec cursors,CommunityAuditLogger audit,CommunityNotificationPublisher notifications,CommunityImageAttachments images,Clock clock) {
         this.targets=targets;this.query=query;this.reports=reports;this.actions=actions;this.restrictions=restrictions;
         this.accounts=accounts;this.cursors=cursors;this.audit=audit;
         this.notifications=notifications;
+        this.images=images;
         this.clock=clock;
     }
     @Transactional(readOnly=true)
@@ -79,6 +81,7 @@ public class CommunityModerationService {
             case RESTORE -> {
                 if(before!=CommunityContentStatus.HIDDEN&&before!=CommunityContentStatus.PENDING_REVIEW)throw transition();
                 if(target.comment()!=null&&(target.post().getStatus()!=CommunityContentStatus.PUBLISHED||target.root()!=null&&target.root().getStatus()!=CommunityContentStatus.PUBLISHED))throw transition();
+                if(target.comment()==null && images.hasImages(id) && !images.readyForManualApproval(id))throw transition();
                 next=CommunityContentStatus.PUBLISHED;
             }
             case REJECT_REPORT -> {if(reports.countByTargetTypeAndTargetIdAndStatus(type,id,CommunityReportStatus.OPEN)==0)throw transition();}

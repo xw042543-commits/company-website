@@ -30,23 +30,16 @@ public class CommunityImageAttachmentRepository {
         lock();
         // First terminal result wins; retries and late callbacks cannot reverse it.
         jdbc.update("UPDATE community_images SET status=? WHERE id=? AND status='PENDING'",result,imageId);
-        reconcile();
     }
-    public void reconcile() {
-        // Version zero means no moderation/delete/reaction mutation has occurred.
-        // Text verdict is independent of image verdicts. Never revive manual states.
-        jdbc.update("""
-            WITH approved AS (UPDATE community_posts p SET status='PUBLISHED',published_at=CURRENT_TIMESTAMP,updated_at=CURRENT_TIMESTAMP,version=version+1
-            FROM community_image_post_review r WHERE r.post_id=p.id AND r.text_passed
-              AND p.status='PENDING_REVIEW' AND p.version=0
-              AND EXISTS(SELECT 1 FROM community_images i WHERE i.post_id=p.id)
-              AND NOT EXISTS(SELECT 1 FROM community_images i WHERE i.post_id=p.id AND i.status<>'PASS')
-            RETURNING p.id,p.author_account_id)
-            INSERT INTO inbox_notifications(recipient_account_id,event_key,category,title,body,target_type,created_at)
-            SELECT author_account_id,'community:image-approved:'||id,'SYSTEM','U圈内容审核结果',
-              '你的帖子已通过审核，可在“我的内容”查看。','NONE',CURRENT_TIMESTAMP FROM approved
-            ON CONFLICT(recipient_account_id,event_key) DO NOTHING
-            """);
+    public boolean readyForManualApproval(long postId) {
+        return Boolean.TRUE.equals(jdbc.queryForObject("""
+            SELECT EXISTS(SELECT 1 FROM community_images WHERE post_id=?)
+              AND NOT EXISTS(SELECT 1 FROM community_images WHERE post_id=? AND status IN ('PENDING','REJECTED'))
+            """,Boolean.class,postId,postId));
+    }
+    public boolean hasImages(long postId) {
+        return Boolean.TRUE.equals(jdbc.queryForObject(
+            "SELECT EXISTS(SELECT 1 FROM community_images WHERE post_id=?)",Boolean.class,postId));
     }
     public Map<String,List<CommunityImageAttachments.Image>> forPosts(List<Long> posts,Long viewer,boolean adviser) {
         if(posts.isEmpty())return Map.of();
