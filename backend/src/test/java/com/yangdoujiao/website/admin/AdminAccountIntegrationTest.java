@@ -161,9 +161,10 @@ class AdminAccountIntegrationTest {
         } finally { jdbc.execute("DROP TRIGGER " + function + " ON account_management_audit"); jdbc.execute("DROP FUNCTION " + function + "()"); }
     }
     @Test void accountChangesRetainApplicationOrderAndPersonalData() throws Exception {
-        testUniversity = jdbc.queryForObject("INSERT INTO universities(name,slug,country,university_code) VALUES(?,?,'Malaysia',?) RETURNING id", Long.class, prefix, prefix, prefix);
-        testCategory = jdbc.queryForObject("INSERT INTO subject_categories(code,name_en) VALUES(?,?) RETURNING id", Long.class, prefix, prefix);
-        testProgramme = jdbc.queryForObject("INSERT INTO programmes(programme_code,university_id,subject_category_id,slug,name_en) VALUES(?,?,?,?,?) RETURNING id", Long.class, prefix, testUniversity, testCategory, prefix, prefix);
+        String code = "AM" + target;
+        testUniversity = jdbc.queryForObject("INSERT INTO universities(name,slug,country,university_code) VALUES(?,?,'Malaysia',?) RETURNING id", Long.class, prefix, prefix, code);
+        testCategory = jdbc.queryForObject("INSERT INTO subject_categories(code,name_en) VALUES(?,?) RETURNING id", Long.class, code, prefix);
+        testProgramme = jdbc.queryForObject("INSERT INTO programmes(programme_code,university_id,subject_category_id,slug,name_en) VALUES(?,?,?,?,?) RETURNING id", Long.class, code, testUniversity, testCategory, prefix, prefix);
         UUID order = UUID.randomUUID(), application = UUID.randomUUID();
         jdbc.update("INSERT INTO application_payment_orders(id,reference,user_account_id,idempotency_key,request_fingerprint,total_amount_fen) VALUES(?,?,?,?,?,12345)", order, "AM" + target, target, prefix, "a".repeat(64));
         jdbc.update("INSERT INTO student_applications(id,reference,user_account_id,programme_id,status,payment_order_id) VALUES(?,?,?,?,'UNPAID',?)", application, "APP" + target, target, testProgramme, order);
