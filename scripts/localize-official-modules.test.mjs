@@ -14,3 +14,9 @@ test('uses reviewed terminology ignoring case, and never invents missing transla
  assert.equal(translateModule({nameEn:'Unknown module'}, {},{},stamp),null);
  assert.equal(translateModule({nameEn:'Database',descriptionEn:'Official original'}, {'Database':{nameZh:'数据库'}},{},stamp),null);
 });
+
+
+test('translates official Roman-numeral suffixes as course sequence rather than pronouns',()=>{
+ const result=translateModule({nameEn:'English I'},{English:{nameZh:'英语'},'English I':{nameZh:'英语我'}},{},stamp);
+ assert.equal(result.nameZh,'英语（一）');assert.equal(result.nameEn,'English I');
+});

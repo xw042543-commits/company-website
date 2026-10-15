@@ -58,6 +58,9 @@ DO $$ BEGIN
  JOIN universities u ON u.id=p.university_id LEFT JOIN countries c ON c.id=u.country_id
  WHERE u.slug<>r.university_slug OR COALESCE(c.code,'')<>'MY')
  THEN RAISE EXCEPTION 'Unexpected programme ownership'; END IF;
+ IF EXISTS(SELECT 1 FROM reviewed_modules r JOIN programmes p ON p.programme_code=r.programme_code
+ WHERE r.verified AND NULLIF(BTRIM(p.campus),'') IS NOT NULL)
+ THEN RAISE EXCEPTION 'New campus attribution requires explicit course re-verification'; END IF;
  IF EXISTS(SELECT 1 FROM reviewed_modules r WHERE r.verified AND (jsonb_array_length(r.modules)=0 OR EXISTS(
  SELECT 1 FROM jsonb_array_elements(r.modules) m WHERE NULLIF(m->>'nameEn','') IS NULL
  OR m->>'nameEn' ~* '(CGPA|IELTS|TOEFL|entry requirements|minimum (score|grade|average)|[0-9]+[[:space:]]*%)'

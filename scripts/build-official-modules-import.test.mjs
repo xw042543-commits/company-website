@@ -29,3 +29,15 @@ test('requires Chinese display and separate translation provenance',()=>{
  assert.ok(validateModule({...module,translationMethod:null},'um').length);
  assert.ok(validateModule({...module,descriptionEn:'Official description',descriptionZh:null},'um').length);
 });
+
+
+test('full reviewed snapshot, backups and generated migration agree for every published programme',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const audit=JSON.parse(await readFile(new URL('../outputs/official-course-modules-20261015/reviewed-audit.json',import.meta.url),'utf8'));
+ const backup=JSON.parse(await readFile(new URL('../outputs/official-course-modules-20261015/original-curricula.json',import.meta.url),'utf8'));
+ assert.deepEqual(audit.records.map(r=>r.programmeCode).sort(),backup.records.map(r=>r.programmeCode).sort());
+ assert.equal(audit.records.length,audit.summary.checkedProgrammes);
+ assert.equal(audit.records.reduce((n,r)=>n+r.modules.length,0),audit.summary.verifiedModuleAssociations);
+ const sql=await readFile(new URL('../backend/src/main/resources/db/migration/V53__verify_official_course_modules.sql',import.meta.url),'utf8');
+ assert.equal(buildImport(audit),sql);
+});
