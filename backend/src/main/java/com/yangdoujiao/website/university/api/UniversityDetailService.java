@@ -122,6 +122,13 @@ public class UniversityDetailService {
     }
 
     @Transactional(readOnly = true)
+    public List<UniversityProgrammeCategoryResponse> getPublishedProgrammeCategories(String slug) {
+        University university = universities.findBySlugAndStatus(slug, CategoryStatus.PUBLISHED)
+                .orElseThrow(() -> new ResourceNotFoundException("University not found"));
+        return List.copyOf(programmeQuery.findPublishedCategories(university.getId()));
+    }
+
+    @Transactional(readOnly = true)
     public UniversityProgrammeResponse getPublishedProgramme(String slug, String programmeIdentifier) {
         University university = universities.findBySlugAndStatus(slug, CategoryStatus.PUBLISHED)
                 .orElseThrow(() -> new ResourceNotFoundException("University not found"));
