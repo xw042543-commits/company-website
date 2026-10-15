@@ -439,3 +439,16 @@ APP_TRUSTED_PROXIES=
 院校、专业及课程列表 status=TRASH 表示回收站，其他列表默认排除回收站。所有写请求仍需管理员登录与 CSRF。
 
 `/api/v1/admin/catalog/lifecycle`：GET /capabilities 返回 permanentDelete；GET /audit?page=1&size=20 返回操作记录；POST /preview 预览关联影响；POST 根路径执行。请求为 {type: UNIVERSITY|PROGRAMME|COURSE, ids: [正整数，1至100条], action: TRASH|RESTORE|PURGE, confirmation: 确认或永久删除}。预览不需要 confirmation。PURGE 每次检查当前数据库高级管理员授权，只可清理回收站中无关联数据。任一记录不符合条件则整批回滚；停用和回收站均不破坏原申请。详见 [操作与授权指南](ADMIN_STAFF_IMPORT_GUIDE.md)。
+
+
+## 高级管理员账号管理（V55）
+
+复用 ADMIN 和 catalog_advanced_administrators；所有接口均实时核对当前数据库中的启用状态与高级管理员授权，普通管理员不可调用。网页使用原有 Cookie 会话和 CSRF。
+
+- GET `/api/v1/admin/accounts`：`q`（姓名、邮箱、手机号，最多100字）、`status`、`identity`（USER/ADMIN/ADVANCED/ADVISER）、`page`（1起）、`size`（1至100，默认20）。ADMIN 筛选仅普通管理员；ADVANCED 是已有授权的展示筛选，不是新角色。返回 items/page/size/total/totalPages。
+- GET `/api/v1/admin/accounts/{id}`：安全账号详情，不返回密码、令牌或第三方用户标识。
+- PATCH `/api/v1/admin/accounts/{id}/role`：`role` 为 USER 或 ADMIN，`confirmed:true`、`expectedUpdatedAt` 必填。仅处理普通用户/普通管理员；高级管理员和顾问沿用专用授权流程。未启用且完成验证的用户不可升级。
+- PATCH `/api/v1/admin/accounts/{id}/status`：`enabled` 布尔值，及上述确认和版本字段。禁止修改自身或已注销账号；恢复待验证账号仍为待验证。
+- GET `/api/v1/admin/accounts/audit`：分页，支持 `target` 用户编号筛选；保留操作人/目标编号和姓名、前后身份/状态、操作类型及时间。
+
+变更只更新 role 或 status 及 updated_at；同一事务中撤销网页会话、小程序访问与刷新令牌并写入日志。双方账号按编号加锁并再次核权；过期编辑返回409，不覆盖他人变更。无变化请求不重复记日志。

@@ -319,3 +319,10 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 ## V54 工作人员导入与回收站
 
 新增 `catalog_code_reservations`（编码预留及永久删除编码退休）、`catalog_courses`（课程管理投影；学校课程代码仍保存在模块 JSON 的 courseCode）、`catalog_advanced_administrators`（单独授权永久删除）、`catalog_operation_audit`（操作快照）。院校和专业仅增加 deleted_at/previous_status。旧数据状态、编码、申请关系保持不变。课程投影从既有 CURRICULUM JSON 初始化，触发器兼容后续官网采集更新；导入类型扩展为 COURSE。详见 [工作人员指南](ADMIN_STAFF_IMPORT_GUIDE.md)。
+
+
+## V55 账号管理日志
+
+新增 `account_management_audit`，保存操作人/目标用户外键、姓名快照、ROLE/STATUS 操作、前后身份和状态及时间。只追加审计记录，没有修改或删除日志接口。目标用户与日志编号联合索引用于详情分页；user_accounts 增加注册时间/编号分页索引。
+
+复用已有 user_accounts.role/status/updated_at 和 catalog_advanced_administrators，不新增角色，不改变用户、申请、订单关系或现有高级管理员名单。禁用再恢复时从最新禁用日志恢复原状态；无旧日志时依据验证记录或已有外部登录绑定判断，未验证账号保持 PENDING_VERIFICATION。新迁移不更新现有账号。
