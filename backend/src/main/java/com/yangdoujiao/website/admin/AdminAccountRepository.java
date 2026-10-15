@@ -15,7 +15,7 @@ public class AdminAccountRepository {
     public AdminAccountRepository(JdbcTemplate jdbc) { this.jdbc = jdbc; }
     private static final String ADVANCED = "EXISTS(SELECT 1 FROM catalog_advanced_administrators a WHERE a.user_account_id=u.id)";
     private static final String COLUMNS = "u.id,u.full_name,u.normalized_email,u.normalized_phone,u.role,u.status,u.created_at,u.updated_at," + ADVANCED + " AS advanced";
-    public Page<Account> list( String q, String status, String identity, int page, int size) {
+    public Page<Account> list(String q, String status, String identity, int page, int size) {
         String where = " WHERE 1=1";
         var args = new HashMap<String, Object>();
         if (!q.isBlank()) {
@@ -47,7 +47,7 @@ public class AdminAccountRepository {
         if (rows.isEmpty()) throw new ApiException(HttpStatus.NOT_FOUND, "NOT_FOUND", "账号不存在");
         return rows.getFirst();
     }
-    public Page<Map<String,Object>> audit( Long target, int page, int size) {
+    public Page<Map<String,Object>> audit(Long target, int page, int size) {
         String where = target == null ? "" : " WHERE target_user_id=?";
         Object[] args = target == null ? new Object[]{} : new Object[]{target};
         long total = jdbc.queryForObject("SELECT COUNT(*) FROM account_management_audit" + where, Long.class, args);

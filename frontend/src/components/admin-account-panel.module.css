@@ -1,3 +1,6 @@
+.console > header { flex-wrap: wrap; }
+.confirm { width: min(560px, 100%); }
+.confirm > p { padding-inline: 22px; overflow-wrap: anywhere; }
 .tableWrap { overflow-x: auto; border: 1px solid #dce9e3; border-radius: 16px; background: #fff; }
 .table { width: 100%; border-collapse: collapse; text-align: left; font-size: .9rem; }
 .table th, .table td { padding: 16px; border-bottom: 1px solid #e5eee9; vertical-align: top; min-width: 110px; overflow-wrap: anywhere; }

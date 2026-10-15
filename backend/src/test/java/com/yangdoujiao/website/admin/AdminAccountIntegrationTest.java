@@ -26,7 +26,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 
-@SpringBootTest
+@SpringBootTest(properties = {"app.miniapp.auth.enabled=true", "app.miniapp.auth.wechat-app-id=test-miniapp", "app.miniapp.auth.wechat-app-secret=test-miniapp-secret"})
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @Import(TestContainersConfiguration.class)
@@ -109,15 +109,18 @@ class AdminAccountIntegrationTest {
     }
     @Test void disableBlocksLoginAndTokensAndEnableNeverRevivesOldSessions() throws Exception {
         Cookie old = login(target); seedTokens(target);
+        assertThat(tokens.authenticate(prefix + "access").getId()).isEqualTo(target);
         mutate(target, "status", "\"enabled\":false");
         mvc.perform(get("/api/v1/account").cookie(old)).andExpect(status().isUnauthorized());
         mvc.perform(post("/api/v1/auth/login").with(csrf()).contentType("application/json").content(credentials(target))).andExpect(status().isUnauthorized());
         assertThat(unrevoked(target)).isZero();
         assertThatThrownBy(() -> tokens.rotate(prefix + "refresh")).isInstanceOf(ApiException.class);
+        assertThatThrownBy(() -> tokens.authenticate(prefix + "access")).isInstanceOf(ApiException.class);
         mutate(target, "status", "\"enabled\":true");
         mvc.perform(get("/api/v1/account").cookie(login(target))).andExpect(status().isOk());
         mvc.perform(get("/api/v1/account").cookie(old)).andExpect(status().isUnauthorized());
         assertThat(unrevoked(target)).isZero();
+        assertThatThrownBy(() -> tokens.authenticate(prefix + "access")).isInstanceOf(ApiException.class);
     }
     @Test void pendingVerificationAndDeletedAccountsCannotBeActivatedThroughManagement() throws Exception {
         long pending = create("pending", "USER", "PENDING_VERIFICATION");

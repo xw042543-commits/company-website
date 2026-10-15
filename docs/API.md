@@ -447,7 +447,7 @@ APP_TRUSTED_PROXIES=
 
 - GET `/api/v1/admin/accounts`：`q`（姓名、邮箱、手机号，最多100字）、`status`、`identity`（USER/ADMIN/ADVANCED/ADVISER）、`page`（1起）、`size`（1至100，默认20）。ADMIN 筛选仅普通管理员；ADVANCED 是已有授权的展示筛选，不是新角色。返回 items/page/size/total/totalPages。
 - GET `/api/v1/admin/accounts/{id}`：安全账号详情，不返回密码、令牌或第三方用户标识。
-- PATCH `/api/v1/admin/accounts/{id}/role`：`role` 为 USER 或 ADMIN，`confirmed:true`、`expectedUpdatedAt` 必填。仅处理普通用户/普通管理员；高级管理员和顾问沿用专用授权流程。未启用且完成验证的用户不可升级。
+- PATCH `/api/v1/admin/accounts/{id}/role`：`role` 为 USER 或 ADMIN，`confirmed:true`、`expectedUpdatedAt` 必填。仅处理普通用户/普通管理员；高级管理员和顾问沿用专用授权流程。仅正常启用的账号可升级，未验证账号不可升级。
 - PATCH `/api/v1/admin/accounts/{id}/status`：`enabled` 布尔值，及上述确认和版本字段。禁止修改自身或已注销账号；恢复待验证账号仍为待验证。
 - GET `/api/v1/admin/accounts/audit`：分页，支持 `target` 用户编号筛选；保留操作人/目标编号和姓名、前后身份/状态、操作类型及时间。
 
