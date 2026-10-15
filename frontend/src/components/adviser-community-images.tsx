@@ -16,11 +16,11 @@ export function AdviserCommunityImages({ postId }: { postId: string }) {
     return () => controller.abort();
   }, [postId, attempt]);
   if (!result) return <p role="status">正在读取附件…</p>;
-  if (result.failed) return <p role="alert">图片未能完整加载，请先核对附件再审核。<button type="button" className="secondary" onClick={() => { setResult(null); setAttempt((value) => value + 1); }}>重新加载图片</button></p>;
+  if (result.failed) return <div className="community-image-error" role="alert"><p>图片未能完整加载，请先核对附件再审核。</p><button type="button" className="secondary" onClick={() => { setResult(null); setAttempt((value) => value + 1); }}>重新加载图片</button></div>;
   if (!result.images.length) return null;
   return <div className="community-review-images" aria-label="帖子图片">{result.images.map((image, index) =>
     <a key={image.id} href={image.url} target="_blank" rel="noopener noreferrer" aria-label={`打开第${index + 1}张图片原图`}>
       <Image unoptimized src={image.thumbnailUrl} alt={`帖子附件 ${index + 1}`} width={image.width} height={image.height}
-        onError={() => setResult({ images: [], failed: true })} style={{ width: "100%", height: "auto", maxHeight: 300, objectFit: "contain" }} />
+        onError={() => setResult({ images: [], failed: true })} />
     </a>)}</div>;
 }
