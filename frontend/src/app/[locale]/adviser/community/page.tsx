@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Community moderation · UDAJO", robo
 export default async function AdviserCommunityPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  return <main id="main" className="adviser-console">
+  return <main id="main" className="adviser-console community-console">
     <div className="adviser-console-shell">
       <header className="adviser-console-header">
         <Link className="adviser-console-brand" href={`/${locale}`} aria-label={words(locale, "返回洋豆角首页", "Return to UDAJO home")}>
