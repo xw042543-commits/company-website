@@ -1,6 +1,8 @@
 package com.yangdoujiao.website.miniapp;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
+import com.yangdoujiao.website.programme.OfficialCourseModule;
 import java.util.List;
 
 import com.yangdoujiao.website.programme.Programme;
@@ -34,6 +36,8 @@ public record MiniappProgrammeDetailResponse(
         String tuitionDisplay,
         List<String> intakeDisplayTexts,
         List<DetailSection> sections,
+        String officialUrl,
+        OffsetDateTime sourceCheckedAt,
         String imageUrl
 ) {
     public record DetailSection(
@@ -42,11 +46,26 @@ public record MiniappProgrammeDetailResponse(
             String titleEn,
             String bodyZh,
             String bodyEn,
-            int sortOrder
+            int sortOrder,
+            String sourceUrl,
+            OffsetDateTime sourceCheckedAt,
+            String sourceType,
+            List<OfficialCourseModule> courseModules,
+            String curriculumReviewStatus,
+            String curriculumVersion
     ) {
+        public DetailSection(String type, String titleZh, String titleEn, String bodyZh, String bodyEn,
+                int sortOrder, String sourceUrl, OffsetDateTime sourceCheckedAt, String sourceType) {
+            this(type, titleZh, titleEn, bodyZh, bodyEn, sortOrder, sourceUrl, sourceCheckedAt, sourceType,
+                    List.of(), null, null);
+        }
+
         static DetailSection from(ProgrammeDetailSection section) {
             return new DetailSection(section.getSectionType().name(), section.getTitleZh(), section.getTitleEn(),
-                    section.getBodyZh(), section.getBodyEn(), section.getSortOrder());
+                    section.getBodyZh(), section.getBodyEn(), section.getSortOrder(), section.getSourceUrl(),
+                    section.getSourceCheckedAt(), section.getSourceType(),
+                    section.getCourseModules() == null ? List.of() : List.copyOf(section.getCourseModules()),
+                    section.getCurriculumReviewStatus(), section.getCurriculumVersion());
         }
     }
 
@@ -63,6 +82,7 @@ public record MiniappProgrammeDetailResponse(
                 programme.getStudyPaceDisplay(), programme.getDurationMonths(), programme.getDurationDisplay(),
                 programme.getTuitionMin(), programme.getTuitionMax(), programme.getTuitionCurrency(),
                 programme.getTuitionDisplay(), intakes.stream().map(ProgrammeIntake::getDisplayText).toList(),
-                sections.stream().map(DetailSection::from).toList(), imageUrl);
+                sections.stream().map(DetailSection::from).toList(), programme.getOfficialUrl(),
+                programme.getSourceCheckedAt(), imageUrl);
     }
 }

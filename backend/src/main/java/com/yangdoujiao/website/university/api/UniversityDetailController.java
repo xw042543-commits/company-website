@@ -1,5 +1,7 @@
 package com.yangdoujiao.website.university.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +32,11 @@ public class UniversityDetailController {
             @ModelAttribute UniversitySearchQuery query
     ) {
         return universityDetailService.getPublishedProgrammes(slug, query);
+    }
+
+    @GetMapping("/{slug}/programme-categories")
+    public List<UniversityProgrammeCategoryResponse> getProgrammeCategories(@PathVariable String slug) {
+        return universityDetailService.getPublishedProgrammeCategories(slug);
     }
 
     @GetMapping("/{slug}/programmes/{programmeIdentifier}")

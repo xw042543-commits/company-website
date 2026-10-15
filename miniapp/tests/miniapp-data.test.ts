@@ -110,7 +110,32 @@ test('maps application order summaries and details from authenticated API data',
   }
 });
 
+test('legacy application order detail normalizes English qualification labels', () => {
+  const order = { referenceCode: 'c4d29e18-b266-4f6a-8e24-7cc312388174', universityName: '世纪大学',
+    programmeName: '研究课程', qualification: 'PhD', status: 'IN_PROGRESS', statusLabel: '进行中', submittedAt: '' };
+  assert.equal(mapApplicationOrder(order)?.qualification, '博士');
+});
+
 test('rejects malformed application order payloads', () => {
   assert.equal(mapApplicationOrder({ referenceCode: '../admin', status: 'IN_PROGRESS', statusLabel: '进行中' }), null);
   assert.equal(mapApplicationOrderDetail({}).ok, false);
+});
+
+
+test('official modules retain Chinese names, original text and nullable facts without legacy fallback', () => {
+  const module = {nameZh: '数据库系统', nameEn: 'Database Systems', sourceUrl: 'https://study.um.edu.my/programme',
+    sourceCheckedAt: '2026-10-15T00:00:00Z', courseCode: 'CS100', descriptionZh: null, descriptionEn: null,
+    credits: null, requirement: null, curriculumVersion: null};
+  const section = {type: 'CURRICULUM', sortOrder: 40, sourceType: 'official', curriculumReviewStatus: 'VERIFIED',
+    bodyZh: '过时内容', courseModules: [module]};
+  const mapped = mapProgrammeDetail({...programmePayload, sections: [section]});
+  assert.equal(mapped.ok, true);
+  if (mapped.ok) {
+    assert.equal(mapped.value.sections[0]?.courseModules?.[0]?.nameZh, '数据库系统');
+    assert.equal(mapped.value.sections[0]?.courseModules?.[0]?.nameEn, 'Database Systems');
+    assert.equal(mapped.value.sections[0]?.courseModules?.[0]?.descriptionZh, null);
+  }
+  const bad = mapProgrammeDetail({...programmePayload, sections: [{...section, courseModules: [{...module, nameZh: 'Database Systems'}]}]});
+  assert.equal(bad.ok, true);
+  if (bad.ok) assert.deepEqual(bad.value.sections[0]?.courseModules, []);
 });

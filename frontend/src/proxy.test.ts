@@ -20,24 +20,31 @@ test("adviser redirects distinguish anonymous, ordinary members and advisers", (
     "/zh/login?returnTo=%2Fzh%2Fadviser%2Fconsultations");
 });
 
+test("administrator routes fail closed for every non-admin session", () => {
+  assert.equal(proxyRedirectPath("/zh/admin", "", { authenticated: false, adviser: false, admin: false }),
+    "/zh/login?returnTo=%2Fzh%2Fadmin");
+  assert.equal(proxyRedirectPath("/en/admin", "", { authenticated: true, adviser: true, admin: false }), "/en/forbidden");
+  assert.equal(proxyRedirectPath("/zh/admin", "", { authenticated: true, adviser: false, admin: true }), null);
+});
+
 test("demo cookies grant ordinary development access but never adviser capabilities", async () => {
   let calls = 0;
   const request = (async () => {
     calls++;
-    return Response.json({ authenticated: false, userId: null, fullName: null, adviser: false });
+    return Response.json({ authenticated: false, userId: null, fullName: null, adviser: false, admin: false });
   }) as typeof fetch;
   const cookie = "udajo_demo_session=1";
   assert.deepEqual(await loadProxySessionAccess("/zh/planning", "http://backend:8080", cookie,
-    "development", request), { authenticated: true, adviser: false });
+    "development", request), { authenticated: true, adviser: false, admin: false });
   assert.equal(calls, 0);
   assert.deepEqual(await loadProxySessionAccess("/zh/adviser/consultations", "http://backend:8080", cookie,
-    "development", request), { authenticated: false, adviser: false });
+    "development", request), { authenticated: false, adviser: false, admin: false });
   assert.equal(calls, 1);
   assert.deepEqual(await loadProxySessionAccess("/zh/planning", "http://backend:8080", cookie,
-    "production", request), { authenticated: false, adviser: false });
+    "production", request), { authenticated: false, adviser: false, admin: false });
   assert.equal(calls, 2);
   assert.deepEqual(await loadProxySessionAccess("/zh/about", "http://backend:8080", cookie,
-    "development", request), { authenticated: false, adviser: false });
+    "development", request), { authenticated: false, adviser: false, admin: false });
   assert.equal(calls, 2);
 });
 
@@ -68,4 +75,34 @@ test("redirects anonymous visitors away from private account and review routes",
 test("allows public pages and signed-in member routes", () => {
   assert.equal(proxyRedirectPath("/zh/about", "", false), null);
   assert.equal(proxyRedirectPath("/zh/planning", "", true), null);
+});
+
+
+test("account management requires a fresh advanced administrator capability", async () => {
+  const ordinary = { authenticated: true, adviser: false, admin: true };
+  assert.equal(proxyRedirectPath("/zh/admin/accounts", "", ordinary), "/zh/forbidden");
+  assert.equal(proxyRedirectPath("/zh/admin/%61ccounts", "", ordinary), "/zh/forbidden");
+  assert.equal(proxyRedirectPath("/zh/admin/accounts", "", { ...ordinary, advancedAdmin: true }), null);
+  for (const capability of [true, false, "true", null]) {
+    const calls: string[] = [];
+    const request = (async (url: string | URL | Request, init?: RequestInit) => {
+      calls.push(String(url));
+      assert.equal(init?.cache, "no-store");
+      assert.equal(new Headers(init?.headers).get("Cookie"), "session=test");
+      return calls.length === 1 ? Response.json({ ...ordinary, userId: 1, fullName: "管理员" }) : Response.json({ permanentDelete: capability });
+    }) as typeof fetch;
+    const access = await loadProxySessionAccess("/zh/admin/accounts", "http://backend:8080", "session=test", "production", request);
+    assert.equal(access.advancedAdmin, capability === true);
+    assert.equal(calls[1], "http://backend:8080/api/v1/admin/catalog/lifecycle/capabilities");
+  }
+});
+
+test("account management denies access when the capability service fails", async () => {
+  let calls = 0;
+  const request = (async () => {
+    if (++calls === 1) return Response.json({ authenticated: true, adviser: false, admin: true, userId: 1, fullName: "管理员" });
+    throw new Error("offline");
+  }) as typeof fetch;
+  const access = await loadProxySessionAccess("/zh/admin/accounts", "http://backend:8080", "session=test", "production", request);
+  assert.equal(proxyRedirectPath("/zh/admin/accounts", "", access), "/zh/forbidden");
 });

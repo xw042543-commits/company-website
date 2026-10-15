@@ -14,12 +14,14 @@ import {
 function programme(id: number, categoryCode: string): UniversityProgramme {
   return {
     id, categoryCode, slug: `programme-${id}`, nameZh: '专业', nameEn: 'Programme',
-    studyLevelCode: 'BACHELOR', durationDisplay: '3年', tuitionDisplay: '待确认',
+    studyLevelCode: 'BACHELOR', durationDisplay: '3年',
+    tuitionMin: null, tuitionMax: null, tuitionCurrency: '', tuitionFeePeriod: '',
+    tuitionTotalRmbMin: null, tuitionTotalRmbMax: null, tuitionDisplay: '待确认',
     intakeDisplayTexts: [],
   };
 }
 
-test('programme categories start with ALL and use catalogue Chinese labels in first-seen order', () => {
+test('programme categories start with ALL and follow the published dictionary order', () => {
   const options: FilterOption[] = [
     { code: 'BUSINESS', nameZh: '商业与管理', nameEn: 'Business' },
     { code: 'COMPUTING', nameZh: '计算机科学', nameEn: 'Computing' },
@@ -31,10 +33,10 @@ test('programme categories start with ALL and use catalogue Chinese labels in fi
   ]);
 
   assert.deepEqual(deriveProgrammeCategories(programmes, labels), [
-    { code: 'ALL', label: '全部学院' },
-    { code: 'COMPUTING', label: '计算机科学' },
-    { code: 'BUSINESS', label: '商业与管理' },
-    { code: 'UNKNOWN', label: 'UNKNOWN' },
+    { code: 'ALL', label: '全部专业', programmeCount: 4 },
+    { code: 'BUSINESS', label: '商业与管理', programmeCount: 1 },
+    { code: 'COMPUTING', label: '计算机科学', programmeCount: 2 },
+    { code: 'UNKNOWN', label: 'UNKNOWN', programmeCount: 1 },
   ]);
 });
 
@@ -42,13 +44,13 @@ test('programme categories fall back to the code when the Chinese label is empty
   assert.deepEqual(deriveProgrammeCategories([programme(1, 'BUSINESS')], new Map([
     ['BUSINESS', ''],
   ])), [
-    { code: 'ALL', label: '全部学院' },
-    { code: 'BUSINESS', label: 'BUSINESS' },
+    { code: 'ALL', label: '全部专业', programmeCount: 1 },
+    { code: 'BUSINESS', label: 'BUSINESS', programmeCount: 1 },
   ]);
 });
 
 test('programme categories retain the ALL choice for an empty programme list', () => {
-  assert.deepEqual(deriveProgrammeCategories([], new Map()), [{ code: 'ALL', label: '全部学院' }]);
+  assert.deepEqual(deriveProgrammeCategories([], new Map()), [{ code: 'ALL', label: '全部专业', programmeCount: 0 }]);
 });
 
 test('programme filtering returns all programmes for ALL without modifying the source', () => {
@@ -76,7 +78,7 @@ test('unknown categories remain selectable and returning to ALL restores every p
     programme(1, 'COMPUTING'), programme(2, 'UNLISTED'), programme(3, 'UNLISTED'),
   ]);
   const categories = deriveProgrammeCategories(programmes, new Map([['COMPUTING', '计算机科学']]));
-  assert.deepEqual(categories.find((item) => item.code === 'UNLISTED'), { code: 'UNLISTED', label: 'UNLISTED' });
+  assert.deepEqual(categories.find((item) => item.code === 'UNLISTED'), { code: 'UNLISTED', label: 'UNLISTED', programmeCount: 2 });
   assert.deepEqual(filterProgrammes(programmes, 'UNLISTED').map((item) => item.id), [2, 3]);
   assert.deepEqual(filterProgrammes(programmes, 'ALL').map((item) => item.id), [1, 2, 3]);
 });
@@ -94,7 +96,7 @@ function detail(overrides: Partial<ProgrammeDetail> = {}): ProgrammeDetail {
 function section(type: string, sortOrder: number, overrides: Partial<ProgrammeDetailSection> = {}): ProgrammeDetailSection {
   return {
     type, sortOrder, titleZh: `${type}标题`, titleEn: '',
-    bodyZh: `${type}正文`, bodyEn: '', ...overrides,
+    bodyZh: `${type}正文`, bodyEn: '', sourceUrl: null, sourceCheckedAt: null, ...overrides,
   };
 }
 
@@ -111,15 +113,15 @@ test('programme document always exposes the four canonical detail blocks in prod
   ]);
   assert.deepEqual(document[0], {
     key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: '专业描述正文', available: true,
-    contentBlocks: [], curriculumItems: [], notice: '',
+    contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false,
   });
   assert.deepEqual(document[1], {
     key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true,
-    contentBlocks: [], curriculumItems: [], notice: '',
+    contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false,
   });
   assert.deepEqual(document.slice(2).map(({ title, body, available }) => ({ title, body, available })), [
     { title: '专业前景', body: 'CAREER_OPPORTUNITIES正文', available: true },
-    { title: '专业课程', body: 'CURRICULUM正文', available: true },
+    { title: '专业课程', body: '待核实：暂无官方课程资料', available: false },
   ]);
   assert.deepEqual(sections.map((item) => item.sortOrder), [30, 20, 10]);
 });
@@ -148,25 +150,54 @@ test('programme document accepts legacy aliases and English body fallback', () =
   assert.equal(new Set(document.map((item) => item.key)).size, document.length);
   assert.deepEqual(buildProgrammeDocument(input), document);
   assert.equal(document[2]?.body, 'English careers');
-  assert.equal(document[3]?.body, 'English curriculum');
+  assert.equal(document[3]?.body, '待核实：暂无官方课程资料');
 });
 
 test('programme document keeps canonical blocks without inventing pending content', () => {
   assert.deepEqual(buildProgrammeDocument(detail({ descriptionZh: '' })), [
-    { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '' },
-    { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true, contentBlocks: [], curriculumItems: [], notice: '' },
-    { key: 'CAREER_PROSPECTS', type: 'CAREER_PROSPECTS', title: '专业前景', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '' },
-    { key: 'CURRICULUM', type: 'CURRICULUM', title: '专业课程', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '' },
+    { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false },
+    { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true, contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false },
+    { key: 'CAREER_PROSPECTS', type: 'CAREER_PROSPECTS', title: '专业前景', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false },
+    { key: 'CURRICULUM', type: 'CURRICULUM', title: '专业课程', body: '待核实：暂无官方课程资料', available: false, contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false },
   ]);
 });
 
-test('curriculum parser builds an ordered bilingual vertical list only from explicit rows', () => {
-  const body = '参考学习领域，非官方课程表\n01|程序设计基础|Programming Fundamentals\n02|数据库系统|Database Systems\n说明：以官方教学大纲为准。';
+test('official curriculum builds a deduplicated vertical list and ignores old generated templates', () => {
+  const body = 'Year 1 Year 2 Year 3 Year 4 Fundamentals of Programming\nDatabase Systems\nDatabase Systems\nNote:\n#Pre-requisite';
   assert.deepEqual(parseCurriculumItems(body), [
-    { number: '01', nameZh: '程序设计基础', nameEn: 'Programming Fundamentals' },
-    { number: '02', nameZh: '数据库系统', nameEn: 'Database Systems' },
+    { number: '01', nameZh: '', nameEn: 'Fundamentals of Programming' },
+    { number: '02', nameZh: '', nameEn: 'Database Systems' },
   ]);
-  const curriculumSection = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 40, { bodyZh: body })] }))[3];
-  assert.equal(curriculumSection?.notice, '参考学习领域，非官方课程表');
+  const curriculumSection = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 40, {
+    bodyZh: '错误中文内容不应优先显示', bodyEn: body, sourceUrl: 'https://study.um.edu.my/programme', sourceCheckedAt: '2026-10-14T00:00:00Z',
+    sourceType: 'official', curriculumReviewStatus: 'VERIFIED',
+    courseModules: ['Fundamentals of Programming', 'Database Systems'].map(nameEn => ({ nameEn, nameZh: nameEn === 'Database Systems' ? '数据库系统' : '程序设计基础',
+      courseCode: null, credits: null, requirement: null, curriculumVersion: null,
+      sourceUrl: 'https://study.um.edu.my/programme', sourceCheckedAt: '2026-10-14T00:00:00Z' })),
+  })] }))[3];
+  assert.equal(curriculumSection?.notice, '课程原文来自学校官网，中文为平台译名');
+  assert.equal(curriculumSection?.sourceCheckedLabel, '2026-10-14');
   assert.equal(curriculumSection?.curriculumItems.length, 2);
+  assert.deepEqual(parseCurriculumItems('Programming\nMinimum average of 65%\nKursus Elektif: Pilih satu kursus sahaja\n1. Elective Course 1\nSoftware Requirements Engineering'), [
+    { number: '01', nameZh: '', nameEn: 'Programming' },
+    { number: '02', nameZh: '', nameEn: 'Software Requirements Engineering' },
+  ]);
+  const generated = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 40, {
+    bodyZh: '参考学习领域，非官方课程表\n01|程序设计基础|Programming Fundamentals', sourceType: 'ai_generated', sourceUrl: 'https://study.um.edu.my/programme',
+  })] }))[3];
+  assert.equal(generated?.body, '待核实：暂无官方课程资料');
+  assert.equal(generated?.curriculumItems.length, 0);
+});
+
+
+test('staff reference learning areas stay separate from verified official modules', () => {
+  const document = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 20, {
+    bodyZh: '资料概述\n【后台维护课程】\n算法分析（参考学习领域，非官方课程表）', sourceType: 'third_party',
+  })] }));
+  const curriculum = document.find(s => s.key === 'CURRICULUM')!;
+  assert.equal(curriculum.official, false);
+  assert.equal(curriculum.available, true);
+  assert.equal(curriculum.curriculumItems.length, 0);
+  assert.match(curriculum.body, /参考学习领域，非官方课程表/);
+  assert.match(curriculum.referenceBody!, /算法分析/);
 });

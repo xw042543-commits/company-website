@@ -126,15 +126,12 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("38");
-            assertThat(latest.info().applied()).hasSize(39);
-            var expectedVersions=new java.util.ArrayList<>(java.util.stream.IntStream.rangeClosed(1, 35)
-                    .mapToObj(Integer::toString).toList());
-            expectedVersions.add("35.1");
-            expectedVersions.addAll(java.util.List.of("36","37","38"));
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("61");
+            assertThat(latest.info().applied()).hasSize(61);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(expectedVersions);
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 61)
+                            .mapToObj(Integer::toString).toList());
             assertThat(jdbcTemplate.queryForList("""
                     SELECT table_name FROM information_schema.tables WHERE table_schema='public'
                       AND table_name IN ('planning_evidence','planning_rule_sets','planning_fees',
@@ -159,6 +156,11 @@ class V3MigrationCompatibilityTest {
                       AND section_type IN ('CAREER_OPPORTUNITIES', 'CURRICULUM')
                     """, Integer.class, publishableProgrammeId)).isEqualTo(2);
             assertThat(jdbcTemplate.queryForObject("""
+                    SELECT count(*) FROM programme_detail_sections
+                    WHERE programme_id = ? AND status = 'ARCHIVED'
+                      AND section_type = 'CURRICULUM' AND source_url IS NULL
+                    """, Integer.class, publishableProgrammeId)).isZero();
+            assertThat(jdbcTemplate.queryForObject("""
                     SELECT body_en FROM programme_detail_sections
                     WHERE programme_id = ? AND section_type = 'CAREER_OPPORTUNITIES'
                     """, String.class, publishableProgrammeId)).isEqualTo("Verified programme-specific career evidence");
@@ -169,15 +171,26 @@ class V3MigrationCompatibilityTest {
                            OR NULLIF(BTRIM(p.description_en), '') IS NULL)
                     """, Integer.class)).isZero();
             assertThat(jdbcTemplate.queryForObject("""
-                    SELECT count(*) FROM programmes p
-                    WHERE p.status = 'PUBLISHED' AND EXISTS (
-                        SELECT 1 FROM (VALUES ('CAREER_OPPORTUNITIES'), ('CURRICULUM')) required(section_type)
-                        WHERE NOT EXISTS (
-                            SELECT 1 FROM programme_detail_sections s
-                            WHERE s.programme_id = p.id AND s.section_type = required.section_type
-                              AND s.status = 'PUBLISHED' AND NULLIF(BTRIM(s.body_zh), '') IS NOT NULL
-                        )
-                    )
+                    SELECT count(*) FROM programme_detail_sections s
+                    WHERE s.section_type IN ('CURRICULUM', 'COURSE_STRUCTURE')
+                      AND s.status = 'PUBLISHED'
+                      AND NULLIF(BTRIM(s.source_url), '') IS NULL
+                      AND (s.source_type <> 'ai_generated'
+                           OR s.body_zh NOT LIKE '参考学习领域，非官方课程表%')
+                    """, Integer.class)).isZero();
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT count(*)
+                    FROM programme_detail_sections s
+                    JOIN programmes p ON p.id = s.programme_id
+                    JOIN universities u ON u.id = p.university_id
+                    JOIN countries c ON c.id = u.country_id
+                    WHERE c.code = 'MY'
+                      AND s.section_type IN ('CURRICULUM', 'COURSE_STRUCTURE')
+                      AND s.status = 'PUBLISHED'
+                      AND (
+                        s.body_en ~* '(^|\\n)(note([ :]|$)|next\\s*:|year\\s*[0-9]+([ :]|$)|semester\\s*[0-9]+([ :]|$)|choose([ :]|$)|students?([ :]|$)|elective courses?([ :0-9(]|$)|speciali[sz]ation elective([ :0-9(]|$)|programme course elective([ :#]|$)|faculty open elective([ :]|$)|kursus elektif([ :]|$)|pilih([ :]|$))'
+                        OR s.body_en ~* '(entry requirements?|minimum (average|score|cgpa|grade)|ielts|toefl|muet|[0-9]+\\s*%)'
+                      )
                     """, Integer.class)).isZero();
             assertThat(jdbcTemplate.queryForObject("""
                     SELECT status FROM universities WHERE id = ?

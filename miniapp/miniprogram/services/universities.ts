@@ -65,6 +65,12 @@ export interface UniversityProgramme {
   readonly categoryCode: string;
   readonly studyLevelCode: string;
   readonly durationDisplay: string;
+  readonly tuitionMin: number | null;
+  readonly tuitionMax: number | null;
+  readonly tuitionCurrency: string;
+  readonly tuitionFeePeriod: string;
+  readonly tuitionTotalRmbMin: number | null;
+  readonly tuitionTotalRmbMax: number | null;
   readonly tuitionDisplay: string;
   readonly intakeDisplayTexts: string[];
 }
@@ -75,6 +81,13 @@ export interface UniversityProgrammePage {
   readonly pageSize: number;
   readonly totalItems: number;
   readonly totalPages: number;
+}
+
+export interface UniversityProgrammeCategory {
+  readonly code: string;
+  readonly nameZh: string;
+  readonly nameEn: string;
+  readonly programmeCount: number;
 }
 
 export interface UniversityPage {
@@ -120,6 +133,7 @@ export function searchUniversities(input: UniversitySearchInput = {}, scope: 'li
 
 const universityDetailCache = createExpiringCache<UniversityDetail>(2 * 60 * 1000);
 const universityProgrammesCache = createExpiringCache<UniversityProgrammePage>(2 * 60 * 1000);
+const universityProgrammeCategoriesCache = createExpiringCache<UniversityProgrammeCategory[]>(2 * 60 * 1000);
 
 export async function getUniversityDetail(slug: string): Promise<Result<UniversityDetail>> {
   const normalized = normalizeSlug(slug);
@@ -155,6 +169,24 @@ export async function getUniversityProgrammes(
   if (!response.ok) return response;
   const mapped = mapUniversityProgrammePage(response.value);
   if (mapped.ok) universityProgrammesCache.set(cacheKey, mapped.value);
+  return mapped;
+}
+
+export async function getUniversityProgrammeCategories(
+  slug: string,
+): Promise<Result<UniversityProgrammeCategory[]>> {
+  const normalized = normalizeSlug(slug);
+  if (!normalized) return invalid('INVALID_UNIVERSITY_SLUG');
+  const cached = universityProgrammeCategoriesCache.get(normalized);
+  if (cached) return { ok: true, value: cached };
+  const response = await request<unknown>({
+    method: 'GET',
+    path: `/api/v1/universities/${normalized}/programme-categories`,
+    requestKey: `university-programme-categories:${normalized}`,
+  });
+  if (!response.ok) return response;
+  const mapped = mapUniversityProgrammeCategories(response.value);
+  if (mapped.ok) universityProgrammeCategoriesCache.set(normalized, mapped.value);
   return mapped;
 }
 
@@ -267,7 +299,11 @@ export function mapUniversityProgrammePage(raw: unknown): Result<UniversityProgr
   for (const item of raw.items) {
     if (!isObject(item) || !positiveInteger(item.id) || !text(item.slug)
       || !text(item.nameZh)
-      || (item.nameEn != null && typeof item.nameEn !== 'string')) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
+      || (item.nameEn != null && typeof item.nameEn !== 'string')
+      || !validOptionalAmount(item.tuitionMin) || !validOptionalAmount(item.tuitionMax)
+      || !validOptionalAmount(item.tuitionTotalRmbMin) || !validOptionalAmount(item.tuitionTotalRmbMax)
+      || (item.tuitionCurrency != null && typeof item.tuitionCurrency !== 'string')
+      || (item.tuitionFeePeriod != null && typeof item.tuitionFeePeriod !== 'string')) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
     items.push({
       id: item.id,
       slug: item.slug,
@@ -276,6 +312,12 @@ export function mapUniversityProgrammePage(raw: unknown): Result<UniversityProgr
       categoryCode: optionalText(item.categoryCode),
       studyLevelCode: optionalText(item.studyLevelCode),
       durationDisplay: optionalText(item.durationDisplay),
+      tuitionMin: optionalAmount(item.tuitionMin),
+      tuitionMax: optionalAmount(item.tuitionMax),
+      tuitionCurrency: optionalText(item.tuitionCurrency),
+      tuitionFeePeriod: optionalText(item.tuitionFeePeriod),
+      tuitionTotalRmbMin: optionalAmount(item.tuitionTotalRmbMin),
+      tuitionTotalRmbMax: optionalAmount(item.tuitionTotalRmbMax),
       tuitionDisplay: optionalText(item.tuitionDisplay),
       intakeDisplayTexts: Array.isArray(item.intakeDisplayTexts)
         ? item.intakeDisplayTexts.filter(text) : [],
@@ -288,6 +330,24 @@ export function mapUniversityProgrammePage(raw: unknown): Result<UniversityProgr
     totalItems: raw.totalItems,
     totalPages: raw.totalPages,
   } };
+}
+
+export function mapUniversityProgrammeCategories(raw: unknown): Result<UniversityProgrammeCategory[]> {
+  if (!Array.isArray(raw)) return invalid('INVALID_PROGRAMME_CATEGORIES_RESPONSE');
+  const categories: UniversityProgrammeCategory[] = [];
+  const seen = new Set<string>();
+  for (const item of raw) {
+    if (!isObject(item) || !text(item.code) || !positiveInteger(item.programmeCount)
+      || (item.nameZh != null && typeof item.nameZh !== 'string')
+      || (item.nameEn != null && typeof item.nameEn !== 'string')
+      || seen.has(item.code.trim())) return invalid('INVALID_PROGRAMME_CATEGORIES_RESPONSE');
+    const nameZh = optionalText(item.nameZh);
+    const nameEn = optionalText(item.nameEn);
+    if (!nameZh && !nameEn) return invalid('INVALID_PROGRAMME_CATEGORIES_RESPONSE');
+    seen.add(item.code.trim());
+    categories.push({ code: item.code.trim(), nameZh, nameEn, programmeCount: item.programmeCount });
+  }
+  return { ok: true, value: categories };
 }
 
 function normalizeSlug(value: string): string | null {
@@ -322,6 +382,14 @@ function positiveInteger(value: unknown): value is number {
 
 function nonNegativeInteger(value: unknown): value is number {
   return typeof value === 'number' && Number.isInteger(value) && value >= 0;
+}
+
+function validOptionalAmount(value: unknown): boolean {
+  return value == null || (typeof value === 'number' && Number.isFinite(value) && value >= 0);
+}
+
+function optionalAmount(value: unknown): number | null {
+  return typeof value === 'number' ? value : null;
 }
 
 function invalid(code = 'INVALID_UNIVERSITY_RESPONSE'): Result<never> {

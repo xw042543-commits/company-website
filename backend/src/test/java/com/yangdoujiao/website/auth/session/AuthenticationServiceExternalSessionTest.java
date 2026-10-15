@@ -49,6 +49,13 @@ class AuthenticationServiceExternalSessionTest {
                 .containsExactly("ROLE_USER", "ROLE_ADVISER");
     }
 
+    @Test
+    void administratorPrincipalRetainsUserAuthorityAndAddsAdminAuthority() {
+        assertThat(UserPrincipal.from(account(UserAccountRole.ADMIN)).getAuthorities())
+                .extracting(GrantedAuthority::getAuthority)
+                .containsExactly("ROLE_USER", "ROLE_ADMIN");
+    }
+
     @ParameterizedTest
     @EnumSource(UserAccountRole.class)
     void externalLoginErasesPasswordHashAndPersistsStoredRoleAuthorities(UserAccountRole role) {
@@ -74,7 +81,10 @@ class AuthenticationServiceExternalSessionTest {
         assertThat(captured.getValue().getAuthentication().getAuthorities())
                 .extracting(GrantedAuthority::getAuthority)
                 .containsExactly(role == UserAccountRole.ADVISER
-                        ? new String[] {"ROLE_USER", "ROLE_ADVISER"} : new String[] {"ROLE_USER"});
+                        ? new String[] {"ROLE_USER", "ROLE_ADVISER"}
+                        : role == UserAccountRole.ADMIN
+                                ? new String[] {"ROLE_USER", "ROLE_ADMIN"}
+                                : new String[] {"ROLE_USER"});
     }
 
     private UserAccount account(UserAccountRole role) {

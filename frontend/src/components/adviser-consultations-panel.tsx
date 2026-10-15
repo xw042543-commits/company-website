@@ -10,6 +10,7 @@ import { abortableRequest, consultationCollectionState, consultationConflictMess
 import { getSession } from "@/lib/auth-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
+import { studyLevelDisplayName } from "@/lib/study-level-display";
 
 const statuses: ConsultationStatus[] = ["NEW", "IN_PROGRESS", "COMPLETED"];
 
@@ -47,9 +48,9 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
   const missing = words(locale, "未填写", "Not provided");
   const date = (value: string) => new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB",
     { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kuala_Lumpur" }).format(new Date(value));
-  const qualification = (value: string | null) => value === "foundation" ? words(locale, "预科", "Foundation")
-    : value === "bachelor" ? words(locale, "本科", "Bachelor") : value === "master" ? words(locale, "硕士", "Master")
-      : value === "doctorate" ? words(locale, "博士", "Doctorate") : missing;
+  const qualification = (value: string | null) => value
+    ? studyLevelDisplayName(locale, { code: value, nameEn: value }) || missing
+    : missing;
   const errorText = (value: AdviserFailure["status"]) => {
     if (value === "forbidden") return words(locale, "无权访问此咨询。", "Access denied for this consultation.");
     if (value === "unauthorized") return words(locale, "登录已过期，请重新登录。", "Your session expired. Please sign in again.");
@@ -77,7 +78,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
       await Promise.resolve();
       if (!request.isCurrent()) return;
       setListPending(true);
-      const result = await loadAdviserConsultations(browserApiBaseUrl(), { query, status, page: page - 1, size: 20 }, abortableRequest(request.signal));
+      const result = await loadAdviserConsultations(browserApiBaseUrl(), { query, status, page: page - 1, size: 4 }, abortableRequest(request.signal));
       if (!request.isCurrent()) return;
       if (result.status !== "ready" && handleAccessFailure(result)) return;
       setList({ key: listKey, result }); setListPending(false);
@@ -147,7 +148,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
     words(locale, "意向大学", "University"), words(locale, "意向课程", "Course"), words(locale, "学历层次", "Qualification"), words(locale, "状态", "Status")];
   const collection = data ? consultationCollectionState(locale, data.submissionEnabled) : null;
   const action = detail ? contactAction(detail.contact) : null;
-  const countFor = (value: ConsultationStatus | "") => !data ? "—" : value === "NEW" ? data.counts.newCount
+  const countFor = (value: ConsultationStatus | "") => !data ? "…" : value === "NEW" ? data.counts.newCount
     : value === "IN_PROGRESS" ? data.counts.inProgressCount : value === "COMPLETED" ? data.counts.completedCount
       : data.counts.newCount + data.counts.inProgressCount + data.counts.completedCount;
   const setStatusFilter = (value: ConsultationStatus | "") => {
@@ -155,7 +156,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
     router.replace(`/${locale}/adviser/consultations?${consultationQuery({ query, status, page }, { query: search, status: value })}`, { scroll: false });
   };
 
-  return <div className="adviser-panel">
+  return <div className="adviser-panel consultation-workspace">
     <section className={`adviser-collection-state ${collection ? `is-${collection.tone}` : "is-loading"}`} role="status" aria-busy={!collection}>
       <div><span className="adviser-state-dot" aria-hidden="true" /><div>
         <strong>{collection?.title ?? words(locale, "正在确认咨询收集状态", "Checking collection status")}</strong>
@@ -163,6 +164,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
       </div></div>
       <p>{words(locale, "当前账户", "Signed-in account")}<strong>{identity ?? words(locale, "正在载入…", "Loading…")}</strong></p>
     </section>
+    <section className="adviser-control-deck" aria-label={words(locale, "咨询筛选", "Consultation filters")}>
     <div className="adviser-counts" role="group" aria-label={words(locale, "按状态筛选", "Filter by status")} aria-busy={pending}>
       {(["", ...statuses] as const).map((value) => <button type="button" className="adviser-count-card" aria-pressed={status === value} key={value || "ALL"} disabled={pending} onClick={() => setStatusFilter(value)}>
         <span>{value ? statusLabel(value) : words(locale, "全部咨询", "All enquiries")}</span><strong>{countFor(value)}</strong>
@@ -178,7 +180,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
         <small id="adviser-search-hint">{words(locale, "姓名、联系方式或咨询编号", "Name, contact details or reference code")}</small></div>
       <div><label htmlFor="adviser-status">{words(locale, "处理状态", "Processing status")}</label>
         <select id="adviser-status" value={status} onChange={(event) => setStatusFilter(event.target.value as ConsultationStatus | "")}><option value="">{words(locale, "全部状态", "All statuses")}</option>{statuses.map((value) => <option key={value} value={value}>{statusLabel(value)}</option>)}</select></div>
-    </div>
+    </div></section>
     <div className="adviser-master-detail">
       <section className="adviser-record-list" aria-label={words(locale, "咨询列表", "Consultation list")} aria-busy={pending}>
         <div className="adviser-list-heading"><div><h2>{words(locale, "客户咨询", "Client enquiries")}</h2><p>{words(locale, "最新提交优先 · 马来西亚时间", "Newest first · Malaysia time")}</p></div>{data && <strong>{data.totalElements}</strong>}</div>

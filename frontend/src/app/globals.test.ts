@@ -21,7 +21,7 @@ test("adviser console keeps master-detail information readable and responsive", 
     ".adviser-records", ".adviser-record", ".adviser-system-info"]) {
     assert.match(css, new RegExp(selector.replace(".", "\\.")));
   }
-  assert.match(css, /\.adviser-master-detail\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(320px,\s*0\.72fr\)/);
+  assert.match(css, /\.adviser-master-detail\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1\.08fr\)\s+minmax\(340px,\s*0\.72fr\)/);
   assert.match(css, /\.adviser-detail\s*\{[^}]*position:\s*sticky/);
   assert.match(css, /\.adviser-record[^{]*\{[^}]*overflow-wrap:\s*anywhere/);
   assert.match(css, /\.adviser-portal [^{]*:focus-visible/);
@@ -29,6 +29,9 @@ test("adviser console keeps master-detail information readable and responsive", 
   assert.match(css, /@media \(max-width:\s*800px\)[\s\S]*?\.adviser-master-detail\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/);
   assert.match(css, /@media \(max-width:\s*800px\)[\s\S]*?min-height:\s*44px/);
   assert.match(css, /@media \(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.adviser-record/);
+  assert.match(css, /\.adviser-console-header\s*\{[^}]*grid-template-columns:\s*auto\s+minmax\(0,\s*1fr\)\s+auto/);
+  assert.match(css, /\.adviser-control-deck\s*\{/);
+  assert.match(css, /\.account-adviser-link\s*\{/);
 });
 
 test("global styles cover the rendered header and homepage layout", () => {

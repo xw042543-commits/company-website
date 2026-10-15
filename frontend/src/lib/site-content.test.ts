@@ -41,6 +41,7 @@ test("legacy consultation route redirects to the about enquiry section", () => {
 test("homepage uses professional bilingual positioning and enquiry destination", () => {
   const home = read("../app/[locale]/page.tsx");
   const publicHome = read("../components/public-home.tsx");
+  const featuredUniversities = read("../components/featured-university-carousel.tsx");
   assert.match(home, /if \(!signedIn\) return <PublicHome locale=\{locale\} \/>/);
   assert.match(publicHome, /public-home-hero/);
   assert.match(publicHome, /public-home-campus-grid/);
@@ -58,6 +59,10 @@ test("homepage uses professional bilingual positioning and enquiry destination",
   assert.doesNotMatch(home, /把留学目标变成清晰的行动计划/);
   assert.match(home, /apu-campus\.webp/);
   assert.match(home, /留学热门院校/);
+  assert.match(home, /getUniversityProgrammesWithFallback/);
+  assert.match(featuredUniversities, /featured-university-subjects/);
+  assert.match(featuredUniversities, /category=\$\{encodeURIComponent\(category\.code\)\}#programmes/);
+  assert.doesNotMatch(publicHome, /public-home-school-subjects|subjectsZh|subjectsEn/);
   assert.match(home, /留学常见问题解答/);
   assert.doesNotMatch(home, /\$\{locale\}\/consultation/);
 });
@@ -198,15 +203,13 @@ test("footer offers bilingual navigation, social links, and direct contact detai
 test("university details expose programme level filters and a data review note", () => {
   const detail = read("../app/[locale]/universities/[slug]/page.tsx");
   assert.match(detail, /programme-level-filters/);
-  assert.match(detail, /本科/);
-  assert.match(detail, /硕士/);
-  assert.match(detail, /博士/);
+  assert.match(detail, /canonicalStudyLevelOptions/);
   assert.match(detail, /费用与入学要求可能调整/);
   assert.match(detail, /programme-search/);
   assert.match(detail, /搜索此院校的课程/);
   assert.match(detail, /programme-requirements/);
   assert.match(detail, /<Link scroll=\{false\}[^>]*aria-current=\{!selectedLevel/);
-  assert.match(detail, /<Link scroll=\{false\} key=\{level\}/);
+  assert.match(detail, /<Link scroll=\{false\} key=\{code\}/);
   assert.match(detail, /university-detail-header/);
   assert.match(detail, /university-detail-nav/);
   assert.match(detail, /What to prepare/);

@@ -11,7 +11,7 @@ import {
 import type { AdviserFailure } from "@/lib/adviser-consultation-api";
 import { abortableRequest, createLatestRequest } from "@/lib/adviser-consultations-ui";
 import {
-  afterModerationFailure, canSubmitModeration, moderationErrorText, moderationQueueFilters,
+  afterModerationFailure, canSubmitModeration, moderationErrorText, moderationQueueFilters, moderationQueuePageSize,
   muteExpiry, reasonsForCommand, reportReasons, resolveModerationHistoryPage, moderationCommandLabel, moderationReasonLabel, moderationPostContext, moderationWaitingHint, type QueueFilterDraft,
 } from "@/lib/adviser-community-ui";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
@@ -24,7 +24,7 @@ const commands: ModerationCommand[] = ["HIDE", "RESTORE", "REJECT", "REJECT_REPO
 export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
   const router = useRouter();
   const [draft, setDraft] = useState(initialFilters);
-  const [filters, setFilters] = useState<ModerationQueueFilters>({ status: "PENDING", size: 20 });
+  const [filters, setFilters] = useState<ModerationQueueFilters>({ status: "PENDING", size: moderationQueuePageSize });
   const [previousCursors, setPreviousCursors] = useState<(string | undefined)[]>([]);
   const [queue, setQueue] = useState<ModerationResult<ModerationQueue> | null>(null);
   const [queuePending, setQueuePending] = useState(true);
@@ -173,9 +173,13 @@ export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
             <option value="">{w("全部原因", "All reasons")}</option>{reportReasons.map((reason) => <option key={reason} value={reason}>{reasonLabel(reason)}</option>)}</select></div>
           <div><label htmlFor="community-from">{w("开始时间", "From")}</label><input id="community-from" type="datetime-local" value={draft.from} onChange={(event) => setDraft({ ...draft, from: event.target.value })} /></div>
           <div><label htmlFor="community-to">{w("结束时间", "Until")}</label><input id="community-to" type="datetime-local" value={draft.to} onChange={(event) => setDraft({ ...draft, to: event.target.value })} /></div>
-          <p className="community-filter-hint">{w("筛选时间使用您设备的时区；记录时间显示为马来西亚时间。", "Filter dates use your device timezone; records display Malaysia time.")}</p>
-          <button type="submit">{w("应用筛选", "Apply filters")}</button>
-          <button type="button" className="secondary" onClick={() => applyFilters(initialFilters)}>{w("重置筛选", "Reset filters")}</button>
+          <div className="community-filter-footer">
+            <p className="community-filter-hint">{w("筛选时间使用您设备的时区；记录时间显示为马来西亚时间。", "Filter dates use your device timezone; records display Malaysia time.")}</p>
+            <div className="community-filter-actions">
+              <button type="submit">{w("应用筛选", "Apply filters")}</button>
+              <button type="button" className="secondary" onClick={() => applyFilters(initialFilters)}>{w("重置筛选", "Reset filters")}</button>
+            </div>
+          </div>
         </div>
       </fieldset>
     </form>

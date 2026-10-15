@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import com.yangdoujiao.website.university.University;
 import com.yangdoujiao.website.university.UniversityRepository;
+import com.yangdoujiao.website.catalog.CategoryStatus;
 
 @Service
 public class UniversitySearchService {
@@ -31,7 +32,7 @@ public class UniversitySearchService {
     @EventListener(ApplicationReadyEvent.class)
     @Transactional(readOnly = true)
     public void rebuildIndex() {
-        List<UniversitySearchDocument> documents = universityRepository.findAll()
+        List<UniversitySearchDocument> documents = universityRepository.findAllByStatus(CategoryStatus.PUBLISHED)
                 .stream()
                 .map(this::toSearchDocument)
                 .toList();
@@ -41,8 +42,11 @@ public class UniversitySearchService {
         log.info("Rebuilt university search index with {} documents", documents.size());
     }
 
+    @org.springframework.beans.factory.annotation.Autowired
+    private com.yangdoujiao.website.catalog.CatalogVisibilityRepository visibility;
     public List<UniversitySearchDocument> search(String query) {
-        return universitySearchRepository.search(query.trim());
+        var hidden=visibility==null?java.util.Set.<String>of():new java.util.HashSet<>(visibility.hiddenUniversities());
+        return universitySearchRepository.search(query.trim()).stream().filter(u->!hidden.contains(u.getId())).toList();
     }
 
     private UniversitySearchDocument toSearchDocument(University university) {

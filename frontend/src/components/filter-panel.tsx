@@ -5,6 +5,7 @@ import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
 import type { FilterOptions } from "@/lib/filter-options-api";
 import { Locale, Query, first, words } from "@/lib/site";
+import { normalizeStudyLevelOptions } from "@/lib/study-level-display";
 type Option = readonly [string, string, string];
 export function FilterPanel({ locale, query, options, directory = false }: { locale: Locale; query: Query; options?: FilterOptions; directory?: boolean }) {
   const [expanded, setExpanded] = useState(false);
@@ -17,6 +18,8 @@ export function FilterPanel({ locale, query, options, directory = false }: { loc
   const hasAdvancedFilters = advancedNames.some((name) => Boolean(first(query, name)));
   const optionTuples = (items: FilterOptions[keyof FilterOptions] | undefined): Option[] =>
     items?.map((item) => [item.code, item.nameZh, item.nameEn]) ?? [];
+  const studyLevelTuples = (items: FilterOptions["studyLevels"] | undefined): Option[] =>
+    normalizeStudyLevelOptions(items ?? []).map((item) => [item.code, item.nameZh ?? "", item.nameEn ?? ""]);
   const withoutFilter = (name: string) => {
     const next = new URLSearchParams();
     Object.entries(query).forEach(([key, value]) => {
@@ -53,7 +56,7 @@ export function FilterPanel({ locale, query, options, directory = false }: { loc
         <div className="filter-group"><p className="filter-group-title">{words(locale, directory ? "院校所在地" : "主要条件", directory ? "University location" : "Essentials")}</p>
         {!directory && <><div className="field"><label htmlFor="q">{words(locale, "专业关键词", "Course keyword")}</label><SearchAutocomplete id="q" name="q" locale={locale} suggestions={courseSuggestions(locale)} defaultValue={first(query, "q")} /><small>{words(locale, "输入专业名称或关键词", "Enter a programme or keyword")}</small></div>
           {select("category", "专业分类 / 领域", "Subject category / field", optionTuples(options?.subjectCategories))}
-          {select("level", "学历层次", "Qualification", optionTuples(options?.studyLevels))}
+          {select("level", "学历层次", "Qualification", studyLevelTuples(options?.studyLevels))}
         </>}
         {select("country", "国家或地区", "Country or region", optionTuples(options?.countries))}</div>
         {!directory && <details className="advanced-filters" open={hasAdvancedFilters || undefined}>

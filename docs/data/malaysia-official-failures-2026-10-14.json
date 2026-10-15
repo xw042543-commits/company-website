@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-10-14T06:23:04.586Z",
+  "failures": [
+    {
+      "sourceKey": "ucsi-university",
+      "stage": "robots",
+      "message": "robots.txt returned HTTP 403; crawl stopped"
+    },
+    {
+      "sourceKey": "segi-university",
+      "stage": "robots",
+      "message": "robots.txt returned HTTP 403; crawl stopped"
+    },
+    {
+      "sourceKey": "monash-university-malaysia",
+      "stage": "robots",
+      "message": "robots.txt returned HTTP 403; crawl stopped"
+    },
+    {
+      "sourceKey": "mahsa-university",
+      "stage": "robots",
+      "message": "robots.txt returned HTTP 403; crawl stopped"
+    },
+    {
+      "sourceKey": "universiti-sains-malaysia",
+      "stage": "robots",
+      "message": "robots.txt returned HTTP 500; crawl stopped"
+    },
+    {
+      "sourceKey": "universiti-utara-malaysia",
+      "stage": "robots",
+      "message": "robots.txt returned HTTP 500; crawl stopped"
+    },
+    {
+      "sourceKey": "universiti-tunku-abdul-rahman",
+      "stage": "fetch",
+      "message": "official seed request failed"
+    },
+    {
+      "sourceKey": "city-university-malaysia",
+      "stage": "fetch",
+      "message": "official programme entry returned HTTP 403"
+    },
+    {
+      "sourceKey": "asia-pacific-university",
+      "stage": "reconciliation",
+      "officialPagesRead": 100,
+      "existingProgrammes": 71,
+      "message": "Existing records have Chinese names only and no official URLs; no guessed bilingual matching was performed"
+    }
+  ]
+}

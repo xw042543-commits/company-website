@@ -24,7 +24,11 @@
 | 10.4 假 ID、来源、注入、越权、确认、限额、超时 | `PlanningOrchestratorTest`、`PlanValidatorTest`、`PlanningPrivacyFilterTest`、`PlanningSessionIntegrationTest`、`PlanningOwnershipIntegrationTest`、`PlanningLimitsTest`、`PlanningWorkerTest`、小程序规划测试 | 本地通过 |
 | 10.5 背景确认→生成→改预算→第二版本→保存→咨询重试→清理 | `PlanningEvaluationTest#confirmedBackgroundBudgetRevisionSaveConsultRetryAndPurgeUseRealServices`，真实服务 / PostgreSQL / 工具，只有模型使用测试脚本 | 本地通过 |
 | 模型故障没有假方案 | `PlanningEvaluationTest#missingOrFailingModelNeverCreatesAnAssistantPlanOrSaveableResult`：缺模型和异常分别验证失败、无助手结果、不可保存 | 本地通过 |
-| 历史库兼容 | `V3MigrationCompatibilityTest` 从已有 V2 数据升级到 V38，39 个迁移含 V35.1，验证历史数据和新表；旧目录不会生成招生证据 | 本地通过 |
+| 历史库兼容 | `V3MigrationCompatibilityTest` 从已有 V2 数据升级到 V61，验证历史数据和新表；旧目录不会生成招生证据 | 合并后本地通过 |
+
+2026-10-15 合并主分支时，保留主分支 V1–V55；尚未上线的 Agent 迁移由 V34、V35、V35.1、V36、V37、V38 顺次调整为 V56–V61，SQL 内容不变。此前实施计划中的旧编号仅为历史记录。若本地持久开发库已执行旧 Agent 迁移，不可直接套用新编号，也不要删除业务数据或随意修复 Flyway 历史；应先备份并单独核对迁移记录。本次验证使用可丢弃的测试数据库，不改生产库。
+
+合并后回归：`./mvnw clean test` 1,227 项通过；小程序 400 项通过（含微信原生 WXML 编译），TypeScript 与 ESLint 通过。
 
 完整流程使用本地 Testcontainers 和合成用户、合成专业。第二次背景版本从 1 到 2，预算由 30000 MYR 改到 15000 MYR；历史版本保持不变，服务重新计算费用仍为 20000 MYR。费用完整不等于预算足够，系统不会为了迎合用户预算改写学费。没有点击确认之前不会保存或创建咨询；同一保存和咨询幂等键重试只产生一条记录。
 

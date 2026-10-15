@@ -9,12 +9,18 @@ const protectedSections = new Set([
   "news",
   "review",
   "adviser",
+  "admin",
 ]);
 const accountSections = new Set(["login", "register", "forgot-password"]);
 
 export function isAdviserPath(pathname: string) {
   const [locale, section] = pathSegments(pathname);
   return (locale === "en" || locale === "zh") && section === "adviser";
+}
+
+export function isAdminPath(pathname: string) {
+  const [locale, section] = pathSegments(pathname);
+  return (locale === "en" || locale === "zh") && section === "admin";
 }
 
 function pathSegments(pathname: string) {
@@ -50,4 +56,9 @@ export function loginRedirectPath(pathname: string, search: string) {
 
 export function signedInLoginDestination(authenticated: boolean, locale: Locale) {
   return authenticated ? `/${locale}/account` : null;
+}
+
+export function isAccountManagementPath(pathname: string) {
+  const parts = pathSegments(pathname);
+  try { return isAdminPath(pathname) && decodeURIComponent(parts[2] ?? "") === "accounts"; } catch { return false; }
 }

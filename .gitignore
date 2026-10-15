@@ -21,6 +21,7 @@ miniapp/project.private.config.json
 crawler/.data/
 crawler/node_modules/
 crawler/coverage/
+/.data/
 
 # Java / Maven
 backend/target/
@@ -49,3 +50,7 @@ npm-debug.log*
 
 # Local Superpowers coordination ledger and review reports
 .superpowers/sdd/
+
+# Official curriculum collector runtime
+crawler/tools/__pycache__/
+/.npm-cache/

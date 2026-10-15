@@ -99,6 +99,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/community/image-review/callback").permitAll()
                         .requestMatchers("/api/v1/community/**").hasRole("USER")
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
+                        .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")
                         .requestMatchers(HttpMethod.GET, PUBLIC_READ_PATHS).permitAll()
                         .requestMatchers(HttpMethod.HEAD, PUBLIC_READ_PATHS).permitAll()

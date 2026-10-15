@@ -1,0 +1,747 @@
+{
+  "generatedAt": "2026-10-14T06:17:28.340Z",
+  "universitySlug": "taylor",
+  "sourceKey": "taylors-university",
+  "officialCandidates": 62,
+  "matchedCandidates": 29,
+  "matchMethods": {
+    "canonical-name": 23,
+    "unique-prefix": 6
+  },
+  "matches": [
+    {
+      "candidateId": "programme_ff26795cc31ad06c",
+      "programmeCode": "TAYLOR_BACHELOR_026",
+      "officialNameEn": "Bachelor of Science (Honours) in Architecture",
+      "existingNameEn": "Bachelor of Science(Hons)in Architecture",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/architecture-building-and-design/undergraduate/bachelor-of-science-in-architecture.html"
+    },
+    {
+      "candidateId": "programme_9f427c21c2b6b761",
+      "programmeCode": "TAYLOR_BACHELOR_028",
+      "officialNameEn": "Bachelor of Quantity Surveying (Honours)",
+      "existingNameEn": "Bachelor of Quantity Surveying",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/architecture-building-and-design/undergraduate/bachelor-of-quantity-surveying.html"
+    },
+    {
+      "candidateId": "programme_496c27efb7b0fbe8",
+      "programmeCode": "TAYLOR_BACHELOR_025",
+      "officialNameEn": "Bachelor of Science (Honours) in Sustainable Digital Construction Management",
+      "existingNameEn": "Bachelor of Science(Hons)in Sustainable Digital Construction Management Specialisation:Green Construction / Smart Construction",
+      "method": "unique-prefix",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/architecture-building-and-design/undergraduate/bachelor-of-science-honours-in-sustainable-digital-construction-management.html"
+    },
+    {
+      "candidateId": "programme_c541f75d59ed1f29",
+      "programmeCode": "TAYLOR_BACHELOR_032",
+      "officialNameEn": "Bachelor of Biomedical Science (Honours)",
+      "existingNameEn": "Bachelor of Biomedical Science（Hons）",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/biosciences/undergraduate/bachelor-of-biomedical-science.html"
+    },
+    {
+      "candidateId": "programme_06a8d5e70ac1fcde",
+      "programmeCode": "TAYLOR_BACHELOR_030",
+      "officialNameEn": "Bachelor of Food Science (Honours)",
+      "existingNameEn": "Bachelor of Food Science（Hons）",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/biosciences/undergraduate/bachelor-of-food-science.html"
+    },
+    {
+      "candidateId": "programme_36634fffba39443f",
+      "programmeCode": "TAYLOR_BACHELOR_031",
+      "officialNameEn": "Bachelor of Biotechnology (Honours)",
+      "existingNameEn": "Bachelor of Biotechnology （Hons）",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/biosciences/undergraduate/bachelor-of-biotechnology.html"
+    },
+    {
+      "candidateId": "programme_3ed847331117625a",
+      "programmeCode": "TAYLOR_BACHELOR_020",
+      "officialNameEn": "Bachelor of Patisserie Arts (Honours)",
+      "existingNameEn": "Bachelor of Patisserie Arts (Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/taylors-culinary-institute/undergraduate/bachelor-of-patisserie-arts.html"
+    },
+    {
+      "candidateId": "programme_8f9435bc986afd41",
+      "programmeCode": "TAYLOR_BACHELOR_019",
+      "officialNameEn": "Bachelor of Science (Honours) in Culinology",
+      "existingNameEn": "Bachelor of Science（Hons）in Culinology",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/taylors-culinary-institute/undergraduate/bachelor-of-science-culinology.html"
+    },
+    {
+      "candidateId": "programme_4159a9369a0b4734",
+      "programmeCode": "TAYLOR_BACHELOR_016",
+      "officialNameEn": "Bachelor of Culinary Management (Honours)",
+      "existingNameEn": "Bachelor of Culinary Management （Hons）",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/taylors-culinary-institute/undergraduate/bachelor-of-culinary-management.html"
+    },
+    {
+      "candidateId": "programme_c93fbde10386848f",
+      "programmeCode": "TAYLOR_BACHELOR_035",
+      "officialNameEn": "Bachelor of Mass Communication (Honours) in Advertising and Brand Management",
+      "existingNameEn": "Bachelor of Mass Communication (Hons)in Advertising And Brand Management",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/media-and-communication/undergraduate/bachelor-of-mass-communication-in-advertising-and-brand-management.html"
+    },
+    {
+      "candidateId": "programme_5bdf3da957bd55ca",
+      "programmeCode": "TAYLOR_BACHELOR_037",
+      "officialNameEn": "Bachelor of Mass Communication (Honours) (Digital Media Production)",
+      "existingNameEn": "Bachelor of Mass Communication （Hons）（Digital Media Production）",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/media-and-communication/undergraduate/bachelor-of-mass-communication-digital-media-production.html"
+    },
+    {
+      "candidateId": "programme_96e800319b1f666c",
+      "programmeCode": "TAYLOR_BACHELOR_010",
+      "officialNameEn": "Bachelor of Computer Science (Honours)",
+      "existingNameEn": "Bachelor of Computer Science (Hons) Specialisations:Data Science\\Cyber Security\\ Mobile Computing\\ Artificial Intelligence",
+      "method": "unique-prefix",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/computer-science/undergraduate/bachelor-of-computer-science.html"
+    },
+    {
+      "candidateId": "programme_be1ea0a6354b4601",
+      "programmeCode": "TAYLOR_BACHELOR_009",
+      "officialNameEn": "Bachelor of Software Engineering (Honours)",
+      "existingNameEn": "Bachelor of Software Engineering (Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/computer-science/undergraduate/bachelor-of-software-engineering.html"
+    },
+    {
+      "candidateId": "programme_bc93844d2ae2cf6a",
+      "programmeCode": "TAYLOR_BACHELOR_011",
+      "officialNameEn": "Bachelor of Information Technology (Honours)",
+      "existingNameEn": "Bachelor of Information Technology (Hons) Specialisations:Internet Technologies\\Business Intelligence and Analytics\\Game Design",
+      "method": "unique-prefix",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/computer-science/undergraduate/bachelor-of-information-technology.html"
+    },
+    {
+      "candidateId": "programme_54b48e453936cfba",
+      "programmeCode": "TAYLOR_BACHELOR_014",
+      "officialNameEn": "Bachelor in Interactive Spatial Design (Honours)",
+      "existingNameEn": "Bachelor of Interactive Spatial Design (Honours) Specialisation:Smart Homes Design/Smart Environment Design",
+      "method": "unique-prefix",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/design/undergraduate/bachelor-in-interactive-spatial-design.html"
+    },
+    {
+      "candidateId": "programme_fdd8b6846c643b66",
+      "programmeCode": "TAYLOR_BACHELOR_013",
+      "officialNameEn": "Bachelor of Fashion Design Technology (Honours)",
+      "existingNameEn": "Bachelor of Fashion Design Technology (Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/design/undergraduate/bachelor-of-fashion-design-technology.html"
+    },
+    {
+      "candidateId": "programme_83016a290634b870",
+      "programmeCode": "TAYLOR_BACHELOR_012",
+      "officialNameEn": "Bachelor of Design (Honours) in Creative Media",
+      "existingNameEn": "Bachelor of Design (Hons) in Creative Media Specialisation: Graphic Design\\UI/UX\\Digital Animation\\Entertainment Design\\Simulation Design\\Immersive Design",
+      "method": "unique-prefix",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/design/undergraduate/bachelor-of-design-in-creative-media.html"
+    },
+    {
+      "candidateId": "programme_610fb61087f7f368",
+      "programmeCode": "TAYLOR_BACHELOR_040",
+      "officialNameEn": "Bachelor of Education (Honours)",
+      "existingNameEn": "Bachelor of Education(Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/education/undergraduate/bachelor-of-education.html"
+    },
+    {
+      "candidateId": "programme_7209c8f573110fb1",
+      "programmeCode": "TAYLOR_BACHELOR_022",
+      "officialNameEn": "Bachelor of Chemical Engineering (Honours)",
+      "existingNameEn": "Bachelor of Chemical Engineering(Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/engineering/undergraduate/bachelor-of-chemical-engineering.html"
+    },
+    {
+      "candidateId": "programme_91913b7cae3fee9c",
+      "programmeCode": "TAYLOR_BACHELOR_021",
+      "officialNameEn": "Bachelor of Electrical and Electronic Engineering with Honours",
+      "existingNameEn": "Bachelor of Electrical & Electronic Engineering (Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/engineering/undergraduate/bachelor-of-electrical-and-electronic-engineering.html"
+    },
+    {
+      "candidateId": "programme_e19d5dcb91c42e9f",
+      "programmeCode": "TAYLOR_BACHELOR_023",
+      "officialNameEn": "Bachelor of Mechanical Engineering with Honours",
+      "existingNameEn": "Bachelor of Mechanical 机械工程（荣誉）Engineering(Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/engineering/undergraduate/bachelor-of-mechanical-engineering.html"
+    },
+    {
+      "candidateId": "programme_5dee1c756161b431",
+      "programmeCode": "TAYLOR_BACHELOR_015",
+      "officialNameEn": "Bachelor of International Hospitality Management (Honours)",
+      "existingNameEn": "Bachelor of International Hospitality Management（Hons）",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/hospitality-tourism-and-events/undergraduate/bachelor-of-international-hospitality-management.html"
+    },
+    {
+      "candidateId": "programme_1d184d733d264b81",
+      "programmeCode": "TAYLOR_BACHELOR_018",
+      "officialNameEn": "Bachelor of International Events Management (Honours)",
+      "existingNameEn": "Bachelor of International Events Management(Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/hospitality-tourism-and-events/undergraduate/bachelor-of-international-events-management.html"
+    },
+    {
+      "candidateId": "programme_dd81630db446f40a",
+      "programmeCode": "TAYLOR_BACHELOR_017",
+      "officialNameEn": "Bachelor of International Tourism Management (Honours)",
+      "existingNameEn": "Bachelor of International Tourism Management（Hons）",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/hospitality-tourism-and-events/undergraduate/bachelor-of-international-tourism-management.html"
+    },
+    {
+      "candidateId": "programme_ed8b76112d459dea",
+      "programmeCode": "TAYLOR_BACHELOR_029",
+      "officialNameEn": "Bachelor of Laws (Honours)",
+      "existingNameEn": "Bachelor of Laws（Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/law-and-governance/undergraduate/bachelor-of-laws.html"
+    },
+    {
+      "candidateId": "programme_35a4dba42fc3f8e3",
+      "programmeCode": "TAYLOR_BACHELOR_043",
+      "officialNameEn": "Bachelor of Performing Arts (Honours)",
+      "existingNameEn": "Bachelor of Performing Arts (Hons) Specialisations: Performance Track/ Music/ Dance",
+      "method": "unique-prefix",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/liberal-arts-and-sciences/undergraduate/bachelor-of-performing-arts.html"
+    },
+    {
+      "candidateId": "programme_9d13e0c77e2f38f3",
+      "programmeCode": "TAYLOR_BACHELOR_041",
+      "officialNameEn": "Bachelor of Psychology (Honours)",
+      "existingNameEn": "Bachelor of Psychology(Hons)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/liberal-arts-and-sciences/undergraduate/bachelor-of-psychology.html"
+    },
+    {
+      "candidateId": "programme_5d2bb7d11b5f5b5d",
+      "programmeCode": "TAYLOR_BACHELOR_034",
+      "officialNameEn": "Bachelor of Pharmacy (Honours)",
+      "existingNameEn": "Bachelor of Pharmacy （Hons）",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/pharmacy/undergraduate/bachelor-of-pharmacy.html"
+    },
+    {
+      "candidateId": "programme_8bf486660410dd87",
+      "programmeCode": "TAYLOR_BACHELOR_033",
+      "officialNameEn": "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
+      "existingNameEn": "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
+      "method": "canonical-name",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/medicine/undergraduate/bachelor-of-medicine-bachelor-of-surgery.html"
+    }
+  ],
+  "usableOfficialMatches": 29,
+  "unmatched": [
+    {
+      "candidateId": "programme_193df5d86924da57",
+      "nameEn": "Bachelor of Arts (Honours) in Interior Architecture",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/architecture-building-and-design/undergraduate/bachelor-of-art-in-interior-architecture.html"
+    },
+    {
+      "candidateId": "programme_05f223629583d1dd",
+      "nameEn": "Bachelor of Applied Health Sciences (Honours)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/biosciences/undergraduate/bachelor-of-applied-health-sciences.html"
+    },
+    {
+      "candidateId": "programme_5f106d9770c3f266",
+      "nameEn": "Bachelor of Business (Honours)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-business.html"
+    },
+    {
+      "candidateId": "programme_55aa245d9abc8816",
+      "nameEn": "Bachelor of Business (Honours) in International Business and Marketing",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-business-in-international-business-and-marketing.html"
+    },
+    {
+      "candidateId": "programme_f7b394fb465de570",
+      "nameEn": "Bachelor of Accounting (Finance) (Honours)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-accounting-and-finance.html"
+    },
+    {
+      "candidateId": "programme_9dcd0df943fbe3c9",
+      "nameEn": "Bachelor of Banking and Finance (Honours)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-banking-and-finance.html"
+    },
+    {
+      "candidateId": "programme_96ba981cfe77370f",
+      "nameEn": "Bachelor of Finance and Economics (Honours)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-finance-and-economics.html"
+    },
+    {
+      "candidateId": "programme_eb68170be4d41d60",
+      "nameEn": "Bachelor of Actuarial Studies (Honours)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-actuarial-studies.html"
+    },
+    {
+      "candidateId": "programme_7482540b6186eb26",
+      "nameEn": "Bachelor of Entrepreneurship (Honours) in Team Entrepreneurship",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-entrepreneurship-in-team-enterpreneurship.html"
+    },
+    {
+      "candidateId": "programme_7b4e5e04bbaf0849",
+      "nameEn": "Bachelor of Accounting with Fintech (Honours)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-accounting-fintech.html"
+    },
+    {
+      "candidateId": "programme_d0b4da1e9365d907",
+      "nameEn": "Bachelor of Mass Communication (Honours) in Public Relations and Event Management",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/media-and-communication/undergraduate/bachelor-of-mass-communication-in-public-relations-and-event-management.html"
+    },
+    {
+      "candidateId": "programme_eda4bd7c555d589e",
+      "nameEn": "Bachelor of Mass Communication (Honours) in Public Relations and Marketing",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/media-and-communication/undergraduate/bachelor-of-mass-communication-in-public-relations-and-marketing.html"
+    },
+    {
+      "candidateId": "programme_2a32512b4786a84d",
+      "nameEn": "Bachelor of Mechatronics Engineering with Honours",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/engineering/undergraduate/bachelor-of-mechatronics-engineering.html"
+    },
+    {
+      "candidateId": "programme_9935a6bf075a8c34",
+      "nameEn": "Bachelor in Philosophy, Politics, and Economics (Honours)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/law-and-governance/undergraduate/bachelor-in-philosophy-politics-and-economics.html"
+    },
+    {
+      "candidateId": "programme_170aa0851d945ea3",
+      "nameEn": "Bachelor of Social Science (Honours) in International Relations",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/liberal-arts-and-sciences/undergraduate/bachelor-of-social-science-in-international-relations.html"
+    },
+    {
+      "candidateId": "programme_6106019ff92b91d6",
+      "nameEn": "Bachelor of Pharmaceutical Science (Honours)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/pharmacy/undergraduate/bachelor-of-pharmaceutical-science.html"
+    },
+    {
+      "candidateId": "programme_cb8da62c90df749c",
+      "nameEn": "Diploma in Hotel Management",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/taylors-culinary-institute/undergraduate/diploma-in-hotel-management.html"
+    },
+    {
+      "candidateId": "programme_36c4ae3c17406606",
+      "nameEn": "Diploma in Culinary Arts",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/taylors-culinary-institute/undergraduate/diploma-in-culinary-arts.html"
+    },
+    {
+      "candidateId": "programme_5b36aec653cb7fef",
+      "nameEn": "Advanced Diploma in Patisserie and Gastronomic Cuisine",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/taylors-culinary-institute/undergraduate/advanced-diploma-in-patisserie-and-gastronomic-cuisine.html"
+    },
+    {
+      "candidateId": "programme_b152c7d0adf97766",
+      "nameEn": "American Degree Transfer Program",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/liberal-arts-and-sciences/undergraduate/american-degree-transfer-program.html"
+    },
+    {
+      "candidateId": "programme_88cf7fb804f4ab27",
+      "nameEn": "Intensive English",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/general-studies-and-languages/undergraduate/intensive-english.html"
+    },
+    {
+      "candidateId": "programme_aa4146d3ed6b6ce4",
+      "nameEn": "Master of Architecture",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/architecture-building-and-design/master-coursework/master-of-architecture.html"
+    },
+    {
+      "candidateId": "programme_de63072d40f50874",
+      "nameEn": "Master of Science in Virtual Design and Construction",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/architecture-building-and-design/master-coursework/master-of-science-in-virtual-design-and-construction.html"
+    },
+    {
+      "candidateId": "programme_658b0925808a1607",
+      "nameEn": "Doctor of Philosophy in Architecture",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/architecture-building-and-design/phd-research/doctor-of-philosophy-in-architecture.html"
+    },
+    {
+      "candidateId": "programme_7efa6053691d3c2a",
+      "nameEn": "Master of Science",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/biosciences/master-research/master-of-science.html"
+    },
+    {
+      "candidateId": "programme_172d9e1eaba273b5",
+      "nameEn": "Doctor of Philosophy (PhD) in Science",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/biosciences/phd-research/doctor-of-philosophy-in-science.html"
+    },
+    {
+      "candidateId": "programme_1b33f8da441254b8",
+      "nameEn": "Master of Business Administration",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/master-coursework/master-of-business-administration.html"
+    },
+    {
+      "candidateId": "programme_4e881d3670b7d7a5",
+      "nameEn": "Master of Management",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/master-coursework/master-of-management.html"
+    },
+    {
+      "candidateId": "programme_a805720b5b9360bb",
+      "nameEn": "Master of Business Administration (100% Online)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/master-online/master-of-business-administration-online.html"
+    },
+    {
+      "candidateId": "programme_3ad8314b2568db8a",
+      "nameEn": "Master of Management (100% Online)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/master-online/master-of-management-online.html"
+    },
+    {
+      "candidateId": "programme_a10ab184b385aca5",
+      "nameEn": "Doctor of Business Administration (DBA)",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/phd-coursework/doctor-of-business-administration.html"
+    },
+    {
+      "candidateId": "programme_ee1eea5681d98ac3",
+      "nameEn": "Doctor of Philosophy (PhD) in Business",
+      "officialUrl": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/phd-research/doctor-of-philosophy-in-business.html"
+    }
+  ],
+  "ambiguous": [
+    {
+      "candidateId": "programme_59af576ff2edf3f1",
+      "nameEn": "Bachelor of Mass Communication (Honours)",
+      "programmeCodes": [
+        "TAYLOR_BACHELOR_037",
+        "TAYLOR_BACHELOR_035",
+        "TAYLOR_BACHELOR_039",
+        "TAYLOR_BACHELOR_038",
+        "TAYLOR_BACHELOR_036"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "programmeCode": "TAYLOR_BACHELOR_026",
+      "nameEn": "Bachelor of Science (Honours) in Architecture",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_028",
+      "nameEn": "Bachelor of Quantity Surveying (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_025",
+      "nameEn": "Bachelor of Science (Honours) in Sustainable Digital Construction Management",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_032",
+      "nameEn": "Bachelor of Biomedical Science (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_030",
+      "nameEn": "Bachelor of Food Science (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_031",
+      "nameEn": "Bachelor of Biotechnology (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_020",
+      "nameEn": "Bachelor of Patisserie Arts (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_019",
+      "nameEn": "Bachelor of Science (Honours) in Culinology",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_016",
+      "nameEn": "Bachelor of Culinary Management (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_035",
+      "nameEn": "Bachelor of Mass Communication (Honours) in Advertising and Brand Management",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_037",
+      "nameEn": "Bachelor of Mass Communication (Honours) (Digital Media Production)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_010",
+      "nameEn": "Bachelor of Computer Science (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_009",
+      "nameEn": "Bachelor of Software Engineering (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_011",
+      "nameEn": "Bachelor of Information Technology (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_014",
+      "nameEn": "Bachelor in Interactive Spatial Design (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_013",
+      "nameEn": "Bachelor of Fashion Design Technology (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_012",
+      "nameEn": "Bachelor of Design (Honours) in Creative Media",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_040",
+      "nameEn": "Bachelor of Education (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_022",
+      "nameEn": "Bachelor of Chemical Engineering (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_021",
+      "nameEn": "Bachelor of Electrical and Electronic Engineering with Honours",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_023",
+      "nameEn": "Bachelor of Mechanical Engineering with Honours",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_015",
+      "nameEn": "Bachelor of International Hospitality Management (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_018",
+      "nameEn": "Bachelor of International Events Management (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_017",
+      "nameEn": "Bachelor of International Tourism Management (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_029",
+      "nameEn": "Bachelor of Laws (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_043",
+      "nameEn": "Bachelor of Performing Arts (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_041",
+      "nameEn": "Bachelor of Psychology (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_034",
+      "nameEn": "Bachelor of Pharmacy (Honours)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    },
+    {
+      "programmeCode": "TAYLOR_BACHELOR_033",
+      "nameEn": "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
+      "fields": [
+        {
+          "field": "tuitionCurrency",
+          "existing": "MYR",
+          "official": "USD"
+        }
+      ]
+    }
+  ],
+  "generatedRows": {
+    "programmes": 29,
+    "sections": 87,
+    "intakes": 114
+  }
+}

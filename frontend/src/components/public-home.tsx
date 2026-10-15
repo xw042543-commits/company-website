@@ -3,8 +3,8 @@ import Link from "next/link";
 import { ConsultationForm } from "@/components/consultation-form";
 import { companyProfile, contactTelephoneHref, publicAdvisers } from "@/data/company-profile";
 import { UNIVERSITY_CATALOG } from "@/data/university-catalog";
-import { universityProfile } from "@/data/university-profiles";
 import { type Locale, words } from "@/lib/site";
+import { canonicalStudyLevelOptions } from "@/lib/study-level-display";
 
 const modernUmCampus = "/universities/campuses/um-modern-campus.webp";
 
@@ -13,11 +13,10 @@ export function PublicHome({ locale }: { locale: Locale }) {
   const loginHref = `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/planning`)}`;
   const malaysiaAdviser = publicAdvisers.find(adviser => adviser.region === "MY") ?? publicAdvisers[0];
   const levels = [
-    ["bachelor", "本科", "Bachelor's"],
-    ["master", "硕士", "Master's"],
-    ["doctorate", "博士", "Doctorate"],
-    ["language", "语言课程", "Language courses"],
-  ] as const;
+    ...canonicalStudyLevelOptions().filter(({ code }) => ["bachelor", "master", "doctorate"].includes(code))
+      .map(({ code, nameZh, nameEn }) => [code, nameZh, nameEn] as const),
+    ["language", "语言课程", "Language courses"] as const,
+  ];
   const tools = [
     ["校", "查询院校与专业", "Explore universities and programmes", "按学历、专业和地点查找经过审核的资料。", "Search reviewed information by qualification, subject and location."],
     ["比", "比较适合的选择", "Compare your options", "集中比较课程方向、费用和入学安排。", "Compare subject areas, fees and intake dates in one place."],
@@ -65,8 +64,6 @@ export function PublicHome({ locale }: { locale: Locale }) {
       <div className="public-home-heading"><h2 id="public-universities-heading">{words(locale, "探索全部合作院校", "Browse universities in Malaysia")}</h2><p>{words(locale, `浏览现有的 ${UNIVERSITY_CATALOG.length} 所马来西亚院校。登录后可查看完整资料、比较院校，并保存感兴趣的课程方向。`, `Browse ${UNIVERSITY_CATALOG.length} universities. Sign in to compare them, view programme details and save your shortlist.`)}</p></div>
       <div className="public-home-school-grid">
         {UNIVERSITY_CATALOG.map(school => {
-          const profile = universityProfile(school.id);
-          const subjects = locale === "zh" ? profile?.subjectsZh : profile?.subjectsEn;
           const detailPath = `/${locale}/universities/${school.slug}`;
           const detailHref = `/${locale}/login?returnTo=${encodeURIComponent(detailPath)}`;
           return <article className="public-home-school-card" key={school.id}>
@@ -74,7 +71,6 @@ export function PublicHome({ locale }: { locale: Locale }) {
             <div className="public-home-school-content">
               <div><h3>{locale === "zh" ? school.nameZh : school.nameEn}</h3><p className="public-home-school-secondary">{locale === "zh" ? school.nameEn : school.nameZh}</p></div>
               <p className="public-home-school-location"><span aria-hidden="true">⌖</span>{locale === "zh" ? `${school.cityZh}，${school.countryZh}` : `${school.cityEn}, ${school.countryEn}`} <Image className="country-flag country-flag-image" src="/flags/my.svg" width={24} height={16} alt={words(locale, "马来西亚国旗", "Malaysia flag")} /></p>
-              {subjects?.length ? <div className="public-home-school-subjects">{subjects.slice(0, 3).map(subject => <span key={subject}>{subject}</span>)}</div> : null}
               <p className="public-home-school-status"><span aria-hidden="true">✓</span>{school.programmeStatus === "available" ? words(locale, "课程资料可浏览", "Programme details available") : words(locale, "课程资料正在整理", "Programme details coming soon")}</p>
               <Link className="public-home-school-action" href={detailHref}>{words(locale, "登录查看院校详情", "Sign in to view details")} <span aria-hidden="true">→</span></Link>
             </div>

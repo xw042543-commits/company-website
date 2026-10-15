@@ -11,7 +11,19 @@ import { Locale, words } from "@/lib/site";
 
 const featured = FEATURED_UNIVERSITY_IDS.map((id) => UNIVERSITY_CATALOG.find((item) => item.id === id)).filter(Boolean);
 
-export function FeaturedUniversityCarousel({ locale }: { locale: Locale }) {
+export type FeaturedUniversityCategory = {
+  code: string;
+  nameZh: string;
+  nameEn: string;
+};
+
+export function FeaturedUniversityCarousel({
+  locale,
+  categoriesByUniversity,
+}: {
+  locale: Locale;
+  categoriesByUniversity: Record<string, FeaturedUniversityCategory[]>;
+}) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ start: true, end: false });
 
@@ -44,7 +56,7 @@ export function FeaturedUniversityCarousel({ locale }: { locale: Locale }) {
         const profile = universityProfile(university.id);
         const name = locale === "zh" ? university.nameZh : university.nameEn;
         const city = locale === "zh" ? university.cityZh : university.cityEn;
-        const subjects = locale === "zh" ? profile.subjectsZh : profile.subjectsEn;
+        const categories = categoriesByUniversity[university.id] ?? [];
         const intakes = locale === "zh" ? profile.intakesZh : profile.intakesEn;
         return <article className="featured-university-card" key={university.id}>
           <div className={`featured-university-media${profile.campusImageSrc ? " has-photo" : ""}`}>
@@ -56,8 +68,12 @@ export function FeaturedUniversityCarousel({ locale }: { locale: Locale }) {
             <p className="featured-university-location"><LocationLabel city={city} country={locale === "zh" ? university.countryZh : university.countryEn} locale={locale} /></p>
             <h3>{name}</h3>
             <p className="featured-university-intro">{locale === "zh" ? profile.introductionZh : profile.introductionEn}</p>
+            {categories.length > 0 && <nav className="featured-university-subjects" aria-label={words(locale, `${name}专业分类`, `${name} subject categories`)}>
+              {categories.map(category => <Link key={category.code} href={`/${locale}/universities/${university.slug}?category=${encodeURIComponent(category.code)}#programmes`}>
+                {locale === "zh" ? category.nameZh : category.nameEn}
+              </Link>)}
+            </nav>}
             <dl className="featured-university-facts">
-              <div><dt>{words(locale, "热门方向", "Popular subjects")}</dt><dd>{subjects.join(" · ")}</dd></div>
               <div><dt>{words(locale, "入学时间", "Intake periods")}</dt><dd>{intakes}</dd></div>
             </dl>
             <Link className="button full-width" href={`/${locale}/universities/${university.slug}`}>{words(locale, "查看院校", "View university")}</Link>

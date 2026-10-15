@@ -195,6 +195,16 @@ Returns one published programme for its published university. The final path val
 stable slug returned by programme-list responses or the numeric programme ID returned by university
 search. A missing university or programme returns the standard 404 response.
 
+### `GET /api/v1/universities/{universitySlug}/programme-categories`
+
+返回该院校已发布专业实际使用的已发布学科分类，按分类字典的 `sortOrder` 和代码排序。
+空分类不会返回；`programmeCount` 是该院校在该分类下的已发布专业数量。分类名称直接来自
+`SubjectCategory` 字典，供院校详情页生成动态筛选标签。
+
+```json
+[{ "code": "COMPUTING_IT", "nameZh": "计算机与信息技术", "nameEn": "Computing and Information Technology", "programmeCount": 12 }]
+```
+
 中文或英文字段在源数据未提供时可为 `null`，后端不自动翻译。没有匹配院校时仍
 返回 200：
 
@@ -363,3 +373,82 @@ APP_TRUSTED_PROXIES=
 
 授权 `state`、待绑定微信身份和登录 Session 都只保存在服务端。接口不会根据微信身份自动
 创建未验证账号，也不会把授权 code、Token、Session ID 或微信原始标识写入公开响应。
+
+
+## 官网课程字段（V53 配套客户端）
+
+网站专业详情与小程序专业详情的 sections 追加 `courseModules`、`curriculumReviewStatus`（VERIFIED/PENDING/null）、`curriculumVersion`。课程对象包含 `nameZh`、`nameEn`、`descriptionZh/En`、`courseCode`、`credits`、`requirement`、`sourceUrl`、`sourceCheckedAt`、`curriculumVersion`、`evidence`、`translationMethod`、`translationCheckedAt`。旧 body 字段保留兼容；新版页面只展示 official 且 VERIFIED 的结构化中文课程，未知字段留空，归档板块不从公开 API 返回。中文是平台译名，原文可核验；不根据专业名称生成课程。
+
+
+## 管理员 Excel 批量导入
+
+管理员页面：`/[locale]/admin/imports`。所有 `/api/v1/admin/imports/**` 接口沿用服务端
+`ROLE_ADMIN` 校验和登录会话；所有写请求必须携带 CSRF Token。解析、字典校验及查重在后端完成。
+
+| 方法 | 路径 | 用途 |
+| --- | --- | --- |
+| GET | `/api/v1/admin/imports/templates/{type}` | 下载固定 .xlsx 模板与当前字典，type 为 UNIVERSITY 或 PROGRAMME |
+| POST | `/api/v1/admin/imports` | multipart：type、file，校验后生成独立导入批次与行级草稿 |
+| GET | `/api/v1/admin/imports?page=1&size=20` | 按时间分页查看批次；size 最大100 |
+| GET | `/api/v1/admin/imports/{id}` | 查看批次统计、上传人、时间及失败原因 |
+| GET | `/api/v1/admin/imports/{id}/rows` | 返回该批次全部行，最多500条 |
+| PUT | `/api/v1/admin/imports/{id}/rows/{rowId}` | JSON `{payload: {...模板字段}}`，编辑并重新校验；已发布/移除行不可改 |
+| POST | `/api/v1/admin/imports/{id}/remove` | JSON `{rowIds: [1,2]}`，软移除有效草稿 |
+| POST | `/api/v1/admin/imports/{id}/reprocess` | 对未发布、未移除行重新校验和查重；原始公式等解析错误保留，需显式编辑修正 |
+| POST | `/api/v1/admin/imports/{id}/publish` | JSON `{rowIds: [1,2]}`，再查重后事务发布；返回 batch、publishedCount |
+| GET | `/api/v1/admin/imports/{id}/duplicates.xlsx` | 三个Sheet：完全重复、疑似重复、字段冲突；含导入数据、已有数据、原因及ID |
+
+固定模板从服务端动态生成，第一张表必须为“导入数据”，表头及顺序不得更改。
+模板附“填写说明”和“字典”，关联使用稳定代码，不按中文显示名称绑定。
+每次最多500行，压缩文件最大5MB、展开内容最大30MB；不接受公式、宏、外部工作簿链接、
+额外列或非法格式。数字为非负学费（最多两位小数）及正整数学制月数。
+名称至少中文或英文一个；院校、国家、学科、学历、授课方式必须使用存在的有效字典。
+
+结果分类：NEW（有效草稿）、EXACT_DUPLICATE、POSSIBLE_DUPLICATE、CONFLICT、INVALID。
+查重使用Unicode NFKC、大小写/空白/标点归一、中文/英文名称、明确提供的别名，以及国家、
+所属院校、学历、校区。不会猜测未知中英文译名。名称近似或校区信息不足时进入疑似重复区。
+不同明确校区、不同学历不自动合并；同编码或网址冲突均阻止导入。
+数据库及本次Excel内部都参与查重，重复数据默认不创建草稿、不覆盖正式记录。
+
+发布在同一事务中先锁定批次，再锁定院校/专业写入，重新读取正式记录查重；这也阻止其他
+后台写入在查重与插入间穿插。同一选择若发现任意重复/冲突，则本次发布0条并返回更新后的
+分类，管理员重新选择；数据库异常则整批回滚。重复提交已发布的选择返回0条，不重复新增。
+发布复用现有管理服务写入正式表、详情章节及搜索同步队列；原有有效数据不修改。
+结构错误的文件保留失败批次与原因，须修正文件并重新上传；行级错误可在界面编辑和重新处理。
+
+## 管理后台国家筛选
+
+`GET /api/v1/admin/catalog/universities` 与 `GET /api/v1/admin/catalog/programmes`
+均接受可选 `country`（两位国家代码，如 `MY`）。空值或省略表示全部国家；服务端去除首尾
+空白并转为大写，格式不合法返回400，字典中不存在的合法代码返回空结果。
+国家下拉框动态使用 `/api/v1/admin/catalog/options` 的 `countries`，不硬编码国家。
+
+国家筛选通过 `universities.country_id → countries.id` 在 PostgreSQL 执行，和搜索 `q`、
+状态 `status`、专业的所属院校 `universityId`、学科 `categoryId`、学历 `studyLevelId` 使用AND组合。
+专业列表同步提供学科和学历字典下拉框；后两个参数为可选的正整数ID，省略表示全部。列表与COUNT使用相同条件，
+筛选先于LIMIT/OFFSET；省略country保持已有请求兼容。不改变字典、数据结构或公开搜索接口。
+切换国家重置到第1页，翻页、编辑保存和取消编辑保留当前国家及其他筛选；编辑后当前页
+超出剩余页数时自动回到最后有效页。前端忽略过期请求，避免快速切换国家时旧响应覆盖新结果。
+
+## 工作人员导入与删除管理（V54）
+
+导入模板支持 UNIVERSITY、PROGRAMME、COURSE。国家、关联院校、学历、分类可使用已有中文/英文名称或编码；内部编码和页面地址可留空，上传预览会显示固定生成结果。重复记录复用已有编码并保持不导入、不覆盖。课程 programmeCode 指向所属专业，courseCode 是内部编码，officialCode 是学校课程代码。
+
+管理员 `/api/v1/admin/catalog/courses` 支持 GET（q/programmeId/status/page/size）、POST、PUT /{id}、PATCH /{id}/status；GET /programmes 返回可关联专业。POST/PUT 字段为 courseCode（选填）、programmeId、nameZh、nameEn、officialCode、descriptionZh、sourceUrl、sourceType（official/third_party/ai_generated）、sortOrder。已有课程的编码及所属专业不可变。
+
+院校、专业及课程列表 status=TRASH 表示回收站，其他列表默认排除回收站。所有写请求仍需管理员登录与 CSRF。
+
+`/api/v1/admin/catalog/lifecycle`：GET /capabilities 返回 permanentDelete；GET /audit?page=1&size=20 返回操作记录；POST /preview 预览关联影响；POST 根路径执行。请求为 {type: UNIVERSITY|PROGRAMME|COURSE, ids: [正整数，1至100条], action: TRASH|RESTORE|PURGE, confirmation: 确认或永久删除}。预览不需要 confirmation。PURGE 每次检查当前数据库高级管理员授权，只可清理回收站中无关联数据。任一记录不符合条件则整批回滚；停用和回收站均不破坏原申请。详见 [操作与授权指南](ADMIN_STAFF_IMPORT_GUIDE.md)。
+
+
+## 高级管理员账号管理（V55）
+
+复用 ADMIN 和 catalog_advanced_administrators；所有接口均实时核对当前数据库中的启用状态与高级管理员授权，普通管理员不可调用。网页使用原有 Cookie 会话和 CSRF。
+
+- GET `/api/v1/admin/accounts`：`q`（姓名、邮箱、手机号，最多100字）、`status`、`identity`（USER/ADMIN/ADVANCED/ADVISER）、`page`（1起）、`size`（1至100，默认20）。ADMIN 筛选仅普通管理员；ADVANCED 是已有授权的展示筛选，不是新角色。返回 items/page/size/total/totalPages。
+- GET `/api/v1/admin/accounts/{id}`：安全账号详情，不返回密码、令牌或第三方用户标识。
+- PATCH `/api/v1/admin/accounts/{id}/role`：`role` 为 USER 或 ADMIN，`confirmed:true`、`expectedUpdatedAt` 必填。仅处理普通用户/普通管理员；高级管理员和顾问沿用专用授权流程。仅正常启用的账号可升级，未验证账号不可升级。
+- PATCH `/api/v1/admin/accounts/{id}/status`：`enabled` 布尔值，及上述确认和版本字段。禁止修改自身或已注销账号；恢复待验证账号仍为待验证。
+- GET `/api/v1/admin/accounts/audit`：分页，支持 `target` 用户编号筛选；保留操作人/目标编号和姓名、前后身份/状态、操作类型及时间。
+
+变更只更新 role 或 status 及 updated_at；同一事务中撤销网页会话、小程序访问与刷新令牌并写入日志。双方账号按编号加锁并再次核权；过期编辑返回409，不覆盖他人变更。无变化请求不重复记日志。

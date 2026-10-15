@@ -60,6 +60,7 @@ class UniversityDetailHttpIntegrationTest {
 
     @AfterEach
     void deleteFixtures() {
+        jdbc.update("DELETE FROM catalog_courses WHERE programme_id IN (SELECT id FROM programmes WHERE programme_code LIKE 'DETAIL_%')");
         jdbc.update("DELETE FROM programmes WHERE programme_code LIKE 'DETAIL_%'");
         jdbc.update("DELETE FROM languages WHERE code LIKE 'DETAIL_%'");
         jdbc.update("DELETE FROM course_modes WHERE code LIKE 'DETAIL_%'");
@@ -127,6 +128,36 @@ class UniversityDetailHttpIntegrationTest {
     }
 
     @Test
+    void returnsOnlyPublishedCategoriesUsedByPublishedProgrammesForTheUniversity() throws Exception {
+        createPublishedProgramme();
+        createAlternativePublishedProgramme();
+        Long universityId = jdbc.queryForObject(
+                "SELECT id FROM universities WHERE university_code = 'DETAIL_PUBLISHED'",
+                Long.class
+        );
+        Long draftCategoryId = jdbc.queryForObject("""
+                INSERT INTO subject_categories(code, name_zh, name_en, sort_order, status)
+                VALUES ('DETAIL_DRAFT_CATEGORY', '草稿分类', 'Draft category', 1, 'DRAFT')
+                RETURNING id
+                """, Long.class);
+        jdbc.update("""
+                INSERT INTO programmes(
+                    programme_code, university_id, subject_category_id, slug, name_zh, status, published_at
+                ) VALUES ('DETAIL_DRAFT_CATEGORY_PROGRAMME', ?, ?, 'draft-category-programme',
+                          '草稿分类下的专业', 'PUBLISHED', CURRENT_TIMESTAMP)
+                """, universityId, draftCategoryId);
+
+        mockMvc.perform(get("/api/v1/universities/{slug}/programme-categories", UNIVERSITY_SLUG))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(2))
+                .andExpect(jsonPath("$[0].code").value("DETAIL_BUSINESS"))
+                .andExpect(jsonPath("$[0].programmeCount").value(1))
+                .andExpect(jsonPath("$[1].code").value("DETAIL_COMPUTING"))
+                .andExpect(jsonPath("$[1].nameZh").value("计算机"))
+                .andExpect(jsonPath("$[1].programmeCount").value(1));
+    }
+
+    @Test
     void returnsOnePublishedProgrammeByDatabaseIdAndLegacySlug() throws Exception {
         Long programmeId = createPublishedProgramme();
 
@@ -139,7 +170,10 @@ class UniversityDetailHttpIntegrationTest {
                 .andExpect(jsonPath("$.id").value(programmeId))
                 .andExpect(jsonPath("$.programmeCode").value("DETAIL_MSC_DATA"))
                 .andExpect(jsonPath("$.slug").value("msc-data-science"))
-                .andExpect(jsonPath("$.nameEn").value("MSc Data Science"));
+                .andExpect(jsonPath("$.nameEn").value("MSc Data Science"))
+                .andExpect(jsonPath("$.sections[0].type").value("CURRICULUM"))
+                .andExpect(jsonPath("$.sections[0].sourceUrl").value("https://example.edu/msc-data-science"))
+                .andExpect(jsonPath("$.sections[0].sourceCheckedAt").value("2026-10-14T00:00:00Z"));
 
         mockMvc.perform(get(
                         "/api/v1/universities/{slug}/programmes/{programmeIdentifier}",
@@ -236,6 +270,10 @@ class UniversityDetailHttpIntegrationTest {
         mockMvc.perform(get("/api/v1/universities/{slug}/programmes", UNIVERSITY_SLUG))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.code").value("RESOURCE_NOT_FOUND"));
+
+        mockMvc.perform(get("/api/v1/universities/{slug}/programme-categories", UNIVERSITY_SLUG))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code").value("RESOURCE_NOT_FOUND"));
     }
 
     @Test
@@ -263,6 +301,29 @@ class UniversityDetailHttpIntegrationTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.code").value("VALIDATION_ERROR"))
                 .andExpect(jsonPath("$.fieldErrors.page").value("is too large for requested size"));
+    }
+
+    @Test
+    void readsVerifiedOriginalModuleNamesAndSourcesFromPostgresAndHidesArchivedCurricula() throws Exception {
+        tools.jackson.databind.JsonNode audit;
+        try(var in=getClass().getResourceAsStream("/fixtures/official-course-modules.json")) {
+            audit=new tools.jackson.databind.ObjectMapper().readTree(in);
+        }
+        var row=java.util.stream.StreamSupport.stream(audit.get("records").spliterator(),false)
+                .filter(item->item.get("status").asText().equals("VERIFIED")).findFirst().orElseThrow();
+        var module=row.get("modules").get(0);
+        Long id=createPublishedProgramme();
+        jdbc.update("UPDATE programme_detail_sections SET course_modules=?::jsonb,curriculum_review_status='VERIFIED',source_type='official',source_url=? WHERE programme_id=? AND section_type='CURRICULUM'",
+                row.get("modules").toString(),module.get("sourceUrl").asText(),id);
+        mockMvc.perform(get("/api/v1/universities/{slug}/programmes/{id}",UNIVERSITY_SLUG,id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.sections[0].curriculumReviewStatus").value("VERIFIED"))
+                .andExpect(jsonPath("$.sections[0].courseModules[0].nameZh").value(module.get("nameZh").asText()))
+                .andExpect(jsonPath("$.sections[0].courseModules[0].nameEn").value(module.get("nameEn").asText()))
+                .andExpect(jsonPath("$.sections[0].courseModules[0].sourceUrl").value(module.get("sourceUrl").asText()));
+        jdbc.update("UPDATE programme_detail_sections SET status='ARCHIVED',curriculum_review_status='PENDING' WHERE programme_id=?",id);
+        mockMvc.perform(get("/api/v1/universities/{slug}/programmes/{id}",UNIVERSITY_SLUG,id))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.sections.length()").value(0));
     }
 
     private Long createPublishedProgramme() {
@@ -319,6 +380,13 @@ class UniversityDetailHttpIntegrationTest {
                 VALUES (?, DATE '2027-09-01', 'September 2027'),
                        (?, DATE '2027-01-01', 'January 2027')
                 """, programmeId, programmeId);
+        jdbc.update("""
+                INSERT INTO programme_detail_sections(
+                    programme_id, section_type, title_en, body_en, sort_order,
+                    source_url, source_checked_at, status
+                ) VALUES (?, 'CURRICULUM', 'Programme structure', 'Data Engineering', 40,
+                          'https://example.edu/msc-data-science', TIMESTAMPTZ '2026-10-14T00:00:00Z', 'PUBLISHED')
+                """, programmeId);
         return programmeId;
     }
 

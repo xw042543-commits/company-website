@@ -77,3 +77,15 @@ docker compose --env-file .env.production -f compose.production.yaml up -d --wai
 docker compose --env-file .env.production -f compose.production.yaml exec -T --interactive=false backend curl --fail --silent --connect-timeout 10 --max-time 30 --header 'X-Forwarded-Proto: https' http://127.0.0.1:8080/actuator/health/readiness < /dev/null
 curl --fail-with-body --silent --connect-timeout 10 --max-time 30 "$public_site_url/healthz"
 docker run --rm --mount "type=bind,source=$PWD,target=/app,readonly" -w /app node:24-bookworm-slim node scripts/launch-smoke.mjs "$public_site_url" --public --wechat < /dev/null
+
+admin_identifier_b64="${ADMIN_IDENTIFIER_B64:-}"
+if [[ -n $admin_identifier_b64 ]]; then
+  admin_identifier="$(printf '%s' "$admin_identifier_b64" | base64 --decode)"
+  [[ $admin_identifier =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$ || $admin_identifier =~ ^\+?[0-9][0-9[:space:]-]{5,20}$ ]] || {
+    echo "Admin identifier is invalid" >&2
+    exit 71
+  }
+  docker compose --env-file .env.production -f compose.production.yaml exec -T postgres \
+    sh -c 'psql -v ON_ERROR_STOP=1 -v "identifier=$1" -U "$POSTGRES_USER" -d "$POSTGRES_DB"' \
+    sh "$admin_identifier" < backend/scripts/promote-existing-admin.sql
+fi

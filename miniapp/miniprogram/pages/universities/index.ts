@@ -2,6 +2,7 @@ import { loadFilterOptions, type FilterOption } from '../../services/catalogue';
 import { searchUniversities, type UniversitySummary } from '../../services/universities';
 import { favoriteUniversities } from '../../stores/favorites';
 import { universityDetailRoute } from '../../utils/routes';
+import { normalizeStudyLevelOptions } from '../../utils/study-level-display';
 
 type ViewState = 'loading' | 'ready' | 'empty' | 'failed' | 'offline';
 type ListedUniversity = UniversitySummary & { favorite: boolean };
@@ -131,7 +132,7 @@ Page({
     const options = {
       countryOptions: [allOption('全部地区'), ...result.value.countries],
       categoryOptions: [allOption('全部专业'), ...result.value.subjectCategories],
-      levelOptions: [allOption('全部学历'), ...result.value.studyLevels],
+      levelOptions: [allOption('全部学历'), ...normalizeStudyLevelOptions(result.value.studyLevels)],
     };
     const key = this.data.openFilterKey;
     this.setData({

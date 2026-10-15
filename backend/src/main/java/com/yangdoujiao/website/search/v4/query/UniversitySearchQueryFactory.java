@@ -21,9 +21,15 @@ public class UniversitySearchQueryFactory {
     public static final String KEYWORD_MATCHED_PROGRAMMES = "keyword_matched_programmes";
     public static final int MAX_MATCHED_PROGRAMMES = 3;
 
+    private com.yangdoujiao.website.catalog.CatalogVisibilityRepository visibility;
+    @org.springframework.beans.factory.annotation.Autowired
+    void visibility(com.yangdoujiao.website.catalog.CatalogVisibilityRepository repository){this.visibility=repository;}
     public NativeQuery create(UniversitySearchCriteria criteria, ResolvedSearchTerm resolvedTerm) {
         BoolQuery.Builder root = new BoolQuery.Builder();
         BoolQuery.Builder programme = programmeFilters(criteria);
+        java.util.List<String> hiddenProgrammes=visibility==null?java.util.List.of():visibility.hiddenProgrammes();
+        exclude(programme,"programmes.id",hiddenProgrammes);
+        if(visibility!=null)exclude(root,"id",visibility.hiddenUniversities());
         terms(root, "countryCode", criteria.countries());
 
         boolean hasKeyword = resolvedTerm.isAlias()
@@ -42,6 +48,7 @@ public class UniversitySearchQueryFactory {
             programme.should(programmeKeyword).minimumShouldMatch("0");
 
             BoolQuery.Builder filteredProgrammeKeyword = programmeFilters(criteria);
+            exclude(filteredProgrammeKeyword,"programmes.id",hiddenProgrammes);
             filteredProgrammeKeyword.must(programmeKeyword);
             root.must(q -> q.bool(b -> b.minimumShouldMatch("1")
                     .should(universityKeyword(resolvedTerm.text()))
@@ -149,6 +156,9 @@ public class UniversitySearchQueryFactory {
         }
     }
 
+    private static void exclude(BoolQuery.Builder query,String field,java.util.List<String> ids){
+        for(int start=0;start<ids.size();start+=50000){var chunk=ids.subList(start,Math.min(start+50000,ids.size())).stream().map(FieldValue::of).toList();query.mustNot(q->q.terms(t->t.field(field).terms(v->v.value(chunk))));}
+    }
     private static Query term(String field, String value) {
         return Query.of(q -> q.term(t -> t.field(field).value(value)));
     }

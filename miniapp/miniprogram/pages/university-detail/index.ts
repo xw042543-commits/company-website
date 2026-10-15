@@ -1,5 +1,6 @@
 import {
   getUniversityDetail,
+  getUniversityProgrammeCategories,
   getUniversityProgrammes,
   type UniversityDetail,
   type UniversityProgramme,
@@ -7,7 +8,11 @@ import {
 } from '../../services/universities';
 import { createPlanningDiscoveryService } from '../../services/planning-discovery';
 import { favoriteUniversities } from '../../stores/favorites';
+import { loadFilterOptions } from '../../services/catalogue';
+import { deriveProgrammeCategories, filterProgrammes, type ProgrammeCategory } from '../../utils/discovery-view';
 import { consultationRoute, programmeDetailRoute } from '../../utils/routes';
+import { uniqueStudyLevelNamesZh } from '../../utils/study-level-display';
+import { universityMedianTuitionZh } from '../../utils/university-tuition';
 
 type ViewState = 'loading' | 'ready' | 'failed' | 'offline';
 type DetailSection = 'introduction' | 'facts' | 'programmes';
@@ -22,6 +27,8 @@ Page({
     programmes: [] as UniversityProgramme[],
     programmeCount: 0,
     activeSection: 'programmes' as DetailSection,
+    activeCategory: 'ALL',
+    programmeCategories: [] as ProgrammeCategory[],
     visibleProgrammes: [] as UniversityProgramme[],
     descriptionParagraphs: [] as string[],
     location: '',
@@ -81,6 +88,11 @@ Page({
     if (section !== 'introduction' && section !== 'facts' && section !== 'programmes') return;
     this.setData({ activeSection: section });
   },
+  selectCategory(event: WechatMiniprogram.BaseEvent) {
+    const code: unknown = event.currentTarget.dataset.code;
+    if (typeof code !== 'string' || !this.data.programmeCategories.some((category) => category.code === code)) return;
+    this.setData({ activeCategory: code, visibleProgrammes: filterProgrammes(this.data.programmes, code) });
+  },
   retry() { void this.loadPage(); },
   toggleFavorite() {
     if (!this.data.slug) return;
@@ -111,9 +123,10 @@ Page({
     const loadProgrammes = (page: number) => this.data.planningEntry
       ? createPlanningDiscoveryService().programmes(this.data.slug, this.data.planningFilters, page)
       : getUniversityProgrammes(this.data.slug, page, 48);
-    const [detail, programmes] = await Promise.all([
+    const [detail, programmes, categoryResponse] = await Promise.all([
       getUniversityDetail(this.data.slug),
       loadProgrammes(1),
+      getUniversityProgrammeCategories(this.data.slug),
     ]);
     if (!detail.ok || !programmes.ok) {
       const error = !detail.ok ? detail.error : (!programmes.ok ? programmes.error : null);
@@ -136,17 +149,27 @@ Page({
       this.setData({ state: 'failed' as ViewState });
       return;
     }
+    let labels: Map<string, string>;
+    if (categoryResponse.ok) {
+      labels = new Map(categoryResponse.value.map((category) => [category.code, category.nameZh || category.nameEn]));
+    } else {
+      const catalogue = await loadFilterOptions();
+      labels = new Map(catalogue.ok
+        ? catalogue.value.subjectCategories.map((category) => [category.code, category.nameZh || category.nameEn]) : []);
+    }
+    const programmeCategories = deriveProgrammeCategories(allProgrammes, labels);
+    const activeCategory = programmeCategories.some((category) => category.code === this.data.activeCategory)
+      ? this.data.activeCategory : 'ALL';
     this.setData({
       university: detail.value,
       programmes: allProgrammes,
       programmeCount: programmes.value.totalItems,
-      visibleProgrammes: allProgrammes,
+      programmeCategories,
+      activeCategory,
+      visibleProgrammes: filterProgrammes(allProgrammes, activeCategory),
       location: [detail.value.cityZh, detail.value.countryNameZh].filter(Boolean).join('，'),
       levelSummary: summarizeLevels(allProgrammes),
-      profileFacts: detail.value.sections.map((section) => ({
-        label: section.titleZh || section.titleEn,
-        value: section.bodyZh || section.bodyEn,
-      })).filter((fact) => fact.label && fact.value),
+      profileFacts: buildProfileFacts(detail.value.sections, allProgrammes),
       descriptionParagraphs: detail.value.descriptionZh.split(/\r?\n/).map((paragraph) => paragraph.trim()).filter(Boolean),
       logoLetter: detail.value.nameEn.charAt(0).toUpperCase() || 'U',
       state: 'ready' as ViewState,
@@ -158,9 +181,23 @@ Page({
 type BasicFact = { label: string; value: string };
 
 function summarizeLevels(programmes: readonly UniversityProgramme[]): string {
-  const labels: Readonly<Record<string, string>> = {
-    FOUNDATION: '预科', DIPLOMA: '文凭', BACHELOR: '本科', MASTER: '硕士', DOCTORATE: '博士',
-  };
-  const levels = [...new Set(programmes.map((programme) => labels[programme.studyLevelCode] || programme.studyLevelCode).filter(Boolean))];
+  const levels = uniqueStudyLevelNamesZh(programmes.map(programme => ({ code: programme.studyLevelCode })));
   return levels.join('、') || '待确认';
+}
+
+function buildProfileFacts(
+  sections: readonly UniversityDetail['sections'][number][],
+  programmes: readonly UniversityProgramme[],
+): BasicFact[] {
+  const tuitionValue = universityMedianTuitionZh(programmes);
+  let hasTuition = false;
+  const facts = sections.map((section) => {
+    if (section.type === 'TUITION') {
+      hasTuition = true;
+      return { label: section.titleZh || '学费说明', value: tuitionValue };
+    }
+    return { label: section.titleZh || section.titleEn, value: section.bodyZh || section.bodyEn };
+  }).filter((fact) => fact.label && fact.value);
+  if (!hasTuition) facts.push({ label: '学费说明', value: tuitionValue });
+  return facts;
 }

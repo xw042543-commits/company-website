@@ -152,7 +152,7 @@ test("conflict refresh preserves selected target and invalidates its current ver
 
 test("queue filters emit only allowlisted fields and reject reversed time bounds", async () => {
   const { moderationQueueFilters } = await import("./adviser-community-ui.ts");
-  assert.deepEqual(moderationQueueFilters({ status: "PENDING", targetType: "", reasonCode: "", from: "", to: "" }), { status: "PENDING", size: 20 });
+  assert.deepEqual(moderationQueueFilters({ status: "PENDING", targetType: "", reasonCode: "", from: "", to: "" }), { status: "PENDING", size: 6 });
   assert.equal(moderationQueueFilters({ status: "PENDING", targetType: "POST", reasonCode: "SPAM", from: "2026-10-10T00:00:00Z", to: "2026-10-09T00:00:00Z" }), null);
 });
 
@@ -197,6 +197,9 @@ test("workspace exposes labeled filters, report aggregate, action history and gu
 test("community stylesheet includes responsive sizing and reduced-motion rules", () => {
   const css = source("../app/globals.css");
   assert.match(css, /\.community-filters/);
+  assert.match(css, /\.community-filter-footer[\s\S]*justify-content:\s*space-between/);
+  assert.match(css, /\.community-filter-actions[\s\S]*gap:\s*10px/);
+  assert.match(css, /\.community-review-images[\s\S]*object-fit:\s*contain/);
   assert.match(css, /\.community-workspace[\s\S]*min-width:\s*0/);
   assert.match(css, /\.community-workspace[\s\S]*min-height:\s*44px/);
   assert.match(css, /prefers-reduced-motion:\s*reduce[\s\S]*community/);

@@ -23,7 +23,13 @@
 npm run crawl -- --config config/sources.json
 ```
 
-马来西亚第一批 20 所院校的已核对入口见 `config/sources.malaysia.phase1.json`；运行前同样必须替换其中的联系方式占位文本。范围和核验规则见 `../docs/data/malaysia-crawl-scope.md`。
+只处理一所学校时可使用来源键筛选，适合逐校适配、失败重试和增量更新：
+
+```powershell
+npm run crawl -- --config config/sources.malaysia.current.json --source taylors-university
+```
+
+数据库当前 20 所马来西亚院校的官网入口见 `config/sources.malaysia.current.json`。马大适配器试点配置见 `config/sources.malaysia.um-pilot.json`。范围和核验规则见 `../docs/data/malaysia-crawl-scope.md`。
 
 结果写入 `.data/runs/<时间>/<来源>/`：
 
@@ -37,8 +43,27 @@ npm run crawl -- --config config/sources.json
 npm run check
 ```
 
+已有网页快照可在不再次访问官网的情况下重新解析：
+
+```powershell
+npm run reprocess -- --config config/sources.malaysia.um-pilot.json --bundle <review-bundle.json>
+```
+
+将审核包与只读 API 审计结果对账并生成增量 SQL：
+
+```powershell
+npm run reconcile -- --bundle <review-bundle.json> --audit <audit.json> --university um --output <目录>
+```
+
+对账器只接受唯一匹配且含详情页证据的记录，校验数据库字段长度，只填空字段，并只替换没有来源网址的历史生成内容。未匹配、歧义和已有值冲突会进入报告，不会自动写入 SQL。生成文件仍须经过代码审查和 Flyway 测试；采集器和对账器均不连接生产数据库。
+
 ## 当前识别范围
 
-第一版优先读取学校官网的 JSON-LD 标记：`CollegeOrUniversity`、`EducationalOrganization`、`Course` 和 `EducationalOccupationalProgram`。普通页面仍会保存快照，但不会靠关键词猜测专业、语言、分类、入学时间或计费周期。后续应为目标学校增加独立适配器，并用真实页面快照编写回归检查。
+通用解析优先读取学校官网的 JSON-LD 标记：`CollegeOrUniversity`、`EducationalOrganization`、`Course` 和 `EducationalOccupationalProgram`。普通页面仍会保存快照，但不会靠关键词猜测专业、语言、分类、入学时间或计费周期。马大适配器可提取介绍、学制、国际生学费、入学要求、课程结构、就业方向和入学时间，并保留字段级证据。其他学校须逐校增加适配器，并用真实页面快照编写回归检查。
 
 抓取前应确认网站条款、版权和当地适用规则。遇到禁止抓取的 `robots.txt`、无法读取的 `robots.txt`、登录墙或验证码时，本工具不会绕过。
+
+
+## 官网课程专用核验
+
+`tools/official_modules.py` 采集官网专业结构，遵守 robots、逐源限速并保留快照哈希；仅主标题可确认专业归属，相关专业卡片、辅修推荐和选课说明不能作为课程表。支持 `--offline`、`--refresh`、`--max-age-days`。解析/所有权不明的 PDF 只作为证据，不能自动发布。中文翻译独立记录，不改变官网原文证据。清洗、翻译、验证和新迁移构建流程见 [课程核验报告](../outputs/official-course-modules-20261015/README.md)，生产数据库未由采集器直接连接。

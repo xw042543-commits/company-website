@@ -15,6 +15,9 @@ Elasticsearch 用于搜索。
 - `.env.example`：本地及部署环境变量示例。
 - `AGENTS.md`：开发与协作规则。
 
+项目背景见 [项目上下文](docs/PROJECT_CONTEXT.md)，组件与数据流见
+[系统架构](docs/ARCHITECTURE.md)。
+
 ## 本地运行
 
 1. 从 `.env.example` 复制一份 `.env`，只在自己电脑上填写密码。不要把 `.env`

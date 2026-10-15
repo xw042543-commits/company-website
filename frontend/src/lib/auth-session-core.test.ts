@@ -25,16 +25,25 @@ test("loads authenticated adviser capabilities through an uncached cookie-bound 
       assert.equal(headers.get("cookie"), "JSESSIONID=real-session");
       assert.equal(headers.get("x-forwarded-for"), "203.0.113.7");
       assert.equal(headers.get("x-forwarded-proto"), "https");
-      return Response.json({ authenticated: true, userId: 7, fullName: "Adviser", adviser });
+      return Response.json({ authenticated: true, userId: 7, fullName: "Adviser", adviser, admin: false });
     }) as typeof fetch;
     assert.deepEqual(await loadSessionAccess("http://backend:8080/", "JSESSIONID=real-session", request,
-      "203.0.113.7"), { authenticated: true, adviser });
+      "203.0.113.7"), { authenticated: true, adviser, admin: false });
   }
+});
+
+test("session capability parsing tolerates additive backend fields", async () => {
+  const request = (async () => Response.json({
+    authenticated: true, userId: 7, fullName: "Administrator", adviser: false, admin: true,
+    futureCapability: "ignored",
+  })) as typeof fetch;
+  assert.deepEqual(await loadSessionAccess("http://backend:8080", "JSESSIONID=session", request),
+    { authenticated: true, adviser: false, admin: true });
 });
 
 test("adviser session access fails closed for anonymous and malformed session contracts", async () => {
   for (const payload of [
-    { authenticated: false, userId: null, fullName: null, adviser: false },
+    { authenticated: false, userId: null, fullName: null, adviser: false, admin: false },
     null, [], "signed-in", { authenticated: "true", adviser: true },
     { authenticated: true, userId: 7, fullName: "Adviser", adviser: "true" },
     { authenticated: true, userId: "7", fullName: "Adviser", adviser: true },
@@ -44,20 +53,20 @@ test("adviser session access fails closed for anonymous and malformed session co
   ]) {
     const request = (async () => Response.json(payload)) as typeof fetch;
     assert.deepEqual(await loadSessionAccess("http://backend:8080", "JSESSIONID=session", request),
-      { authenticated: false, adviser: false }, JSON.stringify(payload));
+      { authenticated: false, adviser: false, admin: false }, JSON.stringify(payload));
   }
 });
 
 test("session access never reuses capabilities after missing cookies or backend failure", async () => {
   let calls = 0;
   const request = (async () => { calls++; throw new Error("offline"); }) as typeof fetch;
-  assert.deepEqual(await loadSessionAccess(undefined, "cookie", request), { authenticated: false, adviser: false });
-  assert.deepEqual(await loadSessionAccess("http://backend:8080", null, request), { authenticated: false, adviser: false });
+  assert.deepEqual(await loadSessionAccess(undefined, "cookie", request), { authenticated: false, adviser: false, admin: false });
+  assert.deepEqual(await loadSessionAccess("http://backend:8080", null, request), { authenticated: false, adviser: false, admin: false });
   assert.equal(calls, 0);
-  assert.deepEqual(await loadSessionAccess("http://backend:8080", "cookie", request), { authenticated: false, adviser: false });
+  assert.deepEqual(await loadSessionAccess("http://backend:8080", "cookie", request), { authenticated: false, adviser: false, admin: false });
   for (const response of [new Response("denied", { status: 403 }), new Response("{")]) {
     assert.deepEqual(await loadSessionAccess("http://backend:8080", "cookie", (async () => response) as typeof fetch),
-      { authenticated: false, adviser: false });
+      { authenticated: false, adviser: false, admin: false });
   }
 });
 

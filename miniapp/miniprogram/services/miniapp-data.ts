@@ -1,9 +1,18 @@
 import { request } from './http';
 import type { Result } from '../utils/result';
+import { studyLevelNameZh } from '../utils/study-level-display';
 import { createExpiringCache } from '../utils/expiring-cache';
 import { universityLogoUrl } from './university-media';
 
 const programmeCache = createExpiringCache<ProgrammeDetail>(2 * 60 * 1000);
+
+export interface OfficialCourseModule {
+  readonly nameZh: string; readonly nameEn: string; readonly descriptionZh?: string | null; readonly descriptionEn?: string | null;
+  readonly translationMethod?: string; readonly translationCheckedAt?: string;
+  readonly courseCode: string | null; readonly credits: string | null;
+  readonly requirement: string | null; readonly sourceUrl: string; readonly sourceCheckedAt: string;
+  readonly curriculumVersion: string | null;
+}
 
 export interface ProgrammeDetailSection {
   readonly type: string;
@@ -12,6 +21,12 @@ export interface ProgrammeDetailSection {
   readonly bodyZh: string;
   readonly bodyEn: string;
   readonly sortOrder: number;
+  readonly sourceUrl: string | null;
+  readonly sourceCheckedAt: string | null;
+  readonly sourceType?: 'official' | 'third_party' | 'ai_generated' | null;
+  readonly courseModules?: readonly OfficialCourseModule[];
+  readonly curriculumReviewStatus?: 'VERIFIED' | 'PENDING' | null;
+  readonly curriculumVersion?: string | null;
 }
 
 export interface ProgrammeDetail {
@@ -169,11 +184,17 @@ export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
   const sections: ProgrammeDetailSection[] = [];
   for (const section of raw.sections) {
     if (!object(section) || !text(section.type) || !integerOrZero(section.sortOrder)
-      || !['titleZh', 'titleEn', 'bodyZh', 'bodyEn'].every((field) => section[field] == null || typeof section[field] === 'string')) {
+      || !['titleZh', 'titleEn', 'bodyZh', 'bodyEn', 'sourceUrl', 'sourceCheckedAt', 'sourceType']
+        .every((field) => section[field] == null || typeof section[field] === 'string')) {
       return invalid('INVALID_PROGRAMME_DETAIL_RESPONSE');
     }
     sections.push({ type: section.type, titleZh: optional(section.titleZh), titleEn: optional(section.titleEn),
-      bodyZh: optional(section.bodyZh), bodyEn: optional(section.bodyEn), sortOrder: section.sortOrder });
+      bodyZh: optional(section.bodyZh), bodyEn: optional(section.bodyEn), sortOrder: section.sortOrder,
+      sourceUrl: secureUrl(section.sourceUrl), sourceCheckedAt: nullableText(section.sourceCheckedAt),
+      sourceType: provenance(section.sourceType),
+      courseModules: parseOfficialModules(section.courseModules),
+      curriculumReviewStatus: section.curriculumReviewStatus === 'VERIFIED' ? 'VERIFIED' : 'PENDING',
+      curriculumVersion: optional(section.curriculumVersion) || null });
   }
   return { ok: true, value: {
     id: raw.id, programmeCode: optional(raw.programmeCode), slug: raw.slug, nameZh: raw.nameZh, nameEn: optional(raw.nameEn),
@@ -224,7 +245,7 @@ export function mapApplicationOrder(raw: unknown): ApplicationOrderSummary | nul
     || !text(raw.statusLabel)) return null;
   const submittedAt = optional(raw.submittedAt);
   return { referenceCode: raw.referenceCode, universityName: optional(raw.universityName),
-    programmeName: optional(raw.programmeName), qualification: optional(raw.qualification), status: raw.status,
+    programmeName: optional(raw.programmeName), qualification: studyLevelNameZh({ code: optional(raw.qualification) }), status: raw.status,
     statusLabel: raw.statusLabel, submittedAt, submittedDate: dateLabel(submittedAt) };
 }
 
@@ -268,10 +289,17 @@ function mapped<T>(raw: unknown, mapper: (item: unknown) => T | null, code: stri
 function object(value: unknown): value is Record<string, unknown> { return typeof value === 'object' && value !== null && !Array.isArray(value); }
 function text(value: unknown): value is string { return typeof value === 'string' && value.trim().length > 0; }
 function optional(value: unknown): string { return typeof value === 'string' ? value.trim() : ''; }
+function nullableText(value: unknown): string | null {
+  const normalized = optional(value);
+  return normalized || null;
+}
 function integer(value: unknown): value is number { return typeof value === 'number' && Number.isSafeInteger(value) && value > 0; }
 function integerOrZero(value: unknown): value is number { return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0; }
 function stringList(value: unknown): string[] { return Array.isArray(value) ? value.filter(text) : []; }
 function secureUrl(value: unknown): string | null { return typeof value === 'string' && value.startsWith('https://') ? value : null; }
+function provenance(value: unknown): 'official' | 'third_party' | 'ai_generated' | null {
+  return value === 'official' || value === 'third_party' || value === 'ai_generated' ? value : null;
+}
 function slug(value: string): boolean { return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value); }
 function positiveId(value: string): boolean { return /^[1-9]\d*$/.test(value); }
 function orderStatus(value: unknown): value is ApplicationOrderStatus {
@@ -281,3 +309,20 @@ function dateLabel(value: string): string { return /^\d{4}-\d{2}-\d{2}/.test(val
 function nullValue<T>(value: T | null): value is null { return value === null; }
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 function invalid(code: string): Result<never> { return { ok: false, error: { kind: 'unexpected', code } }; }
+
+function parseOfficialModules(raw: unknown): OfficialCourseModule[] {
+  if (!Array.isArray(raw)) return [];
+  const modules: OfficialCourseModule[] = [];
+  for (const item of raw) {
+    if (!object(item) || !text(item.nameZh) || !/[\u3400-\u9fff]/u.test(item.nameZh) || !text(item.nameEn) || !text(item.sourceUrl)
+      || !item.sourceUrl.startsWith('https://') || !text(item.sourceCheckedAt)
+      || !Number.isFinite(Date.parse(item.sourceCheckedAt))
+      || !['courseCode', 'credits', 'requirement', 'curriculumVersion', 'descriptionZh', 'descriptionEn'].every(key => item[key] == null || typeof item[key] === 'string')) return [];
+    modules.push({ nameZh: item.nameZh, nameEn: item.nameEn, descriptionZh: optional(item.descriptionZh) || null,
+      descriptionEn: optional(item.descriptionEn) || null, courseCode: optional(item.courseCode) || null,
+      credits: optional(item.credits) || null, requirement: optional(item.requirement) || null,
+      sourceUrl: item.sourceUrl, sourceCheckedAt: item.sourceCheckedAt,
+      curriculumVersion: optional(item.curriculumVersion) || null });
+  }
+  return modules;
+}

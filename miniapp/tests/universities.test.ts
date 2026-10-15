@@ -7,6 +7,8 @@ import {
   mapUniversityDetail,
   mapUniversityPage,
   mapUniversityProgrammePage,
+  mapUniversityProgrammeCategories,
+  getUniversityProgrammeCategories,
   getUniversityProgrammes,
 } from '../miniprogram/services/universities.ts';
 import type { RequestOptions, TransportOptions } from '../miniprogram/services/http.ts';
@@ -72,6 +74,41 @@ test('programme requests respect the backend page-size ceiling', async () => {
     if (original) Object.defineProperty(globalThis, 'wx', original);
     else Reflect.deleteProperty(globalThis, 'wx');
   }
+});
+
+test('university category requests use the dedicated endpoint and validate dictionary data', async () => {
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'wx');
+  let requestedUrl = '';
+  Object.defineProperty(globalThis, 'wx', { configurable: true, value: {
+    getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }),
+    request: (options: TransportOptions) => {
+      requestedUrl = options.url;
+      options.success({ statusCode: 200, data: [
+        { code: 'COMPUTING_IT', nameZh: '计算机与信息技术', nameEn: 'Computing and Information Technology', programmeCount: 12 },
+      ], header: {}, cookies: [] });
+      return { abort() {} };
+    },
+  } });
+  try {
+    const result = await getUniversityProgrammeCategories('apu');
+    assert.equal(result.ok, true);
+    assert.equal(new URL(requestedUrl).pathname, '/api/v1/universities/apu/programme-categories');
+    assert.deepEqual(result.ok ? result.value : [], [
+      { code: 'COMPUTING_IT', nameZh: '计算机与信息技术', nameEn: 'Computing and Information Technology', programmeCount: 12 },
+    ]);
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'wx', original);
+    else Reflect.deleteProperty(globalThis, 'wx');
+  }
+});
+
+test('university category responses reject duplicates, missing labels and invalid counts', () => {
+  const valid = { code: 'BUSINESS', nameZh: '商科', nameEn: 'Business', programmeCount: 3 };
+  assert.equal(mapUniversityProgrammeCategories([valid]).ok, true);
+  assert.equal(mapUniversityProgrammeCategories([{ ...valid, programmeCount: -1 }]).ok, false);
+  assert.equal(mapUniversityProgrammeCategories([{ ...valid, programmeCount: 0 }]).ok, false);
+  assert.equal(mapUniversityProgrammeCategories([{ ...valid, nameZh: '', nameEn: '' }]).ok, false);
+  assert.equal(mapUniversityProgrammeCategories([valid, valid]).ok, false);
 });
 
 test('published Chinese-only programmes remain accessible without fabricated English names', () => {
@@ -521,6 +558,12 @@ test('maps the published programme list used by university details', () => {
       categoryCode: 'BUSINESS',
       studyLevelCode: 'BACHELOR',
       durationDisplay: '3 年',
+      tuitionMin: 80_000,
+      tuitionMax: 98_400,
+      tuitionCurrency: 'MYR',
+      tuitionFeePeriod: 'TOTAL_PROGRAM',
+      tuitionTotalRmbMin: 130_000,
+      tuitionTotalRmbMax: 160_000,
       tuitionDisplay: 'RM 89,200',
       intakeDisplayTexts: ['9 月'],
     }],
@@ -530,5 +573,10 @@ test('maps the published programme list used by university details', () => {
     totalPages: 1,
   });
   assert.equal(result.ok, true);
-  if (result.ok) assert.equal(result.value.items[0]?.nameZh, '工商管理');
+  if (result.ok) {
+    assert.equal(result.value.items[0]?.nameZh, '工商管理');
+    assert.equal(result.value.items[0]?.tuitionMin, 80_000);
+    assert.equal(result.value.items[0]?.tuitionFeePeriod, 'TOTAL_PROGRAM');
+    assert.equal(result.value.items[0]?.tuitionTotalRmbMax, 160_000);
+  }
 });

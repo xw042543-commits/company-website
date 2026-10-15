@@ -147,7 +147,8 @@ test('consultation locks duplicate submissions before authentication completes',
     require: (path: string) => path.includes('session') ? { sessionStore: {
       getSnapshot: () => ({ status: 'anonymous', account: null }),
       ensureAuthenticated: () => { authCalls++; return new Promise((resolve) => { finishAuth = resolve; }); },
-    } } : { consultationGateway: { submit: () => assert.fail('submit should not run after failed login') } },
+    } } : path.includes('study-level-display') ? { studyLevelNameZh: ({ code }: { code: string }) => code }
+      : { consultationGateway: { submit: () => assert.fail('submit should not run after failed login') } },
     wx: { showToast: () => {}, showLoading: () => {}, hideLoading: () => {}, setNavigationBarTitle: () => {} },
   });
   const data = structuredClone(definition.data) as Record<string, unknown>;

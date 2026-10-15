@@ -43,26 +43,33 @@ const session = {
   authenticated: true,
   userId: 7,
   fullName: "Wang Xin",
+  adviser: false,
+  admin: false,
 };
 
-test("accepts backend adviser session field without widening the public session shape", async () => {
-  for (const adviser of [false, true]) {
-    const response = requestQueue([jsonResponse({ ...session, adviser })]);
-    assert.deepEqual(await getSession("http://localhost:8080", response.request), { status: "ready", session });
-    const write = requestQueue([jsonResponse(csrf), jsonResponse({ ...session, adviser })]);
+test("accepts backend adviser and administrator session capabilities", async () => {
+  for (const capabilities of [{ adviser: false, admin: false }, { adviser: true, admin: false }, { adviser: false, admin: true }]) {
+    const expected = { ...session, ...capabilities };
+    const response = requestQueue([jsonResponse(expected)]);
+    assert.deepEqual(await getSession("http://localhost:8080", response.request), { status: "ready", session: expected });
+    const write = requestQueue([jsonResponse(csrf), jsonResponse(expected)]);
     assert.deepEqual(await login("http://localhost:8080", {
       identifier: "adviser@example.com", password: "password", rememberMe: false,
-    }, write.request), { status: "ready", session });
+    }, write.request), { status: "ready", session: expected });
   }
-  const anonymous = { authenticated: false, userId: null, fullName: null };
+  const anonymous = { authenticated: false, userId: null, fullName: null, adviser: false, admin: false };
   assert.deepEqual(await getSession("http://localhost:8080",
-    requestQueue([jsonResponse({ ...anonymous, adviser: false })]).request), { status: "ready", session: anonymous });
+    requestQueue([jsonResponse(anonymous)]).request), { status: "ready", session: anonymous });
 });
 
-test("rejects malformed capabilities and unexpected fields in backend sessions", async () => {
+test("rejects malformed capabilities while allowing additive backend session fields", async () => {
+  assert.deepEqual(await getSession("http://localhost:8080",
+    requestQueue([jsonResponse({ ...session, futureCapability: true })]).request),
+  { status: "ready", session });
   for (const payload of [
-    { ...session, adviser: "true" }, { ...session, adviser: null }, { ...session, adviser: true, role: "ADVISER" },
-    { authenticated: false, userId: null, fullName: null, adviser: true },
+    { ...session, adviser: "true" }, { ...session, admin: null },
+    { authenticated: true, userId: 7, fullName: "Wang Xin", adviser: false },
+    { authenticated: false, userId: null, fullName: null, adviser: true, admin: false },
   ]) {
     assert.deepEqual(await getSession("http://localhost:8080", requestQueue([jsonResponse(payload)]).request),
       { status: "error" });
@@ -139,7 +146,7 @@ test("strictly validates csrf and session payloads", async () => {
   const malformedSession = requestQueue([jsonResponse({ authenticated: true, userId: "7" })]);
   assert.deepEqual(await getSession("http://localhost:8080", malformedSession.request), { status: "error" });
 
-  const anonymous = { authenticated: false, userId: null, fullName: null };
+  const anonymous = { authenticated: false, userId: null, fullName: null, adviser: false, admin: false };
   const validSession = requestQueue([jsonResponse(anonymous)]);
   assert.deepEqual(await getSession("http://localhost:8080", validSession.request), {
     status: "ready",

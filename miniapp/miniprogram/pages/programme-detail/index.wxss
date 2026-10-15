@@ -103,7 +103,11 @@
 .curriculum-copy { min-width:0; flex:1; padding:20rpx 0; }
 .curriculum-name-zh { color:#203d32; font-size:28rpx; font-weight:650; line-height:1.48; overflow-wrap:break-word; word-break:break-word; }
 .curriculum-name-en { margin-top:7rpx; color:#7b8983; font-size:22rpx; line-height:1.5; overflow-wrap:break-word; word-break:break-word; }
+.curriculum-name-en--primary { margin-top:0; color:#203d32; font-size:27rpx; font-weight:650; }
 .curriculum-footnote { padding:22rpx 26rpx 24rpx; border-top:1rpx solid #e8efeb; background:#fafcfb; color:#7a8882; font-size:22rpx; line-height:1.65; }
+.section-provenance { display:flex; align-items:center; justify-content:space-between; gap:18rpx; margin-top:18rpx; padding:20rpx 22rpx; border:1rpx solid #dce9e2; border-radius:16rpx; background:#eef8f3; color:#246a4d; }
+.provenance-copy { display:flex; min-width:0; flex:1; align-items:flex-start; gap:12rpx; font-size:22rpx; line-height:1.55; }
+.source-button { flex-shrink:0; min-height:58rpx; margin:0; padding:0 20rpx; border:1rpx solid #aad5c0; border-radius:999rpx; background:#fff; color:#087f51; font-size:21rpx; font-weight:700; line-height:56rpx; }
 
 @media (min-width:600px) {
   .career-grid { grid-template-columns:1fr 1fr; }

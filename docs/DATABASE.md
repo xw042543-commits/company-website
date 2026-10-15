@@ -7,7 +7,7 @@ Redis 用于缓存、社区热门快照和社区写入限流，Elasticsearch 用
 业务记录必须保存在 PostgreSQL 中，搜索投影和缓存可根据主数据库重建。
 Redis 不可用时，社区写入和热门快照按接口契约返回不可用状态，不能绕过限流写入。
 
-当前迁移已到 V24，包含院校、课程、媒体、用户认证、咨询处理、小程序收藏与规划、
+当前迁移已到 V54，包含院校、课程、媒体、用户认证、咨询处理、小程序收藏与规划、
 社区、钱包、消息、申请进度和头像的数据结构。
 仓库内的数据整理及导入资料包不等于正式发布批准；发布仍须依据业务负责人确认的资料。
 数据库集成测试使用临时测试容器，不连接真实业务数据库。
@@ -44,6 +44,9 @@ Redis 不可用时，社区写入和热门快照按接口契约返回不可用�
 - `V22__create_miniapp_account_avatars.sql`：创建小程序账号头像存储表。
 - `V23__community_boards.sql`：为帖子增加标题、分类和所属院校。
 - `V24__community_feed_scope_indexes.sql`：增加按院校和分类读取社区列表的索引。
+- `V39` 至 `V43`：记录专业前景与课程章节的来源类型，并完成分片审计。
+- `V44` 至 `V47`：按院校分组增量核对马来西亚已发布专业的基本信息，保留无法确认的客观字段为待核实。
+- `V50__add_basic_info_source_provenance.sql`：为专业、入学时间和入学条件补充来源类型与来源说明；来源类型仅允许 `official`、`third_party` 或 `ai_generated`。
 
 已经在任何环境执行过的迁移文件不能直接修改。后续需要调整结构时，应新增
 新的顺序版本迁移，确保三名开发人员、CI 和服务器按相同顺序升级数据库。
@@ -140,6 +143,7 @@ languages ── programme_languages
 - `tuition_rmb_min`、`tuition_rmb_max`、`exchange_rate`、`exchange_rate_date`：人民币参考值及其换算依据。
 - `tuition_fee_period`：原学费的计费周期，可为每年、每学期、全课程或未知。
 - `tuition_total_rmb_min`、`tuition_total_rmb_max`：可直接用于搜索筛选的全课程人民币总学费区间。
+- `official_url`、`source_checked_at`、`source_type`、`source_reference`：基本信息来源、核对时间、来源类型及来源说明；历史记录没有保留具体出处时必须明确标为待核实，不得伪装成官网资料。
 - `status`、`created_at`、`updated_at`、`published_at`：发布和审计信息。
 
 数据库会阻止负数学费、最小值大于最大值、无币种的学费金额、无汇率依据的人民币
@@ -289,3 +293,36 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 - `miniapp_account_avatars`：保存用户主动选择上传的头像。
 
 详细字段、约束和索引以对应迁移文件为准；文档中的迁移清单不表示服务器已经执行这些迁移。
+
+
+## 官网课程结构（V53，发布状态见课程核验报告）
+
+`programme_detail_sections` 新增 JSONB `course_modules`、`curriculum_review_status` 和 `curriculum_version`。课程对象保存中文平台译名、官网原名/原文、可核实的代码/学分/必选修、来源和采集时间、翻译方式与时间。`programme_curriculum_backups` 在替换/隐藏前保存完整旧板块；未核实数据归档而非删除。只处理明确审核范围内马来西亚专业的 CURRICULUM，不更新专业主表。详见 [全量核验报告](../outputs/official-course-modules-20261015/README.md)。
+
+
+## Excel 导入暂存（V52）
+
+`V52__create_catalog_excel_imports.sql` 新增以下表，并为 programmes 增加可空 campus 字段。
+迁移不修改任何已执行迁移，也不变更现有记录的状态或关联。
+
+- `catalog_import_batches`：上传人FK、文件名、类型、时间、分类计数、发布结果与失败摘要。
+- `catalog_import_rows`：原始Excel行号、JSONB字段数据、校验/重复分类、解析错误、匹配ID、发布ID。
+  有效新数据仅以 DRAFT 保存于此，未确认发布前不写 universities/programmes。
+  REMOVED 为软移除，PUBLISHED 行禁止编辑；解析错误重处理时继续保留，显式修正才清除。
+- `catalog_entity_aliases`：导入时人工提供的已知别名，按类型/实体ID/规范化别名唯一。
+  现有 programme search_aliases 同时参与查重；新增别名用于后续导入识别，不改现有公开搜索逻辑。
+
+发布采用 PostgreSQL 事务与 SHARE ROW EXCLUSIVE 表锁，和其他管理员 INSERT/UPDATE 互斥，
+在锁内重新查重后仅 INSERT 新记录，搜索同步入队与发布状态同事务提交。没有永久删除正式数据的路径。
+新增校区与别名为空时兼容历史记录；历史校区未知的同名专业按疑似重复交给管理员核对。
+
+## V54 工作人员导入与回收站
+
+新增 `catalog_code_reservations`（编码预留及永久删除编码退休）、`catalog_courses`（课程管理投影；学校课程代码仍保存在模块 JSON 的 courseCode）、`catalog_advanced_administrators`（单独授权永久删除）、`catalog_operation_audit`（操作快照）。院校和专业仅增加 deleted_at/previous_status。旧数据状态、编码、申请关系保持不变。课程投影从既有 CURRICULUM JSON 初始化，触发器兼容后续官网采集更新；导入类型扩展为 COURSE。详见 [工作人员指南](ADMIN_STAFF_IMPORT_GUIDE.md)。
+
+
+## V55 账号管理日志
+
+新增 `account_management_audit`，保存操作人/目标用户外键、姓名快照、ROLE/STATUS 操作、前后身份和状态及时间。只追加审计记录，没有修改或删除日志接口。目标用户与日志编号联合索引用于详情分页；user_accounts 增加注册时间/编号分页索引。
+
+复用已有 user_accounts.role/status/updated_at 和 catalog_advanced_administrators，不新增角色，不改变用户、申请、订单关系或现有高级管理员名单。禁用再恢复时从最新禁用日志恢复原状态；无旧日志时依据验证记录或已有外部登录绑定判断，未验证账号保持 PENDING_VERIFICATION。新迁移不更新现有账号。

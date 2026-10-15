@@ -68,7 +68,11 @@
 
     <view wx:else class="programmes-panel" aria-role="tabpanel">
       <view wx:if="{{planningEntry}}" class="description-paragraph">已保留规划页筛选条件。点击专业查看详细资料，返回可调整选校条件。</view>
-      <view class="programme-heading">{{planningEntry ? '符合条件的专业' : '热门专业'}}</view>
+      <view wx:if="{{programmeCategories.length > 1}}" class="section-title">专业分类</view>
+      <view wx:if="{{programmeCategories.length > 1}}" class="category-options" aria-label="按专业分类筛选">
+        <button wx:for="{{programmeCategories}}" wx:key="code" class="category-chip {{activeCategory === item.code ? 'category-chip--active' : ''}}" data-code="{{item.code}}" bindtap="selectCategory" aria-pressed="{{activeCategory === item.code}}" hover-class="control--pressed">{{item.label}}<text class="category-count">{{item.programmeCount}}</text></button>
+      </view>
+      <view class="programme-heading">{{planningEntry ? '符合条件的专业' : '专业列表'}}<text class="programme-total">{{visibleProgrammes.length}} 个专业</text></view>
       <view wx:if="{{visibleProgrammes.length > 0}}" class="programme-list">
         <button wx:for="{{visibleProgrammes}}" wx:key="id" class="programme-row" bindtap="openProgramme" data-id="{{item.id}}" aria-label="查看{{item.nameZh}}专业详情" hover-class="control--pressed">
           <view class="programme-content">

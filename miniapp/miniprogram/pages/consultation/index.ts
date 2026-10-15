@@ -1,9 +1,10 @@
 import { consultationGateway, type ConsultationDraft, type Qualification } from '../../services/consultations';
 import { sessionStore } from '../../stores/session';
+import { studyLevelNameZh } from '../../utils/study-level-display';
 
 const qualifications: Array<{ label: string; value: Qualification }> = [
-  { label: '尚未确定', value: '' }, { label: '预科', value: 'foundation' },
-  { label: '本科', value: 'bachelor' }, { label: '硕士', value: 'master' }, { label: '博士', value: 'doctorate' },
+  { label: '尚未确定', value: '' }, ...(['foundation', 'bachelor', 'master', 'doctorate'] as const)
+    .map(value => ({ label: studyLevelNameZh({ code: value }), value })),
 ];
 
 Page({

@@ -57,6 +57,24 @@ class UniversityDetailServiceTest {
     @Mock private CourseMode courseMode;
 
     @Test
+    void returnsThePublishedCategoriesActuallyUsedByTheUniversity() {
+        var categories = List.of(
+                new UniversityProgrammeCategoryResponse(
+                        "BUSINESS_MANAGEMENT", "商业与管理", "Business and Management", 8L
+                ),
+                new UniversityProgrammeCategoryResponse(
+                        "COMPUTING_IT", "计算机与信息技术", "Computing and Information Technology", 5L
+                )
+        );
+        when(university.getId()).thenReturn(9L);
+        when(universities.findBySlugAndStatus("segi", CategoryStatus.PUBLISHED))
+                .thenReturn(Optional.of(university));
+        when(programmeQuery.findPublishedCategories(9L)).thenReturn(categories);
+
+        assertThat(service().getPublishedProgrammeCategories("segi")).containsExactlyElementsOf(categories);
+    }
+
+    @Test
     void returnsPublishedProgrammeOnlyWhenItBelongsToThePublishedUniversity() {
         when(university.getId()).thenReturn(9L);
         when(universities.findBySlugAndStatus("segi", CategoryStatus.PUBLISHED))

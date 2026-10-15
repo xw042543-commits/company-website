@@ -1,6 +1,7 @@
 import { buildUniversitySearchPath, formatEnglishDisplayText, type Query } from "./site.ts";
 import type { FilterOption, FilterOptions } from "./filter-options-api.ts";
 import { requestInternalApi } from "./internal-api-request.ts";
+import { studyLevelDisplayName } from "./study-level-display.ts";
 
 export type MatchedProgramme = {
   id: number;
@@ -109,6 +110,12 @@ export type UniversityProgrammeDetailSection = {
   bodyZh: string | null;
   bodyEn: string | null;
   sortOrder: number;
+  sourceUrl?: string | null;
+  sourceCheckedAt?: string | null;
+  sourceType?: "official" | "third_party" | "ai_generated" | null;
+  courseModules?: OfficialCourseModule[];
+  curriculumReviewStatus?: "VERIFIED" | "PENDING" | null;
+  curriculumVersion?: string | null;
 };
 
 export type UniversityProgrammePage = {
@@ -283,7 +290,10 @@ function isUniversityProgrammeDetailSection(value: unknown): value is University
     && isNullableString(value.titleEn)
     && isNullableString(value.bodyZh)
     && isNullableString(value.bodyEn)
-    && isInteger(value.sortOrder);
+    && isInteger(value.sortOrder)
+    && (value.sourceUrl === undefined || isNullableString(value.sourceUrl))
+    && (value.sourceType === undefined || value.sourceType === null || ["official", "third_party", "ai_generated"].includes(value.sourceType as string))
+    && (value.sourceCheckedAt === undefined || isNullableString(value.sourceCheckedAt));
 }
 
 export function parseUniversityProgramme(payload: unknown): UniversityProgramme | null {
@@ -501,7 +511,7 @@ export function toSchoolSummary(
         programme.programmeCode,
       ),
       ...(programme.studyLevelCode
-        ? { level: localizedOption(options?.studyLevels, programme.studyLevelCode, locale) }
+        ? { level: localizedStudyLevel(options?.studyLevels, programme.studyLevelCode, locale) }
         : {}),
       ...(programme.languageCodes.length
         ? {
@@ -566,7 +576,7 @@ export function toUniversityDetailView(
         category: locale === "zh"
           ? programme.categoryDisplayZh?.trim() || localizedOption(options?.subjectCategories, programme.categoryCode, locale)
           : programme.categoryDisplayEn?.trim() || localizedOption(options?.subjectCategories, programme.categoryCode, locale),
-        level: localizedOption(options?.studyLevels, programme.studyLevelCode, locale),
+        level: localizedStudyLevel(options?.studyLevels, programme.studyLevelCode, locale),
         mode: localizedOption(options?.courseModes, programme.courseModeCode, locale),
         languages: programme.languageCodes
           .map((code) => localizedOption(options?.languages, code, locale))
@@ -592,3 +602,24 @@ function localizedOption(
     ? option.nameZh.trim() || option.nameEn.trim() || code
     : formatEnglishDisplayText(option.nameEn.trim() || code);
 }
+
+function localizedStudyLevel(
+  options: FilterOption[] | undefined,
+  code: string | null,
+  locale: "zh" | "en",
+) {
+  if (!code) return "";
+  const option = options?.find((candidate) => candidate.code === code);
+  return studyLevelDisplayName(locale, {
+    code,
+    nameZh: option?.nameZh,
+    nameEn: option?.nameEn,
+  });
+}
+
+export type OfficialCourseModule = {
+  nameZh: string; nameEn: string; descriptionZh?: string | null; descriptionEn?: string | null;
+  translationMethod?: string; translationCheckedAt?: string;
+  courseCode: string | null; credits: string | null; requirement: string | null;
+  sourceUrl: string; sourceCheckedAt: string; curriculumVersion: string | null;
+};

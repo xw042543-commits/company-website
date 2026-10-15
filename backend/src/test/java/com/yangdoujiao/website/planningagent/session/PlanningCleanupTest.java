@@ -39,7 +39,7 @@ class PlanningCleanupTest {
         jdbc.update("INSERT INTO planning_messages(session_id,run_id,role,text,created_at) VALUES(?,?,'USER','hello',?)",messaged,run,java.sql.Timestamp.from(now.minus(Duration.ofDays(2))));
         jdbc.execute("ALTER TABLE planning_sessions DROP COLUMN IF EXISTS last_activity_at");
         new org.springframework.jdbc.datasource.init.ResourceDatabasePopulator(
-                new org.springframework.core.io.ClassPathResource("db/migration/V38__track_planning_session_activity.sql")).execute(dataSource);
+                new org.springframework.core.io.ClassPathResource("db/migration/V61__track_planning_session_activity.sql")).execute(dataSource);
         assertThat(activity(messaged)).isEqualTo(now.minus(Duration.ofDays(2)));
         assertThat(activity(confirmed)).isEqualTo(now.minus(Duration.ofDays(1)));
         assertThat(activity(untouched)).isEqualTo(now.minus(Duration.ofDays(40)));
