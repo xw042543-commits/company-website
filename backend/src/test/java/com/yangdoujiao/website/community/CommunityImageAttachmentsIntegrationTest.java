@@ -50,10 +50,10 @@ class CommunityImageAttachmentsIntegrationTest {
         bind(List.of(first,second),true);
         media.recordResult(first,"PASS");
         assertEquals("PENDING_REVIEW",status());
-        assertFalse(media.readyForManualApproval(post));
+        assertFalse(media.readyForManualApproval(post,true));
         media.recordResult(second,"PASS");
         assertEquals("PENDING_REVIEW",status());
-        assertTrue(media.readyForManualApproval(post));
+        assertTrue(media.readyForManualApproval(post,true));
     }
     @Test void doesNotOverrideTextReviewOrManualState() {
         bind(List.of(first),false);
@@ -65,10 +65,17 @@ class CommunityImageAttachmentsIntegrationTest {
     }
     @Test void rejectedOrUncheckedImageCannotBeApproved() {
         bind(List.of(first,second),true);
-        assertFalse(media.readyForManualApproval(post));
+        assertFalse(media.readyForManualApproval(post,true));
         media.recordResult(first,"REJECTED");
         media.recordResult(second,"PASS");
-        assertFalse(media.readyForManualApproval(post));
+        assertFalse(media.readyForManualApproval(post,true));
+        assertFalse(media.readyForManualApproval(post,false));
+        assertEquals("PENDING_REVIEW",status());
+    }
+    @Test void optionalScannerDoesNotBlockManualApproval() {
+        bind(List.of(first),true);
+        assertFalse(media.readyForManualApproval(post,true));
+        assertTrue(media.readyForManualApproval(post,false));
         assertEquals("PENDING_REVIEW",status());
     }
     @Test void rejectsDuplicateAndTooManyIds() {

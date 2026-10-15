@@ -4,6 +4,7 @@ import java.time.Clock;
 import java.time.OffsetDateTime;
 import java.util.*;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import com.yangdoujiao.website.auth.account.UserAccountRepository;
@@ -22,14 +23,17 @@ public class CommunityModerationService {
     private final CommunityAuditLogger audit;
     private final CommunityNotificationPublisher notifications;
     private final CommunityImageAttachments images;
+    private final boolean imageReviewEnabled;
     private final Clock clock;
     CommunityModerationService(CommunityModerationTargets targets,CommunityModerationQueryRepository query,CommunityReportRepository reports,
             CommunityModerationActionRepository actions,CommunityUserRestrictionRepository restrictions,UserAccountRepository accounts,
-            CommunityCursorCodec cursors,CommunityAuditLogger audit,CommunityNotificationPublisher notifications,CommunityImageAttachments images,Clock clock) {
+            CommunityCursorCodec cursors,CommunityAuditLogger audit,CommunityNotificationPublisher notifications,CommunityImageAttachments images,
+            @Value("${app.community.images.review-enabled:false}") boolean imageReviewEnabled,Clock clock) {
         this.targets=targets;this.query=query;this.reports=reports;this.actions=actions;this.restrictions=restrictions;
         this.accounts=accounts;this.cursors=cursors;this.audit=audit;
         this.notifications=notifications;
         this.images=images;
+        this.imageReviewEnabled=imageReviewEnabled;
         this.clock=clock;
     }
     @Transactional(readOnly=true)
@@ -81,7 +85,7 @@ public class CommunityModerationService {
             case RESTORE -> {
                 if(before!=CommunityContentStatus.HIDDEN&&before!=CommunityContentStatus.PENDING_REVIEW)throw transition();
                 if(target.comment()!=null&&(target.post().getStatus()!=CommunityContentStatus.PUBLISHED||target.root()!=null&&target.root().getStatus()!=CommunityContentStatus.PUBLISHED))throw transition();
-                if(target.comment()==null && images.hasImages(id) && !images.readyForManualApproval(id))throw transition();
+                if(target.comment()==null && images.hasImages(id) && !images.readyForManualApproval(id,imageReviewEnabled))throw transition();
                 next=CommunityContentStatus.PUBLISHED;
             }
             case REJECT_REPORT -> {if(reports.countByTargetTypeAndTargetIdAndStatus(type,id,CommunityReportStatus.OPEN)==0)throw transition();}

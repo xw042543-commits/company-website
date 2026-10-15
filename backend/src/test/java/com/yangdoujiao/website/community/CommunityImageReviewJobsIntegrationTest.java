@@ -80,7 +80,7 @@ class CommunityImageReviewJobsIntegrationTest {
         jobs.receive("fixture-worker","PASS",now.plusSeconds(1));
         worker.tick();
         assertEquals("PENDING_REVIEW",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
-        assertTrue(images.readyForManualApproval(post));
+        assertTrue(images.readyForManualApproval(post,true));
         worker.tick();
         assertEquals(0L,jdbc.queryForObject("SELECT count(*) FROM inbox_notifications WHERE recipient_account_id=?",Long.class,owner));
     }

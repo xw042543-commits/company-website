@@ -31,11 +31,12 @@ public class CommunityImageAttachmentRepository {
         // First terminal result wins; retries and late callbacks cannot reverse it.
         jdbc.update("UPDATE community_images SET status=? WHERE id=? AND status='PENDING'",result,imageId);
     }
-    public boolean readyForManualApproval(long postId) {
+    public boolean readyForManualApproval(long postId,boolean requireCompletedScan) {
         return Boolean.TRUE.equals(jdbc.queryForObject("""
             SELECT EXISTS(SELECT 1 FROM community_images WHERE post_id=?)
-              AND NOT EXISTS(SELECT 1 FROM community_images WHERE post_id=? AND status IN ('PENDING','REJECTED'))
-            """,Boolean.class,postId,postId));
+              AND NOT EXISTS(SELECT 1 FROM community_images WHERE post_id=? AND status='REJECTED')
+              AND (NOT ? OR NOT EXISTS(SELECT 1 FROM community_images WHERE post_id=? AND status='PENDING'))
+            """,Boolean.class,postId,postId,requireCompletedScan,postId));
     }
     public boolean hasImages(long postId) {
         return Boolean.TRUE.equals(jdbc.queryForObject(

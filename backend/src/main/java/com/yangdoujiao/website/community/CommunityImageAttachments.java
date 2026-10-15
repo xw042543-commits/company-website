@@ -39,7 +39,7 @@ public class CommunityImageAttachments {
     }
     @Transactional public void recordResult(String imageId,String result){repository.recordResult(imageId,result);}
     public boolean hasImages(long postId){return repository.hasImages(postId);}
-    public boolean readyForManualApproval(long postId){return repository.readyForManualApproval(postId);}
+    public boolean readyForManualApproval(long postId,boolean requireCompletedScan){return repository.readyForManualApproval(postId,requireCompletedScan);}
     public Map<String,List<Image>> forPosts(List<Long> posts,Long viewer,boolean adviser){return repository.forPosts(posts,viewer,adviser);}
     public byte[] read(String id,boolean thumbnail,Long viewer,boolean adviser)throws IOException {
         if(id==null||!id.matches("[0-9a-f]{32}"))throw missing();
