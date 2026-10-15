@@ -3,6 +3,7 @@ package com.yangdoujiao.website.university.api;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import com.yangdoujiao.website.programme.OfficialCourseModule;
 import java.time.YearMonth;
 import java.util.Comparator;
 import java.util.List;
@@ -50,12 +51,23 @@ public record UniversityProgrammeResponse(
             int sortOrder,
             String sourceUrl,
             OffsetDateTime sourceCheckedAt,
-            String sourceType
+            String sourceType,
+            List<OfficialCourseModule> courseModules,
+            String curriculumReviewStatus,
+            String curriculumVersion
     ) {
+        public DetailSection(String type, String titleZh, String titleEn, String bodyZh, String bodyEn,
+                int sortOrder, String sourceUrl, OffsetDateTime sourceCheckedAt, String sourceType) {
+            this(type, titleZh, titleEn, bodyZh, bodyEn, sortOrder, sourceUrl, sourceCheckedAt, sourceType,
+                    List.of(), null, null);
+        }
+
         static DetailSection from(ProgrammeDetailSection section) {
             return new DetailSection(section.getSectionType().name(), section.getTitleZh(), section.getTitleEn(),
                     section.getBodyZh(), section.getBodyEn(), section.getSortOrder(), section.getSourceUrl(),
-                    section.getSourceCheckedAt(), section.getSourceType());
+                    section.getSourceCheckedAt(), section.getSourceType(),
+                    section.getCourseModules() == null ? List.of() : List.copyOf(section.getCourseModules()),
+                    section.getCurriculumReviewStatus(), section.getCurriculumVersion());
         }
     }
 

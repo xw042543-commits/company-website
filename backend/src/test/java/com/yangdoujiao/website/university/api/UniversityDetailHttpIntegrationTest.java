@@ -268,6 +268,29 @@ class UniversityDetailHttpIntegrationTest {
                 .andExpect(jsonPath("$.fieldErrors.page").value("is too large for requested size"));
     }
 
+    @Test
+    void readsVerifiedOriginalModuleNamesAndSourcesFromPostgresAndHidesArchivedCurricula() throws Exception {
+        tools.jackson.databind.JsonNode audit;
+        try(var in=getClass().getResourceAsStream("/fixtures/official-course-modules.json")) {
+            audit=new tools.jackson.databind.ObjectMapper().readTree(in);
+        }
+        var row=java.util.stream.StreamSupport.stream(audit.get("records").spliterator(),false)
+                .filter(item->item.get("status").asText().equals("VERIFIED")).findFirst().orElseThrow();
+        var module=row.get("modules").get(0);
+        Long id=createPublishedProgramme();
+        jdbc.update("UPDATE programme_detail_sections SET course_modules=?::jsonb,curriculum_review_status='VERIFIED',source_type='official',source_url=? WHERE programme_id=? AND section_type='CURRICULUM'",
+                row.get("modules").toString(),module.get("sourceUrl").asText(),id);
+        mockMvc.perform(get("/api/v1/universities/{slug}/programmes/{id}",UNIVERSITY_SLUG,id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.sections[0].curriculumReviewStatus").value("VERIFIED"))
+                .andExpect(jsonPath("$.sections[0].courseModules[0].nameZh").value(module.get("nameZh").asText()))
+                .andExpect(jsonPath("$.sections[0].courseModules[0].nameEn").value(module.get("nameEn").asText()))
+                .andExpect(jsonPath("$.sections[0].courseModules[0].sourceUrl").value(module.get("sourceUrl").asText()));
+        jdbc.update("UPDATE programme_detail_sections SET status='ARCHIVED',curriculum_review_status='PENDING' WHERE programme_id=?",id);
+        mockMvc.perform(get("/api/v1/universities/{slug}/programmes/{id}",UNIVERSITY_SLUG,id))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.sections.length()").value(0));
+    }
+
     private Long createPublishedProgramme() {
         Long universityId = jdbc.queryForObject(
                 "SELECT id FROM universities WHERE university_code = 'DETAIL_PUBLISHED'",

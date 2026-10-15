@@ -6,6 +6,14 @@ import { universityLogoUrl } from './university-media';
 
 const programmeCache = createExpiringCache<ProgrammeDetail>(2 * 60 * 1000);
 
+export interface OfficialCourseModule {
+  readonly nameZh: string; readonly nameEn: string; readonly descriptionZh?: string | null; readonly descriptionEn?: string | null;
+  readonly translationMethod?: string; readonly translationCheckedAt?: string;
+  readonly courseCode: string | null; readonly credits: string | null;
+  readonly requirement: string | null; readonly sourceUrl: string; readonly sourceCheckedAt: string;
+  readonly curriculumVersion: string | null;
+}
+
 export interface ProgrammeDetailSection {
   readonly type: string;
   readonly titleZh: string;
@@ -16,6 +24,9 @@ export interface ProgrammeDetailSection {
   readonly sourceUrl: string | null;
   readonly sourceCheckedAt: string | null;
   readonly sourceType?: 'official' | 'third_party' | 'ai_generated' | null;
+  readonly courseModules?: readonly OfficialCourseModule[];
+  readonly curriculumReviewStatus?: 'VERIFIED' | 'PENDING' | null;
+  readonly curriculumVersion?: string | null;
 }
 
 export interface ProgrammeDetail {
@@ -180,7 +191,10 @@ export function mapProgrammeDetail(raw: unknown): Result<ProgrammeDetail> {
     sections.push({ type: section.type, titleZh: optional(section.titleZh), titleEn: optional(section.titleEn),
       bodyZh: optional(section.bodyZh), bodyEn: optional(section.bodyEn), sortOrder: section.sortOrder,
       sourceUrl: secureUrl(section.sourceUrl), sourceCheckedAt: nullableText(section.sourceCheckedAt),
-      sourceType: provenance(section.sourceType) });
+      sourceType: provenance(section.sourceType),
+      courseModules: parseOfficialModules(section.courseModules),
+      curriculumReviewStatus: section.curriculumReviewStatus === 'VERIFIED' ? 'VERIFIED' : 'PENDING',
+      curriculumVersion: optional(section.curriculumVersion) || null });
   }
   return { ok: true, value: {
     id: raw.id, programmeCode: optional(raw.programmeCode), slug: raw.slug, nameZh: raw.nameZh, nameEn: optional(raw.nameEn),
@@ -295,3 +309,20 @@ function dateLabel(value: string): string { return /^\d{4}-\d{2}-\d{2}/.test(val
 function nullValue<T>(value: T | null): value is null { return value === null; }
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 function invalid(code: string): Result<never> { return { ok: false, error: { kind: 'unexpected', code } }; }
+
+function parseOfficialModules(raw: unknown): OfficialCourseModule[] {
+  if (!Array.isArray(raw)) return [];
+  const modules: OfficialCourseModule[] = [];
+  for (const item of raw) {
+    if (!object(item) || !text(item.nameZh) || !/[\u3400-\u9fff]/u.test(item.nameZh) || !text(item.nameEn) || !text(item.sourceUrl)
+      || !item.sourceUrl.startsWith('https://') || !text(item.sourceCheckedAt)
+      || !Number.isFinite(Date.parse(item.sourceCheckedAt))
+      || !['courseCode', 'credits', 'requirement', 'curriculumVersion', 'descriptionZh', 'descriptionEn'].every(key => item[key] == null || typeof item[key] === 'string')) return [];
+    modules.push({ nameZh: item.nameZh, nameEn: item.nameEn, descriptionZh: optional(item.descriptionZh) || null,
+      descriptionEn: optional(item.descriptionEn) || null, courseCode: optional(item.courseCode) || null,
+      credits: optional(item.credits) || null, requirement: optional(item.requirement) || null,
+      sourceUrl: item.sourceUrl, sourceCheckedAt: item.sourceCheckedAt,
+      curriculumVersion: optional(item.curriculumVersion) || null });
+  }
+  return modules;
+}

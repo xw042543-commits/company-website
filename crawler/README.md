@@ -62,3 +62,8 @@ npm run reconcile -- --bundle <review-bundle.json> --audit <audit.json> --univer
 通用解析优先读取学校官网的 JSON-LD 标记：`CollegeOrUniversity`、`EducationalOrganization`、`Course` 和 `EducationalOccupationalProgram`。普通页面仍会保存快照，但不会靠关键词猜测专业、语言、分类、入学时间或计费周期。马大适配器可提取介绍、学制、国际生学费、入学要求、课程结构、就业方向和入学时间，并保留字段级证据。其他学校须逐校增加适配器，并用真实页面快照编写回归检查。
 
 抓取前应确认网站条款、版权和当地适用规则。遇到禁止抓取的 `robots.txt`、无法读取的 `robots.txt`、登录墙或验证码时，本工具不会绕过。
+
+
+## 官网课程专用核验
+
+`tools/official_modules.py` 采集官网专业结构，遵守 robots、逐源限速并保留快照哈希；仅主标题可确认专业归属，相关专业卡片、辅修推荐和选课说明不能作为课程表。支持 `--offline`、`--refresh`、`--max-age-days`。解析/所有权不明的 PDF 只作为证据，不能自动发布。中文翻译独立记录，不改变官网原文证据。清洗、翻译、验证和新迁移构建流程见 [课程核验报告](../outputs/official-course-modules-20261015/README.md)，生产数据库未由采集器直接连接。
