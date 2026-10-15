@@ -13,10 +13,8 @@ import tools.jackson.databind.*;
 import com.yangdoujiao.website.common.exception.ApiException;
 import com.yangdoujiao.website.consultation.*;
 import com.yangdoujiao.website.planningagent.agent.*;
-import com.yangdoujiao.website.planningagent.budget.FeeRepository;
 import com.yangdoujiao.website.planningagent.catalog.PlanningCatalogue;
 import com.yangdoujiao.website.planningagent.eligibility.EligibilityTypes.Profile;
-import com.yangdoujiao.website.planningagent.eligibility.RuleRepository;
 import com.yangdoujiao.website.planningagent.evidence.*;
 import com.yangdoujiao.website.planningagent.session.PlanningSessionRepository;
 
@@ -31,17 +29,16 @@ public class PlanningPlanService {
     private final PlanningSessionRepository sessions;
     private final PlanningCatalogue catalogue;
     private final EvidenceRepository evidence;
-    private final RuleRepository rules;
-    private final FeeRepository fees;
+    private final PlanningSourceSnapshot sources;
     private final ConsultationService consultations;
     private final Validator validation;
     private final ObjectMapper json;
     private final Clock clock;
     public PlanningPlanService(PlanningPlanRepository plans,PlanningSessionRepository sessions,PlanningCatalogue catalogue,
-            EvidenceRepository evidence,RuleRepository rules,FeeRepository fees,ConsultationService consultations,
+            EvidenceRepository evidence,PlanningSourceSnapshot sources,ConsultationService consultations,
             Validator validation,ObjectMapper json,Clock clock) {
-        this.plans=plans;this.sessions=sessions;this.catalogue=catalogue;this.evidence=evidence;this.rules=rules;
-        this.fees=fees;this.consultations=consultations;this.validation=validation;this.json=json;this.clock=clock;
+        this.plans=plans;this.sessions=sessions;this.catalogue=catalogue;this.evidence=evidence;this.sources=sources;
+        this.consultations=consultations;this.validation=validation;this.json=json;this.clock=clock;
     }
     public static void requireConfirmation(boolean confirmed) {
         if(!confirmed) throw new IllegalArgumentException("CONFIRMATION_REQUIRED");
@@ -57,6 +54,7 @@ public class PlanningPlanService {
         var old=plans.existing(owner,session,request.requestKey());
         if(old.isPresent()) {
             if(!old.get().hash().equals(hash)) throw conflict();
+            sessions.touch(owner,session,clock.instant());
             return new Saved(old.get().id(),old.get().version());
         }
         var run=sessions.run(owner,session,request.runId()).orElseThrow(PlanningPlanService::missing);
@@ -70,6 +68,7 @@ public class PlanningPlanService {
         Snapshot snapshot=new Snapshot(sessions.profile(owner,session,version),response.plan());
         UUID id=UUID.randomUUID();
         plans.insert(owner,id,session,request.runId(),request.requestKey(),hash,snapshot,baseline(snapshot),clock.instant());
+        sessions.touch(owner,session,clock.instant());
         return new Saved(id,1);
     }
     @Transactional(readOnly=true)
@@ -89,7 +88,11 @@ public class PlanningPlanService {
             }
         }
         try {
-            if(!stored.baseline().equals(baseline(snapshot))) warnings.add("SOURCE_DATA_CHANGED");
+            String generated=snapshot.plan().sourceFingerprint();
+            if(generated==null || !generated.matches("[a-f0-9]{64}")) warnings.add("GENERATION_SOURCES_UNVERIFIED");
+            boolean changed=!stored.baseline().equals(baseline(snapshot));
+            if(generated!=null && !generated.equals(sources.fingerprint(snapshot.plan(),()->{}))) changed=true;
+            if(changed) warnings.add("SOURCE_DATA_CHANGED");
         } catch(IllegalStateException | org.springframework.dao.InvalidDataAccessApiUsageException invalidCurrentRule) {
             // The repository rejects a source moved across programme boundaries.
             // Preserve the historical document and require review of current data.
@@ -123,19 +126,7 @@ public class PlanningPlanService {
         return response;
     }
     private JsonNode baseline(Snapshot snapshot) {
-        Map<String,Object> values=new TreeMap<>();
-        for(var programme:snapshot.plan().programmes()) {
-            long id=programme.programmeId();
-            Map<String,Object> source=new TreeMap<>();
-            source.put("display",catalogue.display(id).orElse(null));
-            source.put("evidence",evidence.findByProgrammeId(id));
-            source.put("rule",rules.findCurrent(id).orElse(null));
-            source.put("fees",fees.findByProgrammeId(id));
-            values.put(Long.toString(id),source);
-        }
-        // Keep exact serialized numbers. JSONB can normalize decimal node types, which
-        // otherwise raises false change warnings immediately after an unchanged save.
-        return json.valueToTree(Map.of("sourceData",json.writeValueAsString(values)));
+        return sources.baseline(snapshot.plan());
     }
     private static void key(String key) {
         if(key==null || key.isBlank() || key.length()>100) throw error(HttpStatus.BAD_REQUEST,"INVALID_REQUEST_KEY");

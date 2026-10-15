@@ -102,6 +102,41 @@ class PlanningProviderIntegrationTest {
         assertThatThrownBy(()->sessions.create(owner,new CreateSession("AGE_18_PLUS","current")))
                 .isInstanceOfSatisfying(com.yangdoujiao.website.common.exception.ApiException.class,e->assertThat(e.getCode()).isEqualTo("AUTH_REQUIRED"));
     }
+    @Test void ownerActivityKeepsAnOldConversationAliveForAnotherThirtyDays() {
+        jdbc.update("UPDATE planning_sessions SET created_at=CURRENT_TIMESTAMP-INTERVAL '31 days',last_activity_at=CURRENT_TIMESTAMP-INTERVAL '31 days' WHERE id=?",session);
+        sessions.get(owner,session);
+        planningCleanup.clean();
+        assertThat(jdbc.queryForList("SELECT id FROM planning_sessions WHERE id=?",UUID.class,session)).containsExactly(session);
+    }
+    @Test void confirmationAdmissionAndCompletedRunAdvanceOwnedSessionActivity() {
+        String old="UPDATE planning_sessions SET last_activity_at=CURRENT_TIMESTAMP-INTERVAL '31 days' WHERE id=?";
+        jdbc.update(old,session);
+        sessions.confirm(owner,session,new ProfileConfirmation(0,Map.of("targetLevel","MASTER")));
+        assertRecentActivity();
+        jdbc.update(old,session);
+        var run=sessions.message(owner,session,new MessageRequest("activity","plan",Intent.CHAT));
+        assertRecentActivity();
+        jdbc.update(old,session);
+        worker.runOnce();
+        assertRecentActivity();
+        jdbc.update(old,session);
+        sessions.run(owner,session,run.runId());
+        assertRecentActivity();
+        sessions.delete(owner,session);
+        assertThatThrownBy(()->sessions.run(owner,session,run.runId())).isInstanceOf(com.yangdoujiao.website.common.exception.ApiException.class);
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_sessions WHERE id=?",Integer.class,session)).isZero();
+    }
+    @Test void foreignOrDeletedSessionPollingCannotExtendItsRetention() {
+        jdbc.update("UPDATE planning_sessions SET last_activity_at=CURRENT_TIMESTAMP-INTERVAL '31 days' WHERE id=?",session);
+        assertThatThrownBy(()->sessions.get(owner+1,session)).isInstanceOf(com.yangdoujiao.website.common.exception.ApiException.class);
+        planningCleanup.clean();
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_sessions WHERE id=?",Integer.class,session)).isZero();
+        assertThatThrownBy(()->sessions.get(owner,session)).isInstanceOf(com.yangdoujiao.website.common.exception.ApiException.class);
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_sessions WHERE id=?",Integer.class,session)).isZero();
+    }
+    void assertRecentActivity() {
+        assertThat(jdbc.queryForObject("SELECT last_activity_at>CURRENT_TIMESTAMP-INTERVAL '1 minute' FROM planning_sessions WHERE id=?",Boolean.class,session)).isTrue();
+    }
     @Test void approvedAvailableCapabilityExposesCurrentPublicConsentVersion() {
         var capability=planController.capability(com.yangdoujiao.website.auth.session.UserPrincipal.from(accounts.findById(owner).orElseThrow()));
         assertThat(capability.enabled()).isTrue();

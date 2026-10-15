@@ -29,7 +29,10 @@ public class PlanningSessionRepository {
                     "AUTH_REQUIRED","Authentication required");
     }
     public void create(long owner,UUID id,CreateSession request,Instant now) {
-        jdbc.update("INSERT INTO planning_sessions(id,owner_id,age_band,privacy_version,created_at) VALUES(?,?,?,?,?)",id,owner,request.ageBand(),request.privacyVersion(),ts(now));
+        jdbc.update("INSERT INTO planning_sessions(id,owner_id,age_band,privacy_version,created_at,last_activity_at) VALUES(?,?,?,?,?,?)",id,owner,request.ageBand(),request.privacyVersion(),ts(now),ts(now));
+    }
+    public void touch(long owner,UUID session,Instant now) {
+        jdbc.update("UPDATE planning_sessions SET last_activity_at=GREATEST(last_activity_at,?) WHERE owner_id=? AND id=?",ts(now),owner,session);
     }
     public Optional<Long> version(long owner,UUID session,boolean lock) {
         return jdbc.query("SELECT profile_version FROM planning_sessions WHERE owner_id=? AND id=?"+(lock ? " FOR UPDATE" : ""),(r,i) -> r.getLong(1),owner,session).stream().findFirst();
@@ -62,10 +65,12 @@ public class PlanningSessionRepository {
                 SELECT ?,s.id,?,?,?,?, 'QUEUED',?,? FROM planning_sessions s WHERE s.id=? AND s.owner_id=?
                 """,run,request.requestKey(),hash,request.intent().name(),version==0 ? null : version,ts(now),ts(now.plusSeconds(60)),session,owner);
         jdbc.update("INSERT INTO planning_messages(session_id,run_id,role,text,created_at) VALUES(?,?,'USER',?,?)",session,run,request.text(),ts(now));
+        touch(owner,session,now);
     }
     public void confirm(long owner,UUID session,long version,Map<String,String> facts,Instant now) {
         jdbc.update("INSERT INTO planning_profiles(session_id,version,facts,confirmed_at) SELECT id,?,?::jsonb,? FROM planning_sessions WHERE id=? AND owner_id=?",version,json.writeValueAsString(facts),ts(now),session,owner);
         jdbc.update("UPDATE planning_sessions SET profile_version=? WHERE id=? AND owner_id=?",version,session,owner);
+        touch(owner,session,now);
     }
     public Profile profile(long owner,UUID session,long version) {
         if(version==0) return new Profile(0,Map.of());
@@ -124,6 +129,7 @@ public class PlanningSessionRepository {
             if(changed==1 && !expired && "SUCCEEDED".equals(status)) {
                 jdbc.update("INSERT INTO planning_messages(session_id,run_id,role,text,created_at) VALUES(?,?,'ASSISTANT',?,?)",in.sessionId(),in.runId(),result,ts(completedAt));
             }
+            if(changed==1) touch(in.ownerId(),in.sessionId(),completedAt);
             return changed==1;
         });
     }

@@ -55,6 +55,7 @@ public class PlanningSessionService {
             if(previous.isPresent()) {
                 var old=previous.get();
                 if(!old.hash().equals(hash)) throw error(HttpStatus.CONFLICT,"IDEMPOTENCY_CONFLICT");
+                repository.touch(owner,session,clock.instant());
                 return new RunAccepted(old.id(),old.status());
             }
             if(repository.active(owner,session)) throw error(HttpStatus.CONFLICT,"RUN_ACTIVE");
@@ -83,11 +84,18 @@ public class PlanningSessionService {
         available();
         return repository.transaction(() -> {
             long version=require(owner,session,true);
+            repository.touch(owner,session,clock.instant());
             return new SessionView(session,repository.profile(owner,session,version),repository.messages(owner,session),repository.runs(owner,session));
         });
     }
     public RunView run(long owner,UUID session,UUID run) {
-        available(); return repository.run(owner,session,run).orElseThrow(() -> error(HttpStatus.NOT_FOUND,"NOT_FOUND"));
+        available();
+        return repository.transaction(()->{
+            require(owner,session,true);
+            var view=repository.run(owner,session,run).orElseThrow(() -> error(HttpStatus.NOT_FOUND,"NOT_FOUND"));
+            repository.touch(owner,session,clock.instant());
+            return view;
+        });
     }
     public void delete(long owner,UUID session) {
         available(); if(repository.delete(owner,session)==0) throw error(HttpStatus.NOT_FOUND,"NOT_FOUND");

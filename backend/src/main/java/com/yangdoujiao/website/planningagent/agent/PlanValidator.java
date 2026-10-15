@@ -5,12 +5,19 @@ import com.yangdoujiao.website.planningagent.eligibility.EligibilityTypes.*;
 import com.yangdoujiao.website.planningagent.evidence.Evidence;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.yangdoujiao.website.planningagent.plan.PlanningSourceSnapshot;
 
 @Component
 public class PlanValidator {
     public static final Set<String> STEPS=Set.of("PREPARE_DOCUMENTS","PREPARE_LANGUAGE","CONFIRM_WITH_UNIVERSITY");
     private final ToolDispatcher dispatcher;
-    public PlanValidator(ToolDispatcher dispatcher) { this.dispatcher=dispatcher; }
+    private final PlanningSourceSnapshot sources;
+    public PlanValidator(ToolDispatcher dispatcher) { this(dispatcher,null); }
+    @Autowired
+    public PlanValidator(ToolDispatcher dispatcher,PlanningSourceSnapshot sources) {
+        this.dispatcher=dispatcher;this.sources=sources;
+    }
     public static class InvalidPlan extends RuntimeException { public InvalidPlan(String message) { super(message); } }
 
     /** context is server-owned; provenance additionally requires the private execution state. */
@@ -45,7 +52,10 @@ public class PlanValidator {
         if(!used.equals(new HashSet<>(draft.evidenceIds()))) throw new InvalidPlan("Evidence outside selected programmes");
         decisions.sort(Comparator.comparingInt((ProgrammeDecision d)->switch(d.classification()) {case "ELIGIBLE"->0;case "NOT_MET"->1;default->2;})
                 .thenComparingLong(ProgrammeDecision::programmeId));
-        return new ValidatedPlan(draft.profileVersion(),List.copyOf(decisions),List.copyOf(draft.generalNextSteps()));
+        var plan=new ValidatedPlan(draft.profileVersion(),List.copyOf(decisions),List.copyOf(draft.generalNextSteps()));
+        // Capture provenance in the same repeatable-read transaction as final facts.
+        String fingerprint=sources==null?null:sources.fingerprint(plan,state.guard::check);
+        return new ValidatedPlan(plan.profileVersion(),plan.programmes(),plan.generalNextSteps(),fingerprint);
     }
     private static boolean unique(List<Long> values) { return values.stream().allMatch(v->v!=null && v>0) && new HashSet<>(values).size()==values.size(); }
     private static RuleSet safeRuleSnapshot(Optional<RuleSet> rule,Assessment assessment) {

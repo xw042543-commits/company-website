@@ -15,7 +15,7 @@ public class PlanningCleanup {
     @Scheduled(cron="${app.planning-agent.cleanup-cron:0 15 3 * * *}",zone="Asia/Shanghai")
     @Transactional
     public void clean() {
-        jdbc.update("DELETE FROM planning_sessions WHERE created_at<?",Timestamp.from(clock.instant().minus(Duration.ofDays(30))));
+        jdbc.update("DELETE FROM planning_sessions WHERE last_activity_at<?",Timestamp.from(clock.instant().minus(Duration.ofDays(30))));
         // Old rate buckets contain no history and are no longer useful.
         jdbc.update("DELETE FROM planning_usage WHERE bucket LIKE 'minute:%' AND bucket<?","minute:"+(clock.instant().getEpochSecond()/60-1440));
     }

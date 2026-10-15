@@ -30,6 +30,9 @@ class PlanningOwnershipIntegrationTest {
     @Autowired org.springframework.security.crypto.password.PasswordEncoder passwords;
     @Autowired tools.jackson.databind.ObjectMapper json;
     @Autowired org.springframework.test.web.servlet.MockMvc mvc;
+    @Autowired com.yangdoujiao.website.planningagent.agent.ToolDispatcher dispatcher;
+    @Autowired com.yangdoujiao.website.planningagent.agent.PlanValidator validator;
+    @Autowired com.yangdoujiao.website.planningagent.session.PlanningSessionRepository sessionRepository;
     long owner,other; UUID session,run;
     @BeforeEach void fixture() {
         owner=user();other=user(); session=UUID.randomUUID();run=UUID.randomUUID();
@@ -57,6 +60,7 @@ class PlanningOwnershipIntegrationTest {
     }
     @Test void cleanupPreservesSavedPlansAndAccountPurgeRemovesAllPlanningData() {
         var id=plans.save(owner,session,request("save")).planId();
+        jdbc.update("UPDATE planning_sessions SET last_activity_at=CURRENT_TIMESTAMP-INTERVAL '31 days' WHERE id=?",session);
         cleanup.clean();
         assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_sessions WHERE id=?",Integer.class,session)).isZero();
         assertThat(plans.get(owner,id).snapshot().plan().generalNextSteps()).containsExactly("PREPARE_DOCUMENTS");
@@ -112,8 +116,8 @@ class PlanningOwnershipIntegrationTest {
         jdbc.update("UPDATE planning_runs SET intent='CHAT' WHERE id=?",run);
         code("SUCCESSFUL_PLAN_REQUIRED",()->plans.save(owner,session,request("invalid")));
     }
-    @Test @org.springframework.transaction.annotation.Transactional
-    void sameIdEvidenceRuleFeeAndPublicationChangesWarnWithoutRewritingSnapshot() {
+    record SourceRun(long programme,long source,long condition,long fee,long university,long category,long level) {}
+    SourceRun sourceRun() {
         long category=jdbc.queryForObject("INSERT INTO subject_categories(code,name_en) VALUES(?,'Source test') RETURNING id",Long.class,"S_"+UUID.randomUUID().toString().replace("-","").toUpperCase());
         jdbc.update("INSERT INTO study_levels(code,name_en,status) VALUES('MASTER','Master','PUBLISHED') ON CONFLICT(code) DO NOTHING");
         long level=jdbc.queryForObject("SELECT id FROM study_levels WHERE code='MASTER'",Long.class);
@@ -123,15 +127,44 @@ class PlanningOwnershipIntegrationTest {
         long programme=jdbc.queryForObject("INSERT INTO programmes(programme_code,university_id,subject_category_id,study_level_id,slug,name_en,status) VALUES(?,?,?,?,?,'Original course','PUBLISHED') RETURNING id",
                 Long.class,"S_"+UUID.randomUUID().toString().replace("-","").toUpperCase(),university,category,level,"source-"+UUID.randomUUID());
         long source=jdbc.queryForObject("INSERT INTO planning_evidence(programme_id,fact_type,source_url,source_type,student_scope,intake,checked_at,expires_at,review_status,reviewer_id,excerpt) VALUES(?,'ADMISSIONS','https://example.edu/admission','OFFICIAL','CN_MAINLAND','2027',CURRENT_TIMESTAMP-INTERVAL '1 day',CURRENT_TIMESTAMP+INTERVAL '30 days','VERIFIED',1,'Original source') RETURNING id",Long.class,programme);
+        long feesSource=jdbc.queryForObject("INSERT INTO planning_evidence(programme_id,fact_type,source_url,source_type,student_scope,intake,checked_at,expires_at,review_status,reviewer_id,excerpt) VALUES(?,'FEES','https://example.edu/fees','OFFICIAL','CN_MAINLAND','2027',CURRENT_TIMESTAMP-INTERVAL '1 day',CURRENT_TIMESTAMP+INTERVAL '30 days','VERIFIED',1,'Original fees') RETURNING id",Long.class,programme);
         long rule=jdbc.queryForObject("INSERT INTO planning_rule_sets(programme_id,version,complete,active) VALUES(?,1,true,true) RETURNING id",Long.class,programme);
-        long condition=jdbc.queryForObject("INSERT INTO planning_rule_conditions(rule_set_id,branch_no,field,operator,expected,evidence_id) VALUES(?,0,'grade','GTE','70',?) RETURNING id",Long.class,rule,source);
-        long fee=jdbc.queryForObject("INSERT INTO planning_fees(programme_id,evidence_id,category,amount,currency,period,units,coverage_complete) VALUES(?,?,'TUITION',100,'MYR','TOTAL',1,true) RETURNING id",Long.class,programme,source);
-        var ev=jdbc.queryForObject("SELECT checked_at,expires_at FROM planning_evidence WHERE id=?",(r,i)->new com.yangdoujiao.website.planningagent.agent.ProgrammeDecision.EvidenceSnapshot(source,programme,"ADMISSIONS","https://example.edu/admission","OFFICIAL","CN_MAINLAND","2027",r.getTimestamp(1).toInstant(),r.getTimestamp(2).toInstant()),source);
-        var decision=new com.yangdoujiao.website.planningagent.agent.ProgrammeDecision(programme,
-                new com.yangdoujiao.website.planningagent.eligibility.EligibilityTypes.Assessment(false,List.of()),
-                new com.yangdoujiao.website.planningagent.budget.BudgetTypes.BudgetResult(Map.of(),false,List.of()),List.of(source),"UNKNOWN",null,"Original course",null,"Source university",null,null,List.of(ev));
-        var response=new com.yangdoujiao.website.planningagent.agent.PlanningOrchestrator.Response("PLAN",List.of(),new com.yangdoujiao.website.planningagent.agent.ValidatedPlan(1,List.of(decision),List.of()));
+        long condition=jdbc.queryForObject("INSERT INTO planning_rule_conditions(rule_set_id,branch_no,field,operator,expected,scale,evidence_id) VALUES(?,0,'grade','GTE','70','100',?) RETURNING id",Long.class,rule,source);
+        long fee=jdbc.queryForObject("INSERT INTO planning_fees(programme_id,evidence_id,category,amount,currency,period,units,coverage_complete) VALUES(?,?,'TUITION',100,'MYR','TOTAL',1,true) RETURNING id",Long.class,programme,feesSource);
+        jdbc.update("UPDATE planning_profiles SET facts=facts || '{\"grade\":\"75\",\"grade.scale\":\"100\",\"budgetIncludesLiving\":\"false\"}'::jsonb WHERE session_id=?",session);
+        var profile=sessionRepository.profile(owner,session,1);
+        var state=new com.yangdoujiao.website.planningagent.agent.ToolDispatcher.State(profile,()->{});
+        dispatcher.dispatch(new com.yangdoujiao.website.planningagent.agent.ToolCall("search_programmes",json.readTree("{}")),state);
+        dispatcher.dispatch(new com.yangdoujiao.website.planningagent.agent.ToolCall("get_programme_evidence",json.valueToTree(Map.of("programmeId",programme))),state);
+        var generated=validator.validate(new com.yangdoujiao.website.planningagent.agent.PlanDraft(1,List.of(programme),List.of(source,feesSource),List.of()),
+                new com.yangdoujiao.website.planningagent.agent.ModelContext(List.of(),profile,state.results(),Instant.now().plusSeconds(60)),state);
+        assertThat(generated.sourceFingerprint()).matches("[a-f0-9]{64}");
+        var response=new com.yangdoujiao.website.planningagent.agent.PlanningOrchestrator.Response("PLAN",List.of(),generated);
         jdbc.update("UPDATE planning_runs SET result=? WHERE id=?",json.writeValueAsString(response),run);
+        return new SourceRun(programme,source,condition,fee,university,category,level);
+    }
+    @Test void legacyRunsWithoutGenerationFingerprintAreExplicitlyUnverified() {
+        var id=plans.save(owner,session,request("legacy")).planId();
+        assertThat(plans.get(owner,id).revalidationWarnings()).contains("GENERATION_SOURCES_UNVERIFIED");
+    }
+    @Test @org.springframework.transaction.annotation.Transactional
+    void changesBetweenGenerationAndSaveCannotBlessOutdatedFactsAsCurrent() {
+        var fixture=sourceRun();
+        jdbc.update("UPDATE planning_rule_conditions SET expected='80' WHERE id=?",fixture.condition());
+        jdbc.update("UPDATE planning_fees SET amount=200 WHERE id=?",fixture.fee());
+        var id=plans.save(owner,session,request("changed-before-save")).planId();
+        var view=plans.get(owner,id);
+        assertThat(view.revalidationWarnings()).contains("SOURCE_DATA_CHANGED");
+        assertThat(view.snapshot().plan().programmes().getFirst().budget().subtotals().get("MYR")).isEqualByComparingTo("100");
+        assertThat(view.snapshot().plan().programmes().getFirst().ruleSnapshot().alternatives().getFirst().getFirst().expected()).isEqualTo("70");
+        assertThat(view.snapshot().plan().programmes().getFirst().assessment().eligible()).isTrue();
+        assertThat(plans.get(owner,id)).isEqualTo(view);
+    }
+    @Test @org.springframework.transaction.annotation.Transactional
+    void sameIdEvidenceRuleFeeAndPublicationChangesWarnWithoutRewritingSnapshot() {
+        var fixture=sourceRun();
+        long programme=fixture.programme(),source=fixture.source(),condition=fixture.condition(),fee=fixture.fee();
+        long university=fixture.university(),category=fixture.category(),level=fixture.level();
         var id=plans.save(owner,session,request("save")).planId();
         var original=plans.get(owner,id).snapshot();
         assertThat(plans.get(owner,id).revalidationWarnings()).isEmpty();
