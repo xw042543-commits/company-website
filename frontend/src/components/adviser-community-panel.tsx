@@ -24,7 +24,7 @@ const commands: ModerationCommand[] = ["HIDE", "RESTORE", "REJECT", "REJECT_REPO
 export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
   const router = useRouter();
   const [draft, setDraft] = useState(initialFilters);
-  const [filters, setFilters] = useState<ModerationQueueFilters>({ status: "PENDING", size: 20 });
+  const [filters, setFilters] = useState<ModerationQueueFilters>({ status: "PENDING", size: 4 });
   const [previousCursors, setPreviousCursors] = useState<(string | undefined)[]>([]);
   const [queue, setQueue] = useState<ModerationResult<ModerationQueue> | null>(null);
   const [queuePending, setQueuePending] = useState(true);

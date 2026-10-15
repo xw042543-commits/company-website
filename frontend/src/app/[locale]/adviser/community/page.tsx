@@ -18,13 +18,13 @@ export default async function AdviserCommunityPage({ params }: { params: Promise
           <Image src="/brand/udajo-logo-transparent.png" width={1254} height={1254} sizes="44px" alt="" />
           <span><strong>UDAJO</strong><small>{words(locale, "顾问后台", "Adviser console")}</small></span>
         </Link>
-        <div className="adviser-console-heading"><h1>{words(locale, "U圈审核", "Community moderation")}</h1>
-          <p>{words(locale, "核对内容与举报，记录每一次处理决定。", "Review content and reports, and record each decision.")}</p></div>
+        <nav className="community-navigation adviser-console-navigation" aria-label={words(locale, "顾问导航", "Adviser navigation")}>
+          {adviserNavigation(locale).map((item) => <Link key={item.href} href={item.href} aria-current={item.href.endsWith("/community") ? "page" : undefined}>{item.label}</Link>)}
+        </nav>
         <Link className="button secondary" href={`/${locale}/account`}>{words(locale, "我的账户", "My account")}</Link>
       </header>
-      <nav className="community-navigation" aria-label={words(locale, "顾问导航", "Adviser navigation")}>
-        {adviserNavigation(locale).map((item) => <Link key={item.href} href={item.href} aria-current={item.href.endsWith("/community") ? "page" : undefined}>{item.label}</Link>)}
-      </nav>
+      <section className="adviser-page-heading"><h1>{words(locale, "U圈审核", "Community moderation")}</h1>
+        <p>{words(locale, "核对内容与举报，记录每一次处理决定。", "Review content and reports, and record each decision.")}</p></section>
       <AdviserCommunityPanel locale={locale} />
     </div>
   </main>;
