@@ -12,6 +12,7 @@ import { loadFilterOptions } from '../../services/catalogue';
 import { deriveProgrammeCategories, filterProgrammes, type ProgrammeCategory } from '../../utils/discovery-view';
 import { consultationRoute, programmeDetailRoute } from '../../utils/routes';
 import { uniqueStudyLevelNamesZh } from '../../utils/study-level-display';
+import { universityMedianTuitionZh } from '../../utils/university-tuition';
 
 type ViewState = 'loading' | 'ready' | 'failed' | 'offline';
 type DetailSection = 'introduction' | 'facts' | 'programmes';
@@ -168,10 +169,7 @@ Page({
       visibleProgrammes: filterProgrammes(allProgrammes, activeCategory),
       location: [detail.value.cityZh, detail.value.countryNameZh].filter(Boolean).join('，'),
       levelSummary: summarizeLevels(allProgrammes),
-      profileFacts: detail.value.sections.map((section) => ({
-        label: section.titleZh || section.titleEn,
-        value: section.bodyZh || section.bodyEn,
-      })).filter((fact) => fact.label && fact.value),
+      profileFacts: buildProfileFacts(detail.value.sections, allProgrammes),
       descriptionParagraphs: detail.value.descriptionZh.split(/\r?\n/).map((paragraph) => paragraph.trim()).filter(Boolean),
       logoLetter: detail.value.nameEn.charAt(0).toUpperCase() || 'U',
       state: 'ready' as ViewState,
@@ -185,4 +183,21 @@ type BasicFact = { label: string; value: string };
 function summarizeLevels(programmes: readonly UniversityProgramme[]): string {
   const levels = uniqueStudyLevelNamesZh(programmes.map(programme => ({ code: programme.studyLevelCode })));
   return levels.join('、') || '待确认';
+}
+
+function buildProfileFacts(
+  sections: readonly UniversityDetail['sections'][number][],
+  programmes: readonly UniversityProgramme[],
+): BasicFact[] {
+  const tuitionValue = universityMedianTuitionZh(programmes);
+  let hasTuition = false;
+  const facts = sections.map((section) => {
+    if (section.type === 'TUITION') {
+      hasTuition = true;
+      return { label: section.titleZh || '学费说明', value: tuitionValue };
+    }
+    return { label: section.titleZh || section.titleEn, value: section.bodyZh || section.bodyEn };
+  }).filter((fact) => fact.label && fact.value);
+  if (!hasTuition) facts.push({ label: '学费说明', value: tuitionValue });
+  return facts;
 }
