@@ -16,7 +16,7 @@ BEGIN
       AND p.created_at >= TIMESTAMPTZ '2026-10-15 15:55:00+08'
       AND p.created_at < TIMESTAMPTZ '2026-10-15 15:57:00+08'
       AND p.status='PENDING_REVIEW' AND p.risk_reason_code='IMAGE_REVIEW' AND p.version=0
-      AND r.text_passed AND i.status='REVIEW' AND j.state='DONE' AND j.attempts=1
+      AND r.text_passed AND i.status='REVIEW' AND j.state='DONE' AND j.attempts=3
     FOR UPDATE OF p,i,j;
 
     UPDATE community_images SET status='PENDING' WHERE id=target_image AND status='REVIEW';
@@ -24,8 +24,8 @@ BEGIN
     IF changed<>1 THEN RAISE EXCEPTION 'Image retry guard failed'; END IF;
 
     UPDATE community_image_review_jobs
-    SET state='READY',attempts=0,lease_token=NULL,trace_id=NULL,available_at=CURRENT_TIMESTAMP
-    WHERE image_id=target_image AND state='DONE' AND attempts=1;
+    SET state='READY',attempts=1,direct_fallback=TRUE,lease_token=NULL,trace_id=NULL,available_at=CURRENT_TIMESTAMP
+    WHERE image_id=target_image AND state='DONE' AND attempts=3;
     GET DIAGNOSTICS changed=ROW_COUNT;
     IF changed<>1 THEN RAISE EXCEPTION 'Review job retry guard failed'; END IF;
 

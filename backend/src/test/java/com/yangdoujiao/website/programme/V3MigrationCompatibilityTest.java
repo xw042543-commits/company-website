@@ -126,7 +126,7 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("62");
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("63");
             assertThat(latest.info().applied()).hasSize(62);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
