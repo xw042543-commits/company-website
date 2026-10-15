@@ -77,6 +77,13 @@ export interface UniversityProgrammePage {
   readonly totalPages: number;
 }
 
+export interface UniversityProgrammeCategory {
+  readonly code: string;
+  readonly nameZh: string;
+  readonly nameEn: string;
+  readonly programmeCount: number;
+}
+
 export interface UniversityPage {
   readonly items: UniversitySummary[];
   readonly page: number;
@@ -120,6 +127,7 @@ export function searchUniversities(input: UniversitySearchInput = {}, scope: 'li
 
 const universityDetailCache = createExpiringCache<UniversityDetail>(2 * 60 * 1000);
 const universityProgrammesCache = createExpiringCache<UniversityProgrammePage>(2 * 60 * 1000);
+const universityProgrammeCategoriesCache = createExpiringCache<UniversityProgrammeCategory[]>(2 * 60 * 1000);
 
 export async function getUniversityDetail(slug: string): Promise<Result<UniversityDetail>> {
   const normalized = normalizeSlug(slug);
@@ -155,6 +163,24 @@ export async function getUniversityProgrammes(
   if (!response.ok) return response;
   const mapped = mapUniversityProgrammePage(response.value);
   if (mapped.ok) universityProgrammesCache.set(cacheKey, mapped.value);
+  return mapped;
+}
+
+export async function getUniversityProgrammeCategories(
+  slug: string,
+): Promise<Result<UniversityProgrammeCategory[]>> {
+  const normalized = normalizeSlug(slug);
+  if (!normalized) return invalid('INVALID_UNIVERSITY_SLUG');
+  const cached = universityProgrammeCategoriesCache.get(normalized);
+  if (cached) return { ok: true, value: cached };
+  const response = await request<unknown>({
+    method: 'GET',
+    path: `/api/v1/universities/${normalized}/programme-categories`,
+    requestKey: `university-programme-categories:${normalized}`,
+  });
+  if (!response.ok) return response;
+  const mapped = mapUniversityProgrammeCategories(response.value);
+  if (mapped.ok) universityProgrammeCategoriesCache.set(normalized, mapped.value);
   return mapped;
 }
 
@@ -288,6 +314,24 @@ export function mapUniversityProgrammePage(raw: unknown): Result<UniversityProgr
     totalItems: raw.totalItems,
     totalPages: raw.totalPages,
   } };
+}
+
+export function mapUniversityProgrammeCategories(raw: unknown): Result<UniversityProgrammeCategory[]> {
+  if (!Array.isArray(raw)) return invalid('INVALID_PROGRAMME_CATEGORIES_RESPONSE');
+  const categories: UniversityProgrammeCategory[] = [];
+  const seen = new Set<string>();
+  for (const item of raw) {
+    if (!isObject(item) || !text(item.code) || !positiveInteger(item.programmeCount)
+      || (item.nameZh != null && typeof item.nameZh !== 'string')
+      || (item.nameEn != null && typeof item.nameEn !== 'string')
+      || seen.has(item.code.trim())) return invalid('INVALID_PROGRAMME_CATEGORIES_RESPONSE');
+    const nameZh = optionalText(item.nameZh);
+    const nameEn = optionalText(item.nameEn);
+    if (!nameZh && !nameEn) return invalid('INVALID_PROGRAMME_CATEGORIES_RESPONSE');
+    seen.add(item.code.trim());
+    categories.push({ code: item.code.trim(), nameZh, nameEn, programmeCount: item.programmeCount });
+  }
+  return { ok: true, value: categories };
 }
 
 function normalizeSlug(value: string): string | null {

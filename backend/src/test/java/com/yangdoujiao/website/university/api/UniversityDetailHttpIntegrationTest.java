@@ -127,6 +127,36 @@ class UniversityDetailHttpIntegrationTest {
     }
 
     @Test
+    void returnsOnlyPublishedCategoriesUsedByPublishedProgrammesForTheUniversity() throws Exception {
+        createPublishedProgramme();
+        createAlternativePublishedProgramme();
+        Long universityId = jdbc.queryForObject(
+                "SELECT id FROM universities WHERE university_code = 'DETAIL_PUBLISHED'",
+                Long.class
+        );
+        Long draftCategoryId = jdbc.queryForObject("""
+                INSERT INTO subject_categories(code, name_zh, name_en, sort_order, status)
+                VALUES ('DETAIL_DRAFT_CATEGORY', '草稿分类', 'Draft category', 1, 'DRAFT')
+                RETURNING id
+                """, Long.class);
+        jdbc.update("""
+                INSERT INTO programmes(
+                    programme_code, university_id, subject_category_id, slug, name_zh, status, published_at
+                ) VALUES ('DETAIL_DRAFT_CATEGORY_PROGRAMME', ?, ?, 'draft-category-programme',
+                          '草稿分类下的专业', 'PUBLISHED', CURRENT_TIMESTAMP)
+                """, universityId, draftCategoryId);
+
+        mockMvc.perform(get("/api/v1/universities/{slug}/programme-categories", UNIVERSITY_SLUG))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(2))
+                .andExpect(jsonPath("$[0].code").value("DETAIL_BUSINESS"))
+                .andExpect(jsonPath("$[0].programmeCount").value(1))
+                .andExpect(jsonPath("$[1].code").value("DETAIL_COMPUTING"))
+                .andExpect(jsonPath("$[1].nameZh").value("计算机"))
+                .andExpect(jsonPath("$[1].programmeCount").value(1));
+    }
+
+    @Test
     void returnsOnePublishedProgrammeByDatabaseIdAndLegacySlug() throws Exception {
         Long programmeId = createPublishedProgramme();
 
@@ -237,6 +267,10 @@ class UniversityDetailHttpIntegrationTest {
                 .andExpect(jsonPath("$.code").value("RESOURCE_NOT_FOUND"));
 
         mockMvc.perform(get("/api/v1/universities/{slug}/programmes", UNIVERSITY_SLUG))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code").value("RESOURCE_NOT_FOUND"));
+
+        mockMvc.perform(get("/api/v1/universities/{slug}/programme-categories", UNIVERSITY_SLUG))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.code").value("RESOURCE_NOT_FOUND"));
     }

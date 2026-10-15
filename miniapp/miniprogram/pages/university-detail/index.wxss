@@ -70,8 +70,10 @@
 .section-title { color:#20352f; border:0; padding-bottom:0; font-size:32rpx; }
 .programmes-panel,.introduction-panel,.facts-panel { padding:32rpx; }
 .category-options { display:block; width:100%; white-space:nowrap; padding-bottom:16rpx; }
+.category-options__track { display:inline-flex; min-width:100%; align-items:center; padding:2rpx 0 6rpx; }
 .category-chip { display:inline-flex; width:auto; min-height:76rpx; margin:0 12rpx 0 0; padding:12rpx 24rpx; border:1rpx solid #e8eeea; border-radius:38rpx; background:#f6f9f7; font-size:24rpx; vertical-align:middle; }
 .category-chip--active { border-color:var(--color-action); background:var(--color-action); color:#fff; }
+.category-count { margin-left:10rpx; opacity:.72; font-size:21rpx; }
 .programme-heading { margin-top:26rpx; font-size:28rpx; color:#20352f; }
 .programme-total { font-size:23rpx; color:#7b8782; }
 .programme-list { background:#fff; border-radius:0; }
