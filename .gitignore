@@ -50,3 +50,7 @@ npm-debug.log*
 
 # Local Superpowers coordination ledger and review reports
 .superpowers/sdd/
+
+# Official curriculum collector runtime
+crawler/tools/__pycache__/
+/.npm-cache/

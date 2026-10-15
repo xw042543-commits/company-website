@@ -9,7 +9,7 @@ import { backendUniversitySlug, findUniversityBySlug, localizeUniversity } from 
 import { universityProfile } from "@/data/university-profiles";
 import { getFilterOptions, type FilterOption, type FilterOptions } from "@/lib/filter-options-api";
 import { programmeDetailPath } from "@/lib/programme-routes";
-import { findProgrammeSection, parseOfficialCurriculumItems } from "@/lib/programme-detail-sections";
+import { findProgrammeSection, findOfficialProgrammeSection } from "@/lib/programme-detail-sections";
 import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { formatEnglishDisplayText, isLocale, words } from "@/lib/site";
 import { canonicalStudyLevelCode, studyLevelDisplayName } from "@/lib/study-level-display";
@@ -167,11 +167,9 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   const detailPath = programmeDetailPath(locale, university.slug, programme.routeIdentifier);
   const universityPath = `/${locale}/universities/${encodeURIComponent(university.slug)}`;
   const admissionsSection = findProgrammeSection(programme.sections, ["ADMISSIONS", "ADMISSION_REQUIREMENTS"], locale);
-  const curriculumCandidate = findProgrammeSection(programme.sections, ["CURRICULUM", "COURSE_STRUCTURE"], locale);
-  const curriculumSection = curriculumCandidate && (curriculumCandidate.sourceType || curriculumCandidate.sourceUrl)
-    ? curriculumCandidate : null;
+  const curriculumSection = findOfficialProgrammeSection(programme.sections, ["CURRICULUM", "COURSE_STRUCTURE"], locale);
   const careerSection = findProgrammeSection(programme.sections, ["CAREER_OPPORTUNITIES", "CAREER_OUTLOOK"], locale);
-  const curriculumItems = curriculumSection ? parseOfficialCurriculumItems(curriculumSection.body, locale) : [];
+  const curriculumItems = curriculumSection?.courseModules ?? [];
   const localizedDescription = locale === "zh"
     ? programme.descriptionZh.trim() || programme.descriptionEn.trim()
     : programme.descriptionEn.trim() || programme.descriptionZh.trim();
@@ -344,18 +342,26 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
           <summary>{words(locale, "专业课程", "Programme curriculum")}</summary>
           <div className="programme-info-body">
             {curriculumSection ? <>
-              {curriculumItems.length > 0
-                ? <ol className="programme-official-curriculum">{curriculumItems.map((item) => <li key={item}>{item}</li>)}</ol>
-                : <p className="programme-section-copy">{curriculumSection.body}</p>}
-              <p className="programme-source-note">{curriculumSection.sourceType === "official" || (!curriculumSection.sourceType && curriculumSection.sourceUrl)
-                ? words(locale, "课程名称来自学校官网；课程安排以院校最新教学大纲为准。", "Course names come from the university website; consult the latest official handbook for the current structure.")
-                : curriculumSection.sourceType === "third_party"
-                  ? words(locale, "课程来自第三方资料，请以学校官网最新教学大纲为准。", "This curriculum comes from a third-party source; consult the latest official university handbook.")
-                  : words(locale, "参考学习领域，非官方课程表；不代表院校课程名称、学分或必修、选修安排。", "Illustrative study areas, not an official module list; they do not represent university module names, credits, or compulsory/elective rules.")}
-                {curriculumSection.sourceUrl && <> <a href={curriculumSection.sourceUrl} target="_blank" rel="noreferrer">{words(locale, "查看资料来源", "View source")}</a></>}{curriculumSection.sourceCheckedAt ? ` · ${words(locale, "采集时间", "Checked")} ${curriculumSection.sourceCheckedAt.slice(0, 10)}` : ""}</p>
+              <ol className="programme-official-curriculum">{curriculumItems.map((item, index) => <li key={`${item.courseCode ?? ""}-${item.nameEn}-${index}`}>
+                <strong lang="zh-Hans">{item.nameZh}</strong>
+                {item.descriptionZh && <p>{item.descriptionZh}</p>}
+                {(item.courseCode || item.credits || item.requirement) && <p className="programme-source-note">
+                  {item.courseCode}{item.credits ? ` · ${words(locale, "学分", "Credits")}: ${item.credits}` : ""}
+                  {item.requirement ? ` · ${({Elective: '选修', Compulsory: '必修', Required: '必修', Core: '核心', OR: '二选一'} as Record<string, string>)[item.requirement] ?? item.requirement}` : ""}
+                </p>}
+                <details><summary>核验原文与来源</summary>
+                  <p lang="en">{item.nameEn}</p>
+                  {item.descriptionEn && <p lang="en">{item.descriptionEn}</p>}
+                  <a href={item.sourceUrl} target="_blank" rel="noreferrer">官网来源</a>
+                </details>
+                <span className="programme-source-note"> · {words(locale, "采集于", "Collected")} {item.sourceCheckedAt.slice(0, 10)}</span>
+              </li>)}</ol>
+              <p className="programme-source-note">{words(locale, "课程名称为平台中文译名，学校原文及来源可核验；未核实的课程介绍、代码、学分等不补写。", "Chinese module titles are translations of the linked official originals. Unverified descriptions and metadata remain blank.")}
+                {" · "}{curriculumSection.curriculumVersion || words(locale, "官网未注明适用课程版本", "The university does not specify the applicable curriculum version")}
+              </p>
             </> : <div className="programme-structure-pending">
-              <strong>{words(locale, "暂无官方课程资料", "No official curriculum available")}</strong>
-              <p>{words(locale, "学校官网尚未提供可核验的课程表，页面不会根据专业名称生成模拟课程。", "The university website has not provided a verifiable curriculum. This page does not generate simulated modules from the programme name.")}</p>
+              <strong>{words(locale, "待核实：暂无官方课程资料", "Official curriculum pending verification")}</strong>
+              <p>{words(locale, "尚未取得可核验的官方课程表，页面不会根据专业名称生成模拟课程。", "A verifiable official curriculum has not yet been obtained. This page does not generate simulated modules from the programme name.")}</p>
             </div>}
           </div>
         </details>

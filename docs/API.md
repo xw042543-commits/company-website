@@ -365,6 +365,11 @@ APP_TRUSTED_PROXIES=
 创建未验证账号，也不会把授权 code、Token、Session ID 或微信原始标识写入公开响应。
 
 
+## 官网课程字段（V53 配套客户端）
+
+网站专业详情与小程序专业详情的 sections 追加 `courseModules`、`curriculumReviewStatus`（VERIFIED/PENDING/null）、`curriculumVersion`。课程对象包含 `nameZh`、`nameEn`、`descriptionZh/En`、`courseCode`、`credits`、`requirement`、`sourceUrl`、`sourceCheckedAt`、`curriculumVersion`、`evidence`、`translationMethod`、`translationCheckedAt`。旧 body 字段保留兼容；新版页面只展示 official 且 VERIFIED 的结构化中文课程，未知字段留空，归档板块不从公开 API 返回。中文是平台译名，原文可核验；不根据专业名称生成课程。
+
+
 ## 管理员 Excel 批量导入
 
 管理员页面：`/[locale]/admin/imports`。所有 `/api/v1/admin/imports/**` 接口沿用服务端
@@ -400,7 +405,6 @@ APP_TRUSTED_PROXIES=
 分类，管理员重新选择；数据库异常则整批回滚。重复提交已发布的选择返回0条，不重复新增。
 发布复用现有管理服务写入正式表、详情章节及搜索同步队列；原有有效数据不修改。
 结构错误的文件保留失败批次与原因，须修正文件并重新上传；行级错误可在界面编辑和重新处理。
-
 
 ## 管理后台国家筛选
 

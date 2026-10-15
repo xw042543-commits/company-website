@@ -1,5 +1,5 @@
 import type { UniversityProgramme } from '../services/universities';
-import type { ProgrammeDetail, ProgrammeDetailSection } from '../services/miniapp-data';
+import type { ProgrammeDetail, ProgrammeDetailSection, OfficialCourseModule } from '../services/miniapp-data';
 
 export interface ProgrammeCategory {
   readonly code: string;
@@ -43,7 +43,7 @@ export interface ProgrammeDocumentSection {
 }
 
 export interface ProgrammeContentBlock { readonly label: string; readonly text: string }
-export interface ProgrammeCurriculumItem { readonly number: string; readonly nameZh: string; readonly nameEn: string }
+export interface ProgrammeCurriculumItem { readonly number: string; readonly nameZh: string; readonly nameEn: string; readonly descriptionZh?: string | null; readonly courseCode?: string | null; readonly credits?: string | null; readonly requirement?: string | null; readonly sourceUrl?: string; readonly sourceCheckedLabel?: string; readonly curriculumVersion?: string | null }
 
 function sectionBody(section: ProgrammeDetailSection): string {
   return section.bodyZh.trim() ? section.bodyZh : section.bodyEn;
@@ -64,17 +64,22 @@ export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDoc
   const introduction = programme.descriptionZh.trim()
     || (introductionSection ? sectionBody(introductionSection) : '');
   const career = careerSection ? sectionBody(careerSection) : '';
-  const curriculum = curriculumSection
-    && (curriculumSection.sourceType || curriculumSection.sourceUrl)
-    ? sectionBody(curriculumSection) : '';
-
-  const curriculumItems = parseCurriculumItems(curriculum);
+  const verifiedModules = curriculumSection?.sourceType === 'official'
+    && curriculumSection.curriculumReviewStatus === 'VERIFIED' ? curriculumSection.courseModules ?? [] : [];
+  const modulesValid = verifiedModules.every(item => Boolean(item.nameZh && /[\u3400-\u9fff]/u.test(item.nameZh) && item.nameEn && !/[\u3400-\u9fff]/u.test(item.nameEn)
+    && !curriculumBoilerplate(item.nameEn) && item.sourceUrl?.startsWith('https://')
+    && Number.isFinite(Date.parse(item.sourceCheckedAt))));
+  const curriculumItems: ProgrammeCurriculumItem[] = modulesValid ? verifiedModules.map((item: OfficialCourseModule, index) => ({
+    number: String(index + 1).padStart(2, '0'), nameZh: item.nameZh, nameEn: item.nameEn, descriptionZh: item.descriptionZh ?? null,
+    courseCode: item.courseCode, credits: item.credits, requirement: item.requirement ? (({Elective: '选修', Compulsory: '必修', Required: '必修', Core: '核心', OR: '二选一'} as Record<string, string>)[item.requirement] ?? item.requirement) : null,
+    sourceUrl: item.sourceUrl, sourceCheckedLabel: checkedLabel(item.sourceCheckedAt),
+    curriculumVersion: item.curriculumVersion,
+  })) : [];
+  const curriculum = curriculumItems.map(item => item.nameZh).join('\n');
   const careerBlocks = parseLabelledBlocks(career);
   const careerOfficial = careerSection?.sourceType === 'official'
     || (!careerSection?.sourceType && Boolean(careerSection?.sourceUrl));
-  const curriculumOfficial = (curriculumSection?.sourceType === 'official'
-    || (!curriculumSection?.sourceType && Boolean(curriculumSection?.sourceUrl)))
-    && Boolean(curriculumSection?.sourceUrl && curriculumItems.length);
+  const curriculumOfficial = curriculumItems.length > 0;
   return [
     documentSection('INTRODUCTION', 'INTRODUCTION', '专业介绍', introduction),
     documentSection('BASIC_INFORMATION', 'BASIC_INFORMATION', '专业基本信息', '', true),
@@ -82,7 +87,7 @@ export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDoc
       contentBlocks: careerBlocks, official: careerOfficial,
       notice: career ? provenanceNotice(careerSection?.sourceType, '职业信息', Boolean(careerSection?.sourceUrl)) : '',
       sourceUrl: careerSection?.sourceUrl || '', sourceCheckedLabel: checkedLabel(careerSection?.sourceCheckedAt) },
-    { ...documentSection('CURRICULUM', 'CURRICULUM', '专业课程', curriculum || '暂无官方课程资料', Boolean(curriculum)),
+    { ...documentSection('CURRICULUM', 'CURRICULUM', '专业课程', curriculum || '待核实：暂无官方课程资料', Boolean(curriculum)),
       curriculumItems, official: curriculumOfficial,
       notice: curriculum ? provenanceNotice(curriculumSection?.sourceType, '课程', Boolean(curriculumSection?.sourceUrl)) : '',
       sourceUrl: curriculumSection?.sourceUrl || '', sourceCheckedLabel: checkedLabel(curriculumSection?.sourceCheckedAt) },
@@ -99,10 +104,10 @@ export function parseCurriculumItems(body: string): ProgrammeCurriculumItem[] {
   const seen = new Set<string>();
   for (const line of body.split(/\r?\n/)) {
     const explicit = line.trim().match(/^(\d{2})\|([^|]+)\|([^|]+)$/);
-    const nameZh = explicit?.[2]?.trim() || '';
+    const nameZh = '';
     let nameEn = explicit?.[3]?.trim() || line.trim();
     nameEn = nameEn.replace(/^(?:Year\s+\d+(?:\s*-\s*Year\s+\d+)?\s*)+/i, '').trim();
-    if (!nameEn || curriculumBoilerplate(nameEn)) continue;
+    if (!nameEn || /[\u3400-\u9fff]/u.test(nameEn) || curriculumBoilerplate(nameEn)) continue;
     const dedupeKey = `${nameZh}\u0000${nameEn}`.toLocaleLowerCase('en');
     if (seen.has(dedupeKey)) continue;
     seen.add(dedupeKey);
@@ -112,13 +117,14 @@ export function parseCurriculumItems(body: string): ProgrammeCurriculumItem[] {
 }
 
 function curriculumBoilerplate(value: string): boolean {
+  if (/\b(?:CGPA|GPA|tuition)\b/i.test(value)) return true;
   return /^(?:\d{1,3}[.)]\s*)?(?:\[?select\]?|note:?|next\s*:|year\s*\d+\b|semester\s*\d+\b|option\s*\d+\s*:|#?pre-?requisite|students?\b|compulsory university courses?\b|programme course elective\b|speciali[sz]ation(?:\s*\/| modules?\b| electives?\b)|(?:programme?|program|core|university|univerity|faculty|faculty open|free|open|external faculty|department|clinical) electives?\b|elective(?: courses?)?\b|kursus elektif\b|pilih\b|flexible studies\b|\*{1,2}(?:taken|pass)\b)/i.test(value)
     || /(?:\bchoose\s+(?:any\s+)?(?:one|two|three|four|five|seven|\d+)\b|\brefer to (?:the )?(?:attached )?list\b|\bstudents? (?:are )?required\b|\bsubject to availability\b|\bpilih\b|\brujuk\b|\bsila\b|\bsahaja\b|\bentry requirements?\b|\bminimum (?:average|score|cgpa|grade)\b|\b(?:ielts|toefl|muet)\b|\d+\s*%)/i.test(value)
     || /^(?:参考学习领域|参考课程结构|说明[：:]|illustrative study areas|note:)/i.test(value);
 }
 
 function provenanceNotice(type: ProgrammeDetailSection['sourceType'] | undefined, subject: string, hasSourceUrl = false): string {
-  if (type === 'official' || (!type && hasSourceUrl)) return subject === '课程' ? '课程名称来自学校官网' : `${subject}来自学校官网`;
+  if (type === 'official' || (!type && hasSourceUrl)) return subject === '课程' ? '课程原文来自学校官网，中文为平台译名' : `${subject}来自学校官网`;
   if (type === 'third_party') return `${subject}来自第三方资料，请以学校官网最新信息为准`;
   return subject === '课程'
     ? '参考学习领域，非官方课程表；不代表院校课程名称、学分或必修安排'

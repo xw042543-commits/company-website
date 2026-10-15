@@ -295,6 +295,11 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 详细字段、约束和索引以对应迁移文件为准；文档中的迁移清单不表示服务器已经执行这些迁移。
 
 
+## 官网课程结构（V53，发布状态见课程核验报告）
+
+`programme_detail_sections` 新增 JSONB `course_modules`、`curriculum_review_status` 和 `curriculum_version`。课程对象保存中文平台译名、官网原名/原文、可核实的代码/学分/必选修、来源和采集时间、翻译方式与时间。`programme_curriculum_backups` 在替换/隐藏前保存完整旧板块；未核实数据归档而非删除。只处理明确审核范围内马来西亚专业的 CURRICULUM，不更新专业主表。详见 [全量核验报告](../outputs/official-course-modules-20261015/README.md)。
+
+
 ## Excel 导入暂存（V52）
 
 `V52__create_catalog_excel_imports.sql` 新增以下表，并为 programmes 增加可空 campus 字段。

@@ -1,6 +1,9 @@
 package com.yangdoujiao.website.programme;
 
 import java.time.OffsetDateTime;
+import java.util.List;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -66,6 +69,16 @@ public class ProgrammeDetailSection {
 
     @Column(name = "source_reference", length = 1000)
     private String sourceReference;
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(name = "course_modules", columnDefinition = "jsonb", nullable = false)
+    private List<OfficialCourseModule> courseModules = List.of();
+
+    @Column(name = "curriculum_review_status", length = 20)
+    private String curriculumReviewStatus;
+
+    @Column(name = "curriculum_version", length = 200)
+    private String curriculumVersion;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private CategoryStatus status;

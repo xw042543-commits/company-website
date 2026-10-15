@@ -41,6 +41,12 @@ Page({
   retry() { void this.loadPage(); },
   imageError() { this.setData({ imageFailed: true }); },
   coverError() { this.setData({ coverFailed: true }); },
+  copyCourseEvidence(event: WechatMiniprogram.BaseEvent) {
+    const { nameEn, courseCode, sourceUrl } = event.currentTarget.dataset;
+    if (typeof nameEn !== 'string' || typeof sourceUrl !== 'string' || !sourceUrl.startsWith('https://')) return;
+    const data = [nameEn, typeof courseCode === 'string' ? courseCode : '', sourceUrl].filter(Boolean).join('\n');
+    wx.setClipboardData({ data, success: () => wx.showToast({ title: '原文与来源已复制', icon: 'none' }) });
+  },
   copySourceUrl(event: WechatMiniprogram.BaseEvent) {
     const sourceUrl = event.currentTarget.dataset.sourceUrl;
     if (typeof sourceUrl !== 'string' || !sourceUrl.startsWith('https://')) return;
