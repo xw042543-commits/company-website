@@ -42,7 +42,7 @@ public class CatalogLifecycleService {
     private List<Impact> impacts(long actor,Selection input,boolean lock){var records=repository.records(input.type(),input.ids(),lock);
         if(records.size()!=input.ids().size())throw invalid("部分记录已不存在，请刷新列表");
         return records.stream().map(r->{long id=((Number)r.get("id")).longValue();var links=repository.impact(input.type(),id);boolean trash=r.get("deleted_at")!=null;
-            return new Impact(id,Objects.toString(r.get("name_zh"),Objects.toString(r.get("name_en"),"课程 #"+id)),trash,links,trash&&repository.advanced(actor)&&links.values().stream().allMatch(v->v==0));}).toList();
+            return new Impact(id,input.type()==EntityType.COURSE?courses.get(id).nameZh():Objects.toString(r.get("name_zh"),Objects.toString(r.get("name_en"),"记录 #"+id)),trash,links,trash&&repository.advanced(actor)&&links.values().stream().allMatch(v->v==0));}).toList();
     }
     private void requireAdmin(long actor){if(!repository.administrator(actor))throw new ApiException(HttpStatus.FORBIDDEN,"FORBIDDEN","管理员权限已失效，请重新登录");}
     private void validate(Selection input){if(input.type()==null||input.ids()==null||input.ids().isEmpty()||input.ids().size()>100||input.ids().stream().anyMatch(id->id==null||id<1)||input.ids().stream().distinct().count()!=input.ids().size()||!Set.of("TRASH","RESTORE","PURGE").contains(Objects.toString(input.action(),"")))throw invalid("请选择1至100条不同记录及有效操作");}

@@ -119,6 +119,10 @@ public class AdminImportService {
             boolean slug=scope&&!incoming.slug().isEmpty()&&Objects.equals(old.slug(),incoming.slug());boolean sameName=scope&&old.names().stream().anyMatch(incoming.names()::contains);
             boolean level=Objects.equals(Objects.toString(old.level(),""),Objects.toString(incoming.level(),""));
             String oc=normalize(old.campus()),ic=normalize(incoming.campus());boolean campus=oc.equals(ic);
+            if(type==EntityType.COURSE&&scope&&!str(data,"officialCode").isEmpty()){
+                var oldData=old.data()==null?existingPayload(type,old.id(),context):old.data();
+                if(normalize(str(data,"officialCode")).equals(normalize(str(oldData,"officialCode")))&&!sameName)return new Outcome(Classification.CONFLICT,old.origin()+"：同一专业的官网课程代码相同但名称不一致，请核对官网原文",old.id(),null);
+            }
             if(code||slug||sameName&&(type==EntityType.UNIVERSITY||level&&campus)){
                 String reason=old.origin()+"："+(code?"编码相同":slug?"网址标识相同":"标准化名称或别名、国家/院校、学历和校区相同");
                 Map<String,Object> current=old.data();
@@ -159,7 +163,7 @@ public class AdminImportService {
     private static Candidate candidate(EntityType type,Map<String,Object> p,Long id,String origin,Context c){return new Candidate(id,str(p,codeKey(type)),str(p,"slug"),str(p,"countryCode"),type==EntityType.COURSE?programmeId(p,c):c.universityIds().get(str(p,"universityCode")),type==EntityType.COURSE?"":str(p,"studyLevelCode"),str(p,"campus"),names(str(p,"nameZh"),str(p,"nameEn"),aliases(p)),origin,p);}
     private static String key(EntityType type,Map<String,Object> data){return normalize(str(data,type==EntityType.UNIVERSITY?"countryCode":"universityCode"))+"|"+normalize(str(data,"nameZh")+str(data,"nameEn"))+"|"+str(data,"studyLevelCode")+"|"+normalize(str(data,"campus"));}
     private static List<String> aliases(Map<String,Object> data){return Arrays.stream(str(data,"aliases").split("[;；]" )).map(String::trim).filter(s->!s.isEmpty()).toList();}
-    private Map<String,Object> clean(EntityType type,Map<String,Object> input){Map<String,Object> out=new LinkedHashMap<>();Set<String> allowed=new HashSet<>();for(var col:AdminImportExcel.columns(type))allowed.add(col.key());if(!allowed.containsAll(input.keySet()))throw invalid("包含模板以外的字段");for(var col:AdminImportExcel.columns(type)){Object raw=input.get(col.key());if(raw!=null&&!(raw instanceof String)&&!(raw instanceof Number))throw invalid("字段必须为文字或数字");String value=Objects.toString(raw,"").trim();if(value.length()>20000)throw invalid("字段内容不能超过20000字");if(col.key().endsWith("Code")||col.key().equals("tuitionCurrency"))value=value.toUpperCase(Locale.ROOT);out.put(col.key(),value);}return out;}
+    private Map<String,Object> clean(EntityType type,Map<String,Object> input){Map<String,Object> out=new LinkedHashMap<>();Set<String> allowed=new HashSet<>();for(var col:AdminImportExcel.columns(type))allowed.add(col.key());if(!allowed.containsAll(input.keySet()))throw invalid("包含模板以外的字段");for(var col:AdminImportExcel.columns(type)){Object raw=input.get(col.key());if(raw!=null&&!(raw instanceof String)&&!(raw instanceof Number))throw invalid("字段必须为文字或数字");String value=Objects.toString(raw,"").trim();if(value.length()>20000)throw invalid("字段内容不能超过20000字");if(Set.of("universityCode","programmeCode","courseCode","countryCode","categoryCode","studyLevelCode","courseModeCode","tuitionCurrency").contains(col.key()))value=value.toUpperCase(Locale.ROOT);out.put(col.key(),value);}return out;}
     private void validate(EntityType type,Map<String,Object> data,Context c){
         for(var col:AdminImportExcel.columns(type))if(col.title().endsWith("*")&&str(data,col.key()).isEmpty())throw new IllegalArgumentException(col.title()+"不能为空");
         if(str(data,"nameZh").isEmpty()&&str(data,"nameEn").isEmpty())throw new IllegalArgumentException("中文或英文名称至少填写一个");
@@ -218,7 +222,7 @@ public class AdminImportService {
         if(raw.isEmpty()&&!required)return "";
         var matches=options.stream().filter(o->normalize(raw).equals(normalize(o.code()))||normalize(raw).equals(normalize(o.nameZh()))||normalize(raw).equals(normalize(o.nameEn()))).toList();
         if(matches.size()!=1)throw new IllegalArgumentException(label+(matches.isEmpty()?"未找到，请从模板下拉选项选择已有名称":"存在重名，请使用可选资料中的编码"));
-        return matches.getFirst().code();
+        return matches.getFirst().code().toUpperCase(Locale.ROOT);
     }
     private static String resolveCandidate(String raw,List<Candidate> candidates,String label){
         var byCode=candidates.stream().filter(p->normalize(p.code()).equals(normalize(raw))||raw.endsWith("["+p.code()+"]")).toList();

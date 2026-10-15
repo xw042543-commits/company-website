@@ -8,3 +8,13 @@ test("Excel upload uses credentialed multipart and server csrf without overridin
 });
 test("forbidden uploads return an error and never imply draft creation",async()=>{const previous=globalThis.fetch;let n=0;globalThis.fetch=(async()=>++n===1?Response.json({headerName:"X-XSRF-TOKEN",token:"token"}):Response.json({message:"无权限"},{status:403})) as typeof fetch;try{assert.deepEqual(await uploadExcel("http://localhost:3000","PROGRAMME",new File(["x"],"p.xlsx")),{status:"forbidden",message:"无权限"});}finally{globalThis.fetch=previous;}});
 test("templates distinguish programme relationships and preserve published row status",()=>{assert.ok(importFields("PROGRAMME").some(f=>f.key === "campus"));assert.ok(importFields("PROGRAMME").some(f=>f.key === "studyLevelCode"));assert.equal(importFields("UNIVERSITY").filter(f=>f.key === "universityCode").length,1);assert.equal(rowLabel({classification:"NEW",draftStatus:"PUBLISHED"} as ImportRow),"已发布");assert.equal(rowLabel({classification:"CONFLICT",draftStatus:"NOT_DRAFT"} as ImportRow),"字段冲突");});
+
+
+test("staff templates keep codes optional and official course codes separate",()=>{
+  for(const type of ["UNIVERSITY","PROGRAMME","COURSE"] as const){
+    const key=type==="UNIVERSITY"?"universityCode":type==="PROGRAMME"?"programmeCode":"courseCode";
+    assert.equal(importFields(type).find(f=>f.key===key)!.title.endsWith("*"),false);
+  }
+  assert.ok(importFields("COURSE").some(f=>f.key==="officialCode"));
+  assert.ok(importFields("COURSE").some(f=>f.key==="programmeCode"&&f.title.endsWith("*")));
+});

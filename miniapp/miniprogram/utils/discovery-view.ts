@@ -90,7 +90,7 @@ export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDoc
       notice: career ? provenanceNotice(careerSection?.sourceType, '职业信息', Boolean(careerSection?.sourceUrl)) : '',
       sourceUrl: careerSection?.sourceUrl || '', sourceCheckedLabel: checkedLabel(careerSection?.sourceCheckedAt) },
     { ...documentSection('CURRICULUM', 'CURRICULUM', '专业课程', [curriculum, referenceCourses ? '参考学习领域，非官方课程表\n' + referenceCourses : ''].filter(Boolean).join('\n\n') || '待核实：暂无官方课程资料', Boolean(curriculum || referenceCourses)),
-      curriculumItems, official: curriculumOfficial, referenceBody: referenceCourses,
+      curriculumItems, official: curriculumOfficial, ...(referenceCourses ? { referenceBody: referenceCourses } : {}),
       notice: curriculum ? provenanceNotice(curriculumSection?.sourceType, '课程', Boolean(curriculumSection?.sourceUrl)) : '',
       sourceUrl: curriculumSection?.sourceUrl || '', sourceCheckedLabel: checkedLabel(curriculumSection?.sourceCheckedAt) },
   ];

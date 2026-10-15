@@ -186,3 +186,16 @@ test('official curriculum builds a deduplicated vertical list and ignores old ge
   assert.equal(generated?.body, '待核实：暂无官方课程资料');
   assert.equal(generated?.curriculumItems.length, 0);
 });
+
+
+test('staff reference learning areas stay separate from verified official modules', () => {
+  const document = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 20, {
+    bodyZh: '资料概述\n【后台维护课程】\n算法分析（参考学习领域，非官方课程表）', sourceType: 'third_party',
+  })] }));
+  const curriculum = document.find(s => s.key === 'CURRICULUM')!;
+  assert.equal(curriculum.official, false);
+  assert.equal(curriculum.available, true);
+  assert.equal(curriculum.curriculumItems.length, 0);
+  assert.match(curriculum.body, /参考学习领域，非官方课程表/);
+  assert.match(curriculum.referenceBody!, /算法分析/);
+});

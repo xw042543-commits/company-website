@@ -31,7 +31,7 @@ class CatalogStaffWorkflowIntegrationTest {
     @Autowired CatalogIdentityService identities; @Autowired CatalogVisibilityRepository visibility; @Autowired MockMvc mvc;
     long actor,uni,programme,category,level;String suffix;
     @BeforeEach void setup(){
-        suffix=UUID.randomUUID().toString().replace("-","").substring(0,12);
+        suffix=UUID.randomUUID().toString().replace("-","").substring(0,12).toUpperCase(Locale.ROOT);
         jdbc.update("INSERT INTO countries(code,name_zh,name_en,continent_code) VALUES ('MY','马来西亚','Malaysia','ASIA') ON CONFLICT DO NOTHING");
         actor=jdbc.queryForObject("INSERT INTO user_accounts(full_name,normalized_email,password_hash,status,role,agreement_version,privacy_version) VALUES ('一线管理员',?,'hash','ACTIVE','ADMIN','v1','v1') RETURNING id",Long.class,suffix+"@test.example");
         category=jdbc.queryForObject("INSERT INTO subject_categories(code,name_zh,status) VALUES (?,?,'PUBLISHED') RETURNING id",Long.class,"CAT_"+suffix,"测试学科"+suffix);
@@ -56,12 +56,12 @@ class CatalogStaffWorkflowIntegrationTest {
         var repeat=imports.upload(EntityType.PROGRAMME,"再次.xlsx",workbook(EntityType.PROGRAMME,List.of(p)),actor);assertThat(repeat.batch().draftRows()).isZero();assertThat(imports.rows(repeat.batch().id()).getFirst().payload().get("programmeCode")).isEqualTo(code);
     }
     @Test void courseImportKeepsInternalAndOfficialCodesSeparateAndDetectsDuplicates()throws Exception{
-        var data=Map.<String,Object>of("programmeCode",catalog.programme(programme).programmeCode(),"nameZh","程序设计基础","nameEn","Programming Fundamentals","officialCode","CS101","sourceType","学校官网","sourceUrl","https://example.edu/modules/cs101");
+        var data=Map.<String,Object>of("programmeCode",catalog.programme(programme).programmeCode(),"nameZh","程序设计基础","nameEn","Programming Fundamentals","officialCode","Cs101","sourceType","学校官网","sourceUrl","https://example.edu/modules/cs101");
         var batch=imports.upload(EntityType.COURSE,"课程.xlsx",workbook(EntityType.COURSE,List.of(data,data)),actor);
         assertThat(batch.batch().draftRows()).isEqualTo(1);assertThat(batch.batch().exactDuplicateRows()).isEqualTo(1);
         var row=imports.rows(batch.batch().id()).getFirst();imports.publish(batch.batch().id(),List.of(row.id()));
-        var course=courses.get(imports.rows(batch.batch().id()).getFirst().publishedRecordId());assertThat(course.courseCode()).startsWith("C_").isNotEqualTo("CS101");assertThat(course.officialCode()).isEqualTo("CS101");
-        assertThat(jdbc.queryForObject("SELECT course_modules->0->>'courseCode' FROM programme_detail_sections WHERE programme_id=? AND section_type='CURRICULUM'",String.class,programme)).isEqualTo("CS101");
+        var course=courses.get(imports.rows(batch.batch().id()).getFirst().publishedRecordId());assertThat(course.courseCode()).startsWith("C_").isNotEqualTo("Cs101");assertThat(course.officialCode()).isEqualTo("Cs101");
+        assertThat(jdbc.queryForObject("SELECT course_modules->0->>'courseCode' FROM programme_detail_sections WHERE programme_id=? AND section_type='CURRICULUM'",String.class,programme)).isEqualTo("Cs101");
     }
     @Test void collectorUpdatesKeepInternalCodesAndOfficialEvidence() {
         String module="[{\"nameZh\":\"数据库系统\",\"nameEn\":\"Database Systems\",\"courseCode\":\"DB101\",\"credits\":\"3\",\"evidence\":\"Official module table\",\"sourceUrl\":\"https://example.edu/courses\",\"sourceCheckedAt\":\"2026-10-15T00:00:00Z\"}]";

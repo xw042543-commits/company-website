@@ -33,7 +33,7 @@ public class AdminCourseRepository {
         jdbc.queryForObject("SELECT set_config('udajo.catalog_course_sync','on',true)",String.class);
         jdbc.update("""
             INSERT INTO programme_detail_sections(programme_id,section_type,title_zh,title_en,sort_order,status,body_zh,source_type,course_modules,curriculum_review_status)
-            VALUES (?,'CURRICULUM','专业课程','Curriculum',20,'PUBLISHED','','third_party','[]','PENDING')
+            VALUES (?,'CURRICULUM','专业课程','Curriculum',20,'PUBLISHED','【后台维护课程】','third_party','[]','PENDING')
             ON CONFLICT (programme_id,section_type) DO NOTHING
             """,programme);
         jdbc.update("""

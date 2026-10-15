@@ -12,6 +12,8 @@ UNION ALL SELECT 'PROGRAMME',programme_code FROM programmes;
 
 ALTER TABLE universities ADD COLUMN deleted_at TIMESTAMPTZ, ADD COLUMN previous_status VARCHAR(20);
 ALTER TABLE programmes ADD COLUMN deleted_at TIMESTAMPTZ, ADD COLUMN previous_status VARCHAR(20);
+ALTER TABLE universities ADD CONSTRAINT ck_universities_recycle_hidden CHECK(deleted_at IS NULL OR status='ARCHIVED');
+ALTER TABLE programmes ADD CONSTRAINT ck_programmes_recycle_hidden CHECK(deleted_at IS NULL OR status='ARCHIVED');
 
 -- A separately granted capability: existing administrators are NOT promoted.
 CREATE TABLE catalog_advanced_administrators (
@@ -45,6 +47,7 @@ CREATE TABLE catalog_courses (
     previous_status VARCHAR(20),
     created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CHECK(deleted_at IS NULL OR status='ARCHIVED'),
     UNIQUE(programme_id,source_key)
 );
 CREATE INDEX idx_catalog_courses_programme ON catalog_courses(programme_id,status,sort_order,id);

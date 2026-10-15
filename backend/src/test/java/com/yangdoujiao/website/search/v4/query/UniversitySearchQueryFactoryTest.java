@@ -180,6 +180,19 @@ class UniversitySearchQueryFactoryTest {
                 .orElseThrow();
     }
 
+    @Test
+    void databaseVisibilityFenceAlsoFiltersKeywordInnerHitsBeforePagination() {
+        var visibility=org.mockito.Mockito.mock(com.yangdoujiao.website.catalog.CatalogVisibilityRepository.class);
+        org.mockito.Mockito.when(visibility.hiddenUniversities()).thenReturn(List.of("50"));
+        org.mockito.Mockito.when(visibility.hiddenProgrammes()).thenReturn(List.of("70","71"));
+        var guarded=new UniversitySearchQueryFactory();guarded.visibility(visibility);
+        var query=guarded.create(criteria("computing",null,null),text("computing"));
+        assertTerms(query.getQuery().bool().mustNot().getFirst(),"id","50");
+        assertTerms(matchedProgrammesNested(query).query().bool().mustNot().getFirst(),"programmes.id","70","71");
+        var keyword=query.getQuery().bool().must().stream().filter(Query::isBool).findFirst().orElseThrow();
+        assertTerms(keyword.bool().should().get(1).nested().query().bool().mustNot().getFirst(),"programmes.id","70","71");
+    }
+
     private static void assertRootKeywordQuery(NativeQuery query, String keyword, boolean fuzzy) {
         Query keywordQuery = query.getQuery().bool().must().stream()
                 .filter(Query::isBool)

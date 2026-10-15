@@ -60,6 +60,7 @@ class UniversityDetailHttpIntegrationTest {
 
     @AfterEach
     void deleteFixtures() {
+        jdbc.update("DELETE FROM catalog_courses WHERE programme_id IN (SELECT id FROM programmes WHERE programme_code LIKE 'DETAIL_%')");
         jdbc.update("DELETE FROM programmes WHERE programme_code LIKE 'DETAIL_%'");
         jdbc.update("DELETE FROM languages WHERE code LIKE 'DETAIL_%'");
         jdbc.update("DELETE FROM course_modes WHERE code LIKE 'DETAIL_%'");
