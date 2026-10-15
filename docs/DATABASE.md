@@ -48,6 +48,7 @@ Redis 不可用时，社区写入和热门快照按接口契约返回不可用�
 - `V44` 至 `V47`：按院校分组增量核对马来西亚已发布专业的基本信息，保留无法确认的客观字段为待核实。
 - `V50__add_basic_info_source_provenance.sql`：为专业、入学时间和入学条件补充来源类型与来源说明；来源类型仅允许 `official`、`third_party` 或 `ai_generated`。
 - `V62__retry_community_image_download_errors.sql`：允许图片安全检查回调记录 `RETRY`，将微信媒体下载失败与内容审核结果区分，供自动重试使用。
+- `V63__community_image_direct_fallback.sql`：记录微信图片下载失败后的直传安全检查回退状态；只有微信明确返回通过才自动发布。
 
 已经在任何环境执行过的迁移文件不能直接修改。后续需要调整结构时，应新增
 新的顺序版本迁移，确保三名开发人员、CI 和服务器按相同顺序升级数据库。

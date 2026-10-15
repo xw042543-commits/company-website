@@ -54,6 +54,7 @@ class CommunityImageReviewJobsIntegrationTest {
         assertTrue(jobs.claim(now.plusSeconds(5)).isEmpty());
         var second=jobs.claim(now.plusSeconds(6)).orElseThrow();
         assertEquals(2,second.attempt());
+        assertTrue(second.directFallback());
         jobs.acknowledge(second,"fixture-download-2",now.plusSeconds(6));
         jobs.receive("fixture-download-1","PASS",now.plusSeconds(7));
         assertEquals("PENDING",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
@@ -100,7 +101,8 @@ class CommunityImageReviewJobsIntegrationTest {
     @Test void workerPublishesAutomaticallyAfterPassingCallback() {
         var gateway=org.mockito.Mockito.mock(WechatImageReviewGateway.class);
         org.mockito.Mockito.when(gateway.submit(owner,id)).thenReturn(Optional.of("fixture-worker"));
-        var worker=new CommunityImageReviewWorker(jobs,images,gateway,Clock.fixed(now,ZoneOffset.UTC));
+        var direct=org.mockito.Mockito.mock(WechatDirectImageReviewGateway.class);
+        var worker=new CommunityImageReviewWorker(jobs,images,gateway,direct,Clock.fixed(now,ZoneOffset.UTC));
         worker.tick();
         assertEquals("PENDING_REVIEW",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
         jobs.receive("fixture-worker","PASS",now.plusSeconds(1));
@@ -108,6 +110,40 @@ class CommunityImageReviewJobsIntegrationTest {
         assertEquals("PUBLISHED",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
         worker.tick();
         assertEquals(1L,jdbc.queryForObject("SELECT count(*) FROM inbox_notifications WHERE recipient_account_id=?",Long.class,owner));
+    }
+    @Test void downloadErrorUsesDirectCheckAndPublishesOnClearPass() {
+        var gateway=org.mockito.Mockito.mock(WechatImageReviewGateway.class);
+        var direct=org.mockito.Mockito.mock(WechatDirectImageReviewGateway.class);
+        org.mockito.Mockito.when(gateway.submit(owner,id)).thenReturn(Optional.of("fixture-direct"));
+        org.mockito.Mockito.when(direct.check(id)).thenReturn(Optional.of("PASS"));
+        new CommunityImageReviewWorker(jobs,images,gateway,direct,Clock.fixed(now,ZoneOffset.UTC)).tick();
+        jobs.receiveDownloadFailure("fixture-direct",now.plusSeconds(1));
+        new CommunityImageReviewWorker(jobs,images,gateway,direct,Clock.fixed(now.plusSeconds(6),ZoneOffset.UTC)).tick();
+        assertEquals("PASS",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
+        assertEquals("PUBLISHED",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
+        assertEquals(1L,jdbc.queryForObject("SELECT count(*) FROM inbox_notifications WHERE recipient_account_id=?",Long.class,owner));
+        org.mockito.Mockito.verify(gateway,org.mockito.Mockito.times(1)).submit(owner,id);
+        org.mockito.Mockito.verify(direct,org.mockito.Mockito.times(1)).check(id);
+    }
+    @Test void directCheckWithoutClearVerdictDoesNotPublish() {
+        var first=jobs.claim(now).orElseThrow();
+        jobs.acknowledge(first,"fixture-unclear",now);
+        jobs.receiveDownloadFailure("fixture-unclear",now.plusSeconds(1));
+        var second=jobs.claim(now.plusSeconds(6)).orElseThrow();
+        assertTrue(second.directFallback());
+        jobs.failed(second,now.plusSeconds(6));
+        assertEquals("PENDING_REVIEW",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
+        assertEquals("PENDING",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
+    }
+    @Test void directRiskVerdictDoesNotPublish() {
+        var first=jobs.claim(now).orElseThrow();
+        jobs.acknowledge(first,"fixture-risk",now);
+        jobs.receiveDownloadFailure("fixture-risk",now.plusSeconds(1));
+        var second=jobs.claim(now.plusSeconds(6)).orElseThrow();
+        jobs.completeDirect(second,"REJECTED",now.plusSeconds(6));
+        images.reconcile();
+        assertEquals("REJECTED",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
+        assertEquals("PENDING_REVIEW",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
     }
     @Test void passingCallbackPublishesWithoutWaitingForWorkerTick() throws Exception {
         var claim=jobs.claim(now).orElseThrow();
