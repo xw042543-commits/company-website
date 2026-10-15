@@ -2,19 +2,14 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { programmeCards, describeError } from '../miniprogram/utils/planning-agent-state';
 import type { Plan } from '../miniprogram/services/planning-agent';
 import { buildSync } from 'esbuild';
+import { demoPlan, demoFacts } from './planning-agent-demo';
 
 // Local, synthetic visual fixtures only. Renders the shipped WXML/WXSS; no API/model calls.
 Object.defineProperty(globalThis, 'Page', { value: () => {} });
 const { createPlanningAgentPage } = await import('../miniprogram/pages/planning-agent/index');
 const base = createPlanningAgentPage().data!;
 const previewId = '00000000-0000-4000-8000-000000000001';
-const plan: Plan = { profileVersion: 1, generalNextSteps: ['PREPARE_LANGUAGE'], programmes: [{
-  programmeId: 1, programmeNameZh: '计算机科学（荣誉）学士', programmeNameEn: 'Example programme', universityNameZh: '亚太科技大学（方案为示例）', universityNameEn: 'Asia Pacific University',
-  imageUrl: 'https://yangdoujiao.com/universities/campuses/apu-campus.webp',
-  classification: 'UNKNOWN', assessment: { eligible: false, alternatives: [[{ field: 'languageTotal', status: 'PROFILE_MISSING', evidenceId: 1 }, { field: 'grade', status: 'EVIDENCE_MISSING', evidenceId: 1 }]] },
-  budget: { subtotals: {}, complete: false, missing: ['TUITION', 'LIVING'] }, evidenceIds: [1], ruleSnapshot: null, ruleVersion: null,
-  evidenceSnapshot: [{ id: 1, programmeId: 1, factType: 'ADMISSION', sourceUrl: 'https://example.com/preview-only', sourceType: 'OFFICIAL', studentScope: '示例适用范围', intake: '2027', checkedAt: '2026-10-01T00:00:00Z', expiresAt: '2027-01-01T00:00:00Z' }],
-}] };
+const plan: Plan = demoPlan({ version: 1, facts: demoFacts });
 const ready = { ...base, loading: false, available: true, sessionId: previewId, profileVersion: 1, backgroundSummary: '本科 · 计算机 · 2027 入学',
   messages: [{ id: 1, text: '想了解计算机专业（示例）' }], state: 'ready', plan, cards: programmeCards(plan), steps: ['下一步，补充成绩与语言情况。'] };
 const fixtures: Record<string, object> = {
@@ -43,7 +38,6 @@ const escape = (value: unknown) => String(value ?? '').replace(/&/g, '&amp;').re
 const evaluate = (expression: string, scope: Record<string, unknown>) => Function('scope', `with(scope){return (${expression})}`)(scope);
 const expression = (value: string) => value.replace(/^{{|}}$/g, '');
 const interpolate = (value: string, scope: Record<string, unknown>) => value.replace(/{{([\s\S]*?)}}/g, (_, expr) => escape(evaluate(expr, scope)));
-const previewCampus = `data:image/webp;base64,${readFileSync('../frontend/public/universities/campuses/apu-campus.webp').toString('base64')}`;
 function render(nodes: Array<Node | string>, scope: Record<string, unknown>): string {
   let matched = false;
   return nodes.map(node => {
@@ -55,12 +49,12 @@ function render(nodes: Array<Node | string>, scope: Record<string, unknown>): st
     else if ('wx:else' in a) { if (matched) return ''; matched = true; }
     if (node.tag === 'block') return render(node.children, scope);
     const tag = ({ view: 'div', text: 'span', image: 'img', 'scroll-view': 'div', picker: 'div', 'checkbox-group': 'div', checkbox: 'input' } as Record<string, string>)[node.tag] ?? node.tag;
-    let attrs = Object.entries(a).filter(([key]) => ['class', 'style', 'src', 'placeholder', 'value', 'maxlength', 'aria-label'].includes(key) || key.startsWith('data-') || key.startsWith('bind')).map(([key, value]) => ` ${key.startsWith('bind') ? 'data-' + key : key}="${interpolate(value, scope).replace('https://yangdoujiao.com/universities/campuses/apu-campus.webp', previewCampus)}"`).join('');
+    let attrs = Object.entries(a).filter(([key]) => ['class', 'style', 'src', 'placeholder', 'value', 'maxlength', 'aria-label'].includes(key) || key.startsWith('data-') || key.startsWith('bind')).map(([key, value]) => ` ${key.startsWith('bind') ? 'data-' + key : key}="${interpolate(value, scope)}"`).join('');
     if (node.tag === 'checkbox') attrs += ' type="checkbox"';
     if (a.disabled && evaluate(expression(a.disabled), scope)) attrs += ' disabled';
     if (a.checked && evaluate(expression(a.checked), scope)) attrs += ' checked';
-    if (node.tag === 'picker') { const labels = evaluate(expression(a.range!), scope) as string[]; const selected = Number(evaluate(expression(a.value || '0'), scope));
-      return `<select class="answer-input"${attrs}>${labels.map((label, index) => `<option value="${index}"${index === selected ? ' selected' : ''}>${escape(label)}</option>`).join('')}</select>`; }
+    if (node.tag === 'picker') { const labels = evaluate(expression(a.range!), scope) as Array<string | Record<string, unknown>>; const selected = Number(evaluate(expression(a.value || '0'), scope));
+      return `<select class="answer-input"${attrs}>${labels.map((label, index) => `<option value="${index}"${index === selected ? ' selected' : ''}>${escape(typeof label === 'object' ? label[a['range-key']!] : label)}</option>`).join('')}</select>`; }
     return `<${tag}${attrs}>${['input', 'img'].includes(tag) ? '' : (tag === 'textarea' ? interpolate(a.value ?? '', scope) : render(node.children, scope)) + `</${tag}>`}`;
   }).join('');
 }
@@ -68,26 +62,53 @@ const template = parse(readFileSync('miniprogram/pages/planning-agent/index.wxml
 const css = ['styles/tokens.wxss', 'pages/planning-agent/index.wxss'].map(path => readFileSync(`miniprogram/${path}`, 'utf8')).join('\n')
   .replace(/(^|\n)page(?=\s*\{)/g, '$1.phone').replace(/([\d.]+)rpx/g, (_, value) => `calc(${Number(value)} * var(--rpx))`).replace(/\.source text/g, '.source span').replace(/\.privacy-copy text/g, '.privacy-copy span').replace(/\.consent text/g, '.consent span').replace(/\.consent checkbox/g, '.consent input')
   .replace(/([\s>])text(?=[:\s.{])/g, '$1span').replace(/\.welcome-title text/g, '.welcome-title span')
-  + '\nbody > .phone{height:calc(100dvh - 32px)}.programme-image{object-fit:cover}.sheet-scroll{overflow:auto}';
+  + '\nbody > .phone{height:calc(100dvh - 72px)}.programme-image{object-fit:cover}.sheet-scroll{overflow:auto}';
 mkdirSync('.preview', { recursive: true });
-const renderer = `const escape=${escape.toString()},evaluate=${evaluate.toString()},expression=${expression.toString()},interpolate=${interpolate.toString()},previewCampus=${JSON.stringify(previewCampus)};const render=${render.toString()};const template=${JSON.stringify(template)};`;
+const renderer = `const escape=${escape.toString()},evaluate=${evaluate.toString()},expression=${expression.toString()},interpolate=${interpolate.toString()};const render=${render.toString()};const template=${JSON.stringify(template)};`;
 const browser = buildSync({ stdin: { contents: `
 import { createPlanningAgentPage } from './miniprogram/pages/planning-agent/index';
+import { createPlanningDemo, demoFacts } from './scripts/planning-agent-demo';
 ${renderer}
 const fixtures=${JSON.stringify(fixtures)};
-const state=new URLSearchParams(location.search).get('state')||'welcome';
-const fixture=fixtures[state]||fixtures.welcome;
-const definition=createPlanningAgentPage({
-  api:new Proxy({}, {get:()=>async()=>({ok:false,error:{kind:'unavailable',code:'PLANNING_DISABLED'}})}),
-  storage:{get:()=>'',set:()=>{},remove:()=>{}},
-  navigate:()=>page.setData({notice:'这是本地预览，未打开线上页面。'}),
-});
-const page={...definition,data:structuredClone({...definition.data,...fixture}),setData(patch){Object.assign(this.data,patch);draw();}};
-window.previewPage=page;
+const state=new URLSearchParams(location.search).get('state');
+const demo=createPlanningDemo();let page;let pendingSample=false;let historyOpen=false;
+function makePage(){
+ const definition=createPlanningAgentPage({api:demo.api,session:demo.session,storage:demo.storage,navigate:async url=>{
+  if(url==='/pages/plans/index'){historyOpen=true;await drawHistory();return;}
+  page.setData({menuOpen:false,notice:'演示模式：此入口只展示导航位置，不会打开线上目录或提交咨询。请使用本页的背景、方案与模拟交接流程。'});
+ }});
+ page={...definition,data:structuredClone(definition.data),setData(patch){Object.assign(this.data,patch);draw();}};
+ window.previewPage=page;page.onLoad({});
+}
+async function resetDemo(){if(page)page.onUnload();await demo.reset();pendingSample=false;historyOpen=false;document.getElementById('demo-history').hidden=true;makePage();await page.load();}
+function fillSample(){page.showProfile(demoFacts);page.setData({formOpen:true,profileReview:true,profileConsent:false,notice:'示例背景已填入，请核对后勾选确认。预算可改为 MYR 90000 查看对比变化。'});}
+async function drawHistory(){
+ const result=await demo.api.listPlans();const host=document.getElementById('demo-history');host.hidden=!historyOpen;
+ if(!historyOpen)return;
+ host.innerHTML='<div class="demo-history-head"><strong>本页内存中的演示方案</strong><button data-demo-close-history>返回对话</button></div>'+(result.ok&&result.value.length?result.value.map((saved,index)=>'<button class="demo-saved" data-demo-plan="'+escape(saved.planId)+'">演示方案 '+(index+1)+' · 查看快照</button>').join(''):'<p>还没有保存的演示方案。保存后可在这里查看；刷新或重置后清空。</p>');
+}
+// Preview-only wording makes the real controller's outcomes explicitly simulated.
+function demoCopy(html){return html
+ .replaceAll('AI 辅助 · 以院校核实信息为准','演示模式 · 预设数据 · 不是真实 AI')
+ .replaceAll('我们会保存对话和你确认的背景，并将必要的结构化教育信息提供给经审核的 AI 服务。请勿在对话中填写姓名、电话、证件号或个人经历。','本演示仅在当前页面内存中保存输入，不调用 AI、不联网、不提交咨询。请使用虚构信息；刷新或点击“重置演示”将清空。')
+ .replaceAll('保存方案和向顾问分享都会另行征求确认。你可以删除对话和方案；已确认的咨询有独立处理周期。AI 辅助不代表录取承诺。','院校、专业、费用和来源均为虚构。本页只演示背景确认、生成、保存与顾问交接操作。')
+ .replaceAll('按你确认的背景，先看这份专业清单。条件和费用会逐项核对。','以下为按预设规则展示的虚构方案，不是真实 AI 生成。条件与费用仅用于演示。')
+ .replaceAll('AI 规划','演示规划').replaceAll('生成方案','生成演示方案')
+ .replaceAll('已核验范围','模拟范围').replaceAll('招生要求待核实','演示条件 · 未经核实')
+ .replaceAll('暂无可安全打开的来源链接，请向院校核实。','模拟来源，无官方链接；本页数据不可用于申请。')
+ .replaceAll('核验 2026-10-15','模拟日期 2026-10-15')
+ .replaceAll('方案已保存，可在“我的方案”查看。','演示方案已保存在本页内存，可在“历史方案”查看；刷新或重置即清空。')
+ .replaceAll('保存当前背景和方案快照，以后可以在历史方案中查看。','仅在本页内存保存演示快照；刷新或重置即清空。')
+ .replaceAll('方案已保存。','演示方案已保存在本页内存。')
+ .replaceAll('把你想问的，一起交给顾问。','模拟交接 · 不提交咨询 · 请填写虚构联系方式。')
+ .replaceAll('我确认上方摘要，同意提交以上资料并由顾问联系。咨询有独立处理周期，删除对话、方案或账号不会自动删除已提交咨询。','我确认上方演示摘要，继续模拟顾问交接；不会提交任何资料，也不会有顾问联系。')
+ .replaceAll('发送上方背景摘要、选定项目和你填写的资料，不发送聊天记录。','仅在本页模拟确认，不发送背景、项目、聊天记录或联系方式。')
+ .replaceAll('确认提交咨询','确认模拟交接').replaceAll('咨询已提交，顾问将通过你填写的方式联系。','模拟交接已完成。没有提交咨询，也不会有顾问联系。')
+ .replaceAll('咨询已提交','模拟交接完成（未提交）').replaceAll('回执：','演示回执：');}
 function draw(){
  const root=document.getElementById('preview-root');const oldScroll=root.querySelector('.agent-scroll')?.scrollTop||0;
  const active=document.activeElement;const key=active?.dataset?.key;const handler=active?.dataset?.bindinput;const position=active?.selectionStart;
- const next=document.createElement('div');next.innerHTML=render(template,page.data);patchChildren(root,next);
+ const next=document.createElement('div');next.innerHTML=demoCopy(render(template,page.data));patchChildren(root,next);
  const scroll=root.querySelector('.agent-scroll');if(scroll)scroll.scrollTop=oldScroll;
  if(handler){const input=Array.from(root.querySelectorAll('[data-bindinput]')).find(el=>el.dataset.bindinput===handler&&el.dataset.key===key);if(input){input.focus();if(typeof position==='number'&&input.setSelectionRange)input.setSelectionRange(position,position);}}
 }
@@ -111,19 +132,28 @@ function patchChildren(current,next){
  });
  while(current.childNodes.length>desired.length)current.lastChild.remove();
 }
-page.onLoad({});draw();
-function dispatch(event,kind){
+makePage();if(state&&fixtures[state]){page.setData(fixtures[state]);page.setData({notice:'当前是静态状态样例；点击“重置演示”开始完整流程。'});}else{void page.load();}draw();
+async function dispatch(event,kind){
  const el=event.target.closest('[data-'+kind+']');if(!el||el.disabled)return;
  const method=el.dataset[kind];if(typeof page[method]!=='function')return;
  let value=event.target.value;
  if(kind==='bindchange'&&event.target.type==='checkbox')value=event.target.checked?['yes']:[];
- page[method]({currentTarget:{dataset:{...el.dataset}},detail:{value}});
+ await page[method]({currentTarget:{dataset:{...el.dataset}},detail:{value}});
+ if(method==='start'&&pendingSample&&page.data.sessionId){pendingSample=false;fillSample();}
 }
-document.addEventListener('click',event=>dispatch(event,'bindtap'));
+document.addEventListener('click',async event=>{
+ if(event.target.closest('[data-demo-reset]')){await resetDemo();return;}
+ if(event.target.closest('[data-demo-sample]')){if(page.data.busy)return;if(!page.data.sessionId||page.data.isSnapshot){await resetDemo();pendingSample=true;page.beginPlanning();}else fillSample();return;}
+ if(event.target.closest('[data-demo-close-history]')){historyOpen=false;await drawHistory();return;}
+ const saved=event.target.closest('[data-demo-plan]');if(saved){historyOpen=false;await drawHistory();page.setData({menuOpen:false,formOpen:false,shareOpen:false,saveOpen:false});await page.loadSaved(saved.dataset.demoPlan);return;}
+ if(event.target.closest('[data-demo-history]')){historyOpen=true;await drawHistory();return;}
+ void dispatch(event,'bindtap');
+});
 document.addEventListener('input',event=>dispatch(event,'bindinput'));
 document.addEventListener('change',event=>dispatch(event,'bindchange'));
+document.addEventListener('keydown',event=>{if(event.key==='Enter'&&event.target.matches('.composer-input')){event.preventDefault();void page.send();}});
 `, resolveDir: process.cwd(), loader: 'ts' }, bundle: true, write: false, platform: 'browser', format: 'iife', target: 'es2022',
-  banner: { js: '/* eslint-disable -- Generated local preview bundle, sources are linted separately. */\nglobalThis.Page=()=>{};globalThis.wx={setClipboardData:()=>{},showModal:options=>options.success({confirm:false}),showToast:()=>{}};' } });
+  banner: { js: '/* eslint-disable -- Generated local preview bundle, sources are linted separately. */\nglobalThis.Page=()=>{};globalThis.wx={setClipboardData:()=>{},showModal:options=>{const confirm=window.confirm("演示模式 · 仅操作本页内存\\n"+options.title+"\\n"+options.content);options.success?.({confirm,cancel:!confirm});},showToast:()=>{}};' } });
 writeFileSync('.preview/planning-agent.js', browser.outputFiles[0]!.text);
-writeFileSync('.preview/planning-agent.html', `<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>留学规划 · 对话预览</title><style>*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#fff}button,input,textarea,select{font-family:inherit}button{border:0;cursor:pointer}input{min-width:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #65776a;outline-offset:3px}.preview-label{height:32px;font-size:11px;display:flex;align-items:center;justify-content:center;background:#f1f3ef;color:#687063}.phone{--rpx:calc(100vw / 750);width:100%;height:calc(100dvh - 32px);background:#fff}.native-title{height:52px;text-align:center;padding:13px;font-size:18px;font-weight:550}.preview-root{height:calc(100% - 52px)}.agent-scroll{overflow-y:auto}.consent input{width:20px;height:20px;accent-color:#252724;flex-shrink:0}.answer-input{outline-offset:2px}${css}</style><div class="preview-label">示例会话 · 可点击背景步骤 · 不提交数据 · 非微信真机</div><section class="phone"><div class="native-title">留学规划</div><div id="preview-root" class="preview-root"></div></section><script src="planning-agent.js"></script></html>`);
+writeFileSync('.preview/planning-agent.html', `<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>留学规划 · 交互演示</title><style>*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f6f3}button,input,textarea,select{font-family:inherit}button{border:0;cursor:pointer}input{min-width:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #65776a;outline-offset:3px}.preview-label{min-height:32px;font-size:11px;display:flex;align-items:center;justify-content:center;background:#f1f3ef;color:#465442;padding:8px;text-align:center}.demo-toolbar{height:40px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:12px;background:#f1f3ef}.demo-toolbar button{background:transparent;color:#445a49;padding:8px 0}.phone{--rpx:calc(min(100vw,430px) / 750);width:min(100%,430px);height:calc(100dvh - 72px);margin:0 auto;background:#fff;position:relative}.native-title{height:52px;text-align:center;padding:13px;font-size:18px;font-weight:550}.preview-root{height:calc(100% - 52px)}.agent-scroll{overflow-y:auto}.consent input{width:20px;height:20px;accent-color:#252724;flex-shrink:0}.answer-input{outline-offset:2px}.demo-history{position:absolute;inset:52px 0 0;z-index:20;background:#fff;padding:24px;overflow:auto;font-size:14px;line-height:1.8}.demo-history[hidden]{display:none}.demo-history-head{display:flex;justify-content:space-between;gap:12px}.demo-history button{background:transparent;color:#445a49;padding:12px 0}.demo-saved{display:block;width:100%;text-align:left;border-bottom:1px solid #eee}${css}</style><div class="preview-label">演示模式 · 不是真实 AI · 不提交咨询 · 全部为虚构数据</div><div class="demo-toolbar"><button data-demo-sample>填入示例背景</button><button data-demo-history>本页历史方案</button><button data-demo-reset>重置演示</button></div><section class="phone"><div class="native-title">留学规划</div><div id="preview-root" class="preview-root"></div><aside id="demo-history" class="demo-history" hidden></aside></section><script src="planning-agent.js"></script></html>`);
 console.log('Generated template-derived interactive preview: miniapp/.preview/planning-agent.html?state=welcome|profile|ready|handoff (plus other fixture states). No API/model calls or real-device verification.');
