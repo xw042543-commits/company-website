@@ -44,3 +44,8 @@ jobs:
             -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
             -p "$PRODUCTION_SSH_PORT" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
             "cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml exec -T backend sh -c 'printf \"image_review_enabled=%s worker_enabled=%s\\n\" \"\$APP_COMMUNITY_IMAGES_REVIEW_ENABLED\" \"\${APP_COMMUNITY_IMAGES_REVIEW_WORKER_ENABLED:-true}\"'"
+          echo 'Recent sanitized callback outcomes (last two hours; aggregate only)'
+          ssh -i "$audit_key" -o BatchMode=yes -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
+            -p "$PRODUCTION_SSH_PORT" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
+            "cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml logs --since 2h backend 2>&1 | grep 'community image review callback providerCode=' | sed -E 's/.*providerCode=([^ ]+) suggestion=([^ ]+) reason=([^ ]+) verdict=([^ ]+).*/providerCode=\\1 suggestion=\\2 reason=\\3 verdict=\\4/' | sort | uniq -c"
