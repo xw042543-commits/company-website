@@ -2369,9 +2369,16 @@ textarea:focus {
 .community-workspace .adviser-detail { min-height: 360px; }
 .community-workspace .community-filter-set { margin-bottom: 16px; border-color: #d8e0da; background: #fffdfa; }
 .community-workspace .adviser-record-list { align-self: start; }
+.community-console .adviser-console-shell { width: min(1400px, 100%); }
+.community-workspace .community-record { padding: 26px 24px; column-gap: 22px; }
+.community-workspace .community-record .adviser-record-primary { gap: 9px; }
+.community-workspace .community-record .adviser-record-meta { gap: 14px; }
 
 @media (max-width: 800px) {
   .adviser-console { padding: 14px; }
   .consultation-workspace .adviser-master-detail,
   .community-workspace .community-master-detail { gap: 14px; }
+}
+@media (max-width: 520px) {
+  .community-workspace .community-record { padding: 18px 16px; }
 }
