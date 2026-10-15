@@ -32,6 +32,9 @@ class AdminCatalogCountryFilterIntegrationTest {
     @Autowired JdbcTemplate jdbc;
     private String prefix;
     private long universityA;
+    private long category;
+    private long level;
+    private long otherLevel;
     private UserPrincipal admin;
 
     @BeforeEach
@@ -39,13 +42,15 @@ class AdminCatalogCountryFilterIntegrationTest {
         prefix="CF"+UUID.randomUUID().toString().replace("-", "").substring(0,12).toUpperCase();
         for (String code : new String[]{"XA","XB"})
             jdbc.update("INSERT INTO countries(code,name_zh,name_en,continent_code) VALUES (?, ?, ?, 'ASIA') ON CONFLICT(code) DO NOTHING",code,"筛选测试国"+code,"Filter Country "+code);
-        long category=jdbc.queryForObject("INSERT INTO subject_categories(code,name_en,status) VALUES (?, 'Filter subject', 'PUBLISHED') RETURNING id",Long.class,prefix+"CAT");
-        long level=jdbc.queryForObject("INSERT INTO study_levels(code,name_zh,status) VALUES (?, '本科', 'PUBLISHED') RETURNING id",Long.class,prefix+"LEVEL");
+        category=jdbc.queryForObject("INSERT INTO subject_categories(code,name_en,status) VALUES (?, 'Filter subject', 'PUBLISHED') RETURNING id",Long.class,prefix+"CAT");
+        level=jdbc.queryForObject("INSERT INTO study_levels(code,name_zh,status) VALUES (?, '本科', 'PUBLISHED') RETURNING id",Long.class,prefix+"LEVEL");
+        long otherCategory=jdbc.queryForObject("INSERT INTO subject_categories(code,name_en,status) VALUES (?, 'Other subject', 'PUBLISHED') RETURNING id",Long.class,prefix+"CAT2");
+        otherLevel=jdbc.queryForObject("INSERT INTO study_levels(code,name_zh,status) VALUES (?, '硕士', 'PUBLISHED') RETURNING id",Long.class,prefix+"LEVEL2");
         universityA=university("A","XA","PUBLISHED");
         long b=university("B","XA","ARCHIVED"), c=university("C","XB","PUBLISHED");
         programme("A",universityA,category,level,"PUBLISHED");
         programme("B",universityA,category,level,"ARCHIVED");
-        programme("C",b,category,level,"PUBLISHED");
+        programme("C",b,otherCategory,otherLevel,"PUBLISHED");
         programme("D",c,category,level,"PUBLISHED");
         UserAccount account=UserAccount.external("Administrator","v1","v1");
         ReflectionTestUtils.setField(account,"id",42L);
@@ -86,6 +91,20 @@ class AdminCatalogCountryFilterIntegrationTest {
             .andExpect(status().isOk()).andExpect(jsonPath("$.total").value(0));
         mvc.perform(get("/api/v1/admin/catalog/programmes").param("q",prefix).with(user(admin)))
             .andExpect(status().isOk()).andExpect(jsonPath("$.total").value(4));
+    }
+
+    @Test
+    void countrySubjectAndStudyLevelCombineWithEveryExistingFilter() throws Exception {
+        mvc.perform(get("/api/v1/admin/catalog/programmes").param("q",prefix).param("country","XA")
+                .param("status","PUBLISHED").param("universityId",Long.toString(universityA))
+                .param("categoryId",Long.toString(category)).param("studyLevelId",Long.toString(level)).with(user(admin)))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.total").value(1))
+            .andExpect(jsonPath("$.items[0].programmeCode").value(prefix+"PA"));
+        mvc.perform(get("/api/v1/admin/catalog/programmes").param("q",prefix).param("country","XA")
+                .param("categoryId",Long.toString(category)).param("studyLevelId",Long.toString(otherLevel)).with(user(admin)))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.total").value(0));
+        mvc.perform(get("/api/v1/admin/catalog/programmes").param("country","XA").param("categoryId","0").with(user(admin)))
+            .andExpect(status().isBadRequest());
     }
 
     @Test

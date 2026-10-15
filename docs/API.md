@@ -410,7 +410,8 @@ APP_TRUSTED_PROXIES=
 国家下拉框动态使用 `/api/v1/admin/catalog/options` 的 `countries`，不硬编码国家。
 
 国家筛选通过 `universities.country_id → countries.id` 在 PostgreSQL 执行，和搜索 `q`、
-状态 `status`、专业的所属院校 `universityId` 使用AND组合。列表与COUNT使用相同条件，
+状态 `status`、专业的所属院校 `universityId`、学科 `categoryId`、学历 `studyLevelId` 使用AND组合。
+专业列表同步提供学科和学历字典下拉框；后两个参数为可选的正整数ID，省略表示全部。列表与COUNT使用相同条件，
 筛选先于LIMIT/OFFSET；省略country保持已有请求兼容。不改变字典、数据结构或公开搜索接口。
 切换国家重置到第1页，翻页、编辑保存和取消编辑保留当前国家及其他筛选；编辑后当前页
 超出剩余页数时自动回到最后有效页。前端忽略过期请求，避免快速切换国家时旧响应覆盖新结果。

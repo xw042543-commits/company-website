@@ -34,18 +34,22 @@ test("admin writes acquire csrf and send a credentialed JSON request", async () 
 
 
 test("admin country filtering is sent to the server with every existing condition and page", async () => {
-  const filters = {query: "计算机 science", status: "ARCHIVED", country: "MY", universityId: "8", page: 2};
+  const filters = {query: "计算机 science", status: "ARCHIVED", country: "MY", universityId: "8", categoryId: "4", studyLevelId: "5", page: 2};
   const path = adminCatalogListPath("programmes", filters);
   const url = new URL(path, "https://example.test");
   assert.equal(url.searchParams.get("country"), "MY");
   assert.equal(url.searchParams.get("q"), "计算机 science");
   assert.equal(url.searchParams.get("status"), "ARCHIVED");
   assert.equal(url.searchParams.get("universityId"), "8");
+  assert.equal(url.searchParams.get("categoryId"), "4");
+  assert.equal(url.searchParams.get("studyLevelId"), "5");
   assert.equal(url.searchParams.get("page"), "2");
   assert.equal(url.searchParams.get("size"), "20");
   const next = new URL(adminCatalogListPath("programmes", {...filters, page: 3}), "https://example.test");
   assert.equal(next.searchParams.get("country"), "MY");
   assert.equal(next.searchParams.get("universityId"), "8");
+  assert.equal(next.searchParams.get("categoryId"), "4");
+  assert.equal(next.searchParams.get("studyLevelId"), "5");
   assert.equal(next.searchParams.get("page"), "3");
   const original = globalThis.fetch;
   let requested = "";
@@ -55,10 +59,12 @@ test("admin country filtering is sent to the server with every existing conditio
 });
 
 test("all countries omits the restriction and university lists ignore programme-only filters", () => {
-  const filters = {query: "", status: "", country: "", universityId: "8", page: 1};
+  const filters = {query: "", status: "", country: "", universityId: "8", categoryId: "4", studyLevelId: "5", page: 1};
   const all = new URL(adminCatalogListPath("universities", filters), "https://example.test");
   assert.equal(all.searchParams.has("country"), false);
   assert.equal(all.searchParams.has("universityId"), false);
+  assert.equal(all.searchParams.has("categoryId"), false);
+  assert.equal(all.searchParams.has("studyLevelId"), false);
   const country = new URL(adminCatalogListPath("universities", {...filters, country: "SG"}), "https://example.test");
   assert.equal(country.searchParams.get("country"), "SG");
   assert.equal(country.searchParams.get("page"), "1");

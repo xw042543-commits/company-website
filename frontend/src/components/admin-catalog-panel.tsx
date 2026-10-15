@@ -22,6 +22,8 @@ export function AdminCatalogPanel({ locale }: { locale: Locale }) {
   const [country, setCountry] = useState("");
   const loadVersion = useRef(0);
   const [universityFilter, setUniversityFilter] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [studyLevelFilter, setStudyLevelFilter] = useState("");
   const [page, setPage] = useState(1);
   const [editingUniversity, setEditingUniversity] = useState<AdminUniversity | null | undefined>(undefined);
   const [editingProgramme, setEditingProgramme] = useState<AdminProgramme | null | undefined>(undefined);
@@ -31,7 +33,7 @@ export function AdminCatalogPanel({ locale }: { locale: Locale }) {
   const load = useCallback(async () => {
     const base = browserApiBaseUrl();
     const version = ++loadVersion.current;
-    const path = adminCatalogListPath(tab, { query, status, country, universityId: universityFilter, page });
+    const path = adminCatalogListPath(tab, { query, status, country, universityId: universityFilter, categoryId: categoryFilter, studyLevelId: studyLevelFilter, page });
     const [optionResult, listResult] = await Promise.all([
       adminRead<AdminOptions>(base, "/api/v1/admin/catalog/options"),
       tab === "universities"
@@ -46,7 +48,7 @@ export function AdminCatalogPanel({ locale }: { locale: Locale }) {
       if (tab === "universities") setUniversities(listResult.value as AdminPage<AdminUniversity>);
       else setProgrammes(listResult.value as AdminPage<AdminProgramme>);
     } else setNotice(words(locale, "数据加载失败，请刷新后重试。", "Could not load data. Refresh and try again."));
-  }, [country, locale, page, query, status, tab, universityFilter]);
+  }, [categoryFilter, country, locale, page, query, status, studyLevelFilter, tab, universityFilter]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => { void load(); }, 0);
@@ -99,6 +101,10 @@ export function AdminCatalogPanel({ locale }: { locale: Locale }) {
       <label><span>{words(locale, "国家", "Country")}</span><select value={country} onChange={event => { setCountry(event.target.value); setPage(1); }}><option value="">{words(locale, "全部国家", "All countries")}</option>{options.countries.map(option => <option key={option.code} value={option.code}>{label(option, locale)}</option>)}</select></label>
       <label><span>{words(locale, "状态", "Status")}</span><select value={status} onChange={event => { setStatus(event.target.value); setPage(1); }}><option value="">{words(locale, "全部", "All")}</option><option value="PUBLISHED">{words(locale, "启用", "Enabled")}</option><option value="ARCHIVED">{words(locale, "停用", "Disabled")}</option><option value="DRAFT">{words(locale, "草稿", "Draft")}</option></select></label>
       {tab === "programmes" && <label><span>{words(locale, "所属院校", "University")}</span><select value={universityFilter} onChange={event => { setUniversityFilter(event.target.value); setPage(1); }}><option value="">{words(locale, "全部院校", "All universities")}</option>{options.universities.map(option => <option key={option.id} value={option.id}>{label(option, locale)}</option>)}</select></label>}
+      {tab === "programmes" && <>
+        <label><span>{words(locale, "学科分类", "Subject")}</span><select value={categoryFilter} onChange={event => { setCategoryFilter(event.target.value); setPage(1); }}><option value="">{words(locale, "全部分类", "All subjects")}</option>{options.categories.map(option => <option key={option.id} value={option.id}>{label(option, locale)}</option>)}</select></label>
+        <label><span>{words(locale, "学历层次", "Study level")}</span><select value={studyLevelFilter} onChange={event => { setStudyLevelFilter(event.target.value); setPage(1); }}><option value="">{words(locale, "全部学历", "All levels")}</option>{options.studyLevels.map(option => <option key={option.id} value={option.id}>{locale === "zh" ? studyLevelZh(option) : label(option, locale)}</option>)}</select></label>
+      </>}
       <button onClick={() => tab === "universities" ? setEditingUniversity(null) : setEditingProgramme(null)}>+ {words(locale, "新增", "Add")}</button>
     </section>
     {notice && <p className="admin-notice" role="status">{notice}</p>}

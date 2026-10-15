@@ -69,12 +69,18 @@ export type AdminCatalogFilters = {
   status: string;
   country: string;
   universityId: string;
+  categoryId?: string;
+  studyLevelId?: string;
   page: number;
 };
 
 export function adminCatalogListPath(tab: "universities" | "programmes", filters: AdminCatalogFilters) {
   const search = new URLSearchParams({ q: filters.query, status: filters.status, page: String(filters.page), size: "20" });
   if (filters.country) search.set("country", filters.country);
-  if (tab === "programmes" && filters.universityId) search.set("universityId", filters.universityId);
+  if (tab === "programmes") {
+    if (filters.universityId) search.set("universityId", filters.universityId);
+    if (filters.categoryId) search.set("categoryId", filters.categoryId);
+    if (filters.studyLevelId) search.set("studyLevelId", filters.studyLevelId);
+  }
   return `/api/v1/admin/catalog/${tab}?${search}`;
 }

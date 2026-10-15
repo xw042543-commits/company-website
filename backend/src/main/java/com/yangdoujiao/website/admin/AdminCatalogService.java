@@ -61,8 +61,8 @@ public class AdminCatalogService {
     }
 
     @Transactional(readOnly = true)
-    public PageResponse<ProgrammeItem> programmes(String query, Long universityId, String status, String country, int page, int size) {
-        return repository.programmes(normalizeQuery(query), universityId, normalizeStatus(status), normalizeCountry(country), page, size);
+    public PageResponse<ProgrammeItem> programmes(String query, Long universityId, String status, String country, Long categoryId, Long studyLevelId, int page, int size) {
+        return repository.programmes(normalizeQuery(query), universityId, normalizeStatus(status), normalizeCountry(country), categoryId, studyLevelId, page, size);
     }
 
     @Transactional(readOnly = true)

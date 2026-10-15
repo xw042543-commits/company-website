@@ -29,7 +29,7 @@ public class AdminCatalogRepository {
     public PageResponse<UniversityItem> universities(String query, String status, String country, int page, int size) {
         String where = " WHERE (:q = '' OR LOWER(COALESCE(u.name_zh,'') || ' ' || COALESCE(u.name_en,'') || ' ' || u.name) LIKE :like)"
                 + " AND (:status = '' OR u.status = :status)"
-                + countryPredicate();
+                + countryPredicate(country);
         Map<String, Object> values = Map.of("q", query, "like", "%" + query.toLowerCase() + "%", "status", status, "country", country,
                 "limit", size, "offset", (long) (page - 1) * size);
         long total = named.queryForObject("SELECT COUNT(*) FROM universities u" + where, values, Long.class);
@@ -91,14 +91,18 @@ public class AdminCatalogRepository {
         }
     }
 
-    public PageResponse<ProgrammeItem> programmes(String query, Long universityId, String status, String country, int page, int size) {
+    public PageResponse<ProgrammeItem> programmes(String query, Long universityId, String status, String country, Long categoryId, Long studyLevelId, int page, int size) {
         String where = " WHERE (:q = '' OR LOWER(COALESCE(p.name_zh,'') || ' ' || COALESCE(p.name_en,'') || ' ' || p.programme_code) LIKE :like)"
                 + (universityId == null ? "" : " AND p.university_id=:universityId")
+                + (categoryId == null ? "" : " AND p.subject_category_id=:categoryId")
+                + (studyLevelId == null ? "" : " AND p.study_level_id=:studyLevelId")
                 + " AND (:status='' OR p.status=:status)"
-                + countryPredicate();
+                + countryPredicate(country);
         Map<String, Object> values = new HashMap<>();
         values.put("q", query); values.put("like", "%" + query.toLowerCase() + "%");
         if (universityId != null) values.put("universityId", universityId);
+        if (categoryId != null) values.put("categoryId", categoryId);
+        if (studyLevelId != null) values.put("studyLevelId", studyLevelId);
         values.put("status", status);
         values.put("country", country);
         values.put("limit", size); values.put("offset", (long) (page - 1) * size);
@@ -191,8 +195,8 @@ public class AdminCatalogRepository {
                 """, universityId, universityId);
     }
 
-    private static String countryPredicate() {
-        return " AND (:country = '' OR u.country_id = (SELECT id FROM countries WHERE code = :country))";
+    private static String countryPredicate(String country) {
+        return country.isEmpty() ? "" : " AND u.country_id = (SELECT id FROM countries WHERE code = :country)";
     }
 
     private static String programmeSelect() { return """
