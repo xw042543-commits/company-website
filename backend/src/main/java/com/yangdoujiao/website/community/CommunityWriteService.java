@@ -10,6 +10,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.support.TransactionSynchronization;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 import com.yangdoujiao.website.auth.AuthHash;
@@ -37,6 +38,7 @@ public class CommunityWriteService {
     private final CommunityNotificationPublisher notifications;
     private final UniversityRepository universities;
     private final CommunityImageAttachments images;
+    private final boolean imageReviewEnabled;
 
     public CommunityWriteService(CommunityProperties properties, CommunityPostRepository posts,
             CommunityCommentRepository comments, CommunityIdempotencyRecordRepository idempotency,
@@ -44,7 +46,7 @@ public class CommunityWriteService {
             CommunityRateLimiter limiter, CommunityRiskPolicy risk, CommunityWriteTransaction transactions,
             ObjectMapper json, Clock clock, StringRedisTemplate redis,
             CommunityMetrics metrics, CommunityNotificationPublisher notifications, UniversityRepository universities,
-            CommunityImageAttachments images) {
+            CommunityImageAttachments images,@Value("${app.community.images.review-enabled:false}") boolean imageReviewEnabled) {
         this.properties = properties; this.posts = posts; this.comments = comments; this.idempotency = idempotency;
         this.restrictions = restrictions; this.accounts = accounts; this.limiter = limiter; this.risk = risk;
         this.transactions = transactions;
@@ -52,6 +54,7 @@ public class CommunityWriteService {
         this.notifications = notifications;
         this.universities = universities;
         this.images = images;
+        this.imageReviewEnabled = imageReviewEnabled;
     }
 
     public CreationResult createPost(long actorId, String address, String key, CommunityPostRequest request) {
@@ -67,15 +70,15 @@ public class CommunityWriteService {
         Optional<CreationResult> replay = replay(actorId, "CREATE_POST", key, fingerprint);
         if (replay.isPresent()) return replay.get();
         var textStatus = classify(actorId, CommunityTargetType.POST, metadata.title() == null ? body : metadata.title() + "\n" + body);
-        var status = imageIds.isEmpty() ? textStatus : CommunityContentStatus.PENDING_REVIEW;
+        var status = imageIds.isEmpty() || !imageReviewEnabled ? textStatus : CommunityContentStatus.PENDING_REVIEW;
         return transactions.execute(() -> execute(actorId, "CREATE_POST", key, fingerprint, () -> {
             requireAllowed(actorId);
             if (metadata.universityId() != null && !universities.existsById(metadata.universityId())) throw new ApiException(
                     HttpStatus.BAD_REQUEST, "INVALID_COMMUNITY_UNIVERSITY", "University does not exist");
             limiter.checkPost(actorId, address);
             var post = posts.saveAndFlush(CommunityPost.create(actorId, body, metadata, status,
-                    status == CommunityContentStatus.PENDING_REVIEW ? "RISK_REVIEW" : null, now()));
-            images.bind(actorId, post.getId(), imageIds, textStatus == CommunityContentStatus.PUBLISHED);
+                    status == CommunityContentStatus.PENDING_REVIEW ? (imageIds.isEmpty() || !imageReviewEnabled ? "RISK_REVIEW" : "IMAGE_REVIEW") : null, now()));
+            images.bind(actorId, post.getId(), imageIds, textStatus == CommunityContentStatus.PUBLISHED,imageReviewEnabled);
             return new CommunityCreationResponse(post.getId().toString(), null, null, post.getBody(), post.getStatus(),
                     post.getCreatedAt(), post.getPublishedAt());
         }));

@@ -29,7 +29,7 @@ class CommunityImageReviewJobsIntegrationTest {
         post=jdbc.queryForObject("INSERT INTO community_posts(author_account_id,body,status) VALUES(?,'test','PENDING_REVIEW') RETURNING id",Long.class,owner);
         id=UUID.randomUUID().toString().replace("-","");
         jdbc.update("INSERT INTO community_images(id,owner_account_id,storage_key,width,height,byte_size) VALUES(?,?,?,10,10,1)",id,owner,id);
-        new TransactionTemplate(manager).executeWithoutResult(tx->images.bind(owner,post,List.of(id),true));
+        new TransactionTemplate(manager).executeWithoutResult(tx->images.bind(owner,post,List.of(id),true,true));
     }
     @AfterEach void clean() {
         jdbc.update("DELETE FROM community_image_callback_inbox WHERE trace_id LIKE 'fixture-%'");
@@ -71,7 +71,7 @@ class CommunityImageReviewJobsIntegrationTest {
         jobs.receive("fixture-late","PASS",now.plusSeconds(36*60+1));
         assertEquals("REVIEW",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
     }
-    @Test void workerWaitsForCallbackBeforePublishing() {
+    @Test void workerPublishesAutomaticallyAfterPassingCallback() {
         var gateway=org.mockito.Mockito.mock(WechatImageReviewGateway.class);
         org.mockito.Mockito.when(gateway.submit(owner,id)).thenReturn(Optional.of("fixture-worker"));
         var worker=new CommunityImageReviewWorker(jobs,images,gateway,Clock.fixed(now,ZoneOffset.UTC));

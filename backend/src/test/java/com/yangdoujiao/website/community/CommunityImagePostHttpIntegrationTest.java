@@ -52,14 +52,26 @@ class CommunityImagePostHttpIntegrationTest {
     @Test void bindsImagesAtomicallyAndReplaysWithoutRebinding() throws Exception {
         String body=json.writeValueAsString(Map.of("body","Campus photo","imageIds",List.of(image)));
         String result=publish("photo-key",body).andExpect(status().isCreated())
-            .andExpect(jsonPath("$.status").value("PENDING_REVIEW")).andReturn().getResponse().getContentAsString();
+            .andExpect(jsonPath("$.status").value("PUBLISHED")).andReturn().getResponse().getContentAsString();
         String postId=json.readTree(result).path("id").asText();
         assertThat(jdbc.queryForObject("SELECT post_id FROM community_images WHERE id=?",Long.class,image)).isEqualTo(Long.valueOf(postId));
         publish("photo-key",body).andExpect(status().isOk()).andExpect(content().json(result));
         publish("photo-key","{\"body\":\"Campus photo\"}").andExpect(status().isConflict());
-        mvc.perform(get("/api/v1/community/images").param("postIds",postId)).andExpect(status().isOk()).andExpect(content().json("{}"));
+        mvc.perform(get("/api/v1/community/images").param("postIds",postId))
+            .andExpect(status().isOk()).andExpect(jsonPath("$['"+postId+"'][0].id").value(image));
         mvc.perform(get("/api/v1/community/images").param("postIds",postId).with(user(UserPrincipal.from(actor))))
             .andExpect(status().isOk()).andExpect(jsonPath("$['"+postId+"'][0].id").value(image));
+    }
+    @Test void ordinaryTextAndPhotoPublishImmediatelyWithoutScanner() throws Exception {
+        publish("text-only","{\"body\":\"Campus update\"}")
+            .andExpect(status().isCreated()).andExpect(jsonPath("$.status").value("PUBLISHED"));
+        String result=publish("photo-auto",json.writeValueAsString(Map.of("body","Campus photo","imageIds",List.of(image))))
+            .andExpect(status().isCreated()).andExpect(jsonPath("$.status").value("PUBLISHED"))
+            .andReturn().getResponse().getContentAsString();
+        String postId=json.readTree(result).path("id").asText();
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM community_image_review_jobs WHERE image_id=?",Long.class,image)).isZero();
+        assertThat(jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,Long.valueOf(postId)))
+            .isEqualTo("PUBLISHED");
     }
     @Test void foreignImagesCannotBeAttachedAndLeaveNoPost() throws Exception {
         var other=accounts.saveAndFlush(UserAccount.external("Other","v1","v1"));
@@ -69,7 +81,7 @@ class CommunityImagePostHttpIntegrationTest {
             .andExpect(status().isBadRequest());
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_posts WHERE author_account_id=?",Long.class,actor.getId())).isZero();
     }
-    @Test void administratorCanReviewImagesOnPendingPosts() throws Exception {
+    @Test void administratorCanSeePublishedPhotoMetadata() throws Exception {
         String result=publish("admin-review",json.writeValueAsString(Map.of("body","Review photo","imageIds",List.of(image))))
             .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
         String postId=json.readTree(result).path("id").asText();
@@ -81,6 +93,7 @@ class CommunityImagePostHttpIntegrationTest {
             .andExpect(status().isOk()).andExpect(jsonPath("$['"+postId+"'][0].id").value(image));
     }
     @AfterEach void cleanup() {
+        if(reviewerId!=null)jdbc.update("DELETE FROM community_moderation_actions WHERE actor_account_id=?",reviewerId);
         jdbc.update("DELETE FROM community_images WHERE id=?",image);
         jdbc.update("DELETE FROM community_idempotency_records WHERE account_id=?",actor.getId());
         jdbc.update("DELETE FROM community_posts WHERE author_account_id=?",actor.getId());
