@@ -363,3 +363,8 @@ APP_TRUSTED_PROXIES=
 
 授权 `state`、待绑定微信身份和登录 Session 都只保存在服务端。接口不会根据微信身份自动
 创建未验证账号，也不会把授权 code、Token、Session ID 或微信原始标识写入公开响应。
+
+
+## 官网课程字段（V53 配套客户端）
+
+网站专业详情与小程序专业详情的 sections 追加 `courseModules`、`curriculumReviewStatus`（VERIFIED/PENDING/null）、`curriculumVersion`。课程对象包含 `nameZh`、`nameEn`、`descriptionZh/En`、`courseCode`、`credits`、`requirement`、`sourceUrl`、`sourceCheckedAt`、`curriculumVersion`、`evidence`、`translationMethod`、`translationCheckedAt`。旧 body 字段保留兼容；新版页面只展示 official 且 VERIFIED 的结构化中文课程，未知字段留空，归档板块不从公开 API 返回。中文是平台译名，原文可核验；不根据专业名称生成课程。

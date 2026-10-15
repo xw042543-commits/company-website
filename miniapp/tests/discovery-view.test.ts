@@ -119,7 +119,7 @@ test('programme document always exposes the four canonical detail blocks in prod
   });
   assert.deepEqual(document.slice(2).map(({ title, body, available }) => ({ title, body, available })), [
     { title: '专业前景', body: 'CAREER_OPPORTUNITIES正文', available: true },
-    { title: '专业课程', body: '暂无官方课程资料', available: false },
+    { title: '专业课程', body: '待核实：暂无官方课程资料', available: false },
   ]);
   assert.deepEqual(sections.map((item) => item.sortOrder), [30, 20, 10]);
 });
@@ -148,7 +148,7 @@ test('programme document accepts legacy aliases and English body fallback', () =
   assert.equal(new Set(document.map((item) => item.key)).size, document.length);
   assert.deepEqual(buildProgrammeDocument(input), document);
   assert.equal(document[2]?.body, 'English careers');
-  assert.equal(document[3]?.body, '暂无官方课程资料');
+  assert.equal(document[3]?.body, '待核实：暂无官方课程资料');
 });
 
 test('programme document keeps canonical blocks without inventing pending content', () => {
@@ -156,7 +156,7 @@ test('programme document keeps canonical blocks without inventing pending conten
     { key: 'INTRODUCTION', type: 'INTRODUCTION', title: '专业介绍', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false },
     { key: 'BASIC_INFORMATION', type: 'BASIC_INFORMATION', title: '专业基本信息', body: '', available: true, contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false },
     { key: 'CAREER_PROSPECTS', type: 'CAREER_PROSPECTS', title: '专业前景', body: '', available: false, contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false },
-    { key: 'CURRICULUM', type: 'CURRICULUM', title: '专业课程', body: '暂无官方课程资料', available: false, contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false },
+    { key: 'CURRICULUM', type: 'CURRICULUM', title: '专业课程', body: '待核实：暂无官方课程资料', available: false, contentBlocks: [], curriculumItems: [], notice: '', sourceUrl: '', sourceCheckedLabel: '', official: false },
   ]);
 });
 
@@ -167,9 +167,13 @@ test('official curriculum builds a deduplicated vertical list and ignores old ge
     { number: '02', nameZh: '', nameEn: 'Database Systems' },
   ]);
   const curriculumSection = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 40, {
-    bodyZh: '', bodyEn: body, sourceUrl: 'https://study.um.edu.my/programme', sourceCheckedAt: '2026-10-14T00:00:00Z',
+    bodyZh: '错误中文内容不应优先显示', bodyEn: body, sourceUrl: 'https://study.um.edu.my/programme', sourceCheckedAt: '2026-10-14T00:00:00Z',
+    sourceType: 'official', curriculumReviewStatus: 'VERIFIED',
+    courseModules: ['Fundamentals of Programming', 'Database Systems'].map(nameEn => ({ nameEn, nameZh: nameEn === 'Database Systems' ? '数据库系统' : '程序设计基础',
+      courseCode: null, credits: null, requirement: null, curriculumVersion: null,
+      sourceUrl: 'https://study.um.edu.my/programme', sourceCheckedAt: '2026-10-14T00:00:00Z' })),
   })] }))[3];
-  assert.equal(curriculumSection?.notice, '课程名称来自学校官网');
+  assert.equal(curriculumSection?.notice, '课程原文来自学校官网，中文为平台译名');
   assert.equal(curriculumSection?.sourceCheckedLabel, '2026-10-14');
   assert.equal(curriculumSection?.curriculumItems.length, 2);
   assert.deepEqual(parseCurriculumItems('Programming\nMinimum average of 65%\nKursus Elektif: Pilih satu kursus sahaja\n1. Elective Course 1\nSoftware Requirements Engineering'), [
@@ -177,8 +181,8 @@ test('official curriculum builds a deduplicated vertical list and ignores old ge
     { number: '02', nameZh: '', nameEn: 'Software Requirements Engineering' },
   ]);
   const generated = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 40, {
-    bodyZh: '参考学习领域，非官方课程表\n01|程序设计基础|Programming Fundamentals',
+    bodyZh: '参考学习领域，非官方课程表\n01|程序设计基础|Programming Fundamentals', sourceType: 'ai_generated', sourceUrl: 'https://study.um.edu.my/programme',
   })] }))[3];
-  assert.equal(generated?.body, '暂无官方课程资料');
+  assert.equal(generated?.body, '待核实：暂无官方课程资料');
   assert.equal(generated?.curriculumItems.length, 0);
 });

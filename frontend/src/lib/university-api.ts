@@ -113,6 +113,9 @@ export type UniversityProgrammeDetailSection = {
   sourceUrl?: string | null;
   sourceCheckedAt?: string | null;
   sourceType?: "official" | "third_party" | "ai_generated" | null;
+  courseModules?: OfficialCourseModule[];
+  curriculumReviewStatus?: "VERIFIED" | "PENDING" | null;
+  curriculumVersion?: string | null;
 };
 
 export type UniversityProgrammePage = {
@@ -613,3 +616,10 @@ function localizedStudyLevel(
     nameEn: option?.nameEn,
   });
 }
+
+export type OfficialCourseModule = {
+  nameZh: string; nameEn: string; descriptionZh?: string | null; descriptionEn?: string | null;
+  translationMethod?: string; translationCheckedAt?: string;
+  courseCode: string | null; credits: string | null; requirement: string | null;
+  sourceUrl: string; sourceCheckedAt: string; curriculumVersion: string | null;
+};

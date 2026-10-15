@@ -41,3 +41,16 @@ test("only returns curriculum with an official source and parses official module
     "Programming", "Software Requirements Engineering",
   ]);
 });
+
+test("uses verified Chinese translations with original English retained and hides sourced AI", () => {
+  const section = { type: "CURRICULUM", titleZh: "课程", titleEn: "Modules", bodyZh: "错误中文",
+    bodyEn: "Wrong legacy body", sortOrder: 40, sourceType: "official" as const,
+    sourceUrl: "https://study.um.edu.my/programme", sourceCheckedAt: "2026-10-15T00:00:00Z",
+    curriculumReviewStatus: "VERIFIED" as const, courseModules: [{ nameZh: "数据库系统", nameEn: "Database Systems",
+      courseCode: null, credits: null, requirement: null, curriculumVersion: null,
+      sourceUrl: "https://study.um.edu.my/programme", sourceCheckedAt: "2026-10-15T00:00:00Z" }] };
+  assert.equal(findOfficialProgrammeSection([section], ["CURRICULUM"], "zh")?.body, "数据库系统");
+  assert.equal(findOfficialProgrammeSection([{ ...section, sourceType: "ai_generated" }], ["CURRICULUM"], "zh"), null);
+  assert.equal(findOfficialProgrammeSection([{ ...section, curriculumReviewStatus: "PENDING" }], ["CURRICULUM"], "zh"), null);
+  assert.equal(findOfficialProgrammeSection([{ ...section, courseModules: [{...section.courseModules[0], nameEn: "Minimum CGPA 3.0"}] }], ["CURRICULUM"], "zh"), null);
+});
