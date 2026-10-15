@@ -116,6 +116,7 @@ class CommunityImagePostHttpIntegrationTest {
             .andExpect(status().isOk()).andExpect(jsonPath("$['"+postId+"'][0].id").value(image));
     }
     @AfterEach void cleanup() {
+        if(reviewerId!=null)jdbc.update("DELETE FROM community_moderation_actions WHERE actor_account_id=?",reviewerId);
         jdbc.update("DELETE FROM community_images WHERE id=?",image);
         jdbc.update("DELETE FROM community_idempotency_records WHERE account_id=?",actor.getId());
         jdbc.update("DELETE FROM community_posts WHERE author_account_id=?",actor.getId());
