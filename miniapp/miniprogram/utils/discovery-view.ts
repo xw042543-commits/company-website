@@ -60,7 +60,9 @@ function firstSection(sections: readonly ProgrammeDetailSection[], types: readon
 export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDocumentSection[] {
   const introductionSection = firstSection(programme.sections, ['INTRODUCTION']);
   const careerSection = firstSection(programme.sections, ['CAREER_OPPORTUNITIES', 'CAREER_OUTLOOK']);
-  const curriculumSection = firstSection(programme.sections, ['CURRICULUM', 'COURSE_STRUCTURE']);
+  const curriculumSection = [...programme.sections].sort((a,b) => a.sortOrder - b.sortOrder).find(section =>
+    ['CURRICULUM', 'COURSE_STRUCTURE'].indexOf(section.type) >= 0 && section.sourceType === 'official'
+    && section.curriculumReviewStatus === 'VERIFIED' && Boolean(section.courseModules?.length));
   const introduction = programme.descriptionZh.trim()
     || (introductionSection ? sectionBody(introductionSection) : '');
   const career = careerSection ? sectionBody(careerSection) : '';
@@ -71,7 +73,7 @@ export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDoc
     && Number.isFinite(Date.parse(item.sourceCheckedAt))));
   const curriculumItems: ProgrammeCurriculumItem[] = modulesValid ? verifiedModules.map((item: OfficialCourseModule, index) => ({
     number: String(index + 1).padStart(2, '0'), nameZh: item.nameZh, nameEn: item.nameEn, descriptionZh: item.descriptionZh ?? null,
-    courseCode: item.courseCode, credits: item.credits, requirement: item.requirement ? (({Elective: '选修', Compulsory: '必修', Required: '必修', Core: '核心', OR: '二选一'} as Record<string, string>)[item.requirement] ?? item.requirement) : null,
+    courseCode: item.courseCode, credits: item.credits, requirement: item.requirement ? (({Elective: '选修', Compulsory: '必修', Required: '必修', Core: '核心', OR: '可选课程'} as Record<string, string>)[item.requirement] ?? item.requirement) : null,
     sourceUrl: item.sourceUrl, sourceCheckedLabel: checkedLabel(item.sourceCheckedAt),
     curriculumVersion: item.curriculumVersion,
   })) : [];
@@ -118,7 +120,7 @@ export function parseCurriculumItems(body: string): ProgrammeCurriculumItem[] {
 
 function curriculumBoilerplate(value: string): boolean {
   if (/\b(?:CGPA|GPA|tuition)\b/i.test(value)) return true;
-  return /^(?:\d{1,3}[.)]\s*)?(?:\[?select\]?|note:?|next\s*:|year\s*\d+\b|semester\s*\d+\b|option\s*\d+\s*:|#?pre-?requisite|students?\b|compulsory university courses?\b|programme course elective\b|speciali[sz]ation(?:\s*\/| modules?\b| electives?\b)|(?:programme?|program|core|university|univerity|faculty|faculty open|free|open|external faculty|department|clinical) electives?\b|elective(?: courses?)?\b|kursus elektif\b|pilih\b|flexible studies\b|\*{1,2}(?:taken|pass)\b)/i.test(value)
+  return /^(?:\d{1,3}[.)]\s*)?(?:\[?select\]?(?=\s|:|$)|note:?|next\s*:|year\s*\d+\b|semester\s*\d+\b|option\s*\d+\s*:|#?pre-?requisite|students?\b|compulsory university courses?\b|programme course elective\b|speciali[sz]ation(?:\s*\/| modules?\b| electives?\b)|(?:programme?|program|core|university|univerity|faculty|faculty open|free|open|external faculty|department|clinical) electives?\b|elective(?: courses?| modules?)?(?:[ _]*(?:\d+|[IVX]+))?\s*(?:$|[:(])|kursus elektif\b|pilih\b|flexible studies\b|\*{1,2}(?:taken|pass)\b)/i.test(value)
     || /(?:\bchoose\s+(?:any\s+)?(?:one|two|three|four|five|seven|\d+)\b|\brefer to (?:the )?(?:attached )?list\b|\bstudents? (?:are )?required\b|\bsubject to availability\b|\bpilih\b|\brujuk\b|\bsila\b|\bsahaja\b|\bentry requirements?\b|\bminimum (?:average|score|cgpa|grade)\b|\b(?:ielts|toefl|muet)\b|\d+\s*%)/i.test(value)
     || /^(?:参考学习领域|参考课程结构|说明[：:]|illustrative study areas|note:)/i.test(value);
 }

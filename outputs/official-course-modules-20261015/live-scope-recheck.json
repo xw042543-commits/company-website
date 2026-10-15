@@ -1,0 +1,110 @@
+{
+  "checkedAt": "2026-10-15T02:47:11.011Z",
+  "publishedSchools": 20,
+  "publishedProgrammes": 2232,
+  "addedSinceSnapshot": [],
+  "removedSinceSnapshot": [],
+  "schools": [
+    {
+      "slug": "apu",
+      "countryCode": "MY",
+      "programmes": 71
+    },
+    {
+      "slug": "sunway",
+      "countryCode": "MY",
+      "programmes": 135
+    },
+    {
+      "slug": "taylor",
+      "countryCode": "MY",
+      "programmes": 45
+    },
+    {
+      "slug": "monash",
+      "countryCode": "MY",
+      "programmes": 53
+    },
+    {
+      "slug": "um",
+      "countryCode": "MY",
+      "programmes": 234
+    },
+    {
+      "slug": "ukm",
+      "countryCode": "MY",
+      "programmes": 228
+    },
+    {
+      "slug": "segi",
+      "countryCode": "MY",
+      "programmes": 3
+    },
+    {
+      "slug": "southampton",
+      "countryCode": "MY",
+      "programmes": 13
+    },
+    {
+      "slug": "ucsi",
+      "countryCode": "MY",
+      "programmes": 63
+    },
+    {
+      "slug": "utar",
+      "countryCode": "MY",
+      "programmes": 79
+    },
+    {
+      "slug": "nilai",
+      "countryCode": "MY",
+      "programmes": 41
+    },
+    {
+      "slug": "mahsa",
+      "countryCode": "MY",
+      "programmes": 4
+    },
+    {
+      "slug": "help",
+      "countryCode": "MY",
+      "programmes": 46
+    },
+    {
+      "slug": "inti",
+      "countryCode": "MY",
+      "programmes": 38
+    },
+    {
+      "slug": "nottingham",
+      "countryCode": "MY",
+      "programmes": 86
+    },
+    {
+      "slug": "uum",
+      "countryCode": "MY",
+      "programmes": 35
+    },
+    {
+      "slug": "upm",
+      "countryCode": "MY",
+      "programmes": 390
+    },
+    {
+      "slug": "city",
+      "countryCode": "MY",
+      "programmes": 43
+    },
+    {
+      "slug": "utm",
+      "countryCode": "MY",
+      "programmes": 180
+    },
+    {
+      "slug": "usm",
+      "countryCode": "MY",
+      "programmes": 445
+    }
+  ],
+  "productionWrites": 0
+}

@@ -113,3 +113,6 @@
   .career-grid { grid-template-columns:1fr 1fr; }
   .curriculum-row { min-height:106rpx; }
 }
+
+.curriculum-module-meta { margin-top:10rpx; color:#7a8882; font-size:22rpx; line-height:1.6; overflow-wrap:break-word; }
+.curriculum-copy .source-button { max-width:100%; margin-top:12rpx; white-space:normal; }

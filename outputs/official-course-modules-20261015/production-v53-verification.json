@@ -1,0 +1,25 @@
+{
+  "environment": "production",
+  "verifiedAt": "2026-10-15T03:10:24.189Z",
+  "deploymentRun": "https://github.com/xw042543-commits/company-website/actions/runs/38674337469",
+  "releaseSha": "644d25e90980f647ef70513675063fe7c36c8428",
+  "checkedProgrammes": 2232,
+  "verifiedProgrammeLists": 220,
+  "officialModuleAssociations": 7477,
+  "pendingProgrammeListsHidden": 2012,
+  "missingChinese": 0,
+  "missingSources": 0,
+  "failedApiChecks": [],
+  "followupV54NotDeployed": true,
+  "unrelatedProgrammeFieldsChecked": 2232,
+  "unrelatedFieldDifferences": [
+    {
+      "programmeCode": "UM_BACHELOR_046",
+      "fields": [
+        "nameZh",
+        "sourceCheckedAt"
+      ]
+    }
+  ],
+  "careerSectionsUnchanged": 2232
+}

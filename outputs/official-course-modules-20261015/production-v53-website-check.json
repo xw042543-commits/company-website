@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-15T03:12:38.053Z",
+  "checks": [
+    {
+      "url": "https://yangdoujiao.com/zh/universities/apu/programmes/2247",
+      "status": 200,
+      "finalUrl": "https://yangdoujiao.com/zh/login?returnTo=%2Fzh%2Funiversities%2Fapu%2Fprogrammes%2F2247",
+      "curriculumFound": false,
+      "displayedCourses": 0,
+      "firstCourse": null,
+      "allChinese": false,
+      "hasOfficialSource": false,
+      "containsGeneratedCourseNotice": false,
+      "verificationStatus": "AUTH_REQUIRED"
+    },
+    {
+      "url": "https://yangdoujiao.com/zh/universities/asia-pacific-university/programmes/2247",
+      "status": 200,
+      "finalUrl": "https://yangdoujiao.com/zh/login?returnTo=%2Fzh%2Funiversities%2Fasia-pacific-university%2Fprogrammes%2F2247",
+      "curriculumFound": false,
+      "displayedCourses": 0,
+      "firstCourse": null,
+      "allChinese": false,
+      "hasOfficialSource": false,
+      "containsGeneratedCourseNotice": false,
+      "verificationStatus": "AUTH_REQUIRED"
+    }
+  ],
+  "authenticatedHtmlVerified": false,
+  "note": "专业详情要求登录；匿名访问正确跳转登录并携带返回地址，未执行登录后的线上视觉验收。课程展示逻辑另有全部编号的前端回归测试。"
+}
