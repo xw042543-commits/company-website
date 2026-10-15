@@ -39,7 +39,10 @@ public record UniversityProgrammeResponse(
         List<DetailSection> sections,
         String officialUrl,
         OffsetDateTime sourceCheckedAt,
-        String imageUrl
+        String imageUrl,
+        String taxonomySourceType,
+        String taxonomySourceUrl,
+        OffsetDateTime taxonomySourceCheckedAt
 ) {
     public record DetailSection(
             String type,
@@ -114,7 +117,10 @@ public record UniversityProgrammeResponse(
                 sections.stream().map(DetailSection::from).toList(),
                 programme.getOfficialUrl(),
                 programme.getSourceCheckedAt(),
-                imageUrl
+                imageUrl,
+                programme.getTaxonomySourceType(),
+                programme.getTaxonomySourceUrl(),
+                programme.getTaxonomySourceCheckedAt()
         );
     }
 }

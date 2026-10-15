@@ -73,7 +73,8 @@ class V38MalaysiaCurriculumRepairTest {
             Long ukProgramme = programme(jdbc, ukUniversityId, subjectId, "GB_UNREVIEWED_001");
             contaminatedCurriculum(jdbc, ukProgramme);
 
-            flyway(postgres, null).migrate();
+            // Keep legacy curriculum assertions independent of the taxonomy audit.
+            flyway(postgres, "51").migrate();
 
             assertThat(jdbc.queryForObject("""
                     SELECT count(*) FROM programme_detail_sections section

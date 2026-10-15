@@ -67,6 +67,11 @@ class UniversityDetailServiceTest {
         when(programme.getProgrammeCode()).thenReturn("SEGI_BACHELOR_001");
         when(programme.getSlug()).thenReturn("segi-bachelor-001");
         when(programme.getNameZh()).thenReturn("商务管理（荣誉）学士学位");
+        when(programme.getOfficialUrl()).thenReturn("https://www.segi.edu.my/business/");
+        when(programme.getTaxonomySourceType()).thenReturn("official");
+        when(programme.getTaxonomySourceUrl()).thenReturn("https://www.segi.edu.my/business/");
+        when(programme.getTaxonomySourceCheckedAt()).thenReturn(java.time.OffsetDateTime.parse("2026-10-14T08:00:00Z"));
+        when(programme.getSourceCheckedAt()).thenReturn(java.time.OffsetDateTime.parse("2026-10-14T08:00:00Z"));
         when(programme.getSubjectCategory()).thenReturn(subjectCategory);
         when(subjectCategory.getCode()).thenReturn("BUSINESS_MANAGEMENT");
         when(programme.getStudyLevel()).thenReturn(studyLevel);
@@ -88,6 +93,11 @@ class UniversityDetailServiceTest {
         assertThat(response.id()).isEqualTo(584L);
         assertThat(response.slug()).isEqualTo("segi-bachelor-001");
         assertThat(response.nameZh()).isEqualTo("商务管理（荣誉）学士学位");
+        assertThat(response.officialUrl()).isEqualTo("https://www.segi.edu.my/business/");
+        assertThat(response.taxonomySourceType()).isEqualTo("official");
+        assertThat(response.taxonomySourceUrl()).isEqualTo(response.officialUrl());
+        assertThat(response.taxonomySourceCheckedAt()).isEqualTo(java.time.OffsetDateTime.parse("2026-10-14T08:00:00Z"));
+        assertThat(response.sourceCheckedAt()).isEqualTo(java.time.OffsetDateTime.parse("2026-10-14T08:00:00Z"));
         assertThat(response.sections()).singleElement().satisfies(section -> {
             assertThat(section.type()).isEqualTo("CURRICULUM");
             assertThat(section.titleZh()).isEqualTo("专业课程");
