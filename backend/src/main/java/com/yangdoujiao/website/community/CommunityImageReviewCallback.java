@@ -16,10 +16,11 @@ public class CommunityImageReviewCallback {
     private static final org.slf4j.Logger LOG=org.slf4j.LoggerFactory.getLogger(CommunityImageReviewCallback.class);
     private final WechatImageCallbackCrypto crypto;
     private final CommunityImageReviewJobs jobs;
+    private final CommunityImageAttachments images;
     private final ObjectMapper json;
     private final Clock clock;
-    CommunityImageReviewCallback(WechatImageCallbackCrypto crypto,CommunityImageReviewJobs jobs,ObjectMapper json,Clock clock) {
-        this.crypto=crypto;this.jobs=jobs;this.json=json;this.clock=clock;
+    CommunityImageReviewCallback(WechatImageCallbackCrypto crypto,CommunityImageReviewJobs jobs,CommunityImageAttachments images,ObjectMapper json,Clock clock) {
+        this.crypto=crypto;this.jobs=jobs;this.images=images;this.json=json;this.clock=clock;
     }
     @GetMapping(produces="text/plain")
     public String challenge(@RequestParam String signature,@RequestParam String timestamp,@RequestParam String nonce,@RequestParam String echostr) {
@@ -62,9 +63,12 @@ public class CommunityImageReviewCallback {
                     case "risky" -> "REJECTED";
                     default -> "UNKNOWN_SUGGESTION";
                 };
+            if("-1008".equals(providerCode))verdict="RETRY";
         }catch(IllegalArgumentException|tools.jackson.core.JacksonException e){throw rejected();}
         // A database failure must propagate so WeChat retries; do not acknowledge lost events.
-        jobs.receive(trace,verdict,clock.instant());
+        if("RETRY".equals(verdict))jobs.receiveDownloadFailure(trace,clock.instant());
+        else jobs.receive(trace,verdict,clock.instant());
+        if("PASS".equals(verdict))images.reconcile();
         LOG.info("community image review callback providerCode={} suggestion={} reason={} verdict={} traceHash={}",
             providerCode,suggestion,reason,verdict,WechatImageReviewGateway.traceHash(trace));
         return "success";

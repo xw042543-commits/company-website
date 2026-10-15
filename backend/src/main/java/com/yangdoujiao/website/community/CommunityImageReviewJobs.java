@@ -48,7 +48,7 @@ public class CommunityImageReviewJobs {
             lock();
             int changed=jdbc.update("UPDATE community_image_review_jobs SET state='WAITING',trace_id=?,available_at=? WHERE image_id=? AND state='LEASED' AND lease_token=?",
                 trace,time(now.plusSeconds(35*60)),claim.imageId(),claim.lease());
-            if(changed==1)apply(trace);
+            if(changed==1)apply(trace,now);
         });
     }
     public void failed(Claim claim,Instant now) {
@@ -62,16 +62,38 @@ public class CommunityImageReviewJobs {
     public void receive(String trace,String verdict,Instant now) {
         validateTrace(trace);
         if(!Set.of("PASS","REVIEW","REJECTED").contains(verdict))throw new IllegalArgumentException("Invalid verdict");
+        receiveVerdict(trace,verdict,now);
+    }
+    public void receiveDownloadFailure(String trace,Instant now) {
+        validateTrace(trace);
+        receiveVerdict(trace,"RETRY",now);
+    }
+    private void receiveVerdict(String trace,String verdict,Instant now) {
         tx.executeWithoutResult(ignored->{
             lock();
             jdbc.update("INSERT INTO community_image_callback_inbox(trace_id,verdict,received_at) VALUES(?,?,?) ON CONFLICT DO NOTHING",trace,verdict,time(now));
-            apply(trace);
+            apply(trace,now);
         });
     }
-    private void apply(String trace) {
+    private void apply(String trace,Instant now) {
+        // A provider download error is not a content verdict. Retry with a fresh
+        // signed URL instead of stranding the post in the review queue.
+        jdbc.update("""
+            UPDATE community_image_review_jobs j SET state='READY',trace_id=NULL,lease_token=NULL,available_at=?
+            FROM community_image_callback_inbox c
+            WHERE c.trace_id=? AND c.trace_id=j.trace_id AND c.verdict='RETRY'
+              AND j.state='WAITING' AND j.attempts<3
+            """,time(now.plusSeconds(5)),trace);
+        jdbc.update("""
+            UPDATE community_images i SET status='REVIEW'
+            FROM community_image_review_jobs j,community_image_callback_inbox c
+            WHERE c.trace_id=? AND c.trace_id=j.trace_id AND c.verdict='RETRY'
+              AND j.image_id=i.id AND j.state='WAITING' AND j.attempts>=3 AND i.status='PENDING'
+            """,trace);
         jdbc.update("""
             UPDATE community_images i SET status=c.verdict FROM community_image_review_jobs j,community_image_callback_inbox c
             WHERE c.trace_id=? AND j.trace_id=c.trace_id AND j.state='WAITING' AND i.id=j.image_id AND i.status='PENDING'
+              AND c.verdict IN ('PASS','REVIEW','REJECTED')
             """,trace);
         finishTerminal();
     }
