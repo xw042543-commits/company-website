@@ -55,3 +55,11 @@ the supported failure behavior.
 Deployment configuration exists in the repository. A production feature is
 enabled only after its configuration and release checks pass; see the
 [public launch checklist](PUBLIC_LAUNCH_CHECKLIST.md).
+
+
+## Administrator workbook imports
+
+The admin import module follows Controller → Service → Repository. Apache POI 5.5.1 parses and
+writes fixed XLSX templates on the server. PostgreSQL import batches/rows isolate drafts from the
+published catalogue. Existing catalogue services publish validated selections and enqueue search
+refreshes within one transaction after locked duplicate rechecking. See API.md and DATABASE.md.

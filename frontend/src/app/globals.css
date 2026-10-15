@@ -2173,3 +2173,21 @@ textarea:focus {
   .member-search-support { padding-top: 20px; padding-left: 0; border-top: 1px solid rgb(66 134 117 / 30%); border-left: 0; }
   .university-detail-header { background: #fffefb; }
 }
+
+/* Admin Excel import workspace */
+.admin-import .import-card { margin-block: 24px; padding: clamp(16px,3vw,28px); border: 1px solid #c7d7d1; border-radius: 16px; background: #fffefb; }
+.admin-import .import-card h2 { margin-top: 0; color: var(--brand-deep); }
+.admin-import .import-card > p { color: var(--muted); overflow-wrap: anywhere; }
+.import-actions, .import-upload { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin-block: 16px; }
+.import-actions label, .import-upload label { display: flex; flex-direction: column; gap: 6px; min-width: 0; color: var(--brand-deep); }
+.import-upload label { flex: 1 1 200px; }
+.import-upload input, .import-upload select, .import-actions select { width: 100%; }
+.import-actions .import-check { flex-direction: row; align-items: center; }
+.admin-import input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--brand-deep); }
+.import-stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); gap: 10px; }
+.import-stats > div { display: flex; flex-direction: column; padding: 14px; gap: 5px; background: #edf5f1; border-radius: 10px; }
+.import-stats strong { color: var(--brand-deep); font-size: 1.5rem; }
+.import-stats span { color: var(--muted); font-size: .8rem; }
+.admin-import .import-reason { min-width: 220px; max-width: 380px; overflow-wrap: anywhere; }
+.admin-import .admin-console-header > a { align-self: start; white-space: nowrap; }
+@media(max-width: 600px) { .admin-import .admin-console-header { flex-direction: column; } .import-actions > button, .import-upload > button { flex: 1 1 100%; } .admin-import .import-card { padding: 14px; } }
