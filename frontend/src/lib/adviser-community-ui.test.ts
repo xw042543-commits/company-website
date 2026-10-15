@@ -152,7 +152,7 @@ test("conflict refresh preserves selected target and invalidates its current ver
 
 test("queue filters emit only allowlisted fields and reject reversed time bounds", async () => {
   const { moderationQueueFilters } = await import("./adviser-community-ui.ts");
-  assert.deepEqual(moderationQueueFilters({ status: "PENDING", targetType: "", reasonCode: "", from: "", to: "" }), { status: "PENDING", size: 20 });
+  assert.deepEqual(moderationQueueFilters({ status: "PENDING", targetType: "", reasonCode: "", from: "", to: "" }), { status: "PENDING", size: 4 });
   assert.equal(moderationQueueFilters({ status: "PENDING", targetType: "POST", reasonCode: "SPAM", from: "2026-10-10T00:00:00Z", to: "2026-10-09T00:00:00Z" }), null);
 });
 
