@@ -26,7 +26,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 
-@SpringBootTest(properties = {"app.miniapp.auth.enabled=true", "app.miniapp.auth.wechat-app-id=test-miniapp", "app.miniapp.auth.wechat-app-secret=test-miniapp-secret"})
+@SpringBootTest(properties = {
+    "app.miniapp.auth.enabled=true",
+    "app.miniapp.auth.local-provider-enabled=true",
+    "app.miniapp.auth.local-test-code=account-management-test",
+    "app.miniapp.auth.local-test-subject=account-management-test"
+})
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @Import(TestContainersConfiguration.class)
