@@ -405,3 +405,17 @@ APP_TRUSTED_PROXIES=
 分类，管理员重新选择；数据库异常则整批回滚。重复提交已发布的选择返回0条，不重复新增。
 发布复用现有管理服务写入正式表、详情章节及搜索同步队列；原有有效数据不修改。
 结构错误的文件保留失败批次与原因，须修正文件并重新上传；行级错误可在界面编辑和重新处理。
+
+## 管理后台国家筛选
+
+`GET /api/v1/admin/catalog/universities` 与 `GET /api/v1/admin/catalog/programmes`
+均接受可选 `country`（两位国家代码，如 `MY`）。空值或省略表示全部国家；服务端去除首尾
+空白并转为大写，格式不合法返回400，字典中不存在的合法代码返回空结果。
+国家下拉框动态使用 `/api/v1/admin/catalog/options` 的 `countries`，不硬编码国家。
+
+国家筛选通过 `universities.country_id → countries.id` 在 PostgreSQL 执行，和搜索 `q`、
+状态 `status`、专业的所属院校 `universityId`、学科 `categoryId`、学历 `studyLevelId` 使用AND组合。
+专业列表同步提供学科和学历字典下拉框；后两个参数为可选的正整数ID，省略表示全部。列表与COUNT使用相同条件，
+筛选先于LIMIT/OFFSET；省略country保持已有请求兼容。不改变字典、数据结构或公开搜索接口。
+切换国家重置到第1页，翻页、编辑保存和取消编辑保留当前国家及其他筛选；编辑后当前页
+超出剩余页数时自动回到最后有效页。前端忽略过期请求，避免快速切换国家时旧响应覆盖新结果。

@@ -26,11 +26,12 @@ public class AdminCatalogRepository {
         this.named = new NamedParameterJdbcTemplate(jdbc);
     }
 
-    public PageResponse<UniversityItem> universities(String query, String status, int page, int size) {
+    public PageResponse<UniversityItem> universities(String query, String status, String country, int page, int size) {
         String where = " WHERE (:q = '' OR LOWER(COALESCE(u.name_zh,'') || ' ' || COALESCE(u.name_en,'') || ' ' || u.name) LIKE :like)"
-                + " AND (:status = '' OR u.status = :status)";
-        Map<String, Object> values = Map.of("q", query, "like", "%" + query.toLowerCase() + "%", "status", status,
-                "limit", size, "offset", (page - 1) * size);
+                + " AND (:status = '' OR u.status = :status)"
+                + countryPredicate(country);
+        Map<String, Object> values = Map.of("q", query, "like", "%" + query.toLowerCase() + "%", "status", status, "country", country,
+                "limit", size, "offset", (long) (page - 1) * size);
         long total = named.queryForObject("SELECT COUNT(*) FROM universities u" + where, values, Long.class);
         List<UniversityItem> items = named.query("""
                 SELECT u.id,u.university_code,u.slug,u.name_zh,u.name_en,c.code country_code,
@@ -90,16 +91,22 @@ public class AdminCatalogRepository {
         }
     }
 
-    public PageResponse<ProgrammeItem> programmes(String query, Long universityId, String status, int page, int size) {
+    public PageResponse<ProgrammeItem> programmes(String query, Long universityId, String status, String country, Long categoryId, Long studyLevelId, int page, int size) {
         String where = " WHERE (:q = '' OR LOWER(COALESCE(p.name_zh,'') || ' ' || COALESCE(p.name_en,'') || ' ' || p.programme_code) LIKE :like)"
                 + (universityId == null ? "" : " AND p.university_id=:universityId")
-                + " AND (:status='' OR p.status=:status)";
+                + (categoryId == null ? "" : " AND p.subject_category_id=:categoryId")
+                + (studyLevelId == null ? "" : " AND p.study_level_id=:studyLevelId")
+                + " AND (:status='' OR p.status=:status)"
+                + countryPredicate(country);
         Map<String, Object> values = new HashMap<>();
         values.put("q", query); values.put("like", "%" + query.toLowerCase() + "%");
         if (universityId != null) values.put("universityId", universityId);
+        if (categoryId != null) values.put("categoryId", categoryId);
+        if (studyLevelId != null) values.put("studyLevelId", studyLevelId);
         values.put("status", status);
-        values.put("limit", size); values.put("offset", (page - 1) * size);
-        long total = named.queryForObject("SELECT COUNT(*) FROM programmes p" + where, values, Long.class);
+        values.put("country", country);
+        values.put("limit", size); values.put("offset", (long) (page - 1) * size);
+        long total = named.queryForObject("SELECT COUNT(*) FROM programmes p JOIN universities u ON u.id=p.university_id" + where, values, Long.class);
         List<ProgrammeItem> items = named.query(programmeSelect() + where
                 + " ORDER BY COALESCE(p.name_zh,p.name_en),p.id LIMIT :limit OFFSET :offset", values, PROGRAMME_MAPPER);
         return page(items, page, size, total);
@@ -186,6 +193,10 @@ public class AdminCatalogRepository {
                 SELECT ?,'PENDING',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP
                 WHERE NOT EXISTS (SELECT 1 FROM search_sync_jobs WHERE university_id=? AND status IN ('PENDING','PROCESSING'))
                 """, universityId, universityId);
+    }
+
+    private static String countryPredicate(String country) {
+        return country.isEmpty() ? "" : " AND u.country_id = (SELECT id FROM countries WHERE code = :country)";
     }
 
     private static String programmeSelect() { return """

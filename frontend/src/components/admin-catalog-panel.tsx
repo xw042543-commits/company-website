@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useCallback, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
-import { adminRead, adminWrite, studyLevelZh, type AdminOption, type AdminOptions, type AdminPage, type AdminProgramme, type AdminUniversity } from "@/lib/admin-catalog-api";
+import { adminRead, adminWrite, adminCatalogListPath, studyLevelZh, type AdminOption, type AdminOptions, type AdminPage, type AdminProgramme, type AdminUniversity } from "@/lib/admin-catalog-api";
 import { words, type Locale } from "@/lib/site";
 
 type Tab = "universities" | "programmes";
@@ -19,7 +19,11 @@ export function AdminCatalogPanel({ locale }: { locale: Locale }) {
   const [programmes, setProgrammes] = useState<AdminPage<AdminProgramme> | null>(null);
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("");
+  const [country, setCountry] = useState("");
+  const loadVersion = useRef(0);
   const [universityFilter, setUniversityFilter] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [studyLevelFilter, setStudyLevelFilter] = useState("");
   const [page, setPage] = useState(1);
   const [editingUniversity, setEditingUniversity] = useState<AdminUniversity | null | undefined>(undefined);
   const [editingProgramme, setEditingProgramme] = useState<AdminProgramme | null | undefined>(undefined);
@@ -28,24 +32,27 @@ export function AdminCatalogPanel({ locale }: { locale: Locale }) {
 
   const load = useCallback(async () => {
     const base = browserApiBaseUrl();
-    const search = new URLSearchParams({ q: query, status, page: String(page), size: "20" });
-    if (tab === "programmes" && universityFilter) search.set("universityId", universityFilter);
+    const version = ++loadVersion.current;
+    const path = adminCatalogListPath(tab, { query, status, country, universityId: universityFilter, categoryId: categoryFilter, studyLevelId: studyLevelFilter, page });
     const [optionResult, listResult] = await Promise.all([
       adminRead<AdminOptions>(base, "/api/v1/admin/catalog/options"),
       tab === "universities"
-        ? adminRead<AdminPage<AdminUniversity>>(base, `/api/v1/admin/catalog/universities?${search}`)
-        : adminRead<AdminPage<AdminProgramme>>(base, `/api/v1/admin/catalog/programmes?${search}`),
+        ? adminRead<AdminPage<AdminUniversity>>(base, path)
+        : adminRead<AdminPage<AdminProgramme>>(base, path),
     ]);
+    if (version !== loadVersion.current) return;
     if (optionResult.status === "ready") setOptions(optionResult.value);
     if (listResult.status === "ready") {
+      const lastPage = Math.max(1, listResult.value.totalPages);
+      if (page > lastPage) { setPage(lastPage); return; }
       if (tab === "universities") setUniversities(listResult.value as AdminPage<AdminUniversity>);
       else setProgrammes(listResult.value as AdminPage<AdminProgramme>);
     } else setNotice(words(locale, "数据加载失败，请刷新后重试。", "Could not load data. Refresh and try again."));
-  }, [locale, page, query, status, tab, universityFilter]);
+  }, [categoryFilter, country, locale, page, query, status, studyLevelFilter, tab, universityFilter]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => { void load(); }, 0);
-    return () => window.clearTimeout(timer);
+    return () => { window.clearTimeout(timer); loadVersion.current += 1; };
   }, [load]);
 
   async function saveUniversity(event: FormEvent<HTMLFormElement>) {
@@ -91,11 +98,17 @@ export function AdminCatalogPanel({ locale }: { locale: Locale }) {
     </div>
     <section className="admin-toolbar">
       <label><span>{words(locale, "搜索", "Search")}</span><input value={query} onChange={event => { setQuery(event.target.value); setPage(1); }} placeholder={words(locale, "名称或编码", "Name or code")} /></label>
+      <label><span>{words(locale, "国家", "Country")}</span><select value={country} onChange={event => { setCountry(event.target.value); setPage(1); }}><option value="">{words(locale, "全部国家", "All countries")}</option>{options.countries.map(option => <option key={option.code} value={option.code}>{label(option, locale)}</option>)}</select></label>
       <label><span>{words(locale, "状态", "Status")}</span><select value={status} onChange={event => { setStatus(event.target.value); setPage(1); }}><option value="">{words(locale, "全部", "All")}</option><option value="PUBLISHED">{words(locale, "启用", "Enabled")}</option><option value="ARCHIVED">{words(locale, "停用", "Disabled")}</option><option value="DRAFT">{words(locale, "草稿", "Draft")}</option></select></label>
       {tab === "programmes" && <label><span>{words(locale, "所属院校", "University")}</span><select value={universityFilter} onChange={event => { setUniversityFilter(event.target.value); setPage(1); }}><option value="">{words(locale, "全部院校", "All universities")}</option>{options.universities.map(option => <option key={option.id} value={option.id}>{label(option, locale)}</option>)}</select></label>}
+      {tab === "programmes" && <>
+        <label><span>{words(locale, "学科分类", "Subject")}</span><select value={categoryFilter} onChange={event => { setCategoryFilter(event.target.value); setPage(1); }}><option value="">{words(locale, "全部分类", "All subjects")}</option>{options.categories.map(option => <option key={option.id} value={option.id}>{label(option, locale)}</option>)}</select></label>
+        <label><span>{words(locale, "学历层次", "Study level")}</span><select value={studyLevelFilter} onChange={event => { setStudyLevelFilter(event.target.value); setPage(1); }}><option value="">{words(locale, "全部学历", "All levels")}</option>{options.studyLevels.map(option => <option key={option.id} value={option.id}>{locale === "zh" ? studyLevelZh(option) : label(option, locale)}</option>)}</select></label>
+      </>}
       <button onClick={() => tab === "universities" ? setEditingUniversity(null) : setEditingProgramme(null)}>+ {words(locale, "新增", "Add")}</button>
     </section>
     {notice && <p className="admin-notice" role="status">{notice}</p>}
+    {currentPage && <p role="status">{words(locale, `共 ${currentPage.total} 条记录`, `${currentPage.total} records`)}</p>}
     <div className="admin-table-wrap"><table className="admin-table"><thead><tr>{tab === "universities" ? <><th>{words(locale, "院校", "University")}</th><th>{words(locale, "国家 / 地区", "Country / region")}</th><th>{words(locale, "专业数", "Programmes")}</th></> : <><th>{words(locale, "专业", "Programme")}</th><th>{words(locale, "院校", "University")}</th><th>{words(locale, "学历 / 学科", "Level / subject")}</th></>}<th>{words(locale, "状态", "Status")}</th><th>{words(locale, "操作", "Actions")}</th></tr></thead>
       <tbody>{tab === "universities" ? universities?.items.map(item => <tr key={item.id}><td><strong>{locale === "zh" ? item.nameZh || item.nameEn : item.nameEn || item.nameZh}</strong><small>{item.universityCode} · {item.slug}</small></td><td>{locale === "zh" ? item.countryNameZh || item.countryNameEn : item.countryNameEn || item.countryNameZh}<small>{locale === "zh" ? item.regionZh : item.regionEn}</small></td><td>{item.programmeCount}</td><StatusCell status={item.status} locale={locale} /><td><button className="secondary" onClick={() => setEditingUniversity(item)}>{words(locale, "编辑", "Edit")}</button><button className="secondary" disabled={busy} onClick={() => toggle("universities", item)}>{item.status === "PUBLISHED" ? words(locale, "停用", "Disable") : words(locale, "恢复", "Enable")}</button></td></tr>) : programmes?.items.map(item => <tr key={item.id}><td><strong>{locale === "zh" ? item.nameZh || item.nameEn : item.nameEn || item.nameZh}</strong><small>{item.programmeCode}</small></td><td>{item.universityName}</td><td>{locale === "zh" ? programmeLevelZh(item, options.studyLevels) : item.studyLevelName || "—"}<small>{item.categoryName}</small></td><StatusCell status={item.status} locale={locale} /><td><button className="secondary" onClick={() => setEditingProgramme(item)}>{words(locale, "编辑", "Edit")}</button><button className="secondary" disabled={busy} onClick={() => toggle("programmes", item)}>{item.status === "PUBLISHED" ? words(locale, "停用", "Disable") : words(locale, "恢复", "Enable")}</button></td></tr>)}</tbody>
     </table>{currentPage && currentPage.items.length === 0 && <p className="admin-empty">{words(locale, "没有符合条件的数据。", "No matching records.")}</p>}</div>

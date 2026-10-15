@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Positive;
 
 @RestController
 @RequestMapping("/api/v1/admin/catalog")
@@ -31,9 +32,9 @@ public class AdminCatalogController {
 
     @GetMapping("/universities")
     public PageResponse<UniversityItem> universities(@RequestParam(defaultValue = "") String q,
-            @RequestParam(defaultValue = "") String status, @RequestParam(defaultValue = "1") @Min(1) int page,
+            @RequestParam(defaultValue = "") String status, @RequestParam(defaultValue = "") String country, @RequestParam(defaultValue = "1") @Min(1) int page,
             @RequestParam(defaultValue = "20") @Min(1) @Max(100) int size) {
-        return service.universities(q, status, page, size);
+        return service.universities(q, status, country, page, size);
     }
 
     @GetMapping("/universities/{id}") public UniversityItem university(@PathVariable long id) { return service.university(id); }
@@ -47,8 +48,11 @@ public class AdminCatalogController {
     @GetMapping("/programmes")
     public PageResponse<ProgrammeItem> programmes(@RequestParam(defaultValue = "") String q,
             @RequestParam(required = false) Long universityId, @RequestParam(defaultValue = "") String status,
+            @RequestParam(defaultValue = "") String country,
+            @RequestParam(required = false) @Positive Long categoryId,
+            @RequestParam(required = false) @Positive Long studyLevelId,
             @RequestParam(defaultValue = "1") @Min(1) int page, @RequestParam(defaultValue = "20") @Min(1) @Max(100) int size) {
-        return service.programmes(q, universityId, status, page, size);
+        return service.programmes(q, universityId, status, country, categoryId, studyLevelId, page, size);
     }
 
     @GetMapping("/programmes/{id}") public ProgrammeItem programme(@PathVariable long id) { return service.programme(id); }

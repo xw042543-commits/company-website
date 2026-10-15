@@ -66,6 +66,25 @@ class AdminCatalogServiceTest {
         verify(repository, never()).createProgramme(any());
     }
 
+    @Test
+    void normalizesCountryAndCombinesItWithExistingFilters() {
+        service.universities("  university  ", "PUBLISHED", " my ", 2, 20);
+        verify(repository).universities("university", "PUBLISHED", "MY", 2, 20);
+        service.programmes("  computing  ", 8L, "ARCHIVED", " sg ", 4L, 5L, 3, 20);
+        verify(repository).programmes("computing", 8L, "ARCHIVED", "SG", 4L, 5L, 3, 20);
+    }
+
+    @Test
+    void emptyCountryPreservesUnfilteredQueriesAndInvalidCodesAreRejected() {
+        service.universities("", "", "", 1, 20);
+        verify(repository).universities("", "", "", 1, 20);
+        assertThatThrownBy(() -> service.universities("", "", "Malaysia", 1, 20))
+                .isInstanceOf(ApiException.class).hasMessageContaining("两位国家代码");
+        assertThatThrownBy(() -> service.programmes("", null, "", "MY' OR 1=1", null, null, 1, 20))
+                .isInstanceOf(ApiException.class);
+        verify(repository, never()).programmes(anyString(), any(), anyString(), anyString(), any(), any(), anyInt(), anyInt());
+    }
+
     private static UniversityItem university(long id, String status) {
         return new UniversityItem(id, "TEST_U", "test-university", "测试大学", "Test University", "MY",
                 "马来西亚", "Malaysia", "吉隆坡", "Kuala Lumpur", null, null, "https://example.edu",

@@ -1114,7 +1114,7 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .admin-console-header p { max-width: 68ch; margin: 0; color: var(--muted); }
 .admin-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
 .admin-tabs button.active { background: var(--brand-deep); }
-.admin-toolbar { display: grid; grid-template-columns: minmax(220px, 1.4fr) minmax(150px, .6fr) minmax(220px, 1fr) auto; align-items: end; gap: 14px; padding: 18px; border: 1px solid #c7d7d1; border-radius: 14px; background: #f1f6f3; }
+.admin-toolbar { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); align-items: end; gap: 14px; padding: 18px; border: 1px solid #c7d7d1; border-radius: 14px; background: #f1f6f3; }
 .admin-toolbar label, .admin-editor label { display: flex; min-width: 0; flex-direction: column; gap: 7px; color: var(--brand-deep); font-size: .84rem; font-weight: 720; }
 .admin-toolbar input, .admin-toolbar select, .admin-editor input, .admin-editor select, .admin-editor textarea { width: 100%; }
 .admin-notice { margin: 14px 0; padding: 12px 15px; border-left: 4px solid var(--brand); border-radius: 6px; background: #edf5f1; color: var(--brand-deep); }
