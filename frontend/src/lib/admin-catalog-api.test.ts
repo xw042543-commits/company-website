@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { adminWrite, studyLevelZh } from "./admin-catalog-api.ts";
+import { adminWrite, adminRead, adminCatalogListPath, studyLevelZh } from "./admin-catalog-api.ts";
 
 test("normalizes administrator study level labels to the four Chinese names", () => {
   assert.equal(studyLevelZh({ id: 1, code: "DIPLOMA", nameZh: "大专/文凭", nameEn: "Diploma" }), "大专");
@@ -30,4 +30,36 @@ test("admin writes acquire csrf and send a credentialed JSON request", async () 
     assert.equal(new Headers(calls[1].init?.headers).get("X-XSRF-TOKEN"), "token");
     assert.equal(calls[1].init?.body, JSON.stringify({ enabled: false }));
   } finally { globalThis.fetch = original; }
+});
+
+
+test("admin country filtering is sent to the server with every existing condition and page", async () => {
+  const filters = {query: "计算机 science", status: "ARCHIVED", country: "MY", universityId: "8", page: 2};
+  const path = adminCatalogListPath("programmes", filters);
+  const url = new URL(path, "https://example.test");
+  assert.equal(url.searchParams.get("country"), "MY");
+  assert.equal(url.searchParams.get("q"), "计算机 science");
+  assert.equal(url.searchParams.get("status"), "ARCHIVED");
+  assert.equal(url.searchParams.get("universityId"), "8");
+  assert.equal(url.searchParams.get("page"), "2");
+  assert.equal(url.searchParams.get("size"), "20");
+  const next = new URL(adminCatalogListPath("programmes", {...filters, page: 3}), "https://example.test");
+  assert.equal(next.searchParams.get("country"), "MY");
+  assert.equal(next.searchParams.get("universityId"), "8");
+  assert.equal(next.searchParams.get("page"), "3");
+  const original = globalThis.fetch;
+  let requested = "";
+  globalThis.fetch = (async input => {requested = String(input); return Response.json({items: [],total:0});}) as typeof fetch;
+  try { await adminRead("https://example.test", path); assert.equal(requested, url.toString()); }
+  finally { globalThis.fetch = original; }
+});
+
+test("all countries omits the restriction and university lists ignore programme-only filters", () => {
+  const filters = {query: "", status: "", country: "", universityId: "8", page: 1};
+  const all = new URL(adminCatalogListPath("universities", filters), "https://example.test");
+  assert.equal(all.searchParams.has("country"), false);
+  assert.equal(all.searchParams.has("universityId"), false);
+  const country = new URL(adminCatalogListPath("universities", {...filters, country: "SG"}), "https://example.test");
+  assert.equal(country.searchParams.get("country"), "SG");
+  assert.equal(country.searchParams.get("page"), "1");
 });

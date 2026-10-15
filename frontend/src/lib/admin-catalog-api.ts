@@ -62,3 +62,19 @@ export function studyLevelZh(option: AdminOption) {
   if (/diploma|associate|大专|文凭/.test(source)) return "大专";
   return option.nameZh || option.nameEn || option.code;
 }
+
+
+export type AdminCatalogFilters = {
+  query: string;
+  status: string;
+  country: string;
+  universityId: string;
+  page: number;
+};
+
+export function adminCatalogListPath(tab: "universities" | "programmes", filters: AdminCatalogFilters) {
+  const search = new URLSearchParams({ q: filters.query, status: filters.status, page: String(filters.page), size: "20" });
+  if (filters.country) search.set("country", filters.country);
+  if (tab === "programmes" && filters.universityId) search.set("universityId", filters.universityId);
+  return `/api/v1/admin/catalog/${tab}?${search}`;
+}

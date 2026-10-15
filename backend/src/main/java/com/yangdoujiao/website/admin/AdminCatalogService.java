@@ -20,8 +20,8 @@ public class AdminCatalogService {
     public AdminCatalogService(AdminCatalogRepository repository) { this.repository = repository; }
 
     @Transactional(readOnly = true)
-    public PageResponse<UniversityItem> universities(String query, String status, int page, int size) {
-        return repository.universities(normalizeQuery(query), normalizeStatus(status), page, size);
+    public PageResponse<UniversityItem> universities(String query, String status, String country, int page, int size) {
+        return repository.universities(normalizeQuery(query), normalizeStatus(status), normalizeCountry(country), page, size);
     }
 
     @Transactional(readOnly = true)
@@ -61,8 +61,8 @@ public class AdminCatalogService {
     }
 
     @Transactional(readOnly = true)
-    public PageResponse<ProgrammeItem> programmes(String query, Long universityId, String status, int page, int size) {
-        return repository.programmes(normalizeQuery(query), universityId, normalizeStatus(status), page, size);
+    public PageResponse<ProgrammeItem> programmes(String query, Long universityId, String status, String country, int page, int size) {
+        return repository.programmes(normalizeQuery(query), universityId, normalizeStatus(status), normalizeCountry(country), page, size);
     }
 
     @Transactional(readOnly = true)
@@ -145,6 +145,13 @@ public class AdminCatalogService {
     private static String normalizeQuery(String value) {
         String result = AdminCatalogRepository.trim(value);
         return result.length() > 100 ? result.substring(0, 100) : result;
+    }
+
+    private static String normalizeCountry(String value) {
+        String country = AdminCatalogRepository.trim(value).toUpperCase(java.util.Locale.ROOT);
+        if (!country.isEmpty() && !country.matches("[A-Z]{2}"))
+            throw invalid("国家筛选必须为两位国家代码");
+        return country;
     }
 
     private static String normalizeStatus(String value) {
