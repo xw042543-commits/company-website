@@ -2,7 +2,6 @@ import { searchUniversities, type UniversitySummary } from '../../services/unive
 import { favoriteUniversities } from '../../stores/favorites';
 import { universityDetailRoute } from '../../utils/routes';
 import { universityLogoUrl } from '../../services/university-media';
-import { planningAgent } from '../../services/planning-agent';
 
 type PreviewState = 'loading' | 'ready' | 'empty' | 'failed';
 type HomeUniversity = UniversitySummary & { favorite: boolean; logoUrl: string | null; coverFailed: boolean; logoFailed: boolean };
@@ -11,17 +10,16 @@ interface UniversityEvent extends WechatMiniprogram.BaseEvent {
   detail: { slug?: string };
 }
 
-export function createHomePage(agent = planningAgent): WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> {
-  let capabilityEpoch = 0;
+export function createHomePage(): WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> {
   return {
   data: {
     statusBarHeight: 20,
     heroIndex: 0,
     fallbackHeroFailed: false,
-    agentAvailable: false,
     featureEntries: [
       { key: 'planning', label: '专业定位', icon: '/assets/icons/planning.png', tone: 'mint' },
       { key: 'universities', label: '院校清单', icon: '/assets/icons/university-green.png', tone: 'mint' },
+      { key: 'ai', label: 'AI规划', icon: '/assets/icons/ai.png', tone: 'mint' },
       { key: 'visa', label: '签证查询', icon: '/assets/icons/visa.png', tone: 'orange' },
     ],
     previewState: 'loading' as PreviewState,
@@ -33,19 +31,14 @@ export function createHomePage(agent = planningAgent): WechatMiniprogram.Page.Op
     this.setData({ statusBarHeight: wx.getWindowInfo().statusBarHeight });
     void this.loadUniversityPreview();
   },
-  onShow() { this.syncFavorites(); void this.loadAgentCapability(); },
-  onHide() { capabilityEpoch++; this.setData({ agentAvailable: false }); },
-  async loadAgentCapability() {
-    const epoch = ++capabilityEpoch;
-    this.setData({ agentAvailable: false });
-    const result = await agent.capability();
-    if (epoch !== capabilityEpoch) return;
-    this.setData({ agentAvailable: result.ok && result.value.enabled && result.value.available });
-  },
-  openAgent() { if (this.data.agentAvailable) wx.navigateTo({ url: '/pages/planning-agent/index' }); },
+  onShow() { this.syncFavorites(); },
 
   openFeature(event: WechatMiniprogram.BaseEvent) {
     const key = event.currentTarget.dataset.key as string | undefined;
+    if (key === 'ai') {
+      wx.navigateTo({ url: '/pages/planning-agent/index' });
+      return;
+    }
     if (key === 'visa') {
       wx.navigateTo({ url: '/pages/visa/index' });
       return;

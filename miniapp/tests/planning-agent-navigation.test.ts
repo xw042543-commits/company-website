@@ -48,13 +48,19 @@ test('unavailable direct entry retains catalogue consultation and saved history 
   page.catalogue(); page.adviser(); page.myPlans();
   assert.deepEqual(urls, ['/pages/planning-discovery/index', '/pages/consultation/index', '/pages/plans/index']);
 });
-test('home Agent entry requires enabled and available, stale success cannot reopen it', async () => {
+test('home original AI tool opens the new planning page without waiting for capability', async () => {
   const { createHomePage } = await import('../miniprogram/pages/home/index');
-  let result: any = ok({ enabled: true, available: false });
-  const page = context(createHomePage({ capability: async () => result } as any));
-  await page.loadAgentCapability(); assert.equal(page.data.agentAvailable, false);
-  result = ok({ enabled: true, available: true }); await page.loadAgentCapability(); assert.equal(page.data.agentAvailable, true);
-  result = { ok: false, error: { code: 'AUTH_REQUIRED' } }; await page.loadAgentCapability(); assert.equal(page.data.agentAvailable, false);
+  const page = context(createHomePage());
+  const urls: string[] = [];
+  const originalNavigate = wx.navigateTo;
+  wx.navigateTo = (({ url }: { url: string }) => urls.push(url)) as any;
+  try {
+    assert.deepEqual(page.data.featureEntries.map((entry: any) => entry.key), ['planning', 'universities', 'ai', 'visa']);
+    const entry = page.data.featureEntries[2];
+    assert.equal(entry.icon, '/assets/icons/ai.png');
+    page.openFeature({ currentTarget: { dataset: { key: entry.key } } });
+    assert.deepEqual(urls, ['/pages/planning-agent/index']);
+  } finally { wx.navigateTo = originalNavigate; }
 });
 test('Agent list failure preserves legacy plans and each type opens its own route', async () => {
   const { createPlansPage } = await import('../miniprogram/pages/plans/index');
