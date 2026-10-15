@@ -5,6 +5,8 @@ import java.time.Instant;
 import java.math.BigDecimal;
 import java.util.*;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
@@ -63,6 +65,20 @@ class PlanningCatalogueIntegrationTest {
                 INSERT INTO planning_fees(programme_id,evidence_id,category,amount,currency,period,units,included_in,coverage_complete)
                 VALUES(?,?,?,100.25,'MYR','TOTAL',1,?,true) RETURNING id
                 """,Long.class,programme,evidence,category,included);
+    }
+    @ParameterizedTest
+    @ValueSource(strings={"FOUNDATION","BACHELOR","MASTER","DOCTOR"})
+    void searchesPersistedTargetStudyLevelCodes(String code) {
+        jdbc.update("INSERT INTO study_levels(code,name_en,status) VALUES(?,?,'PUBLISHED') ON CONFLICT(code) DO NOTHING",code,code);
+        level = jdbc.queryForObject("SELECT id FROM study_levels WHERE code=?",Long.class,code);
+        long id = programme(my,"PUBLISHED");
+
+        assertThat(catalogue.search(code,subject,"Kuala Lumpur",0)).containsExactly(id);
+    }
+    @ParameterizedTest
+    @ValueSource(strings={"PHD","DIPLOMA"})
+    void rejectsUnsupportedPlanningTargetLevels(String code) {
+        assertThatThrownBy(() -> catalogue.search(code,subject,null,0)).isInstanceOf(IllegalArgumentException.class);
     }
     @Test void pagesBeyondThreeWithinOneUniversityAndFiltersBeforePaging() {
         List<Long> ids = new ArrayList<>();

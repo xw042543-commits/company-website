@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 /** PostgreSQL is authoritative; the general search API's three previews are not a planning catalogue. */
 @Repository
 public class PlanningCatalogue {
-    private static final Set<String> LEVELS = Set.of("FOUNDATION","DIPLOMA","BACHELOR","MASTER","PHD");
+    private static final Set<String> LEVELS = Set.of("FOUNDATION","BACHELOR","MASTER","DOCTOR");
     private static final String PUBLISHED_MY = "p.status='PUBLISHED' AND u.status='PUBLISHED' AND c.code='MY'";
     private final JdbcTemplate jdbc;
     public PlanningCatalogue(JdbcTemplate jdbc) { this.jdbc = jdbc; }
