@@ -2206,8 +2206,9 @@ textarea:focus {
 }
 .consultation-workspace .adviser-filters {
   grid-area: filters;
-  grid-template-columns: minmax(320px, 1fr) minmax(180px, 240px);
-  align-items: end;
+  grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  align-items: start;
+  gap: 16px;
 }
 .consultation-workspace .adviser-counts {
   grid-area: counts;
