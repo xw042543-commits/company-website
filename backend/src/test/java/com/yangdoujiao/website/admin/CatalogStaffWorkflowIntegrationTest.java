@@ -123,6 +123,8 @@ class CatalogStaffWorkflowIntegrationTest {
     }
     @Test void adminAndUserRoutesAndCsrfAreEnforced()throws Exception{
         mvc.perform(get("/api/v1/admin/catalog/courses")).andExpect(status().isUnauthorized());
+        mvc.perform(get("/api/v1/admin/catalog/courses").with(user(principal(UserAccountRole.ADMIN)))).andExpect(status().isOk()).andExpect(jsonPath("$.items").isArray());
+        mvc.perform(get("/api/v1/admin/catalog/courses").param("programmeId",Long.toString(programme)).with(user(principal(UserAccountRole.ADMIN)))).andExpect(status().isOk()).andExpect(jsonPath("$.total").value(0));
         mvc.perform(get("/api/v1/admin/catalog/courses").with(user(principal(UserAccountRole.USER)))).andExpect(status().isForbidden());
         mvc.perform(post("/api/v1/admin/catalog/lifecycle").with(user(principal(UserAccountRole.ADMIN))).contentType("application/json").content("{}")).andExpect(status().isForbidden());
         mvc.perform(get("/api/v1/admin/catalog/lifecycle/capabilities").with(user(principal(UserAccountRole.ADMIN)))).andExpect(status().isOk()).andExpect(jsonPath("$.permanentDelete").value(false));
