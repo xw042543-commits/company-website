@@ -2375,3 +2375,22 @@ textarea:focus {
   .consultation-workspace .adviser-master-detail,
   .community-workspace .community-master-detail { gap: 14px; }
 }
+
+/* Keep primary links visible when a desktop window is narrowed. */
+@media (min-width: 761px) and (max-width: 1400px) {
+  .header-shell { row-gap: 0; }
+  .navigation {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-height: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 clamp(14px, 2vw, 26px);
+    padding: 0;
+    overflow: visible;
+  }
+  .navigation a { width: auto; min-height: 48px; border-bottom: 3px solid transparent; }
+  .navigation a[aria-current="page"] { border-bottom-color: var(--brand); }
+  .navigation-toggle { display: none; }
+}
