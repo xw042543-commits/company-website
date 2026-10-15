@@ -43,6 +43,10 @@ public class PlanningPlanController {
     public ConsultationResponse consult(@AuthenticationPrincipal UserPrincipal user,@PathVariable UUID id,@Valid @RequestBody ShareRequest request) {
         return plans.consult(owner(user),id,request);
     }
+    @GetMapping("/plans/{id}/consultation-preview")
+    public ConsultationPreview consultationPreview(@AuthenticationPrincipal UserPrincipal user,@PathVariable UUID id,@RequestParam long programmeId) {
+        return plans.consultationPreview(owner(user),id,programmeId);
+    }
     private static long owner(UserPrincipal user) {
         if(user==null) throw new ApiException(HttpStatus.UNAUTHORIZED,"AUTH_REQUIRED","Authentication required");
         return user.userId();

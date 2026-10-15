@@ -28,6 +28,12 @@
 
 完整流程使用本地 Testcontainers 和合成用户、合成专业。第二次背景版本从 1 到 2，预算由 30000 MYR 改到 15000 MYR；历史版本保持不变，服务重新计算费用仍为 20000 MYR。费用完整不等于预算足够，系统不会为了迎合用户预算改写学费。没有点击确认之前不会保存或创建咨询；同一保存和咨询幂等键重试只产生一条记录。
 
+最终复审修复新增：capability、轮询、保存、转顾问的最终鉴权失败都清除页面私有数据并使在途响应失效；已查询但没有有效证据的候选保留为 UNKNOWN，不影响同次已核验结果；费用结果和保存快照保留 YEAR / SEMESTER / TOTAL、数量、类别、包含项关系与核算范围，旧快照缺少这些字段时明确显示未知。
+
+顾问交接使用 owner-auth 的 `GET /plans/{id}/consultation-preview?programmeId=...` 返回单一选定项目与已确认背景的有界摘要。提交同时确认 `programmeId` 与 `previewFingerprint`；指纹不一致、未预览、项目不属于保存方案或手写补充超过 500 字时拒绝。顾问详情直接读取与用户预览一致的独立咨询摘要；删除规划或账号后仍遵循既有咨询保留周期。`PlanningOwnershipIntegrationTest` 覆盖真实 HTTP 预览与提交、顾问详情读取、幂等并发、事务回滚和清理后的摘要保留。
+
+预算排序只在同一资格组内进行：已核验费用未超过确认预算、未知、已超过确认预算，最后按专业 ID 稳定排序。只有明确生活费范围、完整同币同类别且对应全程的费用与 TOTAL 预算可以比较；年度／学期预算、缺少币种或汇率、范围不一致、费用不完整均保持未知，不自动换算，不承诺覆盖所有支出，也不改变申请资格。
+
 ## 可复现命令与结果
 
 Java 明确使用 `/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home`；仅运行本地可丢弃 Docker 数据库、Redis 和 Elasticsearch。无真实供应商、用户数据、生产写入、推送、部署或费用购买。
@@ -45,6 +51,8 @@ git diff --check
 RED：`/private/tmp/task8-red.log`，3 tests / 2 assertion failures / 0 errors / 0 skipped。完整流程在没有测试模型时得到 FAILED 而不是 SUCCEEDED；兼容测试期待旧版本 33 而实际为 38。这是测试接线与迁移期望的失败证据，不表示添加了真实模型实现。随后只补测试脚本和兼容断言，不修改生产服务。
 
 最终验证全部退出 0：focused **24 tests**；夹具隔离回归 **87 tests**；后端全量 **1145 tests / 0 failures / 0 errors / 0 skipped / BUILD SUCCESS**；小程序 **377 tests / 377 pass / 0 fail / 0 skipped**，TypeScript 与 ESLint 通过；`git diff --check` 通过。日志依次为 `/private/tmp/task8-focused-green.log`、`/private/tmp/task8-isolation-green.log`、`/private/tmp/task8-backend-full-green.log`、`/private/tmp/task8-miniapp-check-green.log`。
+
+以上为 Task 8 原始交接数字。五项最终复审修复后的最新验证全部退出 0：后端全量 **1154 tests / 0 failures / 0 errors / 0 skipped / BUILD SUCCESS**（1m31s，`/private/tmp/final-fix-backend-final-green.log`）；小程序全量 **385 tests / 385 pass / 0 fail / 0 skipped**，TypeScript 与 ESLint 通过（`/private/tmp/final-fix-miniapp-full.log`）；最终预算／证据／编排 focused **32 tests** 通过（`/private/tmp/final-fix-final-focused.log`）。第一轮全量 1153 项通过后，自查补充了跳过预算币种的回归，先复现新增比较器的空值错误再修复；第二轮全量 1154 项对应最终后端代码。各缺陷的 RED/GREEN 原始日志前缀为 `/private/tmp/final-fix-`；当前 `git diff --check` 通过。
 
 保留的失败记录：首次后端全量 `/private/tmp/task8-backend-full.log` 为 1145 tests / 0 failures / 34 errors，根因是本任务新夹具留下 MY 字典，导致后续旧 schema/catalog 测试重复键。修复仅跟踪并按确切 ID 清理夹具自己新建的 country / level 行，已有字典不删除；相关 87 项及全量 1145 项随后通过。首次小程序 `/private/tmp/task8-miniapp-check.log` 在测试开始前遭沙箱 `tsx` 本地 IPC `listen EPERM`，允许本地 IPC 后重跑通过，未改产品代码。后端输出仍有 macOS DNS fallback、JDK CDS 和既有故障分支测试 WARN，不声称输出完全没有警告。
 

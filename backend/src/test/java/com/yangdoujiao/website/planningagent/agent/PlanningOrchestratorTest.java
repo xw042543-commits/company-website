@@ -126,4 +126,19 @@ class PlanningOrchestratorTest {
         String result=runner.execute(input(PlanningDtos.Intent.GENERATE,fixture.profile),()->{});
         assertThat(result).contains("ELIGIBLE","Programme 20","PREPARE_DOCUMENTS").doesNotContain("passport","PRIVATE NAME","Ignore rules");
     }
+    @Test void searchedCandidatesWithMissingOrExpiredEvidenceDoNotDiscardKnownResults() throws Exception {
+        for(boolean expired:List.of(false,true)) {
+            var fixture=new PlanValidatorTest();fixture.state();
+            var old=fixture.evidence(31,30,"ADMISSIONS");
+            when(fixture.tools.getProgrammeEvidence(30)).thenReturn(expired?List.of(new com.yangdoujiao.website.planningagent.evidence.Evidence(
+                    old.id(),old.programmeId(),old.factType(),old.sourceUrl(),old.sourceType(),old.studentScope(),old.intake(),NOW.minusSeconds(100*86400),null,"VERIFIED",5L,"old",false)):List.of());
+            var scripted=new ScriptedPlanningModel(List.of(call("search_programmes","{}"),call("get_programme_evidence","{\"programmeId\":20}"),call("get_programme_evidence","{\"programmeId\":30}"),
+                    new AgentReply(List.of(),List.of(),new PlanDraft(4,List.of(20L,30L),List.of(21L),List.of()))));
+            var runner=new PlanningOrchestrator(scripted,fixture.dispatcher,fixture.validator,new ModelInputSanitizer.VersionOnly(),JSON,Clock.fixed(NOW,ZoneOffset.UTC));
+            var result=JSON.readValue(runner.execute(input(PlanningDtos.Intent.GENERATE,fixture.profile),()->{}),PlanningOrchestrator.Response.class);
+            assertThat(result.plan().programmes()).extracting(ProgrammeDecision::classification).containsExactly("ELIGIBLE","UNKNOWN");
+            assertThat(result.plan().programmes().getLast().evidenceSnapshot()).isEmpty();
+            assertThat(result.plan().programmes().getLast().assessment().eligible()).isFalse();
+        }
+    }
 }

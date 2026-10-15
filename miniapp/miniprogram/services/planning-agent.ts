@@ -8,17 +8,19 @@ export interface Run { runId: string; status: string; deadline: string; result: 
 export interface Session { id: string; profile: Profile; messages: Array<{ id: number; role: string; text: string; createdAt: string }>; runs: Run[] }
 export interface Finding { field: string; status: 'MET' | 'NOT_MET' | 'PROFILE_MISSING' | 'EVIDENCE_MISSING'; evidenceId: number }
 export interface Evidence { id: number; programmeId: number; factType: string; sourceUrl: string; sourceType: string; studentScope: string; intake: string; checkedAt: string; expiresAt: string | null }
+export interface FeeLine { id: number; programmeId: number; amount: number; currency: string; period: string; units: number; evidenceId: number; includedIn: number | null; category: string; coverageComplete: boolean }
 export interface Programme {
   programmeId: number; classification: 'ELIGIBLE' | 'NOT_MET' | 'UNKNOWN';
   programmeNameZh: string | null; programmeNameEn: string | null; universityNameZh: string | null; universityNameEn: string | null;
   assessment: { eligible: boolean; alternatives: Finding[][] };
-  budget: { subtotals: Record<string, number>; complete: boolean; missing: string[] };
+  budget: { subtotals: Record<string, number>; complete: boolean; missing: string[]; lineItems?: FeeLine[]; categories?: string[]; calculationScope?: string; preference?: string; comparisonReason?: string };
   evidenceIds: number[]; ruleVersion: number | null; ruleSnapshot: unknown; evidenceSnapshot: Evidence[];
   imageUrl?: string | null;
 }
 export interface Plan { profileVersion: number; programmes: Programme[]; generalNextSteps: string[] }
 export interface SavedPlan { planId: string; version: number }
 export interface SavedView { snapshot: { profile: Profile; plan: Plan }; revalidationWarnings: string[] }
+export interface ConsultationPreview { programmeId: number; summary: string; fingerprint: string }
 export type Intent = 'CHAT' | 'GENERATE';
 type Sender = (options: RequestOptions) => Promise<Result<unknown>>;
 const ROOT = '/api/v1/miniapp/me/planning-agent';
@@ -53,12 +55,15 @@ export function createPlanningAgentGateway(send: Sender = request) {
     listPlans: () => call<SavedPlan[]>('GET', '/plans'),
     getPlan: (id: string) => validAgentId(id) ? call<SavedView>('GET', `/plans/${id}`) : Promise.resolve(invalid()),
     deletePlan: (id: string) => validAgentId(id) ? call<void>('DELETE', `/plans/${id}`) : Promise.resolve(invalid()),
-    handoff(id: string, draft: ConsultationDraft, confirmed: boolean, requestKey: string) {
+    consultationPreview: (id: string, programmeId: number) => validAgentId(id) && Number.isSafeInteger(programmeId) && programmeId > 0
+      ? call<ConsultationPreview>('GET', `/plans/${id}/consultation-preview?programmeId=${programmeId}`) : Promise.resolve(invalid()),
+    handoff(id: string, draft: ConsultationDraft, confirmed: boolean, requestKey: string, programmeId?: number, previewFingerprint?: string) {
       const name = draft.name.trim(); const contact = draft.contact.trim(); const notes = draft.notes.trim();
       if (!validAgentId(id) || !confirmed || !draft.privacyConsent || !name || name.length > 100 || !contact || contact.length > 100
-        || draft.intendedSchool.length > 200 || draft.intendedCourse.length > 200 || notes.length > 1948
+        || draft.intendedSchool.length > 200 || draft.intendedCourse.length > 200 || notes.length > 500
+        || !Number.isSafeInteger(programmeId) || Number(programmeId) <= 0 || !/^[a-f0-9]{64}$/.test(previewFingerprint ?? '')
         || !['', 'foundation', 'bachelor', 'master', 'doctorate'].includes(draft.qualification) || !requestKey) return Promise.resolve(invalid());
-      return call<ConsultationReceipt>('POST', `/plans/${id}/consultations`, { confirmed, requestKey, consultationRequest: {
+      return call<ConsultationReceipt>('POST', `/plans/${id}/consultations`, { confirmed, requestKey, programmeId, previewFingerprint, consultationRequest: {
         name, contact, intendedSchool: draft.intendedSchool.trim() || null, intendedCourse: draft.intendedCourse.trim() || null,
         qualification: draft.qualification || null, notes: notes || null, locale: 'zh', privacyConsent: true,
       } });
@@ -85,6 +90,8 @@ function validResponse(method: RequestOptions['method'], suffix: string, value: 
   if (suffix.includes('/runs/')) return run(value);
   if (suffix.endsWith('/profile-confirmation')) return object(value) && Number.isSafeInteger(value.confirmedVersion) && Number(value.confirmedVersion) > 0;
   if (suffix.endsWith('/consultations')) return object(value) && typeof value.referenceCode === 'string' && validAgentId(value.referenceCode) && typeof value.submittedAt === 'string' && Number.isFinite(Date.parse(value.submittedAt));
+  if (suffix.includes('/consultation-preview?')) return object(value) && Number.isSafeInteger(value.programmeId) && Number(value.programmeId) > 0
+    && typeof value.summary === 'string' && value.summary.length > 0 && value.summary.length <= 1400 && typeof value.fingerprint === 'string' && /^[a-f0-9]{64}$/.test(value.fingerprint);
   if (suffix === '/plans') return Array.isArray(value) && value.every(saved);
   if (suffix.endsWith('/plans')) return saved(value);
   if (suffix.startsWith('/plans/')) return object(value) && object(value.snapshot) && profile(value.snapshot.profile) && object(value.snapshot.plan) && Array.isArray(value.revalidationWarnings) && value.revalidationWarnings.every(v => typeof v === 'string');

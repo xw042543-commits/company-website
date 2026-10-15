@@ -108,9 +108,28 @@ public class ToolDispatcher {
         if(!explicit || "true".equalsIgnoreCase(living)) categories.add("LIVING");
         state.guard.check();
         BudgetResult result=tools.calculateBudget(id,clock.instant(),intake(state),new BudgetScope(categories));
-        if(explicit) return result;
+        if(explicit) return compareBudget(result,state,categories);
         List<String> missing=new ArrayList<>(result.missing());missing.add("profile:budgetIncludesLiving");
-        return new BudgetResult(result.subtotals(),false,missing);
+        return new BudgetResult(result.subtotals(),false,missing,result.lineItems(),result.categories(),result.calculationScope(),"UNKNOWN","LIVING_SCOPE_UNKNOWN");
+    }
+    private BudgetResult compareBudget(BudgetResult result,State state,Set<String> categories) {
+        String preference="UNKNOWN",reason="BUDGET_NOT_CONFIRMED";
+        var facts=state.profile.facts();
+        if(!"TOTAL".equals(facts.get("budgetPeriod"))) reason="PERIOD_NOT_COMPARABLE";
+        else if(!result.complete()) reason="INCOMPLETE_COSTS";
+        else if(!"WHOLE_STUDY".equals(result.calculationScope()) || result.lineItems().isEmpty() || !result.categories().equals(categories)) reason="SCOPE_NOT_COMPARABLE";
+        else if(facts.get("budgetCurrency")==null) reason="BUDGET_NOT_CONFIRMED";
+        else if(result.subtotals().size()!=1 || !result.subtotals().containsKey(facts.get("budgetCurrency"))) reason="CURRENCY_NOT_COMPARABLE";
+        else {
+            try {
+                var budget=new java.math.BigDecimal(facts.getOrDefault("budget",""));
+                if(budget.signum()>=0) {
+                    preference=result.subtotals().get(facts.get("budgetCurrency")).compareTo(budget)<=0?"WITHIN":"OVER";
+                    reason="VERIFIED_SCOPE_ONLY";
+                }
+            } catch(NumberFormatException invalid) { /* Unconfirmed amounts cannot rank affordability. */ }
+        }
+        return new BudgetResult(result.subtotals(),result.complete(),result.missing(),result.lineItems(),result.categories(),result.calculationScope(),preference,reason);
     }
     PlanningCatalogue.ProgrammeDisplay display(long id,State state) {
         state.guard.check();

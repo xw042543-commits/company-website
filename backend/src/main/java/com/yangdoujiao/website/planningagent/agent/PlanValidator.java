@@ -34,7 +34,7 @@ public class PlanValidator {
             List<Evidence> sources=dispatcher.currentEvidence(id,state);
             Set<Long> available=new HashSet<>(); sources.forEach(e->available.add(e.id()));
             List<Long> chosen=draft.evidenceIds().stream().filter(e->state.evidence.getOrDefault(id,Set.of()).contains(e)).toList();
-            if(chosen.isEmpty() || !available.equals(new HashSet<>(chosen))) throw new InvalidPlan("Current evidence required");
+            if(!state.evidence.containsKey(id) || !available.equals(new HashSet<>(chosen))) throw new InvalidPlan("Current evidence lookup required");
             used.addAll(chosen);
             var rule=dispatcher.rule(id,state);
             var assessment=dispatcher.assessment(state,rule,sources);
@@ -51,6 +51,7 @@ public class PlanValidator {
         }
         if(!used.equals(new HashSet<>(draft.evidenceIds()))) throw new InvalidPlan("Evidence outside selected programmes");
         decisions.sort(Comparator.comparingInt((ProgrammeDecision d)->switch(d.classification()) {case "ELIGIBLE"->0;case "NOT_MET"->1;default->2;})
+                .thenComparingInt(d->switch(d.budget().preference()) {case "WITHIN"->0;case "OVER"->2;default->1;})
                 .thenComparingLong(ProgrammeDecision::programmeId));
         var plan=new ValidatedPlan(draft.profileVersion(),List.copyOf(decisions),List.copyOf(draft.generalNextSteps()));
         // Capture provenance in the same repeatable-read transaction as final facts.

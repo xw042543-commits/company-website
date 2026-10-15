@@ -21,6 +21,7 @@ public class BudgetCalculator {
         Map<String,BigDecimal> totals = new TreeMap<>();
         Set<String> covered = new HashSet<>();
         Set<String> missing = new TreeSet<>();
+        List<Fee> lineItems = new ArrayList<>();
         for (Fee fee : fees) {
             if (fee.category() == null) { missing.add("fee:" + fee.id()); continue; }
             if (!scope.categories().contains(fee.category())) continue;
@@ -29,6 +30,7 @@ public class BudgetCalculator {
                 continue;
             }
             covered.add(fee.category());
+            lineItems.add(fee);
             if (fee.includedIn() == null) {
                 totals.merge(fee.currency(),fee.amount().multiply(BigDecimal.valueOf(fee.units())),BigDecimal::add);
             } else {
@@ -42,7 +44,7 @@ public class BudgetCalculator {
         }
         for (String category : scope.categories()) if (!covered.contains(category)) missing.add("category:"+category);
         if (totals.size() > 1) missing.add("fx:verified-conversion-unavailable");
-        return new BudgetResult(totals,missing.isEmpty(),new ArrayList<>(missing));
+        return new BudgetResult(totals,missing.isEmpty(),new ArrayList<>(missing),lineItems,scope.categories(),"WHOLE_STUDY","UNKNOWN","BUDGET_NOT_COMPARED");
     }
 
     private boolean validChain(Fee fee, Map<Long,Fee> fees, Set<Long> duplicates, Map<Long,Evidence> evidence,

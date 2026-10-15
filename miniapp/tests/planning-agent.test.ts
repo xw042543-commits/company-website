@@ -30,6 +30,19 @@ test('planning HTTP errors retain only public allowlisted codes', async () => {
 test('successful HTTP with malformed receipt cannot display save or consultation success', async () => {
   const gateway = createPlanningAgentGateway(async () => ({ ok: true, value: {} }));
   assert.equal((await gateway.savePlan(id, id, true, 'save')).ok, false);
-  assert.equal((await gateway.handoff(id, { name: 'A', contact: 'B', intendedSchool: '', intendedCourse: '', qualification: '', notes: '', privacyConsent: true }, true, 'share')).ok, false);
+  assert.equal((await gateway.handoff(id, { name: 'A', contact: 'B', intendedSchool: '', intendedCourse: '', qualification: '', notes: '', privacyConsent: true }, true, 'share', 1, 'a'.repeat(64))).ok, false);
   assert.equal((await gateway.getSession(id)).ok, false);
+});
+test('adviser gateway transports the exact selected preview fingerprint with an authenticated request', async () => {
+  const calls: RequestOptions[] = [];
+  const gateway = createPlanningAgentGateway(async options => { calls.push(options); return { ok: true, value: options.method === 'GET'
+    ? { programmeId: 7, summary: 'Confirmed profile / selected project', fingerprint: 'a'.repeat(64) } : { referenceCode: id, submittedAt: '2026-10-15T00:00:00Z' } }; });
+  assert.equal((await gateway.consultationPreview(id, 7)).ok, true);
+  assert.match(calls[0]!.path, /consultation-preview\?programmeId=7$/); assert.equal(calls[0]!.authenticated, true);
+  const draft = { name: 'A', contact: 'B', intendedSchool: '', intendedCourse: '', qualification: '' as const, notes: '', privacyConsent: true };
+  assert.equal((await gateway.handoff(id, draft, true, 'key', 7, 'a'.repeat(64))).ok, true);
+  assert.equal((calls[1]!.data as { programmeId: number }).programmeId, 7);
+  assert.equal((calls[1]!.data as { previewFingerprint: string }).previewFingerprint, 'a'.repeat(64));
+  assert.equal((await gateway.handoff(id, { ...draft, notes: 'x'.repeat(501) }, true, 'key', 7, 'a'.repeat(64))).ok, false);
+  assert.equal(calls.length, 2);
 });

@@ -68,7 +68,7 @@ test('Agent list failure preserves legacy plans and each type opens its own rout
 test('adviser submit requires explicit consent and retries one immutable payload without early success', async () => {
   let finish: any; const calls: any[] = [];
   const page = context(createPlanningAgentPage({ api: { handoff: async (...args: any[]) => { calls.push(args); return new Promise(done => { finish = done; }); } } as any, createKey: () => 'share-key' }));
-  page.onLoad({}); Object.assign(page.data, { savedPlanId: id, consultation: { name: 'A', contact: 'B', intendedSchool: '', intendedCourse: '', qualification: '', notes: '', privacyConsent: false } });
+  page.onLoad({}); Object.assign(page.data, { savedPlanId: id, sharePreview: { programmeId: 1, fingerprint: 'a'.repeat(64), summary: 'Confirmed background' }, consultation: { name: 'A', contact: 'B', intendedSchool: '', intendedCourse: '', qualification: '', notes: '', privacyConsent: false } });
   await page.handoff(); assert.equal(calls.length, 0);
   page.data.shareConsent = true; const first = page.handoff(); await page.handoff(); assert.equal(calls.length, 1); assert.equal(page.data.receipt, '');
   finish({ ok: false, error: { code: 'NETWORK_UNAVAILABLE' } }); await first; assert.equal(page.data.receipt, '');
@@ -80,6 +80,26 @@ test('failed login clears previously rendered snapshot and adviser personal fiel
   page.onLoad({ planId: id }); Object.assign(page.data, { isSnapshot: true, plan: {}, cards: [{}], messages: [{}], consultation: { name: 'old owner' }, shareOpen: true });
   await page.load(); assert.equal(page.data.isSnapshot, false); assert.deepEqual(page.data.cards, []); assert.equal(page.data.consultation.name, '');
   assert.equal(page.data.error.action, 'login');
+});
+test('adviser sharing previews selected saved project and invalidates consent when selection changes', async () => {
+  const previews: number[] = []; const submissions: any[] = [];
+  const page = context(createPlanningAgentPage({ api: {
+    consultationPreview: async (_id: string, programmeId: number) => { previews.push(programmeId); return ok({ programmeId, summary: `确认背景 / 项目 ${programmeId}`, fingerprint: String(programmeId).repeat(64) }); },
+    handoff: async (...args: any[]) => { submissions.push(args); return ok({ referenceCode: id }); },
+  } as any }));
+  page.onLoad({}); Object.assign(page.data, { savedPlanId: id, cards: [{ id: 1, title: '项目一' }, { id: 2, title: '项目二' }], consultation: { name: 'A', contact: 'B' } });
+  await page.openShare(); assert.deepEqual(previews, [1]); assert.equal(page.data.sharePreview.summary, '确认背景 / 项目 1');
+  assert.equal(page.data.shareConsent, false); await page.handoff(); assert.equal(submissions.length, 0);
+  page.data.shareConsent = true; await page.selectShareProgramme({ detail: { value: '1' } });
+  assert.deepEqual(previews, [1, 2]); assert.equal(page.data.shareConsent, false); assert.equal(page.data.sharePreview.summary, '确认背景 / 项目 2');
+  page.data.shareConsent = true; await page.handoff(); assert.equal(submissions[0][4], 2); assert.equal(submissions[0][5], '2'.repeat(64));
+});
+test('login recovery explicitly reauthenticates instead of trusting a cached account again', async () => {
+  let logins = 0;
+  const page = context(createPlanningAgentPage({ session: { ...auth, login: async () => { logins++; return ok({ id: 1 }); } } as any,
+    storage: { get: () => '', set() {}, remove() {} }, api: { capability: async () => ok({ enabled: false, available: false, privacyVersion: null }) } as any }));
+  page.onLoad({}); page.setData({ error: { action: 'login' } }); page.recover(); await flush();
+  assert.equal(logins, 1); assert.equal(page.data.error, null);
 });
 for (const boundary of ['owner-change', 'auth-failure']) test(`${boundary} clears all drafts, derived views, consents and pending recovery context`, async () => {
   let owner = 1; let loggedIn = true; let nextKey = 0; const keys: string[] = [];
@@ -118,6 +138,30 @@ test('terminal run clears retry key and a later profile version cannot save an o
   assert.equal(again, false); assert.equal(page.data.formOpen, true);
   const result = page.applyRun({ runId: id, status: 'SUCCEEDED', result: JSON.stringify({ type: 'PLAN', questions: [], plan: { profileVersion: 1, programmes: [], generalNextSteps: [] } }), errorCode: null, deadline: '2026-10-15T00:01:00Z' });
   assert.equal(result, false); assert.equal(page.data.plan, null); assert.equal(page.data.state, 'idle');
+});
+for (const boundary of ['capability', 'poll', 'save', 'handoff']) test(`${boundary} final auth failure clears private state and invalidates outstanding responses`, async () => {
+  const jobs: Array<() => void> = []; let stale: any; let capabilityFails = false;
+  const denied = { ok: false, error: { code: 'AUTH_REQUIRED' } };
+  const page = context(createPlanningAgentPage({ session: auth, now: () => 0,
+    storage: { get: () => id, set() {}, remove() {} }, schedule: fn => { jobs.push(fn); return jobs.length; }, cancel() {},
+    api: { capability: async () => capabilityFails ? denied : ok({ enabled: true, available: true, privacyVersion: 'v1' }),
+      getSession: async () => ok({ id, profile: { version: 1, facts: { targetLevel: 'MASTER' } }, messages: [],
+        runs: [{ runId: id, status: 'QUEUED', deadline: '1970-01-01T00:01:00Z', result: null, errorCode: null }] }),
+      getRun: async () => denied, savePlan: async () => denied, handoff: async () => denied,
+      getPlan: async () => new Promise(resolve => { stale = resolve; }) } as any,
+  }));
+  page.onLoad({}); await page.load();
+  const pending = page.loadSaved(id);
+  Object.assign(page.data, { state: 'ready', savedPlanId: boundary === 'save' ? '' : id, isSnapshot: false, plan: { profileVersion: 1 },
+    saveConsent: true, shareConsent: true, shareOpen: true, input: 'private draft', confirmedFacts: { grade: '80' },
+    sharePreview: { programmeId: 1, fingerprint: 'a'.repeat(64), summary: 'Private confirmed background' }, consultation: { name: 'Alice', contact: 'private contact' } });
+  if (boundary === 'capability') { capabilityFails = true; await page.load(); }
+  else if (boundary === 'poll') { jobs[0]!(); await flush(); }
+  else await page[boundary]();
+  assert.equal(page.data.error.action, 'login'); assert.equal(page.data.shareOpen, false); assert.equal(page.data.consultation.contact, '');
+  assert.equal(page.data.plan, null); assert.deepEqual(page.data.confirmedFacts, {}); assert.equal(page.data.input, '');
+  stale(ok({ snapshot: { profile: { version: 1, facts: { grade: '80' } }, plan: { profileVersion: 1, programmes: [], generalNextSteps: [] } }, revalidationWarnings: [] }));
+  await pending; assert.equal(page.data.plan, null); assert.equal(page.data.savedPlanId, ''); page.onUnload();
 });
 test('background steps show at most two questions and require an explicit final confirmation', async () => {
   let confirmations = 0;

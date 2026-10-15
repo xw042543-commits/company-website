@@ -121,6 +121,8 @@ class PlanningEvaluationTest {
             assertThat(p.classification()).isEqualTo("ELIGIBLE");
             assertThat(p.budget().subtotals().get("MYR")).isEqualByComparingTo("20000");
             assertThat(p.budget().complete()).isTrue();
+            assertThat(p.budget().preference()).isEqualTo("WITHIN");
+            assertThat(p.budget().lineItems()).extracting(Fee::period).containsExactlyInAnyOrder("YEAR","TOTAL");
         });
         assertThat(plans.list(owner)).isEmpty();
         sessions.confirm(owner,session,new ProfileConfirmation(1,profile("15000")));
@@ -135,13 +137,17 @@ class PlanningEvaluationTest {
         assertThat(view.snapshot().profile().facts()).containsEntry("budget","15000");
         assertThat(view.snapshot().plan().profileVersion()).isEqualTo(2);
         assertThat(view.snapshot().plan().programmes().getFirst().budget().subtotals().get("MYR")).isEqualByComparingTo("20000");
+        assertThat(view.snapshot().plan().programmes().getFirst().budget().preference()).isEqualTo("OVER");
+        assertThat(view.snapshot().plan().programmes().getFirst().budget().lineItems()).anySatisfy(f->{assertThat(f.period()).isEqualTo("YEAR");assertThat(f.units()).isEqualTo(2);});
         assertThat(view.revalidationWarnings()).isEmpty();
         assertThat(sessions.run(owner,session,first.runId()).result()).isEqualTo(json.writeValueAsString(firstResult));
         assertThat(jdbc.queryForObject("SELECT count(*) FROM consultation_enquiries WHERE user_account_id=?",Integer.class,owner)).isZero();
         var contact=new ConsultationRequest("Synthetic tester","13800138000",null,null,null,"Synthetic confirmed summary","zh",true);
         assertThatThrownBy(()->plans.consult(owner,saved.planId(),new PlanningPlanService.ShareRequest(false,"share",contact))).hasMessage("CONFIRMATION_REQUIRED");
-        var shared=plans.consult(owner,saved.planId(),new PlanningPlanService.ShareRequest(true,"share",contact));
-        assertThat(plans.consult(owner,saved.planId(),new PlanningPlanService.ShareRequest(true,"share",contact)).referenceCode()).isEqualTo(shared.referenceCode());
+        var preview=plans.consultationPreview(owner,saved.planId(),programme);
+        var share=new PlanningPlanService.ShareRequest(true,"share",contact,programme,preview.fingerprint());
+        var shared=plans.consult(owner,saved.planId(),share);
+        assertThat(plans.consult(owner,saved.planId(),share).referenceCode()).isEqualTo(shared.referenceCode());
         assertThat(jdbc.queryForObject("SELECT count(*) FROM consultation_enquiries WHERE user_account_id=?",Integer.class,owner)).isOne();
         cleanup.purgeOwner(owner);
         assertThat(plans.list(owner)).isEmpty();

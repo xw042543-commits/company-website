@@ -1,4 +1,4 @@
-import { planningAgent, validAgentId, type Plan, type Run, type Intent } from '../../services/planning-agent';
+import { planningAgent, validAgentId, type Plan, type Run, type Intent, type ConsultationPreview } from '../../services/planning-agent';
 import type { ConsultationDraft } from '../../services/consultations';
 import { sessionStore } from '../../stores/session';
 import { canSave, canonicalAcademicScale, createRequestAttempt, createRunPoller, describeError, parseReply, programmeCards, safeSourceUrl, stepLabels, validPlan, warningText, type AgentViewState } from '../../utils/planning-agent-state';
@@ -64,7 +64,9 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
   const runtime = (page: NativePage) => runtimes.get(page)!;
   const alive = (page: NativePage, epoch: number) => runtime(page).active && runtime(page).epoch === epoch;
   const fail = (page: NativePage, code: string) => {
-    page.setData({ state: 'failed', busy: false, error: describeError(code) });
+    if (['AUTH_REQUIRED', 'AUTHENTICATION_REQUIRED'].includes(code)) { runtime(page).epoch++; resetIdentity(page); }
+    if (['CONSULTATION_PREVIEW_REQUIRED', 'CONSULTATION_PREVIEW_CHANGED'].includes(code)) page.setData({ sharePreview: null, shareConsent: false });
+    page.setData({ state: 'failed', busy: false, loading: false, error: describeError(code) });
     if (code === 'STRUCTURED_INPUT_REQUIRED') page.openBackgroundForText(runtime(page).pendingText);
   };
   const initialData = () => ({ state: 'idle' as AgentViewState, loading: true, available: false, privacyVersion: '', sessionId: '', runId: '', savedPlanId: '',
@@ -75,6 +77,7 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
       saveConsent: false, shareConsent: false, busy: false, error: null, notice: '', input: '', messages: [] as Array<{ id: number; text: string }>,
       questions: [] as string[], plan: null as Plan | null, cards: [] as ReturnType<typeof programmeCards>, steps: [] as string[], warnings: [] as string[],
       isSnapshot: false, shareOpen: false, consultationDetails: false, receipt: '', keyboardHeight: 0,
+      shareProgrammeIndex: 0, selectedProgrammeId: 0, sharePreview: null as ConsultationPreview | null,
       consultation: { name: '', contact: '', intendedSchool: '', intendedCourse: '', qualification: '', notes: '', privacyConsent: false } as ConsultationDraft,
       qualificationLabels: ['未选择', '预科', '本科', '硕士', '博士'], qualificationIndex: 0,
     });
@@ -84,7 +87,7 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
     state.lastAction = 'load'; state.pendingIntent = 'CHAT'; state.pendingText = '';
     state.attempt.clear(); state.saveAttempt.clear(); state.shareAttempt.clear();
     // Reset the whole view, including derived steps/summaries and every consent/draft.
-    // Keep this load's epoch/active flag; load already invalidated prior async work.
+    // The caller invalidates prior async work; retain its current epoch/active flag.
     page.setData(initialData()); page.syncProfileStep();
   };
   return {
@@ -111,6 +114,7 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
       }
       state.owner = auth.value.id; state.storageKey = `udajo.planning-agent.session.${auth.value.id}`;
       const capability = await deps.api.capability(); if (!alive(this, epoch)) return;
+      if (!capability.ok && ['AUTH_REQUIRED', 'AUTHENTICATION_REQUIRED'].includes(capability.error.code)) { fail(this, capability.error.code); return; }
       this.setData({ loading: false, available: capability.ok && capability.value.enabled && capability.value.available,
         privacyVersion: capability.ok ? capability.value.privacyVersion ?? '' : '' });
       // Saved snapshots remain accessible even when generation is unavailable.
@@ -256,7 +260,27 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
     expandEvidence(event: WechatMiniprogram.BaseEvent) { this.setData({ cards: (this.data.cards as ReturnType<typeof programmeCards>).map(card => card.id === Number(event.currentTarget.dataset.id) ? { ...card, expanded: !card.expanded } : card) }); },
     imageError(event: WechatMiniprogram.BaseEvent) { this.setData({ cards: (this.data.cards as ReturnType<typeof programmeCards>).map(card => card.id === Number(event.currentTarget.dataset.id) ? { ...card, imageFailed: true } : card) }); },
     copySource(event: WechatMiniprogram.BaseEvent) { const url = safeSourceUrl(String(event.currentTarget.dataset.url ?? '')); if (url) wx.setClipboardData({ data: url }); },
-    openShare() { if (this.data.savedPlanId) this.setData({ shareOpen: true, shareConsent: false, receipt: '', error: null }); },
+    async openShare() {
+      if (!this.data.savedPlanId || this.data.busy) return;
+      if (!this.data.cards.length) { this.setData({ notice: '此方案没有候选项目，可通过顾问咨询入口直接联系。' }); return; }
+      this.setData({ shareOpen: true, shareConsent: false, sharePreview: null, receipt: '', error: null, shareProgrammeIndex: 0, selectedProgrammeId: this.data.cards[0].id });
+      await this.loadSharePreview();
+    },
+    async selectShareProgramme(event: WechatMiniprogram.PickerChange) {
+      if (this.data.busy) return;
+      const index = Number(event.detail.value); const card = this.data.cards[index]; if (!card) return;
+      this.setData({ shareProgrammeIndex: index, selectedProgrammeId: card.id, shareConsent: false, sharePreview: null, receipt: '' });
+      await this.loadSharePreview();
+    },
+    async loadSharePreview() {
+      const state = runtime(this); const epoch = state.epoch; state.lastAction = 'loadSharePreview';
+      this.setData({ busy: true, shareConsent: false, sharePreview: null, error: null });
+      const result = await deps.api.consultationPreview(this.data.savedPlanId, this.data.selectedProgrammeId);
+      if (!alive(this, epoch)) return; this.setData({ busy: false });
+      if (!result.ok) { fail(this, result.error.code); return; }
+      if (result.value.programmeId !== this.data.selectedProgrammeId) { fail(this, 'INVALID_RESPONSE'); return; }
+      this.setData({ sharePreview: result.value });
+    },
     openSave() { this.setData({ saveOpen: true, saveConsent: false }); },
     closeSave() { if (!this.data.busy) this.setData({ saveOpen: false }); },
     closeShare() { if (!this.data.busy) this.setData({ shareOpen: false }); },
@@ -265,29 +289,39 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
       if (['name', 'contact', 'intendedSchool', 'intendedCourse', 'notes'].includes(key)) this.setData({ consultation: { ...this.data.consultation, [key]: event.detail.value }, shareConsent: false }); },
     qualificationChanged(event: WechatMiniprogram.PickerChange) { if (this.data.busy) return; const index = Number(event.detail.value); this.setData({ qualificationIndex: index, consultation: { ...this.data.consultation, qualification: ['', 'foundation', 'bachelor', 'master', 'doctorate'][index] ?? '' }, shareConsent: false }); },
     async handoff() {
-      if (this.data.busy || this.data.receipt || !this.data.savedPlanId || !this.data.shareConsent) return;
+      if (this.data.busy || this.data.receipt || !this.data.savedPlanId || !this.data.shareConsent || !this.data.sharePreview) return;
       const draft = { ...this.data.consultation, privacyConsent: true } as ConsultationDraft;
       if (!draft.name.trim() || !draft.contact.trim()) { this.setData({ notice: '请填写称呼和联系方式。' }); return; }
       const state = runtime(this); const epoch = state.epoch; state.lastAction = 'handoff'; this.setData({ busy: true, error: null, notice: '' });
-      const result = await deps.api.handoff(this.data.savedPlanId, draft, true, state.shareAttempt.key(`${this.data.savedPlanId}:${JSON.stringify(draft)}`)); if (!alive(this, epoch)) return;
+      const preview = this.data.sharePreview as ConsultationPreview;
+      const result = await deps.api.handoff(this.data.savedPlanId, draft, true, state.shareAttempt.key(`${this.data.savedPlanId}:${preview.programmeId}:${preview.fingerprint}:${JSON.stringify(draft)}`), preview.programmeId, preview.fingerprint); if (!alive(this, epoch)) return;
       this.setData({ busy: false }); if (!result.ok) { fail(this, result.error.code); return; }
       this.setData({ receipt: result.value.referenceCode, notice: '咨询已提交，顾问将通过你填写的方式联系。', state: 'ready' });
     },
     recover() {
       const action = this.data.error?.action;
+      if (action === 'login') { void this.loginAgain(); return; }
+      if (action === 'preview') { void this.loadSharePreview(); return; }
+      if (action === 'adviser') { this.adviser(); return; }
       if (action === 'profile') { this.openBackgroundForText(runtime(this).pendingText); this.setData({ error: null }); return; }
       if (action === 'new-session') { this.newSession(); return; }
       if (action === 'later') { this.catalogue(); return; }
       const state = runtime(this);
       if (action === 'retry' && state.lastAction === 'message') { void this.submitMessage(state.pendingIntent, state.pendingText); return; }
       if (action === 'retry' && state.lastAction === 'save') { this.setData({ state: 'ready' }); void this.save(); return; }
-      if (action === 'retry' && ['start', 'confirmProfile', 'handoff', 'removeSession'].includes(state.lastAction)) { void this[state.lastAction](); return; }
+      if (action === 'retry' && ['start', 'confirmProfile', 'handoff', 'removeSession', 'loadSharePreview'].includes(state.lastAction)) { void this[state.lastAction](); return; }
       void this.load();
+    },
+    async loginAgain() {
+      const state = runtime(this); const epoch = state.epoch; this.setData({ busy: true });
+      const result = await deps.session.login(); if (!alive(this, epoch)) return;
+      this.setData({ busy: false }); if (!result.ok) { fail(this, result.error.code); return; }
+      await this.load();
     },
     newSession() { if (this.data.busy || ['sending', 'polling'].includes(this.data.state)) return;
       const state = runtime(this); state.routePlan = ''; state.poller.stop(); state.attempt.clear(); state.saveAttempt.clear(); state.shareAttempt.clear();
       if (state.storageKey) deps.storage.remove(state.storageKey);
-      this.setData({ sessionId: '', savedPlanId: '', runId: '', profileVersion: 0, isSnapshot: false, formOpen: false, shareOpen: false, consentOpen: false, menuOpen: false, saveOpen: false, privacyConsent: false, plan: null, cards: [], messages: [], questions: [], steps: [], warnings: [], notice: '', error: null, state: 'idle', fields: profileFields() }); void this.load();
+      this.setData({ sessionId: '', savedPlanId: '', runId: '', profileVersion: 0, isSnapshot: false, formOpen: false, shareOpen: false, sharePreview: null, shareConsent: false, selectedProgrammeId: 0, consentOpen: false, menuOpen: false, saveOpen: false, privacyConsent: false, plan: null, cards: [], messages: [], questions: [], steps: [], warnings: [], notice: '', error: null, state: 'idle', fields: profileFields() }); void this.load();
     },
     deleteSession() { if (this.data.busy || !this.data.sessionId) return;
       wx.showModal({ title: '删除这次对话？', content: '对话与背景将删除。已保存的方案和已提交的咨询保留。', success: result => { if (result.confirm) void this.removeSession(); } });

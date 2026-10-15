@@ -21,7 +21,10 @@ import com.yangdoujiao.website.planningagent.session.PlanningSessionRepository;
 @Service
 public class PlanningPlanService {
     public record SaveRequest(UUID runId,boolean confirmed,String requestKey) {}
-    public record ShareRequest(boolean confirmed,String requestKey,@Valid ConsultationRequest consultationRequest) {}
+    public record ShareRequest(boolean confirmed,String requestKey,@Valid ConsultationRequest consultationRequest,Long programmeId,String previewFingerprint) {
+        public ShareRequest(boolean confirmed,String requestKey,ConsultationRequest consultationRequest) { this(confirmed,requestKey,consultationRequest,null,null); }
+    }
+    public record ConsultationPreview(long programmeId,String summary,String fingerprint) {}
     public record Saved(UUID planId,long version) {}
     public record Snapshot(Profile profile,ValidatedPlan plan) {}
     public record View(Snapshot snapshot,List<String> revalidationWarnings) {}
@@ -102,6 +105,29 @@ public class PlanningPlanService {
     }
     @Transactional
     public void delete(long owner,UUID id) { if(plans.delete(owner,id)!=1) throw missing(); }
+    @Transactional(readOnly=true)
+    public ConsultationPreview consultationPreview(long owner,UUID id,long programmeId) {
+        return preview(id,plans.find(owner,id,false).orElseThrow(PlanningPlanService::missing).snapshot(),programmeId);
+    }
+    private ConsultationPreview preview(UUID id,Snapshot snapshot,long programmeId) {
+        var selected=snapshot.plan().programmes().stream().filter(p->p.programmeId()==programmeId).findFirst()
+                .orElseThrow(()->error(HttpStatus.BAD_REQUEST,"INVALID_PLAN_REQUEST"));
+        var text=new StringBuilder("已确认规划背景（版本 ").append(snapshot.profile().version()).append("）\n");
+        String[][] fields={{"targetLevel","目标学历"},{"education","当前学历"},{"qualification","学历资格"},
+                {"grade","成绩"},{"grade.scale","成绩计分制"},{"languageTest","语言考试"},{"languageTotal","语言总分"},
+                {"intake","入学时间"},{"budget","预算金额"},{"budgetCurrency","预算币种"},{"budgetPeriod","预算周期"},{"budgetIncludesLiving","预算含生活费"}};
+        for(var field:fields) {
+            String value=snapshot.profile().facts().get(field[0]);
+            if(value!=null && !value.isBlank()) text.append(field[1]).append("：").append(value).append('\n');
+        }
+        text.append("选定项目 #").append(programmeId).append("：").append(name(selected.universityNameZh(),selected.universityNameEn()))
+                .append(" / ").append(name(selected.programmeNameZh(),selected.programmeNameEn()));
+        text.append("\n仅供顾问核实，不代表录取或费用承诺。");
+        String summary=text.toString();
+        if(summary.length()>1400) throw error(HttpStatus.BAD_REQUEST,"CONSULTATION_PREVIEW_TOO_LARGE");
+        return new ConsultationPreview(programmeId,summary,hash(id+"\n"+programmeId+"\n"+summary));
+    }
+    private static String name(String zh,String en) { return zh!=null && !zh.isBlank()?zh:Objects.toString(en,"名称待核实"); }
     @Transactional
     public ConsultationResponse consult(long owner,UUID id,ShareRequest request) {
         if(request==null) throw error(HttpStatus.BAD_REQUEST,"INVALID_PLAN_REQUEST");
@@ -109,18 +135,25 @@ public class PlanningPlanService {
         if(request.consultationRequest()==null || !validation.validate(request.consultationRequest()).isEmpty())
             throw error(HttpStatus.BAD_REQUEST,"INVALID_CONSULTATION_REQUEST");
         sessions.lockActiveOwner(owner);
-        plans.find(owner,id,true).orElseThrow(PlanningPlanService::missing);
-        String hash=hash(json.writeValueAsString(request.consultationRequest()));
+        var stored=plans.find(owner,id,true).orElseThrow(PlanningPlanService::missing);
+        if(request.programmeId()==null || request.previewFingerprint()==null) throw error(HttpStatus.BAD_REQUEST,"CONSULTATION_PREVIEW_REQUIRED");
+        var preview=preview(id,stored.snapshot(),request.programmeId());
+        if(!preview.fingerprint().equals(request.previewFingerprint())) throw error(HttpStatus.CONFLICT,"CONSULTATION_PREVIEW_CHANGED");
+        String hash=hash(json.writeValueAsString(request));
         var previous=plans.shared(id,request.requestKey());
         if(previous.isPresent()) {
             if(!previous.get().hash().equals(hash)) throw conflict();
             return previous.get().response();
         }
         var original=request.consultationRequest();
-        String notes="Planning plan: "+id+"\n"+Objects.toString(original.notes(),"");
+        String manual=Objects.toString(original.notes(),"");
+        if(manual.length()>500) throw error(HttpStatus.BAD_REQUEST,"INVALID_CONSULTATION_REQUEST");
+        String notes=preview.summary()+(manual.isBlank()?"":"\n补充："+manual);
         if(notes.length()>2000) throw error(HttpStatus.BAD_REQUEST,"INVALID_CONSULTATION_REQUEST");
-        var selected=new ConsultationRequest(original.name(),original.contact(),original.intendedSchool(),original.intendedCourse(),
+        var programme=stored.snapshot().plan().programmes().stream().filter(p->p.programmeId()==request.programmeId()).findFirst().orElseThrow();
+        var selected=new ConsultationRequest(original.name(),original.contact(),name(programme.universityNameZh(),programme.universityNameEn()),name(programme.programmeNameZh(),programme.programmeNameEn()),
                 original.qualification(),notes,original.locale(),original.privacyConsent());
+        if(!validation.validate(selected).isEmpty()) throw error(HttpStatus.BAD_REQUEST,"INVALID_CONSULTATION_REQUEST");
         var response=consultations.submit(selected,owner);
         plans.share(id,request.requestKey(),hash,response);
         return response;

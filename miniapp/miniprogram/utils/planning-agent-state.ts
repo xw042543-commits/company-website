@@ -32,8 +32,10 @@ export function createRunPoller<T>(deps: { now: () => number; schedule: (fn: () 
     }; next();
   } };
 }
-export type Recovery = 'retry' | 'login' | 'profile' | 'new-session' | 'later' | 'refresh';
+export type Recovery = 'retry' | 'login' | 'profile' | 'new-session' | 'later' | 'refresh' | 'preview' | 'adviser';
 export function describeError(code: string): { text: string; action: Recovery; label: string } {
+  if (['CONSULTATION_PREVIEW_CHANGED', 'CONSULTATION_PREVIEW_REQUIRED'].includes(code)) return { text: '分享摘要需要重新读取，请核对后再次确认。', action: 'preview', label: '重新预览' };
+  if (code === 'CONSULTATION_PREVIEW_TOO_LARGE') return { text: '此背景摘要过长，请调整背景后保存新方案，或直接咨询顾问。', action: 'adviser', label: '咨询顾问' };
   if (['AUTH_REQUIRED', 'AUTHENTICATION_REQUIRED'].includes(code)) return { text: '登录已失效，请重新登录后继续。', action: 'login', label: '重新登录' };
   if (['STRUCTURED_INPUT_REQUIRED', 'INVALID_PROFILE', 'PROFILE_CONFIRMATION_REQUIRED', 'MODEL_INPUT_TOO_LARGE'].includes(code)) return { text: '请通过背景表单补充学历、成绩、语言与预算。个人叙述不能发送给 AI。', action: 'profile', label: '补充背景' };
   if (code === 'PRIVACY_CONSENT_REQUIRED') return { text: '隐私说明已更新，请阅读并确认后开始新对话。', action: 'new-session', label: '重新确认' };
@@ -60,6 +62,8 @@ export function validPlan(value: unknown): value is Plan {
       && [p.programmeNameZh, p.programmeNameEn, p.universityNameZh, p.universityNameEn].every(n => n === null || typeof n === 'string')
       && !!p.assessment && Array.isArray(p.assessment.alternatives) && p.assessment.alternatives.every(a => Array.isArray(a) && a.every(f => typeof f.field === 'string' && ['MET', 'NOT_MET', 'PROFILE_MISSING', 'EVIDENCE_MISSING'].includes(f.status)))
       && !!p.budget && !!p.budget.subtotals && Object.values(p.budget.subtotals).every(n => typeof n === 'number' && Number.isFinite(n)) && Array.isArray(p.budget.missing)
+      && (p.budget.lineItems === undefined || Array.isArray(p.budget.lineItems) && p.budget.lineItems.every(f => Number.isSafeInteger(f.id) && f.id > 0 && Number.isFinite(f.amount) && f.amount >= 0 && /^[A-Z]{3}$/.test(f.currency) && ['YEAR', 'SEMESTER', 'TOTAL'].includes(f.period) && Number.isSafeInteger(f.units) && f.units > 0 && ['TUITION', 'TAX', 'LIVING'].includes(f.category) && (f.includedIn === null || Number.isSafeInteger(f.includedIn))))
+      && (p.budget.categories === undefined || Array.isArray(p.budget.categories) && p.budget.categories.every(c => ['TUITION', 'TAX', 'LIVING'].includes(c)))
       && Array.isArray(p.evidenceSnapshot) && p.evidenceSnapshot.every(e => typeof e.sourceUrl === 'string' && typeof e.checkedAt === 'string' && (e.expiresAt === null || typeof e.expiresAt === 'string')));
 }
 export function parseReply(value: string | null): { type: string; questions: string[]; plan: Plan | null } | null {
@@ -78,6 +82,9 @@ export function programmeCards(plan: Plan) {
       statusText: p.classification === 'ELIGIBLE' ? '已核验条件符合 · 不代表录取' : p.classification === 'NOT_MET' ? '存在不符合条件 · 不作为推荐' : '招生要求待核实',
       fees: Object.entries(p.budget.subtotals).map(([currency, amount]) => `${currency} ${amount}`).join(' · ') || '费用信息待核实',
       feeNote: p.budget.complete ? '已记录范围内的费用汇总，不代表最终总价' : '费用不完整，不能据此判断可负担性',
+      feeScope: p.budget.calculationScope === 'WHOLE_STUDY' && p.budget.categories?.length ? `全程核算范围：${['TUITION', 'TAX', 'LIVING'].filter(c => p.budget.categories!.includes(c)).map(missingLabel).join('、')}` : '费用核算范围与明细未知（历史记录）',
+      feeLines: (p.budget.lineItems ?? []).map(f => `#${f.id} ${missingLabel(f.category)}：${f.currency} ${f.amount} / ${{ YEAR: '每年', SEMESTER: '每学期', TOTAL: '全程' }[f.period]} × ${f.units}${f.includedIn === null ? '' : `（已包含在 #${f.includedIn}，不重复计费）`}`),
+      budgetPreference: p.budget.preference === 'WITHIN' ? '已核验范围内费用未超过确认预算；其他支出仍需核实' : p.budget.preference === 'OVER' ? '已核验范围内费用超过确认预算' : `预算比较未知：${p.budget.comparisonReason === 'PERIOD_NOT_COMPARABLE' ? '每年或每学期预算暂不与全程费用换算' : p.budget.comparisonReason === 'CURRENCY_NOT_COMPARABLE' ? '币种不一致，缺少已核验汇率' : '费用、范围或预算信息不足'}，未据此判断可负担性`,
       missingFees: p.budget.missing.map(missingLabel).join('、'), profileMissing: fields('PROFILE_MISSING'), evidenceMissing: fields('EVIDENCE_MISSING'), notMet: fields('NOT_MET'),
       alternatives: p.assessment.alternatives.map((branch, index) => ({ label: `条件路径 ${index + 1}`, conditions: branch.map(f => {
         const status = { MET: '符合', NOT_MET: '不符合', PROFILE_MISSING: '背景待补充', EVIDENCE_MISSING: '依据待核实' }[f.status];

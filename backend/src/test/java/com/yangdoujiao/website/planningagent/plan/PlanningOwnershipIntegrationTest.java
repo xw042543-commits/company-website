@@ -33,6 +33,7 @@ class PlanningOwnershipIntegrationTest {
     @Autowired com.yangdoujiao.website.planningagent.agent.ToolDispatcher dispatcher;
     @Autowired com.yangdoujiao.website.planningagent.agent.PlanValidator validator;
     @Autowired com.yangdoujiao.website.planningagent.session.PlanningSessionRepository sessionRepository;
+    @Autowired com.yangdoujiao.website.consultation.AdviserConsultationService adviser;
     long owner,other; UUID session,run;
     @BeforeEach void fixture() {
         owner=user();other=user(); session=UUID.randomUUID();run=UUID.randomUUID();
@@ -48,6 +49,22 @@ class PlanningOwnershipIntegrationTest {
         jdbc.update("DELETE FROM user_accounts WHERE id IN (?,?)",owner,other);
     }
     PlanningPlanService.SaveRequest request(String key) { return new PlanningPlanService.SaveRequest(run,true,key); }
+    UUID consultablePlan() {
+        // Persistence/concurrency fixture; the preview HTTP test below exercises real catalogue generation.
+        var programme=new com.yangdoujiao.website.planningagent.agent.ProgrammeDecision(900000000L,
+                new com.yangdoujiao.website.planningagent.eligibility.EligibilityTypes.Assessment(false,List.of()),
+                new com.yangdoujiao.website.planningagent.budget.BudgetTypes.BudgetResult(Map.of(),false,List.of("category:TUITION")),
+                List.of(),"UNKNOWN",null,"Synthetic selected course",null,"Synthetic university",null,null,List.of());
+        var result=new com.yangdoujiao.website.planningagent.agent.PlanningOrchestrator.Response("PLAN",List.of(),
+                new com.yangdoujiao.website.planningagent.agent.ValidatedPlan(1,List.of(programme),List.of()));
+        jdbc.update("UPDATE planning_runs SET result=? WHERE id=?",json.writeValueAsString(result),run);
+        return plans.save(owner,session,request("save")).planId();
+    }
+    PlanningPlanService.ShareRequest share(UUID id,String key,ConsultationRequest contact) {
+        long programmeId=plans.get(owner,id).snapshot().plan().programmes().getFirst().programmeId();
+        var preview=plans.consultationPreview(owner,id,programmeId);
+        return new PlanningPlanService.ShareRequest(true,key,contact,programmeId,preview.fingerprint());
+    }
     void code(String code,Runnable action) { assertThatThrownBy(action::run).isInstanceOfSatisfying(ApiException.class,e->assertThat(e.getCode()).isEqualTo(code)); }
     @Test void savesMatchingRunSnapshotAndRejectsUnconfirmedOrForeignAccess() {
         assertThatThrownBy(()->plans.save(owner,session,new PlanningPlanService.SaveRequest(run,false,"x"))).hasMessage("CONFIRMATION_REQUIRED");
@@ -78,22 +95,34 @@ class PlanningOwnershipIntegrationTest {
         assertThat(plans.list(owner)).hasSize(1);
     }
     @Test void consultationRequiresConfirmationAndConcurrentRetriesCreateOnlyOneWithPayloadConflicts() throws Exception {
-        var id=plans.save(owner,session,request("save")).planId();
+        var id=consultablePlan();
         var contact=new ConsultationRequest("Alice","13800138000",null,null,null,"Confirmed summary","zh",true);
         assertThatThrownBy(()->plans.consult(owner,id,new PlanningPlanService.ShareRequest(false,"share",contact))).hasMessage("CONFIRMATION_REQUIRED");
         var gate=new CountDownLatch(1);
         try(var executor=Executors.newVirtualThreadPerTaskExecutor()) {
-            Callable<com.yangdoujiao.website.consultation.ConsultationResponse> call=()->{gate.await();return plans.consult(owner,id,new PlanningPlanService.ShareRequest(true,"share",contact));};
+            var confirmed=share(id,"share",contact);
+            Callable<com.yangdoujiao.website.consultation.ConsultationResponse> call=()->{gate.await();return plans.consult(owner,id,confirmed);};
             var a=executor.submit(call);var b=executor.submit(call);gate.countDown();
             assertThat(a.get(15,TimeUnit.SECONDS).referenceCode()).isEqualTo(b.get(15,TimeUnit.SECONDS).referenceCode());
         }
         assertThat(jdbc.queryForObject("SELECT count(*) FROM consultation_enquiries WHERE user_account_id=?",Integer.class,owner)).isEqualTo(1);
-        code("IDEMPOTENCY_CONFLICT",()->plans.consult(owner,id,new PlanningPlanService.ShareRequest(true,"share",
+        code("IDEMPOTENCY_CONFLICT",()->plans.consult(owner,id,share(id,"share",
                 new ConsultationRequest("Bob","13900139000",null,null,null,"different","zh",true))));
     }
+    @Test void consultationRejectsMissingPreviewUnselectedProgrammeAndOversizedNotesWithoutWriting() {
+        var id=consultablePlan();
+        var contact=new ConsultationRequest("Alice","13800138000",null,null,null,"Question","zh",true);
+        code("CONSULTATION_PREVIEW_REQUIRED",()->plans.consult(owner,id,new PlanningPlanService.ShareRequest(true,"missing",contact)));
+        code("INVALID_PLAN_REQUEST",()->plans.consultationPreview(owner,id,900000001L));
+        var preview=plans.consultationPreview(owner,id,900000000L);
+        code("INVALID_PLAN_REQUEST",()->plans.consult(owner,id,new PlanningPlanService.ShareRequest(true,"foreign-selection",contact,900000001L,preview.fingerprint())));
+        var tooLong=new ConsultationRequest("Alice","13800138000",null,null,null,"x".repeat(501),"zh",true);
+        code("INVALID_CONSULTATION_REQUEST",()->plans.consult(owner,id,new PlanningPlanService.ShareRequest(true,"long",tooLong,900000000L,preview.fingerprint())));
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM consultation_enquiries WHERE user_account_id=?",Integer.class,owner)).isZero();
+    }
     @Test void accountSoftDeletionPurgesPlanningHistoryWithoutDependingOnAccountForeignKeyCascade() {
-        var id=plans.save(owner,session,request("save")).planId();
-        plans.consult(owner,id,new PlanningPlanService.ShareRequest(true,"shared-before-delete",
+        var id=consultablePlan();
+        var receipt=plans.consult(owner,id,share(id,"shared-before-delete",
                 new ConsultationRequest("Alice","13800138000",null,null,null,"Confirmed summary","zh",true)));
         jdbc.update("INSERT INTO planning_usage(owner_id,bucket,used) VALUES(?,'day:2042-01-01',1)",owner);
         jdbc.update("INSERT INTO planning_daily_budget(day,tokens,cost) VALUES('2042-01-01',1,1)");
@@ -105,6 +134,7 @@ class PlanningOwnershipIntegrationTest {
         assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_sessions WHERE id=?",Integer.class,session)).isZero();
         assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_plan_consultations WHERE plan_id=?",Integer.class,id)).isZero();
         assertThat(jdbc.queryForObject("SELECT count(*) FROM consultation_enquiries WHERE user_account_id=?",Integer.class,owner)).isEqualTo(1);
+        assertThat(adviser.detail(receipt.referenceCode()).notes()).contains("Synthetic selected course","2027","MASTER");
         assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_usage WHERE owner_id=?",Integer.class,owner)).isZero();
         assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_reservations WHERE owner_id=?",Integer.class,owner)).isZero();
         assertThat(jdbc.queryForObject("SELECT cost FROM planning_daily_budget WHERE day='2042-01-01'",java.math.BigDecimal.class)).isEqualByComparingTo("1");
@@ -146,6 +176,32 @@ class PlanningOwnershipIntegrationTest {
     @Test void legacyRunsWithoutGenerationFingerprintAreExplicitlyUnverified() {
         var id=plans.save(owner,session,request("legacy")).planId();
         assertThat(plans.get(owner,id).revalidationWarnings()).contains("GENERATION_SOURCES_UNVERIFIED");
+    }
+    @Test @org.springframework.transaction.annotation.Transactional
+    void explicitPreviewPersistsTheSameMinimalBackgroundAndSelectedProgrammeInAdviserDetail() throws Exception {
+        var fixture=sourceRun(); var id=plans.save(owner,session,request("preview")).planId();
+        String root="/api/v1/miniapp/me/planning-agent/plans/"+id;
+        mvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get(root+"/consultation-preview").param("programmeId",Long.toString(fixture.programme())).header("Authorization",bearer(other)))
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.status().isNotFound());
+        var response=mvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get(root+"/consultation-preview").param("programmeId",Long.toString(fixture.programme())).header("Authorization",bearer(owner)))
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.status().isOk()).andReturn();
+        var preview=json.readTree(response.getResponse().getContentAsString());
+        assertThat(preview.path("summary").asText()).contains("Original course","75","100","2027");
+        assertThat(preview.path("summary").asText()).doesNotContain("Tester");
+        var contact=new ConsultationRequest("Alice","13800138000",null,null,null,"My question","zh",true);
+        var payload=new HashMap<String,Object>(Map.of("confirmed",true,"requestKey","preview-share","programmeId",fixture.programme(),"previewFingerprint",preview.path("fingerprint").asText(),"consultationRequest",contact));
+        payload.put("previewFingerprint","a".repeat(64));
+        mvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post(root+"/consultations").header("Authorization",bearer(owner)).contentType("application/json").content(json.writeValueAsString(payload)))
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.status().isConflict());
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM consultation_enquiries WHERE user_account_id=?",Integer.class,owner)).isZero();
+        payload.put("previewFingerprint",preview.path("fingerprint").asText());
+        var submitted=mvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post(root+"/consultations").header("Authorization",bearer(owner)).contentType("application/json").content(json.writeValueAsString(payload)))
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.status().isOk()).andReturn();
+        UUID reference=UUID.fromString(json.readTree(submitted.getResponse().getContentAsString()).path("referenceCode").asText());
+        assertThat(adviser.detail(reference).notes()).isEqualTo(preview.path("summary").asText()+"\n补充：My question");
+        assertThat(adviser.detail(reference).intendedCourse()).isEqualTo("Original course");
+        cleanup.purgeOwner(owner);
+        assertThat(adviser.detail(reference).notes()).contains("Original course","75","100","2027");
     }
     @Test @org.springframework.transaction.annotation.Transactional
     void changesBetweenGenerationAndSaveCannotBlessOutdatedFactsAsCurrent() {
@@ -212,12 +268,13 @@ class PlanningOwnershipIntegrationTest {
                 .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.status().isNotFound());
     }
     @Test void consultationAndIdempotencyMappingRollbackTogetherWhenMappingWriteFails() {
-        var id=plans.save(owner,session,request("save")).planId();
+        var id=consultablePlan();
         jdbc.execute("CREATE FUNCTION task6_reject_share() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'test mapping failure'; END; $$");
         jdbc.execute("CREATE TRIGGER task6_reject_share BEFORE INSERT ON planning_plan_consultations FOR EACH ROW EXECUTE FUNCTION task6_reject_share()");
         try {
             var contact=new ConsultationRequest("Alice","13800138000",null,null,null,"Confirmed summary","zh",true);
-            assertThatThrownBy(()->plans.consult(owner,id,new PlanningPlanService.ShareRequest(true,"rollback",contact))).isInstanceOf(org.springframework.dao.DataAccessException.class);
+            var confirmed=share(id,"rollback",contact);
+            assertThatThrownBy(()->plans.consult(owner,id,confirmed)).isInstanceOf(org.springframework.dao.DataAccessException.class);
             assertThat(jdbc.queryForObject("SELECT count(*) FROM consultation_enquiries WHERE user_account_id=?",Integer.class,owner)).isZero();
             assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_plan_consultations WHERE plan_id=?",Integer.class,id)).isZero();
         } finally {

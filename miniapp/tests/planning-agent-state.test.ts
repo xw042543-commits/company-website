@@ -56,6 +56,20 @@ test('malformed model results never become plans', () => {
   assert.equal(parseReply('not json'), null);
   assert.equal(parseReply('{"type":"PLAN","plan":{}}'), null);
 });
+test('fee cards expose verified periods units inclusion and scope, while historical detail stays unknown', () => {
+  const programme = { programmeId: 1, classification: 'UNKNOWN' as const, programmeNameZh: '课程', programmeNameEn: null, universityNameZh: '大学', universityNameEn: null,
+    assessment: { eligible: false, alternatives: [] }, evidenceIds: [], evidenceSnapshot: [], ruleVersion: null, ruleSnapshot: null,
+    budget: { subtotals: { MYR: 20000 }, complete: true, missing: [] } };
+  const legacy = programmeCards({ profileVersion: 1, generalNextSteps: [], programmes: [programme] })[0]!;
+  assert.match((legacy as unknown as { feeScope: string }).feeScope ?? '', /未知/);
+  const details = { ...programme, budget: { ...programme.budget, calculationScope: 'WHOLE_STUDY', categories: ['TUITION','TAX','LIVING'], preference: 'WITHIN', comparisonReason: 'VERIFIED_SCOPE_ONLY',
+    lineItems: [{ id: 1, programmeId: 1, amount: 10000, currency: 'MYR', period: 'YEAR', units: 2, evidenceId: 1, includedIn: null, category: 'TUITION', coverageComplete: true },
+      { id: 2, programmeId: 1, amount: 100, currency: 'MYR', period: 'TOTAL', units: 1, evidenceId: 2, includedIn: 1, category: 'TAX', coverageComplete: true },
+      { id: 3, programmeId: 1, amount: 0, currency: 'MYR', period: 'SEMESTER', units: 4, evidenceId: 3, includedIn: null, category: 'LIVING', coverageComplete: true }] } };
+  const card = programmeCards({ profileVersion: 1, generalNextSteps: [], programmes: [details] })[0]! as unknown as { feeLines: string[]; feeScope: string; budgetPreference: string };
+  assert.match(card.feeLines[0]!, /MYR 10000.*每年.*2/); assert.match(card.feeLines[1]!, /全程.*已包含.*#1/);
+  assert.match(card.feeLines[2]!, /每学期.*4/); assert.match(card.feeScope, /学费.*税费.*生活费/); assert.match(card.budgetPreference, /已核验.*预算/);
+});
 test('a missing translation still renders the available server name', () => {
   const value = JSON.stringify({ type: 'PLAN', questions: [], plan: { profileVersion: 1, generalNextSteps: [], programmes: [{ programmeId: 2, classification: 'ELIGIBLE',
     programmeNameZh: null, programmeNameEn: 'Server programme', universityNameZh: null, universityNameEn: 'Server university',

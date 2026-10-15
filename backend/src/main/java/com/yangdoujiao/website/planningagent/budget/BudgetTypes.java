@@ -19,7 +19,18 @@ public final class BudgetTypes {
         }
     }
     /** Complete requires covered categories and a single comparable currency; it never asserts affordability. */
-    public record BudgetResult(Map<String,BigDecimal> subtotals, boolean complete, List<String> missing) {
-        public BudgetResult { subtotals = Map.copyOf(subtotals); missing = List.copyOf(missing); }
+    public record BudgetResult(Map<String,BigDecimal> subtotals, boolean complete, List<String> missing,
+            List<Fee> lineItems, Set<String> categories, String calculationScope, String preference, String comparisonReason) {
+        public BudgetResult(Map<String,BigDecimal> subtotals,boolean complete,List<String> missing) {
+            this(subtotals,complete,missing,List.of(),Set.of(),"UNKNOWN","UNKNOWN","DETAILS_UNAVAILABLE");
+        }
+        public BudgetResult {
+            subtotals = Map.copyOf(subtotals); missing = List.copyOf(missing);
+            lineItems = lineItems==null?List.of():List.copyOf(lineItems);
+            categories = categories==null?Set.of():Set.copyOf(categories);
+            calculationScope = calculationScope==null?"UNKNOWN":calculationScope;
+            preference = preference==null?"UNKNOWN":preference;
+            comparisonReason = comparisonReason==null?"DETAILS_UNAVAILABLE":comparisonReason;
+        }
     }
 }

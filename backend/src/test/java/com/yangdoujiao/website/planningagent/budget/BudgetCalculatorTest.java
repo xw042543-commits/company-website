@@ -9,6 +9,22 @@ import com.yangdoujiao.website.planningagent.evidence.Evidence;
 import com.yangdoujiao.website.planningagent.budget.BudgetTypes.*;
 
 class BudgetCalculatorTest {
+    @Test void serializedBudgetRetainsVerifiedLineItemsScopeAndInclusionWithoutInventingLegacyDetail() {
+        var fees=List.of(fee(1,"TUITION","MYR","YEAR",2,null),fee(2,"TAX","MYR","TOTAL",1,1L),fee(3,"LIVING","MYR","SEMESTER",4,null));
+        var result=calculator.calculate(fees,Map.of(1L,evidence(1,8,"FEES"),2L,evidence(2,8,"FEES"),3L,evidence(3,8,"FEES")),now,"2027-02");
+        var json=tools.jackson.databind.json.JsonMapper.builder().findAndAddModules().build();
+        var wire=json.valueToTree(result);
+        assertThat(wire.path("lineItems").size()).isEqualTo(3);
+        assertThat(wire.path("lineItems").get(0).path("period").asText()).isEqualTo("YEAR");
+        assertThat(wire.path("lineItems").get(0).path("units").asInt()).isEqualTo(2);
+        assertThat(wire.path("lineItems").get(1).path("includedIn").asLong()).isEqualTo(1);
+        assertThat(wire.path("lineItems").get(2).path("period").asText()).isEqualTo("SEMESTER");
+        assertThat(wire.path("calculationScope").asText()).isEqualTo("WHOLE_STUDY");
+        assertThat(wire.path("categories").size()).isEqualTo(3);
+        var legacy=json.readValue("{\"subtotals\":{\"MYR\":20000},\"complete\":true,\"missing\":[]}",BudgetResult.class);
+        assertThat(json.valueToTree(legacy).path("calculationScope").asText()).isEqualTo("UNKNOWN");
+        assertThat(json.valueToTree(legacy).path("lineItems").size()).isZero();
+    }
     private final Instant now = Instant.parse("2026-10-15T00:00:00Z");
     private final BudgetCalculator calculator = new BudgetCalculator();
     private Evidence evidence(long id, long programme, String type) {
