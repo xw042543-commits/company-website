@@ -4,19 +4,32 @@ import type { ProgrammeDetail, ProgrammeDetailSection, OfficialCourseModule } fr
 export interface ProgrammeCategory {
   readonly code: string;
   readonly label: string;
+  readonly programmeCount: number;
 }
 
 export function deriveProgrammeCategories(
   programmes: readonly UniversityProgramme[],
   labels: ReadonlyMap<string, string>,
 ): ProgrammeCategory[] {
-  const categories: ProgrammeCategory[] = [{ code: 'ALL', label: '全部学院' }];
+  const categories: ProgrammeCategory[] = [{ code: 'ALL', label: '全部专业', programmeCount: programmes.length }];
   const seen = new Set<string>(['ALL']);
+  const counts = new Map<string, number>();
   for (const programme of programmes) {
     const code = programme.categoryCode;
-    if (seen.has(code)) continue;
+    if (!code) continue;
+    counts.set(code, (counts.get(code) ?? 0) + 1);
+  }
+  for (const [code, label] of labels) {
+    const programmeCount = counts.get(code) ?? 0;
+    if (!programmeCount || seen.has(code)) continue;
     seen.add(code);
-    categories.push({ code, label: labels.get(code) || code });
+    categories.push({ code, label: label.trim() || code, programmeCount });
+  }
+  for (const programme of programmes) {
+    const code = programme.categoryCode;
+    if (!code || seen.has(code)) continue;
+    seen.add(code);
+    categories.push({ code, label: code, programmeCount: counts.get(code) ?? 0 });
   }
   return categories;
 }

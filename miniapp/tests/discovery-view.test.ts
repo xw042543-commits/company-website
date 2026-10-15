@@ -19,7 +19,7 @@ function programme(id: number, categoryCode: string): UniversityProgramme {
   };
 }
 
-test('programme categories start with ALL and use catalogue Chinese labels in first-seen order', () => {
+test('programme categories start with ALL and follow the published dictionary order', () => {
   const options: FilterOption[] = [
     { code: 'BUSINESS', nameZh: '商业与管理', nameEn: 'Business' },
     { code: 'COMPUTING', nameZh: '计算机科学', nameEn: 'Computing' },
@@ -31,10 +31,10 @@ test('programme categories start with ALL and use catalogue Chinese labels in fi
   ]);
 
   assert.deepEqual(deriveProgrammeCategories(programmes, labels), [
-    { code: 'ALL', label: '全部学院' },
-    { code: 'COMPUTING', label: '计算机科学' },
-    { code: 'BUSINESS', label: '商业与管理' },
-    { code: 'UNKNOWN', label: 'UNKNOWN' },
+    { code: 'ALL', label: '全部专业', programmeCount: 4 },
+    { code: 'BUSINESS', label: '商业与管理', programmeCount: 1 },
+    { code: 'COMPUTING', label: '计算机科学', programmeCount: 2 },
+    { code: 'UNKNOWN', label: 'UNKNOWN', programmeCount: 1 },
   ]);
 });
 
@@ -42,13 +42,13 @@ test('programme categories fall back to the code when the Chinese label is empty
   assert.deepEqual(deriveProgrammeCategories([programme(1, 'BUSINESS')], new Map([
     ['BUSINESS', ''],
   ])), [
-    { code: 'ALL', label: '全部学院' },
-    { code: 'BUSINESS', label: 'BUSINESS' },
+    { code: 'ALL', label: '全部专业', programmeCount: 1 },
+    { code: 'BUSINESS', label: 'BUSINESS', programmeCount: 1 },
   ]);
 });
 
 test('programme categories retain the ALL choice for an empty programme list', () => {
-  assert.deepEqual(deriveProgrammeCategories([], new Map()), [{ code: 'ALL', label: '全部学院' }]);
+  assert.deepEqual(deriveProgrammeCategories([], new Map()), [{ code: 'ALL', label: '全部专业', programmeCount: 0 }]);
 });
 
 test('programme filtering returns all programmes for ALL without modifying the source', () => {
@@ -76,7 +76,7 @@ test('unknown categories remain selectable and returning to ALL restores every p
     programme(1, 'COMPUTING'), programme(2, 'UNLISTED'), programme(3, 'UNLISTED'),
   ]);
   const categories = deriveProgrammeCategories(programmes, new Map([['COMPUTING', '计算机科学']]));
-  assert.deepEqual(categories.find((item) => item.code === 'UNLISTED'), { code: 'UNLISTED', label: 'UNLISTED' });
+  assert.deepEqual(categories.find((item) => item.code === 'UNLISTED'), { code: 'UNLISTED', label: 'UNLISTED', programmeCount: 2 });
   assert.deepEqual(filterProgrammes(programmes, 'UNLISTED').map((item) => item.id), [2, 3]);
   assert.deepEqual(filterProgrammes(programmes, 'ALL').map((item) => item.id), [1, 2, 3]);
 });

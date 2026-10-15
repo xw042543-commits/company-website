@@ -542,6 +542,9 @@ test('university profile has safe custom navigation, independent media fallbacks
   assert.match(markup, /class="programme-detail-link"[^>]*>详情/);
   assert.match(styles, /\.category-options[^}]+flex-wrap:wrap/);
   assert.match(markup, /wx:for="\{\{programmeCategories\}\}"/);
+  assert.match(markup, /category-options__track/);
+  assert.match(markup, /\{\{item\.programmeCount\}\}/);
+  assert.match(styles, /\.category-options__track[^}]+display:inline-flex/);
   assert.match(markup, /bindtap="selectCategory"/);
   assert.match(markup, /\{\{visibleProgrammes\.length\}\}/);
   assert.match(markup, /wx:for="\{\{visibleProgrammes\}\}"/);
@@ -557,7 +560,7 @@ test('university profile has safe custom navigation, independent media fallbacks
 interface UniversityDetailPageContext {
   data: {
     activeSection: string; activeCategory: string;
-    programmeCategories: Array<{ code: string; label: string }>;
+    programmeCategories: Array<{ code: string; label: string; programmeCount: number }>;
     programmes: Array<Record<string, unknown>>; visibleProgrammes: Array<Record<string, unknown>>;
     imageFailed: boolean; logoFailed: boolean;
     [key: string]: unknown;
@@ -655,11 +658,13 @@ test('planning profile sends filters on every programme page and exposes all mat
 test('university profile defaults to popular programmes and filters locally without losing tab or category state', async () => {
   const page = await loadUniversityDetailPage();
   assert.equal(page.data.activeSection, 'programmes');
-  assert.equal(page.data.activeCategory, '');
+  assert.equal(page.data.activeCategory, 'ALL');
   const programmes = [{ id: 1, categoryCode: 'BUSINESS' }, { id: 2, categoryCode: 'UNLISTED' }];
   const context: UniversityDetailPageContext = {
     data: { ...page.data, programmes, visibleProgrammes: [...programmes], programmeCategories: [
-      { code: 'BUSINESS', label: '商科' }, { code: 'UNLISTED', label: 'UNLISTED' },
+      { code: 'ALL', label: '全部专业', programmeCount: 2 },
+      { code: 'BUSINESS', label: '商科', programmeCount: 1 },
+      { code: 'UNLISTED', label: 'UNLISTED', programmeCount: 1 },
     ] },
     setData(update) { Object.assign(this.data, update); },
   };
@@ -683,7 +688,7 @@ test('university profile defaults to popular programmes and filters locally with
   assert.equal(context.data.logoFailed, true);
 });
 
-test('university profile derives school categories from programmes and uses catalogue labels', async () => {
+test('university profile derives school categories from programmes and uses its dedicated category endpoint', async () => {
   const page = await loadUniversityDetailPage();
   const { resetFilterOptionsCache } = await import('../miniprogram/services/catalogue.ts');
   resetFilterOptionsCache();
@@ -700,7 +705,9 @@ test('university profile derives school categories from programmes and uses cata
             const data = path.endsWith('/programmes') ? {
               items: [{ id: 1, slug: 'computer-science', nameZh: '计算机科学学士', nameEn: 'Bachelor of Computer Science', categoryCode: 'COMPUTING' }],
               page: 1, pageSize: 50, totalItems: 1, totalPages: 1,
-            } : path.endsWith('/filter-options') ? {
+            } : path.endsWith('/programme-categories') ? [
+              { code: 'COMPUTING', nameZh: '计算机科学', nameEn: 'Computing', programmeCount: 1 },
+            ] : path.endsWith('/filter-options') ? {
               countries: [], subjectCategories: [{ code: 'COMPUTING', nameZh: '计算机科学', nameEn: 'Computing' }],
               studyLevels: [], courseModes: [], languages: [],
             } : { id: 1, slug, nameZh: '测试大学', nameEn: 'Test University', cityZh: '吉隆坡', countryNameZh: '马来西亚', descriptionZh: '第一段\n\n第二段', sections: [] };
@@ -715,11 +722,15 @@ test('university profile derives school categories from programmes and uses cata
       await page.loadPage.call(context);
       assert.equal(context.data.state, 'ready');
       assert.deepEqual(context.data.visibleProgrammes.map((item) => item.id), [1]);
-      assert.deepEqual(context.data.programmeCategories, [{ code: 'COMPUTING', label: '计算机科学' }]);
-      assert.equal(context.data.activeCategory, 'COMPUTING');
+      assert.deepEqual(context.data.programmeCategories, [
+        { code: 'ALL', label: '全部专业', programmeCount: 1 },
+        { code: 'COMPUTING', label: '计算机科学', programmeCount: 1 },
+      ]);
+      assert.equal(context.data.activeCategory, 'ALL');
       assert.equal(context.data.location, '吉隆坡，马来西亚');
       assert.deepEqual(context.data.descriptionParagraphs, ['第一段', '第二段']);
-      assert.equal(paths.includes('/api/v1/catalog/filter-options'), true);
+      assert.equal(paths.includes('/api/v1/universities/contract-programmes/programme-categories'), true);
+      assert.equal(paths.includes('/api/v1/catalog/filter-options'), false);
   } finally {
     if (original) Object.defineProperty(globalThis, 'wx', original);
     else Reflect.deleteProperty(globalThis, 'wx');
@@ -838,13 +849,15 @@ test('university profile fetches every programme page sequentially before exposi
         continue;
       }
       assert.equal(context.data.state, 'ready');
-      assert.deepEqual(readySnapshots, [{ count: 101, rows: 48 }]);
+      assert.deepEqual(readySnapshots, [{ count: 101, rows: 101 }]);
       assert.equal(context.data.programmes.length, 101);
       assert.deepEqual(context.data.programmes.map((item) => item.id), Array.from({ length: 101 }, (_, index) => index + 1));
       assert.deepEqual(context.data.programmeCategories, [
-        { code: 'BUSINESS', label: '商科' }, { code: 'NEW_CATEGORY', label: 'NEW_CATEGORY' },
+        { code: 'ALL', label: '全部专业', programmeCount: 101 },
+        { code: 'BUSINESS', label: '商科', programmeCount: 48 },
+        { code: 'NEW_CATEGORY', label: 'NEW_CATEGORY', programmeCount: 53 },
       ]);
-      assert.equal(context.data.activeCategory, 'BUSINESS');
+      assert.equal(context.data.activeCategory, 'ALL');
       page.selectCategory.call(context, { currentTarget: { dataset: { code: 'NEW_CATEGORY' } } });
       assert.equal(context.data.visibleProgrammes.length, 53);
       assert.equal(context.data.visibleProgrammes[0]?.id, 49);
