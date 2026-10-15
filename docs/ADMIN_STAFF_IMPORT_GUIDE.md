@@ -70,3 +70,45 @@ COMMIT;
 - `npm --prefix miniapp run check`。
 
 本说明描述代码能力，不能视为生产环境已部署或已授予任何人高级管理员权限。
+
+## 本次修改文件
+
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminCatalogDtos.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminCatalogRepository.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminCatalogService.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminCourseController.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminCourseRepository.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminCourseService.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminImportDtos.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminImportExcel.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminImportRepository.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/AdminImportService.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/CatalogIdentityRepository.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/CatalogIdentityService.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/CatalogLifecycleController.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/CatalogLifecycleRepository.java`
+- `backend/src/main/java/com/yangdoujiao/website/admin/CatalogLifecycleService.java`
+- `backend/src/main/java/com/yangdoujiao/website/catalog/CatalogVisibilityRepository.java`
+- `backend/src/main/java/com/yangdoujiao/website/search/UniversitySearchService.java`
+- `backend/src/main/java/com/yangdoujiao/website/search/v4/query/UniversitySearchQueryFactory.java`
+- `backend/src/main/resources/db/migration/V54__catalog_staff_workflows.sql`
+- `backend/src/test/java/com/yangdoujiao/website/admin/AdminCatalogServiceTest.java`
+- `backend/src/test/java/com/yangdoujiao/website/admin/CatalogStaffWorkflowIntegrationTest.java`
+- `backend/src/test/java/com/yangdoujiao/website/programme/V3MigrationCompatibilityTest.java`
+- `backend/src/test/java/com/yangdoujiao/website/search/v4/query/UniversitySearchQueryFactoryTest.java`
+- `backend/src/test/java/com/yangdoujiao/website/university/api/UniversityDetailHttpIntegrationTest.java`
+- `docs/ADMIN_STAFF_IMPORT_GUIDE.md`
+- `docs/API.md`
+- `docs/DATABASE.md`
+- `frontend/src/app/[locale]/admin/courses/page.tsx`
+- `frontend/src/app/[locale]/universities/[slug]/programmes/[programmeId]/page.tsx`
+- `frontend/src/app/globals.css`
+- `frontend/src/components/admin-catalog-panel.tsx`
+- `frontend/src/components/admin-course-panel.tsx`
+- `frontend/src/components/admin-import-panel.tsx`
+- `frontend/src/components/admin-lifecycle-actions.tsx`
+- `frontend/src/lib/admin-import-api.test.ts`
+- `frontend/src/lib/admin-import-api.ts`
+- `miniapp/miniprogram/pages/programme-detail/index.wxml`
+- `miniapp/miniprogram/utils/discovery-view.ts`
+- `miniapp/tests/discovery-view.test.ts`

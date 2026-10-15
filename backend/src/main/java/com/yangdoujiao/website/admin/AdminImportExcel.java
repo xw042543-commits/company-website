@@ -8,7 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.openxml4j.util.ZipSecureFile;
 import org.springframework.stereotype.Component;
 
-/** Fixed v1 workbook contract. Formulas, macros, external links and excess rows are rejected. */
+/** Fixed staff workbook contract. Formulas, macros, external links and excess rows are rejected. */
 @Component
 public class AdminImportExcel {
     public static final int MAX_ROWS = 500;
