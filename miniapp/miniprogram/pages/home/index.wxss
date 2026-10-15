@@ -51,3 +51,4 @@
 .campus-location { display: flex; align-items: center; margin-top: 8rpx; gap: 5rpx; color: #68776f; font-size: 18rpx; }
 .location-icon { width: 19rpx; height: 19rpx; flex-shrink: 0; }
 .location-copy { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.agent-entry{display:flex;align-items:center;justify-content:center;min-height:88rpx;margin:24rpx 0;padding:18rpx 24rpx;border-radius:18rpx;background:var(--color-wash);color:var(--color-action);font-size:26rpx;line-height:1.6;white-space:normal}.agent-entry::after{border:0}

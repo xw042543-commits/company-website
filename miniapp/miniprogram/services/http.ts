@@ -186,6 +186,21 @@ function mapResponse<T>(response: TransportSuccess, path: string): Result<T> {
     const error = communityError(response);
     if (error) return error;
   }
+  if (path.startsWith('/api/v1/miniapp/me/planning-agent/')) {
+    const data = response.data;
+    const codes: Readonly<Record<number, readonly string[]>> = {
+      400: ['INVALID_MESSAGE', 'INVALID_PROFILE', 'CONFIRMATION_REQUIRED', 'INVALID_PLAN_REQUEST', 'INVALID_REQUEST_KEY', 'INVALID_CONSULTATION_REQUEST'],
+      401: ['AUTH_REQUIRED'], 403: ['AGE_RESTRICTED', 'PRIVACY_CONSENT_REQUIRED'], 404: ['NOT_FOUND'],
+      409: ['RUN_ACTIVE', 'PROFILE_CONFIRMATION_REQUIRED', 'PROFILE_VERSION_CONFLICT', 'IDEMPOTENCY_CONFLICT', 'SUCCESSFUL_PLAN_REQUIRED'],
+      422: ['STRUCTURED_INPUT_REQUIRED'], 429: ['MESSAGE_RATE_LIMIT', 'GENERATION_DAILY_LIMIT'],
+      503: ['PLANNING_DISABLED', 'RUNNER_UNAVAILABLE'],
+    };
+    if (data && typeof data === 'object' && 'code' in data && typeof data.code === 'string' && codes[response.statusCode]?.includes(data.code)) {
+      return failure(response.statusCode === 401 ? 'unauthorized' : response.statusCode === 403 ? 'forbidden'
+        : response.statusCode === 429 ? 'rate-limited' : response.statusCode === 503 ? 'unavailable'
+        : [400, 422].includes(response.statusCode) ? 'validation' : 'unexpected', data.code);
+    }
+  }
   if (path === '/api/v1/miniapp/account/nickname' && response.data && typeof response.data === 'object' && 'code' in response.data) {
     const code = response.data.code;
     if ((response.statusCode === 400 && code === 'INVALID_NICKNAME')

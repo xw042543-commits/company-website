@@ -5,6 +5,9 @@ import java.util.Set;
 import java.util.Optional;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import com.yangdoujiao.website.media.MediaLookupRepository;
 
 /** PostgreSQL is authoritative; the general search API's three previews are not a planning catalogue. */
 @Repository
@@ -12,20 +15,31 @@ public class PlanningCatalogue {
     private static final Set<String> LEVELS = Set.of("FOUNDATION","BACHELOR","MASTER","DOCTOR");
     private static final String PUBLISHED_MY = "p.status='PUBLISHED' AND u.status='PUBLISHED' AND c.code='MY'";
     private final JdbcTemplate jdbc;
-    public PlanningCatalogue(JdbcTemplate jdbc) { this.jdbc = jdbc; }
+    private final MediaLookupRepository media;
+    public PlanningCatalogue(JdbcTemplate jdbc) { this(jdbc,new MediaLookupRepository(new NamedParameterJdbcTemplate(jdbc))); }
+    @Autowired
+    public PlanningCatalogue(JdbcTemplate jdbc,MediaLookupRepository media) { this.jdbc = jdbc; this.media=media; }
 
     public record ProgrammeDisplay(long programmeId,String programmeNameZh,String programmeNameEn,
-            String universityNameZh,String universityNameEn) {}
+            String universityNameZh,String universityNameEn,String imageUrl) {
+        public ProgrammeDisplay(long id,String zh,String en,String universityZh,String universityEn) { this(id,zh,en,universityZh,universityEn,null); }
+    }
 
     public Optional<ProgrammeDisplay> display(long programmeId) {
         return jdbc.query("""
-                SELECT p.id,p.name_zh,p.name_en,u.name_zh AS university_zh,
+                SELECT p.id,p.name_zh,p.name_en,u.id AS university_id,u.name_zh AS university_zh,
                     COALESCE(NULLIF(BTRIM(u.name_en),''),u.name) AS university_en
                 FROM programmes p JOIN universities u ON u.id=p.university_id
                 JOIN countries c ON c.id=u.country_id WHERE p.id=? AND %s
                 """.formatted(PUBLISHED_MY),(row,index)->new ProgrammeDisplay(row.getLong("id"),
-                row.getString("name_zh"),row.getString("name_en"),row.getString("university_zh"),row.getString("university_en")),
+                row.getString("name_zh"),row.getString("name_en"),row.getString("university_zh"),row.getString("university_en"),image(programmeId,row.getLong("university_id"))),
                 programmeId).stream().findFirst();
+    }
+    private String image(long programmeId,long universityId) {
+        String value=media.findProgrammeImageUrls(List.of(programmeId)).get(programmeId);
+        if(value==null) value=media.findUniversityImageUrls(List.of(universityId)).get(universityId);
+        // Existing published media only; never manufacture a campus URL or send active URL schemes.
+        return value!=null && value.matches("https://[A-Za-z0-9.-]+(?::443)?(?:[/?#][^\\s\\\\<>]*)?") ? value : null;
     }
 
     /** Zero-based, twenty rows, stable id ordering; subject is an exact code or localized category name. */

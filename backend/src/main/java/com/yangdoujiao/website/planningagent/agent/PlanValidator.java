@@ -47,7 +47,7 @@ public class PlanValidator {
                 throw new InvalidPlan("Admissions evidence omitted");
             decisions.add(new ProgrammeDecision(id,assessment,dispatcher.budget(id,state),chosen,classification,
                     display.programmeNameZh(),display.programmeNameEn(),display.universityNameZh(),display.universityNameEn(),
-                    rule.map(RuleSet::version).orElse(null),safeRuleSnapshot(rule,assessment),snapshots));
+                    rule.map(RuleSet::version).orElse(null),safeRuleSnapshot(rule,assessment),snapshots,display.imageUrl()));
         }
         if(!used.equals(new HashSet<>(draft.evidenceIds()))) throw new InvalidPlan("Evidence outside selected programmes");
         decisions.sort(Comparator.comparingInt((ProgrammeDecision d)->switch(d.classification()) {case "ELIGIBLE"->0;case "NOT_MET"->1;default->2;})

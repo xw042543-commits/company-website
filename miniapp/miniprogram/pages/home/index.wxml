@@ -46,6 +46,7 @@
         <view class="feature-label">{{item.label}}</view>
       </view>
     </view>
+    <button wx:if="{{agentAvailable}}" class="agent-entry" bindtap="openAgent">AI 留学规划 · 核对背景与专业条件</button>
     <view class="section-heading"><view class="section-title">热门院校</view><view class="section-more" bindtap="openFeature" data-key="universities" role="button">查看更多 <text aria-hidden="true">›</text></view></view>
     <scroll-view wx:if="{{previewState === 'ready'}}" class="university-scroll" scroll-x="{{true}}" show-scrollbar="{{false}}" enhanced="{{true}}">
       <view class="university-row">

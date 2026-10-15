@@ -56,13 +56,13 @@ public class PlanningSessionService {
                 var old=previous.get();
                 if(!old.hash().equals(hash)) throw error(HttpStatus.CONFLICT,"IDEMPOTENCY_CONFLICT");
                 repository.touch(owner,session,clock.instant());
-                return new RunAccepted(old.id(),old.status());
+                return new RunAccepted(old.id(),old.status(),old.deadline());
             }
             if(repository.active(owner,session)) throw error(HttpStatus.CONFLICT,"RUN_ACTIVE");
             if(request.intent()==Intent.GENERATE && version==0) throw error(HttpStatus.CONFLICT,"PROFILE_CONFIRMATION_REQUIRED");
             limits.admit(owner,request.intent()==Intent.GENERATE);
             UUID run=UUID.randomUUID(); repository.enqueue(owner,session,run,request,hash,version,clock.instant());
-            return new RunAccepted(run,"QUEUED");
+            return new RunAccepted(run,"QUEUED",repository.run(owner,session,run).orElseThrow().deadline());
         });
     }
     public ProfileConfirmed confirm(long owner,UUID session,ProfileConfirmation request) {

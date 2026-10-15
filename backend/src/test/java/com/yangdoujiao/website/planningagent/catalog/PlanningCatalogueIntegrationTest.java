@@ -116,6 +116,18 @@ class PlanningCatalogueIntegrationTest {
         jdbc.update("UPDATE programmes SET status='DRAFT' WHERE id=?",id);
         assertThat(catalogue.display(id)).isEmpty();
     }
+    @Test void displayUsesOnlyPublishedProgrammeMediaThenItsOwnUniversityMedia() {
+        long id=programme(my,"PUBLISHED");
+        assertThat(catalogue.display(id).orElseThrow().imageUrl()).isNull();
+        jdbc.update("INSERT INTO university_media(university_id,kind,asset_url,source_url,status) VALUES(?,'UNIVERSITY_IMAGE','https://example.edu/campus.jpg','https://example.edu','PUBLISHED')",my);
+        assertThat(catalogue.display(id).orElseThrow().imageUrl()).isEqualTo("https://example.edu/campus.jpg");
+        jdbc.update("INSERT INTO programme_media(programme_id,kind,asset_url,source_url,status) VALUES(?,'COURSE_IMAGE','https://example.edu/course.jpg','https://example.edu','DRAFT')",id);
+        assertThat(catalogue.display(id).orElseThrow().imageUrl()).isEqualTo("https://example.edu/campus.jpg");
+        jdbc.update("UPDATE programme_media SET status='PUBLISHED' WHERE programme_id=?",id);
+        assertThat(catalogue.display(id).orElseThrow().imageUrl()).isEqualTo("https://example.edu/course.jpg");
+        jdbc.update("UPDATE programmes SET status='DRAFT' WHERE id=?",id);
+        assertThat(catalogue.display(id)).isEmpty();
+    }
     @Test void toolsLoadAmountsAndEvidenceFromPersistenceAndFailClosedAfterRevocation() {
         long p = programme(my,"PUBLISHED");
         long e = evidence(p);

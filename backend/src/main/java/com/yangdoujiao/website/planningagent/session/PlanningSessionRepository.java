@@ -41,8 +41,8 @@ public class PlanningSessionRepository {
         return Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM planning_sessions WHERE owner_id=? AND id=? AND privacy_version=?)",Boolean.class,owner,session,privacyVersion));
     }
     public Optional<RunView> run(long owner,UUID session,UUID run) {
-        return jdbc.query("SELECT r.id,r.status,r.result,r.error_code FROM planning_runs r JOIN planning_sessions s ON s.id=r.session_id WHERE s.owner_id=? AND s.id=? AND r.id=?",
-                (r,i) -> new RunView(r.getObject(1,UUID.class),r.getString(2),r.getString(3),r.getString(4)),owner,session,run).stream().findFirst();
+        return jdbc.query("SELECT r.id,r.status,r.result,r.error_code,r.deadline FROM planning_runs r JOIN planning_sessions s ON s.id=r.session_id WHERE s.owner_id=? AND s.id=? AND r.id=?",
+                (r,i) -> new RunView(r.getObject(1,UUID.class),r.getString(2),r.getString(3),r.getString(4),r.getTimestamp(5).toInstant()),owner,session,run).stream().findFirst();
     }
     public boolean matchingGeneration(long owner,UUID session,UUID run,long version) {
         return Boolean.TRUE.equals(jdbc.queryForObject("""
@@ -51,10 +51,10 @@ public class PlanningSessionRepository {
                 AND r.profile_version=? AND r.status='SUCCEEDED')
                 """,Boolean.class,owner,session,run,version));
     }
-    public record Existing(UUID id,String hash,String status) {}
+    public record Existing(UUID id,String hash,String status,Instant deadline) {}
     public Optional<Existing> existing(long owner,UUID session,String key) {
-        return jdbc.query("SELECT r.id,r.request_hash,r.status FROM planning_runs r JOIN planning_sessions s ON s.id=r.session_id WHERE s.owner_id=? AND s.id=? AND r.request_key=?",
-                (r,i) -> new Existing(r.getObject(1,UUID.class),r.getString(2),r.getString(3)),owner,session,key).stream().findFirst();
+        return jdbc.query("SELECT r.id,r.request_hash,r.status,r.deadline FROM planning_runs r JOIN planning_sessions s ON s.id=r.session_id WHERE s.owner_id=? AND s.id=? AND r.request_key=?",
+                (r,i) -> new Existing(r.getObject(1,UUID.class),r.getString(2),r.getString(3),r.getTimestamp(4).toInstant()),owner,session,key).stream().findFirst();
     }
     public boolean active(long owner,UUID session) {
         return jdbc.queryForObject("SELECT count(*) FROM planning_runs r JOIN planning_sessions s ON s.id=r.session_id WHERE s.owner_id=? AND s.id=? AND r.status IN ('QUEUED','RUNNING')",Integer.class,owner,session)>0;
@@ -82,8 +82,8 @@ public class PlanningSessionRepository {
                 (r,i) -> new Message(r.getLong(1),r.getString(2),r.getString(3),r.getTimestamp(4).toInstant()),owner,session);
     }
     public List<RunView> runs(long owner,UUID session) {
-        return jdbc.query("SELECT r.id,r.status,r.result,r.error_code FROM planning_runs r JOIN planning_sessions s ON s.id=r.session_id WHERE s.owner_id=? AND s.id=? ORDER BY r.created_at,r.id",
-                (r,i) -> new RunView(r.getObject(1,UUID.class),r.getString(2),r.getString(3),r.getString(4)),owner,session);
+        return jdbc.query("SELECT r.id,r.status,r.result,r.error_code,r.deadline FROM planning_runs r JOIN planning_sessions s ON s.id=r.session_id WHERE s.owner_id=? AND s.id=? ORDER BY r.created_at,r.id",
+                (r,i) -> new RunView(r.getObject(1,UUID.class),r.getString(2),r.getString(3),r.getString(4),r.getTimestamp(5).toInstant()),owner,session);
     }
     public int delete(long owner,UUID session) { return jdbc.update("DELETE FROM planning_sessions WHERE owner_id=? AND id=?",owner,session); }
 

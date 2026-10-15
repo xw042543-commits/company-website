@@ -51,6 +51,19 @@ class PlanningSessionIntegrationTest {
     @Test void unauthenticatedHttpRouteRequiresLogin() throws Exception {
         mvc.perform(post("/api/v1/miniapp/me/planning-agent/sessions").contentType("application/json").content("{\"ageBand\":\"AGE_18_PLUS\",\"privacyVersion\":\"planning-v1\"}")).andExpect(status().isUnauthorized());
     }
+    @Test void acceptedRetryAndRestoredRunsExposeTheSamePersistedDeadline() throws Exception {
+        UUID id=session(); var accepted=service.message(owner,id,chat("deadline","hello"));
+        Instant deadline=jdbc.queryForObject("SELECT deadline FROM planning_runs WHERE id=?",java.sql.Timestamp.class,accepted.runId()).toInstant();
+        String prefix="/api/v1/miniapp/me/planning-agent/sessions/"+id;
+        String principal=bearer(owner);
+        mvc.perform(post(prefix+"/messages").header("Authorization",principal).contentType("application/json")
+                .content("{\"requestKey\":\"deadline\",\"text\":\"hello\",\"intent\":\"CHAT\"}"))
+                .andExpect(status().isAccepted()).andExpect(jsonPath("$.deadline").value(deadline.toString()));
+        mvc.perform(get(prefix+"/runs/"+accepted.runId()).header("Authorization",principal))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.deadline").value(deadline.toString()));
+        mvc.perform(get(prefix).header("Authorization",principal))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.runs[0].deadline").value(deadline.toString()));
+    }
     @Test void authenticatedHttpUsesPrincipalOwnershipAndIgnoresSuppliedOwner() throws Exception {
         String principal=bearer(owner);
         UUID id=session(); var accepted=service.message(owner,id,chat("http","hello"));
