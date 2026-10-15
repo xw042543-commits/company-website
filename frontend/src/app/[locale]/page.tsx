@@ -2,16 +2,20 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FeaturedUniversityCarousel } from "@/components/featured-university-carousel";
+import { FeaturedUniversityCarousel, type FeaturedUniversityCategory } from "@/components/featured-university-carousel";
 import { PublicHome } from "@/components/public-home";
 import { SearchAutocomplete } from "@/components/search-autocomplete";
 import { courseSuggestions } from "@/data/search-suggestions";
 import { UNIVERSITY_CATALOG } from "@/data/university-catalog";
+import { FEATURED_UNIVERSITY_IDS } from "@/data/university-profiles";
 import { chineseBrandMetadata } from "@/lib/brand-metadata";
+import { getFilterOptions, type FilterOption } from "@/lib/filter-options-api";
 import { resolvePublicIndexing } from "@/lib/public-indexing";
+import { serverApiBaseUrl } from "@/lib/runtime-config";
 import { isRequestAuthenticated } from "@/lib/server-auth";
-import { isLocale, words } from "@/lib/site";
+import { formatEnglishDisplayText, isLocale, words } from "@/lib/site";
 import { canonicalStudyLevelOptions } from "@/lib/study-level-display";
+import { getUniversityProgrammesWithFallback } from "@/lib/universities";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -55,6 +59,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   if (!isLocale(locale)) notFound();
   const signedIn = await isRequestAuthenticated();
   if (!signedIn) return <PublicHome locale={locale} />;
+  const categoriesByUniversity = await featuredUniversityCategories();
   const memberHref = (path: string) => signedIn
     ? `/${locale}/${path}`
     : `/${locale}/login?returnTo=${encodeURIComponent(`/${locale}/${path}`)}`;
@@ -123,7 +128,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     </div>
     {signedIn ? <section className="university-directory-strip" aria-labelledby="reviewed-universities-heading"><div className="container">
       <div className="directory-strip-heading"><div><p className="section-label">{words(locale, "热门", "Popular")}</p><h2 id="reviewed-universities-heading">{words(locale, "留学热门院校", "Popular universities")}</h2><p>{words(locale, "热门专业、费用与录取信息一目了然。", "Compare popular subjects, fees, and admission information at a glance.")}</p></div><Link className="directory-view-all" href={`/${locale}/universities`}>{words(locale, "查看并比较全部院校", "View and compare all universities")} <span aria-hidden="true">→</span></Link></div>
-      <FeaturedUniversityCarousel locale={locale} />
+      <FeaturedUniversityCarousel locale={locale} categoriesByUniversity={categoriesByUniversity} />
     </div></section> : <section className="member-preview" aria-labelledby="member-preview-heading"><div className="container section member-preview-layout">
       <div className="member-preview-copy"><p className="section-label">{words(locale, "登录后可使用", "Inside your account")}</p><h2 id="member-preview-heading">{words(locale, "把留学选择整理成清晰的下一步", "Turn study choices into clear next steps")}</h2><p>{words(locale, "注册后即可查询已审核院校与专业、比较选择，并保存你的规划方向。", "Create an account to explore reviewed universities and programmes, compare choices, and organise your study direction.")}</p><Link className="text-link" href={`/${locale}/login?mode=register&returnTo=${encodeURIComponent(`/${locale}/universities`)}`}>{words(locale, "查看会员工具", "Explore member tools")} <span aria-hidden="true">→</span></Link></div>
       <div className="member-preview-list">
@@ -160,6 +165,51 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </details>)}</div>
     </div></section>
   </main>;
+}
+
+async function featuredUniversityCategories(): Promise<Record<string, FeaturedUniversityCategory[]>> {
+  const baseUrl = serverApiBaseUrl();
+  const featuredUniversities = FEATURED_UNIVERSITY_IDS.map(id => UNIVERSITY_CATALOG.find(university => university.id === id))
+    .filter((university): university is NonNullable<typeof university> => Boolean(university));
+  const [filterResult, programmeResults] = await Promise.all([
+    getFilterOptions(baseUrl),
+    Promise.all(featuredUniversities.map(university => getUniversityProgrammesWithFallback(university.slug, {}, baseUrl))),
+  ]);
+  const options = filterResult.status === "ready" ? filterResult.options.subjectCategories : [];
+
+  return Object.fromEntries(featuredUniversities.map((university, index) => {
+    const result = programmeResults[index];
+    const programmes = result.status === "ready" ? result.page.items : [];
+    return [university.id, distinctCategories(programmes, options)];
+  }));
+}
+
+function distinctCategories(
+  programmes: Array<{ categoryCode: string; categoryDisplayZh?: string; categoryDisplayEn?: string }>,
+  options: FilterOption[],
+): FeaturedUniversityCategory[] {
+  const categories = new Map<string, FeaturedUniversityCategory>();
+  for (const programme of programmes) {
+    const rawCode = programme.categoryCode.trim();
+    const nameZh = programme.categoryDisplayZh?.trim() || "";
+    const nameEn = programme.categoryDisplayEn?.trim() || "";
+    const option = options.find(candidate => candidate.code === rawCode
+      || sameCategoryLabel(candidate.nameZh, nameZh)
+      || sameCategoryLabel(candidate.nameEn, nameEn)
+      || sameCategoryLabel(candidate.nameEn, rawCode));
+    if (!option || categories.has(option.code)) continue;
+    categories.set(option.code, {
+      code: option.code,
+      nameZh: nameZh || option.nameZh.trim(),
+      nameEn: formatEnglishDisplayText(nameEn || option.nameEn.trim()),
+    });
+    if (categories.size === 4) break;
+  }
+  return [...categories.values()];
+}
+
+function sameCategoryLabel(left: string, right: string) {
+  return Boolean(right) && left.trim().toLocaleLowerCase("en") === right.trim().toLocaleLowerCase("en");
 }
 
 function BenefitSymbol({ kind }: { kind: "reviewed" | "visible" | "fair" | "support" }) {
