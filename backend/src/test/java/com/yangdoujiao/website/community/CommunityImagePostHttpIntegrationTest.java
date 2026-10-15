@@ -73,8 +73,8 @@ class CommunityImagePostHttpIntegrationTest {
             .isEqualTo("PENDING_REVIEW");
         var reviewer=accounts.saveAndFlush(UserAccount.external("Administrator","admin-photo","admin-photo"));
         reviewerId=reviewer.getId();
-        ReflectionTestUtils.setField(reviewer,"role",UserAccountRole.ADMIN);
-        jdbc.update("UPDATE user_accounts SET role='ADMIN' WHERE id=?",reviewerId);
+        ReflectionTestUtils.setField(reviewer,"role",UserAccountRole.ADVISER);
+        jdbc.update("UPDATE user_accounts SET role='ADVISER' WHERE id=?",reviewerId);
         mvc.perform(post("/api/v1/adviser/community/moderation/POST/"+postId+"/actions")
             .with(user(UserPrincipal.from(reviewer))).with(csrf()).contentType("application/json")
             .content("{\"command\":\"RESTORE\",\"reasonCode\":\"REVIEW_APPROVED\",\"version\":0}"))
@@ -87,8 +87,8 @@ class CommunityImagePostHttpIntegrationTest {
         jdbc.update("UPDATE community_images SET status='REJECTED' WHERE id=?",image);
         var reviewer=accounts.saveAndFlush(UserAccount.external("Administrator","admin-reject","admin-reject"));
         reviewerId=reviewer.getId();
-        ReflectionTestUtils.setField(reviewer,"role",UserAccountRole.ADMIN);
-        jdbc.update("UPDATE user_accounts SET role='ADMIN' WHERE id=?",reviewerId);
+        ReflectionTestUtils.setField(reviewer,"role",UserAccountRole.ADVISER);
+        jdbc.update("UPDATE user_accounts SET role='ADVISER' WHERE id=?",reviewerId);
         mvc.perform(post("/api/v1/adviser/community/moderation/POST/"+postId+"/actions")
             .with(user(UserPrincipal.from(reviewer))).with(csrf()).contentType("application/json")
             .content("{\"command\":\"RESTORE\",\"reasonCode\":\"REVIEW_APPROVED\",\"version\":0}"))
