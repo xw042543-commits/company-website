@@ -81,6 +81,10 @@ public class AdminImportRepository {
         jdbc.update("UPDATE catalog_import_batches SET status='FAILED',failure_reason=?,updated_at=CURRENT_TIMESTAMP WHERE id=?", reason, id);
     }
 
+    public void publishFailure(UUID id,int count) {
+        jdbc.update("UPDATE catalog_import_batches SET status='FAILED',failed_rows=?,failure_reason='发布失败，所选记录已全部回滚，请重新处理或重试。',updated_at=CURRENT_TIMESTAMP WHERE id=?",count,id);
+    }
+
     public void lockCatalog() {
         jdbc.execute("LOCK TABLE universities, programmes IN SHARE ROW EXCLUSIVE MODE");
     }

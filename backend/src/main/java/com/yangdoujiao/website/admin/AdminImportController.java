@@ -30,7 +30,8 @@ public class AdminImportController {
     @PostMapping("/{id}/reprocess") public ImportBatch reprocess(@PathVariable UUID id){return service.reprocess(id);}
     @PostMapping("/{id}/publish") public PublishResult publish(@PathVariable UUID id,@Valid @RequestBody PublishRequest request){
         try{return service.publish(id,request.rowIds());}
-        catch(org.springframework.dao.DataAccessException e){service.recordFailure(id);throw new ApiException(HttpStatus.CONFLICT,"IMPORT_PUBLISH_FAILED","发布失败，所选记录已全部回滚，请刷新草稿后重试。");}
+        catch(ApiException e){if(!"DUPLICATE_DATA".equals(e.getCode()))throw e;service.recordFailure(id,request.rowIds().size());throw new ApiException(HttpStatus.CONFLICT,"IMPORT_PUBLISH_FAILED","发布失败，所选记录已全部回滚，请重新处理后重试。");}
+        catch(org.springframework.dao.DataAccessException | org.springframework.transaction.UnexpectedRollbackException e){service.recordFailure(id,request.rowIds().size());throw new ApiException(HttpStatus.CONFLICT,"IMPORT_PUBLISH_FAILED","发布失败，所选记录已全部回滚，请刷新草稿后重试。");}
     }
     @GetMapping("/{id}/duplicates.xlsx") public ResponseEntity<byte[]> duplicates(@PathVariable UUID id){return file(service.duplicates(id),"duplicates-"+id+".xlsx");}
     @ExceptionHandler(org.springframework.web.multipart.MaxUploadSizeExceededException.class)

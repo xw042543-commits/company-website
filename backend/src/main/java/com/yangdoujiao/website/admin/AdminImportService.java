@@ -86,7 +86,7 @@ public class AdminImportService {
         }
         repository.refreshCounts(batchId);return new PublishResult(batch(batchId),rows.size());
     }
-    public void recordFailure(UUID id){repository.failBatch(id,"发布失败，所选记录已全部回滚。请检查数据后重新处理或重试。");}
+    public void recordFailure(UUID id,int count){repository.publishFailure(id,count);}
     @Transactional(readOnly=true) public byte[] duplicates(UUID id){
         ImportBatch batch=batch(id);List<ImportRow> all=repository.rows(id);
         return excel.export(batch.entityType(),all,row->{
@@ -117,7 +117,7 @@ public class AdminImportService {
             if(code||slug||sameName&&(type==EntityType.UNIVERSITY||level&&campus)){
                 String reason=old.origin()+"："+(code?"编码相同":slug?"网址标识相同":"标准化名称或别名、国家/院校、学历和校区相同");
                 Map<String,Object> current=old.data();
-                if(current==null)current=existingPayload(type,old.id());
+                if(current==null)current=existingPayload(type,old.id(),context);
                 boolean conflict=!scope || type==EntityType.PROGRAMME&&(!level||!campus)||conflicting(data,current,type);
                 return new Outcome(conflict?Classification.CONFLICT:Classification.EXACT_DUPLICATE,reason+(conflict?"；填写字段与已有记录不一致":""),old.id(),null);
             }
@@ -126,10 +126,15 @@ public class AdminImportService {
         }
         return possible==null?new Outcome(Classification.NEW,null,null,null):possible;
     }
-    private Map<String,Object> existingPayload(EntityType type,long id){
+    private Map<String,Object> existingPayload(EntityType type,long id,Context context){
         Object record=type==EntityType.UNIVERSITY?catalog.university(id):catalog.programme(id);
         Map<String,Object> map=json.convertValue(record,new tools.jackson.core.type.TypeReference<Map<String,Object>>(){});
-        if(type==EntityType.PROGRAMME){var item=catalog.programme(id);map.put("categoryCode",catalog.options().categories().stream().filter(o->o.id().equals(item.categoryId())).map(Option::code).findFirst().orElse(""));map.put("studyLevelCode",catalog.options().studyLevels().stream().filter(o->o.id().equals(item.studyLevelId())).map(Option::code).findFirst().orElse(""));}
+        if(type==EntityType.PROGRAMME){
+            var item=(ProgrammeItem)record;
+            map.put("categoryCode",context.categories().entrySet().stream().filter(e->e.getValue().equals(item.categoryId())).map(Map.Entry::getKey).findFirst().orElse(""));
+            map.put("studyLevelCode",context.levels().entrySet().stream().filter(e->e.getValue().equals(item.studyLevelId())).map(Map.Entry::getKey).findFirst().orElse(""));
+            map.put("courseModeCode",context.modes().entrySet().stream().filter(e->e.getValue().equals(item.courseModeId())).map(Map.Entry::getKey).findFirst().orElse(""));
+        }
         return map;
     }
     private boolean conflicting(Map<String,Object> input,Map<String,Object> current,EntityType type){

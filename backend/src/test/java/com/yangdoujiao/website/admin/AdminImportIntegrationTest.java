@@ -59,7 +59,7 @@ class AdminImportIntegrationTest {
         String function="reject_import_"+prefix.toLowerCase();
         jdbc.execute("CREATE FUNCTION "+function+"() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW.university_code='"+prefix+"B' THEN RAISE EXCEPTION 'test rollback'; END IF; RETURN NEW; END $$");
         jdbc.execute("CREATE TRIGGER "+function+" BEFORE INSERT ON universities FOR EACH ROW EXECUTE FUNCTION "+function+"()");
-        try{assertThatThrownBy(()->service.publish(upload.batch().id(),service.rows(upload.batch().id()).stream().map(ImportRow::id).toList())).isInstanceOf(RuntimeException.class);assertThat(countUniversities(prefix)).isZero();assertThat(countUniversities(prefix+"B")).isZero();assertThat(service.rows(upload.batch().id())).allMatch(r->r.draftStatus().equals("DRAFT"));}
+        try{var ids=service.rows(upload.batch().id()).stream().map(ImportRow::id).toList();mvc.perform(post("/api/v1/admin/imports/"+upload.batch().id()+"/publish").with(user(principal(UserAccountRole.ADMIN))).with(csrf()).contentType("application/json").content("{\"rowIds\":"+ids+"}")).andExpect(status().isConflict());assertThat(service.batch(upload.batch().id()).failedRows()).isEqualTo(2);assertThat(service.batch(upload.batch().id()).failureReason()).contains("回滚");assertThat(countUniversities(prefix)).isZero();assertThat(countUniversities(prefix+"B")).isZero();assertThat(service.rows(upload.batch().id())).allMatch(r->r.draftStatus().equals("DRAFT"));}
         finally{jdbc.execute("DROP TRIGGER "+function+" ON universities");jdbc.execute("DROP FUNCTION "+function+"()");}
     }
     @Test void formulaErrorSurvivesReprocessingUntilExplicitEdit()throws Exception{
@@ -86,6 +86,9 @@ class AdminImportIntegrationTest {
         mvc.perform(get("/api/v1/admin/imports")).andExpect(status().isUnauthorized());mvc.perform(get("/api/v1/admin/imports").with(user(principal(UserAccountRole.USER)))).andExpect(status().isForbidden());
         mvc.perform(get("/api/v1/admin/imports/templates/UNIVERSITY").with(user(principal(UserAccountRole.ADMIN)))).andExpect(status().isOk()).andExpect(header().string("Content-Type","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"));
         var file=new MockMultipartFile("file","invalid.xlsx","application/octet-stream",new byte[]{1,2,3});mvc.perform(multipart("/api/v1/admin/imports").file(file).param("type","UNIVERSITY").with(user(principal(UserAccountRole.ADMIN)))).andExpect(status().isForbidden());
+        mvc.perform(multipart("/api/v1/admin/imports").file(file).param("type","UNIVERSITY").with(user(principal(UserAccountRole.USER))).with(csrf())).andExpect(status().isForbidden());
+        var valid=new MockMultipartFile("file","admin.xlsx","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",workbook(EntityType.UNIVERSITY,List.of(university(prefix))));
+        mvc.perform(multipart("/api/v1/admin/imports").file(valid).param("type","UNIVERSITY").with(user(principal(UserAccountRole.ADMIN))).with(csrf())).andExpect(status().isOk()).andExpect(jsonPath("$.batch.draftRows").value(1));
         var result=service.upload(EntityType.UNIVERSITY,"invalid.xlsx",new byte[]{1,2,3},actor);assertThat(result.batch().status()).isEqualTo("FAILED");assertThat(result.batch().failureReason()).isNotBlank();
     }
     private UserPrincipal principal(UserAccountRole role){var account=UserAccount.external("Test","v1","v1");ReflectionTestUtils.setField(account,"id",actor);ReflectionTestUtils.setField(account,"role",role);return UserPrincipal.from(account);}
