@@ -2322,10 +2322,10 @@ textarea:focus {
 }
 
 .adviser-console-header { grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr); margin-bottom: 0; border-radius: 10px 10px 0 0; box-shadow: none; }
-.adviser-console-header .adviser-console-navigation { justify-content: center; margin: 0; }
-.adviser-console-header .adviser-console-navigation a { position: relative; padding: 10px 4px; background: transparent; }
-.adviser-console-header .adviser-console-navigation a[aria-current="page"] { background: transparent; color: var(--brand-deep); }
-.adviser-console-header .adviser-console-navigation a[aria-current="page"]::after { position: absolute; right: 4px; bottom: -18px; left: 4px; height: 3px; content: ""; background: var(--brand-action); }
+.adviser-console-header .adviser-console-navigation { justify-content: center; flex-wrap: nowrap; gap: 4px; margin: 0; }
+.adviser-console-header .adviser-console-navigation a { min-height: 44px; padding: 10px 16px; border-radius: 8px; background: transparent; color: var(--muted); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.adviser-console-header .adviser-console-navigation a:hover { background: #f1f5f1; color: var(--brand-deep); }
+.adviser-console-header .adviser-console-navigation a[aria-current="page"] { background: #e8f1eb; color: var(--brand-deep); font-weight: 700; }
 .adviser-console-header > .button { justify-self: end; }
 .adviser-page-heading { padding: 20px 24px; border: 1px solid rgb(143 178 168 / 55%); border-top: 0; border-radius: 0 0 10px 10px; background: rgb(253 252 248 / 92%); }
 .adviser-page-heading h1 { max-width: none; margin: 0; font-size: clamp(1.65rem, 2.3vw, 2.2rem); }
@@ -2335,7 +2335,6 @@ textarea:focus {
 @media (max-width: 800px) {
   .adviser-console-header { grid-template-columns: minmax(0, 1fr) auto; }
   .adviser-console-header .adviser-console-navigation { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; width: 100%; overflow-x: auto; }
-  .adviser-console-header .adviser-console-navigation a[aria-current="page"]::after { bottom: -1px; }
   .adviser-console-header > .button { grid-column: 2; grid-row: 1; }
   .adviser-page-heading { padding: 18px 20px; }
 }
