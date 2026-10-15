@@ -34,7 +34,7 @@ class CommunityImageReviewConfiguration {
         return new WechatImageReviewGateway(tokens,identities,access,json,RestClient.builder().requestFactory(factory).build(),diagnostics);
     }
     @Bean @ConditionalOnProperty(name="app.community.images.review-worker-enabled",havingValue="true",matchIfMissing=true)
-    CommunityImageReviewWorker communityImageReviewWorker(CommunityImageReviewJobs jobs,WechatImageReviewGateway gateway,Clock clock) {
-        return new CommunityImageReviewWorker(jobs,gateway,clock);
+    CommunityImageReviewWorker communityImageReviewWorker(CommunityImageReviewJobs jobs,CommunityImageAttachments images,WechatImageReviewGateway gateway,Clock clock) {
+        return new CommunityImageReviewWorker(jobs,images,gateway,clock);
     }
 }

@@ -35,7 +35,7 @@ class CommunityImageAttachmentsIntegrationTest {
         jdbc.update("DELETE FROM user_accounts WHERE id=?",owner);
     }
     void bind(List<String> ids,boolean textPass) {
-        new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner,post,ids,textPass));
+        new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner,post,ids,textPass,true));
     }
     @Test void preservesOrderAndRejectsRebinding() {
         bind(List.of(second,first),true);
@@ -43,17 +43,15 @@ class CommunityImageAttachmentsIntegrationTest {
         assertThrows(ApiException.class,()->bind(List.of(first),true));
     }
     @Test void refusesForeignOwnerWithoutPartialBinding() {
-        assertThrows(ApiException.class,()->new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner+1,post,List.of(first),true)));
+        assertThrows(ApiException.class,()->new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner+1,post,List.of(first),true,true)));
         assertNull(jdbc.queryForObject("SELECT post_id FROM community_images WHERE id=?",Long.class,first));
     }
-    @Test void passingEveryImageStillNeedsAdministratorApproval() {
+    @Test void passingEveryImageAutomaticallyPublishesPost() {
         bind(List.of(first,second),true);
         media.recordResult(first,"PASS");
         assertEquals("PENDING_REVIEW",status());
-        assertFalse(media.readyForManualApproval(post,true));
         media.recordResult(second,"PASS");
-        assertEquals("PENDING_REVIEW",status());
-        assertTrue(media.readyForManualApproval(post,true));
+        assertEquals("PUBLISHED",status());
     }
     @Test void doesNotOverrideTextReviewOrManualState() {
         bind(List.of(first),false);
@@ -63,20 +61,16 @@ class CommunityImageAttachmentsIntegrationTest {
         media.recordResult(first,"PASS");
         assertEquals("HIDDEN",status());
     }
-    @Test void rejectedOrUncheckedImageCannotBeApproved() {
+    @Test void rejectedImageDoesNotPublishPost() {
         bind(List.of(first,second),true);
-        assertFalse(media.readyForManualApproval(post,true));
         media.recordResult(first,"REJECTED");
         media.recordResult(second,"PASS");
-        assertFalse(media.readyForManualApproval(post,true));
-        assertFalse(media.readyForManualApproval(post,false));
         assertEquals("PENDING_REVIEW",status());
     }
-    @Test void optionalScannerDoesNotBlockManualApproval() {
-        bind(List.of(first),true);
-        assertFalse(media.readyForManualApproval(post,true));
-        assertTrue(media.readyForManualApproval(post,false));
-        assertEquals("PENDING_REVIEW",status());
+    @Test void scannerDisabledBindsImagesWithoutCreatingReviewJobs() {
+        new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner,post,List.of(first),true,false));
+        assertEquals(0L,jdbc.queryForObject("SELECT count(*) FROM community_image_review_jobs WHERE image_id=?",Long.class,first));
+        assertEquals(0L,jdbc.queryForObject("SELECT count(*) FROM community_image_post_review WHERE post_id=?",Long.class,post));
     }
     @Test void rejectsDuplicateAndTooManyIds() {
         assertThrows(ApiException.class,()->CommunityImageAttachments.parse(json.valueToTree(List.of(first,first))));
@@ -84,7 +78,6 @@ class CommunityImageAttachmentsIntegrationTest {
     }
     @Test void publicMetadataDisappearsWhenPostIsHidden() {
         bind(List.of(first),true);media.recordResult(first,"PASS");
-        jdbc.update("UPDATE community_posts SET status='PUBLISHED' WHERE id=?",post);
         assertEquals(1,media.forPosts(List.of(post),null,false).get(Long.toString(post)).size());
         jdbc.update("UPDATE community_posts SET status='HIDDEN',version=version+1 WHERE id=?",post);
         assertTrue(media.forPosts(List.of(post),null,false).isEmpty());

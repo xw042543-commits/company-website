@@ -52,49 +52,26 @@ class CommunityImagePostHttpIntegrationTest {
     @Test void bindsImagesAtomicallyAndReplaysWithoutRebinding() throws Exception {
         String body=json.writeValueAsString(Map.of("body","Campus photo","imageIds",List.of(image)));
         String result=publish("photo-key",body).andExpect(status().isCreated())
-            .andExpect(jsonPath("$.status").value("PENDING_REVIEW")).andReturn().getResponse().getContentAsString();
+            .andExpect(jsonPath("$.status").value("PUBLISHED")).andReturn().getResponse().getContentAsString();
         String postId=json.readTree(result).path("id").asText();
         assertThat(jdbc.queryForObject("SELECT post_id FROM community_images WHERE id=?",Long.class,image)).isEqualTo(Long.valueOf(postId));
         publish("photo-key",body).andExpect(status().isOk()).andExpect(content().json(result));
         publish("photo-key","{\"body\":\"Campus photo\"}").andExpect(status().isConflict());
-        mvc.perform(get("/api/v1/community/images").param("postIds",postId)).andExpect(status().isOk()).andExpect(content().json("{}"));
+        mvc.perform(get("/api/v1/community/images").param("postIds",postId))
+            .andExpect(status().isOk()).andExpect(jsonPath("$['"+postId+"'][0].id").value(image));
         mvc.perform(get("/api/v1/community/images").param("postIds",postId).with(user(UserPrincipal.from(actor))))
             .andExpect(status().isOk()).andExpect(jsonPath("$['"+postId+"'][0].id").value(image));
     }
-    @Test void ordinaryTextPublishesImmediatelyWhilePhotoNeedsManualApproval() throws Exception {
+    @Test void ordinaryTextAndPhotoPublishImmediatelyWithoutScanner() throws Exception {
         publish("text-only","{\"body\":\"Campus update\"}")
             .andExpect(status().isCreated()).andExpect(jsonPath("$.status").value("PUBLISHED"));
-        String result=publish("photo-manual",json.writeValueAsString(Map.of("body","Campus photo","imageIds",List.of(image))))
-            .andExpect(status().isCreated()).andExpect(jsonPath("$.status").value("PENDING_REVIEW"))
+        String result=publish("photo-auto",json.writeValueAsString(Map.of("body","Campus photo","imageIds",List.of(image))))
+            .andExpect(status().isCreated()).andExpect(jsonPath("$.status").value("PUBLISHED"))
             .andReturn().getResponse().getContentAsString();
         String postId=json.readTree(result).path("id").asText();
-        jdbc.update("UPDATE community_images SET status='PASS' WHERE id=?",image);
+        assertThat(jdbc.queryForObject("SELECT count(*) FROM community_image_review_jobs WHERE image_id=?",Long.class,image)).isZero();
         assertThat(jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,Long.valueOf(postId)))
-            .isEqualTo("PENDING_REVIEW");
-        var reviewer=accounts.saveAndFlush(UserAccount.external("Administrator","admin-photo","admin-photo"));
-        reviewerId=reviewer.getId();
-        ReflectionTestUtils.setField(reviewer,"role",UserAccountRole.ADVISER);
-        jdbc.update("UPDATE user_accounts SET role='ADVISER' WHERE id=?",reviewerId);
-        mvc.perform(post("/api/v1/adviser/community/moderation/POST/"+postId+"/actions")
-            .with(user(UserPrincipal.from(reviewer))).with(csrf()).contentType("application/json")
-            .content("{\"command\":\"RESTORE\",\"reasonCode\":\"REVIEW_APPROVED\",\"version\":0}"))
-            .andExpect(status().isOk()).andExpect(jsonPath("$.status").value("PUBLISHED"));
-    }
-    @Test void rejectedImageCannotBeApproved() throws Exception {
-        String result=publish("photo-rejected",json.writeValueAsString(Map.of("body","Campus photo","imageIds",List.of(image))))
-            .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
-        String postId=json.readTree(result).path("id").asText();
-        jdbc.update("UPDATE community_images SET status='REJECTED' WHERE id=?",image);
-        var reviewer=accounts.saveAndFlush(UserAccount.external("Administrator","admin-reject","admin-reject"));
-        reviewerId=reviewer.getId();
-        ReflectionTestUtils.setField(reviewer,"role",UserAccountRole.ADVISER);
-        jdbc.update("UPDATE user_accounts SET role='ADVISER' WHERE id=?",reviewerId);
-        mvc.perform(post("/api/v1/adviser/community/moderation/POST/"+postId+"/actions")
-            .with(user(UserPrincipal.from(reviewer))).with(csrf()).contentType("application/json")
-            .content("{\"command\":\"RESTORE\",\"reasonCode\":\"REVIEW_APPROVED\",\"version\":0}"))
-            .andExpect(status().isConflict());
-        assertThat(jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,Long.valueOf(postId)))
-            .isEqualTo("PENDING_REVIEW");
+            .isEqualTo("PUBLISHED");
     }
     @Test void foreignImagesCannotBeAttachedAndLeaveNoPost() throws Exception {
         var other=accounts.saveAndFlush(UserAccount.external("Other","v1","v1"));
@@ -104,7 +81,7 @@ class CommunityImagePostHttpIntegrationTest {
             .andExpect(status().isBadRequest());
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_posts WHERE author_account_id=?",Long.class,actor.getId())).isZero();
     }
-    @Test void administratorCanReviewImagesOnPendingPosts() throws Exception {
+    @Test void administratorCanSeePublishedPhotoMetadata() throws Exception {
         String result=publish("admin-review",json.writeValueAsString(Map.of("body","Review photo","imageIds",List.of(image))))
             .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
         String postId=json.readTree(result).path("id").asText();

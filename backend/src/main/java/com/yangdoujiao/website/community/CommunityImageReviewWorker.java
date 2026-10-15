@@ -5,10 +5,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 final class CommunityImageReviewWorker {
     private final CommunityImageReviewJobs jobs;
+    private final CommunityImageAttachments images;
     private final WechatImageReviewGateway gateway;
     private final Clock clock;
-    CommunityImageReviewWorker(CommunityImageReviewJobs jobs,WechatImageReviewGateway gateway,Clock clock) {
-        this.jobs=jobs;this.gateway=gateway;this.clock=clock;
+    CommunityImageReviewWorker(CommunityImageReviewJobs jobs,CommunityImageAttachments images,WechatImageReviewGateway gateway,Clock clock) {
+        this.jobs=jobs;this.images=images;this.gateway=gateway;this.clock=clock;
     }
     @Scheduled(fixedDelayString="${app.community.images.review-poll-ms:10000}")
     public void tick() {
@@ -19,5 +20,6 @@ final class CommunityImageReviewWorker {
             if(trace.isPresent())jobs.acknowledge(claim,trace.get(),clock.instant());
             else jobs.failed(claim,clock.instant());
         }
+        images.reconcile();
     }
 }

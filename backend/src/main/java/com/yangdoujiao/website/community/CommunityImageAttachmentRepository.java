@@ -13,7 +13,7 @@ public class CommunityImageAttachmentRepository {
     private final Clock clock;
     public CommunityImageAttachmentRepository(JdbcTemplate jdbc,Clock clock){this.jdbc=jdbc;this.clock=clock;}
     /** Caller holds the author's account lock and transaction. */
-    public void bind(long owner,long post,List<String> ids,boolean textPassed) {
+    public void bind(long owner,long post,List<String> ids,boolean textPassed,boolean reviewEnabled) {
         if(ids.isEmpty())return;
         if(ids.size()>9 || new HashSet<>(ids).size()!=ids.size())throw invalid();
         lock();
@@ -21,26 +21,32 @@ public class CommunityImageAttachmentRepository {
             int changed=jdbc.update("UPDATE community_images SET post_id=?,position=? WHERE id=? AND owner_account_id=? AND post_id IS NULL AND created_at>?",
                 post,position,ids.get(position),owner,OffsetDateTime.now(clock).minusHours(24));
             if(changed!=1)throw invalid();
-            jdbc.update("INSERT INTO community_image_review_jobs(image_id) VALUES(?)",ids.get(position));
+            if(reviewEnabled)jdbc.update("INSERT INTO community_image_review_jobs(image_id) VALUES(?)",ids.get(position));
         }
-        jdbc.update("INSERT INTO community_image_post_review(post_id,text_passed) VALUES(?,?)",post,textPassed);
+        if(reviewEnabled)jdbc.update("INSERT INTO community_image_post_review(post_id,text_passed) VALUES(?,?)",post,textPassed);
     }
     public void recordResult(String imageId,String result) {
         if(!List.of("PASS","REVIEW","REJECTED").contains(result))throw invalid();
         lock();
         // First terminal result wins; retries and late callbacks cannot reverse it.
         jdbc.update("UPDATE community_images SET status=? WHERE id=? AND status='PENDING'",result,imageId);
+        reconcile();
     }
-    public boolean readyForManualApproval(long postId,boolean requireCompletedScan) {
-        return Boolean.TRUE.equals(jdbc.queryForObject("""
-            SELECT EXISTS(SELECT 1 FROM community_images WHERE post_id=?)
-              AND NOT EXISTS(SELECT 1 FROM community_images WHERE post_id=? AND status='REJECTED')
-              AND (NOT ? OR NOT EXISTS(SELECT 1 FROM community_images WHERE post_id=? AND status='PENDING'))
-            """,Boolean.class,postId,postId,requireCompletedScan,postId));
-    }
-    public boolean hasImages(long postId) {
-        return Boolean.TRUE.equals(jdbc.queryForObject(
-            "SELECT EXISTS(SELECT 1 FROM community_images WHERE post_id=?)",Boolean.class,postId));
+    public void reconcile() {
+        // Only an approved text verdict and a PASS for every image can publish automatically.
+        // Version zero ensures a later manual decision or author deletion cannot be undone.
+        jdbc.update("""
+            WITH approved AS (UPDATE community_posts p SET status='PUBLISHED',published_at=CURRENT_TIMESTAMP,updated_at=CURRENT_TIMESTAMP,version=version+1
+            FROM community_image_post_review r WHERE r.post_id=p.id AND r.text_passed
+              AND p.status='PENDING_REVIEW' AND p.version=0
+              AND EXISTS(SELECT 1 FROM community_images i WHERE i.post_id=p.id)
+              AND NOT EXISTS(SELECT 1 FROM community_images i WHERE i.post_id=p.id AND i.status<>'PASS')
+            RETURNING p.id,p.author_account_id)
+            INSERT INTO inbox_notifications(recipient_account_id,event_key,category,title,body,target_type,created_at)
+            SELECT author_account_id,'community:image-approved:'||id,'SYSTEM','U圈内容检查结果',
+              '你的帖子已自动发布，可在“我的内容”查看。','NONE',CURRENT_TIMESTAMP FROM approved
+            ON CONFLICT(recipient_account_id,event_key) DO NOTHING
+            """);
     }
     public Map<String,List<CommunityImageAttachments.Image>> forPosts(List<Long> posts,Long viewer,boolean adviser) {
         if(posts.isEmpty())return Map.of();
