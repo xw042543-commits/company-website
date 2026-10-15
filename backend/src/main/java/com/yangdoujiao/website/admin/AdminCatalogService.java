@@ -175,7 +175,7 @@ public class AdminCatalogService {
     }
 
     private static <T> T required(T value, String type) { if (value == null) throw missing(type); return value; }
-    private static ApiException missing(String type) { return new ApiException(HttpStatus.NOT_FOUND, "NOT_FOUND", type + " not found"); }
+    private static ApiException missing(String type) { return new ApiException(HttpStatus.NOT_FOUND, "NOT_FOUND", (type.equals("University") ? "院校" : "专业") + "不存在或已在回收站，请刷新或先恢复记录"); }
     private static ApiException invalid(String message) { return new ApiException(HttpStatus.BAD_REQUEST, "VALIDATION_ERROR", message); }
     private static ApiException conflict(String message) { return new ApiException(HttpStatus.CONFLICT, "DUPLICATE_DATA", message); }
 }

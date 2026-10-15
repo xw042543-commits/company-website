@@ -65,6 +65,6 @@ public class CatalogLifecycleRepository {
         jdbc.update("INSERT INTO catalog_operation_audit(actor_id,entity_type,entity_id,operation,snapshot) VALUES (?,?,?,?,?::jsonb)",actor,type.name(),id,action,json.writeValueAsString(safe));
     }
     public List<Map<String,Object>> audit(int page,int size){return jdbc.queryForList("SELECT a.id,a.actor_id,COALESCE(u.full_name,'已注销管理员') actor_name,a.entity_type,a.entity_id,a.operation,a.created_at FROM catalog_operation_audit a LEFT JOIN user_accounts u ON u.id=a.actor_id ORDER BY a.id DESC LIMIT ? OFFSET ?",size,(long)(page-1)*size);}
-    private void add(Map<String,Long> result,String key,String sql,long id){result.put(key,jdbc.queryForObject(sql,Long.class,id));}
+    private void add(Map<String,Long> result,String key,String sql,long id){long count=jdbc.queryForObject(sql,Long.class,id);if(key.equals("其他业务关联"))result.merge(key,count,Long::sum);else result.put(key,count);}
     private static String quote(Object value){return "\""+value.toString().replace("\"","\"\"")+"\"";}
 }

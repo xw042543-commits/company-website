@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useImperativeHandle, useState, type Ref } from "react";
 import { adminRead, adminWrite } from "@/lib/admin-catalog-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import type { ImportType } from "@/lib/admin-import-api";
@@ -8,14 +8,16 @@ import type { ImportType } from "@/lib/admin-import-api";
 type Impact = { id: number; name: string; inRecycleBin: boolean; associations: Record<string, number>; canPermanentlyDelete: boolean };
 const root = "/api/v1/admin/catalog/lifecycle";
 const names = { TRASH: "移入回收站", RESTORE: "恢复", PURGE: "永久删除" };
-export function AdminLifecycleActions({ type, ids, trash, onDone }: { type: ImportType; ids: number[]; trash: boolean; onDone: () => void }) {
+export type AdminLifecycleHandle = { inspect: (action: keyof typeof names, selected?: number[]) => void };
+export function AdminLifecycleActions({ type, ids, trash, onDone, handleRef }: { type: ImportType; ids: number[]; trash: boolean; onDone: () => void; handleRef?: Ref<AdminLifecycleHandle> }) {
   const [advanced, setAdvanced] = useState(false), [action, setAction] = useState<keyof typeof names>("TRASH");
   const [preview, setPreview] = useState<Impact[] | null>(null), [confirmation, setConfirmation] = useState("");
   const [busy, setBusy] = useState(false), [notice, setNotice] = useState("");
   useEffect(() => { let active = true; void adminRead<{ permanentDelete: boolean }>(browserApiBaseUrl(), `${root}/capabilities`).then(r => { if (active && r.status === "ready") setAdvanced(r.value.permanentDelete); }); return () => { active = false; }; }, []);
-  async function inspect(next: keyof typeof names) {
+  useImperativeHandle(handleRef, () => ({ inspect }));
+  async function inspect(next: keyof typeof names, selected: number[] = ids) {
     setBusy(true); setNotice(""); setConfirmation(""); setAction(next);
-    const r = await adminWrite<Impact[]>(browserApiBaseUrl(), `${root}/preview`, "POST", { type, ids, action: next });
+    const r = await adminWrite<Impact[]>(browserApiBaseUrl(), `${root}/preview`, "POST", { type, ids: selected, action: next });
     setBusy(false); if (r.status === "ready") setPreview(r.value); else setNotice(r.message || "无法检查关联数据，请刷新后重试。");
   }
   async function execute() {

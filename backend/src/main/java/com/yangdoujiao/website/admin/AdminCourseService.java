@@ -32,6 +32,7 @@ public class AdminCourseService {
     }
     public CourseItem status(long id,boolean enabled){var old=get(id);if(old.inRecycleBin())throw invalid("请先从回收站恢复课程");repository.status(id,enabled);synchronize(old.programmeId());catalog.enqueue(catalog.programmeUniversityId(old.programmeId()));return get(id);}
     public void synchronize(long programme){repository.synchronize(programme);}
+    @Transactional(readOnly=true,noRollbackFor=ApiException.class)
     public void validate(CourseInput in){
         if(in.programmeId()==null||in.programmeId()<1||catalog.programmeUniversityId(in.programmeId())==null)throw invalid("请选择已有专业；请先发布院校和专业");
         if(trim(in.nameZh()).isEmpty())throw invalid("请填写课程中文名称，便于前台中文展示");

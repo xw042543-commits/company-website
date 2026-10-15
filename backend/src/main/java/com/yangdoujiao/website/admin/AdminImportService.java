@@ -50,7 +50,10 @@ public class AdminImportService {
     public ImportRow edit(UUID batchId,long rowId,Map<String,Object> input){
         batch(batchId);repository.lockBatch(batchId);var row=repository.lockRows(batchId,List.of(rowId)).stream().findFirst().orElseThrow(()->invalid("导入记录不存在"));
         if(Set.of("PUBLISHED","REMOVED").contains(row.draftStatus()))throw invalid("已发布或已移除的记录不能编辑");
-        var data=clean(row.entityType(),input);var context=context();
+        var data=clean(row.entityType(),input);
+        String savedCode=str(row.payload(),codeKey(row.entityType()));
+        if(str(data,codeKey(row.entityType())).isEmpty()&&savedCode.matches("[A-Z][A-Z0-9_]{0,63}"))data.put(codeKey(row.entityType()),savedCode);
+        var context=context();
         List<Candidate> others=repository.rows(batchId).stream().filter(r->r.id()!=rowId&&!Set.of("PUBLISHED","REMOVED").contains(r.draftStatus())&&r.classification()!=Classification.INVALID)
             .map(r->candidate(r.entityType(),r.payload(),null,"本次Excel第"+r.rowNumber()+"行",context)).toList();
         Outcome result=prepareAndAssess(row.entityType(),data,null,context,others);
