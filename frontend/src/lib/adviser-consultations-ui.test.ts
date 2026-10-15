@@ -98,6 +98,15 @@ test("dashboard includes bilingual labels, immutable details and accessible cont
   assert.doesNotMatch(panel, /deleteAccount|\bexport(?:Csv|CSV|Data)\b|>\s*(?:Delete|Export|删除|导出)\s*</);
 });
 
+test("account exposes the completed-consultations workspace only through adviser capability", () => {
+  const account = source("../components/account-panel.tsx");
+  assert.match(account, /session\.adviser/);
+  assert.match(account, /session\.admin/);
+  assert.match(account, /status=COMPLETED&page=1/);
+  assert.match(account, /顾问工作台/);
+  assert.match(account, /Adviser workspace/);
+});
+
 test("browser filters stay one-based and reset pagination after a filter change", async () => {
   const { readConsultationFilters, consultationQuery } = await import("./adviser-consultations-ui.ts");
   assert.deepEqual(readConsultationFilters(new URLSearchParams("query=Alice&status=NEW&page=3")),

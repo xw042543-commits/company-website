@@ -298,3 +298,20 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 ## 官网课程结构（V53，发布状态见课程核验报告）
 
 `programme_detail_sections` 新增 JSONB `course_modules`、`curriculum_review_status` 和 `curriculum_version`。课程对象保存中文平台译名、官网原名/原文、可核实的代码/学分/必选修、来源和采集时间、翻译方式与时间。`programme_curriculum_backups` 在替换/隐藏前保存完整旧板块；未核实数据归档而非删除。只处理明确审核范围内马来西亚专业的 CURRICULUM，不更新专业主表。详见 [全量核验报告](../outputs/official-course-modules-20261015/README.md)。
+
+
+## Excel 导入暂存（V52）
+
+`V52__create_catalog_excel_imports.sql` 新增以下表，并为 programmes 增加可空 campus 字段。
+迁移不修改任何已执行迁移，也不变更现有记录的状态或关联。
+
+- `catalog_import_batches`：上传人FK、文件名、类型、时间、分类计数、发布结果与失败摘要。
+- `catalog_import_rows`：原始Excel行号、JSONB字段数据、校验/重复分类、解析错误、匹配ID、发布ID。
+  有效新数据仅以 DRAFT 保存于此，未确认发布前不写 universities/programmes。
+  REMOVED 为软移除，PUBLISHED 行禁止编辑；解析错误重处理时继续保留，显式修正才清除。
+- `catalog_entity_aliases`：导入时人工提供的已知别名，按类型/实体ID/规范化别名唯一。
+  现有 programme search_aliases 同时参与查重；新增别名用于后续导入识别，不改现有公开搜索逻辑。
+
+发布采用 PostgreSQL 事务与 SHARE ROW EXCLUSIVE 表锁，和其他管理员 INSERT/UPDATE 互斥，
+在锁内重新查重后仅 INSERT 新记录，搜索同步入队与发布状态同事务提交。没有永久删除正式数据的路径。
+新增校区与别名为空时兼容历史记录；历史校区未知的同名专业按疑似重复交给管理员核对。

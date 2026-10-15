@@ -22,7 +22,7 @@ class V53OfficialCourseModulesTest {
         int total = audit.get("records").size();
         int verified = 0; int modules = 0;
         try (var pg = new AuditDatabase()) {
-            pg.start(); migrate(pg, "51");
+            pg.start(); migrate(pg, "52");
             var jdbc = new JdbcTemplate(new SingleConnectionDataSource(pg.getJdbcUrl(), pg.getUsername(), pg.getPassword(), true));
             long country = jdbc.queryForObject("INSERT INTO countries(code,name_en,continent_code) VALUES ('MY','Malaysia','AS') RETURNING id", Long.class);
             long subject = jdbc.queryForObject("INSERT INTO subject_categories(code,name_en,status) VALUES ('MODULE_AUDIT','Module audit','PUBLISHED') RETURNING id", Long.class);

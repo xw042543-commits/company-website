@@ -21,7 +21,7 @@ public class CommunityImageReadController {
         if(postIds.size()>50)throw new ApiException(HttpStatus.BAD_REQUEST,"INVALID_COMMUNITY_IMAGES","Too many posts");
         var ids=postIds.stream().map(CommunityWriteService::decimalId).toList();
         return ResponseEntity.ok().cacheControl(CacheControl.noStore())
-            .body(images.forPosts(ids,viewer==null?null:viewer.userId(),viewer!=null&&viewer.isAdviser()));
+            .body(images.forPosts(ids,viewer==null?null:viewer.userId(),isReviewer(viewer)));
     }
     @GetMapping("/{id}")
     public ResponseEntity<byte[]> image(@PathVariable String id,@RequestParam(defaultValue="false") boolean thumbnail,
@@ -29,9 +29,12 @@ public class CommunityImageReadController {
         try {
             return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).cacheControl(CacheControl.noStore())
                 .header("X-Content-Type-Options","nosniff")
-                .body(images.read(id,thumbnail,viewer==null?null:viewer.userId(),viewer!=null&&viewer.isAdviser()));
+                .body(images.read(id,thumbnail,viewer==null?null:viewer.userId(),isReviewer(viewer)));
         } catch(NoSuchFileException missing) {
             throw new ApiException(HttpStatus.NOT_FOUND,"COMMUNITY_IMAGE_NOT_FOUND","Image unavailable");
         }
+    }
+    private static boolean isReviewer(UserPrincipal viewer) {
+        return viewer != null && (viewer.isAdviser() || viewer.isAdmin());
     }
 }

@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -40,6 +41,7 @@ class CommunityImagePostHttpIntegrationTest {
     UserAccount actor;
     String image;
     Long otherId;
+    Long reviewerId;
     @BeforeEach void setup() {
         var limits=redis.keys("community:limit:v1:*");
         if(!limits.isEmpty())redis.delete(limits);
@@ -67,12 +69,24 @@ class CommunityImagePostHttpIntegrationTest {
             .andExpect(status().isBadRequest());
         assertThat(jdbc.queryForObject("SELECT count(*) FROM community_posts WHERE author_account_id=?",Long.class,actor.getId())).isZero();
     }
+    @Test void administratorCanReviewImagesOnPendingPosts() throws Exception {
+        String result=publish("admin-review",json.writeValueAsString(Map.of("body","Review photo","imageIds",List.of(image))))
+            .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
+        String postId=json.readTree(result).path("id").asText();
+        var reviewer=accounts.saveAndFlush(UserAccount.external("Administrator","admin-review","admin-review"));
+        reviewerId=reviewer.getId();
+        ReflectionTestUtils.setField(reviewer,"role",UserAccountRole.ADMIN);
+        jdbc.update("UPDATE user_accounts SET role='ADMIN' WHERE id=?",reviewerId);
+        mvc.perform(get("/api/v1/community/images").param("postIds",postId).with(user(UserPrincipal.from(reviewer))))
+            .andExpect(status().isOk()).andExpect(jsonPath("$['"+postId+"'][0].id").value(image));
+    }
     @AfterEach void cleanup() {
         jdbc.update("DELETE FROM community_images WHERE id=?",image);
         jdbc.update("DELETE FROM community_idempotency_records WHERE account_id=?",actor.getId());
         jdbc.update("DELETE FROM community_posts WHERE author_account_id=?",actor.getId());
         accounts.deleteById(actor.getId());
         if(otherId!=null)accounts.deleteById(otherId);
+        if(reviewerId!=null)accounts.deleteById(reviewerId);
     }
     private org.springframework.test.web.servlet.ResultActions publish(String key,String body)throws Exception {
         return mvc.perform(post("/api/v1/community/posts").with(user(UserPrincipal.from(actor))).with(csrf())
