@@ -315,3 +315,7 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 发布采用 PostgreSQL 事务与 SHARE ROW EXCLUSIVE 表锁，和其他管理员 INSERT/UPDATE 互斥，
 在锁内重新查重后仅 INSERT 新记录，搜索同步入队与发布状态同事务提交。没有永久删除正式数据的路径。
 新增校区与别名为空时兼容历史记录；历史校区未知的同名专业按疑似重复交给管理员核对。
+
+## V54 工作人员导入与回收站
+
+新增 `catalog_code_reservations`（编码预留及永久删除编码退休）、`catalog_courses`（课程管理投影；学校课程代码仍保存在模块 JSON 的 courseCode）、`catalog_advanced_administrators`（单独授权永久删除）、`catalog_operation_audit`（操作快照）。院校和专业仅增加 deleted_at/previous_status。旧数据状态、编码、申请关系保持不变。课程投影从既有 CURRICULUM JSON 初始化，触发器兼容后续官网采集更新；导入类型扩展为 COURSE。详见 [工作人员指南](ADMIN_STAFF_IMPORT_GUIDE.md)。

@@ -2191,3 +2191,9 @@ textarea:focus {
 .admin-import .import-reason { min-width: 220px; max-width: 380px; overflow-wrap: anywhere; }
 .admin-import .admin-console-header > a { align-self: start; white-space: nowrap; }
 @media(max-width: 600px) { .admin-import .admin-console-header { flex-direction: column; } .import-actions > button, .import-upload > button { flex: 1 1 100%; } .admin-import .import-card { padding: 14px; } }
+
+.admin-lifecycle { margin-block: 16px; }
+.admin-lifecycle .admin-editor > p, .admin-lifecycle .admin-editor > ul, .admin-lifecycle .admin-editor > label { margin: 18px 22px; overflow-wrap: anywhere; }
+.admin-lifecycle .admin-editor li { margin-block: 12px; }
+.admin-console input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--brand-deep); }
+.admin-editor input[readonly] { background: #edf3ef; color: var(--muted); }

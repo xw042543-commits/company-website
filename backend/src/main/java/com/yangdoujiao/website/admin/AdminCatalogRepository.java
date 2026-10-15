@@ -28,7 +28,7 @@ public class AdminCatalogRepository {
 
     public PageResponse<UniversityItem> universities(String query, String status, String country, int page, int size) {
         String where = " WHERE (:q = '' OR LOWER(COALESCE(u.name_zh,'') || ' ' || COALESCE(u.name_en,'') || ' ' || u.name) LIKE :like)"
-                + " AND (:status = '' OR u.status = :status)"
+                + " AND ((:status='TRASH' AND u.deleted_at IS NOT NULL) OR (:status<>'TRASH' AND u.deleted_at IS NULL AND (:status = '' OR u.status = :status)))"
                 + countryPredicate(country);
         Map<String, Object> values = Map.of("q", query, "like", "%" + query.toLowerCase() + "%", "status", status, "country", country,
                 "limit", size, "offset", (long) (page - 1) * size);
@@ -96,7 +96,7 @@ public class AdminCatalogRepository {
                 + (universityId == null ? "" : " AND p.university_id=:universityId")
                 + (categoryId == null ? "" : " AND p.subject_category_id=:categoryId")
                 + (studyLevelId == null ? "" : " AND p.study_level_id=:studyLevelId")
-                + " AND (:status='' OR p.status=:status)"
+                + " AND ((:status='TRASH' AND p.deleted_at IS NOT NULL) OR (:status<>'TRASH' AND p.deleted_at IS NULL AND (:status='' OR p.status=:status)))"
                 + countryPredicate(country);
         Map<String, Object> values = new HashMap<>();
         values.put("q", query); values.put("like", "%" + query.toLowerCase() + "%");
@@ -159,12 +159,12 @@ public class AdminCatalogRepository {
     }
 
     public int setUniversityStatus(long id, boolean enabled) {
-        return jdbc.update("UPDATE universities SET status=?,published_at=CASE WHEN ? THEN COALESCE(published_at,CURRENT_TIMESTAMP) ELSE published_at END,updated_at=CURRENT_TIMESTAMP WHERE id=?",
+        return jdbc.update("UPDATE universities SET status=?,published_at=CASE WHEN ? THEN COALESCE(published_at,CURRENT_TIMESTAMP) ELSE published_at END,updated_at=CURRENT_TIMESTAMP WHERE id=? AND deleted_at IS NULL",
                 enabled ? "PUBLISHED" : "ARCHIVED", enabled, id);
     }
 
     public int setProgrammeStatus(long id, boolean enabled) {
-        return jdbc.update("UPDATE programmes SET status=?,published_at=CASE WHEN ? THEN COALESCE(published_at,CURRENT_TIMESTAMP) ELSE published_at END,updated_at=CURRENT_TIMESTAMP WHERE id=?",
+        return jdbc.update("UPDATE programmes SET status=?,published_at=CASE WHEN ? THEN COALESCE(published_at,CURRENT_TIMESTAMP) ELSE published_at END,updated_at=CURRENT_TIMESTAMP WHERE id=? AND deleted_at IS NULL",
                 enabled ? "PUBLISHED" : "ARCHIVED", enabled, id);
     }
 
@@ -173,7 +173,7 @@ public class AdminCatalogRepository {
     }
 
     public boolean countryExists(String code) { return Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM countries WHERE code=?)", Boolean.class, code)); }
-    public boolean universityExists(long id) { return Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM universities WHERE id=?)", Boolean.class, id)); }
+    public boolean universityExists(long id) { return Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM universities WHERE id=? AND deleted_at IS NULL)", Boolean.class, id)); }
     public boolean categoryExists(long id) { return Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM subject_categories WHERE id=? AND status='PUBLISHED')", Boolean.class, id)); }
     public boolean studyLevelExists(Long id) { return id == null || Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM study_levels WHERE id=? AND status='PUBLISHED')", Boolean.class, id)); }
     public boolean courseModeExists(Long id) { return id == null || Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM course_modes WHERE id=? AND status='PUBLISHED')", Boolean.class, id)); }
@@ -183,7 +183,7 @@ public class AdminCatalogRepository {
         List<Option> categories = jdbc.query("SELECT id,code,name_zh,name_en FROM subject_categories WHERE status='PUBLISHED' ORDER BY sort_order,code", OPTION_MAPPER);
         List<Option> levels = jdbc.query("SELECT id,code,name_zh,name_en FROM study_levels WHERE status='PUBLISHED' ORDER BY sort_order,code", OPTION_MAPPER);
         List<Option> modes = jdbc.query("SELECT id,code,name_zh,name_en FROM course_modes WHERE status='PUBLISHED' ORDER BY sort_order,code", OPTION_MAPPER);
-        List<Option> universities = jdbc.query("SELECT id,COALESCE(university_code,slug),name_zh,name_en FROM universities ORDER BY COALESCE(name_zh,name_en,name)", OPTION_MAPPER);
+        List<Option> universities = jdbc.query("SELECT id,COALESCE(university_code,slug),name_zh,name_en FROM universities WHERE deleted_at IS NULL ORDER BY COALESCE(name_zh,name_en,name)", OPTION_MAPPER);
         return new Options(countries, categories, levels, modes, universities);
     }
 
@@ -193,6 +193,17 @@ public class AdminCatalogRepository {
                 SELECT ?,'PENDING',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP
                 WHERE NOT EXISTS (SELECT 1 FROM search_sync_jobs WHERE university_id=? AND status IN ('PENDING','PROCESSING'))
                 """, universityId, universityId);
+    }
+
+    public boolean sameUniversity(UniversityInput in) {
+        return jdbc.query("SELECT u.name_zh,u.name_en,u.name FROM universities u JOIN countries c ON c.id=u.country_id WHERE c.code=?", (rs,n)->List.of(trim(rs.getString(1)),trim(rs.getString(2)),trim(rs.getString(3))),in.countryCode()).stream()
+            .flatMap(List::stream).map(AdminImportService::normalize).filter(v->!v.isEmpty())
+            .anyMatch(v->v.equals(AdminImportService.normalize(in.nameZh()))||v.equals(AdminImportService.normalize(in.nameEn())));
+    }
+    public boolean sameProgramme(ProgrammeInput in) {
+        return jdbc.query("SELECT name_zh,name_en FROM programmes WHERE university_id=? AND study_level_id IS NOT DISTINCT FROM ? AND campus IS NULL",(rs,n)->List.of(trim(rs.getString(1)),trim(rs.getString(2))),in.universityId(),in.studyLevelId()).stream()
+            .flatMap(List::stream).map(AdminImportService::normalize).filter(v->!v.isEmpty())
+            .anyMatch(v->v.equals(AdminImportService.normalize(in.nameZh()))||v.equals(AdminImportService.normalize(in.nameEn())));
     }
 
     private static String countryPredicate(String country) {

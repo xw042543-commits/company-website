@@ -66,6 +66,8 @@
       <view wx:elif="{{section.key === 'CAREER_PROSPECTS' && section.contentBlocks.length}}" class="career-grid">
         <view wx:for="{{section.contentBlocks}}" wx:key="label" class="career-card">
           <view class="career-label">{{item.label}}</view><view class="career-copy">{{item.text}}</view>
+          <view wx:if="{{section.referenceBody}}" class="curriculum-footnote">参考学习领域，非官方课程表
+{{section.referenceBody}}</view>
         </view>
       </view>
       <view wx:else class="section-body section-body--{{section.key}} {{section.available ? '' : 'section-body--pending'}}">{{section.body}}</view>

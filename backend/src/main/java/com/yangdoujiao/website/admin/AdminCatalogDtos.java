@@ -25,8 +25,8 @@ public final class AdminCatalogDtos {
             long programmeCount, OffsetDateTime updatedAt) {}
 
     public record UniversityInput(
-            @NotBlank @Pattern(regexp = "^[A-Z][A-Z0-9_]{0,63}$") String universityCode,
-            @NotBlank @Pattern(regexp = "^[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(max = 200) String slug,
+            @Pattern(regexp = "^$|^[A-Z][A-Z0-9_]{0,63}$") String universityCode,
+            @Pattern(regexp = "^$|^[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(max = 200) String slug,
             @Size(max = 200) String nameZh,
             @Size(max = 200) String nameEn,
             @NotBlank @Pattern(regexp = "^[A-Z]{2}$") String countryCode,
@@ -46,9 +46,9 @@ public final class AdminCatalogDtos {
             String officialUrl, String status, OffsetDateTime updatedAt) {}
 
     public record ProgrammeInput(
-            @NotBlank @Pattern(regexp = "^[A-Z][A-Z0-9_]{0,63}$") String programmeCode,
+            @Pattern(regexp = "^$|^[A-Z][A-Z0-9_]{0,63}$") String programmeCode,
             @NotNull @Positive Long universityId,
-            @NotBlank @Pattern(regexp = "^[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(max = 200) String slug,
+            @Pattern(regexp = "^$|^[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(max = 200) String slug,
             @Size(max = 200) String nameZh,
             @Size(max = 200) String nameEn,
             @NotNull @Positive Long categoryId,
