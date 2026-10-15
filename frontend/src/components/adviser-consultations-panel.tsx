@@ -164,6 +164,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
       </div></div>
       <p>{words(locale, "当前账户", "Signed-in account")}<strong>{identity ?? words(locale, "正在载入…", "Loading…")}</strong></p>
     </section>
+    <section className="adviser-control-deck" aria-label={words(locale, "咨询筛选", "Consultation filters")}>
     <div className="adviser-counts" role="group" aria-label={words(locale, "按状态筛选", "Filter by status")} aria-busy={pending}>
       {(["", ...statuses] as const).map((value) => <button type="button" className="adviser-count-card" aria-pressed={status === value} key={value || "ALL"} disabled={pending} onClick={() => setStatusFilter(value)}>
         <span>{value ? statusLabel(value) : words(locale, "全部咨询", "All enquiries")}</span><strong>{countFor(value)}</strong>
@@ -179,7 +180,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
         <small id="adviser-search-hint">{words(locale, "姓名、联系方式或咨询编号", "Name, contact details or reference code")}</small></div>
       <div><label htmlFor="adviser-status">{words(locale, "处理状态", "Processing status")}</label>
         <select id="adviser-status" value={status} onChange={(event) => setStatusFilter(event.target.value as ConsultationStatus | "")}><option value="">{words(locale, "全部状态", "All statuses")}</option>{statuses.map((value) => <option key={value} value={value}>{statusLabel(value)}</option>)}</select></div>
-    </div>
+    </div></section>
     <div className="adviser-master-detail">
       <section className="adviser-record-list" aria-label={words(locale, "咨询列表", "Consultation list")} aria-busy={pending}>
         <div className="adviser-list-heading"><div><h2>{words(locale, "客户咨询", "Client enquiries")}</h2><p>{words(locale, "最新提交优先 · 马来西亚时间", "Newest first · Malaysia time")}</p></div>{data && <strong>{data.totalElements}</strong>}</div>

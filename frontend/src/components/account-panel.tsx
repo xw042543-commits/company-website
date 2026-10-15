@@ -2,8 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { type FormEvent, useEffect, useState } from "react";
-import { changePassword, deleteAccount, getAccount, logout, type AccountProfile } from "@/lib/auth-api";
+import { changePassword, deleteAccount, getAccount, getSession, logout, type AccountProfile } from "@/lib/auth-api";
 import { authMessage, type AuthMessage } from "@/lib/auth-form-state";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { type Locale, words } from "@/lib/site";
@@ -16,6 +17,7 @@ export function AccountPanel({ locale }: { locale: Locale }) {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState<AuthMessage | null>(null);
   const [demoAccount, setDemoAccount] = useState(false);
+  const [isAdviser, setIsAdviser] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [deletePassword, setDeletePassword] = useState("");
@@ -43,11 +45,15 @@ export function AccountPanel({ locale }: { locale: Locale }) {
         setLoading(false);
         return;
       }
-      const result = await getAccount(browserApiBaseUrl());
+      const [result, session] = await Promise.all([
+        getAccount(browserApiBaseUrl()),
+        getSession(browserApiBaseUrl()),
+      ]);
       if (!active) return;
       if (result.status === "ready") setAccount(result.account);
       else if (result.status === "unauthorized") router.replace(`/${locale}/login`);
       else setMessage(authMessage(locale, result));
+      if (session.status === "ready") setIsAdviser(session.session.adviser || session.session.admin);
       setLoading(false);
     })();
     return () => { active = false; };
@@ -132,6 +138,15 @@ export function AccountPanel({ locale }: { locale: Locale }) {
       </dl>
       {demoAccount && <p className="demo-account-note">{words(locale, "这是仅用于本地测试的演示账户，不会保存任何账户更改。", "This local demo account is for testing only and does not save account changes.")}</p>}
     </section>
+
+    {isAdviser && <section className="account-adviser-link" aria-labelledby="account-adviser-title">
+      <div><span className="account-adviser-kicker">{words(locale, "内部工具", "Internal tools")}</span>
+        <h2 id="account-adviser-title">{words(locale, "顾问工作台", "Adviser workspace")}</h2>
+        <p>{words(locale, "查看已完成的客户咨询，并进入完整的咨询管理后台。", "Review completed client enquiries and open the full consultation workspace.")}</p></div>
+      <Link className="button" href={`/${locale}/adviser/consultations?status=COMPLETED&page=1`}>
+        {words(locale, "打开咨询管理", "Open consultations")}<span aria-hidden="true">→</span>
+      </Link>
+    </section>}
 
     <SavedItemsPanel locale={locale} />
     <ConsultationHistoryPanel locale={locale} />
