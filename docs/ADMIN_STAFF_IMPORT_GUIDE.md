@@ -113,3 +113,4 @@ COMMIT;
 - `miniapp/miniprogram/utils/discovery-view.ts`
 - `miniapp/tests/discovery-view.test.ts`
 - `backend/src/test/java/com/yangdoujiao/website/admin/AdminImportIntegrationTest.java`
+- `backend/src/test/java/com/yangdoujiao/website/admin/AdminImportExcelTest.java`

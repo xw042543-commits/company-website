@@ -15,7 +15,7 @@ public class AdminImportExcel {
     public static final long MAX_BYTES = 5 * 1024 * 1024;
     public record Column(String key, String title) {}
     public record ParsedRow(int number, Map<String,Object> payload, String error) {}
-    public static final List<Column> UNIVERSITY = columns("universityCode:院校内部编码（选填）,slug:页面地址（选填）,nameZh:院校中文名称,nameEn:院校英文名称,countryCode:国家*,aliases:别名（分号分隔）,regionZh:地区中文,regionEn:地区英文,descriptionZh:简介中文,descriptionEn:简介英文,officialUrl:官网链接,logoUrl:Logo链接");
+    public static final List<Column> UNIVERSITY = columns("universityCode:院校内部编码（选填）,slug:页面地址（选填）,nameZh:院校中文名称,nameEn:院校英文名称,countryCode:国家*,aliases:别名（分号分隔）,regionZh:地区中文,regionEn:地区英文,descriptionZh:简介中文,descriptionEn:简介英文,officialUrl:官网链接,logoUrl:校徽图片链接");
     public static final List<Column> PROGRAMME = columns("programmeCode:专业内部编码（选填）,universityCode:所属院校*,slug:页面地址（选填）,nameZh:专业中文名称,nameEn:专业英文名称,aliases:别名（分号分隔）,categoryCode:学科分类*,studyLevelCode:学历层次*,campus:校区,courseModeCode:授课方式,durationMonths:学制月数,durationDisplay:学制说明,tuitionMin:最低学费,tuitionMax:最高学费,tuitionCurrency:学费币种（如MYR）,tuitionDisplay:学费说明,descriptionZh:专业介绍中文,descriptionEn:专业介绍英文,admissionsZh:入学要求中文,admissionsEn:入学要求英文,curriculumZh:课程介绍中文,curriculumEn:课程介绍英文,officialUrl:官网链接");
     public static final List<Column> COURSE=columns("courseCode:课程内部编码（选填）,programmeCode:所属专业*,universityCode:所属院校（选填）,studyLevelCode:学历层次（选填）,nameZh:课程中文名称*,nameEn:课程英文名称,officialCode:官网课程代码（选填）,descriptionZh:课程介绍,sourceUrl:资料来源链接,sourceType:资料来源,sortOrder:展示顺序（选填）");
     private static List<Column> columns(String spec) { return Arrays.stream(spec.split(",")).map(s -> s.split(":" )).map(s -> new Column(s[0],s[1])).toList(); }
@@ -28,7 +28,7 @@ public class AdminImportExcel {
             Sheet guide=book.createSheet("填写说明");
             String[] notes={"填写步骤：先阅读说明和填写示例，再在导入数据表填写；保留表头和顺序。最多500条、5MB。", "带*是必填项，其余可留空。院校和专业的中文、英文名称至少填一个；课程必须填写中文名称。", "内部编码和页面地址均可留空，系统会自动生成；已有同名记录会复用原编码并标记重复，不会覆盖。", "国家、所属院校、学科分类、学历层次、授课方式可从下拉选项选择，也可填写已有名称或编码。", "所属专业请从可选资料中查找。名称重名时，请同时填写所属院校、学历或使用专业内部编码。", "别名用分号分隔；学制月数填正整数，学费填纯数字（最多两位小数），填写学费时须填币种如MYR。", "课程的内部编码与官网课程代码分别保存。学校未提供的官网代码、学分、必修要求不要自行编写。", "课程资料来源可选：学校官网、其他资料、参考概述；选择学校官网必须提供可核对的来源链接。", "示例表仅说明格式，不会被导入。上传后检查错误行和修改建议，再选中有效草稿确认发布。", "重复、疑似重复和冲突默认不导入；可下载重复资料表人工核对。必须先发布院校，再发布专业，最后导入课程。"};
             for(int i=0;i<notes.length;i++) guide.createRow(i).createCell(0).setCellValue(notes[i]); guide.setColumnWidth(0,24000);
-            Sheet dict=book.createSheet("字典"); header(book,dict,List.of("类型","代码","中文名称","英文名称"));
+            Sheet dict=book.createSheet("可选资料"); header(book,dict,List.of("资料类型","内部编码（重名时使用）","中文名称","英文名称"));
             int row=1;
             for(var entry:Map.of("国家",options.countries(),"学科",options.categories(),"学历",options.studyLevels(),"授课方式",options.courseModes(),"院校",options.universities()).entrySet())
                 for(var option:entry.getValue()) {Row r=dict.createRow(row++); text(r,0,entry.getKey());text(r,1,option.code());text(r,2,option.nameZh());text(r,3,option.nameEn());}

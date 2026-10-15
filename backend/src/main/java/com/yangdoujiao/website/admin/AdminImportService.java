@@ -173,7 +173,7 @@ public class AdminImportService {
         Object input=type==EntityType.UNIVERSITY?university(data):type==EntityType.COURSE?course(data,c):programme(data,c);
         if(type==EntityType.COURSE){try{courses.validate((AdminCourseService.CourseInput)input);}catch(ApiException e){throw new IllegalArgumentException(e.getMessage());}}
         var violations=validator.validate(input);if(!violations.isEmpty())throw new IllegalArgumentException("字段格式错误："+violations.stream().map(v->AdminImportExcel.columns(type).stream().filter(f->f.key().equals(v.getPropertyPath().toString())).map(AdminImportExcel.Column::title).findFirst().orElse("关联字段")).sorted().reduce((a,b)->a+"、"+b).orElse(""));
-        if(type==EntityType.UNIVERSITY&&!c.countries().containsKey(str(data,"countryCode")))throw new IllegalArgumentException("国家代码不存在，请使用字典中的代码");
+        if(type==EntityType.UNIVERSITY&&!c.countries().containsKey(str(data,"countryCode")))throw new IllegalArgumentException("国家未匹配，请从模板下拉选项或可选资料中选择");
         if(type==EntityType.PROGRAMME){
             if(!c.universityIds().containsKey(str(data,"universityCode")))throw new IllegalArgumentException("所属院校不存在，请先发布院校或使用已有院校编码");
             if(!c.categories().containsKey(str(data,"categoryCode")))throw new IllegalArgumentException("学科分类不存在或未启用");

@@ -11,7 +11,7 @@ class AdminImportExcelTest {
     @Test void templatesHaveExactHeadersAndChineseInstructions() throws Exception {
         for(var type:EntityType.values())try(var book=new XSSFWorkbook(new ByteArrayInputStream(excel.template(type,options)))){
             assertThat(book.getSheet("导入数据").getRow(0).getLastCellNum()).isEqualTo((short)AdminImportExcel.columns(type).size());
-            assertThat(book.getSheet("填写说明")).isNotNull();assertThat(book.getSheet("字典")).isNotNull();
+            assertThat(book.getSheet("填写说明")).isNotNull();assertThat(book.getSheet("可选资料")).isNotNull();
         }
     }
     @Test void refusesChangedHeadersAndEmptyWorkbooks() throws Exception {
