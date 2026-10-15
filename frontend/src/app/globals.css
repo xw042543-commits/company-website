@@ -2339,3 +2339,40 @@ textarea:focus {
   .adviser-console-header > .button { grid-column: 2; grid-row: 1; }
   .adviser-page-heading { padding: 18px 20px; }
 }
+
+/* Give both adviser workspaces a quieter frame and let short queues end naturally. */
+.adviser-portal { background: #f3f5f2; }
+.adviser-console { padding: clamp(20px, 3vw, 40px); }
+.adviser-console-shell { width: min(1320px, 100%); }
+.adviser-console-header,
+.adviser-page-heading,
+.adviser-collection-state,
+.adviser-control-deck { border-color: #d8e0da; background: #fffdfa; box-shadow: none; }
+.adviser-page-heading { padding: 18px 24px; }
+.adviser-page-heading h1 { font-size: clamp(1.5rem, 2vw, 1.95rem); }
+.adviser-page-heading + .adviser-panel,
+.adviser-page-heading + * .adviser-panel { margin-top: 18px; }
+.adviser-portal button,
+.adviser-portal .button { box-shadow: none; }
+.adviser-portal .adviser-list-heading h2 { font-size: 1.25rem; }
+.adviser-portal .adviser-detail-heading h2 { font-size: 1.4rem; }
+.adviser-portal .adviser-list-heading { background: #f7f9f6; }
+.adviser-portal .adviser-records li + li { border-color: #e3e8e3; }
+.adviser-portal .adviser-record:hover { background: #f5f8f5; }
+.adviser-portal .adviser-record[data-selected="true"] { background: #f3f7f3; box-shadow: inset 0 0 0 2px #a8c5b8; }
+.consultation-workspace .adviser-master-detail,
+.community-workspace .community-master-detail { gap: 16px; align-items: start; }
+.consultation-workspace .adviser-record-list,
+.consultation-workspace .adviser-detail,
+.community-workspace .adviser-record-list,
+.community-workspace .adviser-detail { border: 1px solid #d8e0da; border-radius: 10px; background: #fffdfa; }
+.consultation-workspace .adviser-detail,
+.community-workspace .adviser-detail { min-height: 360px; }
+.community-workspace .community-filter-set { margin-bottom: 16px; border-color: #d8e0da; background: #fffdfa; }
+.community-workspace .adviser-record-list { align-self: start; }
+
+@media (max-width: 800px) {
+  .adviser-console { padding: 14px; }
+  .consultation-workspace .adviser-master-detail,
+  .community-workspace .community-master-detail { gap: 14px; }
+}
