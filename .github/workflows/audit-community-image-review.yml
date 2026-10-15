@@ -43,7 +43,12 @@ jobs:
           ssh -i "$audit_key" -o BatchMode=yes -o IdentitiesOnly=yes \
             -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
             -p "$PRODUCTION_SSH_PORT" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
-            "cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml exec -T backend sh -c 'printf \"image_review_enabled=%s worker_enabled=%s\\n\" \"\$APP_COMMUNITY_IMAGES_REVIEW_ENABLED\" \"\${APP_COMMUNITY_IMAGES_REVIEW_WORKER_ENABLED:-true}\"'"
+            "cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml exec -T backend sh -c 'printf \"image_review_enabled=%s worker_enabled=%s diagnostics_enabled=%s\\n\" \"\$APP_COMMUNITY_IMAGES_REVIEW_ENABLED\" \"\${APP_COMMUNITY_IMAGES_REVIEW_WORKER_ENABLED:-true}\" \"\${APP_COMMUNITY_IMAGES_REVIEW_DIAGNOSTICS_ENABLED:-false}\"'"
+          echo 'Recent local media probe results (last two hours; aggregate only)'
+          ssh -i "$audit_key" -o BatchMode=yes -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
+            -p "$PRODUCTION_SSH_PORT" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" \
+            "cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml logs --since 2h backend 2>&1 | grep 'community image review probe mediaHash=' | sed -E 's/.*urlValid=([^ ]+) httpStatus=([^ ]+) jpegType=([^ ]+) jpegPrefix=([^ ]+) declaredLength=([^ ]+).*/urlValid=\\1 httpStatus=\\2 jpegType=\\3 jpegPrefix=\\4 declaredLength=\\5/' | grep '^urlValid=' | sort | uniq -c || true"
           echo 'Recent sanitized callback outcomes (last two hours; aggregate only)'
           ssh -i "$audit_key" -o BatchMode=yes -o IdentitiesOnly=yes \
             -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
