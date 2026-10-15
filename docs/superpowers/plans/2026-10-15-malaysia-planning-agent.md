@@ -321,7 +321,7 @@ export function canSave(state: AgentViewState, confirmed: boolean): boolean {
 
 **Files:** 创建 `backend/src/test/resources/planning-agent/evaluation-cases.json`、`backend/src/test/java/com/yangdoujiao/website/planningagent/PlanningEvaluationTest.java`、`docs/testing/malaysia-planning-agent-acceptance.md`。更新本计划任务勾选状态，不改已确认设计的范围。
 
-- [ ] 建 20 个合成评估案例，每层级五例，记录 profile、规则证据、expectedEligible、expectedMissing 和预算原币结果。合成案例不得标作顾问已复核或官方真实数据。
+- [x] 建 20 个合成评估案例，每层级五例，记录 profile、规则证据、expectedEligible、expectedMissing 和预算原币结果。合成案例不得标作顾问已复核或官方真实数据。
 
 ```json
 {"id":"foundation-missing-evidence","level":"FOUNDATION",
@@ -330,11 +330,11 @@ export function canSave(state: AgentViewState, confirmed: boolean): boolean {
  "expectedEligible":false,"expectedMissing":["ADMISSIONS"]}
 ```
 
-- [ ] 新增先失败的完整流程测试：确认背景、生成方案、改变预算、生成第二版本、保存、咨询幂等、删除用户数据。验证模型故障不会生成假结果。
-- [ ] 运行后端 `./mvnw test`、小程序 `npm run check`、`git diff --check`，保留失败输出并修复本任务引入的问题；不声称未跑的集成测试或真机通过。
+- [x] 新增先失败的完整流程测试：确认背景、生成方案、改变预算、生成第二版本、保存、咨询幂等、删除用户数据。验证模型故障不会生成假结果。
+- [x] 运行后端 `./mvnw test`、小程序 `npm run check`、`git diff --check`，保留失败输出并修复本任务引入的问题；不声称未跑的集成测试或真机通过。
 - [ ] 用真机逐项完成设计第 10 节第 6 项，记录设备、构建号、步骤及结果。没有设备或账号时明确列为发布阻断。
-- [ ] 在验收文档列出两个独立外部门槛：真实供应商与成本/隐私批准；20 个顾问复核真实案例及四个学历的完整官方示范项目。未满足时标记未通过，不自动购买模型或修改生产。
-- [ ] 提交 `test(planning): add evaluation and release acceptance checklist`。
+- [x] 在验收文档列出两个独立外部门槛：真实供应商与成本/隐私批准；20 个顾问复核真实案例及四个学历的完整官方示范项目。未满足时标记未通过，不自动购买模型或修改生产。
+- [x] 提交 `test(planning): add evaluation and release acceptance checklist`。
 
 ## 设计覆盖与最终交接
 

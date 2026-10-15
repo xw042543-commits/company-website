@@ -126,12 +126,27 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("33");
-            assertThat(latest.info().applied()).hasSize(33);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("38");
+            assertThat(latest.info().applied()).hasSize(39);
+            var expectedVersions=new java.util.ArrayList<>(java.util.stream.IntStream.rangeClosed(1, 35)
+                    .mapToObj(Integer::toString).toList());
+            expectedVersions.add("35.1");
+            expectedVersions.addAll(java.util.List.of("36","37","38"));
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 33)
-                            .mapToObj(Integer::toString).toList());
+                    .containsExactlyElementsOf(expectedVersions);
+            assertThat(jdbcTemplate.queryForList("""
+                    SELECT table_name FROM information_schema.tables WHERE table_schema='public'
+                      AND table_name IN ('planning_evidence','planning_rule_sets','planning_fees',
+                        'planning_sessions','planning_profiles','planning_runs','planning_saved_plans')
+                    """,String.class)).containsExactlyInAnyOrder("planning_evidence","planning_rule_sets","planning_fees",
+                            "planning_sessions","planning_profiles","planning_runs","planning_saved_plans");
+            // Legacy catalogue rows remain unverified; migrations never manufacture admissions proof.
+            assertThat(jdbcTemplate.queryForObject("SELECT count(*) FROM planning_evidence",Integer.class)).isZero();
+            assertThat(jdbcTemplate.queryForObject("""
+                    SELECT is_nullable FROM information_schema.columns
+                    WHERE table_schema='public' AND table_name='planning_sessions' AND column_name='last_activity_at'
+                    """,String.class)).isEqualTo("NO");
             assertThat(jdbcTemplate.queryForMap("""
                     SELECT status, published_at IS NOT NULL AS has_published_at
                     FROM universities WHERE id = ?
