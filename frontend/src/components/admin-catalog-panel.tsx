@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { adminRead, adminWrite, studyLevelZh, type AdminOption, type AdminOptions, type AdminPage, type AdminProgramme, type AdminUniversity } from "@/lib/admin-catalog-api";
@@ -84,6 +85,7 @@ export function AdminCatalogPanel({ locale }: { locale: Locale }) {
   return <main className="admin-console container">
     <header className="admin-console-header"><div><span className="section-label">{words(locale, "内容管理", "Content administration")}</span><h1>{words(locale, "管理后台", "Administration")}</h1><p>{words(locale, "维护院校、专业及课程资料。停用内容不会删除历史数据。", "Maintain universities, programmes and curriculum. Disabled content keeps its history.")}</p></div></header>
     <div className="admin-tabs" role="tablist">
+      <Link className="button secondary" href={`/${locale}/admin/imports`}>批量导入</Link>
       <button className={tab === "universities" ? "active" : "secondary"} onClick={() => { setTab("universities"); setPage(1); }}>{words(locale, "院校管理", "Universities")}</button>
       <button className={tab === "programmes" ? "active" : "secondary"} onClick={() => { setTab("programmes"); setPage(1); }}>{words(locale, "专业 / 课程管理", "Programmes / curriculum")}</button>
     </div>

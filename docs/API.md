@@ -363,3 +363,40 @@ APP_TRUSTED_PROXIES=
 
 授权 `state`、待绑定微信身份和登录 Session 都只保存在服务端。接口不会根据微信身份自动
 创建未验证账号，也不会把授权 code、Token、Session ID 或微信原始标识写入公开响应。
+
+
+## 管理员 Excel 批量导入
+
+管理员页面：`/[locale]/admin/imports`。所有 `/api/v1/admin/imports/**` 接口沿用服务端
+`ROLE_ADMIN` 校验和登录会话；所有写请求必须携带 CSRF Token。解析、字典校验及查重在后端完成。
+
+| 方法 | 路径 | 用途 |
+| --- | --- | --- |
+| GET | `/api/v1/admin/imports/templates/{type}` | 下载固定 .xlsx 模板与当前字典，type 为 UNIVERSITY 或 PROGRAMME |
+| POST | `/api/v1/admin/imports` | multipart：type、file，校验后生成独立导入批次与行级草稿 |
+| GET | `/api/v1/admin/imports?page=1&size=20` | 按时间分页查看批次；size 最大100 |
+| GET | `/api/v1/admin/imports/{id}` | 查看批次统计、上传人、时间及失败原因 |
+| GET | `/api/v1/admin/imports/{id}/rows` | 返回该批次全部行，最多500条 |
+| PUT | `/api/v1/admin/imports/{id}/rows/{rowId}` | JSON `{payload: {...模板字段}}`，编辑并重新校验；已发布/移除行不可改 |
+| POST | `/api/v1/admin/imports/{id}/remove` | JSON `{rowIds: [1,2]}`，软移除有效草稿 |
+| POST | `/api/v1/admin/imports/{id}/reprocess` | 对未发布、未移除行重新校验和查重；原始公式等解析错误保留，需显式编辑修正 |
+| POST | `/api/v1/admin/imports/{id}/publish` | JSON `{rowIds: [1,2]}`，再查重后事务发布；返回 batch、publishedCount |
+| GET | `/api/v1/admin/imports/{id}/duplicates.xlsx` | 三个Sheet：完全重复、疑似重复、字段冲突；含导入数据、已有数据、原因及ID |
+
+固定模板从服务端动态生成，第一张表必须为“导入数据”，表头及顺序不得更改。
+模板附“填写说明”和“字典”，关联使用稳定代码，不按中文显示名称绑定。
+每次最多500行，压缩文件最大5MB、展开内容最大30MB；不接受公式、宏、外部工作簿链接、
+额外列或非法格式。数字为非负学费（最多两位小数）及正整数学制月数。
+名称至少中文或英文一个；院校、国家、学科、学历、授课方式必须使用存在的有效字典。
+
+结果分类：NEW（有效草稿）、EXACT_DUPLICATE、POSSIBLE_DUPLICATE、CONFLICT、INVALID。
+查重使用Unicode NFKC、大小写/空白/标点归一、中文/英文名称、明确提供的别名，以及国家、
+所属院校、学历、校区。不会猜测未知中英文译名。名称近似或校区信息不足时进入疑似重复区。
+不同明确校区、不同学历不自动合并；同编码或网址冲突均阻止导入。
+数据库及本次Excel内部都参与查重，重复数据默认不创建草稿、不覆盖正式记录。
+
+发布在同一事务中先锁定批次，再锁定院校/专业写入，重新读取正式记录查重；这也阻止其他
+后台写入在查重与插入间穿插。同一选择若发现任意重复/冲突，则本次发布0条并返回更新后的
+分类，管理员重新选择；数据库异常则整批回滚。重复提交已发布的选择返回0条，不重复新增。
+发布复用现有管理服务写入正式表、详情章节及搜索同步队列；原有有效数据不修改。
+结构错误的文件保留失败批次与原因，须修正文件并重新上传；行级错误可在界面编辑和重新处理。

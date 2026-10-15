@@ -57,3 +57,11 @@ Inspect `git status`, read `AGENTS.md` and the relevant documentation, then veri
 the implementation. Documentation is a navigation aid rather than a substitute
 for checking the code. Keep API, schema, configuration, and architecture guidance
 current when their implementation changes.
+
+
+## Admin Excel imports
+
+`/[locale]/admin/imports` provides university/programme templates, server-side validation and
+duplicate checks, independent editable drafts, duplicate workbook export and import history.
+The implementation adds Flyway V52; production availability requires deploying that migration and
+both applications. This development task does not by itself publish user catalogue data.
