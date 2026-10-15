@@ -18,6 +18,7 @@ import com.yangdoujiao.website.TestContainersConfiguration;
 import com.yangdoujiao.website.common.exception.ApiException;
 import com.yangdoujiao.website.auth.AuthHash;
 import static com.yangdoujiao.website.planningagent.session.PlanningDtos.*;
+import static com.yangdoujiao.website.planningagent.eligibility.EligibilityTypes.*;
 
 @SpringBootTest(properties={"app.planning-agent.enabled=true","app.planning-agent.privacy-version=planning-v1","app.planning-agent.scheduling-enabled=false",
         "app.miniapp.auth.enabled=true","app.miniapp.auth.local-provider-enabled=true",
@@ -77,6 +78,34 @@ class PlanningSessionIntegrationTest {
                 .content("{\"ageBand\":\"AGE_18_PLUS\",\"privacyVersion\":\"planning-v1\",\"ownerId\":"+other+"}"))
                 .andExpect(status().isCreated());
         assertThat(jdbc.queryForObject("SELECT count(*) FROM planning_sessions WHERE owner_id=?",Integer.class,other)).isZero();
+    }
+    @Test void frontendScoreContractAndHistoricalAliasesSurviveConfirmationPrivacyAndRealEvaluation() throws Exception {
+        var json = new tools.jackson.databind.ObjectMapper();
+        var request = json.treeToValue(json.readTree(getClass().getResourceAsStream("/planning-score-contract.json")).get("profile"), ProfileConfirmation.class);
+        var legacy = new LinkedHashMap<>(request.facts());
+        legacy.put("grade.scale","PERCENT"); legacy.put("math.scale","GPA4"); legacy.put("science.scale","GPA5");
+        code("INVALID_PROFILE", () -> service.confirm(owner,session(),new ProfileConfirmation(0,Map.of("grade","80","grade.scale","UNKNOWN"))));
+        String principal = bearer(owner);
+        for (var facts : List.of(request.facts(), legacy)) {
+            UUID id = session(); String prefix = "/api/v1/miniapp/me/planning-agent/sessions/"+id;
+            mvc.perform(post(prefix+"/profile-confirmation").header("Authorization",principal).contentType("application/json")
+                    .content(json.writeValueAsString(new ProfileConfirmation(0,facts))))
+                    .andExpect(status().isOk()).andExpect(jsonPath("$.confirmedVersion").value(1));
+            var profile = repository.profile(owner,id,1);
+            assertThat(profile.facts()).containsExactlyInAnyOrderEntriesOf(request.facts());
+            var now = Instant.now();
+            var sanitized = new com.yangdoujiao.website.planningagent.security.PlanningPrivacyFilter().sanitize(
+                    new RunInput(UUID.randomUUID(),id,owner,Intent.GENERATE,"生成方案",profile,List.of(),now.plusSeconds(60)),List.of()).confirmedProfile();
+            assertThat(sanitized.facts()).containsExactlyInAnyOrderEntriesOf(request.facts());
+            var rules = new RuleSet(1,1,true,List.of(List.of(new Condition("grade","GTE","70","100",7),
+                    new Condition("math","GTE","3","4",7),new Condition("science","GTE","4","5",7))));
+            var evidence = new com.yangdoujiao.website.planningagent.evidence.Evidence(7,1,"ADMISSIONS","https://example.edu/synthetic",
+                    "OFFICIAL","CN_MAINLAND","2027-02",now,null,"VERIFIED",3L,"Synthetic score contract, not admissions data",false);
+            var assessment = new com.yangdoujiao.website.planningagent.eligibility.EligibilityEvaluator().evaluate(
+                    sanitized,rules,Map.of(7L,evidence),now,"2027-02");
+            assertThat(assessment.eligible()).isTrue();
+            assertThat(assessment.alternatives().getFirst()).extracting(Finding::status).containsExactly(Status.MET,Status.MET,Status.MET);
+        }
     }
     @Test void disabledFeatureRejectsRequestsBeforeCreatingPersistentState() {
         var disabled=new PlanningSessionService(repository,Clock.systemUTC(),false,"planning-v1",limits);

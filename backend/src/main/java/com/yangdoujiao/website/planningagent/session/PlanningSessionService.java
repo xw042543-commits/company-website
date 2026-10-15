@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import com.yangdoujiao.website.common.exception.ApiException;
 import com.yangdoujiao.website.planningagent.security.PlanningLimits;
+import com.yangdoujiao.website.planningagent.eligibility.AcademicScoreScale;
 
 @Service
 public class PlanningSessionService {
@@ -76,7 +77,13 @@ public class PlanningSessionService {
             String level=request.facts().get("targetLevel");
             if(level!=null && !Set.of("FOUNDATION","BACHELOR","MASTER","DOCTOR").contains(level)) throw error(HttpStatus.BAD_REQUEST,"INVALID_PROFILE");
             if(repository.active(owner,session)) throw error(HttpStatus.CONFLICT,"RUN_ACTIVE");
-            repository.confirm(owner,session,current+1,Map.copyOf(request.facts()),clock.instant());
+            var facts = new LinkedHashMap<>(request.facts());
+            for (String field : AcademicScoreScale.FIELDS) if (facts.containsKey(field)) {
+                String scale = AcademicScoreScale.canonical(field,facts.get(field));
+                if (!AcademicScoreScale.supported(scale)) throw error(HttpStatus.BAD_REQUEST,"INVALID_PROFILE");
+                facts.put(field,scale);
+            }
+            repository.confirm(owner,session,current+1,Map.copyOf(facts),clock.instant());
             return new ProfileConfirmed(current+1);
         });
     }

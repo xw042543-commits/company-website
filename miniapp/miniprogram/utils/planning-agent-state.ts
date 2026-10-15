@@ -1,5 +1,10 @@
 import type { Plan, Programme } from '../services/planning-agent';
 export type AgentViewState = 'idle' | 'sending' | 'polling' | 'ready' | 'failed';
+const academicScaleAliases: Record<string, string> = { PERCENT: '100', GPA4: '4', GPA5: '5', GPA10: '10' };
+/** Label aliases only: never convert a score or equate a language exam with its maximum. */
+export function canonicalAcademicScale(field: string, value: string): string {
+  return ['grade.scale', 'math.scale', 'science.scale'].includes(field) ? academicScaleAliases[value] ?? value : value;
+}
 export function canSave(state: AgentViewState, confirmed: boolean): boolean { return state === 'ready' && confirmed; }
 export function createRequestAttempt(createKey: () => string) {
   let previous = ''; let requestKey = '';

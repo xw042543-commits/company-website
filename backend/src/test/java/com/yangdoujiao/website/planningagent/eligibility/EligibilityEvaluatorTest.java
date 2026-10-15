@@ -150,6 +150,29 @@ class EligibilityEvaluatorTest {
                 .isEqualTo(Status.NOT_MET);
     }
 
+    @Test void academicAliasesMatchInBothDirectionsButDifferentScalesNeverConvert() {
+        var aliases = new tools.jackson.databind.ObjectMapper().readTree(
+                getClass().getResourceAsStream("/planning-score-contract.json")).get("aliases");
+        for (String field : List.of("grade", "math", "science")) {
+            for (var alias : aliases.properties()) {
+                for (var pair : List.of(List.of(alias.getKey(), alias.getValue().asText()), List.of(alias.getValue().asText(), alias.getKey()))) {
+                    assertThat(evaluate(Map.of(field, "3.0", field+".scale", pair.get(0)), true,
+                            List.of(List.of(condition(field,"GTE","3",pair.get(1)))),official()).eligible()).isTrue();
+                }
+            }
+            assertThat(evaluate(Map.of(field,"80",field+".scale","PERCENT"),true,
+                    List.of(List.of(condition(field,"GTE","3","4"))),official()).alternatives().getFirst().getFirst().status()).isEqualTo(Status.PROFILE_MISSING);
+            assertThat(evaluate(Map.of(field,"80",field+".scale","UNKNOWN"),true,
+                    List.of(List.of(condition(field,"GTE","70","100"))),official()).alternatives().getFirst().getFirst().status()).isEqualTo(Status.PROFILE_MISSING);
+            assertThat(evaluate(Map.of(field,"80",field+".scale","UNKNOWN"),true,
+                    List.of(List.of(condition(field,"GTE","70","UNKNOWN"))),official()).alternatives().getFirst().getFirst().status()).isEqualTo(Status.EVIDENCE_MISSING);
+        }
+        for (var pair : List.of(List.of("IELTS","9"), List.of("TOEFL","120"))) {
+            assertThat(evaluate(Map.of("languageTotal","7","languageTotal.scale",pair.get(0)),true,
+                    List.of(List.of(condition("languageTotal","GTE","6",pair.get(1)))),official()).alternatives().getFirst().getFirst().status()).isEqualTo(Status.PROFILE_MISSING);
+        }
+    }
+
     private Assessment evaluate(Map<String, String> facts, boolean complete, List<List<Condition>> alternatives, Evidence evidence) {
         return evaluator.evaluate(new Profile(1, facts), new RuleSet(1, 1, complete, alternatives),
                 Map.of(7L, evidence), NOW, "2027-02");

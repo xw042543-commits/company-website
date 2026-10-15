@@ -1,11 +1,25 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
+import * as agentState from '../miniprogram/utils/planning-agent-state';
 import { canSave, createRunPoller, createRequestAttempt, describeError, programmeCards, parseReply } from '../miniprogram/utils/planning-agent-state';
 
 test('saving requires a ready result and explicit confirmation', () => {
   assert.equal(canSave('polling', true), false);
   assert.equal(canSave('ready', false), false);
   assert.equal(canSave('ready', true), true);
+});
+test('academic scale aliases normalize without converting scores or language examination scales', () => {
+  const { aliases } = JSON.parse(readFileSync(new URL('../../backend/src/test/resources/planning-score-contract.json', import.meta.url), 'utf8'));
+  for (const field of ['grade.scale', 'math.scale', 'science.scale']) {
+    for (const [alias, canonical] of Object.entries(aliases)) {
+      assert.equal(agentState.canonicalAcademicScale(field, alias), canonical);
+      assert.equal(agentState.canonicalAcademicScale(field, canonical as string), canonical);
+    }
+    assert.equal(agentState.canonicalAcademicScale(field, 'UNKNOWN'), 'UNKNOWN');
+  }
+  for (const value of ['IELTS', '9', 'TOEFL', '120', 'PERCENT']) assert.equal(agentState.canonicalAcademicScale('languageTotal.scale', value), value);
+  assert.equal(agentState.canonicalAcademicScale('grade', '80.0'), '80.0');
 });
 test('uncertain retries keep their key and payload changes get a fresh key', () => {
   let count = 0;

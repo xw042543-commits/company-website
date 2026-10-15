@@ -31,9 +31,12 @@ public class EligibilityEvaluator {
             return Status.EVIDENCE_MISSING;
         }
         boolean numeric = condition.scale() != null || "GTE".equals(condition.operator());
+        String scaleField = condition.field()+".scale";
+        String expectedScale = AcademicScoreScale.canonical(scaleField,condition.scale());
         BigDecimal expected = null;
         if (numeric) {
             if (blank(condition.scale())) return Status.EVIDENCE_MISSING;
+            if (AcademicScoreScale.FIELDS.contains(scaleField) && !AcademicScoreScale.supported(expectedScale)) return Status.EVIDENCE_MISSING;
             try {
                 expected = new BigDecimal(condition.expected());
             } catch (NumberFormatException invalidRule) {
@@ -43,7 +46,7 @@ public class EligibilityEvaluator {
         String actual = profile.facts().get(condition.field());
         if (blank(actual)) return Status.PROFILE_MISSING;
         if (!numeric) return actual.equals(condition.expected()) ? Status.MET : Status.NOT_MET;
-        if (!condition.scale().equals(profile.facts().get(condition.field() + ".scale"))) {
+        if (!expectedScale.equals(AcademicScoreScale.canonical(scaleField,profile.facts().get(scaleField)))) {
             return Status.PROFILE_MISSING;
         }
         try {

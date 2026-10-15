@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- Exercise native Page lifecycle through a dynamic test harness. */
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 Object.defineProperty(globalThis, 'Page', { configurable: true, value: () => {} });
 Object.defineProperty(globalThis, 'wx', { configurable: true, value: { navigateTo() {}, showToast() {}, getStorageSync() {}, setStorageSync() {}, removeStorageSync() {} } });
 const { createPlanningAgentPage } = await import('../miniprogram/pages/planning-agent/index');
@@ -80,6 +81,37 @@ test('failed login clears previously rendered snapshot and adviser personal fiel
   await page.load(); assert.equal(page.data.isSnapshot, false); assert.deepEqual(page.data.cards, []); assert.equal(page.data.consultation.name, '');
   assert.equal(page.data.error.action, 'login');
 });
+for (const boundary of ['owner-change', 'auth-failure']) test(`${boundary} clears all drafts, derived views, consents and pending recovery context`, async () => {
+  let owner = 1; let loggedIn = true; let nextKey = 0; const keys: string[] = [];
+  const page = context(createPlanningAgentPage({
+    session: { ensureAuthenticated: async () => loggedIn ? ok({ id: owner }) : { ok: false, error: { code: 'AUTH_REQUIRED' } } } as any,
+    storage: { get: () => '', set() {}, remove() {} }, createKey: () => `request-${++nextKey}`,
+    api: { capability: async () => ok({ enabled: true, available: true, privacyVersion: 'v1' }),
+      sendMessage: async (_session: string, _text: string, _intent: string, key: string) => { keys.push(key); return { ok: false, error: { code: 'NETWORK_UNAVAILABLE' } }; } } as any,
+  }));
+  page.onLoad({}); page.onShow(); await flush();
+  Object.assign(page.data, { sessionId: id, input: '预算' }); await page.send();
+  page.editProfile(); page.fieldChanged({ currentTarget: { dataset: { key: 'budget' } }, detail: { value: '123456' } }); page.reviewProfile();
+  Object.assign(page.data, { input: 'private draft', ageBand: 'AGE_18_PLUS', ageIndex: 2, privacyConsent: true, profileConsent: true,
+    saveConsent: true, shareConsent: true, consentOpen: true, shareOpen: true, saveOpen: true, moreOpen: true, menuOpen: true,
+    consultationDetails: true, qualificationIndex: 2, consultation: { name: 'private name', contact: 'private contact' },
+    receipt: 'old receipt', backgroundSummary: 'old background', confirmedFacts: { budget: '123456' }, questions: ['old question'], warnings: ['old warning'] });
+  assert.ok(page.data.summaryRows.some((row: any) => row.value === '123456'));
+  page.onHide(); if (boundary === 'owner-change') owner = 2; else loggedIn = false;
+  page.onShow(); await flush();
+  assert.deepEqual(page.data.summaryRows, []); assert.ok(page.data.fields.every((field: any) => field.value === ''));
+  assert.ok(page.data.stepFields.every((field: any) => field.value === ''));
+  for (const field of ['formOpen', 'profileReview', 'privacyConsent', 'profileConsent', 'saveConsent', 'shareConsent', 'consentOpen', 'shareOpen', 'saveOpen', 'moreOpen', 'menuOpen', 'consultationDetails']) assert.equal(page.data[field], false, field);
+  for (const field of ['input', 'ageBand', 'sessionId', 'runId', 'savedPlanId', 'receipt']) assert.equal(page.data[field], '', field);
+  assert.equal(page.data.ageIndex, 0); assert.equal(page.data.qualificationIndex, 0); assert.deepEqual(page.data.confirmedFacts, {});
+  assert.equal(page.data.consultation.name, ''); assert.equal(page.data.consultation.contact, ''); assert.deepEqual(page.data.questions, []); assert.deepEqual(page.data.warnings, []);
+  assert.notEqual(page.data.backgroundSummary, 'old background');
+  if (boundary === 'auth-failure') { assert.equal(page.data.error.action, 'login'); loggedIn = true; page.onShow(); await flush(); }
+  page.setData({ error: { action: 'profile' } }); page.recover(); assert.equal(page.data.profileStep, 0, 'old pending narrative must not steer another identity');
+  Object.assign(page.data, { sessionId: id, input: '预算', state: 'idle' }); await page.send();
+  assert.notEqual(keys[0], keys[1], 'retry identity must not survive an account/auth boundary');
+  page.onUnload();
+});
 test('terminal run clears retry key and a later profile version cannot save an older result', () => {
   const page = context(createPlanningAgentPage()); page.onLoad({}); page.data.profileVersion = 2;
   const again = page.applyRun({ runId: id, status: 'FAILED', errorCode: 'STRUCTURED_INPUT_REQUIRED', result: null, deadline: '2026-10-15T00:01:00Z' });
@@ -115,4 +147,24 @@ test('unparsed narrative opens the relevant question without inventing extracted
   assert.equal(page.data.profileStep, 4);
   assert.equal(page.data.fields.find((field: any) => field.key === 'budget').value, '');
   assert.ok(page.data.stepFields.length <= 2);
+});
+test('confirmed UI score payload matches the contract exercised by the real backend endpoint and evaluator', async () => {
+  const fixture = JSON.parse(readFileSync(new URL('../../backend/src/test/resources/planning-score-contract.json', import.meta.url), 'utf8'));
+  let submitted: any;
+  const page = context(createPlanningAgentPage({ api: { confirmProfile: async (_id: string, profile: any) => { submitted = profile; return ok({ confirmedVersion: 1 }); } } as any }));
+  page.onLoad({}); page.data.sessionId = id; page.editProfile();
+  for (const [key, value] of Object.entries(fixture.profile.facts)) {
+    const field = page.data.fields.find((candidate: any) => candidate.key === key);
+    if (key.endsWith('.scale')) {
+      // Select the actual visible choice by its ordinal, not by injecting the expected wire value.
+      const index = ['100', '4', '5', '10'].indexOf(value as string) + 1;
+      page.chooseField({ currentTarget: { dataset: { key, value: field.options[index] } } });
+    } else if (field.options.length) page.chooseField({ currentTarget: { dataset: { key, value } } });
+    else page.fieldChanged({ currentTarget: { dataset: { key } }, detail: { value } });
+  }
+  page.reviewProfile(); page.data.profileConsent = true; await page.confirmProfile();
+  assert.deepEqual(submitted, fixture.profile);
+  page.showProfile({ ...fixture.profile.facts, 'grade.scale': 'PERCENT', 'math.scale': 'GPA4', 'science.scale': 'GPA5' });
+  assert.deepEqual(page.data.fields.filter((field: any) => field.key.endsWith('.scale')).map((field: any) => field.value), ['100', '4', '5']);
+  assert.ok(page.data.fields.filter((field: any) => field.key.endsWith('.scale')).every((field: any) => field.display !== '未提供'));
 });

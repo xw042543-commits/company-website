@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import com.yangdoujiao.website.common.exception.ApiException;
 import com.yangdoujiao.website.planningagent.agent.*;
 import com.yangdoujiao.website.planningagent.eligibility.EligibilityTypes.Profile;
+import com.yangdoujiao.website.planningagent.eligibility.AcademicScoreScale;
 import com.yangdoujiao.website.planningagent.session.PlanningDtos.RunInput;
 
 /** Bounded grammar, not a claim that arbitrary personal prose can be anonymized. */
@@ -40,8 +41,11 @@ public class PlanningPrivacyFilter implements ModelInputSanitizer {
                 if(!ENUMS.get(field).contains(value)) throw structured();
                 facts.put(field,value);
             } else if(field.endsWith(".scale")) {
-                if(!Set.of("PERCENT","GPA4","GPA5","GPA10","IELTS","TOEFL","PTE","MUET","100","4","5","10","9","120").contains(value)) throw structured();
-                facts.put(field,value);
+                String scale = AcademicScoreScale.canonical(field,value);
+                if (AcademicScoreScale.FIELDS.contains(field)) {
+                    if (!AcademicScoreScale.supported(scale)) throw structured();
+                } else if(!Set.of("PERCENT","GPA4","GPA5","GPA10","IELTS","TOEFL","PTE","MUET","100","4","5","10","9","120").contains(value)) throw structured();
+                facts.put(field,scale);
             } else if(field.equals("intake")) {
                 if(!value.matches("20\\d{2}(?:[-/]\\d{1,2})?")) throw structured();
                 facts.put(field,value);

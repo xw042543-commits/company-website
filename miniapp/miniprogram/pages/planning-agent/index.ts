@@ -1,7 +1,7 @@
 import { planningAgent, validAgentId, type Plan, type Run, type Intent } from '../../services/planning-agent';
 import type { ConsultationDraft } from '../../services/consultations';
 import { sessionStore } from '../../stores/session';
-import { canSave, createRequestAttempt, createRunPoller, describeError, parseReply, programmeCards, safeSourceUrl, stepLabels, validPlan, warningText, type AgentViewState } from '../../utils/planning-agent-state';
+import { canSave, canonicalAcademicScale, createRequestAttempt, createRunPoller, describeError, parseReply, programmeCards, safeSourceUrl, stepLabels, validPlan, warningText, type AgentViewState } from '../../utils/planning-agent-state';
 
 const levels = ['FOUNDATION', 'BACHELOR', 'MASTER', 'DOCTOR'];
 const levelNames = ['预科', '本科', '硕士', '博士'];
@@ -13,7 +13,7 @@ export function profileFields(): Field[] { return [
   selectField('education', '当前学历', ['HIGH_SCHOOL', 'FOUNDATION', 'DIPLOMA', 'BACHELOR', 'MASTER', 'DOCTOR'], ['高中', '预科', '大专', '本科', '硕士', '博士']),
   selectField('qualification', '学历资格', ['HIGH_SCHOOL', 'FOUNDATION', 'DIPLOMA', 'BACHELOR', 'MASTER', 'DOCTOR', 'STPM', 'A_LEVEL', 'UEC', 'IB'], ['高中', '预科', '大专', '本科', '硕士', '博士', 'STPM', 'A Level', 'UEC', 'IB']),
   selectField('graduationStatus', '毕业状态', ['GRADUATED', 'CURRENT', 'EXPECTED'], ['已毕业', '在读', '预计毕业']),
-  textField('grade', '平均成绩', true), selectField('grade.scale', '成绩计分制', ['PERCENT', 'GPA4', 'GPA5', 'GPA10'], ['百分制', '4 分制', '5 分制', '10 分制']),
+  textField('grade', '平均成绩', true), selectField('grade.scale', '成绩计分制', ['100', '4', '5', '10'], ['百分制', '4 分制', '5 分制', '10 分制']),
   selectField('languageTest', '语言考试', ['NONE', 'IELTS', 'TOEFL', 'PTE', 'MUET'], ['尚未考试', 'IELTS', 'TOEFL', 'PTE', 'MUET']), textField('languageTotal', '语言总分', true),
   textField('subject', '专业方向（仅用于目录查询）'), textField('city', '意向城市（可选）'),
   textField('budget', '预算金额', true), selectField('budgetCurrency', '预算币种', ['MYR', 'CNY', 'USD', 'GBP', 'EUR', 'SGD']),
@@ -21,8 +21,8 @@ export function profileFields(): Field[] { return [
   selectField('budgetIncludesLiving', '预算是否含生活费', ['true', 'false'], ['包含', '不包含']),
   selectField('studyMode', '学习模式', ['FULL_TIME', 'PART_TIME', 'COURSEWORK', 'RESEARCH', 'MIXED'], ['全日制', '非全日制', '授课型', '研究型', '混合型']),
   ...['Listening', 'Reading', 'Writing', 'Speaking'].map((skill, i) => textField(`language${skill}`, `语言${['听力', '阅读', '写作', '口语'][i]}成绩`, true)),
-  textField('math', '数学成绩', true), selectField('math.scale', '数学计分制', ['PERCENT', 'GPA4', 'GPA5', 'GPA10']),
-  textField('science', '科学成绩', true), selectField('science.scale', '科学计分制', ['PERCENT', 'GPA4', 'GPA5', 'GPA10']),
+  textField('math', '数学成绩', true), selectField('math.scale', '数学计分制', ['100', '4', '5', '10'], ['百分制', '4 分制', '5 分制', '10 分制']),
+  textField('science', '科学成绩', true), selectField('science.scale', '科学计分制', ['100', '4', '5', '10'], ['百分制', '4 分制', '5 分制', '10 分制']),
   selectField('curriculum', '课程体系', ['A_LEVEL', 'IB', 'STPM', 'UEC', 'GAOKAO', 'AP']),
   selectField('degreeAwarded', '是否已获学位', ['true', 'false'], ['是', '否']),
   selectField('researchPlanReady', '是否已备研究计划', ['true', 'false'], ['是', '否']),
@@ -67,8 +67,7 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
     page.setData({ state: 'failed', busy: false, error: describeError(code) });
     if (code === 'STRUCTURED_INPUT_REQUIRED') page.openBackgroundForText(runtime(page).pendingText);
   };
-  return {
-    data: { state: 'idle' as AgentViewState, loading: true, available: false, privacyVersion: '', sessionId: '', runId: '', savedPlanId: '',
+  const initialData = () => ({ state: 'idle' as AgentViewState, loading: true, available: false, privacyVersion: '', sessionId: '', runId: '', savedPlanId: '',
       profileVersion: 0, confirmedFacts: {} as Record<string, string>, backgroundSummary: '先确认你的学习背景', fields: profileFields(), formOpen: false,
       profileStep: 0, profileReview: false, stepTitle: '', stepHint: '', stepFields: [] as Field[], summaryRows: [] as Array<{ label: string; value: string }>,
       moreGroups: profileSteps.map((step, index) => ({ label: step.label, step: index })), moreOpen: false, consentOpen: false, menuOpen: false, saveOpen: false,
@@ -78,7 +77,18 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
       isSnapshot: false, shareOpen: false, consultationDetails: false, receipt: '', keyboardHeight: 0,
       consultation: { name: '', contact: '', intendedSchool: '', intendedCourse: '', qualification: '', notes: '', privacyConsent: false } as ConsultationDraft,
       qualificationLabels: ['未选择', '预科', '本科', '硕士', '博士'], qualificationIndex: 0,
-    },
+    });
+  const resetIdentity = (page: NativePage) => {
+    const state = runtime(page);
+    state.poller.stop(); state.owner = null; state.storageKey = ''; state.routePlan = '';
+    state.lastAction = 'load'; state.pendingIntent = 'CHAT'; state.pendingText = '';
+    state.attempt.clear(); state.saveAttempt.clear(); state.shareAttempt.clear();
+    // Reset the whole view, including derived steps/summaries and every consent/draft.
+    // Keep this load's epoch/active flag; load already invalidated prior async work.
+    page.setData(initialData()); page.syncProfileStep();
+  };
+  return {
+    data: initialData(),
     onLoad(options: Record<string, string | undefined> = {}) {
       const poller = createRunPoller({ now: deps.now, schedule: deps.schedule, cancel: deps.cancel,
         read: () => deps.api.getRun(this.data.sessionId, this.data.runId),
@@ -95,12 +105,9 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
       const state = runtime(this); state.poller.stop(); const epoch = ++state.epoch; state.lastAction = 'load';
       this.setData({ loading: true, error: null, busy: false });
       const auth = await deps.session.ensureAuthenticated(); if (!alive(this, epoch)) return;
-      if (!auth.ok) { this.setData({ loading: false, available: false, sessionId: '', savedPlanId: '', isSnapshot: false, plan: null, cards: [], messages: [], shareOpen: false, formOpen: false, fields: profileFields(), confirmedFacts: {}, profileVersion: 0,
-        consultation: { name: '', contact: '', intendedSchool: '', intendedCourse: '', qualification: '', notes: '', privacyConsent: false } }); fail(this, auth.error.code); return; }
+      if (!auth.ok) { resetIdentity(this); this.setData({ loading: false }); fail(this, auth.error.code); return; }
       if (state.owner !== null && state.owner !== auth.value.id) {
-        state.routePlan = ''; state.attempt.clear(); state.saveAttempt.clear(); state.shareAttempt.clear();
-        this.setData({ sessionId: '', savedPlanId: '', messages: [], plan: null, cards: [], profileVersion: 0, fields: profileFields(), shareOpen: false, isSnapshot: false, confirmedFacts: {},
-          consultation: { name: '', contact: '', intendedSchool: '', intendedCourse: '', qualification: '', notes: '', privacyConsent: false } });
+        resetIdentity(this);
       }
       state.owner = auth.value.id; state.storageKey = `udajo.planning-agent.session.${auth.value.id}`;
       const capability = await deps.api.capability(); if (!alive(this, epoch)) return;
@@ -122,7 +129,7 @@ export function createPlanningAgentPage(overrides: Partial<Deps> = {}): WechatMi
       if (latest) { this.setData({ runId: latest.runId }); if (this.applyRun(latest)) state.poller.start(Date.parse(latest.deadline)); }
     },
     showProfile(facts: Record<string, string>) {
-      const fields = profileFields().map(f => { const value = facts[f.key] ?? ''; return { ...f, value, display: f.options.length ? f.labels[f.options.indexOf(value)] ?? '未提供' : value }; });
+      const fields = profileFields().map(f => { const value = canonicalAcademicScale(f.key, facts[f.key] ?? ''); return { ...f, value, display: f.options.length ? f.labels[f.options.indexOf(value)] ?? '未提供' : value }; });
       const level = levelNames[levels.indexOf(facts.targetLevel ?? '')] ?? '学历待补充';
       this.setData({ fields, backgroundSummary: `${level}${facts.subject ? ` · ${facts.subject}` : ''}${facts.intake ? ` · ${facts.intake} 入学` : ''}` });
       this.syncProfileStep();

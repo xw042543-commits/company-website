@@ -1,0 +1,16 @@
+{
+  "aliases": { "PERCENT": "100", "GPA4": "4", "GPA5": "5", "GPA10": "10" },
+  "profile": {
+    "version": 0,
+    "facts": {
+      "targetLevel": "BACHELOR",
+      "intake": "2027-02",
+      "grade": "80.0",
+      "grade.scale": "100",
+      "math": "3.5",
+      "math.scale": "4",
+      "science": "4.2",
+      "science.scale": "5"
+    }
+  }
+}
