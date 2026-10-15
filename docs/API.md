@@ -195,6 +195,16 @@ Returns one published programme for its published university. The final path val
 stable slug returned by programme-list responses or the numeric programme ID returned by university
 search. A missing university or programme returns the standard 404 response.
 
+### `GET /api/v1/universities/{universitySlug}/programme-categories`
+
+返回该院校已发布专业实际使用的已发布学科分类，按分类字典的 `sortOrder` 和代码排序。
+空分类不会返回；`programmeCount` 是该院校在该分类下的已发布专业数量。分类名称直接来自
+`SubjectCategory` 字典，供院校详情页生成动态筛选标签。
+
+```json
+[{ "code": "COMPUTING_IT", "nameZh": "计算机与信息技术", "nameEn": "Computing and Information Technology", "programmeCount": 12 }]
+```
+
 中文或英文字段在源数据未提供时可为 `null`，后端不自动翻译。没有匹配院校时仍
 返回 200：
 

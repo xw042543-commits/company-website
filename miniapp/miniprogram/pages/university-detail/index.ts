@@ -1,5 +1,6 @@
 import {
   getUniversityDetail,
+  getUniversityProgrammeCategories,
   getUniversityProgrammes,
   type UniversityDetail,
   type UniversityProgramme,
@@ -25,7 +26,7 @@ Page({
     programmes: [] as UniversityProgramme[],
     programmeCount: 0,
     activeSection: 'programmes' as DetailSection,
-    activeCategory: '',
+    activeCategory: 'ALL',
     programmeCategories: [] as ProgrammeCategory[],
     visibleProgrammes: [] as UniversityProgramme[],
     descriptionParagraphs: [] as string[],
@@ -121,10 +122,10 @@ Page({
     const loadProgrammes = (page: number) => this.data.planningEntry
       ? createPlanningDiscoveryService().programmes(this.data.slug, this.data.planningFilters, page)
       : getUniversityProgrammes(this.data.slug, page, 48);
-    const [detail, programmes, catalogue] = await Promise.all([
+    const [detail, programmes, categoryResponse] = await Promise.all([
       getUniversityDetail(this.data.slug),
       loadProgrammes(1),
-      loadFilterOptions(),
+      getUniversityProgrammeCategories(this.data.slug),
     ]);
     if (!detail.ok || !programmes.ok) {
       const error = !detail.ok ? detail.error : (!programmes.ok ? programmes.error : null);
@@ -147,19 +148,24 @@ Page({
       this.setData({ state: 'failed' as ViewState });
       return;
     }
-    const labels = new Map(catalogue.ok
-      ? catalogue.value.subjectCategories.map((category) => [category.code, category.nameZh]) : []);
-    const programmeCategories = deriveProgrammeCategories(allProgrammes, labels)
-      .filter((category) => category.code !== 'ALL');
-    const activeCategory = this.data.planningEntry ? '' : programmeCategories.some((category) => category.code === this.data.activeCategory)
-      ? this.data.activeCategory : programmeCategories[0]?.code ?? '';
+    let labels: Map<string, string>;
+    if (categoryResponse.ok) {
+      labels = new Map(categoryResponse.value.map((category) => [category.code, category.nameZh || category.nameEn]));
+    } else {
+      const catalogue = await loadFilterOptions();
+      labels = new Map(catalogue.ok
+        ? catalogue.value.subjectCategories.map((category) => [category.code, category.nameZh || category.nameEn]) : []);
+    }
+    const programmeCategories = deriveProgrammeCategories(allProgrammes, labels);
+    const activeCategory = programmeCategories.some((category) => category.code === this.data.activeCategory)
+      ? this.data.activeCategory : 'ALL';
     this.setData({
       university: detail.value,
       programmes: allProgrammes,
       programmeCount: programmes.value.totalItems,
       programmeCategories,
       activeCategory,
-      visibleProgrammes: this.data.planningEntry ? allProgrammes : filterProgrammes(allProgrammes, activeCategory),
+      visibleProgrammes: filterProgrammes(allProgrammes, activeCategory),
       location: [detail.value.cityZh, detail.value.countryNameZh].filter(Boolean).join('，'),
       levelSummary: summarizeLevels(allProgrammes),
       profileFacts: detail.value.sections.map((section) => ({

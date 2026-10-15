@@ -70,6 +70,28 @@ public class UniversityProgrammeQueryRepository {
         );
     }
 
+    public List<UniversityProgrammeCategoryResponse> findPublishedCategories(Long universityId) {
+        return entityManager.createQuery("""
+                SELECT new com.yangdoujiao.website.university.api.UniversityProgrammeCategoryResponse(
+                    category.code,
+                    category.nameZh,
+                    category.nameEn,
+                    COUNT(programme.id)
+                )
+                FROM Programme programme
+                JOIN programme.subjectCategory category
+                WHERE programme.university.id = :universityId
+                  AND programme.university.status = :published
+                  AND programme.status = :published
+                  AND category.status = :published
+                GROUP BY category.id, category.code, category.nameZh, category.nameEn, category.sortOrder
+                ORDER BY category.sortOrder ASC, category.code ASC
+                """, UniversityProgrammeCategoryResponse.class)
+                .setParameter("universityId", universityId)
+                .setParameter("published", CategoryStatus.PUBLISHED)
+                .getResultList();
+    }
+
     private static List<Predicate> predicates(
             CriteriaBuilder builder,
             CommonAbstractCriteria query,
