@@ -542,9 +542,10 @@ test('university profile has safe custom navigation, independent media fallbacks
   assert.match(markup, /class="programme-detail-link"[^>]*>详情/);
   assert.match(styles, /\.category-options[^}]+flex-wrap:wrap/);
   assert.match(markup, /wx:for="\{\{programmeCategories\}\}"/);
-  assert.match(markup, /category-options__track/);
+  assert.doesNotMatch(markup, /<scroll-view[^>]+class="category-options"/);
+  assert.doesNotMatch(markup, /category-options__track/);
   assert.match(markup, /\{\{item\.programmeCount\}\}/);
-  assert.match(styles, /\.category-options__track[^}]+display:inline-flex/);
+  assert.match(styles, /\.category-chip[^}]+white-space:nowrap/);
   assert.match(markup, /bindtap="selectCategory"/);
   assert.match(markup, /\{\{visibleProgrammes\.length\}\}/);
   assert.match(markup, /wx:for="\{\{visibleProgrammes\}\}"/);
