@@ -197,6 +197,9 @@ test("workspace exposes labeled filters, report aggregate, action history and gu
 test("community stylesheet includes responsive sizing and reduced-motion rules", () => {
   const css = source("../app/globals.css");
   assert.match(css, /\.community-filters/);
+  assert.match(css, /\.community-filter-footer[\s\S]*justify-content:\s*space-between/);
+  assert.match(css, /\.community-filter-actions[\s\S]*gap:\s*10px/);
+  assert.match(css, /\.community-review-images[\s\S]*object-fit:\s*contain/);
   assert.match(css, /\.community-workspace[\s\S]*min-width:\s*0/);
   assert.match(css, /\.community-workspace[\s\S]*min-height:\s*44px/);
   assert.match(css, /prefers-reduced-motion:\s*reduce[\s\S]*community/);
