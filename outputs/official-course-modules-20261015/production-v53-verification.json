@@ -10,7 +10,7 @@
   "missingChinese": 0,
   "missingSources": 0,
   "failedApiChecks": [],
-  "followupV54NotDeployed": true,
+  "courseFollowupNotDeployedAtVerification": true,
   "unrelatedProgrammeFieldsChecked": 2232,
   "unrelatedFieldDifferences": [
     {

@@ -49,6 +49,8 @@ class V64OfficialCourseModulesTest {
             long newProgramme=programme(jdbc,universities.values().iterator().next(),subject,"OUTSIDE_NEW_MY");
             for (long id : new long[]{foreign,newProgramme}) jdbc.update("INSERT INTO programme_detail_sections(programme_id,section_type,title_en,body_en,status) VALUES (?,'CURRICULUM','Existing curriculum','Keep this curriculum','PUBLISHED')",id);
             migrate(pg,"63");
+            var previousCourseIdentifiers=jdbc.queryForList("SELECT id,course_code,programme_id FROM catalog_courses ORDER BY id");
+            long previousMaximumCourseId=jdbc.queryForObject("SELECT COALESCE(MAX(id),0) FROM catalog_courses",Long.class);
             JsonNode identityRow=null;
             for(JsonNode row:audit.get("records"))if(row.get("status").asText().equals("VERIFIED")){identityRow=row;break;}
             String identityCode=identityRow.get("programmeCode").asText();
@@ -61,8 +63,13 @@ class V64OfficialCourseModulesTest {
             assertThatThrownBy(()->migrate(pg,"64")).hasStackTraceContaining("Course data changed since collection snapshot");
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_curriculum_backups",Integer.class)).isEqualTo(total);
             jdbc.update("UPDATE programme_detail_sections s SET course_modules=?::jsonb FROM programmes p WHERE p.id=s.programme_id AND p.programme_code=? AND s.section_type='CURRICULUM'",previousModules,identityCode);
+            String previousBody=jdbc.queryForObject("SELECT s.body_zh FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id WHERE p.programme_code=? AND s.section_type='CURRICULUM'",String.class,identityCode);
+            jdbc.update("UPDATE programme_detail_sections s SET body_zh=COALESCE(s.body_zh,'')||E'\\n【后台维护课程】\\nStaff reference' FROM programmes p WHERE p.id=s.programme_id AND p.programme_code=? AND s.section_type='CURRICULUM'",identityCode);
+            assertThatThrownBy(()->migrate(pg,"64")).hasStackTraceContaining("Staff-managed course content requires reconciliation");
+            jdbc.update("UPDATE programme_detail_sections s SET body_zh=? FROM programmes p WHERE p.id=s.programme_id AND p.programme_code=? AND s.section_type='CURRICULUM'",previousBody,identityCode);
             migrate(pg,"64");
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_curriculum_backups",Integer.class)).isEqualTo(total*2);
+            assertThat(jdbc.queryForList("SELECT id,course_code,programme_id FROM catalog_courses WHERE id<=? ORDER BY id",previousMaximumCourseId)).isEqualTo(previousCourseIdentifiers);
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_curriculum_backups WHERE backup_batch='official-modules-20261015' AND section_data->>'body_zh' LIKE '旧课程原文-%' AND section_data->>'status'='PUBLISHED' AND section_data->>'source_type'='ai_generated'",Integer.class)).isEqualTo(total);
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_detail_sections WHERE curriculum_review_status='VERIFIED' AND status='PUBLISHED' AND source_type='official' AND body_zh IS NOT NULL",Integer.class)).isEqualTo(verified);
             assertThat(jdbc.queryForObject("SELECT coalesce(sum(jsonb_array_length(course_modules)),0)::int FROM programme_detail_sections WHERE curriculum_review_status='VERIFIED'",Integer.class)).isEqualTo(modules);
@@ -85,8 +92,10 @@ class V64OfficialCourseModulesTest {
             verification.put("verifiedAt",java.time.OffsetDateTime.now().toString());
             verification.put("reviewedProgrammes",total);
             verification.put("backupSnapshots",total*2);
+            verification.put("previousCatalogCourseIdentifiersPreserved",previousCourseIdentifiers.size());
             verification.put("changedIdentityImportRejected",true);
             verification.put("changedCourseContentImportRejected",true);
+            verification.put("staffManagedContentImportRejected",true);
             verification.put("verifiedProgrammeSections",verified);
             verification.put("archivedProgrammeSections",total-verified);
             verification.put("officialModuleAssociations",modules);
@@ -97,7 +106,7 @@ class V64OfficialCourseModulesTest {
             verification.put("untouchedCareerSections",total);
             verification.put("untouchedUnreviewedSections",2);
 
-            // Verified course evidence cannot silently survive edits by legacy text-only importers/editors.
+            // Legacy text cannot replace official modules; programme identity changes retire old associations.
             var firstCodes = new java.util.ArrayList<String>();
             for (JsonNode row : audit.get("records")) if (row.get("status").asText().equals("VERIFIED")) firstCodes.add(row.get("programmeCode").asText());
             jdbc.update("UPDATE programme_detail_sections s SET body_zh='Edited curriculum text' FROM programmes p WHERE p.id=s.programme_id AND p.programme_code=? AND s.section_type='CURRICULUM'",firstCodes.get(0));

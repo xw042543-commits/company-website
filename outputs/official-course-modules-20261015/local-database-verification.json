@@ -1,11 +1,13 @@
 {
   "environment" : "isolated_local_postgresql",
   "productionWrites" : 0,
-  "verifiedAt" : "2026-10-15T11:38:29.811509100+08:00",
+  "verifiedAt" : "2026-10-16T09:28:27.878118+08:00",
   "reviewedProgrammes" : 2232,
   "backupSnapshots" : 4464,
+  "previousCatalogCourseIdentifiersPreserved" : 7474,
   "changedIdentityImportRejected" : true,
   "changedCourseContentImportRejected" : true,
+  "staffManagedContentImportRejected" : true,
   "verifiedProgrammeSections" : 220,
   "archivedProgrammeSections" : 2012,
   "officialModuleAssociations" : 7480,
@@ -16,8 +18,8 @@
   "untouchedCareerSections" : 2232,
   "untouchedUnreviewedSections" : 2,
   "guardRegressionChecks" : {
-    "legacyTextEdit" : true,
     "tuitionEditRetainsCourses" : true,
+    "legacyTextEditDoesNotReplaceOfficialModules" : true,
     "campusChange" : true
   }
 }

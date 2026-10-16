@@ -66,7 +66,7 @@ BEGIN
                 SELECT 1 FROM programme_detail_sections section
                 WHERE section.programme_id = programme.id
                   AND section.section_type = 'CURRICULUM'
-                  AND section.status = 'ARCHIVED'
+                  AND (section.status = 'ARCHIVED' OR (section.status='PUBLISHED' AND section.body_zh LIKE '%【后台维护课程】%' AND jsonb_array_length(section.course_modules)=0))
                   AND section.curriculum_review_status = 'PENDING'
             )
           )
@@ -128,6 +128,7 @@ WHERE p.status='PUBLISHED' AND s.section_type='CURRICULUM' AND s.status='PUBLISH
 DO $$ BEGIN
  IF EXISTS (SELECT 1 FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id
    WHERE p.status='PUBLISHED' AND s.section_type='CURRICULUM' AND s.status='PUBLISHED'
+   AND NOT (jsonb_array_length(s.course_modules)=0 AND s.curriculum_review_status='PENDING' AND s.body_zh LIKE '%【后台维护课程】%')
    AND (s.source_type IS DISTINCT FROM 'official' OR s.curriculum_review_status IS DISTINCT FROM 'VERIFIED'
         OR jsonb_array_length(s.course_modules)=0 OR EXISTS (
           SELECT 1 FROM jsonb_array_elements(s.course_modules) m

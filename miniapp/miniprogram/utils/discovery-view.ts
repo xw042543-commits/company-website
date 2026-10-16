@@ -91,7 +91,8 @@ export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDoc
     sourceUrl: item.sourceUrl, sourceCheckedLabel: checkedLabel(item.sourceCheckedAt),
     curriculumVersion: item.curriculumVersion,
   })) : [];
-  const referenceCourses = curriculumSection ? sectionBody(curriculumSection).split('【后台维护课程】')[1]?.trim() || '' : '';
+  const referenceSection = firstSection(programme.sections, ['CURRICULUM', 'COURSE_STRUCTURE']);
+  const referenceCourses = referenceSection ? sectionBody(referenceSection).split('【后台维护课程】')[1]?.trim() || '' : '';
   const curriculum = curriculumItems.map(item => item.nameZh).join('\n');
   const careerBlocks = parseLabelledBlocks(career);
   const careerOfficial = careerSection?.sourceType === 'official'
@@ -107,7 +108,7 @@ export function buildProgrammeDocument(programme: ProgrammeDetail): ProgrammeDoc
     { ...documentSection('CURRICULUM', 'CURRICULUM', '专业课程', [curriculum, referenceCourses ? '参考学习领域，非官方课程表\n' + referenceCourses : ''].filter(Boolean).join('\n\n') || '待核实：暂无官方课程资料', Boolean(curriculum || referenceCourses)),
       curriculumItems, official: curriculumOfficial, ...(referenceCourses ? { referenceBody: referenceCourses } : {}),
       notice: curriculum ? provenanceNotice(curriculumSection?.sourceType, '课程', Boolean(curriculumSection?.sourceUrl)) : '',
-      sourceUrl: curriculumSection?.sourceUrl || '', sourceCheckedLabel: checkedLabel(curriculumSection?.sourceCheckedAt) },
+      sourceUrl: verifiedModules[0]?.sourceUrl || '', sourceCheckedLabel: checkedLabel(verifiedModules[0]?.sourceCheckedAt) },
   ];
 }
 

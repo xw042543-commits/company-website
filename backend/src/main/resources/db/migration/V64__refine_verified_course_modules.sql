@@ -2241,6 +2241,10 @@ DO $$ BEGIN
  WHERE u.slug<>r.university_slug OR COALESCE(c.code,'')<>'MY')
  THEN RAISE EXCEPTION 'Unexpected programme ownership'; END IF;
  IF EXISTS(SELECT 1 FROM reviewed_modules r JOIN programmes p ON p.programme_code=r.programme_code
+ JOIN programme_detail_sections s ON s.programme_id=p.id AND s.section_type='CURRICULUM'
+ WHERE s.body_zh LIKE '%【后台维护课程】%')
+ THEN RAISE EXCEPTION 'Staff-managed course content requires reconciliation before batch import'; END IF;
+ IF EXISTS(SELECT 1 FROM reviewed_modules r JOIN programmes p ON p.programme_code=r.programme_code
  LEFT JOIN programme_detail_sections s ON s.programme_id=p.id AND s.section_type='CURRICULUM'
  WHERE md5(COALESCE((SELECT string_agg(COALESCE(m->>'nameZh',chr(29))||chr(31)||COALESCE(m->>'nameEn',chr(29))||chr(31)||COALESCE(m->>'descriptionZh',chr(29))||chr(31)||COALESCE(m->>'descriptionEn',chr(29))||chr(31)||COALESCE(m->>'courseCode',chr(29))||chr(31)||COALESCE(m->>'credits',chr(29))||chr(31)||COALESCE(m->>'requirement',chr(29))||chr(31)||COALESCE(m->>'sourceUrl',chr(29))||chr(31)||COALESCE(m->>'sourceCheckedAt',chr(29))||chr(31)||COALESCE(m->>'curriculumVersion',chr(29))||chr(31)||COALESCE(m->>'evidence',chr(29))||chr(31)||COALESCE(m->>'translationMethod',chr(29))||chr(31)||COALESCE(m->>'translationCheckedAt',chr(29)),chr(30) ORDER BY ord)
  FROM jsonb_array_elements(COALESCE(s.course_modules,'[]'::jsonb)) WITH ORDINALITY x(m,ord)),''))<>r.expected_course_fingerprint)

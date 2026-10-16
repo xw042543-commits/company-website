@@ -49,6 +49,10 @@ DO $$ BEGIN
  WHERE u.slug<>r.university_slug OR COALESCE(c.code,'')<>'MY')
  THEN RAISE EXCEPTION 'Unexpected programme ownership'; END IF;
  IF EXISTS(SELECT 1 FROM reviewed_modules r JOIN programmes p ON p.programme_code=r.programme_code
+ JOIN programme_detail_sections s ON s.programme_id=p.id AND s.section_type='CURRICULUM'
+ WHERE s.body_zh LIKE '%【后台维护课程】%')
+ THEN RAISE EXCEPTION 'Staff-managed course content requires reconciliation before batch import'; END IF;
+ IF EXISTS(SELECT 1 FROM reviewed_modules r JOIN programmes p ON p.programme_code=r.programme_code
  LEFT JOIN programme_detail_sections s ON s.programme_id=p.id AND s.section_type='CURRICULUM'
  WHERE md5(COALESCE((SELECT string_agg(${moduleFrame},chr(30) ORDER BY ord)
  FROM jsonb_array_elements(COALESCE(s.course_modules,'[]'::jsonb)) WITH ORDINALITY x(m,ord)),''))<>r.expected_course_fingerprint)
