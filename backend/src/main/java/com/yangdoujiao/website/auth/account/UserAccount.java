@@ -21,6 +21,7 @@ import lombok.Getter;
 
 @Entity
 @Table(name = "user_accounts")
+@org.hibernate.annotations.DynamicUpdate
 @Getter
 public class UserAccount {
     @Id
@@ -44,7 +45,7 @@ public class UserAccount {
     private UserAccountStatus status;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 20, updatable = false)
     private UserAccountRole role = UserAccountRole.USER;
 
     @ElementCollection(fetch = FetchType.EAGER)

@@ -42,6 +42,8 @@ class AdminAccountIntegrationTest {
     @Autowired PasswordEncoder passwords;
     @Autowired AdminAccountService service;
     @Autowired MiniappTokenService tokens;
+    @Autowired UserAccountRepository accountEntities;
+    @Autowired org.springframework.transaction.PlatformTransactionManager transactions;
     private final List<Long> ids = new ArrayList<>();
     private String prefix;
     private Long testUniversity, testCategory, testProgramme;
@@ -478,6 +480,17 @@ class AdminAccountIntegrationTest {
         assertThat(service.detail(advanced,pending).permissions()).containsExactly("ADMIN","ADVISER");
         assertThat(service.detail(advanced,pending).status()).isEqualTo("PENDING_VERIFICATION");
         mvc.perform(post("/api/v1/auth/login").with(csrf()).contentType("application/json").content(credentials(pending))).andExpect(status().isUnauthorized());
+    }
+    @Test void unrelatedEntityUpdatesCannotRestoreARevokedPermissionFromALegacySnapshot() throws Exception {
+        permission(target,"ADMIN",true); permission(target,"ADVISER",true);
+        new org.springframework.transaction.support.TransactionTemplate(transactions).executeWithoutResult(transaction -> {
+            var snapshot=accountEntities.findById(target).orElseThrow();
+            jdbc.update("DELETE FROM user_account_permissions WHERE user_account_id=? AND permission='ADMIN'",target);
+            snapshot.changePassword(passwords.encode("new-safe-password-42"),OffsetDateTime.now());
+            accountEntities.flush();
+            assertThat(jdbc.queryForList("SELECT permission FROM user_account_permissions WHERE user_account_id=?",String.class,target)).containsExactly("ADVISER");
+            assertThat(jdbc.queryForObject("SELECT role FROM user_accounts WHERE id=?",String.class,target)).isEqualTo("ADVISER");
+        });
     }
     private String permissionBody(long id,boolean enabled) {
         return "{\"confirmed\":true,\"enabled\":"+enabled+",\"expectedUpdatedAt\":\""+service.detail(advanced,id).updatedAt()+"\"}";
