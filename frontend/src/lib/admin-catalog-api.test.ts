@@ -79,7 +79,7 @@ test("account identity filters and self protection preserve existing roles", asy
   assert.equal(accountIdentity({ role: "ADVISER", advanced: false }), "顾问");
   assert.equal(canChangePermission(account, 2, "ADVISER"), true);
   assert.equal(canChangePermission(account, 1, "ADMIN"), true);
-  assert.equal(canChangePermission({ ...account, status: "PENDING_VERIFICATION" }, 1, "ADMIN"), false);
+  assert.equal(canChangePermission({ ...account, status: "PENDING_VERIFICATION" }, 1, "ADMIN"), true);
   assert.equal(canChangePermission({ ...account, advanced: true }, 1, "ADVISER"), true);
   assert.equal(canChangePermission({ ...account, status: "DELETED" }, 1, "ADVISER"), false);
   assert.equal(accountIdentity({ role: "ADMIN", advanced: false, permissions: ["ADMIN","ADVISER"] }), "普通管理员、顾问");

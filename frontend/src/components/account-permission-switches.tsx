@@ -13,5 +13,6 @@ export function AccountPermissionSwitches({ account, self, busy, onChange }: {
         onChange={event => onChange(option.value, event.target.checked)} />{option.label}
     </label>)}
     {account.advanced && <small>高级授权独立保留，不受这两个开关影响。</small>}
+    {account.status !== "ACTIVE" && account.status !== "DELETED" && <small>配置权限不会启用账号或完成账号验证。</small>}
   </div>;
 }

@@ -469,8 +469,15 @@ class AdminAccountIntegrationTest {
         mvc.perform(patch(path).cookie(login(advanced)).contentType("application/json").content(permissionBody(target,true))).andExpect(status().isForbidden());
         mvc.perform(patch(path.replace("ADVISER","SUPER_ADMIN")).cookie(login(advanced)).with(csrf()).contentType("application/json").content(permissionBody(target,true))).andExpect(status().isBadRequest());
         mutate(target,"status","\"enabled\":false");
-        mvc.perform(patch(path).cookie(login(advanced)).with(csrf()).contentType("application/json").content(permissionBody(target,true))).andExpect(status().isBadRequest());
-        assertThat(service.detail(advanced,target).permissions()).isEmpty();
+        mvc.perform(patch(path).cookie(login(advanced)).with(csrf()).contentType("application/json").content(permissionBody(target,true))).andExpect(status().isOk());
+        assertThat(service.detail(advanced,target).permissions()).containsExactly("ADVISER");
+        assertThat(service.detail(advanced,target).status()).isEqualTo("DISABLED");
+        mvc.perform(post("/api/v1/auth/login").with(csrf()).contentType("application/json").content(credentials(target))).andExpect(status().isUnauthorized());
+        long pending=create("preconfigured","USER","PENDING_VERIFICATION");
+        permission(pending,"ADMIN",true); permission(pending,"ADVISER",true);
+        assertThat(service.detail(advanced,pending).permissions()).containsExactly("ADMIN","ADVISER");
+        assertThat(service.detail(advanced,pending).status()).isEqualTo("PENDING_VERIFICATION");
+        mvc.perform(post("/api/v1/auth/login").with(csrf()).contentType("application/json").content(credentials(pending))).andExpect(status().isUnauthorized());
     }
     private String permissionBody(long id,boolean enabled) {
         return "{\"confirmed\":true,\"enabled\":"+enabled+",\"expectedUpdatedAt\":\""+service.detail(advanced,id).updatedAt()+"\"}";

@@ -18,6 +18,5 @@ export function accountListPath(q: string, status: string, identity: string, pag
   return `/api/v1/admin/accounts?${new URLSearchParams({ q, status, identity, page: String(page), size: "20" })}`;
 }
 export function canChangePermission(account: ManagedAccount, self: number, permission: AccountPermission) {
-  return self > 0 && account.status !== "DELETED"
-    && (account.status === "ACTIVE" || accountPermissions(account).includes(permission));
+  return self > 0 && account.status !== "DELETED" && permissionOptions.some(option => option.value === permission);
 }

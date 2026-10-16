@@ -75,7 +75,6 @@ public class AdminAccountService {
         if (!old.updatedAt().isEqual(input.expectedUpdatedAt()))
             throw new ApiException(HttpStatus.CONFLICT, "ACCOUNT_CHANGED", "账号已被其他操作更新，请刷新后重新确认");
         if (old.status().equals("DELETED")) throw invalid("已注销账号仅可查看，不能修改权限");
-        if (input.enabled() && !old.status().equals("ACTIVE")) throw invalid("请先启用并完成账号验证，再配置权限");
         if (old.permissions().contains(permission) == input.enabled()) return old;
         // Only the selected grant changes. Advanced authorization is never edited here.
         repository.setPermission(id, permission, input.enabled());
