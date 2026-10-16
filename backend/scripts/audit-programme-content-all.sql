@@ -142,4 +142,8 @@ SELECT COUNT(DISTINCT s.programme_id) AS pending_official_curriculum_programmes
 FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id
 WHERE p.status='PUBLISHED' AND s.section_type='CURRICULUM' AND s.curriculum_review_status='PENDING';
 SELECT COUNT(*) AS preserved_curriculum_snapshots FROM programme_curriculum_backups;
+SELECT COUNT(*) AS verified_programmes_with_explicit_campus
+FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id
+WHERE p.status='PUBLISHED' AND s.section_type='CURRICULUM' AND s.status='PUBLISHED'
+  AND s.curriculum_review_status='VERIFIED' AND NULLIF(BTRIM(p.campus),'') IS NOT NULL;
 COMMIT;
