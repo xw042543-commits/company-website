@@ -1,10 +1,11 @@
 {
   "environment" : "isolated_local_postgresql",
   "productionWrites" : 0,
-  "verifiedAt" : "2026-10-15T11:23:52.530980500+08:00",
+  "verifiedAt" : "2026-10-15T11:38:29.811509100+08:00",
   "reviewedProgrammes" : 2232,
   "backupSnapshots" : 4464,
   "changedIdentityImportRejected" : true,
+  "changedCourseContentImportRejected" : true,
   "verifiedProgrammeSections" : 220,
   "archivedProgrammeSections" : 2012,
   "officialModuleAssociations" : 7480,

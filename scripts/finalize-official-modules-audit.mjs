@@ -42,5 +42,5 @@ const courses=[['专业编号','中文译名','官网原始课程名称','课程
 await writeFile(root+'/official-modules.csv','\uFEFF'+courses.map(r=>r.map(csv).join(',')).join('\n')+'\n');
 const failures=[['院校','专业编号','专业英文名','待核实原因','尝试过的官网来源'],...records.filter(r=>r.status!=='VERIFIED').map(r=>[r.universitySlug,r.programmeCode,r.programmeNameEn,r.reason||reasons[r.failureClass],r.attempts.map(a=>a.url+(a.error?' ['+a.error+']':'')).join('\n')])];
 await writeFile(root+'/pending-programmes.csv','\uFEFF'+failures.map(r=>r.map(csv).join(',')).join('\n')+'\n');
-await mkdir('backend/src/test/resources/fixtures',{recursive:true});await writeFile('backend/src/test/resources/fixtures/official-course-modules-v54.json',JSON.stringify({summary:totals,records:records.map(({programmeCode,universitySlug,programmeNameEn,status,modules,ownership})=>({programmeCode,universitySlug,programmeNameEn,status,modules,ownership}))},null,2));
+await mkdir('backend/src/test/resources/fixtures',{recursive:true});await writeFile('backend/src/test/resources/fixtures/official-course-modules-v64.json',JSON.stringify({summary:totals,records:records.map(({programmeCode,universitySlug,programmeNameEn,status,modules,ownership,expectedCourseFingerprint})=>({programmeCode,universitySlug,programmeNameEn,status,modules,ownership,expectedCourseFingerprint}))},null,2));
 console.log(JSON.stringify(totals,null,2));

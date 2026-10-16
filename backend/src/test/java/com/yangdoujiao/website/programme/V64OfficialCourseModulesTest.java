@@ -13,11 +13,11 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
-class V54OfficialCourseModulesTest {
+class V64OfficialCourseModulesTest {
     @Test
     void backsUpAndVerifiesEveryReviewedProgrammeWithoutChangingOtherData() throws Exception {
         JsonNode audit;
-        try (var in = getClass().getResourceAsStream("/fixtures/official-course-modules-v54.json")) {
+        try (var in = getClass().getResourceAsStream("/fixtures/official-course-modules-v64.json")) {
             audit = new ObjectMapper().readTree(in);
         }
         int total = audit.get("records").size();
@@ -48,15 +48,20 @@ class V54OfficialCourseModulesTest {
             long foreign=programme(jdbc,foreignUniversity,subject,"OUTSIDE_GB");
             long newProgramme=programme(jdbc,universities.values().iterator().next(),subject,"OUTSIDE_NEW_MY");
             for (long id : new long[]{foreign,newProgramme}) jdbc.update("INSERT INTO programme_detail_sections(programme_id,section_type,title_en,body_en,status) VALUES (?,'CURRICULUM','Existing curriculum','Keep this curriculum','PUBLISHED')",id);
-            migrate(pg,"53");
+            migrate(pg,"63");
             JsonNode identityRow=null;
             for(JsonNode row:audit.get("records"))if(row.get("status").asText().equals("VERIFIED")){identityRow=row;break;}
             String identityCode=identityRow.get("programmeCode").asText();
             jdbc.update("UPDATE programmes SET name_en='Changed programme after verification' WHERE programme_code=?",identityCode);
-            assertThatThrownBy(()->migrate(pg,"54")).hasStackTraceContaining("Programme name or study level changed since source verification");
+            assertThatThrownBy(()->migrate(pg,"64")).hasStackTraceContaining("Programme name or study level changed since source verification");
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_curriculum_backups",Integer.class)).isEqualTo(total);
             jdbc.update("UPDATE programmes SET name_en=? WHERE programme_code=?",identityRow.get("ownership").get("programmeNameEn").isNull()?null:identityRow.get("ownership").get("programmeNameEn").asText(),identityCode);
-            migrate(pg,"54");
+            String previousModules=jdbc.queryForObject("SELECT s.course_modules::text FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id WHERE p.programme_code=? AND s.section_type='CURRICULUM'",String.class,identityCode);
+            jdbc.update("UPDATE programme_detail_sections s SET course_modules=jsonb_set(s.course_modules,'{0,nameZh}','\"New translation saved after collection\"'::jsonb) FROM programmes p WHERE p.id=s.programme_id AND p.programme_code=? AND s.section_type='CURRICULUM'",identityCode);
+            assertThatThrownBy(()->migrate(pg,"64")).hasStackTraceContaining("Course data changed since collection snapshot");
+            assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_curriculum_backups",Integer.class)).isEqualTo(total);
+            jdbc.update("UPDATE programme_detail_sections s SET course_modules=?::jsonb FROM programmes p WHERE p.id=s.programme_id AND p.programme_code=? AND s.section_type='CURRICULUM'",previousModules,identityCode);
+            migrate(pg,"64");
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_curriculum_backups",Integer.class)).isEqualTo(total*2);
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_curriculum_backups WHERE backup_batch='official-modules-20261015' AND section_data->>'body_zh' LIKE '旧课程原文-%' AND section_data->>'status'='PUBLISHED' AND section_data->>'source_type'='ai_generated'",Integer.class)).isEqualTo(total);
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_detail_sections WHERE curriculum_review_status='VERIFIED' AND status='PUBLISHED' AND source_type='official' AND body_zh IS NOT NULL",Integer.class)).isEqualTo(verified);
@@ -81,6 +86,7 @@ class V54OfficialCourseModulesTest {
             verification.put("reviewedProgrammes",total);
             verification.put("backupSnapshots",total*2);
             verification.put("changedIdentityImportRejected",true);
+            verification.put("changedCourseContentImportRejected",true);
             verification.put("verifiedProgrammeSections",verified);
             verification.put("archivedProgrammeSections",total-verified);
             verification.put("officialModuleAssociations",modules);
@@ -95,13 +101,13 @@ class V54OfficialCourseModulesTest {
             var firstCodes = new java.util.ArrayList<String>();
             for (JsonNode row : audit.get("records")) if (row.get("status").asText().equals("VERIFIED")) firstCodes.add(row.get("programmeCode").asText());
             jdbc.update("UPDATE programme_detail_sections s SET body_zh='Edited curriculum text' FROM programmes p WHERE p.id=s.programme_id AND p.programme_code=? AND s.section_type='CURRICULUM'",firstCodes.get(0));
-            assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_detail_sections WHERE body_zh='Edited curriculum text' AND status='ARCHIVED' AND curriculum_review_status='PENDING' AND course_modules='[]'::jsonb",Integer.class)).isEqualTo(1);
+            assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_detail_sections WHERE body_zh='Edited curriculum text' AND status='PUBLISHED' AND curriculum_review_status='VERIFIED' AND jsonb_array_length(course_modules)>0",Integer.class)).isEqualTo(1);
             jdbc.update("UPDATE programmes SET campus='Different campus' WHERE programme_code=?",firstCodes.get(1));
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id WHERE p.programme_code=? AND s.section_type='CURRICULUM' AND s.status='ARCHIVED' AND s.curriculum_review_status='PENDING'",Integer.class,firstCodes.get(1))).isEqualTo(1);
-            assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_curriculum_backups",Integer.class)).isEqualTo(total*2+2);
+            assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_curriculum_backups",Integer.class)).isEqualTo(total*2+1);
             jdbc.update("UPDATE programmes SET tuition_min=54321 WHERE programme_code=?",firstCodes.get(2));
             assertThat(jdbc.queryForObject("SELECT count(*) FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id WHERE p.programme_code=? AND s.section_type='CURRICULUM' AND s.status='PUBLISHED' AND s.curriculum_review_status='VERIFIED'",Integer.class,firstCodes.get(2))).isEqualTo(1);
-            verification.put("guardRegressionChecks",Map.of("legacyTextEdit",true,"campusChange",true,"tuitionEditRetainsCourses",true));
+            verification.put("guardRegressionChecks",Map.of("legacyTextEditDoesNotReplaceOfficialModules",true,"campusChange",true,"tuitionEditRetainsCourses",true));
             String reportFile=System.getenv("MODULE_AUDIT_REPORT_PATH");
             if(reportFile!=null)java.nio.file.Files.writeString(java.nio.file.Path.of(reportFile),new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(verification)+"\n",java.nio.charset.StandardCharsets.UTF_8);
         }

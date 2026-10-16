@@ -1,5 +1,7 @@
 import {readFile,writeFile} from 'node:fs/promises';
-const [input,backupDirectory,output]=process.argv.slice(2);
+import {courseModuleFingerprint} from './course-module-fingerprint.mjs';
+const [input,backupDirectory,output,baselineFixture]=process.argv.slice(2);
+const baseline=baselineFixture?new Map(JSON.parse(await readFile(baselineFixture,'utf8')).records.map(r=>[r.programmeCode,r.modules])):null;
 if(!input||!backupDirectory||!output)throw new Error('用法：node scripts/normalize-official-modules.mjs <审核JSON> <专业备份目录> <输出JSON>');
 const audit=JSON.parse(await readFile(input,'utf8'));
 function normalize(m){
@@ -19,8 +21,10 @@ function normalize(m){
  return module;
 }
 let excluded=0;let conflicts=0;
-for(const r of audit.records){if(r.status!=='VERIFIED')continue;
+for(const r of audit.records){
  const original=JSON.parse(await readFile(`${backupDirectory}/${r.programmeCode}.json`,'utf8'));
+ r.expectedCourseFingerprint=courseModuleFingerprint(baseline?.get(r.programmeCode)??original.sections.find(s=>s.type==='CURRICULUM')?.courseModules??[]);
+ if(r.status!=='VERIFIED')continue;
  let expectedLevel=null;const n=r.programmeNameEn||'';
  if(/^(?:Bachelor|BSc|BEng|BA\b|BBA\b)/i.test(n))expectedLevel='BACHELOR';
  else if(/^(?:Master|MSc\b|MBA\b|MPhil\b|MA\b)/i.test(n))expectedLevel='MASTER';
