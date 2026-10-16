@@ -2,7 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { AccountAvatar } from "./account-avatar";
-import { watchProfileUpdates } from "@/lib/profile-sync";
+import { ProfileEditor } from "./profile-editor";
+import { saveOwnProfile } from "@/lib/account-profile-api";
+import { announceProfileUpdate, watchProfileUpdates } from "@/lib/profile-sync";
 import Link from "next/link";
 import { type FormEvent, useEffect, useState } from "react";
 import { changePassword, deleteAccount, getAccount, getSession, logout, type AccountProfile } from "@/lib/auth-api";
@@ -15,6 +17,8 @@ import { ConsultationHistoryPanel } from "@/components/consultation-history-pane
 export function AccountPanel({ locale }: { locale: Locale }) {
   const router = useRouter();
   const [account, setAccount] = useState<AccountProfile | null>(null);
+  const [editingProfile, setEditingProfile] = useState<AccountProfile | null>(null);
+  const [profileNotice, setProfileNotice] = useState("");
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState<AuthMessage | null>(null);
   const [demoAccount, setDemoAccount] = useState(false);
@@ -130,7 +134,8 @@ export function AccountPanel({ locale }: { locale: Locale }) {
         <AccountAvatar className="account-profile-avatar" name={account.fullName} url={account.avatarUrl !== undefined ? account.avatarUrl : account.wechatAvatarUrl} size={72} />
         <div><h2 id="account-summary-title">{account.fullName}</h2><p>{words(locale, "账户建立于", "Account created")} {new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB", { dateStyle: "medium" }).format(new Date(account.createdAt))}</p></div>
       </div>
-      <button type="button" className="secondary" disabled={pendingAction !== null} onClick={handleLogout}>{pendingAction === "logout" ? words(locale, "正在退出…", "Signing out…") : words(locale, "退出登录", "Sign out")}</button>
+      {!demoAccount && <button type="button" className="secondary" disabled={pendingAction !== null} onClick={() => { setProfileNotice(""); setEditingProfile(account); }}>编辑资料</button>}
+      <button type="button" className="secondary" disabled={pendingAction !== null || editingProfile !== null} onClick={handleLogout}>{pendingAction === "logout" ? words(locale, "正在退出…", "Signing out…") : words(locale, "退出登录", "Sign out")}</button>
       <dl>
         <div><dt>{words(locale, "邮箱", "Email")}</dt><dd className="account-contact-detail">
           <span>{account.email ?? words(locale, "未设置", "Not set")}</span>
@@ -148,6 +153,12 @@ export function AccountPanel({ locale }: { locale: Locale }) {
       </dl>
       {demoAccount && <p className="demo-account-note">{words(locale, "这是仅用于本地测试的演示账户，不会保存任何账户更改。", "This local demo account is for testing only and does not save account changes.")}</p>}
     </section>
+
+    {profileNotice && <p className="login-status" role="status">{profileNotice}</p>}
+    {editingProfile && <ProfileEditor account={editingProfile} onCancel={() => setEditingProfile(null)}
+      saveProfile={body => saveOwnProfile(browserApiBaseUrl(), body)} onSaved={updated => {
+        setAccount(updated); setEditingProfile(null); setProfileNotice("资料已保存"); announceProfileUpdate(); router.refresh();
+      }} />}
 
     {isAdmin && <section className="account-adviser-link" aria-labelledby="account-admin-title">
       <div><span className="account-adviser-kicker">{words(locale, "内部工具", "Internal tools")}</span>

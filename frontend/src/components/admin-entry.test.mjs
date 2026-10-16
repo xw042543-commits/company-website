@@ -17,6 +17,7 @@ const link = ({ children, href, ...props }) => {
 };
 const empty = () => null;
 const stubs = {
+  "./profile-editor": { ProfileEditor: empty },
   "next/link": { default: link },
   "next/image": { default: empty },
   "next/navigation": { useRouter: () => router,

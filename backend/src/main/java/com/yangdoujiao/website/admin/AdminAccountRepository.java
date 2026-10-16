@@ -55,6 +55,14 @@ public class AdminAccountRepository {
         var params = new ArrayList<>(Arrays.asList(args)); params.add(size); params.add(((long)page - 1) * size);
         return new Page<>(jdbc.queryForList("SELECT id,actor_user_id,target_user_id,actor_name,target_name,action,old_role,new_role,old_status,new_status,old_full_name,new_full_name,avatar_action,created_at FROM account_management_audit" + where + " ORDER BY id DESC LIMIT ? OFFSET ?", params.toArray()), page, size, total, (total + size - 1) / size);
     }
+    public record PublicProfile(long id, String name, String avatarUrl, boolean avatarOverridden) {}
+    public List<PublicProfile> editedPublicProfiles(List<Long> ids) {
+        if (ids.isEmpty()) return List.of();
+        // Only names explicitly saved through the profile editor become public usernames.
+        // Preserve legacy external nicknames for accounts that have never edited their profile.
+        return new NamedParameterJdbcTemplate(jdbc).query("SELECT " + COLUMNS + ",u.profile_avatar_overridden FROM user_accounts u WHERE u.id IN (:ids) AND u.status='ACTIVE' AND u.deleted_at IS NULL AND EXISTS(SELECT 1 FROM account_management_audit a WHERE a.target_user_id=u.id AND a.action='PROFILE')", Map.of("ids", ids),
+            (r,n) -> new PublicProfile(r.getLong("id"), r.getString("full_name"), r.getString("avatar_url"), r.getBoolean("profile_avatar_overridden")));
+    }
     public String restoreStatus(long id) {
         var previous = jdbc.queryForList("SELECT old_status FROM account_management_audit WHERE target_user_id=? AND action='STATUS' AND new_status='DISABLED' ORDER BY id DESC LIMIT 1", String.class, id);
         if (!previous.isEmpty() && Set.of("ACTIVE", "PENDING_VERIFICATION").contains(previous.getFirst())) return previous.getFirst();

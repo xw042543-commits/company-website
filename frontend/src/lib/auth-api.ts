@@ -9,6 +9,7 @@ export type AuthSession = {
 };
 
 export type AccountProfile = {
+  updatedAt?: string;
   avatarUrl?: string | null;
   id: number;
   fullName: string;
@@ -141,9 +142,9 @@ function safeAvatar(value: unknown): string | null {
   return typeof value === "string" && isSafeProfileAvatar(value) ? value : null;
 }
 
-function parseAccount(payload: unknown): AccountProfile | null {
+export function parseAccount(payload: unknown): AccountProfile | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatDisplayName", "wechatAvatarUrl", "wechatLastLoginAt", "createdAt", ...(Object.prototype.hasOwnProperty.call(payload, "avatarUrl") ? ["avatarUrl"] : [])])
+    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatDisplayName", "wechatAvatarUrl", "wechatLastLoginAt", "createdAt", ...(Object.prototype.hasOwnProperty.call(payload, "avatarUrl") ? ["avatarUrl"] : []), ...(Object.prototype.hasOwnProperty.call(payload, "updatedAt") ? ["updatedAt"] : [])])
     || !isPositiveInteger(payload.id)
     || typeof payload.fullName !== "string" || !payload.fullName.trim()
     || !isNullableString(payload.email)
@@ -154,6 +155,7 @@ function parseAccount(payload: unknown): AccountProfile | null {
     || !isNullableString(payload.wechatDisplayName)
     || !isNullableString(payload.wechatLastLoginAt)
     || (payload.wechatLastLoginAt !== null && Number.isNaN(Date.parse(payload.wechatLastLoginAt)))
+    || (payload.updatedAt !== undefined && (typeof payload.updatedAt !== "string" || Number.isNaN(Date.parse(payload.updatedAt))))
     || typeof payload.createdAt !== "string"
     || Number.isNaN(Date.parse(payload.createdAt))) return null;
   return { ...payload,
