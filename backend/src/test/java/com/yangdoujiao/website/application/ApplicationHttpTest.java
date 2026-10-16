@@ -21,6 +21,7 @@ import com.yangdoujiao.website.auth.api.AuthSecurityErrorWriter;
 import com.yangdoujiao.website.auth.config.*;
 import com.yangdoujiao.website.auth.session.*;
 import com.yangdoujiao.website.common.exception.GlobalExceptionHandler;
+import com.yangdoujiao.website.notification.NotificationService;
 import tools.jackson.databind.ObjectMapper;
 @SpringJUnitWebConfig(ApplicationHttpTest.Config.class)
 class ApplicationHttpTest {
@@ -29,6 +30,7 @@ class ApplicationHttpTest {
  @MockitoBean com.yangdoujiao.website.auth.api.AccountService accountPermissions;
  @MockitoBean ApplicationRepository repository;
  @MockitoBean ApplicationCheckoutRepository checkouts;
+ @MockitoBean NotificationService notifications;
  MockMvc mvc;
  UserPrincipal student;
  UserPrincipal adviser;

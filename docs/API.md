@@ -1,5 +1,9 @@
 # API 接口说明
 
+## 申请管理（V67）
+
+学生申请详情采用 10 阶段流程。`POST /api/v1/miniapp/me/applications/{id}/urges` 创建材料审核、申请递交、签证或其他催办。顾问后台新增 `/api/v1/adviser/applications/{id}/follow-ups` 跟进记录和 `/urges/{urgeId}` 受理/完成接口；顾问和被分配的申请老师共享访问边界。管理员通过 `/api/v1/admin/applications` 查看全局申请，并用 `PUT /{id}/assignment` 分配顾问和申请老师。所有写请求沿用登录、实时权限和 CSRF 保护，详情响应为 `no-store`。完整字段与限制见 [申请说明](miniapp-applications.md)。
+
 管理员只读专业查询：`GET /api/v1/admin/planning/programme-lookup`，参数 `keyword`（可选，最多200字符）、`level`（可选，FOUNDATION/BACHELOR/MASTER/DOCTOR）、`page`（0–1000，默认0）。匿名401、非管理员403、非法参数400；成功返回 `page/size/hasNext/items`，每页20条，禁止缓存。仅返回已发布马来西亚专业原始资料，始终不可用于录取或预算评估。详见 [查询契约和本地聊天演示](planning-programme-lookup.md)。
 
 ## 基本约定

@@ -20,6 +20,8 @@ public class AdviserApplicationController {
     @PostMapping("/{id}/documents") public ResponseEntity<Detail> document(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@Valid @RequestBody DocumentRequest value) { return response(service.addDocument(actor.userId(),id,value)); }
     @PutMapping("/{id}/documents/{document}/review") public ResponseEntity<Detail> review(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@PathVariable UUID document,@Valid @RequestBody Review value) { return response(service.review(actor.userId(),id,document,value)); }
     @PutMapping("/{id}/fees/{fee}") public ResponseEntity<Detail> fee(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@PathVariable UUID fee,@Valid @RequestBody FeeRequest value) { return response(service.fee(actor.userId(),id,fee,value)); }
+    @PostMapping("/{id}/follow-ups") public ResponseEntity<Detail> followUp(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@Valid @RequestBody FollowUpRequest value) { return response(service.addFollowUp(actor.userId(),id,value)); }
+    @PutMapping("/{id}/urges/{urge}") public ResponseEntity<Detail> urge(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@PathVariable UUID urge,@Valid @RequestBody UrgeResponse value) { return response(service.respondToUrge(actor.userId(),id,urge,value)); }
 
     private static <T> ResponseEntity<T> response(T body) { return ResponseEntity.ok().cacheControl(CacheControl.noStore().cachePrivate()).body(body); }
 }
