@@ -2,7 +2,7 @@
 
 Entry: 我的 → 我的订单. Native pages: `pages/orders/index` and `pages/application-detail/index`.
 
-The list and detail use authenticated student APIs, not the design fixture records. An account without applications sees an empty state. Status filters paginate 20 rows at a time; “进行中” includes submitted applications. Detail has progress, documents, fees, and event history. The eight progress stages follow the supplied concept. Dates, document results and fees are never inferred from the screenshot.
+The list and detail use authenticated student APIs, not design fixture records. An account without applications sees an empty state. Status filters paginate 20 rows at a time; “进行中” includes submitted applications. Detail has progress, documents, fees, event history, and student reminders. The ten stages are 材料准备、材料审核、公证认证、申请递交、院校审核、录取结果、签证办理、行前准备、入学注册、结案. Dates, results, fees, owners, and deadlines are never inferred.
 
 ## Backend
 
@@ -15,13 +15,17 @@ Migration V21 adds application, document, fee and event tables; V19 is reserved 
 - GET `/api/v1/adviser/applications` lists applications assigned to the current adviser.
 - POST `/api/v1/adviser/applications` with `userId` and a published `programmeId` creates an application assigned to the current adviser.
 - GET `/api/v1/adviser/applications/{id}` returns the assigned application.
-- PUT `/api/v1/adviser/applications/{id}/progress` with `status`, `stage` (1–8), and `note` records progress.
+- POST `/api/v1/miniapp/me/applications/{id}/urges` with `type` (`DOCUMENT_REVIEW`, `SUBMISSION`, `VISA`, `OTHER`) and optional `detail` creates one open reminder per type and notifies the assigned staff member.
+- PUT `/api/v1/adviser/applications/{id}/progress` with `status`, `stage` (1–10), and `note` records progress.
 - POST `/api/v1/adviser/applications/{id}/documents` with `title` and `stage` requests a document.
 - PUT `/api/v1/adviser/applications/{id}/documents/{documentId}/review` with `status` (`APPROVED` or `REJECTED`) and `note` records a review.
 - GET `/api/v1/adviser/applications/{id}/documents/{documentId}` retrieves the private submitted file.
 - PUT `/api/v1/adviser/applications/{id}/fees/{feeId}` with `title`, `amount`, `currency`, `status` (`DUE`, `PAID`, `WAIVED`) and `stage` creates/updates a fee using a caller-generated UUID.
+- POST `/api/v1/adviser/applications/{id}/follow-ups` records channel, content, result and optional next-follow-up time.
+- PUT `/api/v1/adviser/applications/{id}/urges/{urgeId}` acknowledges or resolves a student reminder and notifies the student.
+- GET `/api/v1/admin/applications` and `GET /api/v1/admin/applications/{id}` provide the global administrative view; `PUT /assignment` changes adviser/application-staff ownership.
 
-The adviser management UI and payment processing are not part of these student screens. Fee status is an adviser-maintained record, not a payment gateway confirmation. Application progress does not automatically advance after an upload. Completed and cancelled applications are read-only.
+The website adviser console exposes the management UI at `/{locale}/adviser/applications`. Fee status remains a staff-maintained record, not a payment gateway confirmation. Application progress does not automatically advance after an upload. Completed and cancelled applications are read-only. Payment remains gated until merchant amount and provider credentials are configured.
 
 Uploads accept PDF, PNG and JPEG up to 1 MiB, with extension and file-signature checks. Contents are stored privately in PostgreSQL and excluded from list/detail queries. This initial bounded implementation does not perform malware scanning. Do not expose blobs through a public asset route. Add retention, malware scanning and storage lifecycle controls before expanding upload size or production document intake.
 

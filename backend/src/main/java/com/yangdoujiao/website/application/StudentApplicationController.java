@@ -24,6 +24,7 @@ public class StudentApplicationController {
     @GetMapping("/{id}/documents/{document}") public ResponseEntity<File> file(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@PathVariable UUID document) { return response(service.file(actor.userId(),false,id,document)); }
     
     @PutMapping("/{id}/documents/{document}") public ResponseEntity<Detail> upload(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@PathVariable UUID document,@Valid @RequestBody Upload value) { return response(service.upload(actor.userId(),id,document,value)); }
+    @PostMapping("/{id}/urges") public ResponseEntity<Detail> urge(@AuthenticationPrincipal UserPrincipal actor,@PathVariable UUID id,@Valid @RequestBody UrgeRequest value) { return response(service.urge(actor.userId(),id,value)); }
 
     private static <T> ResponseEntity<T> response(T body) { return ResponseEntity.ok().cacheControl(CacheControl.noStore().cachePrivate()).body(body); }
 }

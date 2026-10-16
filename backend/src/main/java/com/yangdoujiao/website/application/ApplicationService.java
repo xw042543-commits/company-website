@@ -7,14 +7,16 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.HttpStatus;
 import com.yangdoujiao.website.common.exception.ApiException;
 import com.yangdoujiao.website.auth.AuthHash;
+import com.yangdoujiao.website.notification.NotificationService;
 
 @Service
 @Transactional(readOnly=true)
 public class ApplicationService {
     private final ApplicationRepository repository;
     private final ApplicationCheckoutRepository checkouts;
-    public ApplicationService(ApplicationRepository repository, ApplicationCheckoutRepository checkouts) {
-        this.repository=repository; this.checkouts=checkouts;
+    private final NotificationService notifications;
+    public ApplicationService(ApplicationRepository repository, ApplicationCheckoutRepository checkouts, NotificationService notifications) {
+        this.repository=repository; this.checkouts=checkouts; this.notifications=notifications;
     }
     public Page list(long actor,boolean adviser,Status status,int page) {
         if(page<0 || page>10000) throw bad("INVALID_PAGE");
@@ -25,7 +27,18 @@ public class ApplicationService {
         var application=owned(actor,adviser,id);
         var payment=adviser ? null : checkouts.findOrderByApplication(actor,id)
             .map(ApplicationCheckoutRepository.Order::payment).orElse(null);
-        return new Detail(application,repository.documents(id),repository.fees(id),repository.history(id),payment);
+        return new Detail(application,repository.documents(id),repository.fees(id),repository.history(id),payment,
+            adviser ? repository.followUps(id) : List.of(),repository.urges(id));
+    }
+    public Page listAll(Status status,int page) {
+        if(page<0 || page>10000) throw bad("INVALID_PAGE");
+        var items=repository.listAll(status==null?null:status.name(),page);
+        return new Page(items.stream().limit(20).toList(),items.size()>20);
+    }
+    public Detail detailAll(UUID id) {
+        var application=repository.find(id).orElseThrow(()->missing());
+        return new Detail(application,repository.documents(id),repository.fees(id),repository.history(id),null,
+            repository.followUps(id),repository.urges(id));
     }
 
     @Transactional
@@ -72,14 +85,16 @@ public class ApplicationService {
     @Transactional
     public Detail progress(long actor,UUID id,Progress value) {
         editable(actor,true,id);
-        if(value.status()==Status.COMPLETED && value.stage()!=8) throw bad("INVALID_COMPLETION_STAGE");
+        if(value.status()==Status.COMPLETED && value.stage()!=10) throw bad("INVALID_COMPLETION_STAGE");
         repository.progress(id,value); repository.event(id,value.stage(),value.note());
+        notifications.publishApplication(editableOwner(id),"application.progress."+id+"."+value.stage(),"申请进度已更新",value.note());
         return detail(actor,true,id);
     }
     @Transactional
     public Detail addDocument(long actor,UUID id,DocumentRequest value) {
-        editable(actor,true,id); repository.addDocument(id,UUID.randomUUID(),value);
+        var app=editable(actor,true,id); repository.addDocument(id,UUID.randomUUID(),value);
         repository.event(id,value.stage(),"需要补充材料："+value.title());
+        notifications.publishApplication(app.userId(),"application.document.request."+id+"."+UUID.randomUUID(),"需要补充申请材料",value.title());
         return detail(actor,true,id);
     }
     @Transactional
@@ -88,6 +103,8 @@ public class ApplicationService {
         byte[] bytes=validateFile(value);
         if(repository.upload(id,document,value.filename(),bytes)!=1) throw bad("DOCUMENT_NOT_EDITABLE");
         repository.event(id,app.stage(),"材料已提交，等待审核");
+        Long assignee=app.applicationStaffId()!=null?app.applicationStaffId():app.adviserId();
+        if(assignee!=null) notifications.publishApplication(assignee,"application.document.upload."+document+"."+UUID.randomUUID(),"学生已提交申请材料",app.reference());
         return detail(actor,false,id);
     }
     @Transactional
@@ -96,13 +113,60 @@ public class ApplicationService {
         if(value.status()!=DocumentStatus.APPROVED && value.status()!=DocumentStatus.REJECTED) throw bad("INVALID_REVIEW_STATUS");
         if(repository.review(id,document,value)!=1) throw missing();
         repository.event(id,app.stage(),"材料审核："+value.note());
+        notifications.publishApplication(app.userId(),"application.document."+document+"."+value.status(),"申请材料审核结果",value.note());
         return detail(actor,true,id);
     }
     @Transactional
     public Detail fee(long actor,UUID id,UUID fee,FeeRequest value) {
-        editable(actor,true,id); if(repository.fee(id,fee,value)!=1) throw bad("INVALID_FEE_ID");
+        var app=editable(actor,true,id); if(repository.fee(id,fee,value)!=1) throw bad("INVALID_FEE_ID");
         repository.event(id,value.stage(),"费用资料已更新："+value.title());
+        notifications.publishApplication(app.userId(),"application.fee."+fee+"."+UUID.randomUUID(),"申请费用已更新",value.title());
         return detail(actor,true,id);
+    }
+    @Transactional
+    public Detail addFollowUp(long actor,UUID id,FollowUpRequest value) {
+        editable(actor,true,id);
+        repository.addFollowUp(id,actor,UUID.randomUUID(),value);
+        return detail(actor,true,id);
+    }
+    @Transactional
+    public Detail urge(long actor,UUID id,UrgeRequest value) {
+        var app=editable(actor,false,id);
+        if(repository.hasOpenUrge(id,value.type())) throw conflict("URGE_ALREADY_OPEN");
+        Long assignee=app.applicationStaffId()!=null?app.applicationStaffId():app.adviserId();
+        UUID urgeId=UUID.randomUUID();
+        repository.addUrge(id,actor,urgeId,value,assignee);
+        repository.event(id,app.stage(),"学生催办："+urgeLabel(value.type()));
+        if(assignee!=null) notifications.publishApplication(assignee,"application.urge."+urgeId,"新的申请催办",app.reference()+" · "+urgeLabel(value.type()));
+        return detail(actor,false,id);
+    }
+    @Transactional
+    public Detail respondToUrge(long actor,UUID id,UUID urge,UrgeResponse value) {
+        var app=editable(actor,true,id);
+        if(value.status()==UrgeStatus.OPEN || repository.respondToUrge(id,urge,value)!=1) throw bad("INVALID_URGE_STATUS");
+        repository.event(id,app.stage(),"催办处理："+value.response());
+        notifications.publishApplication(app.userId(),"application.urge.response."+urge+"."+value.status(),"催办已处理",value.response());
+        return detail(actor,true,id);
+    }
+    @Transactional
+    public Detail assign(UUID id,Assignment value) {
+        repository.find(id).orElseThrow(()->missing());
+        if(value.adviserId()==null) throw bad("ADVISER_ASSIGNMENT_REQUIRED");
+        if(!repository.validAssignmentTarget(value.adviserId()) || !repository.validAssignmentTarget(value.applicationStaffId())) throw bad("INVALID_ASSIGNMENT_TARGET");
+        repository.lock(id);
+        repository.assign(id,value);
+        repository.event(id,repository.find(id).orElseThrow().stage(),"申请负责人已更新");
+        return detailAll(id);
+    }
+    public List<FlowStage> flowStages() { return repository.flowStages(); }
+    @Transactional
+    public List<FlowStage> updateFlowStage(int stage,FlowStageUpdate value) {
+        if(stage<1 || stage>10 || repository.updateFlowStage(stage,value)!=1) throw bad("INVALID_FLOW_STAGE");
+        return repository.flowStages();
+    }
+    private long editableOwner(UUID id) { return repository.find(id).orElseThrow(()->missing()).userId(); }
+    private static String urgeLabel(UrgeType type) {
+        return switch(type) { case DOCUMENT_REVIEW -> "材料审核"; case SUBMISSION -> "申请递交"; case VISA -> "签证办理"; case OTHER -> "其他事项"; };
     }
     private Summary editable(long actor,boolean adviser,UUID id) {
         owned(actor,adviser,id); repository.lock(id);

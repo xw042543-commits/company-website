@@ -1,4 +1,4 @@
-import {getApplication,submitApplicationDocument,validApplicationId,type ApplicationDetail} from '../../services/applications';
+import {getApplication,submitApplicationDocument,submitApplicationUrge,validApplicationId,type ApplicationDetail,type ApplicationUrgeType} from '../../services/applications';
 import {applicationTimeline} from '../../utils/application-timeline';
 import {sessionStore} from '../../stores/session';
 type State='loading'|'ready'|'failed'|'login';
@@ -14,6 +14,18 @@ Page({
   expand(event:WechatMiniprogram.BaseEvent){const number=Number(event.currentTarget.dataset.number);this.setData({expanded:this.data.expanded===number?0:number});},
   documents(){this.setData({tab:'documents'});},
   review(event:WechatMiniprogram.BaseEvent){const step=this.data.steps.find((s)=>s.number===Number(event.currentTarget.dataset.number));wx.showModal({title:'审核意见',content:step?.reviewNotes||'暂无审核意见',showCancel:false});},
+  async urge(){
+    if(!this.data.detail||['COMPLETED','CANCELLED','UNPAID'].includes(this.data.detail.application.status))return;
+    const labels=['材料审核','申请递交','签证办理','其他事项'];const types:ApplicationUrgeType[]=['DOCUMENT_REVIEW','SUBMISSION','VISA','OTHER'];
+    try{
+      const choice=await wx.showActionSheet({itemList:labels});
+      const input=await wx.showModal({title:`催办${labels[choice.tapIndex]}`,editable:true,placeholderText:'可补充说明（选填）',confirmText:'提交催办'});
+      if(!input.confirm)return;
+      const type=types[choice.tapIndex];if(!type)return;
+      wx.showLoading({title:'正在提交'});const result=await submitApplicationUrge(this.data.id,type,input.content||'');wx.hideLoading();
+      if(result.ok){this.apply(result.value);wx.showToast({title:'催办已提交',icon:'success'});}else wx.showToast({title:'提交失败，请稍后重试',icon:'none'});
+    }catch(error){wx.hideLoading();const message=typeof error==='object'&&error&&'errMsg' in error?String(error.errMsg):'';if(!message.includes('cancel'))wx.showToast({title:'暂时无法提交',icon:'none'});}
+  },
   apply(detail:ApplicationDetail){this.setData({detail,steps:applicationTimeline(detail),state:'ready' as State,expanded:this.data.expanded||detail.application.stage});},
   async load(){
     if(this.data.uploading)return;

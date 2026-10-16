@@ -34,18 +34,20 @@ test("established consultation page renders localized moderation navigation with
     const links = elements(nav.props?.children).filter((item) => item.props?.href);
     assert.deepEqual(links.map((link) => [link.props?.href, link.props?.children, link.props?.['aria-current']]), [
       [`/${locale}/adviser/consultations`, locale === 'zh' ? '咨询管理' : 'Consultations', 'page'],
+      [`/${locale}/adviser/applications`, locale === 'zh' ? '申请管理' : 'Applications', undefined],
       [`/${locale}/adviser/community`, locale === 'zh' ? 'U圈审核' : 'Community moderation', undefined],
     ]);
     assert.equal(tree.filter((item) => item.props?.className === 'adviser-console-header').length, 1);
   }
 });
 
-test("adviser navigation preserves consultations and exposes exactly one localized moderation item", async () => {
+test("adviser navigation exposes localized consultation, application and moderation workspaces", async () => {
   const { adviserNavigation } = await import("./adviser-consultations-ui.ts");
   for (const locale of ["zh", "en"] as const) {
     const entries = adviserNavigation(locale);
     assert.deepEqual(entries, [
       { href: `/${locale}/adviser/consultations`, label: locale === "zh" ? "咨询管理" : "Consultations" },
+      { href: `/${locale}/adviser/applications`, label: locale === "zh" ? "申请管理" : "Applications" },
       { href: `/${locale}/adviser/community`, label: locale === "zh" ? "U圈审核" : "Community moderation" },
     ]);
   }
@@ -58,7 +60,7 @@ const source = (path: string) => {
 };
 
 test("localized adviser and forbidden pages validate locale and prevent indexing", () => {
-  for (const path of ["../app/[locale]/adviser/consultations/page.tsx", "../app/[locale]/forbidden/page.tsx"]) {
+  for (const path of ["../app/[locale]/adviser/consultations/page.tsx", "../app/[locale]/adviser/applications/page.tsx", "../app/[locale]/forbidden/page.tsx"]) {
     const page = source(path);
     assert.match(page, /robots:\s*\{\s*index:\s*false,\s*follow:\s*false\s*\}/);
     assert.match(page, /isLocale\(locale\)/);
@@ -66,6 +68,7 @@ test("localized adviser and forbidden pages validate locale and prevent indexing
     assert.doesNotMatch(page, /["']use client["']/);
   }
   assert.match(source("../app/[locale]/adviser/consultations/page.tsx"), /AdviserConsultationsPanel/);
+  assert.match(source("../app/[locale]/adviser/applications/page.tsx"), /AdviserApplicationsPanel/);
   const forbidden = source("../app/[locale]/forbidden/page.tsx");
   assert.match(forbidden, /Access denied/);
   assert.match(forbidden, /无权访问/);

@@ -6,7 +6,7 @@ import { studyLevelNameZh } from '../utils/study-level-display';
 export const STATUS_LABELS = { UNPAID: '未支付', PAID: '进行中', IN_PROGRESS: '进行中', NEEDS_DOCUMENTS: '材料待补充', SUBMITTED: '进行中', COMPLETED: '待评价', CANCELLED: '已取消' } as const;
 export type ApplicationStatus = keyof typeof STATUS_LABELS;
 export type ApplicationDisplayStatus = 'UNPAID' | 'IN_PROGRESS' | 'NEEDS_DOCUMENTS' | 'PENDING_REVIEW' | 'CANCELLED';
-export const STAGES = ['材料准备', '材料初审', '申请递交', '院校审核', '录取结果', '签证办理', '入学报到', '结案'];
+export const STAGES = ['材料准备', '材料审核', '公证认证', '申请递交', '院校审核', '录取结果', '签证办理', '行前准备', '入学注册', '结案'];
 export const FILTERS: ReadonlyArray<{ value: '' | ApplicationDisplayStatus; label: string }> = [
   { value: '', label: '全部申请' }, { value: 'UNPAID', label: '未支付' },
   { value: 'IN_PROGRESS', label: '进行中' }, { value: 'NEEDS_DOCUMENTS', label: '材料待补充' },
@@ -25,7 +25,9 @@ export interface ApplicationFee { id: string; title: string; amount: number; cur
 export interface ApplicationEvent { id: string; stage: number; message: string; createdAt: string; date: string }
 export interface ApplicationPayment { orderId: string; reference: string; status: string; amountFen: number | null;
   currency: string; ready: boolean; missingConfiguration: string[] }
-export interface ApplicationDetail { application: ApplicationSummary; documents: ApplicationDocument[]; fees: ApplicationFee[]; history: ApplicationEvent[]; payment: ApplicationPayment | null }
+export type ApplicationUrgeType = 'DOCUMENT_REVIEW' | 'SUBMISSION' | 'VISA' | 'OTHER';
+export interface ApplicationUrge { id:string; type:ApplicationUrgeType; detail:string; status:'OPEN'|'ACKNOWLEDGED'|'RESOLVED'; response:string; createdAt:string; statusLabel:string; typeLabel:string }
+export interface ApplicationDetail { application: ApplicationSummary; documents: ApplicationDocument[]; fees: ApplicationFee[]; history: ApplicationEvent[]; payment: ApplicationPayment | null; urges:ApplicationUrge[] }
 export interface ApplicationPage { items: ApplicationSummary[]; hasMore: boolean }
 export interface ApplicationCheckout { orderId: string; reference: string; status: string; amountFen: number | null;
   currency: string; applications: ApplicationDetail[]; missingConfiguration: string[] }
@@ -34,7 +36,7 @@ export function validApplicationId(id: string): boolean { return UUID.test(id); 
 const record = (value: unknown): value is Record<string, unknown> => !!value && typeof value === 'object' && !Array.isArray(value);
 const text = (value: unknown): value is string => typeof value === 'string';
 const date = (value: unknown): value is string => text(value) && /^\d{4}-\d{2}-\d{2}T/.test(value) && Number.isFinite(Date.parse(value));
-const stage = (value: unknown): value is number => Number.isInteger(value) && Number(value) >= 1 && Number(value) <= 8;
+const stage = (value: unknown): value is number => Number.isInteger(value) && Number(value) >= 1 && Number(value) <= 10;
 function invalid<T>(): Result<T> { return { ok: false, error: { kind: 'unexpected', code: 'INVALID_APPLICATION_RESPONSE' } }; }
 export function mapSummary(raw: unknown): ApplicationSummary | null {
   if (!record(raw) || !text(raw.id) || !UUID.test(raw.id) || !text(raw.status) || !Object.hasOwn(STATUS_LABELS, raw.status)
@@ -54,7 +56,7 @@ export function mapApplicationPage(raw: unknown): Result<ApplicationPage> {
 export function mapApplicationDetail(raw: unknown): Result<ApplicationDetail> {
   if (!record(raw) || !Array.isArray(raw.documents) || !Array.isArray(raw.fees) || !Array.isArray(raw.history)) return invalid();
   const application = mapSummary(raw.application); if (!application) return invalid();
-  const documents: ApplicationDocument[] = []; const fees: ApplicationFee[] = []; const history: ApplicationEvent[] = [];
+  const documents: ApplicationDocument[] = []; const fees: ApplicationFee[] = []; const history: ApplicationEvent[] = []; const urges:ApplicationUrge[]=[];
   const docLabels = { MISSING: '待补充', SUBMITTED: '审核中', APPROVED: '已通过', REJECTED: '需修改' };
   const feeLabels = { DUE: '待支付', PAID: '已支付', WAIVED: '已减免' };
   for (const d of raw.documents) {
@@ -78,7 +80,17 @@ export function mapApplicationDetail(raw: unknown): Result<ApplicationDetail> {
   }
   const payment = raw.payment == null ? null : mapPayment(raw.payment);
   if (raw.payment != null && !payment) return invalid();
-  return { ok:true,value:{application,documents,fees,history,payment} };
+  const rawUrges=raw.urges==null?[]:raw.urges;
+  if(!Array.isArray(rawUrges))return invalid();
+  const urgeTypes={DOCUMENT_REVIEW:'材料审核',SUBMISSION:'申请递交',VISA:'签证办理',OTHER:'其他事项'} as const;
+  const urgeStatuses={OPEN:'待处理',ACKNOWLEDGED:'处理中',RESOLVED:'已完成'} as const;
+  for(const u of rawUrges){
+    if(!record(u)||!text(u.id)||!UUID.test(u.id)||!text(u.type)||!Object.hasOwn(urgeTypes,u.type)||!text(u.status)||!Object.hasOwn(urgeStatuses,u.status)
+      ||!text(u.detail)||!text(u.response)||!date(u.createdAt))return invalid();
+    const type=u.type as ApplicationUrgeType;const status=u.status as ApplicationUrge['status'];
+    urges.push({id:u.id,type,status,detail:u.detail,response:u.response,createdAt:u.createdAt,typeLabel:urgeTypes[type],statusLabel:urgeStatuses[status]});
+  }
+  return { ok:true,value:{application,documents,fees,history,payment,urges} };
 }
 export async function getApplications(status: string, page: number): Promise<Result<ApplicationPage>> {
   const apiStatus = status === 'PENDING_REVIEW' ? 'COMPLETED' : status;
@@ -100,6 +112,11 @@ export async function submitApplicationDocument(id: string, document: string, fi
   if (!validApplicationId(id) || !validApplicationId(document)) return invalid();
   const response = await request<unknown>({method:'PUT',path:`/api/v1/miniapp/me/applications/${id}/documents/${document}`,data:{filename,contentBase64},authenticated:true});
   return response.ok ? mapApplicationDetail(response.value) : response;
+}
+export async function submitApplicationUrge(id:string,type:ApplicationUrgeType,detail:string):Promise<Result<ApplicationDetail>>{
+  if(!validApplicationId(id)||!Object.hasOwn({DOCUMENT_REVIEW:1,SUBMISSION:1,VISA:1,OTHER:1},type)||detail.length>500)return invalid();
+  const response=await request<unknown>({method:'POST',path:`/api/v1/miniapp/me/applications/${id}/urges`,data:{type,detail:detail.trim()},authenticated:true});
+  return response.ok?mapApplicationDetail(response.value):response;
 }
 export async function createApplicationCheckout(programmeIds: number[], idempotencyKey: string): Promise<Result<ApplicationCheckout>> {
   if (!programmeIds.length || programmeIds.length > 20 || new Set(programmeIds).size !== programmeIds.length

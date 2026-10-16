@@ -6,12 +6,14 @@ import java.util.*;
 import java.time.OffsetDateTime;
 import org.junit.jupiter.api.Test;
 import com.yangdoujiao.website.common.exception.ApiException;
+import com.yangdoujiao.website.notification.NotificationService;
 class ApplicationServiceTest {
  private final ApplicationRepository repository=mock(ApplicationRepository.class);
  private final ApplicationCheckoutRepository checkouts=mock(ApplicationCheckoutRepository.class);
- private final ApplicationService service=new ApplicationService(repository,checkouts);
+ private final NotificationService notifications=mock(NotificationService.class);
+ private final ApplicationService service=new ApplicationService(repository,checkouts,notifications);
  private final UUID id=UUID.randomUUID();
- private Summary summary(Status status){return new Summary(id,"APP", "segi-university","School","Programme","Degree","Business",status,2,"",OffsetDateTime.now());}
+ private Summary summary(Status status){return new Summary(id,"APP", "segi-university","School","Programme","Degree","Business",status,2,"",7L,8L,null,OffsetDateTime.now(),null,"材料审核",OffsetDateTime.now());}
  @Test void ownershipIsCheckedBeforeAnyPrivateDocumentRead(){when(repository.owned(id,7,false)).thenReturn(Optional.empty());assertThatThrownBy(()->service.file(7,false,id,UUID.randomUUID())).isInstanceOf(ApiException.class);verify(repository,never()).file(any(),any());}
  @Test void anotherAdviserCannotUpdateAnApplication(){when(repository.owned(id,8,true)).thenReturn(Optional.empty());assertThatThrownBy(()->service.progress(8,id,new Progress(Status.IN_PROGRESS,2,"note"))).isInstanceOf(ApiException.class);verify(repository,never()).progress(any(),any());}
  @Test void closedApplicationsCannotReceiveDocuments(){when(repository.owned(id,7,false)).thenReturn(Optional.of(summary(Status.COMPLETED)));assertThatThrownBy(()->service.upload(7,id,UUID.randomUUID(),new Upload("file.pdf","JVBERi0="))).isInstanceOf(ApiException.class);verify(repository,never()).upload(any(),any(),any(),any());}
@@ -20,4 +22,6 @@ class ApplicationServiceTest {
  @Test void paginationUsesOneExtraRowAndNeverReturnsMoreThanTwenty(){when(repository.list(7,false,null,0)).thenReturn(Collections.nCopies(21,summary(Status.IN_PROGRESS)));var page=service.list(7,false,null,0);assertThat(page.items()).hasSize(20);assertThat(page.hasMore()).isTrue();}
  @Test void successfulUploadCreatesHistoryAfterSaving(){when(repository.owned(id,7,false)).thenReturn(Optional.of(summary(Status.NEEDS_DOCUMENTS)));when(checkouts.findOrderByApplication(7,id)).thenReturn(Optional.empty());UUID doc=UUID.randomUUID();when(repository.upload(eq(id),eq(doc),eq("file.pdf"),any())).thenReturn(1);when(repository.documents(id)).thenReturn(List.of());when(repository.fees(id)).thenReturn(List.of());when(repository.history(id)).thenReturn(List.of());service.upload(7,id,doc,new Upload("file.pdf","JVBERi0="));verify(repository).event(eq(id),eq(2),anyString());}
  @Test void unpaidApplicationsCannotAdvanceBeforeTrustedPayment(){when(repository.owned(id,9,true)).thenReturn(Optional.of(summary(Status.UNPAID)));assertThatThrownBy(()->service.progress(9,id,new Progress(Status.IN_PROGRESS,1,"start"))).isInstanceOf(ApiException.class);verify(repository,never()).progress(any(),any());}
+ @Test void studentUrgeUsesAssignedOwnerAndRejectsDuplicateOpenType(){when(repository.owned(id,7,false)).thenReturn(Optional.of(summary(Status.IN_PROGRESS)));when(checkouts.findOrderByApplication(7,id)).thenReturn(Optional.empty());when(repository.hasOpenUrge(id,UrgeType.SUBMISSION)).thenReturn(false,true);var request=new UrgeRequest(UrgeType.SUBMISSION,"Please check");service.urge(7,id,request);verify(repository).addUrge(eq(id),eq(7L),any(),eq(request),eq(8L));verify(notifications).publishApplication(eq(8L),contains("application.urge."),eq("新的申请催办"),contains("申请递交"));assertThatThrownBy(()->service.urge(7,id,request)).isInstanceOf(ApiException.class);}
+ @Test void adviserFollowUpRemainsInPrivateFollowUpHistory(){when(repository.owned(id,8,true)).thenReturn(Optional.of(summary(Status.IN_PROGRESS)));var request=new FollowUpRequest(FollowUpChannel.WECHAT,"Asked for transcript","Student will upload tomorrow",null);service.addFollowUp(8,id,request);verify(repository).addFollowUp(eq(id),eq(8L),any(),eq(request));verify(repository,never()).event(eq(id),anyInt(),contains("Student will upload tomorrow"));}
 }

@@ -171,9 +171,11 @@ export function AccountPanel({ locale }: { locale: Locale }) {
       <div><span className="account-adviser-kicker">{words(locale, "内部工具", "Internal tools")}</span>
         <h2 id="account-adviser-title">{words(locale, "顾问工作台", "Adviser workspace")}</h2>
         <p>{words(locale, "查看已完成的客户咨询，并进入完整的咨询管理后台。", "Review completed client enquiries and open the full consultation workspace.")}</p></div>
-      <Link className="button" href={`/${locale}/adviser/consultations?status=COMPLETED&page=1`}>
-        {words(locale, "打开咨询管理", "Open consultations")}<span aria-hidden="true">→</span>
-      </Link>
+      <div className="account-adviser-actions"><Link className="button secondary" href={`/${locale}/adviser/consultations?status=COMPLETED&page=1`}>
+        {words(locale, "咨询管理", "Consultations")}
+      </Link><Link className="button" href={`/${locale}/adviser/applications`}>
+        {words(locale, "申请管理", "Applications")}<span aria-hidden="true">→</span>
+      </Link></div>
     </section>}
 
     <SavedItemsPanel locale={locale} />
