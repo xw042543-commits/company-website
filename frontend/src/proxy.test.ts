@@ -76,3 +76,33 @@ test("allows public pages and signed-in member routes", () => {
   assert.equal(proxyRedirectPath("/zh/about", "", false), null);
   assert.equal(proxyRedirectPath("/zh/planning", "", true), null);
 });
+
+
+test("account management requires a fresh advanced administrator capability", async () => {
+  const ordinary = { authenticated: true, adviser: false, admin: true };
+  assert.equal(proxyRedirectPath("/zh/admin/accounts", "", ordinary), "/zh/forbidden");
+  assert.equal(proxyRedirectPath("/zh/admin/%61ccounts", "", ordinary), "/zh/forbidden");
+  assert.equal(proxyRedirectPath("/zh/admin/accounts", "", { ...ordinary, advancedAdmin: true }), null);
+  for (const capability of [true, false, "true", null]) {
+    const calls: string[] = [];
+    const request = (async (url: string | URL | Request, init?: RequestInit) => {
+      calls.push(String(url));
+      assert.equal(init?.cache, "no-store");
+      assert.equal(new Headers(init?.headers).get("Cookie"), "session=test");
+      return calls.length === 1 ? Response.json({ ...ordinary, userId: 1, fullName: "管理员" }) : Response.json({ permanentDelete: capability });
+    }) as typeof fetch;
+    const access = await loadProxySessionAccess("/zh/admin/accounts", "http://backend:8080", "session=test", "production", request);
+    assert.equal(access.advancedAdmin, capability === true);
+    assert.equal(calls[1], "http://backend:8080/api/v1/admin/catalog/lifecycle/capabilities");
+  }
+});
+
+test("account management denies access when the capability service fails", async () => {
+  let calls = 0;
+  const request = (async () => {
+    if (++calls === 1) return Response.json({ authenticated: true, adviser: false, admin: true, userId: 1, fullName: "管理员" });
+    throw new Error("offline");
+  }) as typeof fetch;
+  const access = await loadProxySessionAccess("/zh/admin/accounts", "http://backend:8080", "session=test", "production", request);
+  assert.equal(proxyRedirectPath("/zh/admin/accounts", "", access), "/zh/forbidden");
+});

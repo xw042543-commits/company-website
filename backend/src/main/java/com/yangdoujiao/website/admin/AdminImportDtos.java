@@ -11,7 +11,7 @@ import jakarta.validation.constraints.NotNull;
 public final class AdminImportDtos {
     private AdminImportDtos() {}
 
-    public enum EntityType { UNIVERSITY, PROGRAMME }
+    public enum EntityType { UNIVERSITY, PROGRAMME, COURSE }
     public enum Classification { NEW, EXACT_DUPLICATE, POSSIBLE_DUPLICATE, CONFLICT, INVALID }
 
     public record ImportBatch(UUID id, EntityType entityType, String originalFilename, long uploadedByUserId,

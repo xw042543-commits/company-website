@@ -35,7 +35,7 @@ class CommunityImageAttachmentsIntegrationTest {
         jdbc.update("DELETE FROM user_accounts WHERE id=?",owner);
     }
     void bind(List<String> ids,boolean textPass) {
-        new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner,post,ids,textPass));
+        new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner,post,ids,textPass,true));
     }
     @Test void preservesOrderAndRejectsRebinding() {
         bind(List.of(second,first),true);
@@ -43,10 +43,10 @@ class CommunityImageAttachmentsIntegrationTest {
         assertThrows(ApiException.class,()->bind(List.of(first),true));
     }
     @Test void refusesForeignOwnerWithoutPartialBinding() {
-        assertThrows(ApiException.class,()->new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner+1,post,List.of(first),true)));
+        assertThrows(ApiException.class,()->new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner+1,post,List.of(first),true,true)));
         assertNull(jdbc.queryForObject("SELECT post_id FROM community_images WHERE id=?",Long.class,first));
     }
-    @Test void needsAllImagesAndTextBeforeAutomaticPublication() {
+    @Test void passingEveryImageAutomaticallyPublishesPost() {
         bind(List.of(first,second),true);
         media.recordResult(first,"PASS");
         assertEquals("PENDING_REVIEW",status());
@@ -60,6 +60,17 @@ class CommunityImageAttachmentsIntegrationTest {
         jdbc.update("UPDATE community_posts SET status='HIDDEN',version=version+1 WHERE id=?",post);
         media.recordResult(first,"PASS");
         assertEquals("HIDDEN",status());
+    }
+    @Test void rejectedImageDoesNotPublishPost() {
+        bind(List.of(first,second),true);
+        media.recordResult(first,"REJECTED");
+        media.recordResult(second,"PASS");
+        assertEquals("PENDING_REVIEW",status());
+    }
+    @Test void scannerDisabledBindsImagesWithoutCreatingReviewJobs() {
+        new TransactionTemplate(manager).executeWithoutResult(tx->media.bind(owner,post,List.of(first),true,false));
+        assertEquals(0L,jdbc.queryForObject("SELECT count(*) FROM community_image_review_jobs WHERE image_id=?",Long.class,first));
+        assertEquals(0L,jdbc.queryForObject("SELECT count(*) FROM community_image_post_review WHERE post_id=?",Long.class,post));
     }
     @Test void rejectsDuplicateAndTooManyIds() {
         assertThrows(ApiException.class,()->CommunityImageAttachments.parse(json.valueToTree(List.of(first,first))));

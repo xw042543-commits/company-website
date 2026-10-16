@@ -34,7 +34,12 @@ class CommunityImageReviewConfiguration {
         return new WechatImageReviewGateway(tokens,identities,access,json,RestClient.builder().requestFactory(factory).build(),diagnostics);
     }
     @Bean @ConditionalOnProperty(name="app.community.images.review-worker-enabled",havingValue="true",matchIfMissing=true)
-    CommunityImageReviewWorker communityImageReviewWorker(CommunityImageReviewJobs jobs,CommunityImageAttachments images,WechatImageReviewGateway gateway,Clock clock) {
-        return new CommunityImageReviewWorker(jobs,images,gateway,clock);
+    CommunityImageReviewWorker communityImageReviewWorker(CommunityImageReviewJobs jobs,CommunityImageAttachments images,WechatImageReviewGateway gateway,WechatDirectImageReviewGateway direct,Clock clock) {
+        return new CommunityImageReviewWorker(jobs,images,gateway,direct,clock);
+    }
+    @Bean WechatDirectImageReviewGateway wechatDirectImageReviewGateway(WechatAccessTokenProvider tokens,CommunityImageAttachments images,ObjectMapper json) {
+        var factory=new JdkClientHttpRequestFactory(HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(3)).build());
+        factory.setReadTimeout(Duration.ofSeconds(8));
+        return new WechatDirectImageReviewGateway(tokens,images,json,RestClient.builder().requestFactory(factory).build());
     }
 }

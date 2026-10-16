@@ -14,7 +14,9 @@ import {
 function programme(id: number, categoryCode: string): UniversityProgramme {
   return {
     id, categoryCode, slug: `programme-${id}`, nameZh: '专业', nameEn: 'Programme',
-    studyLevelCode: 'BACHELOR', durationDisplay: '3年', tuitionDisplay: '待确认',
+    studyLevelCode: 'BACHELOR', durationDisplay: '3年',
+    tuitionMin: null, tuitionMax: null, tuitionCurrency: '', tuitionFeePeriod: '',
+    tuitionTotalRmbMin: null, tuitionTotalRmbMax: null, tuitionDisplay: '待确认',
     intakeDisplayTexts: [],
   };
 }
@@ -199,4 +201,16 @@ test('every reviewed programme maps to the complete Chinese list or the pending 
     if(row.status==='VERIFIED')assert.ok(course?.body.includes(row.modules[0]?.nameZh??''),row.programmeCode);
     else assert.equal(course?.body,'待核实：暂无官方课程资料');
   }
+});
+
+test('staff reference learning areas stay separate from verified official modules', () => {
+  const document = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 20, {
+    bodyZh: '资料概述\n【后台维护课程】\n算法分析（参考学习领域，非官方课程表）', sourceType: 'third_party',
+  })] }));
+  const curriculum = document.find(s => s.key === 'CURRICULUM')!;
+  assert.equal(curriculum.official, false);
+  assert.equal(curriculum.available, true);
+  assert.equal(curriculum.curriculumItems.length, 0);
+  assert.match(curriculum.body, /参考学习领域，非官方课程表/);
+  assert.match(curriculum.referenceBody!, /算法分析/);
 });

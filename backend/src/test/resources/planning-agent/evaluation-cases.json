@@ -1,0 +1,2016 @@
+{
+  "provenance": "SYNTHETIC_OFFLINE_ONLY",
+  "adviserReviewed": false,
+  "officialAdmissionsData": false,
+  "now": "2026-10-15T00:00:00Z",
+  "cases": [
+    {
+      "id": "foundation-threshold",
+      "level": "FOUNDATION",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "FOUNDATION",
+          "intake": "2027-09",
+          "education": "HIGH_SCHOOL",
+          "grade": "70",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "70",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": true,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "YEAR",
+            "units": 2,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "20000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "foundation-gpa4",
+      "level": "FOUNDATION",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "FOUNDATION",
+          "intake": "2027-09",
+          "education": "HIGH_SCHOOL",
+          "grade": "3",
+          "grade.scale": "4"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "3",
+              "scale": "4",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": true,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "5000",
+            "currency": "MYR",
+            "period": "SEMESTER",
+            "units": 4,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "20000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "foundation-no-language",
+      "level": "FOUNDATION",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "FOUNDATION",
+          "intake": "2027-09",
+          "education": "HIGH_SCHOOL",
+          "languageTest": "NONE"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "languageTotal",
+              "operator": "GTE",
+              "expected": "5",
+              "scale": "9",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [
+        "profile:languageTotal"
+      ],
+      "expectedStatuses": [
+        "PROFILE_MISSING"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "TAX"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "600",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TAX",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10600"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "foundation-cross-major-not-met",
+      "level": "FOUNDATION",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "FOUNDATION",
+          "intake": "2027-09",
+          "education": "HIGH_SCHOOL",
+          "crossMajor": "true"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "crossMajor",
+              "operator": "EQ",
+              "expected": "false",
+              "scale": null,
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "NOT_MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "TAX"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "600",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": 1,
+            "category": "TAX",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "foundation-missing-evidence",
+      "level": "FOUNDATION",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "FOUNDATION",
+          "intake": "2027-09",
+          "education": "HIGH_SCHOOL",
+          "grade": "80",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": false,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "70",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [
+        "ADMISSIONS"
+      ],
+      "expectedStatuses": [
+        "EVIDENCE_MISSING"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "LIVING"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "200",
+            "currency": "USD",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "LIVING",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10000",
+          "USD": "200"
+        },
+        "expectedComplete": false,
+        "expectedMissing": [
+          "fx:verified-conversion-unavailable"
+        ]
+      }
+    },
+    {
+      "id": "bachelor-below-threshold",
+      "level": "BACHELOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "BACHELOR",
+          "intake": "2027-09",
+          "education": "HIGH_SCHOOL",
+          "grade": "69.99",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "70",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "NOT_MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "YEAR",
+            "units": 2,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "20000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "bachelor-gpa5",
+      "level": "BACHELOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "BACHELOR",
+          "intake": "2027-09",
+          "education": "FOUNDATION",
+          "grade": "4",
+          "grade.scale": "5"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "4",
+              "scale": "5",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": true,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "5000",
+            "currency": "MYR",
+            "period": "SEMESTER",
+            "units": 4,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "20000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "bachelor-incomparable-scales",
+      "level": "BACHELOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "BACHELOR",
+          "intake": "2027-09",
+          "education": "HIGH_SCHOOL",
+          "grade": "8",
+          "grade.scale": "10"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "70",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [
+        "profile:grade"
+      ],
+      "expectedStatuses": [
+        "PROFILE_MISSING"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "LIVING"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "200",
+            "currency": "USD",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "LIVING",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10000",
+          "USD": "200"
+        },
+        "expectedComplete": false,
+        "expectedMissing": [
+          "fx:verified-conversion-unavailable"
+        ]
+      }
+    },
+    {
+      "id": "bachelor-missing-education",
+      "level": "BACHELOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "BACHELOR",
+          "intake": "2027-09",
+          "grade": "80",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "education",
+              "operator": "EQ",
+              "expected": "HIGH_SCHOOL",
+              "scale": null,
+              "evidenceId": 7
+            },
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "70",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [
+        "profile:education"
+      ],
+      "expectedStatuses": [
+        "PROFILE_MISSING",
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "LIVING"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10000"
+        },
+        "expectedComplete": false,
+        "expectedMissing": [
+          "category:LIVING"
+        ]
+      }
+    },
+    {
+      "id": "bachelor-expired-evidence",
+      "level": "BACHELOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "BACHELOR",
+          "intake": "2027-09",
+          "education": "HIGH_SCHOOL",
+          "grade": "80",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "70",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-10-15T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [
+        "ADMISSIONS"
+      ],
+      "expectedStatuses": [
+        "EVIDENCE_MISSING"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "TAX"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "600",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TAX",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10600"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "master-threshold",
+      "level": "MASTER",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "MASTER",
+          "intake": "2027-09",
+          "education": "BACHELOR",
+          "grade": "70",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "education",
+              "operator": "EQ",
+              "expected": "BACHELOR",
+              "scale": null,
+              "evidenceId": 7
+            },
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "70",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": true,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "MET",
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "YEAR",
+            "units": 2,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "20000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "master-historical-gpa4-alias",
+      "level": "MASTER",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "MASTER",
+          "intake": "2027-09",
+          "education": "BACHELOR",
+          "grade": "3.2",
+          "grade.scale": "GPA4"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "3",
+              "scale": "4",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": true,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "TAX"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "600",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": 1,
+            "category": "TAX",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "master-no-language",
+      "level": "MASTER",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "MASTER",
+          "intake": "2027-09",
+          "education": "BACHELOR",
+          "languageTest": "NONE"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "languageTotal",
+              "operator": "GTE",
+              "expected": "6.5",
+              "scale": "IELTS",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [
+        "profile:languageTotal"
+      ],
+      "expectedStatuses": [
+        "PROFILE_MISSING"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "LIVING"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "12000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "LIVING",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "22000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "master-cross-major-allowed",
+      "level": "MASTER",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "MASTER",
+          "intake": "2027-09",
+          "education": "BACHELOR",
+          "crossMajor": "true"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "education",
+              "operator": "EQ",
+              "expected": "BACHELOR",
+              "scale": null,
+              "evidenceId": 7
+            },
+            {
+              "field": "crossMajor",
+              "operator": "EQ",
+              "expected": "true",
+              "scale": null,
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": true,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "MET",
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "TAX"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "600",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TAX",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10600"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "master-incomplete-rules",
+      "level": "MASTER",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "MASTER",
+          "intake": "2027-09",
+          "education": "BACHELOR",
+          "grade": "80",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": false,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "70",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [
+        "ADMISSIONS"
+      ],
+      "expectedStatuses": [
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "LIVING"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10000"
+        },
+        "expectedComplete": false,
+        "expectedMissing": [
+          "category:LIVING"
+        ]
+      }
+    },
+    {
+      "id": "doctor-threshold",
+      "level": "DOCTOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "DOCTOR",
+          "intake": "2027-09",
+          "education": "MASTER",
+          "grade": "85",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "education",
+              "operator": "EQ",
+              "expected": "MASTER",
+              "scale": null,
+              "evidenceId": 7
+            },
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "85",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": true,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "MET",
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "YEAR",
+            "units": 2,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "20000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "doctor-gpa10",
+      "level": "DOCTOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "DOCTOR",
+          "intake": "2027-09",
+          "education": "MASTER",
+          "grade": "8.5",
+          "grade.scale": "10"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "8.5",
+              "scale": "10",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": true,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "5000",
+            "currency": "MYR",
+            "period": "SEMESTER",
+            "units": 4,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "20000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "doctor-language-below-threshold",
+      "level": "DOCTOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "DOCTOR",
+          "intake": "2027-09",
+          "education": "MASTER",
+          "languageTotal": "6",
+          "languageTotal.scale": "IELTS"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "languageTotal",
+              "operator": "GTE",
+              "expected": "6.5",
+              "scale": "IELTS",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [],
+      "expectedStatuses": [
+        "NOT_MET"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "TAX"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "600",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TAX",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10600"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "doctor-missing-research-plan",
+      "level": "DOCTOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "DOCTOR",
+          "intake": "2027-09",
+          "education": "MASTER",
+          "grade": "85",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "researchPlanReady",
+              "operator": "EQ",
+              "expected": "true",
+              "scale": null,
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [
+        "profile:researchPlanReady"
+      ],
+      "expectedStatuses": [
+        "PROFILE_MISSING"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "LIVING"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "12000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "LIVING",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "22000"
+        },
+        "expectedComplete": true,
+        "expectedMissing": []
+      }
+    },
+    {
+      "id": "doctor-conflicting-evidence",
+      "level": "DOCTOR",
+      "profile": {
+        "version": 1,
+        "facts": {
+          "targetLevel": "DOCTOR",
+          "intake": "2027-09",
+          "education": "MASTER",
+          "grade": "85",
+          "grade.scale": "100"
+        }
+      },
+      "rules": {
+        "programmeId": 1,
+        "version": 1,
+        "complete": true,
+        "alternatives": [
+          [
+            {
+              "field": "grade",
+              "operator": "GTE",
+              "expected": "85",
+              "scale": "100",
+              "evidenceId": 7
+            }
+          ]
+        ]
+      },
+      "evidence": [
+        {
+          "id": 7,
+          "programmeId": 1,
+          "factType": "ADMISSIONS",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": true
+        },
+        {
+          "id": 8,
+          "programmeId": 1,
+          "factType": "FEES",
+          "sourceUrl": "https://example.edu/synthetic-only",
+          "sourceType": "OFFICIAL",
+          "studentScope": "CN_MAINLAND",
+          "intake": "2027-09",
+          "checkedAt": "2026-10-14T00:00:00Z",
+          "expiresAt": "2026-11-14T00:00:00Z",
+          "reviewStatus": "VERIFIED",
+          "reviewerId": 1,
+          "excerpt": "SYNTHETIC fixture; not official admissions data or adviser reviewed",
+          "conflict": false
+        }
+      ],
+      "expectedEligible": false,
+      "expectedMissing": [
+        "ADMISSIONS"
+      ],
+      "expectedStatuses": [
+        "EVIDENCE_MISSING"
+      ],
+      "budget": {
+        "scope": [
+          "TUITION",
+          "LIVING"
+        ],
+        "fees": [
+          {
+            "id": 1,
+            "programmeId": 1,
+            "amount": "10000",
+            "currency": "MYR",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "TUITION",
+            "coverageComplete": true
+          },
+          {
+            "id": 2,
+            "programmeId": 1,
+            "amount": "200",
+            "currency": "USD",
+            "period": "TOTAL",
+            "units": 1,
+            "evidenceId": 8,
+            "includedIn": null,
+            "category": "LIVING",
+            "coverageComplete": true
+          }
+        ],
+        "expectedSubtotals": {
+          "MYR": "10000",
+          "USD": "200"
+        },
+        "expectedComplete": false,
+        "expectedMissing": [
+          "fx:verified-conversion-unavailable"
+        ]
+      }
+    }
+  ]
+}

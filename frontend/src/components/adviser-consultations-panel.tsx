@@ -78,7 +78,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
       await Promise.resolve();
       if (!request.isCurrent()) return;
       setListPending(true);
-      const result = await loadAdviserConsultations(browserApiBaseUrl(), { query, status, page: page - 1, size: 20 }, abortableRequest(request.signal));
+      const result = await loadAdviserConsultations(browserApiBaseUrl(), { query, status, page: page - 1, size: 4 }, abortableRequest(request.signal));
       if (!request.isCurrent()) return;
       if (result.status !== "ready" && handleAccessFailure(result)) return;
       setList({ key: listKey, result }); setListPending(false);
@@ -148,7 +148,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
     words(locale, "意向大学", "University"), words(locale, "意向课程", "Course"), words(locale, "学历层次", "Qualification"), words(locale, "状态", "Status")];
   const collection = data ? consultationCollectionState(locale, data.submissionEnabled) : null;
   const action = detail ? contactAction(detail.contact) : null;
-  const countFor = (value: ConsultationStatus | "") => !data ? "—" : value === "NEW" ? data.counts.newCount
+  const countFor = (value: ConsultationStatus | "") => !data ? "…" : value === "NEW" ? data.counts.newCount
     : value === "IN_PROGRESS" ? data.counts.inProgressCount : value === "COMPLETED" ? data.counts.completedCount
       : data.counts.newCount + data.counts.inProgressCount + data.counts.completedCount;
   const setStatusFilter = (value: ConsultationStatus | "") => {
@@ -156,7 +156,7 @@ export function AdviserConsultationsPanel({ locale }: { locale: Locale }) {
     router.replace(`/${locale}/adviser/consultations?${consultationQuery({ query, status, page }, { query: search, status: value })}`, { scroll: false });
   };
 
-  return <div className="adviser-panel">
+  return <div className="adviser-panel consultation-workspace">
     <section className={`adviser-collection-state ${collection ? `is-${collection.tone}` : "is-loading"}`} role="status" aria-busy={!collection}>
       <div><span className="adviser-state-dot" aria-hidden="true" /><div>
         <strong>{collection?.title ?? words(locale, "正在确认咨询收集状态", "Checking collection status")}</strong>

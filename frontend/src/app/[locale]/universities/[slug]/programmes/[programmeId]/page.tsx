@@ -170,6 +170,8 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
   const curriculumSection = findOfficialProgrammeSection(programme.sections, ["CURRICULUM", "COURSE_STRUCTURE"], locale);
   const careerSection = findProgrammeSection(programme.sections, ["CAREER_OPPORTUNITIES", "CAREER_OUTLOOK"], locale);
   const curriculumItems = curriculumSection?.courseModules ?? [];
+  const managedCourseBody = findProgrammeSection(programme.sections, ["CURRICULUM", "COURSE_STRUCTURE"], "zh")?.body ?? "";
+  const referenceCourses = managedCourseBody.split("【后台维护课程】")[1]?.trim() ?? "";
   const localizedDescription = locale === "zh"
     ? programme.descriptionZh.trim() || programme.descriptionEn.trim()
     : programme.descriptionEn.trim() || programme.descriptionZh.trim();
@@ -363,6 +365,7 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
               <strong>{words(locale, "待核实：暂无官方课程资料", "Official curriculum pending verification")}</strong>
               <p>{words(locale, "尚未取得可核验的官方课程表，页面不会根据专业名称生成模拟课程。", "A verifiable official curriculum has not yet been obtained. This page does not generate simulated modules from the programme name.")}</p>
             </div>}
+            {referenceCourses && <div className="programme-structure-pending"><h3>参考学习领域，非官方课程表</h3><p style={{whiteSpace:"pre-line"}}>{referenceCourses}</p></div>}
           </div>
         </details>
 

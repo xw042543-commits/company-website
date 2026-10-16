@@ -1,6 +1,6 @@
 import { requestInternalApi } from "./internal-api-request.ts";
 
-export type SessionAccess = { authenticated: boolean; adviser: boolean; admin?: boolean };
+export type SessionAccess = { authenticated: boolean; adviser: boolean; admin?: boolean; advancedAdmin?: boolean };
 
 export async function loadSessionAccess(
   apiBaseUrl: string | undefined, cookieHeader: string | null | undefined,

@@ -14,7 +14,7 @@ type PersonalPostItem = CommunityMyPost & { displayTime: string; statusLabel: st
 type PersonalCommentItem = CommunityMyComment & { displayTime: string; statusLabel: string };
 interface ItemEvent extends WechatMiniprogram.BaseEvent { currentTarget: WechatMiniprogram.BaseEvent['currentTarget'] & { dataset: { id?: string; post?: string; status?: string } } }
 
-interface PersonalRuntime { generation: number; active: boolean; requestScope: string; submittedForReview: boolean }
+interface PersonalRuntime { generation: number; active: boolean; requestScope: string; submittedForReview: boolean; automaticImageCheck: boolean }
 type PersonalDeps = { navigate: (url: string) => void; listPosts: typeof listMyCommunityPosts; listComments: typeof listMyCommunityComments;
   deletePost: typeof deleteCommunityPost; deleteComment: typeof deleteCommunityComment; session: typeof sessionStore; createScope: typeof createCommunityRequestScope };
 const personalDefaults: PersonalDeps = { navigate: (url) => wx.navigateTo({ url }), listPosts: listMyCommunityPosts,
@@ -33,8 +33,9 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
   },
   onLoad(options: Record<string, string | undefined> = {}) {
     const submittedForReview = options.review === 'submitted';
-    (this as PersonalPage)._communityRuntime = { generation: 0, active: true, requestScope: deps.createScope(), submittedForReview };
-    this.setData({ reviewNotice: submittedForReview ? PENDING_REVIEW_NOTICE : '' });
+    const automaticImageCheck = options.review === 'automatic-image';
+    (this as PersonalPage)._communityRuntime = { generation: 0, active: true, requestScope: deps.createScope(), submittedForReview, automaticImageCheck };
+    this.setData({ reviewNotice: automaticImageCheck ? '图片自动检查中，通过后会自动发布。' : submittedForReview ? PENDING_REVIEW_NOTICE : '' });
     void this.requireLoginAndLoad();
   },
   onUnload() { const state = personalRuntime(this); state.active = false; state.generation++; },
@@ -73,7 +74,7 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
       const incoming = result.value.items as readonly CommunityMyPost[];
       const items = new Map<string, PersonalPostItem>((reset ? [] : this.data.posts).map((item: PersonalPostItem) => [item.id, item]));
       incoming.forEach((item) => items.set(item.id, { ...item, categoryLabel: communityCategoryLabel(item.category), displayTime: formatCommunityTime(item.createdAt), statusLabel: statusCopy(item.status) }));
-      const posts = [...items.values()]; this.setData({ posts, reviewNotice: state.submittedForReview || posts.some((item) => item.status === 'PENDING_REVIEW') ? PENDING_REVIEW_NOTICE : '',
+      const posts = [...items.values()]; this.setData({ posts, reviewNotice: state.automaticImageCheck ? '图片自动检查中，通过后会自动发布。' : state.submittedForReview || posts.some((item) => item.status === 'PENDING_REVIEW') ? PENDING_REVIEW_NOTICE : '',
         nextCursor: result.value.nextCursor, loadingMore: false, state: posts.length ? 'ready' : 'empty' });
       const owner = deps.session.getSnapshot().account?.id;
       void fetchCommunityImages(incoming.map((post) => post.id), true).then((images) => {

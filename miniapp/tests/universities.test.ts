@@ -558,6 +558,12 @@ test('maps the published programme list used by university details', () => {
       categoryCode: 'BUSINESS',
       studyLevelCode: 'BACHELOR',
       durationDisplay: '3 年',
+      tuitionMin: 80_000,
+      tuitionMax: 98_400,
+      tuitionCurrency: 'MYR',
+      tuitionFeePeriod: 'TOTAL_PROGRAM',
+      tuitionTotalRmbMin: 130_000,
+      tuitionTotalRmbMax: 160_000,
       tuitionDisplay: 'RM 89,200',
       intakeDisplayTexts: ['9 月'],
     }],
@@ -567,5 +573,10 @@ test('maps the published programme list used by university details', () => {
     totalPages: 1,
   });
   assert.equal(result.ok, true);
-  if (result.ok) assert.equal(result.value.items[0]?.nameZh, '工商管理');
+  if (result.ok) {
+    assert.equal(result.value.items[0]?.nameZh, '工商管理');
+    assert.equal(result.value.items[0]?.tuitionMin, 80_000);
+    assert.equal(result.value.items[0]?.tuitionFeePeriod, 'TOTAL_PROGRAM');
+    assert.equal(result.value.items[0]?.tuitionTotalRmbMax, 160_000);
+  }
 });

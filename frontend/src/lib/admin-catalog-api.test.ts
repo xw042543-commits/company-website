@@ -69,3 +69,22 @@ test("all countries omits the restriction and university lists ignore programme-
   assert.equal(country.searchParams.get("country"), "SG");
   assert.equal(country.searchParams.get("page"), "1");
 });
+
+
+test("account identity filters and self protection preserve existing roles", async () => {
+  const { accountIdentity, accountListPath, canChangeIdentity } = await import("./admin-account-api.ts");
+  const account = { id: 2, fullName: "用户", email: null, phone: null, role: "USER", status: "ACTIVE", advanced: false, createdAt: "", updatedAt: "" };
+  assert.equal(accountIdentity(account), "普通用户");
+  assert.equal(accountIdentity({ role: "ADMIN", advanced: true }), "高级管理员");
+  assert.equal(accountIdentity({ role: "ADVISER", advanced: false }), "顾问");
+  assert.equal(canChangeIdentity(account, 2), false);
+  assert.equal(canChangeIdentity(account, 1), true);
+  assert.equal(canChangeIdentity({ ...account, status: "PENDING_VERIFICATION" }, 1), false);
+  assert.equal(canChangeIdentity({ ...account, role: "ADMIN", advanced: true }, 1), false);
+  assert.equal(canChangeIdentity({ ...account, role: "ADVISER" }, 1), false);
+  const url = new URL(accountListPath("名字&邮箱", "DISABLED", "ADMIN", 3), "https://test.local");
+  assert.equal(url.searchParams.get("q"), "名字&邮箱");
+  assert.equal(url.searchParams.get("page"), "3");
+  assert.equal(url.searchParams.get("status"), "DISABLED");
+  assert.equal(url.searchParams.get("identity"), "ADMIN");
+});

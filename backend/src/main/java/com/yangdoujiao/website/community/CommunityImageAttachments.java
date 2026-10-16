@@ -32,10 +32,10 @@ public class CommunityImageAttachments {
         return List.copyOf(ids);
     }
     @Transactional(propagation=org.springframework.transaction.annotation.Propagation.MANDATORY)
-    public void bind(long owner,long post,List<String> ids,boolean textPassed) {
+    public void bind(long owner,long post,List<String> ids,boolean textPassed,boolean reviewEnabled) {
         if(ids.isEmpty())return;
         if(!enabled)throw new ApiException(HttpStatus.SERVICE_UNAVAILABLE,"COMMUNITY_IMAGES_DISABLED","Image publishing is disabled");
-        repository.bind(owner,post,ids,textPassed);
+        repository.bind(owner,post,ids,textPassed,reviewEnabled);
     }
     @Transactional public void recordResult(String imageId,String result){repository.recordResult(imageId,result);}
     @Transactional public void reconcile(){repository.reconcile();}

@@ -429,3 +429,26 @@ APP_TRUSTED_PROXIES=
 筛选先于LIMIT/OFFSET；省略country保持已有请求兼容。不改变字典、数据结构或公开搜索接口。
 切换国家重置到第1页，翻页、编辑保存和取消编辑保留当前国家及其他筛选；编辑后当前页
 超出剩余页数时自动回到最后有效页。前端忽略过期请求，避免快速切换国家时旧响应覆盖新结果。
+
+## 工作人员导入与删除管理（V54）
+
+导入模板支持 UNIVERSITY、PROGRAMME、COURSE。国家、关联院校、学历、分类可使用已有中文/英文名称或编码；内部编码和页面地址可留空，上传预览会显示固定生成结果。重复记录复用已有编码并保持不导入、不覆盖。课程 programmeCode 指向所属专业，courseCode 是内部编码，officialCode 是学校课程代码。
+
+管理员 `/api/v1/admin/catalog/courses` 支持 GET（q/programmeId/status/page/size）、POST、PUT /{id}、PATCH /{id}/status；GET /programmes 返回可关联专业。POST/PUT 字段为 courseCode（选填）、programmeId、nameZh、nameEn、officialCode、descriptionZh、sourceUrl、sourceType（official/third_party/ai_generated）、sortOrder。已有课程的编码及所属专业不可变。
+
+院校、专业及课程列表 status=TRASH 表示回收站，其他列表默认排除回收站。所有写请求仍需管理员登录与 CSRF。
+
+`/api/v1/admin/catalog/lifecycle`：GET /capabilities 返回 permanentDelete；GET /audit?page=1&size=20 返回操作记录；POST /preview 预览关联影响；POST 根路径执行。请求为 {type: UNIVERSITY|PROGRAMME|COURSE, ids: [正整数，1至100条], action: TRASH|RESTORE|PURGE, confirmation: 确认或永久删除}。预览不需要 confirmation。PURGE 每次检查当前数据库高级管理员授权，只可清理回收站中无关联数据。任一记录不符合条件则整批回滚；停用和回收站均不破坏原申请。详见 [操作与授权指南](ADMIN_STAFF_IMPORT_GUIDE.md)。
+
+
+## 高级管理员账号管理（V55）
+
+复用 ADMIN 和 catalog_advanced_administrators；所有接口均实时核对当前数据库中的启用状态与高级管理员授权，普通管理员不可调用。网页使用原有 Cookie 会话和 CSRF。
+
+- GET `/api/v1/admin/accounts`：`q`（姓名、邮箱、手机号，最多100字）、`status`、`identity`（USER/ADMIN/ADVANCED/ADVISER）、`page`（1起）、`size`（1至100，默认20）。ADMIN 筛选仅普通管理员；ADVANCED 是已有授权的展示筛选，不是新角色。返回 items/page/size/total/totalPages。
+- GET `/api/v1/admin/accounts/{id}`：安全账号详情，不返回密码、令牌或第三方用户标识。
+- PATCH `/api/v1/admin/accounts/{id}/role`：`role` 为 USER 或 ADMIN，`confirmed:true`、`expectedUpdatedAt` 必填。仅处理普通用户/普通管理员；高级管理员和顾问沿用专用授权流程。仅正常启用的账号可升级，未验证账号不可升级。
+- PATCH `/api/v1/admin/accounts/{id}/status`：`enabled` 布尔值，及上述确认和版本字段。禁止修改自身或已注销账号；恢复待验证账号仍为待验证。
+- GET `/api/v1/admin/accounts/audit`：分页，支持 `target` 用户编号筛选；保留操作人/目标编号和姓名、前后身份/状态、操作类型及时间。
+
+变更只更新 role 或 status 及 updated_at；同一事务中撤销网页会话、小程序访问与刷新令牌并写入日志。双方账号按编号加锁并再次核权；过期编辑返回409，不覆盖他人变更。无变化请求不重复记日志。

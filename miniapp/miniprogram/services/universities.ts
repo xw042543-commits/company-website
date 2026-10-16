@@ -65,6 +65,12 @@ export interface UniversityProgramme {
   readonly categoryCode: string;
   readonly studyLevelCode: string;
   readonly durationDisplay: string;
+  readonly tuitionMin: number | null;
+  readonly tuitionMax: number | null;
+  readonly tuitionCurrency: string;
+  readonly tuitionFeePeriod: string;
+  readonly tuitionTotalRmbMin: number | null;
+  readonly tuitionTotalRmbMax: number | null;
   readonly tuitionDisplay: string;
   readonly intakeDisplayTexts: string[];
 }
@@ -293,7 +299,11 @@ export function mapUniversityProgrammePage(raw: unknown): Result<UniversityProgr
   for (const item of raw.items) {
     if (!isObject(item) || !positiveInteger(item.id) || !text(item.slug)
       || !text(item.nameZh)
-      || (item.nameEn != null && typeof item.nameEn !== 'string')) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
+      || (item.nameEn != null && typeof item.nameEn !== 'string')
+      || !validOptionalAmount(item.tuitionMin) || !validOptionalAmount(item.tuitionMax)
+      || !validOptionalAmount(item.tuitionTotalRmbMin) || !validOptionalAmount(item.tuitionTotalRmbMax)
+      || (item.tuitionCurrency != null && typeof item.tuitionCurrency !== 'string')
+      || (item.tuitionFeePeriod != null && typeof item.tuitionFeePeriod !== 'string')) return invalid('INVALID_PROGRAMME_PAGE_RESPONSE');
     items.push({
       id: item.id,
       slug: item.slug,
@@ -302,6 +312,12 @@ export function mapUniversityProgrammePage(raw: unknown): Result<UniversityProgr
       categoryCode: optionalText(item.categoryCode),
       studyLevelCode: optionalText(item.studyLevelCode),
       durationDisplay: optionalText(item.durationDisplay),
+      tuitionMin: optionalAmount(item.tuitionMin),
+      tuitionMax: optionalAmount(item.tuitionMax),
+      tuitionCurrency: optionalText(item.tuitionCurrency),
+      tuitionFeePeriod: optionalText(item.tuitionFeePeriod),
+      tuitionTotalRmbMin: optionalAmount(item.tuitionTotalRmbMin),
+      tuitionTotalRmbMax: optionalAmount(item.tuitionTotalRmbMax),
       tuitionDisplay: optionalText(item.tuitionDisplay),
       intakeDisplayTexts: Array.isArray(item.intakeDisplayTexts)
         ? item.intakeDisplayTexts.filter(text) : [],
@@ -366,6 +382,14 @@ function positiveInteger(value: unknown): value is number {
 
 function nonNegativeInteger(value: unknown): value is number {
   return typeof value === 'number' && Number.isInteger(value) && value >= 0;
+}
+
+function validOptionalAmount(value: unknown): boolean {
+  return value == null || (typeof value === 'number' && Number.isFinite(value) && value >= 0);
+}
+
+function optionalAmount(value: unknown): number | null {
+  return typeof value === 'number' ? value : null;
 }
 
 function invalid(code = 'INVALID_UNIVERSITY_RESPONSE'): Result<never> {

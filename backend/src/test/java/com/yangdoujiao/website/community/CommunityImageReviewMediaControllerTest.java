@@ -36,7 +36,9 @@ class CommunityImageReviewMediaControllerTest {
         URI signed=URI.create(ACCESS.url(ID));
 
         mvc.perform(get(signed)).andExpect(status().isOk()).andExpect(content().contentType("image/jpeg"))
+            .andExpect(header().string("Content-Length","4"))
             .andExpect(content().bytes(bytes));
-        mvc.perform(head(signed)).andExpect(status().isOk()).andExpect(content().contentType("image/jpeg"));
+        mvc.perform(head(signed)).andExpect(status().isOk()).andExpect(content().contentType("image/jpeg"))
+            .andExpect(header().string("Content-Length","4"));
     }
 }

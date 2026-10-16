@@ -86,7 +86,7 @@ public class AdminImportRepository {
     }
 
     public void lockCatalog() {
-        jdbc.execute("LOCK TABLE universities, programmes IN SHARE ROW EXCLUSIVE MODE");
+        jdbc.execute("LOCK TABLE universities, programmes, catalog_courses IN SHARE ROW EXCLUSIVE MODE");
     }
 
     public void lockBatch(UUID id) {

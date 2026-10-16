@@ -11,7 +11,7 @@ import {
 import type { AdviserFailure } from "@/lib/adviser-consultation-api";
 import { abortableRequest, createLatestRequest } from "@/lib/adviser-consultations-ui";
 import {
-  afterModerationFailure, canSubmitModeration, moderationErrorText, moderationQueueFilters,
+  afterModerationFailure, canSubmitModeration, moderationErrorText, moderationQueueFilters, moderationQueuePageSize,
   muteExpiry, reasonsForCommand, reportReasons, resolveModerationHistoryPage, moderationCommandLabel, moderationReasonLabel, moderationPostContext, moderationWaitingHint, type QueueFilterDraft,
 } from "@/lib/adviser-community-ui";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
@@ -24,7 +24,7 @@ const commands: ModerationCommand[] = ["HIDE", "RESTORE", "REJECT", "REJECT_REPO
 export function AdviserCommunityPanel({ locale }: { locale: Locale }) {
   const router = useRouter();
   const [draft, setDraft] = useState(initialFilters);
-  const [filters, setFilters] = useState<ModerationQueueFilters>({ status: "PENDING", size: 20 });
+  const [filters, setFilters] = useState<ModerationQueueFilters>({ status: "PENDING", size: moderationQueuePageSize });
   const [previousCursors, setPreviousCursors] = useState<(string | undefined)[]>([]);
   const [queue, setQueue] = useState<ModerationResult<ModerationQueue> | null>(null);
   const [queuePending, setQueuePending] = useState(true);

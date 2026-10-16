@@ -1,0 +1,59 @@
+name: Grant existing advanced administrator
+
+on:
+  workflow_dispatch:
+    inputs:
+      identifier:
+        description: Existing active administrator email
+        required: true
+        type: string
+      confirm:
+        description: Confirm permanent advanced administrator access for this account
+        required: true
+        default: false
+        type: boolean
+
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  grant:
+    if: github.ref == 'refs/heads/main' && inputs.confirm
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment:
+      name: production
+      url: https://yangdoujiao.com
+    steps:
+      - uses: actions/checkout@v7
+      - name: Grant and verify one existing administrator
+        shell: bash
+        env:
+          PRODUCTION_SSH_HOST: ${{ secrets.PRODUCTION_SSH_HOST }}
+          PRODUCTION_SSH_PORT: ${{ secrets.PRODUCTION_SSH_PORT }}
+          PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
+          PRODUCTION_SSH_PRIVATE_KEY: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+          PRODUCTION_SSH_KNOWN_HOSTS: ${{ secrets.PRODUCTION_SSH_KNOWN_HOSTS }}
+          ADMIN_IDENTIFIER: ${{ inputs.identifier }}
+        run: |
+          set -euo pipefail
+          [[ $ADMIN_IDENTIFIER =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$ ]] || { echo 'Invalid email'; exit 64; }
+          [[ $GITHUB_ACTOR =~ ^[A-Za-z0-9_-]+(\[bot\])?$ && $GITHUB_RUN_ID =~ ^[0-9]+$ ]] || exit 64
+          umask 077
+          grant_key="$RUNNER_TEMP/production_grant_key"
+          known_hosts="$RUNNER_TEMP/production_grant_known_hosts"
+          trap 'rm -f "$grant_key" "$known_hosts"' EXIT
+          printf '%s\n' "$PRODUCTION_SSH_PRIVATE_KEY" > "$grant_key"
+          printf '%s\n' "$PRODUCTION_SSH_KNOWN_HOSTS" > "$known_hosts"
+          remote_command='cd /opt/company-website && docker compose --env-file .env.production -f compose.production.yaml exec -T postgres sh -c '\''psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$POSTGRES_DB"'\'''
+          {
+            printf "\\set identifier '%s'\n" "$ADMIN_IDENTIFIER"
+            printf "\\set approved_by 'Owner-approved GitHub run %s; actor %s'\n" "$GITHUB_RUN_ID" "$GITHUB_ACTOR"
+            cat backend/scripts/grant-existing-advanced-admin.sql
+          } | ssh -i "$grant_key" -o BatchMode=yes -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$known_hosts" \
+            -p "$PRODUCTION_SSH_PORT" "$PRODUCTION_SSH_USER@$PRODUCTION_SSH_HOST" "$remote_command"

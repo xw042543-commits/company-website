@@ -80,8 +80,9 @@ export async function resolveModerationHistoryPage(previous: ModerationDetail, p
 }
 
 export type QueueFilterDraft = { status: "PENDING" | "PROCESSED" | "HIDDEN"; targetType: string; reasonCode: string; from: string; to: string };
+export const moderationQueuePageSize = 6;
 export function moderationQueueFilters(draft: QueueFilterDraft): ModerationQueueFilters | null {
-  const result: ModerationQueueFilters = { status: draft.status, size: 20 };
+  const result: ModerationQueueFilters = { status: draft.status, size: moderationQueuePageSize };
   if (!["PENDING", "PROCESSED", "HIDDEN"].includes(draft.status)
     || (draft.targetType && !["POST", "COMMENT"].includes(draft.targetType))
     || (draft.reasonCode && !reportReasons.some((reason) => reason === draft.reasonCode))) return null;

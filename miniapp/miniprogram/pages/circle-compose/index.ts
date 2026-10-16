@@ -182,10 +182,11 @@ export function createCircleComposePage(overrides: Partial<ComposeDeps> = {}): W
     state.published = true;
     try { if (state.owner) state.drafts?.clear(state.owner); } catch { /* Publication succeeded; local cleanup must not turn it into a retry. */ }
     if (result.value.status === 'PENDING_REVIEW') {
-      this.setData({ notice: PENDING_REVIEW_NOTICE });
-      wx.showToast({ title: '已提交审核', icon: 'success' });
+      const automaticImageCheck = imageIds.length > 0;
+      this.setData({ notice: automaticImageCheck ? '图片自动检查中，通过后会自动发布。' : PENDING_REVIEW_NOTICE });
+      wx.showToast({ title: automaticImageCheck ? '图片检查中' : '已提交审核', icon: 'success' });
       const route = unwrapCommunityRoute(communityMeRoute());
-      if (route) wx.redirectTo({ url: `${route}?review=submitted` });
+      if (route) wx.redirectTo({ url: `${route}?review=${automaticImageCheck ? 'automatic-image' : 'submitted'}` });
       return;
     }
     wx.showToast({ title: '发布成功', icon: 'success' });
