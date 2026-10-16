@@ -17,10 +17,13 @@ final class CommunityImageReviewWorker {
         for(int count=0;count<3;count++) {
             var next=jobs.claim(clock.instant());if(next.isEmpty())break;
             var claim=next.get();
+            var directVerdict=direct.check(claim.imageId());
+            if(directVerdict.isPresent()) {
+                jobs.completeDirect(claim,directVerdict.get(),clock.instant());
+                continue;
+            }
             if(claim.directFallback()) {
-                var verdict=direct.check(claim.imageId());
-                if(verdict.isPresent())jobs.completeDirect(claim,verdict.get(),clock.instant());
-                else jobs.failed(claim,clock.instant());
+                jobs.failed(claim,clock.instant());
                 continue;
             }
             var trace=gateway.submit(claim.owner(),claim.imageId());
