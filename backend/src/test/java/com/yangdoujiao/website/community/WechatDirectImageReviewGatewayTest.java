@@ -35,6 +35,7 @@ class WechatDirectImageReviewGatewayTest {
             .andExpect(method(HttpMethod.POST))
             .andExpect(request->{
                 assertTrue(request.getHeaders().getContentType().isCompatibleWith(MediaType.MULTIPART_FORM_DATA));
+                assertTrue(request.getHeaders().getContentLength()>0);
                 String body=new String(((MockClientHttpRequest)request).getBodyAsBytes(),java.nio.charset.StandardCharsets.ISO_8859_1);
                 assertTrue(body.contains("name=\"media\""));
                 assertTrue(body.contains("filename=\"review.jpg\""));
