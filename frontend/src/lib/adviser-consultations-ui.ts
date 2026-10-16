@@ -3,6 +3,7 @@ import { words, type Locale } from "./site.ts";
 
 export function adviserNavigation(locale: Locale) {
   return [
+    { href: `/${locale}`, label: words(locale, "首页", "Home") },
     { href: `/${locale}/adviser/consultations`, label: words(locale, "咨询管理", "Consultations") },
     { href: `/${locale}/adviser/applications`, label: words(locale, "申请管理", "Applications") },
     { href: `/${locale}/adviser/community`, label: words(locale, "U圈审核", "Community moderation") },

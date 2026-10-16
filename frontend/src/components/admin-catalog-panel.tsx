@@ -98,7 +98,7 @@ export function AdminCatalogPanel({ locale }: { locale: Locale }) {
 
   const currentPage = tab === "universities" ? universities : programmes;
   return <main className="admin-console container">
-    <header className="admin-console-header"><div><span className="section-label">{words(locale, "内容管理", "Content administration")}</span><h1>{words(locale, "管理后台", "Administration")}</h1><p>{words(locale, "维护院校、专业及课程资料。停用内容不会删除历史数据。", "Maintain universities, programmes and curriculum. Disabled content keeps its history.")}</p></div></header>
+    <header className="admin-console-header"><div><span className="section-label">{words(locale, "内容管理", "Content administration")}</span><h1>{words(locale, "管理后台", "Administration")}</h1><p>{words(locale, "维护院校、专业及课程资料。停用内容不会删除历史数据。", "Maintain universities, programmes and curriculum. Disabled content keeps its history.")}</p></div><nav className="admin-console-actions" aria-label={words(locale, "页面导航", "Page navigation")}><Link className="button secondary" href={`/${locale}`}>{words(locale, "首页", "Home")}</Link></nav></header>
     <div className="admin-tabs" role="tablist">
       <AdminAccountLink locale={locale} /><Link className="button secondary" href={`/${locale}/admin/imports`}>批量导入</Link><Link className="button secondary" href={`/${locale}/admin/courses`}>课程管理</Link>
       <button className={tab === "universities" ? "active" : "secondary"} onClick={() => { setTab("universities"); setPage(1); }}>{words(locale, "院校管理", "Universities")}</button>
@@ -135,16 +135,16 @@ function programmeLevelZh(item: AdminProgramme, options: AdminOption[]) {
 
 function StatusCell({ status, locale }: { status: string; locale: Locale }) { return <td><span className={`admin-status ${status.toLowerCase()}`}>{status === "TRASH" ? "回收站" : status === "PUBLISHED" ? words(locale, "启用", "Enabled") : status === "ARCHIVED" ? words(locale, "停用", "Disabled") : words(locale, "草稿", "Draft")}</span></td>; }
 function Field({ name, title, initial = "", required = false, type = "text", readOnly = false }: { name: string; title: string; initial?: string | number | null; required?: boolean; type?: string; readOnly?: boolean }) { return <label><span>{title}</span><input name={name} defaultValue={initial ?? ""} required={required} type={type} readOnly={readOnly} /></label>; }
-function TextArea({ name, title, initial = "" }: { name: string; title: string; initial?: string | null }) { return <label className="admin-wide"><span>{title}</span><textarea name={name} defaultValue={initial ?? ""} rows={4} /></label>; }
+function TextArea({ name, title, initial = "", wide = true, rows = 4 }: { name: string; title: string; initial?: string | null; wide?: boolean; rows?: number }) { return <label className={wide ? "admin-wide" : undefined}><span>{title}</span><textarea name={name} defaultValue={initial ?? ""} rows={rows} /></label>; }
 
 function UniversityForm({ locale, item, options, busy, onClose, onSubmit }: { locale: Locale; item: AdminUniversity | null; options: AdminOptions; busy: boolean; onClose: () => void; onSubmit: (event: FormEvent<HTMLFormElement>) => void }) {
-  return <div className="admin-modal" role="dialog" aria-modal="true"><form className="admin-editor" onSubmit={onSubmit}><header><h2>{item ? words(locale, "编辑院校", "Edit university") : words(locale, "新增院校", "Add university")}</h2><button type="button" className="secondary" onClick={onClose}>×</button></header><div className="admin-form-grid">
+  return <div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="university-editor-title"><form className="admin-editor admin-university-editor" onSubmit={onSubmit}><header><div><span className="admin-editor-kicker">院校资料</span><h2 id="university-editor-title">{item ? words(locale, "编辑院校", "Edit university") : words(locale, "新增院校", "Add university")}</h2></div><button type="button" className="secondary" aria-label={words(locale, "关闭编辑窗口", "Close editor")} onClick={onClose}>×</button></header><div className="admin-form-grid">
     <Field name="nameZh" title="中文名称" initial={item?.nameZh} /><Field name="nameEn" title="英文名称" initial={item?.nameEn} />
     <Field name="universityCode" title="内部编码（可留空自动生成）" initial={item?.universityCode} readOnly={!!item} /><Field name="slug" title="页面地址（可留空自动生成）" initial={item?.slug} />
     <label><span>{words(locale, "国家", "Country")}</span><select name="countryCode" defaultValue={item?.countryCode ?? "MY"} required>{options.countries.map(option => <option key={option.code} value={option.code}>{label(option, locale)}</option>)}</select></label>
     <Field name="regionZh" title="地区（中文）" initial={item?.regionZh} /><Field name="regionEn" title="地区（英文）" initial={item?.regionEn} />
     <Field name="officialUrl" title={words(locale, "官网链接", "Official website")} initial={item?.officialUrl} type="url" /><Field name="logoUrl" title="校徽图片链接" initial={item?.logoUrl} type="url" />
-    <TextArea name="descriptionZh" title="简介（中文）" initial={item?.descriptionZh} /><TextArea name="descriptionEn" title="介绍（英文）" initial={item?.descriptionEn} />
+    <TextArea name="descriptionZh" title="简介（中文）" initial={item?.descriptionZh} wide={false} rows={3} /><TextArea name="descriptionEn" title="介绍（英文）" initial={item?.descriptionEn} wide={false} rows={3} />
   </div><footer><button type="button" className="secondary" onClick={onClose}>{words(locale, "取消", "Cancel")}</button><button disabled={busy}>{busy ? words(locale, "保存中…", "Saving…") : words(locale, "保存", "Save")}</button></footer></form></div>;
 }
 
