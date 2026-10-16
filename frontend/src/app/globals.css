@@ -1144,6 +1144,7 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .admin-empty { padding: 34px; text-align: center; color: var(--muted); }
 .admin-pagination { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px; }
 .admin-modal { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 22px; background: rgb(9 35 29 / 52%); backdrop-filter: blur(5px); }
+.admin-programme-modal { align-items: start; overflow-y: auto; }
 .admin-editor { width: min(920px, 100%); max-height: calc(100dvh - 44px); overflow: auto; border: 1px solid #bad0c7; border-radius: 16px; background: #fffefb; box-shadow: 0 28px 90px rgb(4 29 23 / 28%); }
 .admin-editor-large { width: min(1100px, 100%); }
 .admin-editor > header, .admin-editor > footer { position: sticky; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 22px; background: #fffefb; }
