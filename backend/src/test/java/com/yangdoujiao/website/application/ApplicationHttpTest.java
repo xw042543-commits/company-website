@@ -26,6 +26,7 @@ import tools.jackson.databind.ObjectMapper;
 class ApplicationHttpTest {
  @Autowired WebApplicationContext context;
  @MockitoBean UserAccountDetailsService accounts;
+ @MockitoBean com.yangdoujiao.website.auth.api.AccountService accountPermissions;
  @MockitoBean ApplicationRepository repository;
  @MockitoBean ApplicationCheckoutRepository checkouts;
  MockMvc mvc;

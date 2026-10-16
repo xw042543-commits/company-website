@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -21,6 +22,8 @@ import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.security.web.csrf.CsrfFilter;
 
 import com.yangdoujiao.website.auth.api.AuthSecurityErrorWriter;
+import com.yangdoujiao.website.auth.api.AccountService;
+import com.yangdoujiao.website.auth.session.UserPrincipal;
 import com.yangdoujiao.website.auth.miniapp.MiniappBearerFilter;
 import com.yangdoujiao.website.auth.session.UserAccountDetailsService;
 
@@ -57,6 +60,7 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http, AuthSecurityErrorWriter errors,
             SecurityContextRepository contexts,
+            AccountService accounts,
             ObjectProvider<MiniappBearerFilter> miniappBearerProvider) throws Exception {
         http.cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf
@@ -99,7 +103,13 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/community/image-review/callback").permitAll()
                         .requestMatchers("/api/v1/community/**").hasRole("USER")
                         .requestMatchers("/api/v1/account", "/api/v1/account/**").hasRole("USER")
-                        .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/admin/**").access((authentication, context) -> {
+                            var current = authentication.get();
+                            // A serialized session is not evidence of the account's current role.
+                            return new AuthorizationDecision(current != null && current.isAuthenticated()
+                                    && current.getPrincipal() instanceof UserPrincipal principal
+                                    && principal.isAdmin() && accounts.isAdministrator(principal.userId()));
+                        })
                         .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")
                         .requestMatchers(HttpMethod.GET, PUBLIC_READ_PATHS).permitAll()
                         .requestMatchers(HttpMethod.HEAD, PUBLIC_READ_PATHS).permitAll()

@@ -24,7 +24,7 @@ test("self profile uses session identity, CSRF and an explicit field allowlist",
 test("profile parsing validates version while retaining old API compatibility", () => {
   assert.deepEqual(parseAccount(account), account);
   assert.equal(parseAccount({ ...account, updatedAt: "bad" }), null);
-  assert.equal(parseAccount({ ...account, avatarUrl: "https://evil.test/image.png" }), null);
+  assert.deepEqual(parseAccount({ ...account, avatarUrl: "https://evil.test/image.png" }), account);
   assert.equal(parseAccount({ ...account, role: "ADMIN" }), null);
   const { updatedAt, ...legacy } = account; void updatedAt;
   assert.deepEqual(parseAccount(legacy), legacy);

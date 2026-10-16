@@ -54,6 +54,7 @@ class AdviserConsultationStatusHttpIntegrationTest {
     @Autowired private WebApplicationContext context;
     @Autowired private FixtureStore store;
     @MockitoBean private UserAccountDetailsService accounts;
+    @MockitoBean private com.yangdoujiao.website.auth.api.AccountService accountPermissions;
     private MockMvc mvc;
     private UserPrincipal adviser;
     private ListAppender<ILoggingEvent> logs;

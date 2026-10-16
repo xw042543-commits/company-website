@@ -23,6 +23,7 @@ export function AccountPanel({ locale }: { locale: Locale }) {
   const [message, setMessage] = useState<AuthMessage | null>(null);
   const [demoAccount, setDemoAccount] = useState(false);
   const [isAdviser, setIsAdviser] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [deletePassword, setDeletePassword] = useState("");
@@ -49,6 +50,8 @@ export function AccountPanel({ locale }: { locale: Locale }) {
         const demo = await loadDemoAccount();
         if (!active) return;
         if (demo) {
+          setIsAdmin(false);
+          setIsAdviser(false);
           setAccount(demo);
           setDemoAccount(true);
           setLoading(false);
@@ -62,7 +65,8 @@ export function AccountPanel({ locale }: { locale: Locale }) {
         if (result.status === "ready") setAccount(result.account);
         else if (result.status === "unauthorized") router.replace(`/${locale}/login`);
         else setMessage(authMessage(locale, result));
-        if (session.status === "ready") setIsAdviser(session.session.adviser || session.session.admin);
+        setIsAdviser(session.status === "ready" && session.session.authenticated && session.session.adviser);
+        setIsAdmin(session.status === "ready" && session.session.authenticated && session.session.admin);
         setLoading(false);
       } finally { pending = false; }
     };
@@ -155,6 +159,13 @@ export function AccountPanel({ locale }: { locale: Locale }) {
       saveProfile={body => saveOwnProfile(browserApiBaseUrl(), body)} onSaved={updated => {
         setAccount(updated); setEditingProfile(null); setProfileNotice("资料已保存"); announceProfileUpdate(); router.refresh();
       }} />}
+
+    {isAdmin && <section className="account-adviser-link" aria-labelledby="account-admin-title">
+      <div><span className="account-adviser-kicker">{words(locale, "内部工具", "Internal tools")}</span>
+        <h2 id="account-admin-title">{words(locale, "管理后台", "Admin")}</h2>
+        <p>{words(locale, "管理院校、专业及课程资料。", "Manage universities, programmes and courses.")}</p></div>
+      <Link className="button" href={`/${locale}/admin`}>{words(locale, "进入管理后台", "Open administration")}<span aria-hidden="true">→</span></Link>
+    </section>}
 
     {isAdviser && <section className="account-adviser-link" aria-labelledby="account-adviser-title">
       <div><span className="account-adviser-kicker">{words(locale, "内部工具", "Internal tools")}</span>

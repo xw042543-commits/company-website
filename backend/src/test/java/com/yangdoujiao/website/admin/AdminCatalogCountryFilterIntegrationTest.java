@@ -52,8 +52,10 @@ class AdminCatalogCountryFilterIntegrationTest {
         programme("B",universityA,category,level,"ARCHIVED");
         programme("C",b,otherCategory,otherLevel,"PUBLISHED");
         programme("D",c,category,level,"PUBLISHED");
+        long accountId=jdbc.queryForObject("INSERT INTO user_accounts(full_name,normalized_email,password_hash,status,role,agreement_version,privacy_version) VALUES ('Administrator',?,'not-used','ACTIVE','ADMIN','v1','v1') RETURNING id",
+            Long.class,prefix.toLowerCase(java.util.Locale.ROOT)+"@test.example");
         UserAccount account=UserAccount.external("Administrator","v1","v1");
-        ReflectionTestUtils.setField(account,"id",42L);
+        ReflectionTestUtils.setField(account,"id",accountId);
         ReflectionTestUtils.setField(account,"role",UserAccountRole.ADMIN);
         admin=UserPrincipal.from(account);
     }
