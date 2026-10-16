@@ -9,6 +9,7 @@ export type AuthSession = {
 };
 
 export type AccountProfile = {
+  updatedAt?: string;
   avatarUrl?: string | null;
   id: number;
   fullName: string;
@@ -136,9 +137,9 @@ function parseSession(payload: unknown): AuthSession | null {
     fullName: payload.fullName, adviser: payload.adviser, admin: payload.admin, ...(payload.avatarUrl !== undefined ? { avatarUrl: payload.avatarUrl as string | null } : {}) };
 }
 
-function parseAccount(payload: unknown): AccountProfile | null {
+export function parseAccount(payload: unknown): AccountProfile | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatDisplayName", "wechatAvatarUrl", "wechatLastLoginAt", "createdAt", ...(Object.prototype.hasOwnProperty.call(payload, "avatarUrl") ? ["avatarUrl"] : [])])
+    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatDisplayName", "wechatAvatarUrl", "wechatLastLoginAt", "createdAt", ...(Object.prototype.hasOwnProperty.call(payload, "avatarUrl") ? ["avatarUrl"] : []), ...(Object.prototype.hasOwnProperty.call(payload, "updatedAt") ? ["updatedAt"] : [])])
     || (payload.avatarUrl !== undefined && payload.avatarUrl !== null && (typeof payload.avatarUrl !== "string" || !isSafeProfileAvatar(payload.avatarUrl)))
     || !isPositiveInteger(payload.id)
     || typeof payload.fullName !== "string" || !payload.fullName.trim()
@@ -152,6 +153,7 @@ function parseAccount(payload: unknown): AccountProfile | null {
     || (payload.wechatAvatarUrl !== null && !isSafeWechatAvatar(payload.wechatAvatarUrl))
     || !isNullableString(payload.wechatLastLoginAt)
     || (payload.wechatLastLoginAt !== null && Number.isNaN(Date.parse(payload.wechatLastLoginAt)))
+    || (payload.updatedAt !== undefined && (typeof payload.updatedAt !== "string" || Number.isNaN(Date.parse(payload.updatedAt))))
     || typeof payload.createdAt !== "string"
     || Number.isNaN(Date.parse(payload.createdAt))) return null;
   return payload as AccountProfile;

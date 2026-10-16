@@ -463,3 +463,12 @@ APP_TRUSTED_PROXIES=
 图片解码后最多1,048,576字节，含边界值；超过限制提示“头像大小不能超过1MB”。服务端检查实际解码格式、声明类型、完整解码和分辨率上限，拒绝伪装/损坏图片。WebP真实解码使用 [TwelveMonkeys ImageIO官方插件](https://github.com/haraldk/TwelveMonkeys)。头像复用miniapp_account_avatars数据库字节存储，不使用临时目录或外部客户端链接。用户名、头像、版本及PROFILE审计记录同事务保存，失败整体回滚。头像URL每次更换生成新版本；读取接口no-store并带nosniff，避免旧图缓存。
 
 账号列表/详情增加avatarUrl；审计增加old_full_name/new_full_name/avatar_action。GET /api/v1/account增加avatarUrl，保留wechatAvatarUrl兼容字段；GET /api/v1/auth/session增加avatarUrl且从数据库读取最新用户名和头像，不依赖旧会话姓名。不撤销资料编辑用户的会话。个人中心与导航使用统一资料，同浏览器标签页事件立即刷新；跨浏览器的可见页面每5秒重新读取，重新聚焦也立即读取，不需要退出登录。
+
+
+## 本人资料编辑
+
+`PATCH /api/v1/account/profile` 使用现有登录 Cookie 和 CSRF，普通用户、普通管理员及高级管理员均可调用。目标账号只取服务端登录身份；不接受 id/userId、邮箱、密码、角色或状态等额外字段。请求与后台资料编辑共用 fullName、avatarAction、expectedUpdatedAt 和 REPLACE 图片字段；校验、1MB 限制、真实 JPG/PNG/WebP 解码、持久化头像和事务日志规则完全一致。后台编辑其他账号的高级权限保持不变。
+
+`GET /api/v1/account` 与上述 PATCH 响应增加 updatedAt，供乐观并发控制使用；姓名或头像改变后旧版本请求返回409，不覆盖其他修改。资料编辑不撤销登录，也不修改用户ID、登录凭据和任何业务关联。不新增数据库迁移，复用 V65 字段及 PROFILE 审计。
+
+个人中心提供中文“编辑资料”弹窗，复用后台裁剪、预览、压缩和失败提示。保存后广播资料刷新事件，导航和个人中心立即更新；其他可见标签页及设备沿用聚焦/5秒刷新。公开帖子、评论和回复读取最新的显式编辑用户名和头像，删除头像后不恢复旧微信头像。未编辑过资料的账号保留原第三方昵称/默认昵称，避免意外公开历史账号姓名；弹窗提示用户新用户名和头像用于公开展示。

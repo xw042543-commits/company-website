@@ -287,10 +287,80 @@ class AdminAccountIntegrationTest {
         jdbc.execute("CREATE TRIGGER " + function + " BEFORE INSERT ON account_management_audit FOR EACH ROW EXECUTE FUNCTION " + function + "()");
         try {
             String encoded = Base64.getEncoder().encodeToString(profileImage("jpeg"));
-            assertThatThrownBy(() -> service.edit(advanced, target, new AdminAccountService.ProfileEdit("不能保存", "REPLACE", "image/jpeg", encoded, before.updatedAt()))).isInstanceOf(org.springframework.dao.DataAccessException.class);
+            assertThatThrownBy(() -> service.edit(advanced, target, new com.yangdoujiao.website.auth.account.ProfileEdit("不能保存", "REPLACE", "image/jpeg", encoded, before.updatedAt()))).isInstanceOf(org.springframework.dao.DataAccessException.class);
             assertThat(service.detail(advanced, target)).isEqualTo(before);
             mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(content().bytes(old));
         } finally { jdbc.execute("DROP TRIGGER " + function + " ON account_management_audit"); jdbc.execute("DROP FUNCTION " + function + "()"); }
+    }
+    @Test void everyLoggedInRoleCanEditOnlyOwnProfileAndRetainsLoginAndIdentity() throws Exception {
+        for (long id : List.of(target, ordinary, advanced)) {
+            Cookie cookie = login(id);
+            var before = jdbc.queryForMap("SELECT normalized_email,password_hash,role,status,created_at FROM user_accounts WHERE id=?", id);
+            String name = "个人用户名" + id;
+            mvc.perform(get("/api/v1/account").cookie(cookie)).andExpect(jsonPath("$.updatedAt").exists());
+            mvc.perform(patch("/api/v1/account/profile").cookie(cookie).with(csrf()).contentType("application/json")
+                .content(profileBody(id, "  " + name + "  ", "KEEP", null, null)))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.id").value(id)).andExpect(jsonPath("$.fullName").value(name)).andExpect(jsonPath("$.updatedAt").exists());
+            mvc.perform(get("/api/v1/auth/session").cookie(cookie)).andExpect(jsonPath("$.fullName").value(name));
+            mvc.perform(get("/api/v1/account").cookie(login(id))).andExpect(jsonPath("$.fullName").value(name));
+            assertThat(jdbc.queryForMap("SELECT normalized_email,password_hash,role,status,created_at FROM user_accounts WHERE id=?", id)).isEqualTo(before);
+            assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM account_management_audit WHERE actor_user_id=? AND target_user_id=? AND action='PROFILE'", Long.class, id, id)).isEqualTo(1);
+        }
+    }
+    @Test void selfProfileRejectsTargetInjectionExtraFieldsCsrfInvalidNameAndStaleVersion() throws Exception {
+        String path = "/api/v1/account/profile";
+        String body = profileBody(target, "本人", "KEEP", null, null);
+        mvc.perform(patch(path).with(csrf()).contentType("application/json").content(body)).andExpect(status().isUnauthorized());
+        mvc.perform(patch(path).with(user(principal(target))).contentType("application/json").content(body)).andExpect(status().isForbidden());
+        for (String field : List.of("id", "userId", "targetId", "role", "password", "email", "status")) {
+            var injected = json.readTree(body).deepCopy();
+            ((tools.jackson.databind.node.ObjectNode)injected).put(field, "injected");
+            mvc.perform(patch(path).with(user(principal(target))).with(csrf()).contentType("application/json").content(json.writeValueAsString(injected))).andExpect(status().isBadRequest());
+        }
+        for (String name : List.of(" ", "a".repeat(101), "非法\n名字", "隐藏\u200b字符"))
+            mvc.perform(patch(path).with(user(principal(target))).with(csrf()).contentType("application/json").content(profileBody(target, name, "KEEP", null, null))).andExpect(status().isBadRequest());
+        mvc.perform(patch(path).with(user(principal(target))).with(csrf()).contentType("application/json").content(body)).andExpect(status().isOk());
+        mvc.perform(patch(path).with(user(principal(target))).with(csrf()).contentType("application/json").content(body)).andExpect(status().isConflict());
+        assertThat(service.detail(advanced, ordinary).fullName()).isEqualTo(prefix + "admin");
+        var stale = principal(target);
+        jdbc.update("UPDATE user_accounts SET status='DISABLED' WHERE id=?", target);
+        mvc.perform(patch(path).with(user(stale)).with(csrf()).contentType("application/json").content(body)).andExpect(status().isUnauthorized());
+    }
+    @Test void selfAvatarUploadReplaceDeleteAndInvalidUploadPreserveOriginal() throws Exception {
+        String path = "/api/v1/account/profile";
+        Cookie cookie = login(target);
+        for (String type : List.of("png", "jpeg")) {
+            byte[] bytes = profileImage(type);
+            mvc.perform(patch(path).cookie(cookie).with(csrf()).contentType("application/json").content(profileBody(target, "自己的头像", "REPLACE", bytes, "image/" + type)))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.avatarUrl").value(org.hamcrest.Matchers.containsString("?v=")));
+            mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(content().bytes(bytes));
+        }
+        byte[] exact = Arrays.copyOf(profileImage("png"), 1_048_576);
+        mvc.perform(patch(path).cookie(cookie).with(csrf()).contentType("application/json").content(profileBody(target, "边界头像", "REPLACE", exact, "image/png"))).andExpect(status().isOk());
+        for (byte[] bad : List.of(Arrays.copyOf(exact, 1_048_577), "fake.png".getBytes())) {
+            mvc.perform(patch(path).cookie(cookie).with(csrf()).contentType("application/json").content(profileBody(target, "不保存", "REPLACE", bad, "image/png"))).andExpect(status().isBadRequest());
+            assertThat(service.detail(advanced, target).fullName()).isEqualTo("边界头像");
+            mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(content().bytes(exact));
+        }
+        mvc.perform(patch(path).cookie(cookie).with(csrf()).contentType("application/json").content(profileBody(target, "删除头像", "REMOVE", null, null))).andExpect(status().isOk()).andExpect(jsonPath("$.avatarUrl").isEmpty());
+        mvc.perform(get("/api/v1/account").cookie(login(target))).andExpect(jsonPath("$.avatarUrl").isEmpty());
+    }
+    @Autowired com.yangdoujiao.website.community.CommunityReadService community;
+    @Test void publicPostAndCommentReadFreshExplicitUsernameAndAvatarIncludingRemoval() throws Exception {
+        long post = jdbc.queryForObject("INSERT INTO community_posts(author_account_id,body,status,published_at) VALUES(?,'资料同步测试','PUBLISHED',NOW()) RETURNING id", Long.class, target);
+        try {
+            jdbc.update("INSERT INTO community_comments(post_id,author_account_id,body,status) VALUES(?,?,'评论同步测试','PUBLISHED')", post, target);
+            assertThat(community.detail(post, null).authorName()).isEqualTo("微信用户");
+            mvc.perform(patch("/api/v1/account/profile").cookie(login(target)).with(csrf()).contentType("application/json").content(profileBody(target, "公开用户名", "REPLACE", profileImage("png"), "image/png"))).andExpect(status().isOk());
+            assertThat(community.detail(post, null).authorName()).isEqualTo("公开用户名");
+            assertThat(community.detail(post, null).authorAvatarUrl()).contains("?v=");
+            var comment = community.comments(post, null, 10, null).items().getFirst();
+            assertThat(comment.authorName()).isEqualTo("公开用户名");
+            assertThat(comment.authorAvatarUrl()).contains("?v=");
+            mvc.perform(patch("/api/v1/account/profile").cookie(login(target)).with(csrf()).contentType("application/json").content(profileBody(target, "第二个用户名", "REMOVE", null, null))).andExpect(status().isOk());
+            assertThat(community.comments(post, null, 10, null).items().getFirst().authorAvatarUrl()).isNull();
+            assertThat(community.detail(post, null).authorName()).isEqualTo("第二个用户名");
+        } finally { jdbc.update("DELETE FROM community_comments WHERE post_id=?", post); jdbc.update("DELETE FROM community_posts WHERE id=?", post); }
     }
     private byte[] profileImage(String type) throws Exception {
         var out = new java.io.ByteArrayOutputStream();

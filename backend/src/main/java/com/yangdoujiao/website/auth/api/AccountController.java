@@ -24,16 +24,26 @@ public class AccountController {
     private final PasswordService passwords;
     private final ClientAddressResolver addresses;
     private final AccountService accounts;
+    private final com.yangdoujiao.website.auth.account.AccountProfileEditor profiles;
 
-    public AccountController(PasswordService passwords, ClientAddressResolver addresses, AccountService accounts) {
+    public AccountController(PasswordService passwords, ClientAddressResolver addresses, AccountService accounts, com.yangdoujiao.website.auth.account.AccountProfileEditor profiles) {
         this.passwords = passwords;
         this.addresses = addresses;
         this.accounts = accounts;
+        this.profiles = profiles;
     }
 
     @GetMapping
     public AccountResponse profile(@AuthenticationPrincipal UserPrincipal principal) {
         if (principal == null) throw new ApiException(HttpStatus.UNAUTHORIZED, "AUTH_REQUIRED", "Authentication required");
+        return accounts.profile(principal.userId());
+    }
+
+    @org.springframework.web.bind.annotation.PatchMapping("/profile")
+    public AccountResponse editProfile(@AuthenticationPrincipal UserPrincipal principal,
+            @RequestBody com.yangdoujiao.website.auth.account.ProfileEdit body) {
+        if (principal == null) throw new ApiException(HttpStatus.UNAUTHORIZED, "AUTH_REQUIRED", "请先登录");
+        profiles.editSelf(principal.userId(), body);
         return accounts.profile(principal.userId());
     }
 

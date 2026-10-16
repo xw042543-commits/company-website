@@ -28,6 +28,7 @@ public class CommunityReadService {
     private final CommunityCursorCodec cursors;
     private final CommunityHotSnapshotCache hotSnapshots;
     private final com.yangdoujiao.website.university.UniversityRepository universities;
+    private final com.yangdoujiao.website.admin.AdminAccountRepository accountProfiles;
     private static final int REPLY_PREVIEW_SIZE = 3;
 
     public CommunityReadService(CommunityPostRepository posts, CommunityCommentRepository comments,
@@ -36,11 +37,20 @@ public class CommunityReadService {
         this(posts, comments, reactions, identities, cursors, hotSnapshots, null);
     }
 
-    @org.springframework.beans.factory.annotation.Autowired
     public CommunityReadService(CommunityPostRepository posts, CommunityCommentRepository comments,
             CommunityReactionRepository reactions, UserExternalIdentityRepository identities,
             CommunityCursorCodec cursors, CommunityHotSnapshotCache hotSnapshots,
             com.yangdoujiao.website.university.UniversityRepository universities) {
+        this(posts, comments, reactions, identities, cursors, hotSnapshots, universities, null);
+    }
+
+    @org.springframework.beans.factory.annotation.Autowired
+    public CommunityReadService(CommunityPostRepository posts, CommunityCommentRepository comments,
+            CommunityReactionRepository reactions, UserExternalIdentityRepository identities,
+            CommunityCursorCodec cursors, CommunityHotSnapshotCache hotSnapshots,
+            com.yangdoujiao.website.university.UniversityRepository universities,
+            com.yangdoujiao.website.admin.AdminAccountRepository accountProfiles) {
+        this.accountProfiles = accountProfiles;
         this.posts = posts;
         this.comments = comments;
         this.reactions = reactions;
@@ -215,6 +225,10 @@ public class CommunityReadService {
                 result.putIfAbsent(identity.getUserAccount().getId(), new Profile(
                         identity.getDisplayName() == null || identity.getDisplayName().isBlank() ? Profile.DEFAULT.name() : identity.getDisplayName(),
                         identity.getAvatarUrl() == null || identity.getAvatarUrl().isBlank() ? null : identity.getAvatarUrl())));
+        if (accountProfiles != null) accountProfiles.editedPublicProfiles(ids.stream().distinct().toList()).forEach(account -> {
+            Profile legacy = result.getOrDefault(account.id(), Profile.DEFAULT);
+            result.put(account.id(), new Profile(account.name(), account.avatarOverridden() ? account.avatarUrl() : legacy.avatarUrl()));
+        });
         return result;
     }
 
@@ -232,6 +246,6 @@ public class CommunityReadService {
         return body.codePointCount(0, body.length()) <= 200 ? body : body.substring(0, body.offsetByCodePoints(0, 200));
     }
 
-    // Null avatar means the existing client renders its brand avatar fallback; private account names are never exposed.
+    // Unedited accounts retain external nicknames; only explicitly saved public usernames override them.
     private record Profile(String name, String avatarUrl) { private static final Profile DEFAULT = new Profile("微信用户", null); }
 }
