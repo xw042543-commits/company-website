@@ -19,13 +19,17 @@ class WechatDirectImageReviewGatewayTest {
     private MockRestServiceServer server;
     private WechatDirectImageReviewGateway gateway;
     private final String id="a".repeat(32);
+    private final ch.qos.logback.classic.Logger logger=(ch.qos.logback.classic.Logger)org.slf4j.LoggerFactory.getLogger(WechatDirectImageReviewGateway.class);
+    private final ch.qos.logback.core.read.ListAppender<ch.qos.logback.classic.spi.ILoggingEvent> events=new ch.qos.logback.core.read.ListAppender<>();
     @BeforeEach void setup() throws Exception {
+        events.start();logger.addAppender(events);
         var builder=RestClient.builder();
         server=MockRestServiceServer.bindTo(builder).build();
         gateway=new WechatDirectImageReviewGateway(tokens,images,new ObjectMapper(),builder.build());
         when(tokens.accessToken()).thenReturn(Optional.of("fixture-token"));
         when(images.read(id,true,null,true)).thenReturn(new byte[]{(byte)0xff,(byte)0xd8,(byte)0xff,(byte)0xd9});
     }
+    @org.junit.jupiter.api.AfterEach void detachLogs() {logger.detachAppender(events);events.stop();}
     @Test void uploadsImageBytesAndAcceptsOnlyExplicitPass() {
         server.expect(requestTo("https://api.weixin.qq.com/wxa/img_sec_check?access_token=fixture-token"))
             .andExpect(method(HttpMethod.POST))
@@ -48,6 +52,10 @@ class WechatDirectImageReviewGatewayTest {
         assertEquals(Optional.of("REJECTED"),gateway.check(id));
         assertTrue(gateway.check(id).isEmpty());
         server.verify();
+        String logs=events.list.stream().map(e->e.getFormattedMessage()).collect(java.util.stream.Collectors.joining("\n"));
+        assertTrue(logs.contains("providerCode=-1008"));
+        assertFalse(logs.contains("fixture-token"));
+        assertFalse(logs.contains(id));
     }
     @Test void missingTokenOrInvalidImageNeverCallsWechat() throws Exception {
         when(tokens.accessToken()).thenReturn(Optional.empty());
