@@ -6,9 +6,11 @@ export const demoFacts: Record<string, string> = { targetLevel: 'BACHELOR', inta
 
 /** Deterministic fictional catalog. Nothing here is an institution, verified fact, or AI output. */
 export function demoPlan(profile: Profile): Plan {
+  const suffix = ({ FOUNDATION: '预科', BACHELOR: '学士', MASTER: '硕士', DOCTOR: '博士' } as Record<string, string>)[profile.facts.targetLevel ?? ''];
+  if (!suffix) return { profileVersion: profile.version, programmes: [], generalNextSteps: ['CONFIRM_WITH_UNIVERSITY'] };
   const programmes: Programme[] = [
-    { id: 101, school: '青屿科技学院（虚构）', course: '计算机科学学士（演示项目）', tuition: 84000, living: 36000, tax: 6000 },
-    { id: 102, school: '云湾应用大学（虚构）', course: '软件工程学士（演示项目）', tuition: 66000, living: 30000, tax: 4000 },
+    { id: 101, school: '青屿科技学院（虚构）', course: `计算机科学${suffix}（演示项目）`, tuition: 84000, living: 36000, tax: 6000 },
+    { id: 102, school: '云湾应用大学（虚构）', course: `软件工程${suffix}（演示项目）`, tuition: 66000, living: 30000, tax: 4000 },
   ].map(item => {
     const total = item.tuition + item.living + item.tax;
     const facts = profile.facts;
@@ -25,9 +27,12 @@ export function demoPlan(profile: Profile): Plan {
 }
 
 // Preview-only boundary; intentionally never uses the default HTTP sender.
-export function createPlanningDemo() {
+export function createPlanningDemo(options: { delayMs?: number } = {}) {
   const sessions = new Map<string, Session>(); const plans = new Map<string, SavedView>(); const memory = new Map<string, string>();
   const attempts = new Map<string, unknown>(); let sequence = 1;
+  let epoch = 0; let failNext = false;
+  const pending = new Set<() => void>();
+  const delayMs = Math.max(0, options.delayMs ?? 0);
   const id = () => `00000000-0000-4000-8000-${String(sequence++).padStart(12, '0')}`;
   const ok = <T>(value: T): Result<T> => ({ ok: true, value: structuredClone(value) });
   const fail = (code: string): Result<never> => ({ ok: false, error: { kind: 'validation', code } });
@@ -38,6 +43,12 @@ export function createPlanningDemo() {
   const api = createPlanningAgentGateway(async options => {
     const path = options.path.replace('/api/v1/miniapp/me/planning-agent', '');
     const parts = path.split('/'); const data = (options.data ?? {}) as Record<string, unknown>;
+    const requestEpoch = epoch;
+    if (delayMs && path.endsWith('/messages')) await new Promise<void>(resolve => {
+      const finish = () => { clearTimeout(timer); pending.delete(finish); resolve(); };
+      const timer = setTimeout(finish, delayMs); pending.add(finish);
+    });
+    if (requestEpoch !== epoch) return fail('DEMO_RESET');
     if (path === '/capability') return ok({ enabled: true, available: true, privacyVersion: 'demo-only-v1' });
     if (path === '/sessions' && options.method === 'POST') {
       if (data.privacyVersion !== 'demo-only-v1') return fail('PRIVACY_CONSENT_REQUIRED');
@@ -53,6 +64,7 @@ export function createPlanningDemo() {
       if (parts[3] === 'messages') {
         const key = `${path}:${data.requestKey}`; if (attempts.has(key)) return ok(attempts.get(key));
         if (!value.profile.version) return fail('PROFILE_CONFIRMATION_REQUIRED');
+        if (failNext) { failNext = false; return { ok: false, error: { kind: 'unavailable', code: 'NETWORK_UNAVAILABLE' } }; }
         const now = new Date().toISOString();
         value.messages.push({ id: value.messages.length + 1, role: 'USER', text: String(data.text), createdAt: now });
         const run: Run = { runId: id(), status: 'SUCCEEDED', deadline: new Date(Date.now() + 60000).toISOString(), errorCode: null,
@@ -83,5 +95,8 @@ export function createPlanningDemo() {
     }
     return fail('NOT_FOUND');
   });
-  return { api, session, storage, async reset() { await session.logout(); sessions.clear(); plans.clear(); memory.clear(); attempts.clear(); } };
+  return { api, session, storage, failNextRun() { failNext = true; }, async reset() {
+    epoch++; failNext = false; for (const finish of pending) finish();
+    sessions.clear(); plans.clear(); memory.clear(); attempts.clear(); await session.logout();
+  } };
 }

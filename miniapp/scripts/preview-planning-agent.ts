@@ -68,20 +68,22 @@ const renderer = `const escape=${escape.toString()},evaluate=${evaluate.toString
 const browser = buildSync({ stdin: { contents: `
 import { createPlanningAgentPage } from './miniprogram/pages/planning-agent/index';
 import { createPlanningDemo, demoFacts } from './scripts/planning-agent-demo';
+import { attachDemoInputBridge } from './scripts/planning-demo-input-bridge';
 ${renderer}
 const fixtures=${JSON.stringify(fixtures)};
 const state=new URLSearchParams(location.search).get('state');
-const demo=createPlanningDemo();let page;let pendingSample=false;let historyOpen=false;
+const demo=createPlanningDemo({delayMs:700});let page;let pendingSample=false;let historyOpen=false;let composing=false;
 function makePage(){
  const definition=createPlanningAgentPage({api:demo.api,session:demo.session,storage:demo.storage,navigate:async url=>{
   if(url==='/pages/plans/index'){historyOpen=true;await drawHistory();return;}
   page.setData({menuOpen:false,notice:'演示模式：此入口只展示导航位置，不会打开线上目录或提交咨询。请使用本页的背景、方案与模拟交接流程。'});
  }});
  page={...definition,data:structuredClone(definition.data),setData(patch){Object.assign(this.data,patch);draw();}};
+ attachDemoInputBridge(page);
  window.previewPage=page;page.onLoad({});
 }
-async function resetDemo(){if(page)page.onUnload();await demo.reset();pendingSample=false;historyOpen=false;document.getElementById('demo-history').hidden=true;makePage();await page.load();}
-function fillSample(){page.showProfile(demoFacts);page.setData({formOpen:true,profileReview:true,profileConsent:false,notice:'示例背景已填入，请核对后勾选确认。预算可改为 MYR 90000 查看对比变化。'});}
+async function resetDemo(){if(page)page.onUnload();await demo.reset();pendingSample=false;historyOpen=false;composing=false;document.querySelector('[data-demo-fail]').textContent='模拟下次失败';document.getElementById('demo-history').hidden=true;makePage();await page.load();}
+function fillSample(){const targetLevel=document.querySelector('[data-demo-level]').value;const education=targetLevel==='MASTER'?'BACHELOR':targetLevel==='DOCTOR'?'MASTER':'HIGH_SCHOOL';page.showProfile({...demoFacts,targetLevel,education,qualification:education});page.setData({formOpen:true,profileReview:true,profileConsent:false,notice:'预设背景已填入，请核对后确认。费用只是统一模拟数值，不代表各学历的真实学费或学制。'});}
 async function drawHistory(){
  const result=await demo.api.listPlans();const host=document.getElementById('demo-history');host.hidden=!historyOpen;
  if(!historyOpen)return;
@@ -95,6 +97,7 @@ function demoCopy(html){return html
  .replaceAll('按你确认的背景，先看这份专业清单。条件和费用会逐项核对。','以下为按预设规则展示的虚构方案，不是真实 AI 生成。条件与费用仅用于演示。')
  .replaceAll('AI 规划','演示规划').replaceAll('生成方案','生成演示方案')
  .replaceAll('已核验范围','模拟范围').replaceAll('招生要求待核实','演示条件 · 未经核实')
+ .replaceAll('费用合计','模拟费用合计')
  .replaceAll('暂无可安全打开的来源链接，请向院校核实。','模拟来源，无官方链接；本页数据不可用于申请。')
  .replaceAll('核验 2026-10-15','模拟日期 2026-10-15')
  .replaceAll('方案已保存，可在“我的方案”查看。','演示方案已保存在本页内存，可在“历史方案”查看；刷新或重置即清空。')
@@ -106,6 +109,7 @@ function demoCopy(html){return html
  .replaceAll('确认提交咨询','确认模拟交接').replaceAll('咨询已提交，顾问将通过你填写的方式联系。','模拟交接已完成。没有提交咨询，也不会有顾问联系。')
  .replaceAll('咨询已提交','模拟交接完成（未提交）').replaceAll('回执：','演示回执：');}
 function draw(){
+ if(page.data.state==='sending')document.querySelector('[data-demo-fail]').textContent='模拟下次失败';
  const root=document.getElementById('preview-root');const oldScroll=root.querySelector('.agent-scroll')?.scrollTop||0;
  const active=document.activeElement;const key=active?.dataset?.key;const handler=active?.dataset?.bindinput;const position=active?.selectionStart;
  const next=document.createElement('div');next.innerHTML=demoCopy(render(template,page.data));patchChildren(root,next);
@@ -143,7 +147,8 @@ async function dispatch(event,kind){
 }
 document.addEventListener('click',async event=>{
  if(event.target.closest('[data-demo-reset]')){await resetDemo();return;}
- if(event.target.closest('[data-demo-sample]')){if(page.data.busy)return;if(!page.data.sessionId||page.data.isSnapshot){await resetDemo();pendingSample=true;page.beginPlanning();}else fillSample();return;}
+ if(event.target.closest('[data-demo-fail]')){demo.failNextRun();event.target.closest('[data-demo-fail]').textContent='已设置下次失败';page.setData({notice:'下一次发送或生成将模拟网络失败，可使用页面的重试按钮。'});return;}
+ if(event.target.closest('[data-demo-sample]')){if(page.data.busy||['sending','polling'].includes(page.data.state))return;if(page.data.isSnapshot)await resetDemo();if(!page.data.sessionId){pendingSample=true;page.beginPlanning();}else fillSample();return;}
  if(event.target.closest('[data-demo-close-history]')){historyOpen=false;await drawHistory();return;}
  const saved=event.target.closest('[data-demo-plan]');if(saved){historyOpen=false;await drawHistory();page.setData({menuOpen:false,formOpen:false,shareOpen:false,saveOpen:false});await page.loadSaved(saved.dataset.demoPlan);return;}
  if(event.target.closest('[data-demo-history]')){historyOpen=true;await drawHistory();return;}
@@ -151,9 +156,18 @@ document.addEventListener('click',async event=>{
 });
 document.addEventListener('input',event=>dispatch(event,'bindinput'));
 document.addEventListener('change',event=>dispatch(event,'bindchange'));
-document.addEventListener('keydown',event=>{if(event.key==='Enter'&&event.target.matches('.composer-input')){event.preventDefault();void page.send();}});
+document.addEventListener('compositionstart',()=>{composing=true;});
+document.addEventListener('compositionend',()=>{composing=false;});
+document.addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.isComposing&&!composing&&event.keyCode!==229&&event.target.matches('.composer-input')){event.preventDefault();void page.send();}});
 `, resolveDir: process.cwd(), loader: 'ts' }, bundle: true, write: false, platform: 'browser', format: 'iife', target: 'es2022',
   banner: { js: '/* eslint-disable -- Generated local preview bundle, sources are linted separately. */\nglobalThis.Page=()=>{};globalThis.wx={setClipboardData:()=>{},showModal:options=>{const confirm=window.confirm("演示模式 · 仅操作本页内存\\n"+options.title+"\\n"+options.content);options.success?.({confirm,cancel:!confirm});},showToast:()=>{}};' } });
 writeFileSync('.preview/planning-agent.js', browser.outputFiles[0]!.text);
-writeFileSync('.preview/planning-agent.html', `<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>留学规划 · 交互演示</title><style>*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f6f3}button,input,textarea,select{font-family:inherit}button{border:0;cursor:pointer}input{min-width:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #65776a;outline-offset:3px}.preview-label{min-height:32px;font-size:11px;display:flex;align-items:center;justify-content:center;background:#f1f3ef;color:#465442;padding:8px;text-align:center}.demo-toolbar{height:40px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:12px;background:#f1f3ef}.demo-toolbar button{background:transparent;color:#445a49;padding:8px 0}.phone{--rpx:calc(min(100vw,430px) / 750);width:min(100%,430px);height:calc(100dvh - 72px);margin:0 auto;background:#fff;position:relative}.native-title{height:52px;text-align:center;padding:13px;font-size:18px;font-weight:550}.preview-root{height:calc(100% - 52px)}.agent-scroll{overflow-y:auto}.consent input{width:20px;height:20px;accent-color:#252724;flex-shrink:0}.answer-input{outline-offset:2px}.demo-history{position:absolute;inset:52px 0 0;z-index:20;background:#fff;padding:24px;overflow:auto;font-size:14px;line-height:1.8}.demo-history[hidden]{display:none}.demo-history-head{display:flex;justify-content:space-between;gap:12px}.demo-history button{background:transparent;color:#445a49;padding:12px 0}.demo-saved{display:block;width:100%;text-align:left;border-bottom:1px solid #eee}${css}</style><div class="preview-label">演示模式 · 不是真实 AI · 不提交咨询 · 全部为虚构数据</div><div class="demo-toolbar"><button data-demo-sample>填入示例背景</button><button data-demo-history>本页历史方案</button><button data-demo-reset>重置演示</button></div><section class="phone"><div class="native-title">留学规划</div><div id="preview-root" class="preview-root"></div><aside id="demo-history" class="demo-history" hidden></aside></section><script src="planning-agent.js"></script></html>`);
+writeFileSync('.preview/planning-agent.html', `<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>留学规划 · 交互演示</title><style>*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f6f3}button,input,textarea,select{font-family:inherit}button{border:0;cursor:pointer}input{min-width:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #65776a;outline-offset:3px}.preview-label{min-height:32px;font-size:11px;display:flex;align-items:center;justify-content:center;background:#f1f3ef;color:#465442;padding:8px;text-align:center}.demo-toolbar{min-height:72px;display:flex;flex-wrap:wrap;max-width:430px;margin:auto;padding:6px 12px;align-items:center;justify-content:center;gap:12px;font-size:12px;background:#f1f3ef}.demo-toolbar button{background:transparent;color:#445a49;padding:8px 0}.phone{--rpx:calc(min(100vw,430px) / 750);width:min(100%,430px);height:calc(100dvh - 112px);margin:0 auto;background:#fff;position:relative}.native-title{height:52px;text-align:center;padding:13px;font-size:18px;font-weight:550}.preview-root{height:calc(100% - 52px)}.agent-scroll{overflow-y:auto}.consent input{width:20px;height:20px;accent-color:#252724;flex-shrink:0}.answer-input{outline-offset:2px}.demo-history{position:absolute;inset:52px 0 0;z-index:20;background:#fff;padding:24px;overflow:auto;font-size:14px;line-height:1.8}.demo-history[hidden]{display:none}.demo-history-head{display:flex;justify-content:space-between;gap:12px}.demo-history button{background:transparent;color:#445a49;padding:12px 0}.demo-saved{display:block;width:100%;text-align:left;border-bottom:1px solid #eee}${css}\nbody > .phone{height:calc(100dvh - 112px)}.demo-toolbar select{font-size:12px;border:0;background:transparent;color:#445a49}.demo-toolbar button{min-height:28px}</style><div class="preview-label">预设模拟 · 不联网 · 非真实 AI · 不提交咨询</div><div class="demo-toolbar"><select data-demo-level aria-label="示例目标学历"><option value="FOUNDATION">预科</option><option value="BACHELOR" selected>本科</option><option value="MASTER">硕士</option><option value="DOCTOR">博士</option></select><button data-demo-sample>填入示例</button><button data-demo-fail>模拟下次失败</button><button data-demo-history>本页历史方案</button><button data-demo-reset>重置演示</button></div><section class="phone"><div class="native-title">留学规划</div><div id="preview-root" class="preview-root"></div><aside id="demo-history" class="demo-history" hidden></aside></section><script src="planning-agent.js"></script></html>`);
 console.log('Generated template-derived interactive preview: miniapp/.preview/planning-agent.html?state=welcome|profile|ready|handoff (plus other fixture states). No API/model calls or real-device verification.');
+
+// Keep the old controller fixture accessible without making its form the default.
+writeFileSync('.preview/planning-agent-legacy.html', readFileSync('.preview/planning-agent.html'));
+const chatBundle = buildSync({ entryPoints: ['scripts/planning-chat-browser.ts'], bundle: true, write: false, platform: 'browser', format: 'iife', target: 'es2022', banner: { js: '/* eslint-disable -- Generated browser bundle; scripts/planning-chat-*.ts sources are linted separately. */' } });
+writeFileSync('.preview/planning-chat.js', chatBundle.outputFiles[0]!.text);
+writeFileSync('.preview/planning-agent.html', readFileSync('scripts/planning-chat-preview.html'));
+console.log('Default preview: chat-first, local scripted replies. No miniapp runtime changes.');
