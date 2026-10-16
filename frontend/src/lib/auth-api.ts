@@ -124,8 +124,7 @@ function parseSession(payload: unknown): AuthSession | null {
     || typeof payload.adviser !== "boolean"
     || typeof payload.admin !== "boolean"
     || typeof payload.authenticated !== "boolean"
-    || !isNullableString(payload.fullName)
-    || (payload.avatarUrl !== undefined && payload.avatarUrl !== null && (typeof payload.avatarUrl !== "string" || !isSafeProfileAvatar(payload.avatarUrl)))) return null;
+    || !isNullableString(payload.fullName)) return null;
 
   if (payload.authenticated) {
     if (!isPositiveInteger(payload.userId) || !payload.fullName?.trim()) return null;
@@ -133,13 +132,18 @@ function parseSession(payload: unknown): AuthSession | null {
     return null;
   }
   return { authenticated: payload.authenticated, userId: payload.userId as number | null,
-    fullName: payload.fullName, adviser: payload.adviser, admin: payload.admin, ...(payload.avatarUrl !== undefined ? { avatarUrl: payload.avatarUrl as string | null } : {}) };
+    fullName: payload.fullName, adviser: payload.adviser, admin: payload.admin,
+    ...(payload.avatarUrl !== undefined ? { avatarUrl: safeAvatar(payload.avatarUrl) } : {}) };
+}
+
+// Profile imagery must never invalidate an otherwise valid authenticated identity.
+function safeAvatar(value: unknown): string | null {
+  return typeof value === "string" && isSafeProfileAvatar(value) ? value : null;
 }
 
 function parseAccount(payload: unknown): AccountProfile | null {
   if (!isRecord(payload)
     || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatDisplayName", "wechatAvatarUrl", "wechatLastLoginAt", "createdAt", ...(Object.prototype.hasOwnProperty.call(payload, "avatarUrl") ? ["avatarUrl"] : [])])
-    || (payload.avatarUrl !== undefined && payload.avatarUrl !== null && (typeof payload.avatarUrl !== "string" || !isSafeProfileAvatar(payload.avatarUrl)))
     || !isPositiveInteger(payload.id)
     || typeof payload.fullName !== "string" || !payload.fullName.trim()
     || !isNullableString(payload.email)
@@ -148,13 +152,14 @@ function parseAccount(payload: unknown): AccountProfile | null {
     || typeof payload.phoneVerified !== "boolean"
     || typeof payload.wechatLinked !== "boolean"
     || !isNullableString(payload.wechatDisplayName)
-    || !isNullableString(payload.wechatAvatarUrl)
-    || (payload.wechatAvatarUrl !== null && !isSafeWechatAvatar(payload.wechatAvatarUrl))
     || !isNullableString(payload.wechatLastLoginAt)
     || (payload.wechatLastLoginAt !== null && Number.isNaN(Date.parse(payload.wechatLastLoginAt)))
     || typeof payload.createdAt !== "string"
     || Number.isNaN(Date.parse(payload.createdAt))) return null;
-  return payload as AccountProfile;
+  return { ...payload,
+    wechatAvatarUrl: typeof payload.wechatAvatarUrl === "string" && isSafeWechatAvatar(payload.wechatAvatarUrl) ? payload.wechatAvatarUrl : null,
+    ...(payload.avatarUrl !== undefined ? { avatarUrl: safeAvatar(payload.avatarUrl) } : {}),
+  } as AccountProfile;
 }
 
 function isSafeWechatAvatar(value: string): boolean {

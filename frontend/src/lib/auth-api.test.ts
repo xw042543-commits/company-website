@@ -249,7 +249,7 @@ test("loads and strictly validates the masked account profile", async () => {
   assert.deepEqual(await getAccount("http://localhost:8080", leaked.request), { status: "error" });
 
   const unsafeAvatar = requestQueue([jsonResponse({ ...account, wechatAvatarUrl: "https://example.com/avatar.jpg" })]);
-  assert.deepEqual(await getAccount("http://localhost:8080", unsafeAvatar.request), { status: "error" });
+  assert.deepEqual(await getAccount("http://localhost:8080", unsafeAvatar.request), { status: "ready", account: { ...account, wechatAvatarUrl: null } });
 });
 
 test("maps backend and network failures to stable client states", async () => {
@@ -274,5 +274,23 @@ test("fresh username and versioned avatar are accepted without weakening profile
   const response = requestQueue([jsonResponse(session)]);
   assert.deepEqual(await getSession("http://localhost:8080", response.request), {status: "ready", session});
   const unsafe = requestQueue([jsonResponse({...session, avatarUrl: "https://evil.test/avatar.png"})]);
-  assert.deepEqual(await getSession("http://localhost:8080", unsafe.request), {status:"error"});
+  assert.deepEqual(await getSession("http://localhost:8080", unsafe.request), {status:"ready", session: {...session, avatarUrl: null}});
+});
+
+test("administrator identity survives invalid optional avatars and refreshes after role changes", async () => {
+  const queue = requestQueue([
+    jsonResponse({ ...session, admin: true, avatarUrl: "https://invalid.example/photo" }),
+    jsonResponse({ ...session, admin: false, avatarUrl: 42 }),
+    jsonResponse({ authenticated: false, userId: null, fullName: null, adviser: false, admin: false }),
+  ]);
+  for (const admin of [true, false]) {
+    assert.deepEqual(await getSession("https://yangdoujiao.com", queue.request),
+      { status: "ready", session: { ...session, admin, avatarUrl: null } });
+  }
+  const expired = await getSession("https://yangdoujiao.com", queue.request);
+  assert.equal(expired.status === "ready" && expired.session.authenticated, false);
+  for (const call of queue.calls) {
+    assert.equal(call.init?.cache, "no-store");
+    assert.equal(call.init?.credentials, "include");
+  }
 });
