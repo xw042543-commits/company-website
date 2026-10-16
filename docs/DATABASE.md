@@ -330,7 +330,7 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 复用已有 user_accounts.role/status/updated_at 和 catalog_advanced_administrators，不新增角色，不改变用户、申请、订单关系或现有高级管理员名单。禁用再恢复时从最新禁用日志恢复原状态；无旧日志时依据验证记录或已有外部登录绑定判断，未验证账号保持 PENDING_VERIFICATION。新迁移不更新现有账号。
 
 
-## V64 账号编辑与统一头像
+## V65 账号编辑与统一头像
 
 user_accounts增加profile_avatar_url（最多500字符）、profile_avatar_overridden（默认false）。头像字节继续复用miniapp_account_avatars，不新建文件存储。默认false保留既有微信头像；显式删除时设true且URL为空，避免删除后又回退到旧微信头像。迁移只将已有持久化小程序头像的有效同账号URL填入新字段，不改变原有头像字节和用户资料。小程序原有上传/删除也同步新字段，保持共享账号一致。
 

@@ -454,7 +454,7 @@ APP_TRUSTED_PROXIES=
 变更只更新 role 或 status 及 updated_at；同一事务中撤销网页会话、小程序访问与刷新令牌并写入日志。双方账号按编号加锁并再次核权；过期编辑返回409，不覆盖他人变更。无变化请求不重复记日志。
 
 
-## 高级管理员编辑账号资料（V64）
+## 高级管理员编辑账号资料（V65）
 
 `PATCH /api/v1/admin/accounts/{id}/profile`，使用既有网页 Cookie 会话与 CSRF，仅数据库中启用且已有高级授权的 ADMIN 可调用，仅编辑其他未注销账号。
 

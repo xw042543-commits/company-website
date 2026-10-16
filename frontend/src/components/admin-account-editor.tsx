@@ -64,7 +64,8 @@ export function AdminAccountEditor({ account, onCancel, onSaved }: { account: Ma
         ...(contentBase64 ? { contentType: "image/jpeg", contentBase64 } : {}),
       });
       if (result.status === "ready") onSaved(result.value);
-      else setNotice(result.message && /[\u4e00-\u9fff]/.test(result.message) ? result.message : result.status === "forbidden" ? "仅高级管理员可编辑其他账号" : result.status === "unauthorized" ? "登录已失效，请重新登录" : "保存失败，原资料已保留，请重试");
+      else if (result.status === "unavailable") setNotice("网络连接中断，保存结果尚未确认，请重新打开账号核对后再试");
+      else setNotice(result.message && /[\u4e00-\u9fff]/.test(result.message) ? result.message : result.status === "forbidden" ? "仅高级管理员可编辑其他账号" : result.status === "unauthorized" ? "登录已失效，请重新登录" : "保存未完成，请刷新账号资料后重试");
     } catch (error) { setNotice(error instanceof Error ? error.message : "保存失败，原头像已保留"); }
     finally { setBusy(false); }
   }
