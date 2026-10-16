@@ -8,7 +8,7 @@
   <view class="about-card">
     <view class="section-title">我们提供</view>
     <view class="service-row"><text class="service-dot">01</text><view class="service-copy"><view>院校查询</view><text>根据个人需求在线查找筛选专业信息，锁定目标院校</text></view></view>
-    <view class="service-row"><text class="service-dot">02</text><view class="service-copy"><view>留学规划</view><text>AI规划与专业规划师双重保障</text></view></view>
+    <view class="service-row"><text class="service-dot">02</text><view class="service-copy"><view>留学规划</view><text>专业规划师协助梳理目标、背景与申请方向</text></view></view>
     <view class="service-row"><text class="service-dot">03</text><view class="service-copy"><view>签证办理</view><text>全程签证代办，专业团队保障</text></view></view>
     <view class="service-row"><text class="service-dot">04</text><view class="service-copy"><view>落地注册</view><text>留学生落地海外之后的注册接机及注册报道办理</text></view></view>
     <view class="service-row"><text class="service-dot">05</text><view class="service-copy"><view>U圈交流</view><text>留学生分享留学经验和问题，在线租房、交流学业、交友平台</text></view></view>

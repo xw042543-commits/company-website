@@ -48,28 +48,26 @@ test('unavailable direct entry retains catalogue consultation and saved history 
   page.catalogue(); page.adviser(); page.myPlans();
   assert.deepEqual(urls, ['/pages/planning-discovery/index', '/pages/consultation/index', '/pages/plans/index']);
 });
-test('home original AI tool opens the new planning page without waiting for capability', async () => {
+test('home hides the unfinished AI planning tool', async () => {
   const { createHomePage } = await import('../miniprogram/pages/home/index');
   const page = context(createHomePage());
   const urls: string[] = [];
   const originalNavigate = wx.navigateTo;
   wx.navigateTo = (({ url }: { url: string }) => urls.push(url)) as any;
   try {
-    assert.deepEqual(page.data.featureEntries.map((entry: any) => entry.key), ['planning', 'universities', 'ai', 'visa']);
-    const entry = page.data.featureEntries[2];
-    assert.equal(entry.icon, '/assets/icons/ai.png');
-    page.openFeature({ currentTarget: { dataset: { key: entry.key } } });
-    assert.deepEqual(urls, ['/pages/planning-agent/index']);
+    assert.deepEqual(page.data.featureEntries.map((entry: any) => entry.key), ['planning', 'universities', 'visa']);
+    assert.equal(page.data.featureEntries.some((entry: any) => entry.key === 'ai'), false);
+    assert.deepEqual(urls, []);
   } finally { wx.navigateTo = originalNavigate; }
 });
-test('Agent list failure preserves legacy plans and each type opens its own route', async () => {
+test('plans page only loads and opens the supported manual plans', async () => {
   const { createPlansPage } = await import('../miniprogram/pages/plans/index');
   const urls: string[] = [];
   const page = context(createPlansPage({ auth: auth.ensureAuthenticated, navigate: url => urls.push(url),
-    listLegacy: async () => ok([{ id: 7 }]), api: { listPlans: async () => ({ ok: false, error: { code: 'NETWORK_UNAVAILABLE' } }) } as any }));
-  await page.load(); assert.equal(page.data.plans[0].id, 7); assert.equal(page.data.agentState, 'failed');
-  page.edit({ currentTarget: { dataset: { id: 7 } } }); page.openAgent({ currentTarget: { dataset: { id } } });
-  assert.deepEqual(urls, ['/pages/planning/index?planId=7', `/pages/planning-agent/index?planId=${id}`]);
+    listLegacy: async () => ok([{ id: 7 }]) }));
+  await page.load(); assert.equal(page.data.plans[0].id, 7); assert.equal('agentState' in page.data, false);
+  page.edit({ currentTarget: { dataset: { id: 7 } } });
+  assert.deepEqual(urls, ['/pages/planning/index?planId=7']);
 });
 test('adviser submit requires explicit consent and retries one immutable payload without early success', async () => {
   let finish: any; const calls: any[] = [];
