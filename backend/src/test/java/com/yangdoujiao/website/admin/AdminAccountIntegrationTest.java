@@ -183,6 +183,8 @@ class AdminAccountIntegrationTest {
         mutate(target, "status", "\"enabled\":true");
         mutate(target, "role", "\"role\":\"USER\"");
         applyProfile(target, "历史记录关联保持不变", "REPLACE", profileImage("png"), "image/png");
+        mvc.perform(patch("/api/v1/account/profile").cookie(login(target)).with(csrf()).contentType("application/json")
+            .content(profileBody(target, "历史记录关联保持不变", "REPLACE", profileImage("jpeg"), "image/jpeg"))).andExpect(status().isOk());
         personal.put("full_name", "历史记录关联保持不变");
         assertThat(jdbc.queryForMap("SELECT * FROM application_payment_orders WHERE id=?", order)).isEqualTo(storedOrder);
         assertThat(jdbc.queryForMap("SELECT * FROM student_applications WHERE id=?", application)).isEqualTo(storedApplication);
@@ -299,7 +301,7 @@ class AdminAccountIntegrationTest {
             String name = "个人用户名" + id;
             mvc.perform(get("/api/v1/account").cookie(cookie)).andExpect(jsonPath("$.updatedAt").exists());
             mvc.perform(patch("/api/v1/account/profile").cookie(cookie).with(csrf()).contentType("application/json")
-                .content(profileBody(id, "  " + name + "  ", "KEEP", null, null)))
+                .content(profileBody(id, "  " + name + "  ", "REPLACE", profileImage("png"), "image/png")))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.id").value(id)).andExpect(jsonPath("$.fullName").value(name)).andExpect(jsonPath("$.updatedAt").exists());
             mvc.perform(get("/api/v1/auth/session").cookie(cookie)).andExpect(jsonPath("$.fullName").value(name));
             mvc.perform(get("/api/v1/account").cookie(login(id))).andExpect(jsonPath("$.fullName").value(name));
@@ -335,6 +337,9 @@ class AdminAccountIntegrationTest {
                 .andExpect(status().isOk()).andExpect(jsonPath("$.avatarUrl").value(org.hamcrest.Matchers.containsString("?v=")));
             mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(content().bytes(bytes));
         }
+        byte[] webp = Base64.getDecoder().decode("UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEAAUAmJaQAA3AA/v89WAAAAA==");
+        mvc.perform(patch(path).cookie(cookie).with(csrf()).contentType("application/json").content(profileBody(target, "WebP本人头像", "REPLACE", webp, "image/webp"))).andExpect(status().isOk());
+        mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(header().string("Content-Type", "image/webp")).andExpect(content().bytes(webp));
         byte[] exact = Arrays.copyOf(profileImage("png"), 1_048_576);
         mvc.perform(patch(path).cookie(cookie).with(csrf()).contentType("application/json").content(profileBody(target, "边界头像", "REPLACE", exact, "image/png"))).andExpect(status().isOk());
         for (byte[] bad : List.of(Arrays.copyOf(exact, 1_048_577), "fake.png".getBytes())) {
