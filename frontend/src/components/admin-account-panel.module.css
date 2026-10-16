@@ -21,15 +21,63 @@
 @media (max-width: 600px) { .detail { padding: 16px; } .fields { grid-template-columns: 1fr; } .table th, .table td { padding: 12px; } }
 
 .identity { display: flex; align-items: center; gap: 10px; }
-.editor { width: min(600px, 100%); box-sizing: border-box; max-height: calc(100dvh - 44px); margin: 0; }
-.editBody { padding: 22px; }
-.editBody > p { color: #516c61; overflow-wrap: anywhere; }
-.nameField, .fileField, .range { display: flex; flex-direction: column; gap: 8px; margin: 18px 0; }
-.nameField input { width: 100%; min-height: 44px; padding: 10px; border: 1px solid #bad0c7; border-radius: 8px; }
-.cropPreview { display: block; width: min(256px, 100%); height: auto; aspect-ratio: 1; border-radius: 16px; border: 1px solid #bad0c7; }
-.range input { width: 100%; min-height: 32px; accent-color: #286858; }
-.fileField input { max-width: 100%; min-height: 44px; }
-@media(max-width: 600px) { .editBody { padding: 16px; } .editor { max-height: 100dvh; } .editor > footer { flex-wrap: wrap; } .editor > footer button { flex: 1; } }
-
-.editor > footer { flex-wrap: wrap; }
-.editor > footer > p { flex-basis: 100%; margin: 0; }
+.editor { width: min(760px, 100%); box-sizing: border-box; max-height: calc(100dvh - 44px); margin: 0; border-radius: 22px; }
+.editorHeader { padding: 22px 26px !important; }
+.editorHeader > div { display: grid; gap: 3px; }
+.eyebrow { color: #2a765f; font-size: .7rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.editorHeader h2 { color: #123f53; font-size: clamp(1.45rem, 3vw, 1.9rem); letter-spacing: -.025em; }
+.closeButton { min-width: auto !important; padding: 8px 14px !important; font-size: .9rem !important; }
+.editBody { padding: 24px 26px 28px; }
+.accountMeta { display: grid; grid-template-columns: auto auto minmax(220px, 1fr); gap: 1px; overflow: hidden; margin-bottom: 26px; border: 1px solid #d8e5df; border-radius: 14px; background: #d8e5df; }
+.accountMeta > div { display: grid; align-content: center; min-height: 68px; padding: 12px 16px; background: #f5f8f5; }
+.accountMeta span { color: #6b7f76; font-size: .72rem; font-weight: 700; letter-spacing: .03em; }
+.accountMeta strong { margin-top: 3px; color: #193f35; font-size: .92rem; overflow-wrap: anywhere; }
+.accountMeta small { color: #829089; font-size: .68rem; }
+.profileGrid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 20px; }
+.identitySection, .avatarSection { min-width: 0; padding: 20px; border: 1px solid #dce7e2; border-radius: 16px; background: #fff; }
+.sectionHeading { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
+.sectionHeading > span { display: grid; width: 30px; height: 30px; flex: none; place-items: center; border-radius: 50%; background: #e7f2ec; color: #28715a; font-size: .72rem; font-weight: 800; }
+.sectionHeading h3 { margin: 0; color: #143f52; font-size: 1.05rem; }
+.sectionHeading p { margin: 4px 0 0; color: #6c7d75; font-size: .78rem; line-height: 1.5; }
+.nameField, .fileField, .range { display: flex; flex-direction: column; gap: 8px; }
+.inputWrap { position: relative; }
+.nameField input { width: 100%; min-height: 48px; padding: 10px 62px 10px 12px; border: 1px solid #aec8bd; border-radius: 10px; background: #fffefb; font-size: 1rem; }
+.inputWrap > span { position: absolute; right: 12px; top: 50%; translate: 0 -50%; color: #83928b; font-size: .72rem; font-weight: 500; }
+.safetyNote, .fileHint { margin: 12px 0 0; color: #718078; font-size: .76rem; line-height: 1.6; }
+.avatarWorkspace { display: grid; grid-template-columns: 124px minmax(0, 1fr); align-items: center; gap: 18px; }
+.avatarPreview { display: grid; width: 124px; min-height: 124px; place-items: center; overflow: hidden; border-radius: 18px; background: #f0f6f2; }
+.cropPreview { display: block; width: 124px; height: 124px; border: 0; border-radius: 18px; object-fit: cover; }
+.avatarControls { min-width: 0; }
+.fileField { position: relative; display: inline-flex !important; cursor: pointer; }
+.fileField > span { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; padding: 9px 15px; border: 1px solid #8db5a6; border-radius: 10px; background: #f7faf8; color: #1e604d; font-size: .82rem; font-weight: 750; }
+.fileField:hover > span { background: #eaf3ee; }
+.fileField:focus-within > span { outline: 2px solid #2a765f; outline-offset: 2px; }
+.fileInput { position: absolute; width: 1px !important; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; }
+.avatarActions { display: flex; gap: 14px; min-width: 0; margin-top: 12px; }
+.avatarActions .textAction { min-height: 30px; padding: 0; border: 0; border-bottom: 1px solid currentColor; border-radius: 0; background: transparent; box-shadow: none; color: #526d63; font-size: .74rem; font-weight: 650; }
+.avatarActions .textAction:first-child { color: #a14b3d; }
+.avatarActions .textAction:disabled { opacity: .45; }
+.pendingNote { margin: 10px 0 0; color: #8c5b24; font-size: .76rem; }
+.cropControls { display: grid; gap: 11px; margin-top: 18px; padding-top: 17px; border-top: 1px solid #e4ebe7; }
+.positionControls { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.range { color: #536b61 !important; font-size: .74rem !important; }
+.range input { width: 100%; min-height: 26px; accent-color: #286858; }
+.editorFooter { flex-wrap: wrap; padding: 16px 26px !important; background: rgb(255 254 251 / 96%) !important; backdrop-filter: blur(10px); }
+.editorFooter > p { flex-basis: 100%; margin: 0; }
+.editorFooter > button { min-width: 110px; }
+@media(max-width: 700px) {
+  .editor { max-height: 100dvh; border-radius: 0; }
+  .editorHeader, .editorFooter { padding-inline: 18px !important; }
+  .editBody { padding: 18px; }
+  .accountMeta { grid-template-columns: 1fr 1fr; }
+  .accountMeta > div:last-child { grid-column: 1 / -1; }
+  .profileGrid { grid-template-columns: 1fr; }
+}
+@media(max-width: 460px) {
+  .accountMeta { grid-template-columns: 1fr; }
+  .accountMeta > div:last-child { grid-column: auto; }
+  .avatarWorkspace { grid-template-columns: 104px minmax(0, 1fr); gap: 14px; }
+  .avatarPreview, .cropPreview { width: 104px; min-height: 104px; height: 104px; }
+  .positionControls { grid-template-columns: 1fr; }
+  .editorFooter > button { flex: 1; min-width: 0; }
+}
