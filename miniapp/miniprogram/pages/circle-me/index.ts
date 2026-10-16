@@ -14,13 +14,16 @@ type PersonalPostItem = CommunityMyPost & { displayTime: string; statusLabel: st
 type PersonalCommentItem = CommunityMyComment & { displayTime: string; statusLabel: string };
 interface ItemEvent extends WechatMiniprogram.BaseEvent { currentTarget: WechatMiniprogram.BaseEvent['currentTarget'] & { dataset: { id?: string; post?: string; status?: string } } }
 
-interface PersonalRuntime { generation: number; active: boolean; requestScope: string; submittedForReview: boolean; automaticImageCheck: boolean }
+interface PersonalRuntime { generation: number; active: boolean; requestScope: string; submittedForReview: boolean; automaticImageCheck: boolean; refreshTimer: number | null }
 type PersonalDeps = { navigate: (url: string) => void; listPosts: typeof listMyCommunityPosts; listComments: typeof listMyCommunityComments;
-  deletePost: typeof deleteCommunityPost; deleteComment: typeof deleteCommunityComment; session: typeof sessionStore; createScope: typeof createCommunityRequestScope };
+  deletePost: typeof deleteCommunityPost; deleteComment: typeof deleteCommunityComment; session: typeof sessionStore; createScope: typeof createCommunityRequestScope;
+  scheduleRefresh: (task: () => void, delay: number) => number; cancelRefresh: (timer: number) => void };
 const personalDefaults: PersonalDeps = { navigate: (url) => wx.navigateTo({ url }), listPosts: listMyCommunityPosts,
-  listComments: listMyCommunityComments, deletePost: deleteCommunityPost, deleteComment: deleteCommunityComment, session: sessionStore, createScope: createCommunityRequestScope };
+  listComments: listMyCommunityComments, deletePost: deleteCommunityPost, deleteComment: deleteCommunityComment, session: sessionStore, createScope: createCommunityRequestScope,
+  scheduleRefresh: (task, delay) => setTimeout(task, delay) as unknown as number, cancelRefresh: (timer) => clearTimeout(timer) };
 type PersonalPage = WechatMiniprogram.Page.TrivialInstance & { _communityRuntime: PersonalRuntime };
 function personalRuntime(page: WechatMiniprogram.Page.TrivialInstance): PersonalRuntime { return (page as PersonalPage)._communityRuntime; }
+const IMAGE_REVIEW_REFRESH_MS = 3_000;
 
 export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): WechatMiniprogram.Page.Options<WechatMiniprogram.IAnyObject, WechatMiniprogram.IAnyObject> {
   const deps = { ...personalDefaults, ...overrides };
@@ -34,11 +37,13 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
   onLoad(options: Record<string, string | undefined> = {}) {
     const submittedForReview = options.review === 'submitted';
     const automaticImageCheck = options.review === 'automatic-image';
-    (this as PersonalPage)._communityRuntime = { generation: 0, active: true, requestScope: deps.createScope(), submittedForReview, automaticImageCheck };
+    (this as PersonalPage)._communityRuntime = { generation: 0, active: true, requestScope: deps.createScope(), submittedForReview, automaticImageCheck, refreshTimer: null };
     this.setData({ reviewNotice: automaticImageCheck ? '图片自动检查中，通过后会自动发布。' : submittedForReview ? PENDING_REVIEW_NOTICE : '' });
     void this.requireLoginAndLoad();
   },
-  onUnload() { const state = personalRuntime(this); state.active = false; state.generation++; },
+  onShow() { const state = personalRuntime(this); if (state?.active && this.data.tab === 'posts' && this.data.posts.some((item: PersonalPostItem) => item.status === 'PENDING_REVIEW')) scheduleReviewRefresh(this); },
+  onHide() { stopReviewRefresh(this); },
+  onUnload() { const state = personalRuntime(this); stopReviewRefresh(this); state.active = false; state.generation++; },
   onPullDownRefresh() { void this.load(true).finally(() => wx.stopPullDownRefresh()); },
   onReachBottom() { if (this.data.state === 'ready' && this.data.nextCursor && !this.data.loadingMore) void this.load(false); },
   switchTab(event: WechatMiniprogram.BaseEvent) {
@@ -57,6 +62,7 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
   },
   async load(reset: boolean) {
     if (!reset && this.data.loadingMore) return;
+    if (reset) stopReviewRefresh(this);
     const cursor = reset ? null : this.data.nextCursor; if (!reset && !cursor) return;
     const state = personalRuntime(this); const request = ++state.generation;
     if (reset) this.setData({ state: 'loading' as PersonalState }); else this.setData({ loadingMore: true });
@@ -74,8 +80,12 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
       const incoming = result.value.items as readonly CommunityMyPost[];
       const items = new Map<string, PersonalPostItem>((reset ? [] : this.data.posts).map((item: PersonalPostItem) => [item.id, item]));
       incoming.forEach((item) => items.set(item.id, { ...item, categoryLabel: communityCategoryLabel(item.category), displayTime: formatCommunityTime(item.createdAt), statusLabel: statusCopy(item.status) }));
-      const posts = [...items.values()]; this.setData({ posts, reviewNotice: state.automaticImageCheck ? '图片自动检查中，通过后会自动发布。' : state.submittedForReview || posts.some((item) => item.status === 'PENDING_REVIEW') ? PENDING_REVIEW_NOTICE : '',
+      const posts = [...items.values()]; const hasPending = posts.some((item) => item.status === 'PENDING_REVIEW');
+      const reviewNotice = hasPending ? state.automaticImageCheck ? '图片自动检查中，通过后会自动发布。' : PENDING_REVIEW_NOTICE : '';
+      if (!hasPending) { state.automaticImageCheck = false; state.submittedForReview = false; }
+      this.setData({ posts, reviewNotice,
         nextCursor: result.value.nextCursor, loadingMore: false, state: posts.length ? 'ready' : 'empty' });
+      if (hasPending) scheduleReviewRefresh(this);
       const owner = deps.session.getSnapshot().account?.id;
       void fetchCommunityImages(incoming.map((post) => post.id), true).then((images) => {
         if (state.active && request === state.generation && owner === deps.session.getSnapshot().account?.id)
@@ -106,6 +116,19 @@ export function createCircleMePage(overrides: Partial<PersonalDeps> = {}): Wecha
     this.setData({ deletingId: null });
   },
   };
+
+  function stopReviewRefresh(page: WechatMiniprogram.Page.TrivialInstance) {
+    const state = personalRuntime(page); if (!state || state.refreshTimer === null) return;
+    deps.cancelRefresh(state.refreshTimer); state.refreshTimer = null;
+  }
+
+  function scheduleReviewRefresh(page: WechatMiniprogram.Page.TrivialInstance) {
+    const state = personalRuntime(page); if (!state.active || state.refreshTimer !== null) return;
+    state.refreshTimer = deps.scheduleRefresh(() => {
+      state.refreshTimer = null;
+      if (state.active && page.data.tab === 'posts') void (page as PersonalPage & { load: (reset: boolean) => Promise<void> }).load(true);
+    }, IMAGE_REVIEW_REFRESH_MS);
+  }
   return definition;
 }
 
