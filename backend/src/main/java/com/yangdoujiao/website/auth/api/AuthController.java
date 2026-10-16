@@ -24,14 +24,15 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/api/v1/auth")
 public class AuthController {
     private final RegistrationService registration;
+    private final AccountService accounts;
     private final VerificationService verification;
     private final AuthenticationService authentication;
     private final PasswordService passwords;
     private final ClientAddressResolver addresses;
 
     public AuthController(RegistrationService registration, VerificationService verification,
-            AuthenticationService authentication, PasswordService passwords, ClientAddressResolver addresses) {
-        this.registration = registration;
+            AuthenticationService authentication, PasswordService passwords, ClientAddressResolver addresses, AccountService accounts) {
+        this.registration = registration; this.accounts = accounts;
         this.verification = verification;
         this.authentication = authentication;
         this.passwords = passwords;
@@ -44,7 +45,7 @@ public class AuthController {
         UserPrincipal principal = authentication.login(body == null ? null : body.identifier(),
                 body == null ? null : body.password(), body != null && Boolean.TRUE.equals(body.rememberMe()),
                 addresses.resolve(request), request, response);
-        return AuthSessionResponse.authenticated(principal);
+        return accounts.session(principal.userId());
     }
 
     @GetMapping("/session")
@@ -53,7 +54,7 @@ public class AuthController {
         if (current == null || !current.isAuthenticated() || !(current.getPrincipal() instanceof UserPrincipal principal)) {
             return AuthSessionResponse.anonymous();
         }
-        return AuthSessionResponse.authenticated(principal);
+        return accounts.session(principal.userId());
     }
 
     @PostMapping("/register")

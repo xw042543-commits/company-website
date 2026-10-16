@@ -2396,3 +2396,7 @@ textarea:focus {
 @media (max-width: 520px) {
   .community-workspace .community-record { padding: 18px 16px; }
 }
+
+.header-account-identity { display: inline-flex; gap: 8px; align-items: center; max-width: 180px; }
+.header-account-identity > span:last-child { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+@media (max-width: 600px) { .header-account-identity { max-width: 115px; } }

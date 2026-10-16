@@ -37,6 +37,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @Import(TestContainersConfiguration.class)
 class AdminAccountIntegrationTest {
     @Autowired MockMvc mvc;
+    @Autowired tools.jackson.databind.ObjectMapper json;
     @Autowired JdbcTemplate jdbc;
     @Autowired PasswordEncoder passwords;
     @Autowired AdminAccountService service;
@@ -59,6 +60,7 @@ class AdminAccountIntegrationTest {
             jdbc.update("DELETE FROM account_management_audit WHERE actor_user_id=? OR target_user_id=?", id, id);
             jdbc.update("DELETE FROM spring_session WHERE principal_name=?", "user:" + id);
             jdbc.update("DELETE FROM miniapp_auth_tokens WHERE user_account_id=?", id);
+            jdbc.update("DELETE FROM user_external_identities WHERE user_account_id=?", id);
             jdbc.update("DELETE FROM catalog_advanced_administrators WHERE user_account_id=?", id);
         }
         for (long id : ids) jdbc.update("DELETE FROM user_accounts WHERE id=?", id);
@@ -180,6 +182,8 @@ class AdminAccountIntegrationTest {
         mutate(target, "status", "\"enabled\":false");
         mutate(target, "status", "\"enabled\":true");
         mutate(target, "role", "\"role\":\"USER\"");
+        applyProfile(target, "历史记录关联保持不变", "REPLACE", profileImage("png"), "image/png");
+        personal.put("full_name", "历史记录关联保持不变");
         assertThat(jdbc.queryForMap("SELECT * FROM application_payment_orders WHERE id=?", order)).isEqualTo(storedOrder);
         assertThat(jdbc.queryForMap("SELECT * FROM student_applications WHERE id=?", application)).isEqualTo(storedApplication);
         assertThat(jdbc.queryForMap("SELECT full_name,normalized_email,password_hash,created_at FROM user_accounts WHERE id=?", target)).isEqualTo(personal);
@@ -203,6 +207,103 @@ class AdminAccountIntegrationTest {
     private boolean tryDisable(long actor, AdminAccountService.Account account) {
         try { service.change(actor, account.id(), new AdminAccountService.Change(null, false, true, account.updatedAt()), false); return true; }
         catch (ApiException expected) { return false; }
+    }
+
+    @Test void profileNameEditUsesLiveDatabaseForExistingCookiesAndNewLogin() throws Exception {
+        Cookie cookie = login(target);
+        var before = jdbc.queryForMap("SELECT normalized_email,password_hash,role,status FROM user_accounts WHERE id=?", target);
+        var body = new HashMap<String,Object>();
+        body.put("fullName", "  更新后的用户名  "); body.put("avatarAction", "KEEP");
+        body.put("expectedUpdatedAt", service.detail(advanced, target).updatedAt());
+        body.put("role", "ADMIN"); body.put("password", "injection"); body.put("email", "changed@example.com"); body.put("status", "DISABLED");
+        mvc.perform(patch("/api/v1/admin/accounts/" + target + "/profile").with(user(principal(advanced))).with(csrf()).contentType("application/json").content(json.writeValueAsString(body)))
+            .andExpect(status().isBadRequest());
+        assertThat(jdbc.queryForMap("SELECT normalized_email,password_hash,role,status FROM user_accounts WHERE id=?", target)).isEqualTo(before);
+        applyProfile(target, "  更新后的用户名  ", "KEEP", null, null);
+        mvc.perform(get("/api/v1/auth/session").cookie(cookie)).andExpect(status().isOk()).andExpect(jsonPath("$.fullName").value("更新后的用户名"));
+        mvc.perform(get("/api/v1/account").cookie(cookie)).andExpect(status().isOk()).andExpect(jsonPath("$.fullName").value("更新后的用户名"));
+        mvc.perform(get("/api/v1/auth/session").cookie(login(target))).andExpect(jsonPath("$.fullName").value("更新后的用户名"));
+        assertThat(jdbc.queryForMap("SELECT normalized_email,password_hash,role,status FROM user_accounts WHERE id=?", target)).isEqualTo(before);
+        mvc.perform(get("/api/v1/admin/accounts/audit").with(user(principal(advanced))).param("target", Long.toString(target)))
+            .andExpect(jsonPath("$.items[0].action").value("PROFILE")).andExpect(jsonPath("$.items[0].old_full_name").value(prefix + "member"))
+            .andExpect(jsonPath("$.items[0].new_full_name").value("更新后的用户名")).andExpect(jsonPath("$.items[0].avatar_action").value("KEEP"));
+    }
+    @Test void uploadsReplacesAndRemovesDurableAvatarsWithCacheVersions() throws Exception {
+        byte[] png = profileImage("png"), jpg = profileImage("jpeg");
+        applyProfile(target, "新用户名", "REPLACE", png, "image/png");
+        var first = service.detail(advanced, target);
+        assertThat(first.avatarUrl()).contains("/api/v1/miniapp/avatars/" + target + "?v=");
+        mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(status().isOk())
+            .andExpect(header().string("Content-Type", "image/png")).andExpect(header().string("Cache-Control", "no-store"))
+            .andExpect(content().bytes(png));
+        mvc.perform(get("/api/v1/auth/session").cookie(login(target))).andExpect(jsonPath("$.avatarUrl").value(first.avatarUrl()));
+        applyProfile(target, "新用户名", "REPLACE", jpg, "image/jpeg");
+        var second = service.detail(advanced, target);
+        assertThat(second.avatarUrl()).isNotEqualTo(first.avatarUrl());
+        mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(content().bytes(jpg));
+        applyProfile(target, "新用户名", "REMOVE", null, null);
+        assertThat(service.detail(advanced, target).avatarUrl()).isNull();
+        mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(status().isNotFound());
+        Cookie cookie = login(target);
+        mvc.perform(get("/api/v1/auth/session").cookie(cookie)).andExpect(jsonPath("$.avatarUrl").isEmpty());
+        mvc.perform(get("/api/v1/account").cookie(cookie)).andExpect(jsonPath("$.avatarUrl").isEmpty());
+    }
+    @Test void acceptsExactlyOneMegabyteAndWebpAndPreservesOriginalOnInvalidUpload() throws Exception {
+        byte[] png = Arrays.copyOf(profileImage("png"), 1_048_576);
+        applyProfile(target, "边界测试", "REPLACE", png, "image/png");
+        var old = service.detail(advanced, target);
+        for (byte[] bad : List.of(Arrays.copyOf(png, 1_048_577), "<script>fake image</script>".getBytes(), new byte[]{(byte)137,80,78,71,13,10,26,10,1})) {
+            mvc.perform(patch("/api/v1/admin/accounts/" + target + "/profile").with(user(principal(advanced))).with(csrf()).contentType("application/json").content(profileBody(target, "不应保存", "REPLACE", bad, "image/png")))
+                .andExpect(status().isBadRequest());
+            assertThat(service.detail(advanced, target)).isEqualTo(old);
+            mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(content().bytes(png));
+        }
+        byte[] webp = Base64.getDecoder().decode("UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEAAUAmJaQAA3AA/v89WAAAAA==");
+        applyProfile(target, "WebP测试", "REPLACE", webp, "image/webp");
+        mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(header().string("Content-Type", "image/webp")).andExpect(content().bytes(webp));
+    }
+    @Test void deletingCustomizedAvatarDoesNotResurrectWechatAvatar() throws Exception {
+        jdbc.update("INSERT INTO user_external_identities(user_account_id,provider,provider_client_id,provider_subject,avatar_url) VALUES(?,'WECHAT',?,?,?)", target, prefix, prefix, "https://thirdwx.qlogo.cn/mmopen/old/132");
+        assertThat(service.detail(advanced, target).avatarUrl()).contains("qlogo.cn");
+        applyProfile(target, "删除头像", "REMOVE", null, null);
+        mvc.perform(get("/api/v1/account").cookie(login(target))).andExpect(jsonPath("$.avatarUrl").isEmpty());
+        assertThat(jdbc.queryForObject("SELECT profile_avatar_overridden FROM user_accounts WHERE id=?", Boolean.class, target)).isTrue();
+    }
+    @Test void profileEndpointEnforcesAuthoritySelfProtectionCsrfValidationAndVersion() throws Exception {
+        String body = profileBody(target, "新用户", "KEEP", null, null);
+        mvc.perform(patch("/api/v1/admin/accounts/" + target + "/profile").with(csrf()).contentType("application/json").content(body)).andExpect(status().isUnauthorized());
+        for (long id : List.of(target, ordinary)) mvc.perform(patch("/api/v1/admin/accounts/" + target + "/profile").with(user(principal(id))).with(csrf()).contentType("application/json").content(body)).andExpect(status().isForbidden());
+        mvc.perform(patch("/api/v1/admin/accounts/" + target + "/profile").with(user(principal(advanced))).contentType("application/json").content(body)).andExpect(status().isForbidden());
+        mvc.perform(patch("/api/v1/admin/accounts/" + advanced + "/profile").with(user(principal(advanced))).with(csrf()).contentType("application/json").content(profileBody(advanced, "自身", "KEEP", null, null))).andExpect(status().isBadRequest());
+        for (String name : List.of("", " ", "a".repeat(101), "bad\nname")) mvc.perform(patch("/api/v1/admin/accounts/" + target + "/profile").with(user(principal(advanced))).with(csrf()).contentType("application/json").content(profileBody(target, name, "KEEP", null, null))).andExpect(status().isBadRequest());
+        applyProfile(target, "已更新", "KEEP", null, null);
+        mvc.perform(patch("/api/v1/admin/accounts/" + target + "/profile").with(user(principal(advanced))).with(csrf()).contentType("application/json").content(body)).andExpect(status().isConflict());
+    }
+    @Test void failedProfileAuditRollsBackNameAndAvatarWithoutOrphanFiles() throws Exception {
+        byte[] old = profileImage("png"); applyProfile(target, "原用户名", "REPLACE", old, "image/png");
+        var before = service.detail(advanced, target);
+        String function = "reject_profile_" + target;
+        jdbc.execute("CREATE FUNCTION " + function + "() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW.target_user_id=" + target + " AND NEW.action='PROFILE' THEN RAISE EXCEPTION 'rollback'; END IF; RETURN NEW; END $$");
+        jdbc.execute("CREATE TRIGGER " + function + " BEFORE INSERT ON account_management_audit FOR EACH ROW EXECUTE FUNCTION " + function + "()");
+        try {
+            String encoded = Base64.getEncoder().encodeToString(profileImage("jpeg"));
+            assertThatThrownBy(() -> service.edit(advanced, target, new AdminAccountService.ProfileEdit("不能保存", "REPLACE", "image/jpeg", encoded, before.updatedAt()))).isInstanceOf(org.springframework.dao.DataAccessException.class);
+            assertThat(service.detail(advanced, target)).isEqualTo(before);
+            mvc.perform(get("/api/v1/miniapp/avatars/" + target)).andExpect(content().bytes(old));
+        } finally { jdbc.execute("DROP TRIGGER " + function + " ON account_management_audit"); jdbc.execute("DROP FUNCTION " + function + "()"); }
+    }
+    private byte[] profileImage(String type) throws Exception {
+        var out = new java.io.ByteArrayOutputStream();
+        javax.imageio.ImageIO.write(new java.awt.image.BufferedImage(3,3,java.awt.image.BufferedImage.TYPE_INT_RGB), type, out);
+        return out.toByteArray();
+    }
+    private String profileBody(long id, String name, String action, byte[] bytes, String type) throws Exception {
+        var body = new HashMap<String,Object>(); body.put("fullName", name); body.put("avatarAction", action); body.put("expectedUpdatedAt", service.detail(advanced, id).updatedAt());
+        if (bytes != null) { body.put("contentType", type); body.put("contentBase64", Base64.getEncoder().encodeToString(bytes)); }
+        return json.writeValueAsString(body);
+    }
+    private void applyProfile(long id, String name, String action, byte[] bytes, String type) throws Exception {
+        mvc.perform(patch("/api/v1/admin/accounts/" + id + "/profile").with(user(principal(advanced))).with(csrf()).contentType("application/json").content(profileBody(id, name, action, bytes, type))).andExpect(status().isOk());
     }
     private long create(String suffix, String role, String status) {
         long id = jdbc.queryForObject("INSERT INTO user_accounts(full_name,normalized_email,password_hash,role,status,email_verified_at,agreement_version,privacy_version,deleted_at) VALUES(?,?,?,?,?,CASE WHEN ?='ACTIVE' THEN CURRENT_TIMESTAMP ELSE NULL END,'test-terms','test-privacy',CASE WHEN ?='DELETED' THEN CURRENT_TIMESTAMP ELSE NULL END) RETURNING id", Long.class,

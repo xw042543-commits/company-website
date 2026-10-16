@@ -126,11 +126,11 @@ class V3MigrationCompatibilityTest {
                     .load();
             latest.migrate();
 
-            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("64");
-            assertThat(latest.info().applied()).hasSize(64);
+            assertThat(latest.info().current().getVersion().getVersion()).isEqualTo("65");
+            assertThat(latest.info().applied()).hasSize(65);
             assertThat(java.util.Arrays.stream(latest.info().applied())
                     .map(migration -> migration.getVersion().getVersion()).toList())
-                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 64)
+                    .containsExactlyElementsOf(java.util.stream.IntStream.rangeClosed(1, 65)
                             .mapToObj(Integer::toString).toList());
             assertThat(jdbcTemplate.queryForList("""
                     SELECT table_name FROM information_schema.tables WHERE table_schema='public'

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { AccountAvatar } from "./account-avatar";
+import { watchProfileUpdates } from "@/lib/profile-sync";
 import { AuthSuccessFeedback } from "@/components/auth-success-feedback";
 import { getSession, logout } from "@/lib/auth-api";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
@@ -15,6 +17,7 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [authenticated, setAuthenticated] = useState(signedIn);
+  const [profile, setProfile] = useState<{ name: string; avatar?: string | null } | null>(null);
   const [admin, setAdmin] = useState(false);
   const [signingOut, setSigningOut] = useState(false);
   const [signedOut, setSignedOut] = useState(false);
@@ -27,13 +30,23 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
 
   useEffect(() => {
     let active = true;
-    void getSession(browserApiBaseUrl()).then((result) => {
-      if (active) {
-        setAuthenticated(result.status === "ready" ? result.session.authenticated : signedIn);
-        setAdmin(result.status === "ready" && result.session.admin);
-      }
-    });
-    return () => { active = false; };
+    let pending = false;
+    let knownAuthenticated = signedIn;
+    const refresh = () => {
+      if (pending) return;
+      pending = true;
+      void getSession(browserApiBaseUrl()).then((result) => {
+        if (active) {
+          setAuthenticated(result.status === "ready" ? result.session.authenticated : signedIn);
+          setAdmin(result.status === "ready" && result.session.admin);
+          if (result.status === "ready") knownAuthenticated = result.session.authenticated;
+          if (result.status === "ready") setProfile(result.session.authenticated ? { name: result.session.fullName || "", avatar: result.session.avatarUrl } : null);
+        }
+      }).finally(() => { pending = false; });
+    };
+    refresh();
+    const stop = watchProfileUpdates(() => { if (knownAuthenticated) refresh(); });
+    return () => { active = false; stop(); };
   }, [pathname, signedIn]);
 
   useEffect(() => {
@@ -78,7 +91,7 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
           <span>{locale === "zh" ? "EN" : "中文"}</span>
         </Link>
         {authenticated ? <>
-          <Link className="login-link" href={`/${locale}/account`} aria-current={pathname === `/${locale}/account` ? "page" : undefined}>{words(locale, "我的账户", "My account")}</Link>
+          <Link className="login-link" href={`/${locale}/account`} aria-current={pathname === `/${locale}/account` ? "page" : undefined}>{profile?.name ? <span className="header-account-identity"><AccountAvatar name={profile.name} url={profile.avatar} size={30} /><span>{profile.name}</span></span> : words(locale, "我的账户", "My account")}</Link>
           <button className="login-link" type="button" disabled={signingOut} onClick={handleLogout}>{signingOut ? words(locale, "正在退出…", "Signing out…") : words(locale, "退出", "Sign out")}</button>
         </> : <>
           <Link className="login-link" href={`/${locale}/login`} aria-current={pathname === `/${locale}/login` ? "page" : undefined}>{words(locale, "登录", "Sign in")}</Link>

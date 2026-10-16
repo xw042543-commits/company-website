@@ -41,7 +41,9 @@ public class MiniappAvatarService {
         avatars.save(accountId, type, content);
         identity.updateProfile(null, avatarUrl(accountId, OffsetDateTime.now()), OffsetDateTime.now());
         identities.save(identity);
-        return MiniappAccountResponse.from(identity.getUserAccount(), identity);
+        avatars.updateAccountAvatar(accountId, identity.getAvatarUrl());
+        var response = MiniappAccountResponse.from(identity.getUserAccount(), identity);
+        return new MiniappAccountResponse(response.id(), response.displayName(), identity.getAvatarUrl(), response.bindingStatus());
     }
 
     public MiniappAvatarRepository.StoredAvatar find(long accountId) {
@@ -56,7 +58,9 @@ public class MiniappAvatarService {
         avatars.delete(accountId);
         identity.clearAvatar(OffsetDateTime.now());
         identities.save(identity);
-        return MiniappAccountResponse.from(identity.getUserAccount(), identity);
+        avatars.updateAccountAvatar(accountId, identity.getAvatarUrl());
+        var response = MiniappAccountResponse.from(identity.getUserAccount(), identity);
+        return new MiniappAccountResponse(response.id(), response.displayName(), identity.getAvatarUrl(), response.bindingStatus());
     }
 
     private byte[] decode(String encoded) {

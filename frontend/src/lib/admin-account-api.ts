@@ -1,5 +1,5 @@
 export type ManagedAccount = {
-  id: number; fullName: string; email: string | null; phone: string | null;
+  id: number; fullName: string; avatarUrl?: string | null; email: string | null; phone: string | null;
   role: string; status: string; advanced: boolean; createdAt: string; updatedAt: string;
 };
 export const accountStatuses: Record<string, string> = { ACTIVE: "正常", PENDING_VERIFICATION: "待验证", DISABLED: "已禁用", DELETED: "已注销" };

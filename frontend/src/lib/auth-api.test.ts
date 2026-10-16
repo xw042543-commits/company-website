@@ -267,3 +267,12 @@ test("maps backend and network failures to stable client states", async () => {
   const network = (async () => { throw new TypeError("offline"); }) as typeof fetch;
   assert.deepEqual(await getSession("http://localhost:8080", network), { status: "unavailable" });
 });
+
+
+test("fresh username and versioned avatar are accepted without weakening profile parsing", async () => {
+  const session = { authenticated: true, userId: 7, fullName: "新用户名", adviser: false, admin: false, avatarUrl: "https://yangdoujiao.com/api/v1/miniapp/avatars/7?v=fresh" };
+  const response = requestQueue([jsonResponse(session)]);
+  assert.deepEqual(await getSession("http://localhost:8080", response.request), {status: "ready", session});
+  const unsafe = requestQueue([jsonResponse({...session, avatarUrl: "https://evil.test/avatar.png"})]);
+  assert.deepEqual(await getSession("http://localhost:8080", unsafe.request), {status:"error"});
+});

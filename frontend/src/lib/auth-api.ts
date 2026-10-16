@@ -1,4 +1,6 @@
+import { isSafeProfileAvatar } from "./profile-sync.ts";
 export type AuthSession = {
+  avatarUrl?: string | null;
   authenticated: boolean;
   userId: number | null;
   fullName: string | null;
@@ -7,6 +9,7 @@ export type AuthSession = {
 };
 
 export type AccountProfile = {
+  avatarUrl?: string | null;
   id: number;
   fullName: string;
   email: string | null;
@@ -121,7 +124,8 @@ function parseSession(payload: unknown): AuthSession | null {
     || typeof payload.adviser !== "boolean"
     || typeof payload.admin !== "boolean"
     || typeof payload.authenticated !== "boolean"
-    || !isNullableString(payload.fullName)) return null;
+    || !isNullableString(payload.fullName)
+    || (payload.avatarUrl !== undefined && payload.avatarUrl !== null && (typeof payload.avatarUrl !== "string" || !isSafeProfileAvatar(payload.avatarUrl)))) return null;
 
   if (payload.authenticated) {
     if (!isPositiveInteger(payload.userId) || !payload.fullName?.trim()) return null;
@@ -129,12 +133,13 @@ function parseSession(payload: unknown): AuthSession | null {
     return null;
   }
   return { authenticated: payload.authenticated, userId: payload.userId as number | null,
-    fullName: payload.fullName, adviser: payload.adviser, admin: payload.admin };
+    fullName: payload.fullName, adviser: payload.adviser, admin: payload.admin, ...(payload.avatarUrl !== undefined ? { avatarUrl: payload.avatarUrl as string | null } : {}) };
 }
 
 function parseAccount(payload: unknown): AccountProfile | null {
   if (!isRecord(payload)
-    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatDisplayName", "wechatAvatarUrl", "wechatLastLoginAt", "createdAt"])
+    || !hasExactKeys(payload, ["id", "fullName", "email", "phone", "emailVerified", "phoneVerified", "wechatLinked", "wechatDisplayName", "wechatAvatarUrl", "wechatLastLoginAt", "createdAt", ...(Object.prototype.hasOwnProperty.call(payload, "avatarUrl") ? ["avatarUrl"] : [])])
+    || (payload.avatarUrl !== undefined && payload.avatarUrl !== null && (typeof payload.avatarUrl !== "string" || !isSafeProfileAvatar(payload.avatarUrl)))
     || !isPositiveInteger(payload.id)
     || typeof payload.fullName !== "string" || !payload.fullName.trim()
     || !isNullableString(payload.email)

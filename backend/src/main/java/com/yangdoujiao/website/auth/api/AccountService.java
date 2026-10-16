@@ -51,6 +51,17 @@ public class AccountService {
                 ExternalIdentityProvider.WECHAT, userId));
     }
 
+    @Transactional(readOnly = true)
+    public AuthSessionResponse session(long userId) {
+        return accounts.findById(userId).filter(this::available).map(account -> {
+            String legacy = externalIdentities.findByProviderAndUserAccountId(ExternalIdentityProvider.WECHAT, userId)
+                .map(com.yangdoujiao.website.auth.external.UserExternalIdentity::getAvatarUrl).orElse(null);
+            return new AuthSessionResponse(true, userId, account.getFullName(),
+                account.getRole() == com.yangdoujiao.website.auth.account.UserAccountRole.ADVISER,
+                account.getRole() == com.yangdoujiao.website.auth.account.UserAccountRole.ADMIN, account.displayAvatar(legacy));
+        }).orElseGet(AuthSessionResponse::anonymous);
+    }
+
     @Transactional
     public void delete(long userId, DeleteAccountRequest request) {
         UserAccount account = accounts.findLockedById(userId).filter(this::available)

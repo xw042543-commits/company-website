@@ -52,6 +52,7 @@ import tools.jackson.databind.ObjectMapper;
 @SpringJUnitWebConfig(AdviserAuthorizationHttpIntegrationTest.TestConfig.class)
 class AdviserAuthorizationHttpIntegrationTest {
     @Autowired private WebApplicationContext context;
+    @MockitoBean private AccountService accountProfiles;
     @MockitoBean private UserAccountDetailsService accounts;
     @MockitoBean private RegistrationService registration;
     @MockitoBean private VerificationService verification;
@@ -62,6 +63,7 @@ class AdviserAuthorizationHttpIntegrationTest {
 
     @BeforeEach
     void setUp() {
+
         mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .addFilters(new RequestTraceFilter())
                 .apply(springSecurity())
@@ -178,7 +180,9 @@ class AdviserAuthorizationHttpIntegrationTest {
         UserAccount account = UserAccount.external("Test User", "terms-v1", "privacy-v1");
         ReflectionTestUtils.setField(account, "id", 42L);
         ReflectionTestUtils.setField(account, "role", role);
-        return UserPrincipal.from(account);
+        UserPrincipal result = UserPrincipal.from(account);
+        org.mockito.Mockito.when(accountProfiles.session(42L)).thenReturn(AuthSessionResponse.authenticated(result));
+        return result;
     }
 
     @Configuration(proxyBeanMethods = false)

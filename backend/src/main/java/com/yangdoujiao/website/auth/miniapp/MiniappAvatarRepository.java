@@ -39,5 +39,10 @@ public class MiniappAvatarRepository {
                 Map.of("accountId", accountId));
     }
 
+    public void updateAccountAvatar(long accountId, String url) {
+        jdbc.update("UPDATE user_accounts SET profile_avatar_url=:url,profile_avatar_overridden=TRUE,updated_at=clock_timestamp() WHERE id=:id",
+            new org.springframework.jdbc.core.namedparam.MapSqlParameterSource("id", accountId).addValue("url", url));
+    }
+
     public record StoredAvatar(String contentType, byte[] content, OffsetDateTime updatedAt) {}
 }

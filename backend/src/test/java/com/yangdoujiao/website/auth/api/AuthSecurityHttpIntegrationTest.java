@@ -43,6 +43,14 @@ class AuthSecurityHttpIntegrationTest {
 
     @Autowired private MockMvc mockMvc;
     @Autowired private JdbcTemplate jdbc;
+    private final java.util.List<Long> accounts = new java.util.ArrayList<>();
+    private long accountId;
+    @org.junit.jupiter.api.AfterEach void cleanAccounts() {
+        for (long id : accounts) {
+            jdbc.update("DELETE FROM spring_session WHERE principal_name=?", "user:" + id);
+            jdbc.update("DELETE FROM user_accounts WHERE id=?", id);
+        }
+    }
 
     @Test
     void anonymousSessionDoesNotExposeAdviserCapability() throws Exception {
@@ -58,7 +66,7 @@ class AuthSecurityHttpIntegrationTest {
         mockMvc.perform(get("/api/v1/auth/session").with(user(principal(UserAccountRole.USER))))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.authenticated").value(true))
-                .andExpect(jsonPath("$.userId").value(42))
+                .andExpect(jsonPath("$.userId").value(accountId))
                 .andExpect(jsonPath("$.adviser").value(false))
                 .andExpect(jsonPath("$.admin").value(false));
     }
@@ -68,7 +76,7 @@ class AuthSecurityHttpIntegrationTest {
         mockMvc.perform(get("/api/v1/auth/session").with(user(principal(UserAccountRole.ADVISER))))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.authenticated").value(true))
-                .andExpect(jsonPath("$.userId").value(42))
+                .andExpect(jsonPath("$.userId").value(accountId))
                 .andExpect(jsonPath("$.fullName").value("Test User"))
                 .andExpect(jsonPath("$.adviser").value(true));
     }
@@ -94,7 +102,9 @@ class AuthSecurityHttpIntegrationTest {
 
     private UserPrincipal principal(UserAccountRole role) {
         UserAccount account = UserAccount.external("Test User", "terms-v1", "privacy-v1");
-        ReflectionTestUtils.setField(account, "id", 42L);
+        accountId = jdbc.queryForObject("INSERT INTO user_accounts(full_name,normalized_email,password_hash,status,role,agreement_version,privacy_version) VALUES('Test User',?,'not-used','ACTIVE',?,'test','test') RETURNING id", Long.class, "guard-" + java.util.UUID.randomUUID() + "@example.com", role.name());
+        accounts.add(accountId);
+        ReflectionTestUtils.setField(account, "id", accountId);
         ReflectionTestUtils.setField(account, "role", role);
         return UserPrincipal.from(account);
     }
