@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { AdminAccountLink } from "./admin-account-link";
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { browserApiBaseUrl } from "@/lib/client-runtime";
 import { adminRead, adminWrite, adminCatalogListPath, studyLevelZh, type AdminOption, type AdminOptions, type AdminPage, type AdminProgramme, type AdminUniversity } from "@/lib/admin-catalog-api";
 import { type Locale } from "@/lib/site";
@@ -138,14 +139,14 @@ function Field({ name, title, initial = "", required = false, type = "text", rea
 function TextArea({ name, title, initial = "", wide = true, rows = 4 }: { name: string; title: string; initial?: string | null; wide?: boolean; rows?: number }) { return <label className={wide ? "admin-wide" : undefined}><span>{title}</span><textarea name={name} defaultValue={initial ?? ""} rows={rows} /></label>; }
 
 function UniversityForm({ locale, item, options, busy, onClose, onSubmit }: { locale: Locale; item: AdminUniversity | null; options: AdminOptions; busy: boolean; onClose: () => void; onSubmit: (event: FormEvent<HTMLFormElement>) => void }) {
-  return <div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="university-editor-title"><form className="admin-editor admin-university-editor" onSubmit={onSubmit}><header><div><span className="admin-editor-kicker">院校资料</span><h2 id="university-editor-title">{item ? words(locale, "编辑院校", "Edit university") : words(locale, "新增院校", "Add university")}</h2></div><button type="button" className="secondary" aria-label={words(locale, "关闭编辑窗口", "Close editor")} onClick={onClose}>×</button></header><div className="admin-form-grid">
+  return createPortal(<div className="admin-modal admin-university-modal" role="dialog" aria-modal="true" aria-labelledby="university-editor-title"><form className="admin-editor admin-university-editor" onSubmit={onSubmit}><header><div><span className="admin-editor-kicker">院校资料</span><h2 id="university-editor-title">{item ? words(locale, "编辑院校", "Edit university") : words(locale, "新增院校", "Add university")}</h2></div><button type="button" className="secondary" aria-label={words(locale, "关闭编辑窗口", "Close editor")} onClick={onClose}>×</button></header><div className="admin-form-grid">
     <Field name="nameZh" title="中文名称" initial={item?.nameZh} /><Field name="nameEn" title="英文名称" initial={item?.nameEn} />
     <Field name="universityCode" title="内部编码（可留空自动生成）" initial={item?.universityCode} readOnly={!!item} /><Field name="slug" title="页面地址（可留空自动生成）" initial={item?.slug} />
     <label><span>{words(locale, "国家", "Country")}</span><select name="countryCode" defaultValue={item?.countryCode ?? "MY"} required>{options.countries.map(option => <option key={option.code} value={option.code}>{label(option, locale)}</option>)}</select></label>
     <Field name="regionZh" title="地区（中文）" initial={item?.regionZh} /><Field name="regionEn" title="地区（英文）" initial={item?.regionEn} />
     <Field name="officialUrl" title={words(locale, "官网链接", "Official website")} initial={item?.officialUrl} type="url" /><Field name="logoUrl" title="校徽图片链接" initial={item?.logoUrl} type="url" />
     <TextArea name="descriptionZh" title="简介（中文）" initial={item?.descriptionZh} wide={false} rows={3} /><TextArea name="descriptionEn" title="介绍（英文）" initial={item?.descriptionEn} wide={false} rows={3} />
-  </div><footer><button type="button" className="secondary" onClick={onClose}>{words(locale, "取消", "Cancel")}</button><button disabled={busy}>{busy ? words(locale, "保存中…", "Saving…") : words(locale, "保存", "Save")}</button></footer></form></div>;
+  </div><footer><button type="button" className="secondary" onClick={onClose}>{words(locale, "取消", "Cancel")}</button><button disabled={busy}>{busy ? words(locale, "保存中…", "Saving…") : words(locale, "保存", "Save")}</button></footer></form></div>, document.body);
 }
 
 function ProgrammeForm({ locale, item, options, busy, onClose, onSubmit }: { locale: Locale; item: AdminProgramme | null; options: AdminOptions; busy: boolean; onClose: () => void; onSubmit: (event: FormEvent<HTMLFormElement>) => void }) {
@@ -178,7 +179,7 @@ function ProgrammeForm({ locale, item, options, busy, onClose, onSubmit }: { loc
     ["fees", words(locale, "学制与学费", "Duration and tuition")],
     ["content", words(locale, "介绍与要求", "Content and requirements")],
   ] as const;
-  return <div className="admin-modal admin-programme-modal" role="dialog" aria-modal="true" aria-labelledby="programme-editor-title"><form className="admin-editor admin-editor-large admin-programme-editor" noValidate onSubmit={submit}><header><div><span className="admin-editor-kicker">专业资料</span><h2 id="programme-editor-title">{item ? words(locale, "编辑专业 / 课程", "Edit programme") : words(locale, "新增专业 / 课程", "Add programme")}</h2></div><button type="button" className="secondary" aria-label={words(locale, "关闭编辑窗口", "Close editor")} onClick={onClose}>×</button></header>
+  return createPortal(<div className="admin-modal admin-programme-modal" role="dialog" aria-modal="true" aria-labelledby="programme-editor-title"><form className="admin-editor admin-editor-large admin-programme-editor" noValidate onSubmit={submit}><header><div><span className="admin-editor-kicker">专业资料</span><h2 id="programme-editor-title">{item ? words(locale, "编辑专业 / 课程", "Edit programme") : words(locale, "新增专业 / 课程", "Add programme")}</h2></div><button type="button" className="secondary" aria-label={words(locale, "关闭编辑窗口", "Close editor")} onClick={onClose}>×</button></header>
   <nav className="admin-editor-tabs" role="tablist" aria-label={words(locale, "编辑内容分区", "Editor sections")}>{tabs.map(([id, title]) => <button key={id} type="button" role="tab" aria-selected={section === id} aria-controls={`programme-${id}`} className={section === id ? "active" : "secondary"} onClick={() => { setSection(id); setFormNotice(""); }}>{title}</button>)}</nav>
   {formNotice && <p className="admin-editor-notice" role="alert">{formNotice}</p>}
   <div className="admin-programme-sections"><section id="programme-details" role="tabpanel" hidden={section !== "details"} className="admin-form-grid">
@@ -197,5 +198,5 @@ function ProgrammeForm({ locale, item, options, busy, onClose, onSubmit }: { loc
     <TextArea name="descriptionZh" title="课程介绍（中文）" initial={item?.descriptionZh} wide={false} rows={4} /><TextArea name="descriptionEn" title="介绍（英文）" initial={item?.descriptionEn} wide={false} rows={4} />
     <TextArea name="admissionsZh" title="入学要求（中文）" initial={item?.admissionsZh} wide={false} rows={4} /><TextArea name="admissionsEn" title="入学要求（英文）" initial={item?.admissionsEn} wide={false} rows={4} />
     <TextArea name="curriculumZh" title="专业课程（中文）" initial={item?.curriculumZh} wide={false} rows={4} /><TextArea name="curriculumEn" title="专业课程（英文）" initial={item?.curriculumEn} wide={false} rows={4} />
-  </section></div><footer><span>{tabs.find(([id]) => id === section)?.[1]}</span><div><button type="button" className="secondary" onClick={onClose}>{words(locale, "取消", "Cancel")}</button><button disabled={busy}>{busy ? words(locale, "保存中…", "Saving…") : words(locale, "保存修改", "Save changes")}</button></div></footer></form></div>;
+  </section></div><footer><span>{tabs.find(([id]) => id === section)?.[1]}</span><div><button type="button" className="secondary" onClick={onClose}>{words(locale, "取消", "Cancel")}</button><button disabled={busy}>{busy ? words(locale, "保存中…", "Saving…") : words(locale, "保存修改", "Save changes")}</button></div></footer></form></div>, document.body);
 }
