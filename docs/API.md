@@ -1,5 +1,7 @@
 # API 接口说明
 
+管理员只读专业查询：`GET /api/v1/admin/planning/programme-lookup`，参数 `keyword`（可选，最多200字符）、`level`（可选，FOUNDATION/BACHELOR/MASTER/DOCTOR）、`page`（0–1000，默认0）。匿名401、非管理员403、非法参数400；成功返回 `page/size/hasNext/items`，每页20条，禁止缓存。仅返回已发布马来西亚专业原始资料，始终不可用于录取或预算评估。详见 [查询契约和本地聊天演示](planning-programme-lookup.md)。
+
 ## 基本约定
 
 新公开接口统一使用 `/api/v1` 前缀。旧的 `/api/search` 和 `/api/universities`

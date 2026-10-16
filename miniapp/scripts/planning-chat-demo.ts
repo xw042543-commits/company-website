@@ -2,7 +2,7 @@ interface Message { role: 'user' | 'assistant'; text: string }
 interface Snapshot { messages: Message[]; facts: Record<string, string> }
 
 /** Local scripted interaction only. No model, network, inference or admissions assessment. */
-export function createChatDemo(changed: () => void = () => {}, delay = 500) {
+export function createChatDemo(changed: () => void = () => {}, delay = 500, liveReply?: (text: string) => Promise<string>) {
   const state = { messages: [] as Message[], facts: {} as Record<string, string>, busy: false, error: '', saved: [] as Snapshot[] };
   const asked = new Set<string>();
   let epoch = 0; let failure = false; let pendingText = ''; let cancel: (() => void) | undefined;
@@ -40,9 +40,18 @@ export function createChatDemo(changed: () => void = () => {}, delay = 500) {
       cancel = () => { clearTimeout(timer); resolve(); };
     });
     if (current !== epoch) return;
-    state.busy = false;
     if (failure) { failure = false; pendingText = text; state.error = '模拟回复失败。你的消息已保留，可以重试。'; }
-    else { pendingText = ''; state.messages.push({ role: 'assistant', text: reply(text) }); }
+    else {
+      try {
+        const answer = liveReply ? await liveReply(text) : reply(text);
+        if (current !== epoch) return;
+        pendingText = ''; state.messages.push({ role: 'assistant', text: answer });
+      } catch (error) {
+        if (current !== epoch) return;
+        pendingText = text; state.error = error instanceof Error ? error.message : '查询失败，请重试。';
+      }
+    }
+    state.busy = false;
     changed();
   }
   return { state,
