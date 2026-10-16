@@ -128,6 +128,27 @@ test('my content keeps the full 24 hour notice and only published items open pub
   assert.deepEqual(routes, ['/pages/circle-detail/index?id=2', '/pages/circle-detail/index?id=42']);
 });
 
+test('my posts refresh automatically until an image post is published', async () => {
+  const { createCircleMePage } = await import('../miniprogram/pages/circle-me/index.ts');
+  const scheduled: Array<() => void> = []; let reads = 0;
+  const definition: any = createCircleMePage({
+    session: { getSnapshot: () => ({ status: 'authenticated', account: { id: 7 } }) },
+    listPosts: async () => ok({ items: [{ id: '1', status: reads++ ? 'PUBLISHED' : 'PENDING_REVIEW', body: '正文', createdAt: '2026-10-16T02:34:00Z', publishedAt: null }], nextCursor: null }),
+    scheduleRefresh: (task: () => void) => { scheduled.push(task); return scheduled.length; },
+    cancelRefresh: () => undefined,
+  } as any);
+  const page = context(definition); definition.onLoad.call(page, { review: 'automatic-image' });
+  await Promise.resolve(); await Promise.resolve();
+  assert.equal(page.data.posts[0]?.statusLabel, '审核中');
+  assert.equal(page.data.reviewNotice, '图片自动检查中，通过后会自动发布。');
+  assert.equal(scheduled.length, 1);
+
+  scheduled[0]?.(); await Promise.resolve(); await Promise.resolve();
+  assert.equal(page.data.posts[0]?.statusLabel, '已发布');
+  assert.equal(page.data.reviewNotice, '');
+  assert.equal(scheduled.length, 1);
+});
+
 test('saved pending comment keeps detail context with readable 24 hour feedback and clears the submitted draft', async () => {
   const { createCircleDetailPage } = await import('../miniprogram/pages/circle-detail/index.ts');
   const definition: any = createCircleDetailPage({ session: { ...anonymousSession, getSnapshot: () => ({ status: 'authenticated' }) },
