@@ -33,6 +33,7 @@ test("established consultation page renders localized moderation navigation with
     assert.equal(nav.props?.['aria-label'], locale === 'zh' ? '顾问导航' : 'Adviser navigation');
     const links = elements(nav.props?.children).filter((item) => item.props?.href);
     assert.deepEqual(links.map((link) => [link.props?.href, link.props?.children, link.props?.['aria-current']]), [
+      [`/${locale}`, locale === 'zh' ? '首页' : 'Home', undefined],
       [`/${locale}/adviser/consultations`, locale === 'zh' ? '咨询管理' : 'Consultations', 'page'],
       [`/${locale}/adviser/applications`, locale === 'zh' ? '申请管理' : 'Applications', undefined],
       [`/${locale}/adviser/community`, locale === 'zh' ? 'U圈审核' : 'Community moderation', undefined],
@@ -46,6 +47,7 @@ test("adviser navigation exposes localized consultation, application and moderat
   for (const locale of ["zh", "en"] as const) {
     const entries = adviserNavigation(locale);
     assert.deepEqual(entries, [
+      { href: `/${locale}`, label: locale === "zh" ? "首页" : "Home" },
       { href: `/${locale}/adviser/consultations`, label: locale === "zh" ? "咨询管理" : "Consultations" },
       { href: `/${locale}/adviser/applications`, label: locale === "zh" ? "申请管理" : "Applications" },
       { href: `/${locale}/adviser/community`, label: locale === "zh" ? "U圈审核" : "Community moderation" },
