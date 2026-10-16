@@ -83,7 +83,7 @@ export function AdminAccountEditor({ account, onCancel, onSaved }: { account: Ma
       <label className={styles.fileField}>上传或更换头像<input aria-label="上传头像" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" disabled={busy || reading} onChange={e => { void choose(e.target.files?.[0]); e.target.value = ""; }} /></label>
       <p>支持JPG、PNG、WebP，原图不超过1MB。通过滑块裁剪为正方形，保存时自动压缩。</p>
       <div className={styles.actions}><button className="secondary" type="button" disabled={busy || reading} onClick={() => { setAction("REMOVE"); setPicture(null); }}>删除头像</button><button className="secondary" type="button" disabled={busy || reading} onClick={() => { setAction("KEEP"); setPicture(null); setNotice(""); }}>恢复原头像</button></div>
-      {reading && <p role="status">正在读取图片…</p>}{notice && <p className="admin-notice" role="alert">{notice}</p>}
-    </div><footer><button className="secondary" type="button" disabled={busy} onClick={onCancel}>取消</button><button disabled={busy || reading || !name.trim()}>{busy ? "正在保存…" : "保存修改"}</button></footer>
+      {reading && <p role="status">正在读取图片…</p>}
+    </div><footer>{notice && <p className="admin-notice" role="alert">{notice}</p>}<button className="secondary" type="button" disabled={busy} onClick={onCancel}>取消</button><button disabled={busy || reading || !name.trim()}>{busy ? "正在保存…" : "保存修改"}</button></footer>
   </form></div>, document.body);
 }

@@ -26,3 +26,6 @@
 .range input { width: 100%; min-height: 32px; accent-color: #286858; }
 .fileField input { max-width: 100%; min-height: 44px; }
 @media(max-width: 600px) { .editBody { padding: 16px; } .editor { max-height: 100dvh; } .editor > footer { flex-wrap: wrap; } .editor > footer button { flex: 1; } }
+
+.editor > footer { flex-wrap: wrap; }
+.editor > footer > p { flex-basis: 100%; margin: 0; }
