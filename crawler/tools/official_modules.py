@@ -10,7 +10,7 @@ from urllib.error import HTTPError
 from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup, Tag
 
-PARSER_VERSION='0.4.5'
+PARSER_VERSION='0.4.6'
 AGENT='YangdoujiaoResearchBot/0.3 (contact: bertram@staff.udajo.com)'
 DOMAINS={'apu':['apu.edu.my'],'sunway':['sunwayuniversity.edu.my','sunway.edu.my'],'taylor':['taylors.edu.my'], 'um':['um.edu.my'],'ukm':['ukm.my'],'utm':['utm.my'],'upm':['upm.edu.my'],'usm':['usm.my'],'uum':['uum.edu.my'],'inti':['newinti.edu.my'],'ucsi':['ucsiuniversity.edu.my'],'utar':['utar.edu.my'],'nilai':['nilai.edu.my'],'mahsa':['mahsa.edu.my'],'help':['help.edu.my'],'nottingham':['nottingham.edu.my'],'monash':['monash.edu.my','monash.edu'],'southampton':['southampton.ac.uk','southamptonmalaysia.edu.my'],'segi':['segi.edu.my'],'city':['city.edu.my']}
 STRUCTURE=re.compile(r'^(?:(?:programme?|course|program)\s+(?:structure|modules?|content|outline)|curriculum|study plan|modules?|subjects?|syllabus|what (?:will )?you(?:\Wll| will) study)\s*[:?]?$',re.I)
@@ -25,7 +25,8 @@ def canonical(value):
  value=re.sub(r'^bsc\b','bachelor of science',value);value=re.sub(r'^msc\b','master of science',value)
  return re.sub(r'[^a-z0-9]','',value)
 def valid_title(title):
- if title=='Measurement of Advanced' or re.search(r'^(?:(?:external )?faculty|department|discipline|university|univerity|programme|program|free|open)\s+electives?\b|^Elective\s+(?:Courses?|Modules?|Subjects?)\b|^Stream\s+\d+\s*\(',title,re.I):return False
+ if re.fullmatch(r'Foreign Language Course',title,re.I):return False
+ if title in ('Measurement of Advanced','Sinography and Chinese Ancient') or re.search(r'^(?:(?:external )?faculty|department|discipline|university|univerity|programme|program|free|open)\s+electives?\b|^Elective\s+(?:Courses?|Modules?|Subjects?)(?:\b|_)|^Stream\s+\d+\b',title,re.I):return False
  if re.search(r'^(?:Kursus Elektif|Pilih\b|Sila\b)|\b(?:rujuk senarai|pilih \d|SHE[ _-]*Cluster|Technology\s*/\s*Artificial Intelligence and Data Analytics)',title,re.I):return False
  return 2<=len(title)<=180 and bool(re.search(r'[A-Za-z]',title)) and not re.search(r'[\u3400-\u9fff]',title) and not NONCOURSE.search(title) and not BAD.search(title) and not re.search(r'^(?:https?://|www\.)|[.!?]$|\b(?:and|or|of|for|to|in|with|&)\s*$|^\d+(?:\.\d+)?$|^[A-Z]{2,}\d+[A-Z0-9]*(?:\([a-z]\))?$|^(?:total credits?|credit hours?|course code)\b',title,re.I)
 def allowed(url,slug):
@@ -115,8 +116,9 @@ def parse_html(html,url,stamp,expected,linked_structure=False):
   inline_credit=re.search(r'\((\d+(?:\.\d+)?)\s+(?:credits?|credit hours?)\)',title,re.I)
   if inline_credit:
    credit=credit or inline_credit[1];title=title[:inline_credit.start()].strip()+title[inline_credit.end():]
-  if re.search(r'\s+OR\s+',title):
-   for alternative in re.split(r'\s+OR\s+',title):
+  if re.search(r'\s+OR\s+',title,re.I):
+   for alternative in re.split(r'\s+OR\s+',title,flags=re.I):
+    alternative=re.sub(r'\s*\((?:Malaysian|International)\)\s*$','',alternative.strip('*/ '),flags=re.I).strip()
     key=(code or '',clean(alternative).casefold())
     if valid_title(alternative) and key not in seen:
      seen.add(key);result.append(module(alternative,url,stamp,version,requirement='OR',raw=raw or original_title))

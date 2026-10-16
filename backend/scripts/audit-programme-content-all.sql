@@ -1,4 +1,5 @@
 \pset pager off
+BEGIN READ ONLY;
 \echo 'PROGRAMME_CONTENT_AUDIT_SUMMARY'
 WITH published AS (
     SELECT id FROM programmes WHERE status = 'PUBLISHED'
@@ -58,9 +59,15 @@ BEGIN
                   AND section.section_type = 'CURRICULUM'
                   AND section.status = 'PUBLISHED'
                   AND COALESCE(NULLIF(BTRIM(section.body_zh), ''), NULLIF(BTRIM(section.body_en), '')) IS NOT NULL
-                  AND section.source_type IN ('official', 'third_party', 'ai_generated')
-                  AND (section.source_type <> 'ai_generated'
-                       OR section.body_zh LIKE '参考学习领域，非官方课程表%')
+                  AND section.source_type = 'official'
+                  AND section.curriculum_review_status = 'VERIFIED'
+                  AND jsonb_array_length(section.course_modules) > 0
+            ) AND NOT EXISTS (
+                SELECT 1 FROM programme_detail_sections section
+                WHERE section.programme_id = programme.id
+                  AND section.section_type = 'CURRICULUM'
+                  AND (section.status = 'ARCHIVED' OR (section.status='PUBLISHED' AND section.body_zh LIKE '%【后台维护课程】%' AND jsonb_array_length(section.course_modules)=0))
+                  AND section.curriculum_review_status = 'PENDING'
             )
           )
     ) THEN
@@ -111,4 +118,32 @@ BEGIN
     END IF;
 END $$;
 
-SELECT 0 AS unresolved_programmes;
+\echo 'OFFICIAL_COURSE_MODULE_AUDIT'
+SELECT COUNT(DISTINCT s.programme_id) AS verified_programmes,
+       COALESCE(SUM(jsonb_array_length(s.course_modules)),0) AS official_course_associations
+FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id
+WHERE p.status='PUBLISHED' AND s.section_type='CURRICULUM' AND s.status='PUBLISHED'
+  AND s.source_type='official' AND s.curriculum_review_status='VERIFIED';
+
+DO $$ BEGIN
+ IF EXISTS (SELECT 1 FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id
+   WHERE p.status='PUBLISHED' AND s.section_type='CURRICULUM' AND s.status='PUBLISHED'
+   AND NOT (jsonb_array_length(s.course_modules)=0 AND s.curriculum_review_status='PENDING' AND s.body_zh LIKE '%【后台维护课程】%')
+   AND (s.source_type IS DISTINCT FROM 'official' OR s.curriculum_review_status IS DISTINCT FROM 'VERIFIED'
+        OR jsonb_array_length(s.course_modules)=0 OR EXISTS (
+          SELECT 1 FROM jsonb_array_elements(s.course_modules) m
+          WHERE COALESCE(m->>'nameZh','') !~ '[一-鿿]' OR NULLIF(m->>'nameEn','') IS NULL
+            OR COALESCE(m->>'sourceUrl','') NOT LIKE 'https://%' OR NULLIF(m->>'sourceCheckedAt','') IS NULL
+            OR NULLIF(m->>'evidence','') IS NULL OR POSITION(m->>'nameEn' IN m->>'evidence')=0
+            OR m->>'nameEn' ~* '(CGPA|IELTS|TOEFL|entry requirements|[0-9]+[[:space:]]*%)'
+        ))) THEN RAISE EXCEPTION 'Invalid published official course modules'; END IF;
+END $$;
+SELECT COUNT(DISTINCT s.programme_id) AS pending_official_curriculum_programmes
+FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id
+WHERE p.status='PUBLISHED' AND s.section_type='CURRICULUM' AND s.curriculum_review_status='PENDING';
+SELECT COUNT(*) AS preserved_curriculum_snapshots FROM programme_curriculum_backups;
+SELECT COUNT(*) AS verified_programmes_with_explicit_campus
+FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id
+WHERE p.status='PUBLISHED' AND s.section_type='CURRICULUM' AND s.status='PUBLISHED'
+  AND s.curriculum_review_status='VERIFIED' AND NULLIF(BTRIM(p.campus),'') IS NOT NULL;
+COMMIT;

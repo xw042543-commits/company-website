@@ -3,7 +3,7 @@ import test from 'node:test';
 
 import type { FilterOption } from '../miniprogram/services/catalogue.ts';
 import type { UniversityProgramme } from '../miniprogram/services/universities.ts';
-import type { ProgrammeDetail, ProgrammeDetailSection } from '../miniprogram/services/miniapp-data.ts';
+import type { OfficialCourseModule, ProgrammeDetail, ProgrammeDetailSection } from '../miniprogram/services/miniapp-data.ts';
 import {
   buildProgrammeDocument,
   deriveProgrammeCategories,
@@ -189,6 +189,19 @@ test('official curriculum builds a deduplicated vertical list and ignores old ge
   assert.equal(generated?.curriculumItems.length, 0);
 });
 
+
+test('every reviewed programme maps to the complete Chinese list or the pending state', async () => {
+  const {readFile}=await import('node:fs/promises');
+  const audit=JSON.parse(await readFile(new URL('../../outputs/official-course-modules-20261015/reviewed-audit.json',import.meta.url),'utf8')) as {records:{programmeCode:string;status:string;modules:OfficialCourseModule[]}[]};
+  for(const row of audit.records){
+    const course=buildProgrammeDocument(detail({sections:[section('CURRICULUM',40,{
+      bodyZh:'',bodyEn:'',sourceType:'official',curriculumReviewStatus:row.status==='VERIFIED'?'VERIFIED':'PENDING',courseModules:row.modules,
+    })]}))[3];
+    assert.equal(course?.curriculumItems.length,row.modules.length,row.programmeCode);
+    if(row.status==='VERIFIED')assert.ok(course?.body.includes(row.modules[0]?.nameZh??''),row.programmeCode);
+    else assert.equal(course?.body,'待核实：暂无官方课程资料');
+  }
+});
 
 test('staff reference learning areas stay separate from verified official modules', () => {
   const document = buildProgrammeDocument(detail({ sections: [section('CURRICULUM', 20, {

@@ -328,3 +328,5 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 新增 `account_management_audit`，保存操作人/目标用户外键、姓名快照、ROLE/STATUS 操作、前后身份和状态及时间。只追加审计记录，没有修改或删除日志接口。目标用户与日志编号联合索引用于详情分页；user_accounts 增加注册时间/编号分页索引。
 
 复用已有 user_accounts.role/status/updated_at 和 catalog_advanced_administrators，不新增角色，不改变用户、申请、订单关系或现有高级管理员名单。禁用再恢复时从最新禁用日志恢复原状态；无旧日志时依据验证记录或已有外部登录绑定判断，未验证账号保持 PENDING_VERIFICATION。新迁移不更新现有账号。
+
+V64 官网课程增量修复保留 V53 与 V54–V63 的已执行迁移及工作人员课程投影；导入前校验专业身份和课程快照，身份变化后先备份再停用旧课程。旧正文不再覆盖正式课程 JSON。

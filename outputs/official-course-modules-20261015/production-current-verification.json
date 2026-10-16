@@ -1,0 +1,15 @@
+{
+  "environment": "production",
+  "verifiedAt": "2026-10-16T01:27:55.987Z",
+  "deploymentRun": "https://github.com/xw042543-commits/company-website/actions/runs/38716368415",
+  "releaseSha": "aefa796bac5296f04628275ff15ec78dc1ac239e",
+  "checkedProgrammes": 2232,
+  "verifiedProgrammeLists": 220,
+  "officialModuleAssociations": 7477,
+  "pendingProgrammeListsHidden": 2012,
+  "missingChinese": 0,
+  "missingSources": 0,
+  "failedApiChecks": [],
+  "courseFollowupNotDeployed": true,
+  "courseFollowupMigration": 64
+}

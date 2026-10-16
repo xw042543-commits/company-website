@@ -1,13 +1,15 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
-const domains={apu:['apu.edu.my'],sunway:['sunwayuniversity.edu.my','sunway.edu.my'],taylor:['taylors.edu.my'],um:['um.edu.my'],ukm:['ukm.my'],utm:['utm.my'],upm:['upm.edu.my'],usm:['usm.my'],uum:['uum.edu.my'],inti:['newinti.edu.my'],ucsi:['ucsiuniversity.edu.my'],utar:['utar.edu.my'],nilai:['nilai.edu.my'],mahsa:['mahsa.edu.my'],help:['help.edu.my'],nottingham:['nottingham.edu.my'],monash:['monash.edu.my','monash.edu'],southampton:['southampton.ac.uk','southamptonmalaysia.edu.my'],segi:['segi.edu.my'],city:['city.edu.my']};
+import {COURSE_MODULE_FIELDS} from './course-module-fingerprint.mjs';
+import {createHash} from 'node:crypto';
+const domains={apu:['apu.edu.my'],sunway:['sunwayuniversity.edu.my'],taylor:['taylors.edu.my'],um:['um.edu.my'],ukm:['ukm.my'],utm:['utm.my'],upm:['upm.edu.my'],usm:['usm.my'],uum:['uum.edu.my'],inti:['newinti.edu.my'],ucsi:['ucsiuniversity.edu.my'],utar:['utar.edu.my'],nilai:['nilai.edu.my'],mahsa:['mahsa.edu.my'],help:['help.edu.my'],nottingham:['nottingham.edu.my'],monash:['monash.edu.my'],southampton:['southamptonmalaysia.edu.my','malaysia.southampton.ac.uk'],segi:['segi.edu.my'],city:['city.edu.my']};
 export function validateModule(module,slug,{requireChinese=true}={}){
  const errors=[];let url;try{url=new URL(module.sourceUrl);}catch{errors.push('无效来源');}
  if(url && (url.protocol!=='https:' || !domains[slug]?.some(d=>url.hostname===d||url.hostname.endsWith('.'+d))))errors.push('不是对应大学官网');
  if(typeof module.nameEn!=='string'||!module.nameEn.trim()||/[\u3400-\u9fff]/u.test(module.nameEn)||module.nameEn.length>180)errors.push('课程原名无效');
  if(/\b(?:CGPA|GPA|IELTS|TOEFL|MUET|entry requirements?|minimum (?:score|grade|average)|tuition)\b|\d+\s*%|^(?:year|semester)\s*\d|^(?:choose|select|students?|note|recommended packages)\b/i.test(module.nameEn??''))errors.push('非课程内容');
- if(/^(?:(?:external )?faculty|department|discipline|university|univerity|programme|program|free|open)\s+electives?\b|^Elective\s+(?:Courses?|Modules?|Subjects?)\b|^Stream\s+\d+\s*\(/i.test(module.nameEn??''))errors.push('选修占位类别不是课程标题');
- if(module.nameEn==='Measurement of Advanced')errors.push('原始标题不完整，待官方核实');
+ if(/^(?:(?:external )?faculty|department|discipline|university|univerity|programme|program|free|open)\s+electives?\b|^Elective\s+(?:Courses?|Modules?|Subjects?)(?:\b|_)|^Stream\s+\d+\b/i.test(module.nameEn??''))errors.push('选修占位类别不是课程标题');
+ if(['Measurement of Advanced','Sinography and Chinese Ancient'].includes(module.nameEn))errors.push('原始标题不完整，待官方核实');
  if(/^(?:Kursus Elektif|Pilih\b|Sila\b|Elective (?:University )?Courses?\s*[:(])|\b(?:rujuk senarai|pilih \d|SHE[ _-]*Cluster|Technology\s*\/\s*Artificial Intelligence and Data Analytics)/i.test(module.nameEn??''))errors.push('选课说明或类别不是课程');
  if(requireChinese){
   if(typeof module.nameZh!=='string'||!/[\u3400-\u9fff]/u.test(module.nameZh)||/参考学习领域|暂无|待核实/.test(module.nameZh))errors.push('缺少已校验中文译名');
@@ -23,33 +25,21 @@ export function validateModule(module,slug,{requireChinese=true}={}){
 }
 const quote=v=>v==null?'NULL':"'"+String(v).replaceAll("'","''")+"'";
 export function buildImport(audit){
+ const batch='official-modules-v64-'+createHash('sha256').update(JSON.stringify(audit.records)).digest('hex').slice(0,24);
+ const moduleFrame=COURSE_MODULE_FIELDS.map(field=>`COALESCE(m->>'${field}',chr(29))`).join('||chr(31)||');
  const seen=new Set();for(const row of audit.records){if(seen.has(row.programmeCode))throw new Error('专业编号重复');seen.add(row.programmeCode);
+ if(!/^[a-f0-9]{32}$/.test(row.expectedCourseFingerprint??''))throw new Error('缺少原课程快照指纹');
  if(!domains[row.universitySlug])throw new Error('仅允许马来西亚已核对院校');
  if(row.status==='VERIFIED'){
+  if(!row.ownership||!row.ownership.studyLevelCode)throw new Error('缺少原始专业归属快照');
   if(!row.modules?.length)throw new Error('已确认专业缺少课程');
   const keys=new Set();for(const module of row.modules){const errors=validateModule(module,row.universitySlug);if(errors.length)throw new Error(row.programmeCode+':'+errors.join('；'));
   const key=(module.courseCode||'')+'|'+module.nameEn.toLowerCase();if(keys.has(key))throw new Error('重复课程');keys.add(key);}
  }else if(row.modules?.length)throw new Error('待核实记录不得携带公开课程');}
- const values=audit.records.map(r=>`(${[r.universitySlug,r.programmeCode,r.status==='VERIFIED',JSON.stringify(r.modules??[]),r.curriculumVersion??null].map(quote).join(',')})`).join(',\n');
- return `-- Only course modules. V52 is the existing catalogue-import schema; no programme taxonomy fields are changed.
-ALTER TABLE programme_detail_sections
- ADD COLUMN course_modules JSONB NOT NULL DEFAULT '[]'::jsonb,
- ADD COLUMN curriculum_review_status VARCHAR(20),
- ADD COLUMN curriculum_version VARCHAR(200),
- ADD CONSTRAINT ck_curriculum_modules_array CHECK (jsonb_typeof(course_modules) = 'array'),
- ADD CONSTRAINT ck_curriculum_review_status CHECK (curriculum_review_status IS NULL OR curriculum_review_status IN ('VERIFIED','PENDING'));
-
-CREATE TABLE programme_curriculum_backups (
- id BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
- backup_batch VARCHAR(80) NOT NULL,
- programme_id BIGINT NOT NULL,
- original_section_id BIGINT NOT NULL,
- section_data JSONB NOT NULL,
- backed_up_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
- UNIQUE(backup_batch,original_section_id)
-);
+ const values=audit.records.map(r=>`(${[r.universitySlug,r.programmeCode,r.status==='VERIFIED',JSON.stringify(r.modules??[]),r.curriculumVersion??null,r.ownership?.programmeNameEn??null,r.ownership?.programmeNameZh??null,r.ownership?.studyLevelCode??null,r.expectedCourseFingerprint].map(quote).join(',')})`).join(',\n');
+ return `-- V64: additive course-data correction. V53 schema and original migration remain unchanged.
 CREATE TEMP TABLE reviewed_modules(university_slug TEXT NOT NULL, programme_code TEXT PRIMARY KEY,
- verified BOOLEAN NOT NULL, modules JSONB NOT NULL, curriculum_version TEXT) ON COMMIT DROP;
+ verified BOOLEAN NOT NULL, modules JSONB NOT NULL, curriculum_version TEXT, expected_name_en TEXT, expected_name_zh TEXT, expected_level TEXT, expected_course_fingerprint TEXT) ON COMMIT DROP;
 INSERT INTO reviewed_modules VALUES
 ${values};
 DO $$ BEGIN
@@ -58,6 +48,21 @@ DO $$ BEGIN
  JOIN universities u ON u.id=p.university_id LEFT JOIN countries c ON c.id=u.country_id
  WHERE u.slug<>r.university_slug OR COALESCE(c.code,'')<>'MY')
  THEN RAISE EXCEPTION 'Unexpected programme ownership'; END IF;
+ IF EXISTS(SELECT 1 FROM reviewed_modules r JOIN programmes p ON p.programme_code=r.programme_code
+ JOIN programme_detail_sections s ON s.programme_id=p.id AND s.section_type='CURRICULUM'
+ WHERE s.body_zh LIKE '%【后台维护课程】%')
+ THEN RAISE EXCEPTION 'Staff-managed course content requires reconciliation before batch import'; END IF;
+ IF EXISTS(SELECT 1 FROM reviewed_modules r JOIN programmes p ON p.programme_code=r.programme_code
+ LEFT JOIN programme_detail_sections s ON s.programme_id=p.id AND s.section_type='CURRICULUM'
+ WHERE md5(COALESCE((SELECT string_agg(${moduleFrame},chr(30) ORDER BY ord)
+ FROM jsonb_array_elements(COALESCE(s.course_modules,'[]'::jsonb)) WITH ORDINALITY x(m,ord)),''))<>r.expected_course_fingerprint)
+ THEN RAISE EXCEPTION 'Course data changed since collection snapshot'; END IF;
+ IF EXISTS(SELECT 1 FROM reviewed_modules r JOIN programmes p ON p.programme_code=r.programme_code
+ LEFT JOIN study_levels sl ON sl.id=p.study_level_id
+ WHERE r.verified AND (p.name_en IS DISTINCT FROM r.expected_name_en
+ OR (r.expected_name_en IS NULL AND p.name_zh IS DISTINCT FROM r.expected_name_zh)
+ OR sl.code IS DISTINCT FROM r.expected_level))
+ THEN RAISE EXCEPTION 'Programme name or study level changed since source verification'; END IF;
  IF EXISTS(SELECT 1 FROM reviewed_modules r JOIN programmes p ON p.programme_code=r.programme_code
  WHERE r.verified AND NULLIF(BTRIM(p.campus),'') IS NOT NULL)
  THEN RAISE EXCEPTION 'New campus attribution requires explicit course re-verification'; END IF;
@@ -71,7 +76,7 @@ END $$;
 
 -- Preserve every existing curriculum body, status, provenance and timestamp before replacement/hiding.
 INSERT INTO programme_curriculum_backups(backup_batch,programme_id,original_section_id,section_data)
-SELECT 'official-modules-20261015',s.programme_id,s.id,to_jsonb(s)
+SELECT ${quote(batch)},s.programme_id,s.id,to_jsonb(s)
 FROM programme_detail_sections s JOIN programmes p ON p.id=s.programme_id
 JOIN reviewed_modules r ON r.programme_code=p.programme_code
 JOIN universities u ON u.id=p.university_id AND u.slug=r.university_slug
@@ -108,6 +113,22 @@ DO $$ BEGIN
  OR (NOT r.verified AND s.status='PUBLISHED')))
  THEN RAISE EXCEPTION 'Course module write-back verification failed'; END IF;
 END $$;
+-- Structured official modules remain authoritative when a legacy text body is edited.
+CREATE OR REPLACE FUNCTION invalidate_curriculum_on_programme_context_change() RETURNS trigger LANGUAGE plpgsql AS $$
+BEGIN
+ IF ROW(NEW.university_id,NEW.study_level_id,NEW.name_en,NULLIF(BTRIM(NEW.campus),''))
+    IS DISTINCT FROM ROW(OLD.university_id,OLD.study_level_id,OLD.name_en,NULLIF(BTRIM(OLD.campus),'')) THEN
+  INSERT INTO programme_curriculum_backups(backup_batch,programme_id,original_section_id,section_data)
+  SELECT 'context-change-'||md5(random()::text||clock_timestamp()::text),s.programme_id,s.id,to_jsonb(s)
+  FROM programme_detail_sections s WHERE s.programme_id=NEW.id AND s.section_type='CURRICULUM' AND s.curriculum_review_status='VERIFIED';
+  UPDATE programme_detail_sections SET course_modules='[]'::jsonb,curriculum_review_status='PENDING',status='ARCHIVED',updated_at=CURRENT_TIMESTAMP
+  WHERE programme_id=NEW.id AND section_type='CURRICULUM' AND curriculum_review_status='VERIFIED';
+ END IF;
+ RETURN NEW;
+END $$;
+DROP TRIGGER IF EXISTS protect_curriculum_programme_ownership ON programmes;
+CREATE TRIGGER protect_curriculum_programme_ownership AFTER UPDATE OF university_id,study_level_id,name_en,campus ON programmes
+ FOR EACH ROW EXECUTE FUNCTION invalidate_curriculum_on_programme_context_change();
 `;
 }
 if(process.argv[1]?.endsWith('build-official-modules-import.mjs')){
