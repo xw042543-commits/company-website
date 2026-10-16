@@ -70,6 +70,7 @@ class AdviserConsultationStatusHttpIntegrationTest {
         ReflectionTestUtils.setField(account, "id", 42L);
         ReflectionTestUtils.setField(account, "role", UserAccountRole.ADVISER);
         adviser = UserPrincipal.from(account);
+        org.mockito.Mockito.when(accountPermissions.isAdviser(42L)).thenReturn(true);
         logs = new ListAppender<>();
         logs.start();
         ((Logger) LoggerFactory.getLogger(ConsultationAuditLogger.class)).addAppender(logs);

@@ -14,21 +14,23 @@ BEGIN;
 SET LOCAL lock_timeout = '10s';
 SET LOCAL statement_timeout = '30s';
 
-SELECT to_regclass('catalog_advanced_administrators') IS NOT NULL AS schema_ready \gset
+SELECT to_regclass('catalog_advanced_administrators') IS NOT NULL AND to_regclass('user_account_permissions') IS NOT NULL AS schema_ready \gset
 \if :schema_ready
 \else
 ROLLBACK;
-\echo 'V54 must already be deployed; no changes were made.'
+\echo 'V66 must already be deployed; no changes were made.'
 DO $$ BEGIN RAISE EXCEPTION 'Advanced administrator schema is not deployed'; END $$;
 \endif
 
 SELECT COUNT(*) = 1 AS account_found FROM user_accounts
 WHERE normalized_email = lower(btrim(:'identifier'))
-  AND role = 'ADMIN' AND status = 'ACTIVE' AND deleted_at IS NULL \gset
+  AND (EXISTS(SELECT 1 FROM user_account_permissions g WHERE g.user_account_id=user_accounts.id AND g.permission='ADMIN') OR EXISTS(SELECT 1 FROM catalog_advanced_administrators a WHERE a.user_account_id=user_accounts.id))
+  AND status = 'ACTIVE' AND deleted_at IS NULL \gset
 \if :account_found
 SELECT id AS target_account_id FROM user_accounts
 WHERE normalized_email = lower(btrim(:'identifier'))
-  AND role = 'ADMIN' AND status = 'ACTIVE' AND deleted_at IS NULL
+  AND (EXISTS(SELECT 1 FROM user_account_permissions g WHERE g.user_account_id=user_accounts.id AND g.permission='ADMIN') OR EXISTS(SELECT 1 FROM catalog_advanced_administrators a WHERE a.user_account_id=user_accounts.id))
+  AND status = 'ACTIVE' AND deleted_at IS NULL
 FOR UPDATE \gset
 
 INSERT INTO catalog_advanced_administrators(user_account_id, granted_by)

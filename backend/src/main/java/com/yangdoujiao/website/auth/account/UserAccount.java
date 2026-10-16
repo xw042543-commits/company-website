@@ -1,6 +1,13 @@
 package com.yangdoujiao.website.auth.account;
 
 import java.time.OffsetDateTime;
+import java.util.Set;
+import java.util.HashSet;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToOne;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,6 +46,25 @@ public class UserAccount {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private UserAccountRole role = UserAccountRole.USER;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_account_permissions", joinColumns = @JoinColumn(name = "user_account_id"))
+    @Column(name = "permission", nullable = false, length = 20)
+    @Enumerated(EnumType.STRING)
+    private Set<UserAccountRole> permissions = new HashSet<>();
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id", referencedColumnName = "user_account_id", insertable = false, updatable = false)
+    private AdvancedAdministratorGrant advancedGrant;
+
+    public Set<UserAccountRole> grantedPermissions() {
+        // The legacy column remains a projection; this also preserves in-memory login fixtures.
+        return permissions.isEmpty() && role != UserAccountRole.USER ? Set.of(role) : Set.copyOf(permissions);
+    }
+
+    public boolean hasPermission(UserAccountRole permission) {
+        return (permission == UserAccountRole.ADMIN && advancedGrant != null) || grantedPermissions().contains(permission);
+    }
 
     @Column(name = "email_verified_at")
     private OffsetDateTime emailVerifiedAt;

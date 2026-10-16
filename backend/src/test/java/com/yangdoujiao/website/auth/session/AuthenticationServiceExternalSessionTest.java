@@ -56,6 +56,19 @@ class AuthenticationServiceExternalSessionTest {
                 .containsExactly("ROLE_USER", "ROLE_ADMIN");
     }
 
+    @Test
+    void independentPermissionsProduceBothAuthoritiesAndSurviveSingleGrantRemoval() {
+        var account = account(UserAccountRole.USER);
+        ReflectionTestUtils.setField(account, "permissions", java.util.Set.of(UserAccountRole.ADMIN, UserAccountRole.ADVISER));
+        var both = UserPrincipal.from(account);
+        assertThat(both.isAdmin()).isTrue(); assertThat(both.isAdviser()).isTrue();
+        assertThat(both.getAuthorities()).extracting(GrantedAuthority::getAuthority)
+            .containsExactlyInAnyOrder("ROLE_USER", "ROLE_ADMIN", "ROLE_ADVISER");
+        ReflectionTestUtils.setField(account, "permissions", java.util.Set.of(UserAccountRole.ADVISER));
+        assertThat(UserPrincipal.from(account).isAdmin()).isFalse();
+        assertThat(UserPrincipal.from(account).isAdviser()).isTrue();
+    }
+
     @ParameterizedTest
     @EnumSource(UserAccountRole.class)
     void externalLoginErasesPasswordHashAndPersistsStoredRoleAuthorities(UserAccountRole role) {

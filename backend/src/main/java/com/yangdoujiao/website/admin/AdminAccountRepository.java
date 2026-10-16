@@ -14,8 +14,9 @@ public class AdminAccountRepository {
     private final JdbcTemplate jdbc;
     public AdminAccountRepository(JdbcTemplate jdbc) { this.jdbc = jdbc; }
     private static final String ADVANCED = "EXISTS(SELECT 1 FROM catalog_advanced_administrators a WHERE a.user_account_id=u.id)";
+    private static String hasPermission(String permission) { return "EXISTS(SELECT 1 FROM user_account_permissions g WHERE g.user_account_id=u.id AND g.permission='" + permission + "')"; }
     private static final String AVATAR = "CASE WHEN u.profile_avatar_overridden THEN u.profile_avatar_url ELSE (SELECT e.avatar_url FROM user_external_identities e WHERE e.user_account_id=u.id ORDER BY CASE WHEN e.provider='WECHAT' THEN 0 ELSE 1 END,e.id LIMIT 1) END AS avatar_url";
-    private static final String COLUMNS = "u.id,u.full_name,u.normalized_email,u.normalized_phone,u.role,u.status,u.created_at,u.updated_at," + ADVANCED + " AS advanced," + AVATAR;
+    private static final String COLUMNS = "u.id,u.full_name,u.normalized_email,u.normalized_phone,u.role,u.status,u.created_at,u.updated_at,ARRAY(SELECT g.permission FROM user_account_permissions g WHERE g.user_account_id=u.id ORDER BY g.permission) AS permissions," + ADVANCED + " AS advanced," + AVATAR;
     public Page<Account> list(String q, String status, String identity, int page, int size) {
         String where = " WHERE 1=1";
         var args = new HashMap<String, Object>();
@@ -30,9 +31,10 @@ public class AdminAccountRepository {
         }
         if (!identity.isBlank()) {
             where += switch (identity) {
-                case "ADVANCED" -> " AND u.role='ADMIN' AND " + ADVANCED;
-                case "ADMIN" -> " AND u.role='ADMIN' AND NOT " + ADVANCED;
-                case "USER", "ADVISER" -> { args.put("role", identity); yield " AND u.role=:role"; }
+                case "ADVANCED" -> " AND " + ADVANCED;
+                case "ADMIN" -> " AND " + hasPermission("ADMIN") + " AND NOT " + ADVANCED;
+                case "ADVISER" -> " AND " + hasPermission("ADVISER");
+                case "USER" -> " AND NOT " + ADVANCED + " AND NOT EXISTS(SELECT 1 FROM user_account_permissions g WHERE g.user_account_id=u.id)";
                 default -> throw invalid("请选择有效身份");
             };
         }
@@ -40,20 +42,33 @@ public class AdminAccountRepository {
         long total = named.queryForObject("SELECT COUNT(*) FROM user_accounts u" + where, args, Long.class);
         args.put("limit", size); args.put("offset", ((long) page - 1) * size);
         var items = named.query("SELECT " + COLUMNS + " FROM user_accounts u" + where + " ORDER BY u.created_at DESC,u.id DESC LIMIT :limit OFFSET :offset", args,
-            (r, n) -> new Account(r.getLong("id"), r.getString("full_name"), r.getString("normalized_email"), r.getString("normalized_phone"), r.getString("role"), r.getString("status"), r.getString("avatar_url"), r.getBoolean("advanced"), r.getObject("created_at", OffsetDateTime.class), r.getObject("updated_at", OffsetDateTime.class)));
+            AdminAccountRepository::accountRow);
         return new Page<>(items, page, size, total, (total + size - 1) / size);
     }
     public Account account(long id) {
-        var rows = jdbc.query("SELECT " + COLUMNS + " FROM user_accounts u WHERE u.id=?", (r, n) -> new Account(r.getLong("id"), r.getString("full_name"), r.getString("normalized_email"), r.getString("normalized_phone"), r.getString("role"), r.getString("status"), r.getString("avatar_url"), r.getBoolean("advanced"), r.getObject("created_at", OffsetDateTime.class), r.getObject("updated_at", OffsetDateTime.class)), id);
+        var rows = jdbc.query("SELECT " + COLUMNS + " FROM user_accounts u WHERE u.id=?", AdminAccountRepository::accountRow, id);
         if (rows.isEmpty()) throw new ApiException(HttpStatus.NOT_FOUND, "NOT_FOUND", "账号不存在");
         return rows.getFirst();
+    }
+    private static Account accountRow(java.sql.ResultSet r, int n) throws java.sql.SQLException {
+        return new Account(r.getLong("id"),r.getString("full_name"),r.getString("normalized_email"),r.getString("normalized_phone"),
+            r.getString("role"),r.getString("status"),r.getString("avatar_url"),r.getBoolean("advanced"),
+            r.getObject("created_at",OffsetDateTime.class),r.getObject("updated_at",OffsetDateTime.class),
+            Arrays.asList((String[])r.getArray("permissions").getArray()));
     }
     public Page<Map<String,Object>> audit(Long target, int page, int size) {
         String where = target == null ? "" : " WHERE target_user_id=?";
         Object[] args = target == null ? new Object[]{} : new Object[]{target};
         long total = jdbc.queryForObject("SELECT COUNT(*) FROM account_management_audit" + where, Long.class, args);
         var params = new ArrayList<>(Arrays.asList(args)); params.add(size); params.add(((long)page - 1) * size);
-        return new Page<>(jdbc.queryForList("SELECT id,actor_user_id,target_user_id,actor_name,target_name,action,old_role,new_role,old_status,new_status,old_full_name,new_full_name,avatar_action,created_at FROM account_management_audit" + where + " ORDER BY id DESC LIMIT ? OFFSET ?", params.toArray()), page, size, total, (total + size - 1) / size);
+        var items = jdbc.queryForList("SELECT id,actor_user_id,target_user_id,actor_name,target_name,action,old_role,new_role,old_status,new_status,old_full_name,new_full_name,avatar_action,old_permissions,new_permissions,permission_changed,permission_enabled,created_at FROM account_management_audit" + where + " ORDER BY id DESC LIMIT ? OFFSET ?", params.toArray());
+        for (var row : items) for (String column : List.of("old_permissions", "new_permissions")) {
+            if (row.get(column) instanceof java.sql.Array array) {
+                try { row.put(column, Arrays.asList((String[])array.getArray())); }
+                catch (java.sql.SQLException exception) { throw new IllegalStateException("Cannot read permission audit", exception); }
+            }
+        }
+        return new Page<>(items, page, size, total, (total + size - 1) / size);
     }
     public record PublicProfile(long id, String name, String avatarUrl, boolean avatarOverridden) {}
     public List<PublicProfile> editedPublicProfiles(List<Long> ids) {
@@ -73,8 +88,17 @@ public class AdminAccountRepository {
         jdbc.queryForList("SELECT id FROM user_accounts WHERE id IN (?,?) ORDER BY id FOR UPDATE", actor, target);
     }
     public void update(long id, boolean roleChange, String role, String status) {
-        if (roleChange) jdbc.update("UPDATE user_accounts SET role=?,updated_at=clock_timestamp() WHERE id=?", role, id);
+        if (roleChange) setPermission(id, "ADMIN", role.equals("ADMIN"));
         else jdbc.update("UPDATE user_accounts SET status=?,updated_at=clock_timestamp() WHERE id=?", status, id);
+    }
+    public void setPermission(long id, String permission, boolean enabled) {
+        if (enabled) jdbc.update("INSERT INTO user_account_permissions(user_account_id,permission) VALUES(?,?) ON CONFLICT DO NOTHING", id, permission);
+        else jdbc.update("DELETE FROM user_account_permissions WHERE user_account_id=? AND permission=?", id, permission);
+    }
+    public void permissionLog(long actor, String actorName, Account old, Account updated, String permission, boolean enabled) {
+        jdbc.update("INSERT INTO account_management_audit(actor_user_id,target_user_id,actor_name,target_name,action,old_role,new_role,old_status,new_status,old_permissions,new_permissions,permission_changed,permission_enabled) VALUES(?,?,?,?,'PERMISSION',?,?,?,?,?,?,?,?)",
+            actor,old.id(),actorName,old.fullName(),old.role(),updated.role(),old.status(),updated.status(),
+            old.permissions().toArray(String[]::new),updated.permissions().toArray(String[]::new),permission,enabled);
     }
     public void revokeTokens(long id) {
         jdbc.update("UPDATE miniapp_auth_tokens SET revoked_at=GREATEST(CURRENT_TIMESTAMP,created_at) WHERE user_account_id=? AND revoked_at IS NULL", id);

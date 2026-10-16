@@ -406,6 +406,79 @@ class AdminAccountIntegrationTest {
     private void applyProfile(long id, String name, String action, byte[] bytes, String type) throws Exception {
         mvc.perform(patch("/api/v1/admin/accounts/" + id + "/profile").with(user(principal(advanced))).with(csrf()).contentType("application/json").content(profileBody(id, name, action, bytes, type))).andExpect(status().isOk());
     }
+    @Test void independentPermissionsPreserveTheOtherGrantAcrossRevocationAndLogin() throws Exception {
+        Cookie original = login(target);
+        permission(target, "ADMIN", true);
+        permission(target, "ADVISER", true);
+        assertThat(service.detail(advanced,target).permissions()).containsExactly("ADMIN","ADVISER");
+        mvc.perform(get("/api/v1/auth/session").cookie(original)).andExpect(jsonPath("$.authenticated").value(false));
+        Cookie both = login(target);
+        mvc.perform(get("/api/v1/auth/session").cookie(both)).andExpect(jsonPath("$.admin").value(true)).andExpect(jsonPath("$.adviser").value(true));
+        mvc.perform(get("/api/v1/admin/catalog/options").cookie(both)).andExpect(status().isOk());
+        mvc.perform(get("/api/v1/adviser/consultations").cookie(both)).andExpect(status().isOk());
+        for (String filter : List.of("ADMIN","ADVISER")) mvc.perform(get("/api/v1/admin/accounts").cookie(login(advanced))
+            .param("q",prefix+"member").param("identity",filter)).andExpect(jsonPath("$.total").value(1));
+
+        permission(target,"ADMIN",false);
+        assertThat(service.detail(advanced,target).permissions()).containsExactly("ADVISER");
+        mvc.perform(get("/api/v1/admin/catalog/options").cookie(both)).andExpect(status().isUnauthorized());
+        Cookie adviserOnly = login(target);
+        mvc.perform(get("/api/v1/auth/session").cookie(adviserOnly)).andExpect(jsonPath("$.admin").value(false)).andExpect(jsonPath("$.adviser").value(true));
+        mvc.perform(get("/api/v1/admin/catalog/options").cookie(adviserOnly)).andExpect(status().isForbidden());
+        mvc.perform(get("/api/v1/adviser/consultations").cookie(adviserOnly)).andExpect(status().isOk());
+
+        permission(target,"ADMIN",true);
+        permission(target,"ADVISER",false);
+        Cookie adminOnly = login(target);
+        mvc.perform(get("/api/v1/auth/session").cookie(adminOnly)).andExpect(jsonPath("$.admin").value(true)).andExpect(jsonPath("$.adviser").value(false));
+        mvc.perform(get("/api/v1/admin/catalog/options").cookie(adminOnly)).andExpect(status().isOk());
+        mvc.perform(get("/api/v1/adviser/consultations").cookie(adminOnly)).andExpect(status().isForbidden());
+        assertThat(service.detail(advanced,target).permissions()).containsExactly("ADMIN");
+        mvc.perform(get("/api/v1/admin/accounts/audit").cookie(login(advanced)).param("target",Long.toString(target)))
+            .andExpect(jsonPath("$.total").value(5)).andExpect(jsonPath("$.items[0].permission_changed").value("ADVISER"))
+            .andExpect(jsonPath("$.items[0].permission_enabled").value(false))
+            .andExpect(jsonPath("$.items[0].old_permissions.length()").value(2)).andExpect(jsonPath("$.items[0].new_permissions[0]").value("ADMIN"));
+    }
+    @Test void permissionEditsRejectStaleSnapshotsAndDoNotRevokeOnNoOp() throws Exception {
+        String snapshot = permissionBody(target,true);
+        permission(target,"ADMIN",true);
+        Cookie cookie=login(target);
+        permission(target,"ADMIN",true);
+        mvc.perform(get("/api/v1/admin/catalog/options").cookie(cookie)).andExpect(status().isOk());
+        mvc.perform(patch("/api/v1/admin/accounts/"+target+"/permissions/ADVISER").cookie(login(advanced)).with(csrf())
+            .contentType("application/json").content(snapshot)).andExpect(status().isConflict());
+        assertThat(service.detail(advanced,target).permissions()).containsExactly("ADMIN");
+        permission(target,"ADVISER",true);
+        assertThat(service.detail(advanced,target).permissions()).containsExactly("ADMIN","ADVISER");
+    }
+    @Test void advancedAccountsIncludingSelfKeepTheirIndependentAdvancedAuthorization() throws Exception {
+        Cookie before=login(advanced);
+        mvc.perform(patch("/api/v1/admin/accounts/"+advanced+"/permissions/ADVISER").cookie(before).with(csrf())
+            .contentType("application/json").content(permissionBody(advanced,true))).andExpect(status().isOk());
+        mvc.perform(get("/api/v1/auth/session").cookie(before)).andExpect(jsonPath("$.authenticated").value(false));
+        permission(advanced,"ADMIN",false);
+        Cookie after=login(advanced);
+        mvc.perform(get("/api/v1/auth/session").cookie(after)).andExpect(jsonPath("$.admin").value(true)).andExpect(jsonPath("$.adviser").value(true));
+        mvc.perform(get("/api/v1/admin/accounts").cookie(after)).andExpect(status().isOk());
+        assertThat(service.detail(advanced,advanced).permissions()).containsExactly("ADVISER");
+        assertThat(jdbc.queryForObject("SELECT COUNT(*) FROM catalog_advanced_administrators WHERE user_account_id=?",Long.class,advanced)).isEqualTo(1);
+    }
+    @Test void permissionEndpointRequiresAdvancedAuthorityCsrfAndValidGrant() throws Exception {
+        String path="/api/v1/admin/accounts/"+target+"/permissions/ADVISER";
+        mvc.perform(patch(path).cookie(login(ordinary)).with(csrf()).contentType("application/json").content(permissionBody(target,true))).andExpect(status().isForbidden());
+        mvc.perform(patch(path).cookie(login(advanced)).contentType("application/json").content(permissionBody(target,true))).andExpect(status().isForbidden());
+        mvc.perform(patch(path.replace("ADVISER","SUPER_ADMIN")).cookie(login(advanced)).with(csrf()).contentType("application/json").content(permissionBody(target,true))).andExpect(status().isBadRequest());
+        mutate(target,"status","\"enabled\":false");
+        mvc.perform(patch(path).cookie(login(advanced)).with(csrf()).contentType("application/json").content(permissionBody(target,true))).andExpect(status().isBadRequest());
+        assertThat(service.detail(advanced,target).permissions()).isEmpty();
+    }
+    private String permissionBody(long id,boolean enabled) {
+        return "{\"confirmed\":true,\"enabled\":"+enabled+",\"expectedUpdatedAt\":\""+service.detail(advanced,id).updatedAt()+"\"}";
+    }
+    private void permission(long id,String permission,boolean enabled) throws Exception {
+        mvc.perform(patch("/api/v1/admin/accounts/"+id+"/permissions/"+permission).cookie(login(advanced)).with(csrf())
+            .contentType("application/json").content(permissionBody(id,enabled))).andExpect(status().isOk());
+    }
     private long create(String suffix, String role, String status) {
         long id = jdbc.queryForObject("INSERT INTO user_accounts(full_name,normalized_email,password_hash,role,status,email_verified_at,agreement_version,privacy_version,deleted_at) VALUES(?,?,?,?,?,CASE WHEN ?='ACTIVE' THEN CURRENT_TIMESTAMP ELSE NULL END,'test-terms','test-privacy',CASE WHEN ?='DELETED' THEN CURRENT_TIMESTAMP ELSE NULL END) RETURNING id", Long.class,
             prefix + suffix, prefix + suffix + "@example.com", passwords.encode("correct-horse-42"), role, status, status, status);

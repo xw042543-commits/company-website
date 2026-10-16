@@ -54,8 +54,14 @@ public class AccountService {
     @Transactional(readOnly = true)
     public boolean isAdministrator(long userId) {
         return accounts.findById(userId).filter(this::available)
-                .map(account -> account.getRole() == com.yangdoujiao.website.auth.account.UserAccountRole.ADMIN)
+                .map(account -> account.hasPermission(com.yangdoujiao.website.auth.account.UserAccountRole.ADMIN))
                 .orElse(false);
+    }
+
+    @Transactional(readOnly = true)
+    public boolean isAdviser(long userId) {
+        return accounts.findById(userId).filter(this::available)
+                .map(account -> account.hasPermission(com.yangdoujiao.website.auth.account.UserAccountRole.ADVISER)).orElse(false);
     }
 
     @Transactional(readOnly = true)
@@ -64,8 +70,8 @@ public class AccountService {
             String legacy = externalIdentities.findByProviderAndUserAccountId(ExternalIdentityProvider.WECHAT, userId)
                 .map(com.yangdoujiao.website.auth.external.UserExternalIdentity::getAvatarUrl).orElse(null);
             return new AuthSessionResponse(true, userId, account.getFullName(),
-                account.getRole() == com.yangdoujiao.website.auth.account.UserAccountRole.ADVISER,
-                account.getRole() == com.yangdoujiao.website.auth.account.UserAccountRole.ADMIN, account.displayAvatar(legacy));
+                account.hasPermission(com.yangdoujiao.website.auth.account.UserAccountRole.ADVISER),
+                account.hasPermission(com.yangdoujiao.website.auth.account.UserAccountRole.ADMIN), account.displayAvatar(legacy));
         }).orElseGet(AuthSessionResponse::anonymous);
     }
 

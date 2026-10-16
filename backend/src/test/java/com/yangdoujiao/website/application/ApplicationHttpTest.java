@@ -36,6 +36,7 @@ class ApplicationHttpTest {
   mvc=MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
   var account=UserAccount.external("Student","v1","v1");ReflectionTestUtils.setField(account,"id",7L);student=UserPrincipal.from(account);
   ReflectionTestUtils.setField(account,"id",9L);ReflectionTestUtils.setField(account,"role",UserAccountRole.ADVISER);adviser=UserPrincipal.from(account);
+  when(accountPermissions.isAdviser(9L)).thenReturn(true);
  }
  @Test void anonymousCannotReadApplications() throws Exception {mvc.perform(get("/api/v1/miniapp/me/applications")).andExpect(status().isUnauthorized());verifyNoInteractions(repository);}
  @Test void studentCannotCreateOrReviewApplications() throws Exception {mvc.perform(post("/api/v1/adviser/applications").with(user(student)).with(csrf()).contentType("application/json").content("{\"userId\":7,\"programmeId\":1}")).andExpect(status().isForbidden());verifyNoInteractions(repository);}

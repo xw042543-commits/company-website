@@ -99,7 +99,7 @@ class AdviserAuthorizationHttpIntegrationTest {
 
     @Test
     void adviserAuthoritiesReachAdviserEndpoint() throws Exception {
-        mockMvc.perform(get("/api/v1/adviser/security-test").with(user("adviser").roles("USER", "ADVISER")))
+        mockMvc.perform(get("/api/v1/adviser/security-test").with(user(principal(UserAccountRole.ADVISER))))
                 .andExpect(status().isNoContent());
     }
 
@@ -114,11 +114,11 @@ class AdviserAuthorizationHttpIntegrationTest {
 
     @Test
     void adviserWriteStillRequiresCsrf() throws Exception {
-        mockMvc.perform(post("/api/v1/adviser/security-test").with(user("adviser").roles("USER", "ADVISER")))
+        mockMvc.perform(post("/api/v1/adviser/security-test").with(user(principal(UserAccountRole.ADVISER))))
                 .andExpect(status().isForbidden())
                 .andExpect(jsonPath("$.code").value("CSRF_REJECTED"));
         mockMvc.perform(post("/api/v1/adviser/security-test")
-                        .with(user("adviser").roles("USER", "ADVISER")).with(csrf()))
+                        .with(user(principal(UserAccountRole.ADVISER))).with(csrf()))
                 .andExpect(status().isNoContent());
     }
 
@@ -182,6 +182,7 @@ class AdviserAuthorizationHttpIntegrationTest {
         ReflectionTestUtils.setField(account, "role", role);
         UserPrincipal result = UserPrincipal.from(account);
         org.mockito.Mockito.when(accountProfiles.session(42L)).thenReturn(AuthSessionResponse.authenticated(result));
+        org.mockito.Mockito.when(accountProfiles.isAdviser(42L)).thenReturn(role == UserAccountRole.ADVISER);
         return result;
     }
 

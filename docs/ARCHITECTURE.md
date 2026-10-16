@@ -63,3 +63,7 @@ The admin import module follows Controller → Service → Repository. Apache PO
 writes fixed XLSX templates on the server. PostgreSQL import batches/rows isolate drafts from the
 published catalogue. Existing catalogue services publish validated selections and enqueue search
 refreshes within one transaction after locked duplicate rechecking. See API.md and DATABASE.md.
+
+## Independent account permissions
+
+ADMIN and ADVISER use user_account_permissions. Updates lock actor/target, recheck advanced authorization, modify one grant, audit complete before/after sets, and revoke old credentials atomically. The legacy role is a compatibility projection. Existing advanced authorization remains independent. Website sessions and miniapp principals support both grants; protected staff APIs check current database permissions.

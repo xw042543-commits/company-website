@@ -110,7 +110,12 @@ public class SecurityConfig {
                                     && current.getPrincipal() instanceof UserPrincipal principal
                                     && principal.isAdmin() && accounts.isAdministrator(principal.userId()));
                         })
-                        .requestMatchers("/api/v1/adviser/**").hasRole("ADVISER")
+                        .requestMatchers("/api/v1/adviser/**").access((authentication, context) -> {
+                            var current = authentication.get();
+                            return new AuthorizationDecision(current != null && current.isAuthenticated()
+                                    && current.getPrincipal() instanceof UserPrincipal principal
+                                    && principal.isAdviser() && accounts.isAdviser(principal.userId()));
+                        })
                         .requestMatchers(HttpMethod.GET, PUBLIC_READ_PATHS).permitAll()
                         .requestMatchers(HttpMethod.HEAD, PUBLIC_READ_PATHS).permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/consultations").permitAll()
