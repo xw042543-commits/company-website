@@ -182,7 +182,8 @@ class AdminAccountIntegrationTest {
         mutate(target, "status", "\"enabled\":false");
         mutate(target, "status", "\"enabled\":true");
         mutate(target, "role", "\"role\":\"USER\"");
-        applyProfile(target, prefix + "member", "REPLACE", profileImage("png"), "image/png");
+        applyProfile(target, "历史记录关联保持不变", "REPLACE", profileImage("png"), "image/png");
+        personal.put("full_name", "历史记录关联保持不变");
         assertThat(jdbc.queryForMap("SELECT * FROM application_payment_orders WHERE id=?", order)).isEqualTo(storedOrder);
         assertThat(jdbc.queryForMap("SELECT * FROM student_applications WHERE id=?", application)).isEqualTo(storedApplication);
         assertThat(jdbc.queryForMap("SELECT full_name,normalized_email,password_hash,created_at FROM user_accounts WHERE id=?", target)).isEqualTo(personal);

@@ -1,4 +1,5 @@
 "use client";
+import { createPortal } from "react-dom";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { adminWrite } from "@/lib/admin-catalog-api";
 import { accountStatuses, type ManagedAccount } from "@/lib/admin-account-api";
@@ -67,7 +68,7 @@ export function AdminAccountEditor({ account, onCancel, onSaved }: { account: Ma
     } catch (error) { setNotice(error instanceof Error ? error.message : "保存失败，原头像已保留"); }
     finally { setBusy(false); }
   }
-  return <div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="account-edit-title"><form ref={dialog} className={`admin-editor ${styles.editor}`} onSubmit={save} aria-busy={busy}>
+  return createPortal(<div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="account-edit-title"><form ref={dialog} className={`admin-editor ${styles.editor}`} onSubmit={save} aria-busy={busy}>
     <header><h2 id="account-edit-title">编辑账号</h2><button className="secondary" type="button" disabled={busy} onClick={onCancel}>关闭</button></header>
     <div className={styles.editBody}>
       <p>账号编号：{account.id}　状态：{accountStatuses[account.status]}</p><p>邮箱：{account.email || "未绑定邮箱"}（仅展示）</p>
@@ -83,5 +84,5 @@ export function AdminAccountEditor({ account, onCancel, onSaved }: { account: Ma
       <div className={styles.actions}><button className="secondary" type="button" disabled={busy || reading} onClick={() => { setAction("REMOVE"); setPicture(null); }}>删除头像</button><button className="secondary" type="button" disabled={busy || reading} onClick={() => { setAction("KEEP"); setPicture(null); setNotice(""); }}>恢复原头像</button></div>
       {reading && <p role="status">正在读取图片…</p>}{notice && <p className="admin-notice" role="alert">{notice}</p>}
     </div><footer><button className="secondary" type="button" disabled={busy} onClick={onCancel}>取消</button><button disabled={busy || reading || !name.trim()}>{busy ? "正在保存…" : "保存修改"}</button></footer>
-  </form></div>;
+  </form></div>, document.body);
 }
