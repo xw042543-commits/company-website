@@ -35,4 +35,9 @@ class OfficialModulesTest(unittest.TestCase):
   self.assertEqual(result[0]['nameEn'],'Integrity And Anti-Corruption Course')
   self.assertEqual(result[0]['courseCode'],'GQX0056')
   self.assertEqual(result[0]['requirement'],'Elective')
+ def test_separates_actual_lowercase_or_options_and_rejects_unnamed_foreign_language_category(self):
+  html='<h1>Computer Science</h1><h2>Programme Structure</h2><ul><li>English for Communication* / or Foreign Language Course</li><li>Electronic Practical or Applied Physics Practical</li></ul>'
+  result=parse_html(html,URL,DATE,'Computer Science')['modules']
+  self.assertEqual([m['nameEn'] for m in result],['English for Communication','Electronic Practical','Applied Physics Practical'])
+  self.assertTrue(all(m['requirement']=='OR' for m in result))
 if __name__=='__main__':unittest.main()

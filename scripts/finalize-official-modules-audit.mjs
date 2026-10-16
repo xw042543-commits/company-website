@@ -9,7 +9,7 @@ const codes=new Set(inputs.records.map(r=>r.programmeCode));
 if(audit.records.length!==codes.size)throw new Error('Incomplete coverage');
 await mkdir(root,{recursive:true});
 const backups=[];const seen=new Set();const csv=v=>'"'+String(v??'').replaceAll('"','""')+'"';
-const totals={checkedProgrammes:codes.size,verifiedProgrammes:0,verifiedModuleAssociations:0,officialAddedModules:0,reverifiedExistingTitles:0,hiddenCurriculumSections:0,hiddenLegacyCandidateEntries:0,replacedLegacyCandidateEntries:0,failedProgrammes:0,productionWrites:0,byUniversity:{},failureReasons:{},missingMetadata:{courseCode:0,credits:0,requirement:0,curriculumVersion:0}};
+const totals={checkedProgrammes:codes.size,verifiedProgrammes:0,verifiedModuleAssociations:0,officialAddedModules:0,reverifiedExistingTitles:0,hiddenCurriculumSections:0,hiddenLegacyCandidateEntries:0,replacedLegacyCandidateEntries:0,failedProgrammes:0,followupProductionWrites:0,byUniversity:{},failureReasons:{},missingMetadata:{courseCode:0,credits:0,requirement:0,curriculumVersion:0}};
 const reasons={PENDING:'官网课程未能逐项核实',ACCESS:'官网访问失败或 robots 规则不允许',PDF:'已获取官方 PDF，尚不能唯一核实专业课程表',OWNERSHIP:'未能确认课程表与当前专业的唯一归属',MODULES:'官网页面未提供已解析核实的课程表',VALIDATION:'导入前逐项校验未通过'};
 const records=[];
 function legacyNames(section){const text=section?.bodyEn||section?.bodyZh||'';return text.split(/\r?\n/).map(line=>line.match(/^\d{2}\|[^|]+\|(.+)$/)?.[1]||line.trim()).filter(line=>line&&!/^(?:参考|说明[：:]|Illustrative|Note:|Year\s*\d|Semester\s*\d)/i.test(line));}
@@ -42,5 +42,5 @@ const courses=[['专业编号','中文译名','官网原始课程名称','课程
 await writeFile(root+'/official-modules.csv','\uFEFF'+courses.map(r=>r.map(csv).join(',')).join('\n')+'\n');
 const failures=[['院校','专业编号','专业英文名','待核实原因','尝试过的官网来源'],...records.filter(r=>r.status!=='VERIFIED').map(r=>[r.universitySlug,r.programmeCode,r.programmeNameEn,r.reason||reasons[r.failureClass],r.attempts.map(a=>a.url+(a.error?' ['+a.error+']':'')).join('\n')])];
 await writeFile(root+'/pending-programmes.csv','\uFEFF'+failures.map(r=>r.map(csv).join(',')).join('\n')+'\n');
-await mkdir('backend/src/test/resources/fixtures',{recursive:true});await writeFile('backend/src/test/resources/fixtures/official-course-modules.json',JSON.stringify({summary:totals,records:records.map(({programmeCode,universitySlug,programmeNameEn,status,modules})=>({programmeCode,universitySlug,programmeNameEn,status,modules}))},null,2));
+await mkdir('backend/src/test/resources/fixtures',{recursive:true});await writeFile('backend/src/test/resources/fixtures/official-course-modules-v64.json',JSON.stringify({summary:totals,records:records.map(({programmeCode,universitySlug,programmeNameEn,status,modules,ownership,expectedCourseFingerprint})=>({programmeCode,universitySlug,programmeNameEn,status,modules,ownership,expectedCourseFingerprint}))},null,2));
 console.log(JSON.stringify(totals,null,2));

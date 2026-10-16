@@ -329,6 +329,8 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 
 复用已有 user_accounts.role/status/updated_at 和 catalog_advanced_administrators，不新增角色，不改变用户、申请、订单关系或现有高级管理员名单。禁用再恢复时从最新禁用日志恢复原状态；无旧日志时依据验证记录或已有外部登录绑定判断，未验证账号保持 PENDING_VERIFICATION。新迁移不更新现有账号。
 
+V64 官网课程增量修复保留 V53 与 V54–V63 的已执行迁移及工作人员课程投影；导入前校验专业身份和课程快照，身份变化后先备份再停用旧课程。旧正文不再覆盖正式课程 JSON。
+
 
 ## V65 账号编辑与统一头像
 

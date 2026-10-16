@@ -345,21 +345,21 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
           <div className="programme-info-body">
             {curriculumSection ? <>
               <ol className="programme-official-curriculum">{curriculumItems.map((item, index) => <li key={`${item.courseCode ?? ""}-${item.nameEn}-${index}`}>
-                <strong lang="zh-Hans">{item.nameZh}</strong>
+                <div className="programme-official-module-copy"><strong lang="zh-Hans">{item.nameZh}</strong>
                 {item.descriptionZh && <p>{item.descriptionZh}</p>}
                 {(item.courseCode || item.credits || item.requirement) && <p className="programme-source-note">
                   {item.courseCode}{item.credits ? ` · ${words(locale, "学分", "Credits")}: ${item.credits}` : ""}
-                  {item.requirement ? ` · ${({Elective: '选修', Compulsory: '必修', Required: '必修', Core: '核心', OR: '二选一'} as Record<string, string>)[item.requirement] ?? item.requirement}` : ""}
+                  {item.requirement ? ` · ${({Elective: '选修', Compulsory: '必修', Required: '必修', Core: '核心', OR: '可选课程'} as Record<string, string>)[item.requirement] ?? item.requirement}` : ""}
                 </p>}
-                <details><summary>核验原文与来源</summary>
+                <details className="programme-course-evidence"><summary>核验原文与来源</summary>
                   <p lang="en">{item.nameEn}</p>
                   {item.descriptionEn && <p lang="en">{item.descriptionEn}</p>}
                   <a href={item.sourceUrl} target="_blank" rel="noreferrer">官网来源</a>
                 </details>
-                <span className="programme-source-note"> · {words(locale, "采集于", "Collected")} {item.sourceCheckedAt.slice(0, 10)}</span>
+                <span className="programme-source-note"> · {words(locale, "采集于", "Collected")} {item.sourceCheckedAt.slice(0, 10)}</span></div>
               </li>)}</ol>
               <p className="programme-source-note">{words(locale, "课程名称为平台中文译名，学校原文及来源可核验；未核实的课程介绍、代码、学分等不补写。", "Chinese module titles are translations of the linked official originals. Unverified descriptions and metadata remain blank.")}
-                {" · "}{curriculumSection.curriculumVersion || words(locale, "官网未注明适用课程版本", "The university does not specify the applicable curriculum version")}
+                {" · "}{curriculumSection.curriculumVersion || words(locale, "适用课程版本待核实", "The applicable curriculum version is pending verification")}
               </p>
             </> : <div className="programme-structure-pending">
               <strong>{words(locale, "待核实：暂无官方课程资料", "Official curriculum pending verification")}</strong>

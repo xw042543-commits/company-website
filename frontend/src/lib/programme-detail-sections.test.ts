@@ -1,3 +1,4 @@
+import type { OfficialCourseModule } from "./university-api.ts";
 import assert from "node:assert/strict";
 import test from "node:test";
 
@@ -50,7 +51,22 @@ test("uses verified Chinese translations with original English retained and hide
       courseCode: null, credits: null, requirement: null, curriculumVersion: null,
       sourceUrl: "https://study.um.edu.my/programme", sourceCheckedAt: "2026-10-15T00:00:00Z" }] };
   assert.equal(findOfficialProgrammeSection([section], ["CURRICULUM"], "zh")?.body, "数据库系统");
+  assert.equal(findOfficialProgrammeSection([{ ...section, bodyZh: null, bodyEn: null }], ["CURRICULUM"], "zh")?.body, "数据库系统");
   assert.equal(findOfficialProgrammeSection([{ ...section, sourceType: "ai_generated" }], ["CURRICULUM"], "zh"), null);
   assert.equal(findOfficialProgrammeSection([{ ...section, curriculumReviewStatus: "PENDING" }], ["CURRICULUM"], "zh"), null);
   assert.equal(findOfficialProgrammeSection([{ ...section, courseModules: [{...section.courseModules[0], nameEn: "Minimum CGPA 3.0"}] }], ["CURRICULUM"], "zh"), null);
+});
+
+
+test("every official course in the complete reviewed snapshot is renderable without legacy-body fallback", async () => {
+  const {readFile}=await import("node:fs/promises");
+  const audit=JSON.parse(await readFile(new URL("../../../outputs/official-course-modules-20261015/reviewed-audit.json",import.meta.url),"utf8")) as {records:{programmeCode:string;status:string;modules:OfficialCourseModule[]}[]};
+  for(const row of audit.records){
+    const section={type:"CURRICULUM",titleZh:"课程",titleEn:"Modules",bodyZh:null,bodyEn:null,sortOrder:40,
+      sourceType:"official" as const,sourceUrl:null,sourceCheckedAt:null,
+      curriculumReviewStatus:row.status === "VERIFIED" ? "VERIFIED" as const : "PENDING" as const,courseModules:row.modules};
+    const view=findOfficialProgrammeSection([section],["CURRICULUM"],"zh");
+    assert.equal(view?.courseModules?.length??0,row.modules.length,row.programmeCode);
+    if(row.status==="VERIFIED")assert.ok(view?.body.includes(row.modules[0].nameZh),row.programmeCode);
+  }
 });
