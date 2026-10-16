@@ -56,7 +56,7 @@
               <view class="curriculum-name-zh">{{item.nameZh}}</view>
               <view wx:if="{{item.descriptionZh}}" class="curriculum-module-meta">{{item.descriptionZh}}</view>
               <view wx:if="{{item.courseCode || item.credits || item.requirement}}" class="curriculum-module-meta">{{item.courseCode}}{{item.credits ? ' · 学分：' + item.credits : ''}}{{item.requirement ? ' · ' + item.requirement : ''}}</view>
-              <view class="curriculum-module-meta">采集于 {{item.sourceCheckedLabel}} · {{item.curriculumVersion || '官网未注明适用版本'}}</view>
+              <view class="curriculum-module-meta">采集于 {{item.sourceCheckedLabel}} · {{item.curriculumVersion || '适用版本待核实'}}</view>
               <button class="source-button" data-name-en="{{item.nameEn}}" data-course-code="{{item.courseCode}}" data-source-url="{{item.sourceUrl}}" bindtap="copyCourseEvidence">复制原名、代码与官网来源</button>
             </view>
           </view>

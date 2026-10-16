@@ -359,7 +359,7 @@ export default async function ProgrammePage({ params }: ProgrammePageProps) {
                 <span className="programme-source-note"> · {words(locale, "采集于", "Collected")} {item.sourceCheckedAt.slice(0, 10)}</span></div>
               </li>)}</ol>
               <p className="programme-source-note">{words(locale, "课程名称为平台中文译名，学校原文及来源可核验；未核实的课程介绍、代码、学分等不补写。", "Chinese module titles are translations of the linked official originals. Unverified descriptions and metadata remain blank.")}
-                {" · "}{curriculumSection.curriculumVersion || words(locale, "官网未注明适用课程版本", "The university does not specify the applicable curriculum version")}
+                {" · "}{curriculumSection.curriculumVersion || words(locale, "适用课程版本待核实", "The applicable curriculum version is pending verification")}
               </p>
             </> : <div className="programme-structure-pending">
               <strong>{words(locale, "待核实：暂无官方课程资料", "Official curriculum pending verification")}</strong>
