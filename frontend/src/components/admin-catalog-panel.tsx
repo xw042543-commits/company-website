@@ -149,19 +149,53 @@ function UniversityForm({ locale, item, options, busy, onClose, onSubmit }: { lo
 }
 
 function ProgrammeForm({ locale, item, options, busy, onClose, onSubmit }: { locale: Locale; item: AdminProgramme | null; options: AdminOptions; busy: boolean; onClose: () => void; onSubmit: (event: FormEvent<HTMLFormElement>) => void }) {
-  return <div className="admin-modal" role="dialog" aria-modal="true"><form className="admin-editor admin-editor-large" onSubmit={onSubmit}><header><h2>{item ? words(locale, "编辑专业 / 课程", "Edit programme") : words(locale, "新增专业 / 课程", "Add programme")}</h2><button type="button" className="secondary" onClick={onClose}>×</button></header><div className="admin-form-grid">
+  const [section, setSection] = useState<"details" | "fees" | "content">("details");
+  const [formNotice, setFormNotice] = useState("");
+  function submit(event: FormEvent<HTMLFormElement>) {
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const missing = !value(data, "universityId") ? "universityId" : !value(data, "categoryId") ? "categoryId" : "";
+    if (missing) {
+      event.preventDefault();
+      setSection("details");
+      setFormNotice(words(locale, "请先选择所属院校和学科分类。", "Select a university and subject first."));
+      window.requestAnimationFrame(() => (form.elements.namedItem(missing) as HTMLElement | null)?.focus());
+      return;
+    }
+    const invalid = Array.from(form.elements).find(control => control instanceof HTMLInputElement && !control.checkValidity()) as HTMLInputElement | undefined;
+    if (invalid) {
+      event.preventDefault();
+      setSection(["durationMonths", "tuitionMin", "tuitionMax"].includes(invalid.name) ? "fees" : "details");
+      setFormNotice(words(locale, "请检查标示的输入内容。", "Check the highlighted field."));
+      window.requestAnimationFrame(() => { invalid.focus(); invalid.reportValidity(); });
+      return;
+    }
+    setFormNotice("");
+    onSubmit(event);
+  }
+  const tabs = [
+    ["details", words(locale, "基本资料", "Details")],
+    ["fees", words(locale, "学制与学费", "Duration and tuition")],
+    ["content", words(locale, "介绍与要求", "Content and requirements")],
+  ] as const;
+  return <div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="programme-editor-title"><form className="admin-editor admin-editor-large admin-programme-editor" noValidate onSubmit={submit}><header><div><span className="admin-editor-kicker">专业资料</span><h2 id="programme-editor-title">{item ? words(locale, "编辑专业 / 课程", "Edit programme") : words(locale, "新增专业 / 课程", "Add programme")}</h2></div><button type="button" className="secondary" aria-label={words(locale, "关闭编辑窗口", "Close editor")} onClick={onClose}>×</button></header>
+  <nav className="admin-editor-tabs" role="tablist" aria-label={words(locale, "编辑内容分区", "Editor sections")}>{tabs.map(([id, title]) => <button key={id} type="button" role="tab" aria-selected={section === id} aria-controls={`programme-${id}`} className={section === id ? "active" : "secondary"} onClick={() => { setSection(id); setFormNotice(""); }}>{title}</button>)}</nav>
+  {formNotice && <p className="admin-editor-notice" role="alert">{formNotice}</p>}
+  <div className="admin-programme-sections"><section id="programme-details" role="tabpanel" hidden={section !== "details"} className="admin-form-grid">
     <Field name="nameZh" title="专业名称（中文）" initial={item?.nameZh} /><Field name="nameEn" title="专业名称（英文）" initial={item?.nameEn} />
     <Field name="programmeCode" title="内部编码（可留空自动生成）" initial={item?.programmeCode} readOnly={!!item} /><Field name="slug" title="页面地址（可留空自动生成）" initial={item?.slug} />
-    <label><span>{words(locale, "所属院校", "University")}</span><select name="universityId" defaultValue={item?.universityId ?? ""} required><option value="" disabled>{words(locale, "请选择", "Select")}</option>{options.universities.map(option => <option key={option.id} value={option.id}>{label(option, locale)}</option>)}</select></label>
-    <label><span>{words(locale, "学科分类", "Subject")}</span><select name="categoryId" defaultValue={item?.categoryId ?? ""} required><option value="" disabled>{words(locale, "请选择", "Select")}</option>{options.categories.map(option => <option key={option.id} value={option.id}>{label(option, locale)}</option>)}</select></label>
+    <label><span>{words(locale, "所属院校", "University")}</span><select name="universityId" defaultValue={item?.universityId ?? ""}><option value="" disabled>{words(locale, "请选择", "Select")}</option>{options.universities.map(option => <option key={option.id} value={option.id}>{label(option, locale)}</option>)}</select></label>
+    <label><span>{words(locale, "学科分类", "Subject")}</span><select name="categoryId" defaultValue={item?.categoryId ?? ""}><option value="" disabled>{words(locale, "请选择", "Select")}</option>{options.categories.map(option => <option key={option.id} value={option.id}>{label(option, locale)}</option>)}</select></label>
     <label><span>{words(locale, "学历层次", "Study level")}</span><select name="studyLevelId" defaultValue={item?.studyLevelId ?? ""}><option value="">—</option>{options.studyLevels.map(option => <option key={option.id} value={option.id}>{locale === "zh" ? studyLevelZh(option) : label(option, locale)}</option>)}</select></label>
     <label><span>{words(locale, "授课方式", "Mode")}</span><select name="courseModeId" defaultValue={item?.courseModeId ?? ""}><option value="">—</option>{options.courseModes.map(option => <option key={option.id} value={option.id}>{label(option, locale)}</option>)}</select></label>
+    <Field name="officialUrl" title={words(locale, "官网链接", "Official URL")} initial={item?.officialUrl} type="url" />
+  </section><section id="programme-fees" role="tabpanel" hidden={section !== "fees"} className="admin-form-grid">
     <Field name="durationMonths" title={words(locale, "学制（月）", "Duration (months)")} initial={item?.durationMonths} type="number" /><Field name="durationDisplay" title={words(locale, "学制显示", "Duration display")} initial={item?.durationDisplay} />
     <Field name="tuitionMin" title={words(locale, "最低学费", "Minimum tuition")} initial={item?.tuitionMin} type="number" /><Field name="tuitionMax" title={words(locale, "最高学费", "Maximum tuition")} initial={item?.tuitionMax} type="number" />
     <Field name="tuitionCurrency" title={words(locale, "币种（如 MYR）", "Currency (e.g. MYR)")} initial={item?.tuitionCurrency} /><Field name="tuitionDisplay" title={words(locale, "学费说明", "Tuition display")} initial={item?.tuitionDisplay} />
-    <Field name="officialUrl" title={words(locale, "官网链接", "Official URL")} initial={item?.officialUrl} type="url" />
-    <TextArea name="descriptionZh" title="课程介绍（中文）" initial={item?.descriptionZh} /><TextArea name="descriptionEn" title="介绍（英文）" initial={item?.descriptionEn} />
-    <TextArea name="admissionsZh" title="入学要求（中文）" initial={item?.admissionsZh} /><TextArea name="admissionsEn" title="入学要求（英文）" initial={item?.admissionsEn} />
-    <TextArea name="curriculumZh" title="专业课程（中文）" initial={item?.curriculumZh} /><TextArea name="curriculumEn" title="专业课程（英文）" initial={item?.curriculumEn} />
-  </div><footer><button type="button" className="secondary" onClick={onClose}>{words(locale, "取消", "Cancel")}</button><button disabled={busy}>{busy ? words(locale, "保存中…", "Saving…") : words(locale, "保存", "Save")}</button></footer></form></div>;
+  </section><section id="programme-content" role="tabpanel" hidden={section !== "content"} className="admin-form-grid admin-programme-copy-grid">
+    <TextArea name="descriptionZh" title="课程介绍（中文）" initial={item?.descriptionZh} wide={false} rows={4} /><TextArea name="descriptionEn" title="介绍（英文）" initial={item?.descriptionEn} wide={false} rows={4} />
+    <TextArea name="admissionsZh" title="入学要求（中文）" initial={item?.admissionsZh} wide={false} rows={4} /><TextArea name="admissionsEn" title="入学要求（英文）" initial={item?.admissionsEn} wide={false} rows={4} />
+    <TextArea name="curriculumZh" title="专业课程（中文）" initial={item?.curriculumZh} wide={false} rows={4} /><TextArea name="curriculumEn" title="专业课程（英文）" initial={item?.curriculumEn} wide={false} rows={4} />
+  </section></div><footer><span>{tabs.find(([id]) => id === section)?.[1]}</span><div><button type="button" className="secondary" onClick={onClose}>{words(locale, "取消", "Cancel")}</button><button disabled={busy}>{busy ? words(locale, "保存中…", "Saving…") : words(locale, "保存修改", "Save changes")}</button></div></footer></form></div>;
 }

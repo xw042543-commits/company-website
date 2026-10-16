@@ -1158,6 +1158,18 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
 .admin-university-editor { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; width: min(1080px, 100%); overflow: hidden; }
 .admin-university-editor > header, .admin-university-editor > footer { position: static; }
 .admin-university-editor .admin-form-grid { overflow-y: auto; overscroll-behavior: contain; }
+.admin-programme-editor { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; width: min(1180px, 100%); overflow: hidden; }
+.admin-programme-editor:has(.admin-editor-notice) { grid-template-rows: auto auto auto minmax(0, 1fr) auto; }
+.admin-programme-editor > header, .admin-programme-editor > footer { position: static; }
+.admin-programme-editor > footer { justify-content: space-between; color: var(--muted); font-size: .82rem; }
+.admin-programme-editor > footer > div { display: flex; gap: 10px; }
+.admin-editor-tabs { display: flex; gap: 4px; padding: 10px 22px; border-bottom: 1px solid #d5e1dc; background: #f5f8f5; }
+.admin-editor-tabs button { min-height: 40px; padding: 8px 16px; box-shadow: none; }
+.admin-editor-tabs button.active { background: var(--brand-deep); color: #fff; }
+.admin-editor-notice { margin: 0; padding: 10px 22px; border-bottom: 1px solid #ead8b4; background: #fff7e8; color: #765718; }
+.admin-programme-sections { min-height: 0; overflow: hidden; }
+.admin-programme-sections > .admin-form-grid { height: 100%; overflow-y: auto; overscroll-behavior: contain; }
+.admin-programme-copy-grid textarea { min-height: 112px; }
 
 @media (max-width: 850px) {
   .admin-console-header { flex-direction: column; }
@@ -1173,6 +1185,11 @@ input[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px 
   .admin-form-grid .admin-wide { grid-column: auto; }
   .admin-modal { padding: 0; }
   .admin-editor { width: 100%; max-height: 100dvh; border-radius: 0; }
+  .admin-editor-tabs { overflow-x: auto; padding-inline: 16px; }
+  .admin-editor-tabs button { flex: 0 0 auto; }
+  .admin-programme-editor > footer > span { display: none; }
+  .admin-programme-editor > footer > div { width: 100%; }
+  .admin-programme-editor > footer button { flex: 1; }
 }
 
 @media (max-width: 460px) {
