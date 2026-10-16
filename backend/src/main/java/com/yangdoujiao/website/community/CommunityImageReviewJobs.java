@@ -63,7 +63,7 @@ public class CommunityImageReviewJobs {
         if(!Set.of("PASS","REJECTED").contains(verdict))throw new IllegalArgumentException("Invalid verdict");
         tx.executeWithoutResult(ignored->{
             lock();
-            int changed=jdbc.update("UPDATE community_image_review_jobs SET state='DONE',available_at=? WHERE image_id=? AND state='LEASED' AND lease_token=? AND direct_fallback",
+            int changed=jdbc.update("UPDATE community_image_review_jobs SET state='DONE',available_at=? WHERE image_id=? AND state='LEASED' AND lease_token=?",
                 time(now),claim.imageId(),claim.lease());
             if(changed==1)jdbc.update("UPDATE community_images SET status=? WHERE id=? AND status='PENDING'",verdict,claim.imageId());
         });

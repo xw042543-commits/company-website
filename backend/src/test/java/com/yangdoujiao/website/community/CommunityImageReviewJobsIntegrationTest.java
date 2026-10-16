@@ -102,6 +102,7 @@ class CommunityImageReviewJobsIntegrationTest {
         var gateway=org.mockito.Mockito.mock(WechatImageReviewGateway.class);
         org.mockito.Mockito.when(gateway.submit(owner,id)).thenReturn(Optional.of("fixture-worker"));
         var direct=org.mockito.Mockito.mock(WechatDirectImageReviewGateway.class);
+        org.mockito.Mockito.when(direct.check(id)).thenReturn(Optional.empty());
         var worker=new CommunityImageReviewWorker(jobs,images,gateway,direct,Clock.fixed(now,ZoneOffset.UTC));
         worker.tick();
         assertEquals("PENDING_REVIEW",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
@@ -111,19 +112,16 @@ class CommunityImageReviewJobsIntegrationTest {
         worker.tick();
         assertEquals(1L,jdbc.queryForObject("SELECT count(*) FROM inbox_notifications WHERE recipient_account_id=?",Long.class,owner));
     }
-    @Test void downloadErrorUsesDirectCheckAndPublishesOnClearPass() {
+    @Test void clearDirectVerdictPublishesOnFirstAttemptWithoutWaitingForCallback() {
         var gateway=org.mockito.Mockito.mock(WechatImageReviewGateway.class);
         var direct=org.mockito.Mockito.mock(WechatDirectImageReviewGateway.class);
-        org.mockito.Mockito.when(gateway.submit(owner,id)).thenReturn(Optional.of("fixture-direct"));
         org.mockito.Mockito.when(direct.check(id)).thenReturn(Optional.of("PASS"));
         new CommunityImageReviewWorker(jobs,images,gateway,direct,Clock.fixed(now,ZoneOffset.UTC)).tick();
-        jobs.receiveDownloadFailure("fixture-direct",now.plusSeconds(1));
-        new CommunityImageReviewWorker(jobs,images,gateway,direct,Clock.fixed(now.plusSeconds(6),ZoneOffset.UTC)).tick();
         assertEquals("PASS",jdbc.queryForObject("SELECT status FROM community_images WHERE id=?",String.class,id));
         assertEquals("PUBLISHED",jdbc.queryForObject("SELECT status FROM community_posts WHERE id=?",String.class,post));
         assertEquals(1L,jdbc.queryForObject("SELECT count(*) FROM inbox_notifications WHERE recipient_account_id=?",Long.class,owner));
-        org.mockito.Mockito.verify(gateway,org.mockito.Mockito.times(1)).submit(owner,id);
         org.mockito.Mockito.verify(direct,org.mockito.Mockito.times(1)).check(id);
+        org.mockito.Mockito.verifyNoInteractions(gateway);
     }
     @Test void directCheckWithoutClearVerdictDoesNotPublish() {
         var first=jobs.claim(now).orElseThrow();
