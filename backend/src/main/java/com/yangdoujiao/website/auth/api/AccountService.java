@@ -52,6 +52,13 @@ public class AccountService {
     }
 
     @Transactional(readOnly = true)
+    public boolean isAdministrator(long userId) {
+        return accounts.findById(userId).filter(this::available)
+                .map(account -> account.getRole() == com.yangdoujiao.website.auth.account.UserAccountRole.ADMIN)
+                .orElse(false);
+    }
+
+    @Transactional(readOnly = true)
     public AuthSessionResponse session(long userId) {
         return accounts.findById(userId).filter(this::available).map(account -> {
             String legacy = externalIdentities.findByProviderAndUserAccountId(ExternalIdentityProvider.WECHAT, userId)

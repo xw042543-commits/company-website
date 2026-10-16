@@ -98,14 +98,26 @@ class AdminAccountIntegrationTest {
     }
     @Test void upgradeAndDowngradeInvalidateActualCookiesAndNewLoginGetsNewPermissions() throws Exception {
         Cookie old = login(target);
+        mvc.perform(get("/api/v1/auth/session").cookie(old)).andExpect(jsonPath("$.admin").value(false));
         seedTokens(target);
         mutate(target, "role", "\"role\":\"ADMIN\"");
+        assertThat(jdbc.queryForObject("SELECT role FROM user_accounts WHERE id=?", String.class, target)).isEqualTo("ADMIN");
+        mvc.perform(get("/api/v1/auth/session").cookie(old)).andExpect(jsonPath("$.authenticated").value(false));
         mvc.perform(get("/api/v1/account").cookie(old)).andExpect(status().isUnauthorized());
         assertThat(unrevoked(target)).isZero();
         Cookie promoted = login(target);
+        for (int refresh = 0; refresh < 2; refresh++)
+            mvc.perform(get("/api/v1/auth/session").cookie(promoted)).andExpect(status().isOk())
+                .andExpect(jsonPath("$.authenticated").value(true)).andExpect(jsonPath("$.admin").value(true));
         mvc.perform(get("/api/v1/admin/catalog/options").cookie(promoted)).andExpect(status().isOk());
+        for (String path : List.of("universities", "programmes", "courses"))
+            mvc.perform(get("/api/v1/admin/catalog/" + path).cookie(promoted)).andExpect(status().isOk());
+        mvc.perform(get("/api/v1/admin/catalog/lifecycle/capabilities").cookie(promoted))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.permanentDelete").value(false));
         mvc.perform(get("/api/v1/admin/accounts").cookie(promoted)).andExpect(status().isForbidden());
         mutate(target, "role", "\"role\":\"USER\"");
+        mvc.perform(get("/api/v1/auth/session").cookie(promoted)).andExpect(jsonPath("$.authenticated").value(false));
+        mvc.perform(get("/api/v1/auth/session").cookie(login(target))).andExpect(jsonPath("$.admin").value(false));
         mvc.perform(get("/api/v1/admin/catalog/options").cookie(promoted)).andExpect(status().isUnauthorized());
         mvc.perform(get("/api/v1/admin/catalog/options").cookie(login(target))).andExpect(status().isForbidden());
         mvc.perform(get("/api/v1/admin/accounts/audit").with(user(principal(advanced))).param("target", Long.toString(target)))
@@ -113,6 +125,20 @@ class AdminAccountIntegrationTest {
             .andExpect(jsonPath("$.items[0].target_user_id").value(target)).andExpect(jsonPath("$.items[0].old_role").value("ADMIN"))
             .andExpect(jsonPath("$.items[0].new_role").value("USER")).andExpect(jsonPath("$.items[0].created_at").exists());
         assertThat(jdbc.queryForObject("SELECT full_name FROM user_accounts WHERE id=?", String.class, target)).isEqualTo(prefix + "member");
+    }
+    @Test void staleAdministratorPrincipalCannotReadOrWriteAfterDirectRoleOrStatusChange() throws Exception {
+        UserPrincipal stale = principal(ordinary);
+        for (String update : List.of("role='USER'", "role='ADMIN',status='DISABLED'")) {
+            jdbc.update("UPDATE user_accounts SET " + update + " WHERE id=?", ordinary);
+            for (String path : List.of("options", "universities", "programmes", "courses")) {
+                mvc.perform(get("/api/v1/admin/catalog/" + path).with(user(stale))).andExpect(status().isForbidden());
+            }
+            mvc.perform(post("/api/v1/admin/catalog/universities").with(user(stale)).with(csrf())
+                .contentType("application/json").content("{}" )).andExpect(status().isForbidden());
+        }
+        mvc.perform(get("/api/v1/admin/accounts").cookie(login(advanced))).andExpect(status().isOk());
+        mvc.perform(get("/api/v1/admin/catalog/lifecycle/capabilities").cookie(login(advanced)))
+            .andExpect(jsonPath("$.permanentDelete").value(true));
     }
     @Test void disableBlocksLoginAndTokensAndEnableNeverRevivesOldSessions() throws Exception {
         Cookie old = login(target); seedTokens(target);

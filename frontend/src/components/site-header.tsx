@@ -31,7 +31,6 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
   useEffect(() => {
     let active = true;
     let pending = false;
-    let knownAuthenticated = signedIn;
     const refresh = () => {
       if (pending) return;
       pending = true;
@@ -39,13 +38,12 @@ export function SiteHeader({ locale, signedIn }: { locale: Locale; signedIn: boo
         if (active) {
           setAuthenticated(result.status === "ready" ? result.session.authenticated : signedIn);
           setAdmin(result.status === "ready" && result.session.admin);
-          if (result.status === "ready") knownAuthenticated = result.session.authenticated;
           if (result.status === "ready") setProfile(result.session.authenticated ? { name: result.session.fullName || "", avatar: result.session.avatarUrl } : null);
         }
       }).finally(() => { pending = false; });
     };
     refresh();
-    const stop = watchProfileUpdates(() => { if (knownAuthenticated) refresh(); });
+    const stop = watchProfileUpdates(refresh);
     return () => { active = false; stop(); };
   }, [pathname, signedIn]);
 

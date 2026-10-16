@@ -29,6 +29,15 @@ Token，再将返回的 `headerName` 和 `token` 加入请求头。
 | `POST` | `/api/v1/auth/forgot-password` | 申请重置密码，响应不暴露账号是否存在 |
 | `POST` | `/api/v1/auth/reset-password` | 使用一次性 Token 重置密码 |
 
+网站后台权限沿用 `user_accounts.role = ADMIN`，普通管理员与高级管理员均返回
+`admin: true`；高级管理员仍由 `catalog_advanced_administrators` 单独确认，不新增角色。
+登录与 `/auth/session` 均从当前数据库账号读取身份；后台 API 同时验证登录身份与当前
+数据库中的 ACTIVE/ADMIN/未注销状态，不信任旧 Session 内保存的管理员权限。
+账号角色或状态变更沿用现有逻辑撤销全部网站会话及小程序令牌，用户须重新登录；旧 Cookie
+不能恢复权限。降级后重新登录得到 `admin: false`。账号管理及高级操作仍需额外校验现有高级授权。
+浏览器导航、个人中心均使用此 `admin` 布尔能力，不按中文角色名或大小写猜测权限；可选头像失效
+时仅使用默认头像，不丢弃有效的身份。后台入口随资料刷新、窗口重新聚焦及可见页面轮询更新。
+
 各写接口的 JSON 字段：
 
 | 路径 | 请求字段 |

@@ -58,6 +58,7 @@ import tools.jackson.databind.ObjectMapper;
 class AdviserConsultationReadHttpIntegrationTest {
     @Autowired private WebApplicationContext context;
     @MockitoBean private UserAccountDetailsService accounts;
+    @MockitoBean private com.yangdoujiao.website.auth.api.AccountService accountPermissions;
     @MockitoBean private ConsultationEnquiryRepository repository;
     private MockMvc mockMvc;
     private UserPrincipal adviser;
