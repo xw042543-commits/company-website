@@ -12,6 +12,7 @@ import tools.jackson.databind.ObjectMapper;
 
 /** Direct-upload fallback when WeChat's URL-based checker cannot download an image. */
 final class WechatDirectImageReviewGateway {
+    private static final org.slf4j.Logger log=org.slf4j.LoggerFactory.getLogger(WechatDirectImageReviewGateway.class);
     private final WechatAccessTokenProvider tokens;
     private final CommunityImageAttachments images;
     private final ObjectMapper json;
@@ -39,15 +40,19 @@ final class WechatDirectImageReviewGateway {
                     if(reply.length==0||reply.length>16384)return Optional.<String>empty();
                     var code=json.readTree(reply).path("errcode");
                     if(!code.isIntegralNumber()||!code.canConvertToInt())return Optional.<String>empty();
-                    return switch(code.intValue()) {
+                    int providerCode=code.intValue();
+                    return switch(providerCode) {
                         case 0 -> Optional.of("PASS");
                         case 87014 -> Optional.of("REJECTED");
-                        default -> Optional.empty();
+                        default -> {
+                            log.warn("community direct image review rejected providerCode={}",providerCode);
+                            yield Optional.empty();
+                        }
                     };
                 });
         }catch(IOException|RuntimeException e) {
             // Never log provider response text, access tokens, image data or paths.
-            org.slf4j.LoggerFactory.getLogger(getClass()).warn("community direct image review unavailable failureType={}",e.getClass().getSimpleName());
+            log.warn("community direct image review unavailable failureType={}",e.getClass().getSimpleName());
             return Optional.empty();
         }
     }
