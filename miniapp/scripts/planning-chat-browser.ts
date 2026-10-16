@@ -1,9 +1,21 @@
 import { createChatDemo } from './planning-chat-demo';
+import { lookupReply } from './planning-chat-lookup';
 const get = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const input = get<HTMLTextAreaElement>('composer');
 const panel = get<HTMLDialogElement>('panel');
 let composing = false;
-const chat = createChatDemo(draw);
+const live = new URLSearchParams(location.search).get('catalogue') === 'live';
+const chat = createChatDemo(draw, live ? 0 : 500, live ? text => lookupReply(text) : undefined);
+if (live) {
+  document.querySelector('.disclaimer')!.textContent = '内部查询演示 · 真实目录资料待核实 · 未接入 AI 模型';
+  document.querySelector('.welcome p')!.textContent = '直接输入院校或专业关键词，学历可选，不用填背景。';
+  document.querySelector('footer p')!.textContent = '查询词会发送至本站后台 · 请勿输入隐私资料 · 对话仅本页保存';
+  input.maxLength = 200; input.placeholder = '例如：计算机硕士、设计本科…';
+  document.querySelectorAll<HTMLButtonElement>('[data-prompt]').forEach((el,index) => {
+    const prompt = ['计算机硕士','设计本科','工程博士'][index]!;
+    el.dataset.prompt = prompt; el.textContent = prompt;
+  });
+}
 function text(tag: string, value: string, cls = '') { const el = document.createElement(tag); el.textContent = value; el.className = cls; return el; }
 function button(label: string, handler: () => void) { const el = document.createElement('button'); el.textContent = label; el.onclick = handler; return el; }
 function controls() {
@@ -14,7 +26,7 @@ function controls() {
 function draw() {
   get('welcome').hidden = chat.state.messages.length > 0;
   get('messages').replaceChildren(...chat.state.messages.map(m => text('p', m.text, `message ${m.role}`)));
-  if (chat.state.busy) get('messages').append(text('p', '正在准备模拟回复…', 'muted'));
+  if (chat.state.busy) get('messages').append(text('p', live ? '正在查询院校资料…' : '正在准备模拟回复…', 'muted'));
   get('error').hidden = !chat.state.error; get('error-copy').textContent = chat.state.error;
   controls(); get('conversation').scrollTop = get('conversation').scrollHeight;
 }
