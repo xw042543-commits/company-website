@@ -35,11 +35,12 @@ final class WechatDirectImageReviewGateway {
             body.add("media",new HttpEntity<>(resource,headers));
             return client.post().uri(uri).contentType(MediaType.MULTIPART_FORM_DATA).body(body)
                 .exchange((request,response)->{
-                    if(!response.getStatusCode().is2xxSuccessful())return Optional.<String>empty();
+                    if(!response.getStatusCode().is2xxSuccessful())return unavailable("HttpStatus"+response.getStatusCode().value());
                     byte[] reply=response.getBody().readNBytes(16385);
-                    if(reply.length==0||reply.length>16384)return Optional.<String>empty();
+                    if(reply.length==0)return unavailable("EmptyProviderResponse");
+                    if(reply.length>16384)return unavailable("OversizedProviderResponse");
                     var code=json.readTree(reply).path("errcode");
-                    if(!code.isIntegralNumber()||!code.canConvertToInt())return Optional.<String>empty();
+                    if(!code.isIntegralNumber()||!code.canConvertToInt())return unavailable("InvalidProviderResponse");
                     int providerCode=code.intValue();
                     return switch(providerCode) {
                         case 0 -> Optional.of("PASS");
@@ -55,5 +56,9 @@ final class WechatDirectImageReviewGateway {
             log.warn("community direct image review unavailable failureType={}",e.getClass().getSimpleName());
             return Optional.empty();
         }
+    }
+    private static Optional<String> unavailable(String failureType) {
+        log.warn("community direct image review unavailable failureType={}",failureType);
+        return Optional.empty();
     }
 }
