@@ -65,4 +65,24 @@ class WechatDirectImageReviewGatewayTest {
         assertTrue(gateway.check(id).isEmpty());
         server.verify();
     }
+    @Test void logsOnlySanitizedHttpFailure() {
+        server.expect(requestTo("https://api.weixin.qq.com/wxa/img_sec_check?access_token=fixture-token"))
+            .andRespond(withStatus(HttpStatus.FORBIDDEN));
+        assertTrue(gateway.check(id).isEmpty());
+        server.verify();
+        String logs=events.list.stream().map(e->e.getFormattedMessage()).collect(java.util.stream.Collectors.joining("\n"));
+        assertTrue(logs.contains("failureType=HttpStatus403"));
+        assertFalse(logs.contains("fixture-token"));
+        assertFalse(logs.contains(id));
+    }
+    @Test void logsOnlySanitizedInvalidResponseFailure() {
+        server.expect(requestTo("https://api.weixin.qq.com/wxa/img_sec_check?access_token=fixture-token"))
+            .andRespond(withSuccess("{}",MediaType.APPLICATION_JSON));
+        assertTrue(gateway.check(id).isEmpty());
+        server.verify();
+        String logs=events.list.stream().map(e->e.getFormattedMessage()).collect(java.util.stream.Collectors.joining("\n"));
+        assertTrue(logs.contains("failureType=InvalidProviderResponse"));
+        assertFalse(logs.contains("fixture-token"));
+        assertFalse(logs.contains(id));
+    }
 }
