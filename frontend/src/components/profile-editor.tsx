@@ -78,7 +78,7 @@ export function ProfileEditor<T extends EditableProfile>({ account, onCancel, on
   return createPortal(<div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="account-edit-title"><form ref={dialog} className={`admin-editor ${styles.editor}`} onSubmit={save} aria-busy={busy}>
     <header className={styles.editorHeader}><div><span className={styles.eyebrow}>个人资料</span><h2 id="account-edit-title">{title}</h2></div><button className={`secondary ${styles.closeButton}`} type="button" disabled={busy} onClick={onCancel} aria-label="关闭资料编辑">关闭</button></header>
     <div className={styles.editBody}>
-      <div className={styles.accountMeta} aria-label="账户信息"><div><span>账号编号</span><strong>{account.id}</strong></div>{statusLabel && <div><span>状态</span><strong>{statusLabel}</strong></div>}<div><span>登录邮箱</span><strong>{account.email || "未绑定邮箱"}</strong><small>仅展示</small></div></div>
+      <div className={`${styles.accountMeta} ${statusLabel ? "" : styles.accountMetaCompact}`} aria-label="账户信息"><div><span>账号编号</span><strong>{account.id}</strong></div>{statusLabel && <div><span>状态</span><strong>{statusLabel}</strong></div>}<div><span>登录邮箱</span><strong>{account.email || "未绑定邮箱"}</strong><small>仅展示</small></div></div>
       <div className={styles.profileGrid}>
         <section className={styles.identitySection} aria-labelledby="profile-name-title">
           <div className={styles.sectionHeading}><span>01</span><div><h3 id="profile-name-title">公开身份</h3><p>此名称会显示在评论和公开内容中。</p></div></div>
