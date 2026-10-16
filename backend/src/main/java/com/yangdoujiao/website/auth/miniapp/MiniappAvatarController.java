@@ -1,6 +1,5 @@
 package com.yangdoujiao.website.auth.miniapp;
 
-import java.time.Duration;
 
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +22,8 @@ public class MiniappAvatarController {
         MiniappAvatarRepository.StoredAvatar avatar = avatars.find(accountId);
         return ResponseEntity.ok()
                 .contentType(org.springframework.http.MediaType.parseMediaType(avatar.contentType()))
-                .cacheControl(CacheControl.maxAge(Duration.ofDays(30)).cachePublic().immutable())
+                .cacheControl(CacheControl.noStore())
+                .header("X-Content-Type-Options", "nosniff")
                 .body(avatar.content());
     }
 }

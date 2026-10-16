@@ -1,7 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import { AccountAvatar } from "./account-avatar";
+import { watchProfileUpdates } from "@/lib/profile-sync";
 import Link from "next/link";
 import { type FormEvent, useEffect, useState } from "react";
 import { changePassword, deleteAccount, getAccount, getSession, logout, type AccountProfile } from "@/lib/auth-api";
@@ -36,27 +37,34 @@ export function AccountPanel({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     let active = true;
-    void (async () => {
-      const demo = await loadDemoAccount();
-      if (!active) return;
-      if (demo) {
-        setAccount(demo);
-        setDemoAccount(true);
+    let pending = false;
+    const refresh = async () => {
+      if (pending) return;
+      pending = true;
+      try {
+        const demo = await loadDemoAccount();
+        if (!active) return;
+        if (demo) {
+          setAccount(demo);
+          setDemoAccount(true);
+          setLoading(false);
+          return;
+        }
+        const [result, session] = await Promise.all([
+          getAccount(browserApiBaseUrl()),
+          getSession(browserApiBaseUrl()),
+        ]);
+        if (!active) return;
+        if (result.status === "ready") setAccount(result.account);
+        else if (result.status === "unauthorized") router.replace(`/${locale}/login`);
+        else setMessage(authMessage(locale, result));
+        if (session.status === "ready") setIsAdviser(session.session.adviser || session.session.admin);
         setLoading(false);
-        return;
-      }
-      const [result, session] = await Promise.all([
-        getAccount(browserApiBaseUrl()),
-        getSession(browserApiBaseUrl()),
-      ]);
-      if (!active) return;
-      if (result.status === "ready") setAccount(result.account);
-      else if (result.status === "unauthorized") router.replace(`/${locale}/login`);
-      else setMessage(authMessage(locale, result));
-      if (session.status === "ready") setIsAdviser(session.session.adviser || session.session.admin);
-      setLoading(false);
-    })();
-    return () => { active = false; };
+      } finally { pending = false; }
+    };
+    void refresh();
+    const stop = watchProfileUpdates(() => { void refresh(); });
+    return () => { active = false; stop(); };
   }, [locale, router]);
 
   async function handlePassword(event: FormEvent<HTMLFormElement>) {
@@ -115,10 +123,8 @@ export function AccountPanel({ locale }: { locale: Locale }) {
   return <div className="account-panel">
     <section className="account-summary" aria-labelledby="account-summary-title">
       <div className="account-summary-identity">
-        {account.wechatAvatarUrl
-          ? <Image className="account-profile-avatar" src={account.wechatAvatarUrl} alt={words(locale, "微信头像", "WeChat profile picture")} width={72} height={72} unoptimized />
-          : <span className="account-profile-avatar account-profile-avatar-fallback" aria-hidden="true">{account.fullName.trim().charAt(0).toUpperCase()}</span>}
-        <div><h2 id="account-summary-title">{account.wechatDisplayName ?? account.fullName}</h2><p>{words(locale, "账户建立于", "Account created")} {new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB", { dateStyle: "medium" }).format(new Date(account.createdAt))}</p></div>
+        <AccountAvatar className="account-profile-avatar" name={account.fullName} url={account.avatarUrl !== undefined ? account.avatarUrl : account.wechatAvatarUrl} size={72} />
+        <div><h2 id="account-summary-title">{account.fullName}</h2><p>{words(locale, "账户建立于", "Account created")} {new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-GB", { dateStyle: "medium" }).format(new Date(account.createdAt))}</p></div>
       </div>
       <button type="button" className="secondary" disabled={pendingAction !== null} onClick={handleLogout}>{pendingAction === "logout" ? words(locale, "正在退出…", "Signing out…") : words(locale, "退出登录", "Sign out")}</button>
       <dl>

@@ -11,15 +11,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(readOnly = true)
 public class AdminAccountService {
-    public record Account(long id, String fullName, String email, String phone, String role, String status,
+    public record Account(long id, String fullName, String email, String phone, String role, String status, String avatarUrl,
                           boolean advanced, OffsetDateTime createdAt, OffsetDateTime updatedAt) {}
     public record Page<T>(List<T> items, int page, int size, long total, long totalPages) {}
     public record Change(String role, Boolean enabled, Boolean confirmed, OffsetDateTime expectedUpdatedAt) {}
     private final AdminAccountRepository repository;
     private final CatalogLifecycleRepository permissions;
     private final UserSessionService sessions;
-    public AdminAccountService(AdminAccountRepository repository, CatalogLifecycleRepository permissions, UserSessionService sessions) {
-        this.repository = repository; this.permissions = permissions; this.sessions = sessions;
+    private final String publicOrigin;
+    private final com.yangdoujiao.website.auth.account.AvatarImageValidator images;
+    private final com.yangdoujiao.website.auth.miniapp.MiniappAvatarRepository avatars;
+    public AdminAccountService(AdminAccountRepository repository, CatalogLifecycleRepository permissions, UserSessionService sessions,
+            com.yangdoujiao.website.auth.account.AvatarImageValidator images, com.yangdoujiao.website.auth.miniapp.MiniappAvatarRepository avatars, @org.springframework.beans.factory.annotation.Value("${APP_MINIAPP_PUBLIC_ORIGIN:https://yangdoujiao.com}") String publicOrigin) {
+        this.repository = repository; this.permissions = permissions; this.sessions = sessions; this.images = images; this.avatars = avatars; this.publicOrigin = publicOrigin.replaceAll("/+$", "");
     }
     private void requireAdvanced(long actor) {
         if (!permissions.advanced(actor)) throw new ApiException(HttpStatus.FORBIDDEN, "FORBIDDEN", "仅现有高级管理员可管理账号");
@@ -58,6 +62,35 @@ public class AdminAccountService {
         sessions.revokeAll(id);
         repository.revokeTokens(id);
         repository.log(actor, repository.account(actor).fullName(), old, roleChange, role, status);
+        return repository.account(id);
+    }
+    public record ProfileEdit(String fullName, String avatarAction, String contentType, String contentBase64, OffsetDateTime expectedUpdatedAt) {
+        @com.fasterxml.jackson.annotation.JsonAnySetter
+        public void rejectExtraField(String field, Object value) { throw new IllegalArgumentException("仅允许修改用户名和头像"); }
+    }
+    @Transactional
+    public Account edit(long actor, long id, ProfileEdit input) {
+        requireAdvanced(actor);
+        if (actor == id) throw invalid("此入口仅用于编辑其他账号");
+        if (input == null || input.expectedUpdatedAt() == null) throw invalid("请刷新账号资料后重试");
+        String name = input.fullName() == null ? "" : input.fullName().strip();
+        if (name.isEmpty() || name.length() > 100 || name.codePoints().anyMatch(c -> Character.isISOControl(c) || Character.getType(c) == Character.FORMAT))
+            throw invalid("用户名须为1至100个字符，不能包含控制字符");
+        if (input.avatarAction() == null || !Set.of("KEEP", "REPLACE", "REMOVE").contains(input.avatarAction())) throw invalid("请选择有效的头像操作");
+        if (!input.avatarAction().equals("REPLACE") && (input.contentBase64() != null || input.contentType() != null)) throw invalid("仅更换头像时可提交图片");
+        repository.lock(actor, id);
+        requireAdvanced(actor);
+        Account old = repository.account(id);
+        if (old.status().equals("DELETED")) throw invalid("已注销账号仅可查看");
+        if (!old.updatedAt().isEqual(input.expectedUpdatedAt())) throw new ApiException(HttpStatus.CONFLICT, "ACCOUNT_CHANGED", "账号已被更新，请刷新后重新编辑");
+        String avatarUrl = old.avatarUrl();
+        if (input.avatarAction().equals("REPLACE")) {
+            var image = images.validate(input.contentBase64(), input.contentType());
+            avatars.save(id, image.contentType(), image.content());
+            avatarUrl = publicOrigin + "/api/v1/miniapp/avatars/" + id + "?v=" + UUID.randomUUID();
+        } else if (input.avatarAction().equals("REMOVE")) { avatars.delete(id); avatarUrl = null; }
+        repository.edit(id, name, input.avatarAction(), avatarUrl);
+        repository.profileLog(actor, repository.account(actor).fullName(), old, name, input.avatarAction());
         return repository.account(id);
     }
     private static ApiException invalid(String message) { return new ApiException(HttpStatus.BAD_REQUEST, "VALIDATION_ERROR", message); }

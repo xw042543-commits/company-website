@@ -452,3 +452,14 @@ APP_TRUSTED_PROXIES=
 - GET `/api/v1/admin/accounts/audit`：分页，支持 `target` 用户编号筛选；保留操作人/目标编号和姓名、前后身份/状态、操作类型及时间。
 
 变更只更新 role 或 status 及 updated_at；同一事务中撤销网页会话、小程序访问与刷新令牌并写入日志。双方账号按编号加锁并再次核权；过期编辑返回409，不覆盖他人变更。无变化请求不重复记日志。
+
+
+## 高级管理员编辑账号资料（V64）
+
+`PATCH /api/v1/admin/accounts/{id}/profile`，使用既有网页 Cookie 会话与 CSRF，仅数据库中启用且已有高级授权的 ADMIN 可调用，仅编辑其他未注销账号。
+
+请求字段：fullName（去除两侧空格后1至100字符，不允许控制字符）、avatarAction（KEEP/REPLACE/REMOVE）、expectedUpdatedAt（读取详情时的版本）。REPLACE 还需 contentType（image/jpeg、image/png、image/webp）及 contentBase64（原始图片Base64，不含data前缀）。其他字段一律拒绝，不能修改邮箱、ID、角色、密码或状态。过期版本返回409。保留既有升降级与启用/禁用接口。
+
+图片解码后最多1,048,576字节，含边界值；超过限制提示“头像大小不能超过1MB”。服务端检查实际解码格式、声明类型、完整解码和分辨率上限，拒绝伪装/损坏图片。WebP真实解码使用 [TwelveMonkeys ImageIO官方插件](https://github.com/haraldk/TwelveMonkeys)。头像复用miniapp_account_avatars数据库字节存储，不使用临时目录或外部客户端链接。用户名、头像、版本及PROFILE审计记录同事务保存，失败整体回滚。头像URL每次更换生成新版本；读取接口no-store并带nosniff，避免旧图缓存。
+
+账号列表/详情增加avatarUrl；审计增加old_full_name/new_full_name/avatar_action。GET /api/v1/account增加avatarUrl，保留wechatAvatarUrl兼容字段；GET /api/v1/auth/session增加avatarUrl且从数据库读取最新用户名和头像，不依赖旧会话姓名。不撤销资料编辑用户的会话。个人中心与导航使用统一资料，同浏览器标签页事件立即刷新；跨浏览器的可见页面每5秒重新读取，重新聚焦也立即读取，不需要退出登录。

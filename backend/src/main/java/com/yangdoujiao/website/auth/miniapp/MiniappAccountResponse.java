@@ -12,6 +12,6 @@ public record MiniappAccountResponse(
         String name = identity != null && identity.getDisplayName() != null && !identity.getDisplayName().isBlank()
                 ? identity.getDisplayName() : account.getFullName();
         return new MiniappAccountResponse(account.getId(), name,
-                identity == null ? null : identity.getAvatarUrl(), identity == null ? "UNLINKED" : "LINKED");
+                account.displayAvatar(identity == null ? null : identity.getAvatarUrl()), identity == null ? "UNLINKED" : "LINKED");
     }
 }

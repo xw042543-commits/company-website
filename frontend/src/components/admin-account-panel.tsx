@@ -1,6 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { AccountAvatar } from "./account-avatar";
+import { AdminAccountEditor } from "./admin-account-editor";
+import { announceProfileUpdate } from "@/lib/profile-sync";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { adminRead, adminWrite, type AdminPage } from "@/lib/admin-catalog-api";
 import { accountIdentity, accountListPath, accountStatuses, canChangeIdentity, type ManagedAccount } from "@/lib/admin-account-api";
@@ -8,11 +11,12 @@ import { browserApiBaseUrl } from "@/lib/client-runtime";
 import type { Locale } from "@/lib/site";
 import styles from "./admin-account-panel.module.css";
 
-type Audit = { id: number; actor_user_id: number; target_user_id: number; actor_name: string; target_name: string; action: string; old_role: string; new_role: string; old_status: string; new_status: string; created_at: string };
+type Audit = { id: number; actor_user_id: number; target_user_id: number; actor_name: string; target_name: string; action: string; old_role: string; new_role: string; old_status: string; new_status: string; old_full_name?: string; new_full_name?: string; avatar_action?: string; created_at: string };
 type Operation = { account: ManagedAccount; kind: "role" | "status" };
 const root = "/api/v1/admin/accounts";
 const date = (value: string) => new Date(value).toLocaleString("zh-CN", { hour12: false });
 export function AdminAccountPanel({ locale }: { locale: Locale }) {
+  const [editing, setEditing] = useState<ManagedAccount | null>(null);
   const [data, setData] = useState<AdminPage<ManagedAccount> | null>(null);
   const [q, setQ] = useState(""), [status, setStatus] = useState(""), [identity, setIdentity] = useState(""), [page, setPage] = useState(1);
   const [self, setSelf] = useState(0), [allowed, setAllowed] = useState(false), [notice, setNotice] = useState("");
@@ -66,11 +70,11 @@ export function AdminAccountPanel({ locale }: { locale: Locale }) {
     void loadAudit().then(r => { if (active) { setAudit(r.status === "ready" ? r.value : null); if (r.status !== "ready") setNotice("操作日志加载失败，请刷新重试。"); } });
     return () => { active = false; };
   }, [allowed, loadAudit]);
-  async function openDetail(account: ManagedAccount) {
+  async function openDetail(account: ManagedAccount, edit = false) {
     const current = ++detailVersion.current;
     const r = await adminRead<ManagedAccount>(browserApiBaseUrl(), `${root}/${account.id}`);
     if (current !== detailVersion.current) return;
-    if (r.status === "ready") { setDetail(r.value); setAuditPage(1); } else setNotice(r.message || "详情加载失败，请重试。");
+    if (r.status === "ready") { if (edit) setEditing(r.value); else { setDetail(r.value); setAuditPage(1); } } else setNotice(r.message || "详情加载失败，请重试。");
   }
   async function confirm() {
     if (!operation || busy) return;
@@ -96,17 +100,23 @@ export function AdminAccountPanel({ locale }: { locale: Locale }) {
         <label>当前身份<select value={identity} onChange={e => { setIdentity(e.target.value); setPage(1); }}><option value="">全部身份</option><option value="USER">普通用户</option><option value="ADMIN">普通管理员</option><option value="ADVANCED">高级管理员</option><option value="ADVISER">顾问</option></select></label>
       </section>
       <div className={styles.tableWrap}><table className={styles.table}><thead><tr><th>用户名</th><th>邮箱</th><th>注册时间</th><th>账号状态</th><th>当前身份</th><th>操作</th></tr></thead><tbody>
-        {data?.items.map(account => <tr key={account.id}><td>{account.fullName}{account.id === self && <small>（当前账号）</small>}</td><td>{account.email || "未绑定邮箱"}</td><td>{date(account.createdAt)}</td><td>{accountStatuses[account.status] || "未知状态"}</td><td>{accountIdentity(account)}</td><td><div className={styles.actions}>
-          <button className="secondary" onClick={() => void openDetail(account)}>查看详情</button>
+        {data?.items.map(account => <tr key={account.id}><td><div className={styles.identity}><AccountAvatar name={account.fullName} url={account.avatarUrl} size={36} />{account.fullName}</div>{account.id === self && <small>（当前账号）</small>}</td><td>{account.email || "未绑定邮箱"}</td><td>{date(account.createdAt)}</td><td>{accountStatuses[account.status] || "未知状态"}</td><td>{accountIdentity(account)}</td><td><div className={styles.actions}>
+          <button className="secondary" onClick={() => void openDetail(account)}>查看详情</button>{account.id !== self && account.status !== "DELETED" && <button className="secondary" disabled={busy || !self} onClick={() => void openDetail(account, true)}>编辑</button>}
           {canChangeIdentity(account, self) && <button className="secondary" disabled={busy || !self} onClick={() => setOperation({ account, kind: "role" })}>{account.role === "ADMIN" ? "取消管理员" : "设为管理员"}</button>}
           {account.id !== self && account.status !== "DELETED" && <button className="secondary" disabled={busy || !self} onClick={() => setOperation({ account, kind: "status" })}>{account.status === "DISABLED" ? "启用" : "禁用"}</button>}
         </div></td></tr>)}
         {data?.items.length === 0 && <tr><td colSpan={6}>没有符合条件的账号。</td></tr>}
       </tbody></table></div>
       <div className={styles.pager}><span>共 {data?.total ?? 0} 个账号，第 {page} / {Math.max(1, data?.totalPages ?? 1)} 页</span><button className="secondary" disabled={page <= 1} onClick={() => setPage(page - 1)}>上一页</button><button className="secondary" disabled={!data || page >= data.totalPages} onClick={() => setPage(page + 1)}>下一页</button></div>
-      {detail && <section className={styles.detail} aria-label="账号详情"><header className={styles.pager}><h2>账号详情</h2><button className="secondary" onClick={() => { detailVersion.current++; setDetail(null); setAuditPage(1); }}>关闭详情</button></header><dl className={styles.fields}>{[["账号编号", detail.id], ["用户名", detail.fullName], ["邮箱", detail.email || "未绑定"], ["手机号", detail.phone || "未绑定"], ["当前身份", accountIdentity(detail)], ["账号状态", accountStatuses[detail.status]], ["注册时间", date(detail.createdAt)], ["最近更新时间", date(detail.updatedAt)]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p>已注销账号仅可查看；高级管理员身份及顾问身份沿用原有授权流程。</p></section>}
-      <section className={styles.detail}><h2>{detail ? `${detail.fullName} 的操作记录` : "账号操作日志"}</h2><div className={styles.tableWrap}><table className={styles.table}><thead><tr><th>时间</th><th>操作人</th><th>目标用户</th><th>修改内容</th></tr></thead><tbody>{audit?.items.map(row => <tr key={row.id}><td>{date(row.created_at)}</td><td>{row.actor_name}（编号 {row.actor_user_id}）</td><td>{row.target_name}（编号 {row.target_user_id}）</td><td>{row.action === "ROLE" ? `${accountIdentity({ role: row.old_role, advanced: false })} → ${accountIdentity({ role: row.new_role, advanced: false })}` : `${accountStatuses[row.old_status]} → ${accountStatuses[row.new_status]}`}</td></tr>)}{audit?.items.length === 0 && <tr><td colSpan={4}>暂无操作记录。</td></tr>}</tbody></table></div><div className={styles.pager}><span>共 {audit?.total ?? 0} 条记录，第 {auditPage} 页</span><button className="secondary" disabled={auditPage <= 1} onClick={() => setAuditPage(auditPage - 1)}>上一页</button><button className="secondary" disabled={!audit || auditPage >= audit.totalPages} onClick={() => setAuditPage(auditPage + 1)}>下一页</button></div></section>
+      {detail && <section className={styles.detail} aria-label="账号详情"><header className={styles.pager}><h2>账号详情</h2><button className="secondary" onClick={() => { detailVersion.current++; setDetail(null); setAuditPage(1); }}>关闭详情</button></header><AccountAvatar name={detail.fullName} url={detail.avatarUrl} size={72} /><dl className={styles.fields}>{[["账号编号", detail.id], ["用户名", detail.fullName], ["邮箱", detail.email || "未绑定"], ["手机号", detail.phone || "未绑定"], ["当前身份", accountIdentity(detail)], ["账号状态", accountStatuses[detail.status]], ["注册时间", date(detail.createdAt)], ["最近更新时间", date(detail.updatedAt)]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p>已注销账号仅可查看；高级管理员身份及顾问身份沿用原有授权流程。</p></section>}
+      <section className={styles.detail}><h2>{detail ? `${detail.fullName} 的操作记录` : "账号操作日志"}</h2><div className={styles.tableWrap}><table className={styles.table}><thead><tr><th>时间</th><th>操作人</th><th>目标用户</th><th>修改内容</th></tr></thead><tbody>{audit?.items.map(row => <tr key={row.id}><td>{date(row.created_at)}</td><td>{row.actor_name}（编号 {row.actor_user_id}）</td><td>{row.target_name}（编号 {row.target_user_id}）</td><td>{row.action === "PROFILE" ? `用户名：${row.old_full_name} → ${row.new_full_name}；头像：${({ KEEP: "保持原头像", REPLACE: "更换", REMOVE: "删除" } as Record<string, string>)[row.avatar_action || "KEEP"]}` : row.action === "ROLE" ? `${accountIdentity({ role: row.old_role, advanced: false })} → ${accountIdentity({ role: row.new_role, advanced: false })}` : `${accountStatuses[row.old_status]} → ${accountStatuses[row.new_status]}`}</td></tr>)}{audit?.items.length === 0 && <tr><td colSpan={4}>暂无操作记录。</td></tr>}</tbody></table></div><div className={styles.pager}><span>共 {audit?.total ?? 0} 条记录，第 {auditPage} 页</span><button className="secondary" disabled={auditPage <= 1} onClick={() => setAuditPage(auditPage - 1)}>上一页</button><button className="secondary" disabled={!audit || auditPage >= audit.totalPages} onClick={() => setAuditPage(auditPage + 1)}>下一页</button></div></section>
     </>}
+    {editing && <AdminAccountEditor account={editing} onCancel={() => setEditing(null)} onSaved={account => {
+      setEditing(null); setNotice("账号资料已保存，页面将自动同步最新用户名和头像。");
+      if (detail?.id === account.id) setDetail(account);
+      setData(previous => previous ? { ...previous, items: previous.items.map(item => item.id === account.id ? account : item) } : previous);
+      announceProfileUpdate(); void load(); void loadAudit().then(r => { if (r.status === "ready") setAudit(r.value); });
+    }} />}
     {operation && <div className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="account-confirm-title"><section ref={dialog} className={`admin-editor ${styles.confirm}`}><header><h2 id="account-confirm-title">确认{changeLabel(operation)}</h2></header><p>目标：{operation.account.fullName}（{operation.account.email || `编号 ${operation.account.id}`}）</p><p>当前身份：{accountIdentity(operation.account)}；当前状态：{accountStatuses[operation.account.status]}。</p><p>{operation.kind === "status" && operation.account.status !== "DISABLED" ? "禁用后该账号将无法登录和继续使用服务。" : "变更后该账号需要重新登录；未验证账号仍需完成验证。"}用户资料、订单和申请将保留。</p><footer><button className="secondary" disabled={busy} onClick={() => setOperation(null)}>取消</button><button disabled={busy} onClick={() => void confirm()}>{busy ? "处理中…" : `确认${changeLabel(operation)}`}</button></footer></section></div>}
   </main>;
 }

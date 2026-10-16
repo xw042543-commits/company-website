@@ -24,4 +24,5 @@ public class AdminAccountController {
     @GetMapping("/{id}") public AdminAccountService.Account detail(@AuthenticationPrincipal UserPrincipal actor, @PathVariable @Positive long id) { return service.detail(actor.userId(), id); }
     @PatchMapping("/{id}/role") public AdminAccountService.Account role(@AuthenticationPrincipal UserPrincipal actor, @PathVariable @Positive long id, @RequestBody AdminAccountService.Change input) { return service.change(actor.userId(), id, input, true); }
     @PatchMapping("/{id}/status") public AdminAccountService.Account status(@AuthenticationPrincipal UserPrincipal actor, @PathVariable @Positive long id, @RequestBody AdminAccountService.Change input) { return service.change(actor.userId(), id, input, false); }
+    @PatchMapping("/{id}/profile") public AdminAccountService.Account profile(@AuthenticationPrincipal UserPrincipal actor, @PathVariable @Positive long id, @RequestBody AdminAccountService.ProfileEdit input) { return service.edit(actor.userId(), id, input); }
 }

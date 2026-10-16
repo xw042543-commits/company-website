@@ -328,3 +328,10 @@ Cookie 必须同时使用 `HttpOnly`、`SameSite=Lax` 和 `Secure`。
 新增 `account_management_audit`，保存操作人/目标用户外键、姓名快照、ROLE/STATUS 操作、前后身份和状态及时间。只追加审计记录，没有修改或删除日志接口。目标用户与日志编号联合索引用于详情分页；user_accounts 增加注册时间/编号分页索引。
 
 复用已有 user_accounts.role/status/updated_at 和 catalog_advanced_administrators，不新增角色，不改变用户、申请、订单关系或现有高级管理员名单。禁用再恢复时从最新禁用日志恢复原状态；无旧日志时依据验证记录或已有外部登录绑定判断，未验证账号保持 PENDING_VERIFICATION。新迁移不更新现有账号。
+
+
+## V64 账号编辑与统一头像
+
+user_accounts增加profile_avatar_url（最多500字符）、profile_avatar_overridden（默认false）。头像字节继续复用miniapp_account_avatars，不新建文件存储。默认false保留既有微信头像；显式删除时设true且URL为空，避免删除后又回退到旧微信头像。迁移只将已有持久化小程序头像的有效同账号URL填入新字段，不改变原有头像字节和用户资料。小程序原有上传/删除也同步新字段，保持共享账号一致。
+
+account_management_audit操作类型扩展PROFILE，并新增old_full_name/new_full_name/avatar_action。原ROLE/STATUS审计保留。资料变更只更新full_name、头像字段和updated_at，不更新角色、邮箱、密码、用户ID及任何订单、申请、余额、积分关联。对操作人和目标用户按ID加锁后再次核对高级权限，使用expectedUpdatedAt防止覆盖并发变更。新迁移不修改历史迁移。

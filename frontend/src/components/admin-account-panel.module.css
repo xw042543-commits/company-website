@@ -15,3 +15,14 @@
 .fields dt { color: #516c61; font-size: .85rem; }
 .fields dd { margin: 6px 0 0; font-weight: 600; overflow-wrap: anywhere; }
 @media (max-width: 600px) { .detail { padding: 16px; } .fields { grid-template-columns: 1fr; } .table th, .table td { padding: 12px; } }
+
+.identity { display: flex; align-items: center; gap: 10px; }
+.editor { width: min(600px, 100%); }
+.editBody { padding: 22px; }
+.editBody > p { color: #516c61; overflow-wrap: anywhere; }
+.nameField, .fileField, .range { display: flex; flex-direction: column; gap: 8px; margin: 18px 0; }
+.nameField input { width: 100%; min-height: 44px; padding: 10px; border: 1px solid #bad0c7; border-radius: 8px; }
+.cropPreview { display: block; width: min(256px, 100%); height: auto; aspect-ratio: 1; border-radius: 16px; border: 1px solid #bad0c7; }
+.range input { width: 100%; min-height: 32px; accent-color: #286858; }
+.fileField input { max-width: 100%; min-height: 44px; }
+@media(max-width: 600px) { .editBody { padding: 16px; } .editor > footer { flex-wrap: wrap; } .editor > footer button { flex: 1; } }

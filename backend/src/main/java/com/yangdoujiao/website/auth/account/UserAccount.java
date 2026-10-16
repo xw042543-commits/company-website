@@ -61,6 +61,22 @@ public class UserAccount {
     @Column(name = "deleted_at")
     private OffsetDateTime deletedAt;
 
+    @Column(name = "profile_avatar_url", length = 500)
+    private String profileAvatarUrl;
+
+    @Column(name = "profile_avatar_overridden", nullable = false)
+    private boolean profileAvatarOverridden;
+
+    public String displayAvatar(String legacyAvatar) {
+        return profileAvatarOverridden ? profileAvatarUrl : legacyAvatar;
+    }
+
+    public void changeAvatar(String url, OffsetDateTime now) {
+        profileAvatarUrl = url;
+        profileAvatarOverridden = true;
+        updatedAt = now;
+    }
+
     protected UserAccount() {
     }
 
