@@ -29,14 +29,18 @@ Token，再将返回的 `headerName` 和 `token` 加入请求头。
 | `POST` | `/api/v1/auth/forgot-password` | 申请重置密码，响应不暴露账号是否存在 |
 | `POST` | `/api/v1/auth/reset-password` | 使用一次性 Token 重置密码 |
 
-网站后台权限沿用 `user_accounts.role = ADMIN`，普通管理员与高级管理员均返回
-`admin: true`；高级管理员仍由 `catalog_advanced_administrators` 单独确认，不新增角色。
-登录与 `/auth/session` 均从当前数据库账号读取身份；后台 API 同时验证登录身份与当前
-数据库中的 ACTIVE/ADMIN/未注销状态，不信任旧 Session 内保存的管理员权限。
-账号角色或状态变更沿用现有逻辑撤销全部网站会话及小程序令牌，用户须重新登录；旧 Cookie
-不能恢复权限。降级后重新登录得到 `admin: false`。账号管理及高级操作仍需额外校验现有高级授权。
-浏览器导航、个人中心均使用此 `admin` 布尔能力，不按中文角色名或大小写猜测权限；可选头像失效
-时仅使用默认头像，不丢弃有效的身份。后台入口随资料刷新、窗口重新聚焦及可见页面轮询更新。
+管理员与顾问是独立权限，保存在 `user_account_permissions`（ADMIN / ADVISER）中。
+登录与 `/auth/session` 返回独立的 `admin`、`adviser` 布尔值，可同时为 true。管理员、顾问 API 还会校验数据库当前有效权限。
+高级授权继续由 `catalog_advanced_administrators` 单独保留，不由普通权限开关授予或撤销。
+权限变更时撤销原网站会话和小程序令牌，重新登录获取完整权限；头像异常仅回退默认头像。
+
+高级管理员使用 `PATCH /api/v1/admin/accounts/{id}/permissions/{permission}`，permission 仅 ADMIN、ADVISER。
+请求 `{enabled:boolean, confirmed:true, expectedUpdatedAt:string}`；只增删选中权限，不替换整个集合。
+账号响应增加 `permissions: string[]`；列表、详情、筛选均读取完整集合，双权限账号同时匹配两种筛选。
+写入先锁定账号并复核高级身份与更新时间，过期返回 409；重复无变化请求不撤销会话或重复记日志。
+高级管理员可编辑自身及其他有效账号的普通权限，高级授权不受影响。已注销账号不可编辑；禁用或待验证账号可预配置权限，但不会因此启用或跳过验证。
+修改自身权限后当前会话失效，前端引导重新登录。PERMISSION 日志包含修改项、开关值及完整修改前后权限。
+旧 `/{id}/role` 保留兼容的普通管理员切换，也不会清除顾问权限；新界面不再使用互斥角色操作。
 
 各写接口的 JSON 字段：
 

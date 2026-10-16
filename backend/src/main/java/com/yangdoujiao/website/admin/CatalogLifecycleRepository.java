@@ -12,7 +12,7 @@ public class CatalogLifecycleRepository {
     private final ObjectMapper json;
     public CatalogLifecycleRepository(JdbcTemplate jdbc,ObjectMapper json){this.jdbc=jdbc;this.json=json;}
     public static String table(AdminImportDtos.EntityType type){return switch(type){case UNIVERSITY->"universities";case PROGRAMME->"programmes";case COURSE->"catalog_courses";};}
-    public boolean administrator(long user){return Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM user_accounts WHERE id=? AND role='ADMIN' AND status='ACTIVE' AND deleted_at IS NULL)",Boolean.class,user));}
+    public boolean administrator(long user){return Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM user_accounts u WHERE u.id=? AND u.status='ACTIVE' AND u.deleted_at IS NULL AND (EXISTS(SELECT 1 FROM user_account_permissions g WHERE g.user_account_id=u.id AND g.permission='ADMIN') OR EXISTS(SELECT 1 FROM catalog_advanced_administrators a WHERE a.user_account_id=u.id)))",Boolean.class,user));}
     public boolean advanced(long user){return administrator(user)&&Boolean.TRUE.equals(jdbc.queryForObject("SELECT EXISTS(SELECT 1 FROM catalog_advanced_administrators WHERE user_account_id=?)",Boolean.class,user));}
     public List<Map<String,Object>> records(AdminImportDtos.EntityType type,List<Long> ids,boolean lock){
         return new NamedParameterJdbcTemplate(jdbc).queryForList("SELECT * FROM "+table(type)+" WHERE id IN (:ids) ORDER BY id"+(lock?" FOR UPDATE":""),Map.of("ids",ids));

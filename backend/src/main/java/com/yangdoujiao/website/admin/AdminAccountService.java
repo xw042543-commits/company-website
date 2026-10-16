@@ -12,9 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class AdminAccountService {
     public record Account(long id, String fullName, String email, String phone, String role, String status, String avatarUrl,
-                          boolean advanced, OffsetDateTime createdAt, OffsetDateTime updatedAt) {}
+                          boolean advanced, OffsetDateTime createdAt, OffsetDateTime updatedAt, List<String> permissions) {}
     public record Page<T>(List<T> items, int page, int size, long total, long totalPages) {}
     public record Change(String role, Boolean enabled, Boolean confirmed, OffsetDateTime expectedUpdatedAt) {}
+    public record PermissionChange(Boolean enabled, Boolean confirmed, OffsetDateTime expectedUpdatedAt) {}
     private final AdminAccountRepository repository;
     private final CatalogLifecycleRepository permissions;
     private final UserSessionService sessions;
@@ -59,8 +60,29 @@ public class AdminAccountService {
         repository.update(id, roleChange, role, status);
         sessions.revokeAll(id);
         repository.revokeTokens(id);
-        repository.log(actor, repository.account(actor).fullName(), old, roleChange, role, status);
+        repository.log(actor, repository.account(actor).fullName(), old, roleChange, repository.account(id).role(), status);
         return repository.account(id);
+    }
+    @Transactional
+    public Account permission(long actor, long id, String permission, PermissionChange input) {
+        requireAdvanced(actor);
+        if (!Set.of("ADMIN", "ADVISER").contains(permission)) throw invalid("请选择普通管理员或顾问权限");
+        if (input == null || input.enabled() == null || !Boolean.TRUE.equals(input.confirmed()) || input.expectedUpdatedAt() == null)
+            throw invalid("请先核对账号并二次确认操作");
+        repository.lock(actor, id);
+        requireAdvanced(actor);
+        Account old = repository.account(id);
+        if (!old.updatedAt().isEqual(input.expectedUpdatedAt()))
+            throw new ApiException(HttpStatus.CONFLICT, "ACCOUNT_CHANGED", "账号已被其他操作更新，请刷新后重新确认");
+        if (old.status().equals("DELETED")) throw invalid("已注销账号仅可查看，不能修改权限");
+        if (old.permissions().contains(permission) == input.enabled()) return old;
+        // Only the selected grant changes. Advanced authorization is never edited here.
+        repository.setPermission(id, permission, input.enabled());
+        Account updated = repository.account(id);
+        sessions.revokeAll(id);
+        repository.revokeTokens(id);
+        repository.permissionLog(actor, repository.account(actor).fullName(), old, updated, permission, input.enabled());
+        return updated;
     }
     @Transactional
     public Account edit(long actor, long id, com.yangdoujiao.website.auth.account.ProfileEdit input) {

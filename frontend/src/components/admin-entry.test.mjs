@@ -67,11 +67,11 @@ test("actual desktop/mobile entries follow current ordinary, admin and advanced 
     createElement(SiteHeader, { locale: "zh", signedIn: true }), createElement(AccountPanel, { locale: "zh" }),
     createElement(AdminAccountLink, { locale: "zh" }))));
   const refresh = () => act(async () => { for (const listener of [...listeners]) listener(); });
-  const assertEntries = (admin, accounts) => {
+  const assertEntries = (admin, accounts, adviser = false) => {
     assert.equal(!!container.querySelector("nav a[href='/zh/admin']"), admin);
     assert.equal(!!container.querySelector(".account-panel a[href='/zh/admin']"), admin);
     assert.equal(!!container.querySelector("a[href='/zh/admin/accounts']"), accounts);
-    assert.equal(!!container.querySelector("a[href*='/adviser/consultations']"), false, "admins must not be sent to adviser-only endpoints");
+    assert.equal(!!container.querySelector("a[href*='/adviser/consultations']"), adviser);
   };
   try {
     await render(); assertEntries(false, false);
@@ -82,6 +82,11 @@ test("actual desktop/mobile entries follow current ordinary, admin and advanced 
     assert.equal(container.querySelector("nav a[href='/zh/admin']").textContent, "管理后台");
     advanced = true;
     await refresh(); assertEntries(true, true);
+    identity = { ...identity, adviser: true }; advanced = false;
+    await refresh(); assertEntries(true, false, true);
+    identity = { ...identity, admin: false };
+    await refresh(); assertEntries(false, false, true);
+    identity = { ...identity, adviser: false };
     identity = { ...identity, admin: false }; advanced = false;
     await refresh(); assertEntries(false, false);
     identity = { authenticated: false, userId: null, fullName: null, adviser: false, admin: false };

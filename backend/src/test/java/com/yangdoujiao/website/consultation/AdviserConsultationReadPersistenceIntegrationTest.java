@@ -72,7 +72,11 @@ class AdviserConsultationReadPersistenceIntegrationTest {
 
     @Test
     void protectedHttpPageUsesPersistedNewestFixture() throws Exception {
-        mockMvc.perform(get("/api/v1/adviser/consultations").with(user("adviser").roles("ADVISER", "USER")))
+        long id = jdbc.queryForObject("INSERT INTO user_accounts(full_name,role,status,agreement_version,privacy_version) VALUES ('Read adviser','ADVISER','ACTIVE','test','test') RETURNING id", Long.class);
+        var account = com.yangdoujiao.website.auth.account.UserAccount.external("Read adviser","test","test");
+        org.springframework.test.util.ReflectionTestUtils.setField(account,"id",id);
+        org.springframework.test.util.ReflectionTestUtils.setField(account,"role",com.yangdoujiao.website.auth.account.UserAccountRole.ADVISER);
+        mockMvc.perform(get("/api/v1/adviser/consultations").with(user(com.yangdoujiao.website.auth.session.UserPrincipal.from(account))))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.items[0].referenceCode").value(both.toString()))
                 .andExpect(jsonPath("$.page").value(0))

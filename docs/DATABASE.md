@@ -7,7 +7,7 @@ Redis 用于缓存、社区热门快照和社区写入限流，Elasticsearch 用
 业务记录必须保存在 PostgreSQL 中，搜索投影和缓存可根据主数据库重建。
 Redis 不可用时，社区写入和热门快照按接口契约返回不可用状态，不能绕过限流写入。
 
-当前迁移已到 V54，包含院校、课程、媒体、用户认证、咨询处理、小程序收藏与规划、
+当前迁移已到 V66，包含院校、课程、媒体、用户认证、咨询处理、小程序收藏与规划、
 社区、钱包、消息、申请进度和头像的数据结构。
 仓库内的数据整理及导入资料包不等于正式发布批准；发布仍须依据业务负责人确认的资料。
 数据库集成测试使用临时测试容器，不连接真实业务数据库。
@@ -337,3 +337,9 @@ V64 官网课程增量修复保留 V53 与 V54–V63 的已执行迁移及工作
 user_accounts增加profile_avatar_url（最多500字符）、profile_avatar_overridden（默认false）。头像字节继续复用miniapp_account_avatars，不新建文件存储。默认false保留既有微信头像；显式删除时设true且URL为空，避免删除后又回退到旧微信头像。迁移只将已有持久化小程序头像的有效同账号URL填入新字段，不改变原有头像字节和用户资料。小程序原有上传/删除也同步新字段，保持共享账号一致。
 
 account_management_audit操作类型扩展PROFILE，并新增old_full_name/new_full_name/avatar_action。原ROLE/STATUS审计保留。资料变更只更新full_name、头像字段和updated_at，不更新角色、邮箱、密码、用户ID及任何订单、申请、余额、积分关联。对操作人和目标用户按ID加锁后再次核对高级权限，使用expectedUpdatedAt防止覆盖并发变更。新迁移不修改历史迁移。
+
+## V66：独立账号权限
+
+新增 `user_account_permissions(user_account_id, permission)`，复合主键防重复、外键关联账号，权限仅 ADMIN / ADVISER。按旧 role 回填已有授权，保留用户资料、状态和高级授权。普通用户是基础能力，不需要授权记录。旧 role 仅为兼容投影（ADMIN 优先，其次 ADVISER，否则 USER），不保存完整权限。关联记录增删自动更新投影与更新时间；旧脚本授予一个权限不会清除另一个，写 USER 只取消旧主权限。高级授权单独保留高级后台访问。
+
+审计新增 old_permissions / new_permissions / permission_changed / permission_enabled 和 PERMISSION 类型。V1–V65 不变；上线由 Flyway 执行 V66，发布前备份数据库。权限变更与凭证撤销在同一事务完成。

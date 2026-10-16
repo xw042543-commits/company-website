@@ -23,6 +23,17 @@ public class AdminAccountController {
     }
     @GetMapping("/{id}") public AdminAccountService.Account detail(@AuthenticationPrincipal UserPrincipal actor, @PathVariable @Positive long id) { return service.detail(actor.userId(), id); }
     @PatchMapping("/{id}/role") public AdminAccountService.Account role(@AuthenticationPrincipal UserPrincipal actor, @PathVariable @Positive long id, @RequestBody AdminAccountService.Change input) { return service.change(actor.userId(), id, input, true); }
+    @PatchMapping("/{id}/permissions/{permission}") public AdminAccountService.Account permission(@AuthenticationPrincipal UserPrincipal actor,
+            @PathVariable @Positive long id, @PathVariable String permission, @RequestBody AdminAccountService.PermissionChange input,
+            jakarta.servlet.http.HttpServletRequest request) {
+        var updated = service.permission(actor.userId(), id, permission, input);
+        if (actor.userId() == id && !updated.updatedAt().isEqual(input.expectedUpdatedAt())) {
+            var session = request.getSession(false);
+            if (session != null) session.invalidate();
+            org.springframework.security.core.context.SecurityContextHolder.clearContext();
+        }
+        return updated;
+    }
     @PatchMapping("/{id}/status") public AdminAccountService.Account status(@AuthenticationPrincipal UserPrincipal actor, @PathVariable @Positive long id, @RequestBody AdminAccountService.Change input) { return service.change(actor.userId(), id, input, false); }
     @PatchMapping("/{id}/profile") public AdminAccountService.Account profile(@AuthenticationPrincipal UserPrincipal actor, @PathVariable @Positive long id, @RequestBody com.yangdoujiao.website.auth.account.ProfileEdit input) { return service.edit(actor.userId(), id, input); }
 }

@@ -72,6 +72,7 @@ class AdviserConsultationReadHttpIntegrationTest {
         ReflectionTestUtils.setField(account, "id", 42L);
         ReflectionTestUtils.setField(account, "role", UserAccountRole.ADVISER);
         adviser = UserPrincipal.from(account);
+        when(accountPermissions.isAdviser(42L)).thenReturn(true);
         when(repository.findAll(any(Specification.class), any(Pageable.class)))
                 .thenAnswer(invocation -> new PageImpl<>(List.of(AdviserConsultationServiceTest.fixture()),
                         invocation.getArgument(1), 1));

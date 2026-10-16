@@ -13,10 +13,11 @@ SELECT COUNT(*) = 1 AS account_found
 \gset
 
 \if :account_found
-UPDATE user_accounts
-   SET role = 'ADMIN', updated_at = CURRENT_TIMESTAMP
+INSERT INTO user_account_permissions(user_account_id,permission)
+SELECT id,'ADMIN' FROM user_accounts
  WHERE status = 'ACTIVE'
-   AND (normalized_email = LOWER(BTRIM(:'identifier')) OR normalized_phone = BTRIM(:'identifier'));
+   AND (normalized_email = LOWER(BTRIM(:'identifier')) OR normalized_phone = BTRIM(:'identifier'))
+ON CONFLICT DO NOTHING;
 COMMIT;
 \echo 'Administrator role granted. The account must sign out and sign in again.'
 \else
